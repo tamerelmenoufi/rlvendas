@@ -13,9 +13,13 @@ function getUrl()
     }
 
 
-    // if ($_SERVER['HTTP_HOST'] === 'localhost' or $_SERVER['HTTP_HOST'] === '192.168.0.18') return $protocol . "://localhost/yobom/";
-
-    return $protocol . "://192.168.0.18/yobom/";
+    if ($_SERVER['HTTP_HOST'] === 'localhost'){
+        return $protocol . "://localhost/yobom/";
+    }else if( $_SERVER['HTTP_HOST'] === '192.168.0.18'){
+        return $protocol . "://192.168.0.18/yobom/";
+    }else{
+        return $protocol . "://yobom.com.br/rlvendas/";
+    }
     // return 'http://lib.yobom.com.br/';
 }
 
