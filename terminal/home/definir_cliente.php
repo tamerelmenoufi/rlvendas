@@ -1,6 +1,24 @@
 <?php
 include("../../lib/includes.php");
 
+function Venda($cliente, $mesa)
+{
+    global $con;
+
+    $query = "SELECT codigo FROM vendas WHERE cliente = '{$cliente}' AND mesa = '{$mesa}' LIMIT 1";
+    $result = mysqli_query($con, $query);
+
+    if (mysqli_num_rows($result)) {
+        $queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$cliente}' AND mesa = '{$mesa}' LIMIT 1";
+        list($codigo) = mysqli_fetch_row(mysqli_query($con, $queryInsert));
+        $_SESSION['ConfVenda'] = $codigo;
+    } else {
+        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$cliente}', mesa = '{$mesa}'");
+        $_SESSION['ConfVenda'] = mysqli_insert_id($con);
+    }
+
+}
+
 if ($_POST['cliente']) {
     #$telefone = '(' . substr($_POST['cliente'], 0, 2) . ') ' . substr($_POST['cliente'], 2, 1) . ' ' . substr($_POST['cliente'], 3, 4) . '-' . substr($_POST['cliente'], 7, 4);
     $telefone = $_POST['cliente'];
@@ -8,9 +26,10 @@ if ($_POST['cliente']) {
     $query = "select * from clientes where telefone = '{$telefone}'";
     $result = mysqli_query($con, $query);
     $c = mysqli_fetch_object($result);
-    
+
     if ($c->codigo) {
         $_SESSION['ConfCliente'] = $c->codigo;
+
         echo json_encode([
             'status' => 'sucesso',
             'cliente' => $c->codigo,
@@ -20,12 +39,13 @@ if ($_POST['cliente']) {
         $codigo = mysqli_insert_id($con);
 
         $_SESSION['ConfCliente'] = $codigo;
-        
+
         echo json_encode([
             'status' => 'sucesso',
             'cliente' => $codigo,
         ]);
     }
+    Venda($_SESSION['ConfCliente'], $_SESSION['ConfMesa']);
     exit();
 }
 
@@ -58,11 +78,11 @@ if ($_POST['cliente']) {
         <div class="col">
             <?php
             for ($i = 1; $i <= 9; $i++) {
-            ?>
+                ?>
                 <div style="width:<?= (100 / 11) ?>%; float:left; padding-right:5px;">
                     <button type="button" class="btn btn-outline-dark btn-lg btn-block tecla"><?= $i ?></button>
                 </div>
-            <?php
+                <?php
             }
             ?>
             <div style="width:<?= (100 / 11) ?>%; float:left; padding-right:5px;">
@@ -90,11 +110,11 @@ if ($_POST['cliente']) {
     </div>
 </div>
 <script>
-    $(function() {
+    $(function () {
 
         //$("#OpcCliente").masck("(99) 9 9999-9999");
 
-        $(".tecla").click(function() {
+        $(".tecla").click(function () {
             tecla = $(this).text();
             cliente = $("#OpcCliente").val().toString();
 
@@ -103,27 +123,27 @@ if ($_POST['cliente']) {
             $("#OpcCliente").val(mascara);
         });
 
-        $(".apaga").click(function() {
+        $(".apaga").click(function () {
             cliente = $("#OpcCliente").val();
             cliente = cliente.substring(0, cliente.length - 1);
             $("#OpcCliente").val(cliente);
         });
 
-        $("button[LimparCliente]").click(function() {
+        $("button[LimparCliente]").click(function () {
             $("#OpcCliente").val('');
         });
 
-        $("button[CancelarCliente]").click(function() {
+        $("button[CancelarCliente]").click(function () {
             JanelaDefineCliente.close();
             $.ajax({
                 url: "home/index.php",
-                success: function(dados) {
+                success: function (dados) {
                     $("#body").html(dados);
                 }
             });
         });
 
-        $("button[AcessarCliente]").click(function() {
+        $("button[AcessarCliente]").click(function () {
             cliente = $("#OpcCliente").val();
 
             if (!validatePhone(cliente)) {
@@ -142,7 +162,7 @@ if ($_POST['cliente']) {
                 data: {
                     cliente,
                 },
-                success: function(dados) {
+                success: function (dados) {
                     let retorno = JSON.parse(dados);
                     if (retorno.status == 'sucesso') {
                         window.localStorage.setItem('ConfCliente', retorno.cliente);
@@ -150,13 +170,13 @@ if ($_POST['cliente']) {
 
                         $.ajax({
                             url: "home/index.php",
-                            success: function(dados) {
+                            success: function (dados) {
                                 $("#body").html(dados);
                             }
                         });
                     }
                 },
-                error: function() {
+                error: function () {
 
                 }
             });
@@ -165,7 +185,7 @@ if ($_POST['cliente']) {
         });
 
         function masked(data) {
-            setTimeout(function() {
+            setTimeout(function () {
                 var v = mphone(data);
                 if (v != data) {
                     data = v;
