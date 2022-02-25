@@ -138,10 +138,22 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
 
 
                     <div style="position:fixed; right:20px; <?= (($m->qt_produtos > 1) ? 'margin-right:calc(40% - 60px);' : false) ?> bottom:30px;">
-                        <button class="btn btn-success btn-lg btn-block" adicionar_produto opc="add">ADICIONAR</button>
+                        <button
+                                class="btn btn-success btn-lg btn-block"
+                                adicionar_produto
+                                opc="add"
+                        >
+                            ADICIONAR
+                        </button>
                     </div>
                     <div style="position:fixed; left:20px; bottom:30px;">
-                        <button class="btn btn-danger btn-lg btn-block" cancelar_produto opc="del">CANCELAR</button>
+                        <button
+                                class="btn btn-danger btn-lg btn-block"
+                                cancelar_produto
+                                opc="del"
+                        >
+                            CANCELAR
+                        </button>
                     </div>
 
                 </div>
@@ -172,7 +184,12 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
                                     class="list-group-item list-group-item-action add_sabores"
                                     valor="<?= $p1->valor; ?>"
                                     cod="<?= $p1->codigo; ?>"
-                            ><?= $p1->produto ?></a>
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <div style="flex: 1"><?= $p1->produto ?></div>
+                                    <div class="text-success">R$ <?= number_format($p1->valor, 2, ',', '.'); ?></div>
+                                </div>
+                            </a>
                         </div>
                         <?php
                     }
