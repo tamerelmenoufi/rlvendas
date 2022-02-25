@@ -85,6 +85,7 @@
             if(mesa && $.inArray( mesa, m ) != -1){
                 window.localStorage.setItem('ConfMesa', mesa);
                 JanelaDefineMesa.close();
+                
                 $.ajax({
                     url:"home/index.php?mesa="+mesa,
                     success:function(dados){
