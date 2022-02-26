@@ -14,6 +14,7 @@
         margin:10px;
     }
 </style>
+
 <div class="comanda">
 <?php
     $query = "select * from categorias";

@@ -18,7 +18,9 @@ if($_GET['sair']){
         width:100%;
     }
 </style>
+
 <div class="body"></div>
+
 <script>
     $(function(){
         $.ajax({
