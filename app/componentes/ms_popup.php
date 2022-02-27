@@ -19,10 +19,10 @@
         width:100%;
         height:70%;
         padding-top:40px;
-        background-image:url("svg/topo_popup.svg");
+        border-radius:50%;
         background-size:cover;
         background-position:center top;
-        background-color:transparent;
+        background-color:#fff;
         z-index: 100;
         overflow:auto;
     }
