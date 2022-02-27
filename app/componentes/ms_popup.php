@@ -19,7 +19,8 @@
         width:100%;
         height:70%;
         padding-top:40px;
-        border-radius:50%;
+        border-top-left-radius:25%;
+        border-top-right-radius:25%;
         background-size:cover;
         background-position:center top;
         background-color:#fff;
