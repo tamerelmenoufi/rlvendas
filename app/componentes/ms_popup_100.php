@@ -1,5 +1,5 @@
 <?php
-    include("../lib/includes/includes.php");
+    include("../../lib/includes.php");
 ?>
 <style>
 
@@ -47,23 +47,6 @@
         Carregando('none');
 
         FecharPopUp<?=$md5?> = () => {
-            var ativo = false;
-            $(".ms_barra_fundo_icone_texto").each(function(){
-                if($(this).text().trim() == 'Busca' && $(this).css("display") == 'block'){
-                    ativo = true;
-                }
-            });
-
-            if(ativo == false){
-                $(".ms_barra_fundo_imagem").css("display","none");
-                $(".ms_barra_fundo_icone_texto").css("display","none");
-                $(".ms_barra_fundo_icone_ativo").css("display","none");
-                $(".ms_barra_fundo_icone").css("display","block");
-                CarrinhoOpc();
-                //$(".ms_barra_fundo_icone_sacola_up").css("display","none");
-                //$(".ms_barra_fundo_icone_sacola_down").css("display","block");
-                //$("div[barra_busca_topo]").remove();
-            }
 
             $(".ms_popup_100<?=$md5?>").remove();
         }
@@ -74,7 +57,6 @@
 
         <?php
         if($_POST['local']){
-
 
             $Dados = json_encode($_POST).';';
             echo "Dados{$md5} = ".(($Dados)?:"'';\n\n");

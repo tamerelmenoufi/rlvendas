@@ -1,5 +1,5 @@
 <?php
-    include("../lib/includes/includes.php");
+    include("../../lib/includes.php");
 ?>
 <style>
     .ms_popup_fundo<?=$md5?>{
@@ -55,27 +55,7 @@
 
 
     FecharPopUp<?=$md5?> = () => {
-
-        var ativo = false;
-        $(".ms_barra_fundo_icone_texto").each(function(){
-            if($(this).text().trim() == 'Busca' && $(this).css("display") == 'block'){
-                ativo = true;
-            }
-        });
-        $( ".ms_barra_fundo_icone_texto" ).promise().done(function() {
-            if(ativo == false){
-                $(".ms_barra_fundo_imagem").css("display","none");
-                $(".ms_barra_fundo_icone_texto").css("display","none");
-                $(".ms_barra_fundo_icone_ativo").css("display","none");
-                $(".ms_barra_fundo_icone").css("display","block");
-                CarrinhoOpc();
-                //$(".ms_barra_fundo_icone_sacola_up").css("display","none");
-                //$(".ms_barra_fundo_icone_sacola_down").css("display","block");
-                //$("div[barra_busca_topo]").remove();
-            }
-
-            $(".ms_popup_fundo<?=$md5?>, .ms_popup<?=$md5?>").remove();
-        })
+        $(".ms_popup_fundo<?=$md5?>, .ms_popup<?=$md5?>").remove();
     }
 
     $(function(){
@@ -112,11 +92,11 @@
             },
             success:function(dados){
                 $(".ms_popup<?=$md5?>").append(dados);
-                //Carregando('none');
+                Carregando('none');
             },
             error:function(){
                 $.alert("Ocorreu um erro no carregamento da página!");
-                //Carregando('none');
+                Carregando('none');
             }
         });
         <?php
@@ -131,27 +111,11 @@
             helper: "clone",
             scroll: false,
 
-            //*
             start: function () {
                 $(".ms_popup_fundo<?=$md5?>, .ms_popup_close<?=$md5?>").click();
                 //console.log('start');
             },
-            //*/
-            /*
-            drag: function () {
-                //alert('DRAG');
-                //FecharPopUp<?=$md5?>();
-                $(".ms_popup_fundo<?=$md5?>, .ms_popup_close<?=$md5?>").click();
-                console.log('drag');
-            },
-            //*/
-            /*
-            stop: function () {
-                //alert('STOP');
-                //FecharPopUp<?=$md5?>();
-                console.log('stop');
-            }
-            //*/
+
         });
 
 
