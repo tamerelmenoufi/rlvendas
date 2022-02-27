@@ -1,11 +1,48 @@
 <?php
 include("../../lib/includes.php");
 
-$query = "select a.*, b.categoria as nome_categoria from produtos a left join categorias b on a.categoria = b.codigo where a.codigo = '{$_GET['produto']}'";
+if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
+
+    $arrayInsert = [
+        'venda' => $_SESSION['ConfVenda'],
+        'cliente' => $_SESSION['ConfCliente'],
+        "produto" => $_POST['produto'],
+        'quantidade' => $_POST['quantidade'],
+        'valor_unitario' => $_POST['valor'],
+        'produto_descricao' => $_POST['produto_descricao'],
+        'valor_total' => ($_POST['valor'] * $_POST['quantidade']),
+        'data' => date('Y-m-d H:i:s'),
+    ];
+
+    $attr = [];
+
+    foreach ($arrayInsert as $key => $item) {
+        $attr[] = "{$key} = '{$item}'";
+    }
+
+    $query = "INSERT INTO vendas_produtos SET " . implode(", ", $attr);
+
+    if (@mysqli_query($con, $query)) {
+        echo json_encode([
+            "status" => "sucesso",
+        ]);
+    }
+
+    exit();
+}
+
+$produto = $_GET['produto'];
+$medida = $_GET['medida'];
+$valor = $_GET['valor'];
+
+$query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
+    . "LEFT JOIN categorias b ON a.categoria = b.codigo "
+    . "WHERE a.codigo = '{$produto}'";
+
 $result = mysqli_query($con, $query);
 $p = mysqli_fetch_object($result);
 
-$m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas where codigo = '{$_GET['medida']}'"));
+$m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$medida}'"));
 
 ?>
 
@@ -70,8 +107,10 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
                 <div style="position:fixed; top:55px; left:30px; width:<?= (($m->qt_produtos > 1) ? '60%' : 'calc(100% - 60px)') ?>;">
                     <div class="card mb-3">
                         <div class="row">
-                            <div class="col-md-4 foto<?= $md5 ?>"
-                                 style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
+                            <div
+                                    class="col-md-4 foto<?= $md5 ?>"
+                                    style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)"
+                            >
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -84,7 +123,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
                                             R$ <?= number_format($_GET['valor'], 2, ',', '.') ?>
                                         </small>
                                         <small valor_novo class="text-muted ml-1">
-                                            R$ 10.00
+                                            R$ 0,00
                                         </small>
                                     </p>
                                     <p class="card-text">
@@ -98,7 +137,13 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
                                             </button>
                                         </div>
 
-                                        <input type="text" class="form-control" id="quantidade" readonly value="1">
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="quantidade"
+                                                readonly
+                                                value="1"
+                                        >
 
                                         <div class="input-group-append">
                                             <button
@@ -129,13 +174,15 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
                             <p class="card-text texto_detalhes"></p>
                         </div>
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-outline-primary btn-block incluir_detalhes">
+                            <button
+                                    type="button"
+                                    class="btn btn-outline-primary btn-block incluir_detalhes"
+                            >
                                 INCLUIR RECOMENDAÇÕES
                                 <i class="fa-solid fa-hand-pointer"></i>
                             </button>
                         </div>
                     </div>
-
 
                     <div style="position:fixed; right:20px; <?= (($m->qt_produtos > 1) ? 'margin-right:calc(40% - 60px);' : false) ?> bottom:30px;">
                         <button
@@ -146,6 +193,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
                             ADICIONAR
                         </button>
                     </div>
+
                     <div style="position:fixed; left:20px; bottom:30px;">
                         <button
                                 class="btn btn-danger btn-lg btn-block"
@@ -160,45 +208,62 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
 
             </div>
             <div class="col-md-4">
-                <?php
-
-                if ($m->qt_produtos > 1) {
-                    ?>
-                    <p style="position:fixed; right:50px; top:55px;"><b>Você pode adicionar
-                            mais <?= ($m->qt_produtos - 1) . ' ' . (($m->qt_produtos == 2) ? 'sabor' : 'sabores') ?></b>
+                <?php if ($m->qt_produtos > 1) { ?>
+                    <p style="position:fixed; right:50px; top:55px;">
+                        <b>
+                            Você pode adicionar
+                            mais <?= ($m->qt_produtos - 1) . ' ' . (($m->qt_produtos == 2) ? 'sabor' : 'sabores') ?>
+                        </b>
                     </p>
                     <?php
-                    $query = "select
-                                a.*,
-                                b.categoria as nome_categoria
-                            from produtos a
-                            left join categorias b on a.categoria = b.codigo
-                        where /*a.categoria = '{$p->categoria}' and*/ a.codigo not in ('{$p->codigo}')";
+                    $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
+                        . "LEFT JOIN categorias b ON a.categoria = b.codigo "
+                        #. "WHERE /*a.categoria = '{$p->categoria}' and*/ "
+                        . "WHERE a.codigo NOT IN ('{$p->codigo}')";
 
                     $result = mysqli_query($con, $query);
                     while ($p1 = mysqli_fetch_object($result)) {
-                        ?>
-                        <div class="list-group" style="margin-bottom:10px;">
-                            <a
-                                    href="#"
-                                    class="list-group-item list-group-item-action add_sabores"
-                                    valor="<?= $p1->valor; ?>"
-                                    cod="<?= $p1->codigo; ?>"
-                            >
-                                <div class="d-flex justify-content-between">
-                                    <div style="flex: 1"><?= $p1->produto ?></div>
-                                    <div class="text-success">R$ <?= number_format($p1->valor, 2, ',', '.'); ?></div>
-                                </div>
-                            </a>
-                        </div>
-                        <?php
+                        $detalhes = (array)json_decode($p1->detalhes, true);
+
+                        if ($detalhes[$medida]) {
+                            $valor_sabores = $detalhes[$medida][0] ?: 0.00;
+                            ?>
+                            <div class="list-group" style="margin-bottom:10px;">
+                                <a
+                                        href="#"
+                                        class="list-group-item list-group-item-action add_sabores"
+                                        valor="<?= $p1->valor; ?>"
+                                        cod="<?= $p1->codigo; ?>"
+                                >
+                                    <div class="d-flex justify-content-between">
+                                        <div style="flex: 1">
+                                            <?= $p1->produto ?>
+                                        </div>
+                                        <div class="text-success">
+                                            R$ <?= number_format(
+                                                $valor_sabores,
+                                                '2',
+                                                ',',
+                                                '.'
+                                            ); ?>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <?php
+                        }
                     }
                 }
                 ?>
             </div>
         </div>
     </div>
+
+    <input type="hidden" id="produto" value="<?= $produto; ?>">
+    <input type="hidden" id="medida" value="<?= $medida; ?>">
+    <input type="hidden" id="valor" value="<?= $valor; ?>">
 </div>
+
 <script>
     $(function () {
 
@@ -289,20 +354,31 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
         });
 
         $("button[adicionar_produto]").click(function () {
+            var produto = $("#produto").val();
+            var quantidade = $("#quantidade").val();
+            var produto_descricao = $("#search_field").val();
+            var valor = $("#valor").val();
 
             $.alert({
-                title: "Aviso",
-                content: "Adicionar este produto?",
-                type: "green",
+                title: "Confirmar pedido?",
+                content: false,
+                icon: 'fa-solid fa-question',
+                type: "orange",
                 buttons: {
                     sim: {
                         text: "Sim",
-                        btnClass: 'btn-green',
+                        btnClass: 'btn-orange',
                         action: function () {
                             $.ajax({
                                 url: "cardapio/produto.php",
                                 method: 'POST',
-                                data: {},
+                                data: {
+                                    quantidade,
+                                    produto_descricao,
+                                    produto,
+                                    valor,
+                                    acao: 'adicionar_pedido',
+                                },
                                 success: function () {
                                     categoria = '<?=$p->categoria?>';
                                     opc = $(this).attr("opc");
@@ -313,6 +389,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "select * from categoria_medidas whe
                                             categoria,
                                         },
                                         success: function (dados) {
+                                            tata.success('Sucesso', 'Pedido adicionado com sucesso');
                                             $("#body").html(dados);
                                         }
                                     });

@@ -50,8 +50,8 @@
                 <div class="card-body">
                     <h5 class="card-title"><?=$p->produto?></h5>
                     <p class="card-text"><?=$p->descricao?></p>
-                    <p class="card-text"><small class="text-muted">
-
+                    <p class="card-text">
+                        <small class="text-muted">
 
                         <?php
                         foreach($detalhes as $i => $val){
@@ -79,7 +79,8 @@
                         }
                         ?>
 
-                    </small></p>
+                    </small>
+                    </p>
                 </div>
                 </div>
             </div>

@@ -111,7 +111,6 @@ if ($_POST['cliente']) {
 </div>
 <script>
     $(function () {
-
         //$("#OpcCliente").masck("(99) 9 9999-9999");
 
         $(".tecla").click(function () {
@@ -164,7 +163,7 @@ if ($_POST['cliente']) {
                 },
                 success: function (dados) {
                     let retorno = JSON.parse(dados);
-                    if (retorno.status == 'sucesso') {
+                    if (retorno.status === 'sucesso') {
                         window.localStorage.setItem('ConfCliente', retorno.cliente);
                         JanelaDefineCliente.close();
 
