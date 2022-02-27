@@ -10,28 +10,39 @@
 </head>
 <body id="page-top">
 
-  <div id="body"></div>
+<div id="body"></div>
 
-    <?php include("../lib/footer.php"); ?>
+<?php include("../lib/footer.php"); ?>
 
-    <script>
-        $(function(){
+<script>
+    $(function () {
 
-          // JanelaPopup({
-          //   title:'Tamer Mohamed Elmenoufi',
-          //   //bottom:"Rodapé do aplicação"
-          // });
+        // JanelaPopup({
+        //   title:'Tamer Mohamed Elmenoufi',
+        //   //bottom:"Rodapé do aplicação"
+        // });
 
-            $.ajax({
-                url:"home/index.php",
-                success:function(dados){
-                    $("#body").html(dados);
-                },
-                error:function(){
-                    $.alert('Ocorreu um erro!');
-                }
-            });
-        })
-    </script>
+        $.ajax({
+            url: "home/index.php",
+            success: function (dados) {
+                $("#body").html(dados);
+            },
+            error: function () {
+                $.alert('Ocorreu um erro!');
+            }
+        });
+
+        //Configurações globais
+
+        //Jconfirm
+        jconfirm.defaults = {
+            theme: "modern",
+            type: "blue",
+            draggable: false,
+            animation: 'opacity',
+            closeAnimation: 'opacity'
+        }
+    });
+</script>
 </body>
 </html>
