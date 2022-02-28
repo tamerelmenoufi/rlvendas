@@ -47,6 +47,16 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 ?>
 
 <style>
+    .badge-<?= $md5; ?> {
+        padding: 5px 12px;
+        font-size: 10px;
+        color: #fff;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: 500;
+        line-height: 1;
+    }
+
     .cardapio_produto {
         position: absolute;
         left: 0;
@@ -117,7 +127,10 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                     <h5 class="card-title">
                                         <?= $p->nome_categoria ?> - <?= $p->produto ?> (<?= $m->medida ?>)
                                     </h5>
-                                    <p class="card-text"><?= $p->descricao ?></p>
+                                    <p class="card-text">
+                                        <?= $p->descricao ?>
+                                        <span class="texto_sabores_adicionais"></span>
+                                    </p>
                                     <p class="card-text d-flex flex-row">
                                         <small valor_atual class="text-muted">
                                             R$ <?= number_format($_GET['valor'], 2, ',', '.') ?>
@@ -218,10 +231,11 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     <?php
                     $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
                         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
-                        #. "WHERE /*a.categoria = '{$p->categoria}' and*/ "
-                        . "WHERE a.codigo NOT IN ('{$p->codigo}')";
+                        . "WHERE a.categoria = '{$p->categoria}' "
+                        . "AND a.codigo NOT IN ('{$p->codigo}')";
 
                     $result = mysqli_query($con, $query);
+
                     while ($p1 = mysqli_fetch_object($result)) {
                         $detalhes = (array)json_decode($p1->detalhes, true);
 
@@ -234,6 +248,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                         class="list-group-item list-group-item-action add_sabores"
                                         valor="<?= $p1->valor; ?>"
                                         cod="<?= $p1->codigo; ?>"
+                                        descricao="<?= $p1->produto; ?>"
                                 >
                                     <div class="d-flex justify-content-between">
                                         <div style="flex: 1">
@@ -313,6 +328,8 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 
         $(".add_sabores").click(function () {
             let valor_sabor = Number($(this).attr('valor'));
+            let descricao = $(this).attr("descricao");
+            let codigo = $(this).attr("cod");
 
             if ($(this).is(".active")) {
                 $(this).removeClass("active");
@@ -331,6 +348,13 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                 $('small[valor_atual]').removeClass('linha_atraves');
                 $("small[valor_novo]").fadeOut(300);
                 v_produto_com_sabores = 0;
+            }
+
+            if ($(this).is(".active")) {
+                let badge_html = `<span id="badge-sabor-${codigo}" class="animated--fade-in ml-1 badge-<?= $md5; ?> badge-primary">${descricao}</span>`;
+                $(".texto_sabores_adicionais").append(badge_html);
+            } else {
+                $(`#badge-sabor-${codigo}`).remove();
             }
         });
 
