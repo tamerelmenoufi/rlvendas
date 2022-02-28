@@ -1,7 +1,7 @@
 <?php
 include("../../lib/includes.php");
 
-function Venda($cliente, $mesa)
+function venda($cliente, $mesa)
 {
     global $con;
 
@@ -23,7 +23,7 @@ if ($_POST['cliente']) {
     #$telefone = '(' . substr($_POST['cliente'], 0, 2) . ') ' . substr($_POST['cliente'], 2, 1) . ' ' . substr($_POST['cliente'], 3, 4) . '-' . substr($_POST['cliente'], 7, 4);
     $telefone = $_POST['cliente'];
 
-    $query = "select * from clientes where telefone = '{$telefone}'";
+    $query = "SELECT * FROM clientes WHERE telefone = '{$telefone}'";
     $result = mysqli_query($con, $query);
     $c = mysqli_fetch_object($result);
 
@@ -35,7 +35,7 @@ if ($_POST['cliente']) {
             'cliente' => $c->codigo,
         ]);
     } else {
-        mysqli_query($con, "insert into clientes set telefone = '{$telefone}'");
+        mysqli_query($con, "INSERT INTO clientes SET telefone = '{$telefone}'");
         $codigo = mysqli_insert_id($con);
 
         $_SESSION['ConfCliente'] = $codigo;
@@ -45,11 +45,12 @@ if ($_POST['cliente']) {
             'cliente' => $codigo,
         ]);
     }
-    Venda($_SESSION['ConfCliente'], $_SESSION['ConfMesa']);
+    venda($_SESSION['ConfCliente'], $_SESSION['ConfMesa']);
     exit();
 }
 
 ?>
+
 <style>
     #OpcMesa {
         text-align: center;

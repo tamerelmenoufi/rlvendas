@@ -1,7 +1,7 @@
 <?php
     include("../../lib/includes.php");
     $mesas = [];
-    $query = "select * from mesas where situacao = '1' and deletado != '1'";
+    $query = "SELECT * FROM mesas WHERE situacao = '1' AND deletado != '1'";
     $result = mysqli_query($con, $query);
     while($m = mysqli_fetch_object($result)){
         $mesas[] = $m->mesa;
