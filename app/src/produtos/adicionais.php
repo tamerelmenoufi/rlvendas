@@ -112,7 +112,7 @@
     $(function(){
 
         Carregando('none');
-        var qt = 0;
+        var qt = $(".ListaSabores div").length;
         var v_produto_com_sabores = 0;
 
 
@@ -134,12 +134,12 @@
             qt = $(".add_sabores.active").length;
 
             if (qt >= 1) {
-                $("small[valor_atual]").addClass('linha_atraves');
+                //$("small[valor_atual]").addClass('linha_atraves');
                 v_produto_com_sabores += valor_sabor;
                 $("small[valor_novo]").text(`R$ ${v_produto_com_sabores.toLocaleString('pt-br', {minimumFractionDigits: 2})}`);
                 $("small[valor_novo]").fadeIn(300);
             } else {
-                $('small[valor_atual]').removeClass('linha_atraves');
+                //$('small[valor_atual]').removeClass('linha_atraves');
                 $("small[valor_novo]").fadeOut(300);
                 v_produto_com_sabores = 0;
             }
@@ -165,7 +165,7 @@
             });
 
             $("span[valor]").attr("atual", ValorMaior);
-            quantidade = $("#quantidade").val();
+            quantidade = $("#quantidade").html();
             valor = ValorMaior * quantidade;
             $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
             $("small[valor_atual] span").html(ValorMaior.toLocaleString('pt-br', {minimumFractionDigits: 2}));
