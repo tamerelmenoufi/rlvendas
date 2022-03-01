@@ -111,7 +111,7 @@
                 1px -1px 0px #FFF,
                 1px 0px 0px #FFF;
     }
-    .foto<?=$md5?> span[valor]{
+    .foto<?=$md5?> span[val]{
         position:absolute;
         right:10px;
         bottom:5px;
@@ -132,6 +132,9 @@
     .linha_atraves {
         text-decoration-line: line-through;
     }
+    .ListaSabores{
+        margin-bottom:100px;
+    }
 </style>
 <div class="col">
     <div class="row" style="margin-top:-65px;">
@@ -146,7 +149,7 @@
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
-                            <span valor>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span>
+                            <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span>
 
                         </div>
                     </div>
@@ -162,7 +165,7 @@
                                 <p style="text-align:right;">
                                     <small valor_atual class="text-muted">
                                         <span>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span>
-                                        <div style="font-size:10px; margin-top:-20px; text-align:right;">Valor Unitário</div>
+                                        <div style="font-size:10px; margin-top:-20px; text-align:right;">Valor Cobrado</div>
                                     </small>
 
                                 </p>
@@ -172,14 +175,14 @@
                                     <p class="card-text texto_detalhes"></p>
                                 </div>
                                 <?php if ($m->qt_produtos > 1) { ?>
+                                <button class="btn btn-primary btn-block mais_sabores" style="margin-bottom:5px;">
+                                    Pode adicionar até mais
+                                    <?= ($m->qt_produtos - 1) . ' ' . (($m->qt_produtos == 2) ? 'sabor' : 'sabores') ?>
+                                </button>
                                 <div class="ListaSabores"></div>
-
-                                <button class="btn btn-primary mais_sabores">Mais Sabores</button>
                                 <?php } ?>
                             </div>
                         </div>
-
-                        <div xxx></div>
 
                     </div>
 
@@ -187,24 +190,22 @@
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
                             <button
-                                    class="btn btn-danger"
+                                    class="btn btn-dangerX text-danger"
                                     type="button"
                                     id="menos">
                                 <i class="fa-solid fa-circle-minus"></i>
                             </button>
                         </div>
 
-                        <input
-                                type="text"
+                        <div
                                 class="form-control"
                                 id="quantidade"
-                                readonly
-                                value="1"
-                        >
+                                style="border:0;"
+                        >1</div>
 
                         <div class="input-group-append">
                             <button
-                                    class="btn btn-success"
+                                    class="btn btn-successX text-success"
                                     type="button"
                                     id="mais">
                                 <i class="fa-solid fa-circle-plus"></i>
@@ -212,13 +213,16 @@
                         </div>
                         <div class="input-group-append">
                             <span
-                                    class="btn btn-primary"
+                                    class="btn btn-primaryX text-primary"
                                     id="rotulo_valor">
                                 R$ <span valor atual="<?=$_POST['valor']?>">
                                     <?= number_format($_POST['valor'], 2, ',', '.') ?>
                                 </span>
                             </span>
                         </div>
+                    </div>
+                    <div class="input-group input-group-lg">
+                        <button class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
                     </div>
                 </div>
 
@@ -237,21 +241,21 @@
         var v_produto_com_sabores = 0;
 
         $("#mais").click(function () {
-            quantidade = $("#quantidade").val();
+            quantidade = $("#quantidade").html();
             atual = $("span[valor]").attr("atual");
             quantidade = (quantidade * 1 + 1);
-            $("#quantidade").val(quantidade);
+            $("#quantidade").html(quantidade);
             valor = atual * quantidade;
             $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         });
 
         $("#menos").click(function () {
-            quantidade = $("#quantidade").val();
+            quantidade = $("#quantidade").html();
             atual = $("span[valor]").attr("atual");
             quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
 
-            $("#quantidade").val(quantidade);
+            $("#quantidade").html(quantidade);
 
             valor = atual * quantidade;
             $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
