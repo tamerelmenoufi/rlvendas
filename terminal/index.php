@@ -38,9 +38,13 @@
         jconfirm.defaults = {
             theme: "modern",
             type: "blue",
+            typeAnimated: true,
+            smoothContent: true,
             draggable: false,
-            animation: 'opacity',
-            closeAnimation: 'opacity'
+            animation: 'bottom',
+            closeAnimation: 'top',
+            animateFromElement: false,
+            animationBounce: 1.5
         }
     });
 </script>

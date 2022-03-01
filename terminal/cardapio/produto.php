@@ -3,23 +3,21 @@ include("../../lib/includes.php");
 
 if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
-    $arrayInsert = [
-        'venda' => $_SESSION['ConfVenda'],
-        'cliente' => $_SESSION['ConfCliente'],
-        "produto" => $_POST['produto'],
-        'quantidade' => $_POST['quantidade'],
-        'valor_unitario' => $_POST['valor'],
-        'produto_descricao' => $_POST['produto_descricao'],
-        'valor_total' => ($_POST['valor'] * $_POST['quantidade']),
-        'data' => date('Y-m-d H:i:s'),
-    ];
-
     $attr = [];
-
-    foreach ($arrayInsert as $key => $item) {
+    // @formatter:off
+    foreach ([
+        'venda' =>              $_SESSION['ConfVenda'],
+        'cliente' =>            $_SESSION['ConfCliente'],
+        "produto" =>            $_POST['produto'],
+        'quantidade' =>         $_POST['quantidade'],
+        'valor_unitario' =>     $_POST['valor'],
+        'produto_descricao' =>  $_POST['produto_descricao'],
+        'valor_total' =>       ($_POST['valor'] * $_POST['quantidade']),
+        'data' =>               date('Y-m-d H:i:s'),
+    ] as $key => $item) {
         $attr[] = "{$key} = '{$item}'";
     }
-
+    // @formatter:on
     $query = "INSERT INTO vendas_produtos SET " . implode(", ", $attr);
 
     if (@mysqli_query($con, $query)) {
@@ -36,8 +34,7 @@ $medida = $_GET['medida'];
 $valor = $_GET['valor'];
 
 $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
-    . "LEFT JOIN categorias b ON a.categoria = b.codigo "
-    . "WHERE a.codigo = '{$produto}'";
+    . "LEFT JOIN categorias b ON a.categoria = b.codigo WHERE a.codigo = '{$produto}'";
 
 $result = mysqli_query($con, $query);
 $p = mysqli_fetch_object($result);
@@ -49,12 +46,14 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 <style>
     .badge-<?= $md5; ?> {
         padding: 5px 12px;
-        font-size: 10px;
+        font-size: 0.85rem;
         color: #fff;
         border-radius: 8px;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
         font-weight: 500;
         line-height: 1;
+        white-space: nowrap;
+        line-break: normal;
     }
 
     .cardapio_produto {
@@ -119,7 +118,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                         <div class="row">
                             <div
                                     class="col-md-4 foto<?= $md5 ?>"
-                                    style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)"
+                                    style="background-image:url('../painel/produtos/icon/<?= $p->icon ?>')"
                             >
                             </div>
                             <div class="col-md-8">
@@ -128,17 +127,25 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                         <?= $p->nome_categoria ?> - <?= $p->produto ?> (<?= $m->medida ?>)
                                     </h5>
                                     <p class="card-text">
-                                        <?= $p->descricao ?>
-                                        <span class="texto_sabores_adicionais"></span>
+                                        <span><?= $p->descricao ?></span>
                                     </p>
+
                                     <p class="card-text d-flex flex-row">
                                         <small valor_atual class="text-muted">
-                                            R$ <?= number_format($_GET['valor'], 2, ',', '.') ?>
+                                            R$ <?= number_format(
+                                                $valor,
+                                                2,
+                                                ',',
+                                                '.'
+                                            ); ?>
                                         </small>
                                         <small valor_novo class="text-muted ml-1">
                                             R$ 0,00
                                         </small>
                                     </p>
+
+                                    <p class="texto_sabores_adicionais mx-0" style="min-height: 25px;"></p>
+
                                     <p class="card-text">
                                     <div class="input-group input-group-lg mb-3">
                                         <div class="input-group-prepend">
@@ -171,7 +178,11 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                                     class="btn btn-primary"
                                                     id="rotulo_valor">
                                                 R$ <span valor>
-                                                    <?= number_format($_GET['valor'], 2, ',', '.') ?>
+                                                    <?= number_format($valor,
+                                                        2,
+                                                        ',',
+                                                        '.'
+                                                    ); ?>
                                                 </span>
                                             </span>
                                         </div>
@@ -220,6 +231,8 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                 </div>
 
             </div>
+
+            <!-- Sabores -->
             <div class="col-md-4">
                 <?php if ($m->qt_produtos > 1) { ?>
                     <p style="position:fixed; right:50px; top:55px;">
@@ -245,8 +258,8 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                             <div class="list-group" style="margin-bottom:10px;">
                                 <a
                                         href="#"
-                                        class="list-group-item list-group-item-action add_sabores"
-                                        valor="<?= $p1->valor; ?>"
+                                        class="list-group-item list-group-item-action incluir_sabores"
+                                        valor="<?= $valor_sabores; ?>"
                                         cod="<?= $p1->codigo; ?>"
                                         descricao="<?= $p1->produto; ?>"
                                 >
@@ -271,19 +284,20 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                 }
                 ?>
             </div>
+            <!-- Sabores -->
+
         </div>
     </div>
 
-    <input type="hidden" id="produto" value="<?= $produto; ?>">
-    <input type="hidden" id="medida" value="<?= $medida; ?>">
-    <input type="hidden" id="valor" value="<?= $valor; ?>">
+    <input type="hidden" id="produto" value="<?= $produto; ?>" readonly>
+    <input type="hidden" id="medida" value="<?= $medida; ?>" readonly>
+    <input type="hidden" id="valor" value="<?= $valor; ?>" readonly>
 </div>
 
 <script>
     $(function () {
 
         var qt = 0;
-        var v_produto_com_sabores = 0;
 
         $.ajax({
             url: "cardapio/detalhes.php",
@@ -304,62 +318,6 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
             success: function (dados) {
                 $("#body").append(dados);
             }
-        });
-
-        $("#mais").click(function () {
-            quantidade = $("#quantidade").val();
-            quantidade = (quantidade * 1 + 1);
-            $("#quantidade").val(quantidade);
-            valor = <?=$_GET['valor']?> * quantidade;
-            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-
-        });
-
-        $("#menos").click(function () {
-            quantidade = $("#quantidade").val();
-            quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
-
-            $("#quantidade").val(quantidade);
-
-            valor = <?=$_GET['valor']?> * quantidade;
-            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-
-        });
-
-        $(".add_sabores").click(function () {
-            let valor_sabor = Number($(this).attr('valor'));
-            let descricao = $(this).attr("descricao");
-            let codigo = $(this).attr("cod");
-
-            if ($(this).is(".active")) {
-                $(this).removeClass("active");
-            } else if (qt < (<?=$m->qt_produtos?> - 1)) {
-                $(this).addClass("active");
-            }
-
-            qt = $(".add_sabores.active").length;
-
-            if (qt >= 1) {
-                $("small[valor_atual]").addClass('linha_atraves');
-                v_produto_com_sabores += valor_sabor;
-                $("small[valor_novo]").text(`R$ ${v_produto_com_sabores.toLocaleString('pt-br', {minimumFractionDigits: 2})}`);
-                $("small[valor_novo]").fadeIn(300);
-            } else {
-                $('small[valor_atual]').removeClass('linha_atraves');
-                $("small[valor_novo]").fadeOut(300);
-                v_produto_com_sabores = 0;
-            }
-
-            if ($(this).is(".active")) {
-                let badge_html = `<span id="badge-sabor-${codigo}" class="animated--fade-in ml-1 badge-<?= $md5; ?> badge-primary">${descricao}</span>`;
-                $(".texto_sabores_adicionais").append(badge_html);
-            } else {
-                $(`#badge-sabor-${codigo}`).remove();
-            }
-        });
-
-        $(".incluir_detalhes").click(function () {
-            $("#keyboard_body").css("display", "block");
         });
 
         $("button[cancelar_produto]").click(function () {
@@ -387,11 +345,11 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                 title: "Confirmar pedido?",
                 content: false,
                 icon: 'fa-solid fa-question',
-                type: "orange",
+                type: "red",
                 buttons: {
                     sim: {
                         text: "Sim",
-                        btnClass: 'btn-orange',
+                        btnClass: 'btn-red',
                         action: function () {
                             $.ajax({
                                 url: "cardapio/produto.php",
@@ -425,6 +383,77 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     }
                 }
             })
+        });
+
+        $("#mais").click(function () {
+            quantidade = $("#quantidade").val();
+            quantidade = (quantidade * 1 + 1);
+            $("#quantidade").val(quantidade);
+            valor = <?=$_GET['valor']?> * quantidade;
+
+            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        });
+
+        $("#menos").click(function () {
+            quantidade = $("#quantidade").val();
+            quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
+            $("#quantidade").val(quantidade);
+            valor = <?=$_GET['valor']?> * quantidade;
+
+            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        });
+
+        $(".incluir_sabores").click(function () {
+            let sabor_valor = Number($(this).attr('valor'));
+            let sabor_descricao = $(this).attr("descricao");
+            let sabor_codigo = $(this).attr("cod");
+
+            if ($(this).is(".active")) {
+                $(this).removeClass("active");
+            } else if (qt < (<?=$m->qt_produtos?> - 1)) {
+                $(this).addClass("active");
+            }
+
+            qt = $(".incluir_sabores.active").length;
+
+            if (qt >= 1) {
+                let array_valores = [];
+
+                $(".incluir_sabores.active").map((index, item) => {
+                    array_valores.push(Number($(item).attr("valor")));
+                });
+
+                console.log(array_valores);
+
+                const valor_max = array_valores.reduce((a, b) => Math.max(a, b));
+
+                if (valor_max > Number($("#valor").val())) {
+                    console.log(valor_max);
+                    $("small[valor_atual]").addClass('linha_atraves');
+                    $("small[valor_novo]").text(`R$ ${valor_max.toLocaleString('pt-br', {minimumFractionDigits: 2})}`);
+                    $("small[valor_novo]").fadeIn(300);
+                } else {
+                    $("small[valor_atual]").removeClass('linha_atraves');
+                    $("small[valor_novo]").fadeOut(300);
+                }
+
+            } else {
+                $('small[valor_atual]').removeClass('linha_atraves');
+                $("small[valor_novo]").fadeOut(300);
+            }
+
+            if ($(this).is(".active")) {
+                let html_badge = `<span id="badge-sabor-${sabor_codigo}" class="animated--fade-in ml-1 badge-<?= $md5; ?> badge-success">`;
+                html_badge += `<i class="fa-solid fa-circle-plus"></i> ${sabor_descricao}</span>`;
+
+                $(".texto_sabores_adicionais").append(html_badge);
+            } else {
+                $(`#badge-sabor-${sabor_codigo}`).remove();
+            }
+        });
+
+        $(".incluir_detalhes").click(function () {
+            $("#keyboard_body").css("display", "block");
         });
 
     })
