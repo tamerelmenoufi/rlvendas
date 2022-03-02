@@ -76,7 +76,6 @@
                         ?>
                         <div class="list-group" style="margin-bottom:10px;">
                             <a
-                                    href="#"
                                     class="list-group-item list-group-item-action add_sabores"
                                     valor="<?= $valor_sabores; ?>"
                                     cod="<?= $p1->codigo; ?>"
@@ -112,7 +111,7 @@
     $(function(){
 
         Carregando('none');
-        var qt = $(".ListaSabores div").length;
+        var qt = $(".ListaSabores .grupo").length;
         var v_produto_com_sabores = 0;
 
 
@@ -156,10 +155,11 @@
                     ValorMaior = valor_produto;
                 }
 
-                Lista += '<div class="list-group" style="margin-bottom:5px;" cod="'+codigo_produto+'">' +
-                        '<a href="#" class="list-group-item list-group-item-action">' +
-                        nome_produto +
-                        '</a>' +
+                Lista += '<div class="list-group grupo" style="margin-bottom:5px;" cod="'+codigo_produto+'" nome="' + nome_produto + '" valor="' + valor_produto + '">' +
+                        '<div class="d-flex">' +
+                        '<div class="p-2"><i class="fa-solid fa-check-double text-success"></i> ' + nome_produto + '</div>' +
+                        //'<div class="ml-auto p-2">R$ '+ valor_produto.toLocaleString('pt-br', {minimumFractionDigits: 2}) +'</div>' +
+                        '</div>' +
                         '</div>';
 
             });
@@ -168,7 +168,7 @@
             quantidade = $("#quantidade").html();
             valor = ValorMaior * quantidade;
             $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            $("small[valor_atual] span").html(ValorMaior.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            $("small[valor_atual]").html(ValorMaior.toLocaleString('pt-br', {minimumFractionDigits: 2}));
             $(".ListaSabores").html(Lista);
 
         });
