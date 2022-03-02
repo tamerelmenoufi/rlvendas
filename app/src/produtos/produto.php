@@ -6,11 +6,11 @@
         $arrayInsert = [
             'venda' => $_SESSION['ConfVenda'],
             'cliente' => $_SESSION['ConfCliente'],
-            "produto" => $_POST['produto'],
+            //"produto" => $_POST['produto'],
             'quantidade' => $_POST['quantidade'],
-            'valor_unitario' => $_POST['valor'],
+            'valor_unitario' => $_POST['valor_unitario'],
             'produto_descricao' => $_POST['produto_descricao'],
-            'valor_total' => ($_POST['valor'] * $_POST['quantidade']),
+            'valor_total' => $_POST['valor_total'],
             'data' => date('Y-m-d H:i:s'),
         ];
 
@@ -28,7 +28,7 @@
             ]);
         }
 
-       // exit();
+        exit();
     }
 
     $produto = $_POST['produto'];
@@ -135,6 +135,11 @@
     .ListaSabores{
         margin-bottom:100px;
     }
+    .observacoes{
+        color:red;
+        font-size:10px;
+        /* text-align:justify; */
+    }
 </style>
 <div class="col">
     <div class="row" style="margin-top:-65px;">
@@ -149,7 +154,7 @@
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
-                            <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span>
+                            <!-- <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span> -->
 
                         </div>
                     </div>
@@ -162,13 +167,16 @@
                                     <?= $p->nome_categoria ?> - <?= $p->produto ?> (<?= $m->medida ?>)
                                 </h5> -->
                                 <p class="card-text"><?= $p->descricao ?></p>
-                                <p style="text-align:right;">
-                                    <small valor_atual class="text-muted">
-                                        <span>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span>
-                                        <div style="font-size:10px; margin-top:-20px; text-align:right;">Valor Cobrado</div>
-                                    </small>
-
-                                </p>
+                                <p class="observacoes"></p>
+                                <div class="row">
+                                <div class="col-8">
+                                    <button observacoes class="btn btn-warning btn-block"><i class="fa-solid fa-pencil"></i> Recomendações</button>
+                                </div>
+                                <div class="col-4">
+                                    <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, ',', '.') ?></small></div>
+                                    <div style="font-size:10px; text-align:right;">Valor Cobrado</div>
+                                </div>
+                                </div>
 
 
                                 <div class="col-md-12" style="margin-bottom:20px;">
@@ -186,7 +194,7 @@
 
                     </div>
 
-                <div style="position:fixed; bottom:0; left:0; width:100%; z-index:1;">
+                <div style="position:fixed; bottom:0; left:0; width:100%; z-index:1; background-color:#fff;">
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
                             <button
@@ -222,7 +230,7 @@
                         </div>
                     </div>
                     <div class="input-group input-group-lg">
-                        <button class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
+                        <button adicionar_produto class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
                     </div>
                 </div>
 
@@ -235,7 +243,6 @@
 <script>
     $(function(){
         Carregando('none');
-
 
         var qt = 0;
         var v_produto_com_sabores = 0;
@@ -282,5 +289,59 @@
                 }
             });
         });
+
+        $("button[observacoes]").click(function(){
+            Carregando();
+            $.ajax({
+                url:"componentes/ms_popup_100.php",
+                type:"POST",
+                data:{
+                    local:"src/produtos/observacoes.php",
+                },
+                success:function(dados){
+                    $(".ms_corpo").append(dados);
+                }
+            });
+        });
+
+
+        $("button[adicionar_produto]").click(function(){
+            /////////// PRODUTOS ////////////////////////////
+            venda = [];
+            venda['categoria'] = ['<?=$p->categoria?>', '<?=$p->nome_categoria?>'];
+            venda['medida'] = ['<?=$m->codigo?>', '<?=$m->medida?>'];
+            venda['produtos'] = [];
+            venda['produtos'].push(['<?= $p->codigo ?>', '<?= $p->produto ?>', '<?= $_POST['valor'] ?>']);
+            $('.grupo').each(function(){
+                venda['produtos'].push([$(this).attr("cod"), $(this).attr("nome"), $(this).attr("valor")]);
+            })
+
+            //-------
+            valor_unitario = $("span[valor]").attr("atual");
+            //-------
+            quantidade = $("#quantidade").html();
+            //-------
+            valor_total = (valor_unitario*quantidade);
+
+            //-------
+            var produto_descricao = JSON.stringify(Object.assign({}, venda));
+
+            $.ajax({
+                url:"src/produtos/produto.php",
+                type:"POST",
+                data:{
+                    produto_descricao,
+                    valor_unitario,
+                    quantidade,
+                    valor_total,
+                    acao:'adicionar_pedido'
+                },
+                success:function(dados){
+                    PageClose();
+                }
+            });
+
+        });
+
     })
 </script>
