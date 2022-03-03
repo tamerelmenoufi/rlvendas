@@ -308,12 +308,12 @@
         $("button[adicionar_produto]").click(function(){
             /////////// PRODUTOS ////////////////////////////
             venda = [];
-            venda['categoria'] = ['<?=$p->categoria?>', '<?=$p->nome_categoria?>'];
-            venda['medida'] = ['<?=$m->codigo?>', '<?=$m->medida?>'];
+            venda['categoria'] = ['codigo' => '<?=$p->categoria?>', 'descricao' => '<?=$p->nome_categoria?>'];
+            venda['medida'] = ['codigo' => '<?=$m->codigo?>', 'descricao' => '<?=$m->medida?>'];
             venda['produtos'] = [];
-            venda['produtos'].push(['<?= $p->codigo ?>', '<?= $p->produto ?>', '<?= $_POST['valor'] ?>']);
+            venda['produtos'].push(['codigo' => '<?= $p->codigo ?>', 'descricao' => '<?= $p->produto ?>', 'valor' => '<?= $_POST['valor'] ?>']);
             $('.grupo').each(function(){
-                venda['produtos'].push([$(this).attr("cod"), $(this).attr("nome"), $(this).attr("valor")]);
+                venda['produtos'].push(['codigo' => $(this).attr("cod"), 'descricao' => $(this).attr("nome"), 'valor' => $(this).attr("valor")]);
             })
 
             //-------
