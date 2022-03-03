@@ -14,16 +14,16 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
     // @formatter:off
     foreach ([
-        'venda'             =>  $_SESSION['ConfVenda'],
-        'cliente'           =>  $_SESSION['ConfCliente'],
-        "produto"           =>  $_POST['produto'],
-        'quantidade'        =>  $_POST['quantidade'],
-        'valor_unitario'    =>  $_POST['valor'],
-        'produto_descricao' =>  $_POST['produto_descricao'],
-        'valor_total'       =>  ($_POST['valor'] * $_POST['quantidade']),
-        'data'              =>  date('Y-m-d H:i:s'),
-        'produto_json'      =>  json_encode($json)
-    ] as $key => $item) {
+                 'venda' => $_SESSION['ConfVenda'],
+                 'cliente' => $_SESSION['ConfCliente'],
+                 "produto" => $_POST['produto'],
+                 'quantidade' => $_POST['quantidade'],
+                 'valor_unitario' => $_POST['valor'],
+                 'produto_descricao' => $_POST['produto_descricao'],
+                 'valor_total' => ($_POST['valor'] * $_POST['quantidade']),
+                 'data' => date('Y-m-d H:i:s'),
+                 'produto_json' => json_encode($json)
+             ] as $key => $item) {
         $attr[] = "{$key} = '{$item}'";
     }
     // @formatter:on
@@ -407,9 +407,13 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 
                     $("small[valor_atual]").addClass('linha_atraves');
 
-                    $("small[valor_novo], span[valor]")
-                        .text(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}))
+                    $("small[valor_novo]")
+                        .text(valor_max.toLocaleString("pt-br", {minimumFractionDigits: 2}))
                         .fadeIn(300);
+
+                    $("span[valor]")
+                        .text(valor.toLocaleString("pt-br", {minimumFractionDigits: 2}));
+
                 } else {
                     $("small[valor_atual]").removeClass('linha_atraves');
                     $("small[valor_novo]").fadeOut(300);
@@ -442,13 +446,13 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 
         $("button[adicionar_produto]").click(function () {
             // @formatter:off
-            var produto             = $("#produto").val();
-            var quantidade          = $("#quantidade").val();
-            var valor               = Number($("span[valor]").attr("valor"));
-            var produto_descricao   = $("#search_field").val();
-            var medida              = $("#medida").val();
-            var medida_descricao    = $("span[medida]").text().trim();
-            var categoria           = '<?=$p->categoria?>';
+            var produto = $("#produto").val();
+            var quantidade = $("#quantidade").val();
+            var valor = Number($("span[valor]").attr("valor"));
+            var produto_descricao = $("#search_field").val();
+            var medida = $("#medida").val();
+            var medida_descricao = $("span[medida]").text().trim();
+            var categoria = '<?=$p->categoria?>';
             var categoria_descricao = $("span[categoria]").text().trim();
             // @formatter:on
 
