@@ -308,12 +308,12 @@
         $("button[adicionar_produto]").click(function(){
             /////////// PRODUTOS ////////////////////////////
             venda = [];
-            venda['categoria'] = ['codigo' => '<?=$p->categoria?>', 'descricao' => '<?=$p->nome_categoria?>'];
-            venda['medida'] = ['codigo' => '<?=$m->codigo?>', 'descricao' => '<?=$m->medida?>'];
+            venda['categoria'] = ['codigo':'<?=$p->categoria?>', 'descricao':'<?=$p->nome_categoria?>'];
+            venda['medida'] = ['codigo':'<?=$m->codigo?>', 'descricao':'<?=$m->medida?>'];
             venda['produtos'] = [];
-            venda['produtos'].push(['codigo' => '<?= $p->codigo ?>', 'descricao' => '<?= $p->produto ?>', 'valor' => '<?= $_POST['valor'] ?>']);
+            venda['produtos'].push(['codigo':'<?= $p->codigo ?>', 'descricao':'<?= $p->produto ?>', 'valor':'<?= $_POST['valor'] ?>']);
             $('.grupo').each(function(){
-                venda['produtos'].push(['codigo' => $(this).attr("cod"), 'descricao' => $(this).attr("nome"), 'valor' => $(this).attr("valor")]);
+                venda['produtos'].push(['codigo':$(this).attr("cod"), 'descricao':$(this).attr("nome"), 'valor':$(this).attr("valor")]);
             })
 
             //-------
