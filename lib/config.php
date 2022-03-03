@@ -6,8 +6,8 @@ if (session_id() === "") {
 
 function getUrl()
 {
-    if (isset($_SERVER['HTTPS'])) {
-        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+    if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+        $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO']; //($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
     } else {
         $protocol = 'http';
     }
