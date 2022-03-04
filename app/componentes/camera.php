@@ -14,11 +14,7 @@
 <div class="col">
     <video id="preview<?=$md5?>"></video>
     <script>
-        $(function(){
-
-            AtivarCamera('preview<?=$md5?>');
-
-        })
+        AtivarCamera('preview<?=$md5?>');
     </script>
 
 </div>

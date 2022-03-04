@@ -253,7 +253,7 @@ MensagemBack = (msg = 'Utilize os botões do aplicativo para navegar!') =>{
   /////////////////////CAMERA//////////////////////////
 
   function AtivarCamera(local){
-
+        alert(local);
         let scanner = new Instascan.Scanner(
             {
                 video: document.getElementById(local)
