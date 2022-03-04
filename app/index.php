@@ -21,7 +21,7 @@
 
     <?php include("../lib/footer.php"); ?>
 
-    <script src="<?= "js/app.js"; ?>"></script>
+    <script src="<?= "js/app.js?".date("YmdHis"); ?>"></script>
     <script src="<?= "js/wow.js"; ?>"></script>
 
 
