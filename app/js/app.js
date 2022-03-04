@@ -248,29 +248,3 @@ MensagemBack = (msg = 'Utilize os botões do aplicativo para navegar!') =>{
       }
       noback.init();
   }(window));
-
-
-  /////////////////////CAMERA//////////////////////////
-
-  function AtivarCamera(local){
-        alert(local);
-        let scanner = new Instascan.Scanner(
-            {
-                video: document.getElementById(local)
-            }
-        );
-        scanner.addListener('scan', function(content) {
-            alert('Escaneou o conteudo: ' + content);
-            window.open(content, "_blank");
-        });
-        Instascan.Camera.getCameras().then(cameras =>
-        {
-            if(cameras.length > 0){
-                scanner.start(cameras[1]);
-                console.error(cameras);
-            } else {
-                console.error("Não existe câmera no dispositivo!");
-            }
-        });
-
-  }
