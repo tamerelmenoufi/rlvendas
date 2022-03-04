@@ -13,7 +13,7 @@
         padding:0;
     }
 </style>
-    <iframe id="videoCaptura" src="lib/vendor/camera/camera.html"></iframe>
+    <iframe id="videoCaptura" src="../lib/vendor/camera/camera.html"></iframe>
     <script>
 
     </script>
