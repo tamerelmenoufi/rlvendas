@@ -1,10 +1,11 @@
 <style>
     #preview{
+        position:fixed;
+        top:0px;
+        left:0px;
         width:100%;
-        height:300px;
-        margin-top:70px;
-        border:solid 1px red;
-        z-index:999;
+        height: 100%;
+        border:solid 2px red;
     }
 </style>
 <div class="col">
