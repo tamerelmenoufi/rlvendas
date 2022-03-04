@@ -84,19 +84,36 @@
         Carregando('none');
 
         $("button[acao<?=$md5?>]").off('click').on('click',function(){
-            local = $(this).attr('local');
-            janela = $(this).attr('janela');
-            Carregando();
-            $.ajax({
-                url:"componentes/"+janela+".php",
-                type:"POST",
-                data:{
-                    local,
-                },
-                success:function(dados){
-                    $(".ms_corpo").append(dados);
-                }
-            });
+
+            AppMesa = window.localStorage.getItem('AppMesa');
+
+            if(AppMesa){
+                local = $(this).attr('local');
+                janela = $(this).attr('janela');
+                Carregando();
+                $.ajax({
+                    url:"componentes/"+janela+".php",
+                    type:"POST",
+                    data:{
+                        local,
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
+            }else{
+                $.ajax({
+                    url:"componentes/ms_popup_100.php",
+                    type:"POST",
+                    data:{
+                        local:"componentes/camera.php",
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
+
+            }
         })
 
 
