@@ -6,23 +6,33 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
     $attr = [];
     $json = [];
 
-    $json["venda"]["categoria"] = [$_POST['categoria'] => $_POST['categoria_descricao']];
-    $json["venda"]["medida"] = [$_POST['medida'] => $_POST['medida_descricao']];
-    $json["venda"]["produtos"] = $_POST['sabores'];
-
-    file_put_contents("debug.json", json_encode($json));
+    $produto_atual = [
+        [
+            'codigo' => $_POST['produto'],
+            'descricao' => $_POST['produto_descricao'],
+            'valor' => $_POST['valor']
+        ]
+    ];
 
     // @formatter:off
+    $produtos = array_merge($produto_atual, $_POST['sabores']);
+
+    $json["categoria"] = [$_POST['categoria'] => $_POST['categoria_descricao']];
+    $json["medida"]    = [$_POST['medida'] => $_POST['medida_descricao']];
+    $json["produtos"]  = $produtos;
+
+    #file_put_contents("debug.json", json_encode($json));
+
     foreach ([
-                 'venda' => $_SESSION['ConfVenda'],
-                 'cliente' => $_SESSION['ConfCliente'],
-                 "produto" => $_POST['produto'],
-                 'quantidade' => $_POST['quantidade'],
-                 'valor_unitario' => $_POST['valor'],
-                 'produto_descricao' => $_POST['produto_descricao'],
-                 'valor_total' => ($_POST['valor'] * $_POST['quantidade']),
-                 'data' => date('Y-m-d H:i:s'),
-                 'produto_json' => json_encode($json)
+                 'venda'             => $_SESSION['ConfVenda'],
+                 'cliente'           => $_SESSION['ConfCliente'],
+                 'produto'           => $_POST['produto'],
+                 'quantidade'        => $_POST['quantidade'],
+                 'valor_unitario'    => $_POST['valor'],
+                 'produto_descricao' => $_POST['produto_observacao'],
+                 'valor_total'       => ($_POST['valor'] * $_POST['quantidade']),
+                 'data'              => date('Y-m-d H:i:s'),
+                 'produto_json'      => json_encode($json)
              ] as $key => $item) {
         $attr[] = "{$key} = '{$item}'";
     }
@@ -33,6 +43,8 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
         echo json_encode([
             "status" => "sucesso",
         ]);
+    } else {
+        file_put_contents('error.txt', mysqli_error($con));
     }
 
     exit();
@@ -136,7 +148,8 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                         <span categoria="<?= $p->cod_categoria; ?>">
                                             <?= $p->nome_categoria ?>
                                         </span>
-                                        - <?= $p->produto ?> (<span medida="<?= $m->codigo; ?>"><?= $m->medida ?></span>)
+                                        - <span produto_descricao><?= $p->produto ?></span> (<span
+                                                medida="<?= $m->codigo; ?>"><?= $m->medida ?></span>)
                                     </h5>
                                     <p class="card-text">
                                         <span><?= $p->descricao ?></span>
@@ -212,6 +225,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                         <div class="col-md-12" style="margin-bottom:20px;">
                             <p class="card-text texto_detalhes"></p>
                         </div>
+
                         <div class="col-md-12">
                             <button
                                     type="button"
@@ -312,7 +326,6 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 
 <script>
     $(function () {
-
         var qt = 0;
 
         $.ajax({
@@ -418,8 +431,8 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     $("small[valor_atual]").removeClass('linha_atraves');
                     $("small[valor_novo]").fadeOut(300);
 
-                    $("span[valor]").attr("valor", $("#valor").val());
-                    let valor = Number($("span[valor]").attr("valor"));
+                    $("span[valor]").attr("valor", Number($("#valor").val()));
+                    let valor = Number($("span[valor]").attr("valor")) * Number($("#quantidade").val());
                     $("span[valor]").text(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
                 }
 
@@ -445,33 +458,34 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
         });
 
         $("button[adicionar_produto]").click(function () {
+
             // @formatter:off
-            var produto = $("#produto").val();
-            var quantidade = $("#quantidade").val();
-            var valor = Number($("span[valor]").attr("valor"));
-            var produto_descricao = $("#search_field").val();
-            var medida = $("#medida").val();
-            var medida_descricao = $("span[medida]").text().trim();
-            var categoria = '<?=$p->categoria?>';
-            var categoria_descricao = $("span[categoria]").text().trim();
-            // @formatter:on
+                var produto             = $("#produto").val();
+                var produto_observacao  = $("#search_field").val();
+                var produto_descricao   = $("span[produto_descricao]").text();
+                var quantidade          = $("#quantidade").val();
+                var valor               = Number($("span[valor]").attr("valor"));
+                var medida              = $("#medida").val();
+                var medida_descricao    = $("span[medida]").text().trim();
+                var categoria           = '<?=$p->categoria?>';
+                var categoria_descricao = $("span[categoria]").text().trim();
+                // @formatter:on
 
             let obj_sabores = $(".incluir_sabores.active");
 
             var sabores = [];
 
             if (obj_sabores.length >= 1) {
-
                 obj_sabores.map((index, item) => {
                     let codigo = Number($(item).attr("cod"));
                     let descricao = $(item).attr("descricao");
                     let valor = Number($(item).attr("valor"));
 
-                    sabores.push([codigo, descricao, valor]);
+                    sabores.push({"codigo": codigo, "descricao": descricao, "valor": valor});
                 });
             }
 
-            $.alert({
+            /*$.alert({
                 title: "Confirmar pedido?",
                 content: false,
                 icon: 'fa-solid fa-question',
@@ -481,42 +495,48 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                         text: "Sim",
                         btnClass: 'btn-red',
                         action: function () {
-                            $.ajax({
-                                url: "cardapio/produto.php",
-                                method: 'POST',
-                                data: {
-                                    quantidade,
-                                    produto_descricao,
-                                    produto,
-                                    valor,
-                                    sabores,
-                                    categoria,
-                                    categoria_descricao,
-                                    medida,
-                                    medida_descricao,
-                                    acao: 'adicionar_pedido',
-                                },
-                                success: function (dados) {
-                                    opc = $(this).attr("opc");
 
-                                    $.ajax({
-                                        url: "cardapio/produtos.php",
-                                        data: {
-                                            categoria,
-                                        },
-                                        success: function (dados) {
-                                            tata.success('Sucesso', 'Pedido adicionado com sucesso');
-                                            $("#body").html(dados);
-                                        }
-                                    });
-                                }
-                            });
                         }
                     },
                     nao: function () {
                     }
                 }
-            })
+            });*/
+
+            $.ajax({
+                url: "cardapio/produto.php",
+                method: 'POST',
+                dataType: 'JSON',
+                data: {
+                    quantidade,
+                    produto_descricao,
+                    produto,
+                    produto_observacao,
+                    valor,
+                    sabores,
+                    categoria,
+                    categoria_descricao,
+                    medida,
+                    medida_descricao,
+                    acao: 'adicionar_pedido',
+                },
+                success: function (dados) {
+                    if (dados.status === 'sucesso') {
+                        opc = $(this).attr("opc");
+
+                        $.ajax({
+                            url: "cardapio/produtos.php",
+                            data: {
+                                categoria,
+                            },
+                            success: function (dados) {
+                                //tata.success('Sucesso', 'Pedido adicionado com sucesso');
+                                $("#body").html(dados);
+                            }
+                        });
+                    }
+                }
+            });
         });
     });
 </script>
