@@ -24,12 +24,6 @@
             width:100%;
             height: 100%;
             border:solid 2px red;
-
-            -moz-transform: scaleX(-1);
-            -o-transform: scaleX(-1);
-            -webkit-transform: scaleX(-1);
-            transform: scaleX(-1);
-
         }
     </style>
   </head>
@@ -38,9 +32,11 @@
     <script>
         let scanner = new Instascan.Scanner(
             {
-                video: document.getElementById('preview')
+                video: document.getElementById('preview'),
+                mirror: false
             }
         );
+
         scanner.addListener('scan', function(content) {
             //alert('Escaneou o conteudo: ' + content);
             //window.open(content, "_blank");
