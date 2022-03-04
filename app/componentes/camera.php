@@ -1,5 +1,8 @@
+<?php
+    include("../../lib/includes.php");
+?>
 <style>
-    #preview{
+    #preview<?=$md5?>{
         position:fixed;
         top:0px;
         left:0px;
@@ -9,28 +12,11 @@
     }
 </style>
 <div class="col">
-    <video id="preview"></video>
+    <video id="preview<?=$md5?>"></video>
     <script>
         $(function(){
 
-            let scanner = new Instascan.Scanner(
-                {
-                    video: document.getElementById('preview')
-                }
-            );
-            scanner.addListener('scan', function(content) {
-                alert('Escaneou o conteudo: ' + content);
-                window.open(content, "_blank");
-            });
-            Instascan.Camera.getCameras().then(cameras =>
-            {
-                if(cameras.length > 0){
-                    scanner.start(cameras[1]);
-                    console.error(cameras);
-                } else {
-                    console.error("Não existe câmera no dispositivo!");
-                }
-            });
+            AtivarCamera('preview<?=$md5?>');
 
         })
     </script>
