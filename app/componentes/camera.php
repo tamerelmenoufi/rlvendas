@@ -24,8 +24,10 @@
         border:solid 1px green;
     }
 </style>
-    <iframe id="videoCaptura" src="../lib/vendor/camera/camera.html?<?=$md5?>"></iframe>
+    <iframe name="videoCaptura" id="videoCaptura" src="../lib/vendor/camera/camera.html?<?=$md5?>"></iframe>
     <div id="DadosCaptura"></div>
     <script>
-
+        function LeituraCamera(){
+            //var valor = window.parent.videoCaptura.document.getElementById('campoTeste').value;
+        }
     </script>
