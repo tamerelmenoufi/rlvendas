@@ -24,7 +24,7 @@
         border:solid 1px green;
     }
 </style>
-    <iframe id="videoCaptura" src="../lib/vendor/camera/camera.html"></iframe>
+    <iframe id="videoCaptura" src="../lib/vendor/camera/camera.html?<?=$md5?>"></iframe>
     <div id="DadosCaptura"></div>
     <script>
 
