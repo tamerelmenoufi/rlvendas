@@ -13,10 +13,8 @@
             }
         );
         scanner.addListener('scan', function(content) {
-            alert('Escaneou o conteudo XXX: ' + content);
-            //window.open(content, "_blank");
-            window.parent.document.getElementById('DadosCaptura').innerHTML = content;
-
+            alert('Escaneou o conteudo: ' + content);
+            window.open(content, "_blank");
         });
         Instascan.Camera.getCameras().then(cameras =>
         {
