@@ -41,7 +41,7 @@
         height:25%;
         border-top:solid 2px green;
         border-left:solid 2px green;
-        opacity:0.3;
+        opacity:0.5;
     }
     #QuadroCaptura .opc2{
         position:absolute;
@@ -51,7 +51,7 @@
         height:25%;
         border-top:solid 2px green;
         border-right:solid 2px green;
-        opacity:0.3;
+        opacity:0.5;
     }
     #QuadroCaptura .opc3{
         position:absolute;
@@ -61,7 +61,7 @@
         height:25%;
         border-bottom:solid 2px green;
         border-left:solid 2px green;
-        opacity:0.3;
+        opacity:0.5;
     }
     #QuadroCaptura .opc4{
         position:absolute;
@@ -71,7 +71,7 @@
         height:25%;
         border-right:solid 2px green;
         border-bottom:solid 2px green;
-        opacity:0.3;
+        opacity:0.5;
     }
 </style>
     <iframe name="videoCaptura" id="videoCaptura" src="../lib/vendor/camera/camera.html?<?=$md5?>"></iframe>
@@ -84,7 +84,9 @@
     </div>
 
     <script>
-        function LeituraCamera(){
+        function LeituraCamera(content){
+            document.getElementById('DadosCaptura').innerHTML = 'Adicionado pela função: ' + content;
+
             //var valor = window.parent.videoCaptura.document.getElementById('campoTeste').value;
         }
     </script>
