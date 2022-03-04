@@ -26,4 +26,4 @@
 
     <script src="<?= "{$caminho_vendor}/jkeyboard/js.js"; ?>" ></script>
 
-    <script src="<?= "https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"; ?>" ></script>
+    <script src="<?= "../lib/vendor/camera/instascan.min.js"; ?>" ></script>
