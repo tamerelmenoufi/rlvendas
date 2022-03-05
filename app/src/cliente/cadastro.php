@@ -40,7 +40,7 @@
                         telefone,
                     },
                     success:function(dados){
-                        window.localStorage.setItem('AppCliente');
+                        window.localStorage.setItem('AppCliente', dados);
 
                         $.ajax({
                             url:"src/home/index.php",
