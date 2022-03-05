@@ -36,9 +36,9 @@
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
             /* handle success */
             //console.log(`Code matched = ${decodedText}`, decodedResult);
-            html5QrCode.clear();
             //alert(`Scan result: ${decodedText}`, decodedResult);
             window.parent.LeituraCamera(decodedText);
+            html5QrCode.clear();
             // ...
 
         };
