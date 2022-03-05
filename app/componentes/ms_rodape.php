@@ -18,7 +18,7 @@
                     local:"src/cliente/pedido.php",
                 },
                 success:function(dados){
-                    $("#body").append(dados);
+                    $(".ms_corpo").append(dados);
                 }
             });
         });
