@@ -25,5 +25,3 @@
 
 
     <script src="<?= "{$caminho_vendor}/jkeyboard/js.js"; ?>" ></script>
-
-    <script type="text/javascript" src="<?= "{$caminho_vendor}/camera/camera.js"; ?>" ></script>

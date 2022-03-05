@@ -15,14 +15,12 @@
         left:0px;
         width:100%;
         height: 100%;
-        border:solid 2px red;
         margin:0;
         padding:0;
         flex:1;
     }
 </style>
     <iframe name="videoCaptura" id="videoCaptura" src="../lib/vendor/camera/camera.php?<?=$md5?>"></iframe>
-
 
     <script>
         function LeituraCamera(content){
@@ -31,6 +29,8 @@
 
             if(content && $.inArray( content, m ) != -1){
                 window.localStorage.setItem('AppMesa', content);
+
+                PageClose();
 /*
                 $.ajax({
                     url:"home/index.php?mesa="+mesa,
@@ -41,6 +41,7 @@
 //*/
             }else{
                 $.alert('CÓDIGO <b>'+content+'</b> BLOQUEADO, EM USO OU NÃO REGISTRADO NO SISTEMA!');
+                PageClose();
             }
 
 

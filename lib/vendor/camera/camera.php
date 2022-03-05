@@ -34,10 +34,10 @@
 
         const html5QrCode = new Html5Qrcode("preview");
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+
             /* handle success */
             //console.log(`Code matched = ${decodedText}`, decodedResult);
             //alert(`Scan result: ${decodedText}`, decodedResult);
-
             //html5QrCode.clear();
 
             html5QrCode.stop().then((ignore) => {
