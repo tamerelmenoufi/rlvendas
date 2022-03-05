@@ -1,7 +1,6 @@
 <?php
     include("../../lib/includes.php");
 
-
     $mesas = [];
     $query = "SELECT * FROM mesas WHERE situacao = '1' AND deletado != '1'";
     $result = mysqli_query($con, $query);
@@ -22,16 +21,31 @@
         flex:1;
     }
 </style>
-    <div id="videoCaptura"></div>
+    <iframe name="videoCaptura" id="videoCaptura" src="../lib/vendor/camera/camera.php?<?=$md5?>"></iframe>
+
 
     <script>
-        function onScanSuccess(decodedText, decodedResult) {
-            // Handle on success condition with the decoded text or result.
-            console.log(`Scan result: ${decodedText}`, decodedResult);
-            $.alert(`Scan result: ${decodedText}`, decodedResult);
-        }
+        function LeituraCamera(content){
 
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "videoCaptura", { fps: 10, qrbox: 250 });
-        html5QrcodeScanner.render(onScanSuccess);
+            m = ['<?=@implode("','",$mesas)?>'];
+
+            if(mesa && $.inArray( content, m ) != -1){
+                window.localStorage.setItem('AppMesa', content);
+
+                $.ajax({
+                    url:"home/index.php?mesa="+mesa,
+                    success:function(dados){
+                        $("#body").html(dados);
+                    }
+                });
+            }else{
+                $.alert('CÓDIGO <b>'+content+'</b> BLOQUEADO, EM USO OU NÃO REGISTRADO NO SISTEMA!');
+            }
+
+
+            //document.getElementById('DadosCaptura').innerHTML = 'Adicionado pela função: ' + content;
+            //AppMesa = window.localStorage.getItem('AppMesa');
+            //window.localStorage.setItem('AppMesa', content);
+            //var valor = window.parent.videoCaptura.document.getElementById('campoTeste').value;
+        }
     </script>
