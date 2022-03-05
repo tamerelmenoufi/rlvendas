@@ -9,11 +9,6 @@
         background:red;
         left:0;
         top:0;
-        text-align:center;
-    }
-    .topo img{
-        height:50px;
-
     }
 
     .rodape{
@@ -48,9 +43,7 @@
     }
 
 </style>
-<div class="topo">
-    <img src="img/logo.png" />
-</div>
+<div class="topo"></div>
 <div class="pagina">
 <?php
     $query = "select * from categorias where deletado != '1'";
@@ -69,19 +62,28 @@
     }
 ?>
 </div>
-<div class="rodape">
-    <div class="row">
-        <div class="col"><i class="fa-solid fa-circle-user"></i><p>Cliente</p></div>
-        <div class="col"><i class="fa-solid fa-bell-concierge"></i><p>Pedido</p></div>
-        <div class="col"><i class="fa-solid fa-circle-dollar-to-slot"></i><p>Pagar</p></div>
-    </div>
-</div>
+<div class="rodape"></div>
 
 
 <script>
     $(function(){
 
         Carregando('none');
+
+        $.ajax({
+            url:"componentes/ms_topo.php",
+            success:function(dados){
+                $(".topo").html(dados);
+            }
+        });
+
+        $.ajax({
+            url:"componentes/ms_rodape.php",
+            success:function(dados){
+                $(".rodape").html(dados);
+            }
+        });
+
 
         $("button[acao<?=$md5?>]").off('click').on('click',function(){
 
