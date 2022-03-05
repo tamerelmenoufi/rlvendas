@@ -28,13 +28,13 @@
     </style>
   </head>
   <body>
-    <video id="preview"></video>
+    <div id="preview"></div>
     <script>
 
         function onScanSuccess(decodedText, decodedResult) {
             // Handle the scanned code as you like, for example:
             console.log(`Code matched = ${decodedText}`, decodedResult);
-            $.alert(`Scan result: ${decodedText}`, decodedResult);
+            alert(`Scan result: ${decodedText}`, decodedResult);
             html5QrcodeScanner.clear();
         }
 
