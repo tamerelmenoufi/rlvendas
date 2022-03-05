@@ -2,7 +2,6 @@
 include("../../lib/includes.php");
 
 if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
-
     $attr = [];
     $json = [];
 
@@ -14,14 +13,25 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
         ]
     ];
 
-    // @formatter:off
-    $produtos = array_merge($produto_atual, $_POST['sabores']);
+    $produtos_sabores = $_POST['sabores'] ?: [];
 
-    $json["categoria"] = [$_POST['categoria'] => $_POST['categoria_descricao']];
-    $json["medida"]    = [$_POST['medida'] => $_POST['medida_descricao']];
-    $json["produtos"]  = $produtos;
+    $produtos = array_merge($produto_atual, $produtos_sabores);
+
+    $json["categoria"] = [
+        "codigo " => $_POST['categoria'],
+        "descricao" => $_POST['categoria_descricao']
+    ];
+
+    $json["medida"] = [
+        "codigo" => $_POST['medida'],
+        "descricao" => $_POST['medida_descricao']
+    ];
+
+    $json["produtos"] = $produtos;
 
     #file_put_contents("debug.json", json_encode($json));
+
+    // @formatter:off
 
     foreach ([
                  'venda'             => $_SESSION['ConfVenda'],
@@ -32,7 +42,7 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
                  'produto_descricao' => $_POST['produto_observacao'],
                  'valor_total'       => ($_POST['valor'] * $_POST['quantidade']),
                  'data'              => date('Y-m-d H:i:s'),
-                 'produto_json'      => json_encode($json)
+                 'produto_json'      => json_encode($json, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
              ] as $key => $item) {
         $attr[] = "{$key} = '{$item}'";
     }
