@@ -31,13 +31,14 @@
 
             if(mesa && $.inArray( content, m ) != -1){
                 window.localStorage.setItem('AppMesa', content);
-
+/*
                 $.ajax({
                     url:"home/index.php?mesa="+mesa,
                     success:function(dados){
                         $("#body").html(dados);
                     }
                 });
+//*/
             }else{
                 $.alert('CÓDIGO <b>'+content+'</b> BLOQUEADO, EM USO OU NÃO REGISTRADO NO SISTEMA!');
             }

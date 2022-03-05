@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Instascan</title>
+    <title></title>
     <script type="text/javascript" src="<?= "camera.js"; ?>" ></script>
     <style>
         *{
@@ -35,8 +35,9 @@
         const html5QrCode = new Html5Qrcode("preview");
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
             /* handle success */
-            console.log(`Code matched = ${decodedText}`, decodedResult);
-            alert(`Scan result: ${decodedText}`, decodedResult);
+            //console.log(`Code matched = ${decodedText}`, decodedResult);
+            //alert(`Scan result: ${decodedText}`, decodedResult);
+            window.parent.LeituraCamera(decodedResult);
             // ...
             html5QrcodeScanner.clear();
         };
