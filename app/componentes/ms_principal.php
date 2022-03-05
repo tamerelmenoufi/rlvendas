@@ -88,8 +88,9 @@
         $("button[acao<?=$md5?>]").off('click').on('click',function(){
 
             AppPedido = window.localStorage.getItem('AppPedido');
+            AppCliente = window.localStorage.getItem('AppCliente');
 
-            if(AppPedido){
+            if(AppPedido && AppCliente){
                 local = $(this).attr('local');
                 janela = $(this).attr('janela');
                 Carregando();
@@ -103,7 +104,7 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else{
+            }else if(!AppPedido){
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
                     type:"POST",
@@ -114,7 +115,17 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-
+            }else if(!AppCliente){
+                $.ajax({
+                    url:"componentes/ms_popup_100.php",
+                    type:"POST",
+                    data:{
+                        local:"cliente/cadastro.php",
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
             }
         })
 

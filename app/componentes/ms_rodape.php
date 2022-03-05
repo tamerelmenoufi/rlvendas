@@ -3,7 +3,7 @@
 ?>
 
 <div class="row">
-    <div class="col"><i class="fa-solid fa-circle-user"></i><p>Cliente</p></div>
+    <div class="col"><i class="fa-solid fa-circle-user"></i><p>Cliente <?=$_SESSION['AppCliente']?></p></div>
     <div class="col IconPedido"><i class="fa-solid fa-bell-concierge"></i><p>Pedido <?=$_SESSION['AppPedido']?></p></div>
     <div class="col"><i class="fa-solid fa-circle-dollar-to-slot"></i><p>Pagar</p></div>
 </div>
