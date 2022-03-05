@@ -120,7 +120,7 @@
                     url:"componentes/ms_popup_100.php",
                     type:"POST",
                     data:{
-                        local:"cliente/cadastro.php",
+                        local:"src/cliente/cadastro.php",
                     },
                     success:function(dados){
                         $(".ms_corpo").append(dados);
