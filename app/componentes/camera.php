@@ -42,7 +42,7 @@
                     $.ajax({
                         url:"src/home/index.php",
                         data:{
-                            mesa: content,
+                            pedido: content,
                         },
                         success:function(dados){
                             $(".ms_corpo").html(dados);
