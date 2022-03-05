@@ -1,7 +1,8 @@
 <?php
     include("../../../lib/includes.php");
 
-    if($_GET['cliente']) $_SESSION['ms_cli_codigo'] = $_GET['cliente'];
+    if($_GET['cliente']) $_SESSION['AppCliente'] = $_GET['cliente'];
+    if($_GET['mesa']) $_SESSION['AppMesa'] = $_GET['mesa'];
 
 ?>
 <style>
