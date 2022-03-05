@@ -38,7 +38,7 @@
             //console.log(`Code matched = ${decodedText}`, decodedResult);
             //alert(`Scan result: ${decodedText}`, decodedResult);
             window.parent.LeituraCamera(decodedText);
-            html5QrCode.clear();
+            return false;
             // ...
 
         };
