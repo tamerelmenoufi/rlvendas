@@ -27,14 +27,9 @@
 
     <script>
 
-        ms_cli_codigo = window.localStorage.getItem('ms_cli_codigo');
-
         $(function(){
             $.ajax({
                 url:"src/home/index.php",
-                data:{
-                    cliente: ms_cli_codigo,
-                },
                 success:function(dados){
                     $(".ms_corpo").html(dados);
                 }

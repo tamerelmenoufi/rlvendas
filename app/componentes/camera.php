@@ -20,7 +20,15 @@
         flex:1;
     }
 </style>
-    <iframe name="videoCaptura" id="videoCaptura" src="../lib/vendor/camera/camera.php?<?=$md5?>"></iframe>
+    <iframe
+            name="videoCaptura"
+            id="videoCaptura"
+            src="../lib/vendor/camera/camera.php?<?=$md5?>"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+    >
+    </iframe>
 
     <script>
         function LeituraCamera(content){
@@ -28,7 +36,20 @@
             m = ['<?=@implode("','",$mesas)?>'];
 
             if(content && $.inArray( content, m ) != -1){
-                window.localStorage.setItem('AppMesa', content);
+                window.localStorage.setItem('AppPedido', content);
+
+                $(function(){
+                    $.ajax({
+                        url:"src/home/index.php",
+                        data:{
+                            pedido: content,
+                        },
+                        success:function(dados){
+                            $(".ms_corpo").html(dados);
+                        }
+                    });
+                })
+
 
                 PageClose();
 /*

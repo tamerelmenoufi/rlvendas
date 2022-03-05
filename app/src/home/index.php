@@ -1,5 +1,13 @@
 ﻿<?php
     include("../../../lib/includes.php");
+
+    if($_GET['pedido']){
+        $_SESSION['AppPedido'] = $_GET['pedido'];
+    }
+    if($_GET['cliente']){
+        $_SESSION['AppCliente'] = $_GET['cliente'];
+    }
+
 ?>
 <style>
     .bg_home{
@@ -22,7 +30,8 @@
         $.ajax({
                 url:"src/home/home.php",
                 data:{
-                    cliente: '<?=$_SESSION['ms_cli_codigo']?>',
+                    cliente: '<?=$_SESSION['AppCliente']?>',
+                    pedido: '<?=$_SESSION['AppPedido']?>',
                 },
                 success:function(dados){
                     $(".ms_corpo").html(dados);
