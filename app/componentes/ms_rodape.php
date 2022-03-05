@@ -15,7 +15,10 @@
                 url:"componentes/ms_popup.php",
                 type:"POST",
                 data:{
-                    local:""
+                    local:"src/cliente/pedido.php",
+                },
+                success:function(dados){
+                    $("#body").append(dados);
                 }
             });
         });
