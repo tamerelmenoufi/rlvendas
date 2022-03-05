@@ -31,21 +31,20 @@
     <div id="preview"></div>
     <script>
 
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "preview", { fps: 10, qrbox: 250 });
+
         function onScanSuccess(decodedText, decodedResult) {
-            // Handle the scanned code as you like, for example:
+            // Handle on success condition with the decoded text or result.
             console.log(`Code matched = ${decodedText}`, decodedResult);
             alert(`Scan result: ${decodedText}`, decodedResult);
+            // ...
             html5QrcodeScanner.clear();
+            // ^ this will stop the scanner (video feed) and clear the scan area.
         }
 
-        const html5QrcodeScanner = new Html5QrcodeScanner(
-        "preview",
-        {
-            fps: 10,
-            qrbox: { width: 250, height: 250 },
-        },
-        verbose=true);
         html5QrcodeScanner.render(onScanSuccess);
+
 
     </script>
  </body>
