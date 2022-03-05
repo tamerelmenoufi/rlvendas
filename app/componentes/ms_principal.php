@@ -87,9 +87,9 @@
 
         $("button[acao<?=$md5?>]").off('click').on('click',function(){
 
-            AppMesa = window.localStorage.getItem('AppMesa');
+            AppPedido = window.localStorage.getItem('AppPedido');
 
-            if(AppMesa){
+            if(AppPedido){
                 local = $(this).attr('local');
                 janela = $(this).attr('janela');
                 Carregando();

@@ -11,16 +11,21 @@
     $(function(){
 
         $(".IconPedido").click(function(){
-            $.ajax({
-                url:"componentes/ms_popup.php",
-                type:"POST",
-                data:{
-                    local:"src/cliente/pedido.php",
-                },
-                success:function(dados){
-                    $(".ms_corpo").append(dados);
-                }
-            });
+
+            AppPedido = window.localStorage.getItem('AppPedido');
+
+            if(AppPedido){
+                $.ajax({
+                    url:"componentes/ms_popup.php",
+                    type:"POST",
+                    data:{
+                        local:"src/cliente/pedido.php",
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
+            }
         });
 
     })

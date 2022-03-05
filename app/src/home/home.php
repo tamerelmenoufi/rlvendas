@@ -2,7 +2,7 @@
     include("../../../lib/includes.php");
 
     if($_GET['cliente']) $_SESSION['AppCliente'] = $_GET['cliente'];
-    if($_GET['mesa']) $_SESSION['AppMesa'] = $_GET['mesa'];
+    if($_GET['pedido']) $_SESSION['AppPedido'] = $_GET['pedido'];
 
 ?>
 <style>

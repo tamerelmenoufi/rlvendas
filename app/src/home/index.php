@@ -31,7 +31,7 @@
                 url:"src/home/home.php",
                 data:{
                     cliente: '<?=$_SESSION['AppCliente']?>',
-                    cliente: '<?=$_SESSION['AppMesa']?>',
+                    pedido: '<?=$_SESSION['AppPedido']?>',
                 },
                 success:function(dados){
                     $(".ms_corpo").html(dados);

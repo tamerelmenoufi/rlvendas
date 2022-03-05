@@ -7,7 +7,7 @@
 ?>
 
 <div class="col">
-    <div class="col-12">Pedido <?=$_SESSION['AppMesa']?></div>
+    <div class="col-12">Pedido <?=$_SESSION['AppPedido']?></div>
     <div class="col-12">
         <button SairPedido class="btn btn-danger btn-block">SAIR</button>
     </div>
@@ -24,7 +24,7 @@
                     SairPedido:'1',
                 },
                 success:function(dados){
-                    window.localStorage.removeItem('AppMesa');
+                    window.localStorage.removeItem('AppPedido');
                     window.localStorage.removeItem('AppCliente');
 
                     $.ajax({
