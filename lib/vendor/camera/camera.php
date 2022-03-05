@@ -31,19 +31,29 @@
     <div id="preview"></div>
     <script>
 
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "preview", { fps: 10, qrbox: 250 });
 
-        function onScanSuccess(decodedText, decodedResult) {
-            // Handle on success condition with the decoded text or result.
+        const html5QrCode = new Html5Qrcode("preview");
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+            /* handle success */
             console.log(`Code matched = ${decodedText}`, decodedResult);
             alert(`Scan result: ${decodedText}`, decodedResult);
             // ...
             html5QrcodeScanner.clear();
-            // ^ this will stop the scanner (video feed) and clear the scan area.
-        }
+        };
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
-        html5QrcodeScanner.render(onScanSuccess);
+        // If you want to prefer front camera
+        //html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback);
+
+        // If you want to prefer back camera
+        //html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+
+        // Select front camera or fail with `OverconstrainedError`.
+        //html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback);
+
+        // Select back camera or fail with `OverconstrainedError`.
+        html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+
 
 
     </script>
