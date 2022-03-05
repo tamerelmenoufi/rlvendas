@@ -29,7 +29,7 @@
 
             m = ['<?=@implode("','",$mesas)?>'];
 
-            if(mesa && $.inArray( content, m ) != -1){
+            if(content && $.inArray( content, m ) != -1){
                 window.localStorage.setItem('AppMesa', content);
 /*
                 $.ajax({
