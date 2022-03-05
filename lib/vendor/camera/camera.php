@@ -36,10 +36,11 @@
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
             /* handle success */
             //console.log(`Code matched = ${decodedText}`, decodedResult);
-            alert(`Scan result: ${decodedText}`, decodedResult);
+            html5QrCode.clear();
+            //alert(`Scan result: ${decodedText}`, decodedResult);
             window.parent.LeituraCamera(decodedText);
             // ...
-            html5QrCode.clear();
+
         };
         const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
