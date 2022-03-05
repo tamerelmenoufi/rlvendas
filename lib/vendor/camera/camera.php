@@ -37,8 +37,18 @@
             /* handle success */
             //console.log(`Code matched = ${decodedText}`, decodedResult);
             //alert(`Scan result: ${decodedText}`, decodedResult);
-            window.parent.LeituraCamera(decodedText);
-            return false;
+
+            //html5QrCode.clear();
+
+            html5QrCode.stop().then((ignore) => {
+                // QR Code scanning is stopped.
+                window.parent.LeituraCamera(decodedText);
+            }).catch((err) => {
+                // Stop failed, handle it.
+
+            });
+
+
             // ...
 
         };
