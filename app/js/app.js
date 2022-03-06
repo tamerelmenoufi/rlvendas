@@ -1,3 +1,33 @@
+function AppComponentes(obj){
+    $("object["+obj+"]").each(function(){
+
+
+
+        comp = $(this).attr("componente");
+        get = $(this).attr("get");
+        post = $(this).attr("post");
+
+        if(get){
+            listGet = get.split('|');
+            RetornoGet = '';
+            for(i=0;i<listGet.length;i++){
+                campos = listGet[i].split(',');
+                $("form").append("<input type='hidden' name='"+campos[0]+"' value='"+campos[1]+"' />");
+            }
+        }
+
+        if(post){
+            listPost = post.split('|');
+            for(i=0;i<listPost.length;i++){
+                campos = listPost[i].split(',');
+                $("form").append("<input type='hidden' name='"+campos[0]+"' value='"+campos[1]+"' />");
+            }
+        }
+
+        AbreComponente(comp,$("form").serializeArray());
+
+    });
+}
 
 AbreComponente = (opc, vetor) => {
     //console.log(vetor);
@@ -20,7 +50,7 @@ Carregando = (opc) => {
     }else{
         $(".Carregando").css("display","block");
     }
-    //RenovaSessao();
+    RenovaSessao();
 }
 
 PageBack = () => {
