@@ -41,9 +41,9 @@
 
 
     .tooltip {
-        position:fixed;
-        top:10px;
-        right:40px;
+        position:fixed !important;
+        top:10px !important;
+        right:40px !important;
     }
 
     .tooltip.show {
