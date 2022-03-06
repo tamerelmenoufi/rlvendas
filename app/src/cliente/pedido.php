@@ -36,22 +36,23 @@
     .mais{
         position:absolute;
         bottom:0;
-        width:40px;
-        left:100px;
+        width:50px;
+        left:110px;
         font-size:20px;
     }
     .quantidade{
         position:absolute;
         bottom:0;
         width:50px;
-        left:50px;
+        left:60px;
         border:0;
         text-align:center;
+        background:transparent !important;
     }
     .menos{
         position:absolute;
         bottom:0;
-        width:40px;
+        width:50px;
         left:10px;
         font-size:20px;
     }
