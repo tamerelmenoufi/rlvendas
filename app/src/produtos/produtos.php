@@ -66,7 +66,7 @@
     class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-3"
 ></i>
 
-<div class="MensagemAddProduto">
+<div class="MensagemAddProduto animate__animated animate__headShake animate__repeat-3">
     Produto Adicionado!
     <span><i class="fa-solid fa-caret-right"></i></span>
 </div>
@@ -140,7 +140,6 @@
 </div>
 
 <script>
-    $('.IconePedidos').tooltip('show');
     $("button[acao_medida]").click(function(){
         opc = $(this).attr("opc");
         produto = $(this).attr("produto");
