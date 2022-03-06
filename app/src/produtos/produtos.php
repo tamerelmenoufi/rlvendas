@@ -39,6 +39,10 @@
         z-index: 10;
     }
 
+
+    .tooltip.bs-tooltip-left {
+        border-left-color: #ff0000 !important;
+    }
     .tooltip.bs-tooltip-left .arrow:before {
         border-left-color: #ff0000 !important;
     }
