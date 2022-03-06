@@ -75,9 +75,9 @@ PageClose = () => {
 
 RenovaSessao = () =>{
 
-    var AppPedido = localStorage.getItem('AppPedido');
-    var Appvenda = localStorage.getItem('Appvenda');
-    var Appcliente = localStorage.getItem('AppCliente');
+    var AppPedido = document.localStorage.getItem('AppPedido');
+    var Appvenda = document.localStorage.getItem('Appvenda');
+    var Appcliente = document.localStorage.getItem('AppCliente');
 
     if(AppPedido && Appvenda && Appcliente){
         $.ajax({
@@ -96,7 +96,7 @@ RenovaSessao = () =>{
             }
         });
     }else{
-        alert("Pedido:" + AppPedido + " Venda:" + AppVenda + " Cliente:" + AppCliente );
+        //alert("Pedido:" + AppPedido + " Venda:" + AppVenda + " Cliente:" + AppCliente );
         //alert("Pedido:" + AppPedido);
         //alert("Cliente:" + AppCliente);
         //alert("Venda:" + AppVenda);
