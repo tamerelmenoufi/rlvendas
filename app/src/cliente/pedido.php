@@ -70,7 +70,7 @@
                 </small>
             </p>
 
-                <div style="position:absolute; button:10px; color:red;">
+                <div style="position:absolute; bottom:10px; color:red;">
                     TESTE
                 </div>
 
