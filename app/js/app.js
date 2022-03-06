@@ -54,7 +54,7 @@ RenovaSessao = () =>{
             data:{
                 AppPedido,
                 Appvenda,
-                Appcliente,
+                Appcliente
             },
             success:function(dados){
 
