@@ -58,7 +58,7 @@
                 <?php
                     $ListaPedido = [];
                     for($i=0; $i < count($pedido->pedidos); $i++){
-                        $opc = $pedido->medida;
+                        $opc = $pedido->pedidos;
                         $ListaPedido[] = $opc['descricao'];
                     }
                     if($ListaPedido) echo implode(', ', $ListaPedido);
