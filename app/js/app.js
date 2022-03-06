@@ -96,16 +96,16 @@ RenovaSessao = () =>{
 
     var AppPedido = document.localStorage.getItem('AppPedido');
     var AppVenda = document.localStorage.getItem('AppVenda');
-    var Appcliente = document.localStorage.getItem('AppCliente');
+    var AppCliente = document.localStorage.getItem('AppCliente');
 
-    if(AppPedido && AppVenda && Appcliente){
+    if(AppPedido && AppVenda && AppCliente){
         $.ajax({
             url:"src/cliente/sessao.php",
             type:"POST",
             data:{
                 AppPedido,
                 AppVenda,
-                Appcliente
+                AppCliente
             },
             success:function(dados){
                 $("body").append(dados);
