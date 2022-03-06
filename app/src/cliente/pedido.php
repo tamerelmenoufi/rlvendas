@@ -85,7 +85,7 @@
                 </small>
             </p>
 
-                <div style="position:absolute; bottom:10px; color:red;">
+                <div style="position:absolute; bottom:0px; left:0px; width:100%; border:solid 1px red;">
 
 
                     <div class="input-group input-group-lg">
