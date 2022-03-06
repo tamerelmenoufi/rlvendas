@@ -98,6 +98,9 @@ RenovaSessao = () =>{
     }else{
         //alert("Pedido:" + AppPedido + "\nVenda:" + AppVenda + "\nCliente:" + AppCliente + "\n");
         alert("Pedido:" + AppPedido);
+        alert("Venda:" + AppVenda);
+        alert("Cliente:" + AppCliente);
+
     }
 }
 
