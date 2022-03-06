@@ -49,6 +49,7 @@
         border-radius:5px;
         padding:5px;
         width:auto;
+        z-index:2;
     }
     .MensagemAddProduto i{
         position:absolute;
