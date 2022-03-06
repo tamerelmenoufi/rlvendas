@@ -8,8 +8,8 @@
 <style>
     .PedidoTopoTitulo{
         position:fixed;
-        top:15px;
-        margin-left:65px;
+        top:10px;
+        margin-left:70px;
     }
     .PedidoBottomFixo{
         position:fixed;
