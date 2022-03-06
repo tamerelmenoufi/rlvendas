@@ -181,7 +181,7 @@
 
         });
 
-        $(".nemos").click(function () {
+        $(".menos").click(function () {
             obj = $(this).parent("div");
             quantidade = obj.find(".quantidade").html();
             atual = obj.find("span[valor]").attr("atual");
