@@ -17,7 +17,7 @@
         padding:10px;
     }
     .PedidoBottomItens button{
-        width:100%;
+        width:calc(100% -20px);
     }
 
 </style>
