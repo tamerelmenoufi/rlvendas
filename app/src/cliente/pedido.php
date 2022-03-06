@@ -5,16 +5,47 @@
         exit();
     }
 ?>
-
-<div class="col">
+<style>
+    .PedidoBottomFixo{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+    }
+    .PedidoBottomItens{
+        text-align:center;
+    }
+</style>
+<div class="col" style="margin-bottom:60px; border:solid 1px red;">
     <div class="col-12">Pedido <?=$_SESSION['AppPedido']?></div>
     <div class="col-12">
         <button SairPedido class="btn btn-danger btn-block">SAIR</button>
     </div>
 </div>
 
+<div class="PedidoBottomFixo">
+    <div class="row">
+        <div class="col PedidoBottomItens">
+            <button class="btn btn-danger" pagar>Pagar</button>
+        </div>
+        <div class="col PedidoBottomItens">
+            <button class="btn btn-danger" canelar>Cancelar</button>
+        </div>
+    </div>
+</div>
+
+
 <script>
     $(function(){
+
+        $("button[canelar]").click(function(){
+            PageClose();
+        }
+
+        $("button[pagar]").click(function(){
+            PageClose();
+        }
+
         $("button[SairPedido]").click(function(){
 
             $.ajax({
