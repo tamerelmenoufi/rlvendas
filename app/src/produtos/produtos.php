@@ -57,7 +57,8 @@
         font-size:40x;
         top:50%;
         margin-top:-20px;
-        color:green;
+        color:red;
+        z-index:3;
     }
 
 </style>
