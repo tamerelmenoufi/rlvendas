@@ -181,15 +181,14 @@
 
         });
 
-        $("#menos").click(function () {
-            quantidade = $("#quantidade").html();
-            atual = $("span[valor]").attr("atual");
+        $(".nemos").click(function () {
+            obj = $(this).parent("div");
+            quantidade = obj.find(".quantidade").html();
+            atual = obj.find("span[valor]").attr("atual");
             quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
-
-            $("#quantidade").html(quantidade);
-
+            obj.find(".quantidade").html(quantidade);
             valor = atual * quantidade;
-            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         });
 
