@@ -15,6 +15,7 @@
         font-size:12px;
         padding:5px;
         margin-right:10px;
+        border:1px solid green;
     }
 </style>
 <div class="row">
