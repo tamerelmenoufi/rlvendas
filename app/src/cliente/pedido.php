@@ -13,7 +13,6 @@
         width:100%;
         height:60px;
         background:#fff;
-        border:solid 1px red;
         padding-left:70px;
         padding-top:15px;
         z-index:1;
@@ -43,10 +42,16 @@
             $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}'";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
+
+                $pedido = json_decode($d->produto_json);
+
         ?>
         <div class="card mb-3">
             <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">
+                <?=$pedido['categoria']['descricao']?>
+                <?=$pedido['medida']['descricao']?>
+            </h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
@@ -54,7 +59,6 @@
         <?php
             }
         ?>
-
     </div>
 </div>
 
