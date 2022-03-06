@@ -41,7 +41,7 @@
 </style>
 
 <!-- Informativo de pedidos ativos -->
-<i class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-5"></i>
+<i class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-3"></i>
 <!-- Informativo de pedidos ativos -->
 
 
