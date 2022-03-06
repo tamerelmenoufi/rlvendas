@@ -38,48 +38,38 @@
         font-weight:bold;
         z-index: 10;
     }
-
-
-    .tooltip {
-        position:fixed !important;
-        top:10px !important;
-        right:40px !important;
+    .MensagemAddProduto{
+        position:fixed;
+        right:50px;
+        top:15px;
+        background-color:green;
+        color:#fff;
+        text-align:center;
+        font-weight:bold;
+        border-radius:5px;
+        padding:5px;
+        width:auto;
+    }
+    .MensagemAddProduto i{
+        position:absolute;
+        right:-20px;
+        font-size:20x;
+        top:50%;
+        margin-top:-10px;
     }
 
-    .tooltip.show {
-        opacity: 1;
-    }
-
-    .tooltip-inner {
-        background-color: green;
-        box-shadow: 0px 0px 4px black;
-        opacity: 1 !important;
-    }
-
-    .tooltip.bs-tooltip-right .arrow:before {
-        right-color: green !important;
-    }
-
-    .tooltip.bs-tooltip-left .arrow:before {
-        border-left-color: green !important;
-    }
-
-    .tooltip.bs-tooltip-bottom .arrow:before {
-        border-bottom-color: green !important;
-    }
-
-    .tooltip.bs-tooltip-top .arrow:before {
-        border-top-color: green !important;
-    }
 </style>
 
 <!-- Informativo de pedidos ativos -->
 <i
     class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-3"
-    data-toggle="tooltip"
-    data-placement="left"
-    title="Tooltip on left"
 ></i>
+
+<div class="MensagemAddProduto">
+    Produto Adicionado!
+    <i class="fa-solid fa-caret-right"></i>
+</div>
+
 <!-- Informativo de pedidos ativos -->
 
 
