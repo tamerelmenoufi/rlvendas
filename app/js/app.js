@@ -81,10 +81,10 @@ RenovaSessao = () =>{
         AppPedido = '';
     }
 
-    if (localStorage.hasOwnProperty("Appvenda")) {
-        Appvenda = localStorage.getItem('Appvenda');
+    if (localStorage.hasOwnProperty("AppVenda")) {
+        AppVenda = localStorage.getItem('AppVenda');
     }else{
-        Appvenda = '';
+        AppVenda = '';
     }
 
     if (localStorage.hasOwnProperty("AppCliente")) {
