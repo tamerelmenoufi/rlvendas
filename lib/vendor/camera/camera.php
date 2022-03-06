@@ -61,10 +61,10 @@
         //html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
 
         // Select front camera or fail with `OverconstrainedError`.
-        html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback);
+        //html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback);
 
         // Select back camera or fail with `OverconstrainedError`.
-        //html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+        html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
 
 
 
