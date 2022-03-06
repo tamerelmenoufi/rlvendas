@@ -50,7 +50,7 @@
         ?>
         <div class="card mb-3">
             <div class="card-body">
-            <h5 class="card-title" style="paddig:0; margin:0; font-size:14px;">
+            <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                 <?=$pedido->categoria->descricao?>
                 - <?=$pedido->medida->descricao?>
             </h5>
