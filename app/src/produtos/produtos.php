@@ -51,7 +51,7 @@
         padding:5px;
         width:auto;
         z-index:3;
-        display:<?=(($_SESSION['AppCarrinho'])?'block':'none')?>;
+        display:none;
     }
     .MensagemAddProduto span{
         position:absolute;
