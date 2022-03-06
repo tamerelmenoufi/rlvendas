@@ -50,11 +50,11 @@
         ?>
         <div class="card mb-3">
             <div class="card-body">
-            <h5 class="card-title">
+            <h5 class="card-title" style="paddig:0; margin:0;">
                 <?=$pedido->categoria->descricao?>
                 - <?=$pedido->medida->descricao?>
             </h5>
-            <p class="card-text">
+            <p class="card-text" style="paddig:0; margin:0;">
                 <?php
                     $ListaPedido = [];
                     for($i=0; $i < count($pedido->produtos); $i++){
@@ -62,7 +62,7 @@
                     }
                 ?>
             </p>
-            <p class="card-text">
+            <p class="card-text" style="paddig:0; margin:0;">
                 <small class="text-muted">
                 <?php
                     if($ListaPedido) echo implode(', ', $ListaPedido);
