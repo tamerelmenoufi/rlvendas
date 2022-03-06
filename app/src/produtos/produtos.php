@@ -140,6 +140,9 @@
 </div>
 
 <script>
+    setTimeout(function(){
+        $(".MensagemAddProduto").remove();
+    }, 3000);
     $("button[acao_medida]").click(function(){
         opc = $(this).attr("opc");
         produto = $(this).attr("produto");
