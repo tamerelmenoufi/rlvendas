@@ -11,10 +11,9 @@
         bottom:0;
         left:0;
         width:100%;
-        border:solid 1px red;
+        background:#fff;
     }
     .PedidoBottomItens{
-        text-align:center;
         padding:10px;
     }
 
@@ -24,14 +23,6 @@
     <div class="col-12">
         <button SairPedido class="btn btn-danger btn-block">SAIR</button>
     </div>
-
-    <?php
-    for($i=1;$i<100;$i++){
-        echo "<br>Dados {$i}<hr>";
-    }
-
-    ?>
-
 </div>
 
 <div class="PedidoBottomFixo">
