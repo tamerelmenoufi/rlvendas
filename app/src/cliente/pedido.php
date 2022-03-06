@@ -91,7 +91,7 @@
 
 
                     <div class="input-group input-group-lg">
-                        <div class="input-group-prepend" style="width:50px;">
+                        <div class="input-group-prepend" style="width:30px;">
                             <button
                                     class="btn text-danger"
                                     type="button"
@@ -103,10 +103,10 @@
                         <div
                                 class="form-control"
                                 id="quantidade"
-                                style="border:0; width:50px;"
+                                style="border:0; width:30px;"
                         >1</div>
 
-                        <div class="input-group-append" style="width:50px;">
+                        <div class="input-group-append" style="width:30px;">
                             <button
                                     class="btn text-success"
                                     type="button"
