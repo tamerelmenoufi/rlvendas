@@ -8,8 +8,14 @@
 <style>
     .PedidoTopoTitulo{
         position:fixed;
-        top:15px;
-        margin-left:70px;
+        left:0px;
+        top:0px;
+        width:100%;
+        height:60px;
+        background:#fff;
+        border:solid 1px red;
+        padding-left:70px;
+        padding-top:15px;
     }
     .PedidoBottomFixo{
         position:fixed;
@@ -27,9 +33,9 @@
     }
 
 </style>
-<h4 class="PedidoTopoTitulo">
-    Pedido <?=$_SESSION['AppPedido']?>
-</h4>
+<div class="PedidoTopoTitulo">
+    <h4>Pedido <?=$_SESSION['AppPedido']?></h4>
+</div>
 <div class="col" style="margin-bottom:60px;">
     <div class="col-12">
         <?php
