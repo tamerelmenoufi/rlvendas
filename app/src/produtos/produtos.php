@@ -39,8 +39,8 @@
         z-index: 10;
     }
 
-    .tooltip.left .tooltip-arrow {
-        border-left-color: #00acd6;
+    .tooltip.bs-tooltip-left .arrow:before {
+        border-left-color: #ff0000 !important;
     }
 </style>
 
