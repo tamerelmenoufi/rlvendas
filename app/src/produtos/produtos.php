@@ -36,6 +36,7 @@
         font-size:30px;
         color:green;
         font-weight:bold;
+        z-index: 10;
     }
 </style>
 
