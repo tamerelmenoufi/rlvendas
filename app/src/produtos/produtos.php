@@ -29,7 +29,20 @@
         font-weight:bold;
         z-index: 1;
     }
+    .IconePedidos{
+        position:fixed;
+        top:20px;
+        right:25px;
+        font-size:30px;
+        color:green;
+        font-weight:bold;
+    }
 </style>
+
+<!-- Informativo de pedidos ativos -->
+<i class="fa-solid fa-bell-concierge IconePedidos animate animate__tada"></i>
+<!-- Informativo de pedidos ativos -->
+
 
 <div class="topo<?=$md5?>">
     <center><?=$d->categoria?></center>
