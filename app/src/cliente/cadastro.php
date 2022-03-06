@@ -29,7 +29,10 @@
             /////////////////////////////////////////////////////////////////
         }
 
-        echo $_SESSION['AppCliente'];
+        echo json_encode([
+            "AppCliente" => $_SESSION['AppCliente'],
+            "AppVenda" => $_SESSION['AppVenda']
+        ]);
 
         exit();
     }
@@ -60,7 +63,11 @@
                         telefone,
                     },
                     success:function(dados){
-                        window.localStorage.setItem('AppCliente', dados);
+
+                        let retorno = JSON.parse(dados);
+
+                        window.localStorage.setItem('AppCliente', dados.AppCliente);
+                        window.localStorage.setItem('AppVenda', dados.AppVenda);
 
                         $.ajax({
                             url:"src/home/index.php",
