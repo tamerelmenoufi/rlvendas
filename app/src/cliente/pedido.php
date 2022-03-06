@@ -65,7 +65,7 @@
 <div class="PedidoTopoTitulo">
     <h4>Pedido <?=$_SESSION['AppPedido']?></h4>
 </div>
-<div class="col" style="margin-bottom:60px;">
+<div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
         <?php
             $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}'";
@@ -77,7 +77,7 @@
                 //print_r($pedido)
 
         ?>
-        <div class="card mb-3" style="padding-bottom:80px;">
+        <div class="card mb-3" style="padding-bottom:60px;">
             <div class="card-body">
                 <p style="position:absolute; right:-10px; top:-10px;">
                     <i class="fa-solid fa-circle-xmark" style="color:red; font-size:30px;"></i>
