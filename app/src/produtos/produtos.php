@@ -116,6 +116,7 @@
 </div>
 
 <script>
+    $('.IconePedidos').tooltip('show');
     $("button[acao_medida]").click(function(){
         opc = $(this).attr("opc");
         produto = $(this).attr("produto");
