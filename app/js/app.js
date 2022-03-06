@@ -95,7 +95,7 @@ RenovaSessao = () =>{
             }
         });
     }else{
-        alert('Erro 2');
+        $.alert(`Pedido:{$AppPedido}<br>Venda:{$AppVenda}<br>Cliente:{$AppCliente}<br>`);
     }
 }
 
