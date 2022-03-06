@@ -95,7 +95,7 @@ RenovaSessao = () =>{
             }
         });
     }else{
-        $.alert(`Pedido:{$AppPedido}<br>Venda:{$AppVenda}<br>Cliente:{$AppCliente}<br>`);
+        $.alert(`Pedido:${AppPedido}<br>Venda:${AppVenda}<br>Cliente:${AppCliente}<br>`);
     }
 }
 
