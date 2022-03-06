@@ -53,10 +53,11 @@
     }
     .MensagemAddProduto i{
         position:absolute;
-        right:-20px;
-        font-size:20x;
+        right:20px;
+        font-size:40x;
         top:50%;
-        margin-top:-10px;
+        margin-top:-20px;
+        color:green;
     }
 
 </style>
