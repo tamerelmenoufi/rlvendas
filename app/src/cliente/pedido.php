@@ -37,21 +37,18 @@
         position:absolute;
         bottom:0;
         width:40px;
-        border:solid 1px red;
         left:100px;
     }
     #quantidade{
         position:absolute;
         bottom:0;
         width:50px;
-        border:solid 1px red;
         left:50px;
     }
     #menos{
         position:absolute;
         bottom:0;
         width:40px;
-        border:solid 1px red;
         left:10px;
     }
 
