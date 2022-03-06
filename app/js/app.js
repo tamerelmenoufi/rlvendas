@@ -76,19 +76,19 @@ PageClose = () => {
 RenovaSessao = () =>{
 
     if (localStorage.hasOwnProperty("AppPedido")) {
-        AppPedido = document.localStorage.getItem('AppPedido');
+        AppPedido = localStorage.getItem('AppPedido');
     }else{
         AppPedido = '';
     }
 
     if (localStorage.hasOwnProperty("Appvenda")) {
-        Appvenda = document.localStorage.getItem('Appvenda');
+        Appvenda = localStorage.getItem('Appvenda');
     }else{
         Appvenda = '';
     }
 
     if (localStorage.hasOwnProperty("AppCliente")) {
-        AppCliente = document.localStorage.getItem('AppCliente');
+        AppCliente = localStorage.getItem('AppCliente');
     }else{
         AppCliente = '';
     }
