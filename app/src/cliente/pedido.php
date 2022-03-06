@@ -40,11 +40,11 @@
 
         $("button[canelar]").click(function(){
             PageClose();
-        }
+        });
 
         $("button[pagar]").click(function(){
             PageClose();
-        }
+        });
 
         $("button[SairPedido]").click(function(){
 
