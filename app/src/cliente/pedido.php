@@ -11,12 +11,14 @@
         bottom:0;
         left:0;
         width:100%;
+        border:solid 1px red;
     }
     .PedidoBottomItens{
         text-align:center;
+        padding:10px;
     }
 </style>
-<div class="col" style="margin-bottom:60px; border:solid 1px red;">
+<div class="col" style="margin-bottom:60px;">
     <div class="col-12">Pedido <?=$_SESSION['AppPedido']?></div>
     <div class="col-12">
         <button SairPedido class="btn btn-danger btn-block">SAIR</button>
@@ -26,10 +28,10 @@
 <div class="PedidoBottomFixo">
     <div class="row">
         <div class="col PedidoBottomItens">
-            <button class="btn btn-danger" pagar>Pagar</button>
+            <button class="btn btn-success btn-block" pagar>Pagar</button>
         </div>
         <div class="col PedidoBottomItens">
-            <button class="btn btn-danger" canelar>Cancelar</button>
+            <button class="btn btn-danger btn-block" canelar>Cancelar</button>
         </div>
     </div>
 </div>
