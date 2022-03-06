@@ -36,7 +36,7 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
     foreach ([
                  'venda'             => $_SESSION['ConfVenda'],
                  'cliente'           => $_SESSION['ConfCliente'],
-                 'produto'           => $_POST['produto'],
+                 'mesa'              => $_SESSION['ConfMesa'],
                  'quantidade'        => $_POST['quantidade'],
                  'valor_unitario'    => $_POST['valor'],
                  'produto_descricao' => $_POST['produto_observacao'],
@@ -328,7 +328,6 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
         </div>
     </div>
 
-    <input type="hidden" id="produto" value="<?= $produto; ?>" readonly>
     <input type="hidden" id="medida" value="<?= $medida; ?>" readonly>
     <input type="hidden" id="valor" value="<?= $valor; ?>" readonly>
 
@@ -470,7 +469,6 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
         $("button[adicionar_produto]").click(function () {
 
             // @formatter:off
-                var produto             = $("#produto").val();
                 var produto_observacao  = $("#search_field").val();
                 var produto_descricao   = $("span[produto_descricao]").text();
                 var quantidade          = $("#quantidade").val();
@@ -520,7 +518,6 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                 data: {
                     quantidade,
                     produto_descricao,
-                    produto,
                     produto_observacao,
                     valor,
                     sabores,
@@ -540,7 +537,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                 categoria,
                             },
                             success: function (dados) {
-                                //tata.success('Sucesso', 'Pedido adicionado com sucesso');
+                                tata.success('Sucesso', 'Pedido adicionado com sucesso');
                                 $("#body").html(dados);
                             }
                         });
