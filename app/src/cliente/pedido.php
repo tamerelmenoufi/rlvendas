@@ -45,6 +45,7 @@
         width:50px;
         left:50px;
         border:0;
+        text-align:center;
     }
     .menos{
         position:absolute;
@@ -98,9 +99,7 @@
                 </small>
             </p>
 
-                <div style="position:absolute; bottom:0px; left:0px; width:100%; border:solid 1px red;">
-
-
+                <div style="position:absolute; bottom:0px; left:0px; width:100%;">
 
                         <button
                                 class="btn text-danger menos"
