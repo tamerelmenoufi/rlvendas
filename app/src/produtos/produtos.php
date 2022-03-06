@@ -39,12 +39,9 @@
         z-index: 10;
     }
 
-    .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
-    .bs-tooltip-bottom .arrow::before {
-        border-bottom-color: #f00;
-        /* Red */
+    .tooltip.left .tooltip-arrow {
+        border-left-color: #00acd6;
     }
-
 </style>
 
 <!-- Informativo de pedidos ativos -->
