@@ -53,7 +53,7 @@
     }
     .MensagemAddProduto span{
         position:absolute;
-        right:-10px;
+        right:-12px;
         font-size:30px;
         top:-3px;
         color:red;
