@@ -40,11 +40,30 @@
     }
 
 
-    .tooltip.bs-tooltip-left {
-        background-color: #ff0000 !important;
+    .tooltip.show {
+        opacity: 1;
     }
+
+    .tooltip-inner {
+        background-color: #ff0000;
+        box-shadow: 0px 0px 4px black;
+        opacity: 1 !important;
+    }
+
+    .tooltip.bs-tooltip-right .arrow:before {
+        right-color: #ff0000 !important;
+    }
+
     .tooltip.bs-tooltip-left .arrow:before {
         border-left-color: #ff0000 !important;
+    }
+
+    .tooltip.bs-tooltip-bottom .arrow:before {
+        border-bottom-color: #ff0000 !important;
+    }
+
+    .tooltip.bs-tooltip-top .arrow:before {
+        border-top-color: #ff0000 !important;
     }
 </style>
 
