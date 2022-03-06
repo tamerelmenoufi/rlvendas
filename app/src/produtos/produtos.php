@@ -40,7 +40,7 @@
     }
     .MensagemAddProduto{
         position:fixed;
-        right:50px;
+        right:80px;
         top:15px;
         background-color:green;
         color:#fff;
@@ -53,10 +53,10 @@
     }
     .MensagemAddProduto span{
         position:absolute;
-        right:-20px;
+        right:-5px;
         font-size:40px;
         top:50%;
-        margin-top:-20px;
+        margin-top:-10px;
         color:red;
         z-index:3;
     }
