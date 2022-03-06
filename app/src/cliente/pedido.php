@@ -82,7 +82,7 @@
                 //print_r($pedido)
 
         ?>
-        <div class="card bg-light mb-3" style="padding-bottom:60px;">
+        <div class="card bg-light mb-3" style="padding-bottom:40px;">
             <div class="card-body">
                 <p style="position:absolute; right:-10px; top:-10px;">
                     <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px;"></i>
