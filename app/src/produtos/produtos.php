@@ -37,7 +37,7 @@
         color:green;
         font-weight:bold;
         z-index: 10;
-        display:none;
+        display:<?=(($_SESSION['AppCarrinho'])?'block':'none')?>;
     }
     .MensagemAddProduto{
         position:fixed;
@@ -51,7 +51,7 @@
         padding:5px;
         width:auto;
         z-index:3;
-        display:none;
+        display:<?=(($_SESSION['AppCarrinho'])?'block':'none')?>;
     }
     .MensagemAddProduto span{
         position:absolute;

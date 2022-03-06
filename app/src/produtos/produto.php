@@ -27,6 +27,7 @@
             echo json_encode([
                 "status" => "sucesso",
             ]);
+            $_SESSION['AppCarrinho'] = true;
         }
 
         exit();
