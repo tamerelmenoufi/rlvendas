@@ -44,23 +44,23 @@ PageClose = () => {
 
 
 RenovaSessao = () =>{
-
     AppPedido = window.localStorage.getItem('AppPedido');
     Appvenda = window.localStorage.getItem('Appvenda');
     Appcliente = window.localStorage.getItem('AppCliente');
+    if(AppPedido && Appvenda && Appcliente){
+        $.ajax({
+            url:"src/cliente/sessao.php",
+            type:"POST",
+            data:{
+                AppPedido,
+                Appvenda,
+                Appcliente,
+            },
+            success:function(dados){
 
-    $.ajax({
-        url:"src/cliente/sessao.php",
-        type:"POST",
-        data:{
-            AppPedido,
-            Appvenda,
-            Appcliente,
-        },
-        success:function(dados){
-
-        }
-    });
+            }
+        });
+    }
 }
 
 
