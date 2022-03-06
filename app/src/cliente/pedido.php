@@ -58,6 +58,8 @@
         position:absolute;
         right:0px;
         bottom:0px;
+        font-size:25px;
+        font-weight:bold;
     }
 
 
