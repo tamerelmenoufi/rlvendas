@@ -58,11 +58,9 @@
                 <?php
                     $ListaPedido = [];
                     for($i=0; $i < count($pedido->produtos); $i++){
-                        $ListaPedido[] = $pedido->produtos->descricao;
+                        $ListaPedido[] = $pedido->produtos[$i]->descricao;
                     }
                 ?>
-
-
             </p>
             <p class="card-text">
                 <small class="text-muted">
