@@ -40,6 +40,7 @@
     #quantidade {
         text-align: center;
         font-size:12px;
+        padding-top:5px;
     }
 
     #rotulo_valor {
@@ -90,7 +91,7 @@
 
 
                     <div class="input-group input-group-lg">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend" style="width:50px;">
                             <button
                                     class="btn text-danger"
                                     type="button"
@@ -102,10 +103,10 @@
                         <div
                                 class="form-control"
                                 id="quantidade"
-                                style="border:0;"
+                                style="border:0; width:50px;"
                         >1</div>
 
-                        <div class="input-group-append">
+                        <div class="input-group-append" style="width:50px;">
                             <button
                                     class="btn text-success"
                                     type="button"
