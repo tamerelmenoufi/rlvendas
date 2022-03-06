@@ -112,7 +112,7 @@
                 <p class="card-text" style="padding:0; margin:0; color:red; font-size:10px;">
                     <?= $d->produto_descricao?>
                 </p>
-                <div style="position:absolute; bottom:0px; left:0px; width:100%;">
+                <div cod="<?=$d->codigo?>" style="position:absolute; bottom:0px; left:0px; width:100%;">
 
                         <button
                                 class="btn text-danger menos"
@@ -164,6 +164,35 @@
 
 <script>
     $(function(){
+
+
+
+        var qt = 0;
+        var v_produto_com_sabores = 0;
+
+        $(".mais").click(function () {
+            obj = $(this).parent("div");
+            quantidade = obj.find(".quantidade").html();
+            atual = obj.find("span[valor]").attr("atual");
+            quantidade = (quantidade * 1 + 1);
+            obj.find(".quantidade").html(quantidade);
+            valor = atual * quantidade;
+            obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
+        });
+
+        $("#menos").click(function () {
+            quantidade = $("#quantidade").html();
+            atual = $("span[valor]").attr("atual");
+            quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
+
+            $("#quantidade").html(quantidade);
+
+            valor = atual * quantidade;
+            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
+        });
+
 
         $("button[pagar]").click(function(){
             PageClose();
