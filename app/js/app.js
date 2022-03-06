@@ -87,7 +87,10 @@ RenovaSessao = () =>{
                 Appcliente
             },
             success:function(dados){
-
+                $("body").append(dados);
+            },
+            error:function(){
+                alert('erro');
             }
         });
     }
