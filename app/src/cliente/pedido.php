@@ -24,6 +24,14 @@
     <div class="col-12">
         <button SairPedido class="btn btn-danger btn-block">SAIR</button>
     </div>
+
+    <?php
+    for($i=1;$i=100;$i++){
+        echo "<br>Dados {$i}<hr>";
+    }
+
+    ?>
+
 </div>
 
 <div class="PedidoBottomFixo">
