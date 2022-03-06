@@ -49,7 +49,7 @@
         border-radius:5px;
         padding:5px;
         width:auto;
-        z-index:2;
+        z-index:3;
     }
     .MensagemAddProduto span{
         position:absolute;
@@ -57,7 +57,7 @@
         font-size:30px;
         top:-3px;
         color:red;
-        z-index:3;
+        z-index:2;
     }
 
 </style>
