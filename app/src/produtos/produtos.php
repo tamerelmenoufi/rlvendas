@@ -56,8 +56,7 @@
         right:-8px;
         font-size:30px;
         top:-3px;
-        color:red;
-        z-index:2;
+        color:green;
     }
 
 </style>
