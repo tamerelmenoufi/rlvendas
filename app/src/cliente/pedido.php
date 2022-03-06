@@ -16,6 +16,7 @@
         border:solid 1px red;
         padding-left:70px;
         padding-top:15px;
+        z-index:1;
     }
     .PedidoBottomFixo{
         position:fixed;
