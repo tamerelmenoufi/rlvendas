@@ -44,7 +44,6 @@
     }
 
     #rotulo_valor {
-        width: 180px;
         font-weight: bold;
     }
 
