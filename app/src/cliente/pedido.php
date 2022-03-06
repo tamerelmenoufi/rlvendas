@@ -26,7 +26,7 @@
     </div>
 
     <?php
-    for($i=1;$i=100;$i++){
+    for($i=1;$i<100;$i++){
         echo "<br>Dados {$i}<hr>";
     }
 
