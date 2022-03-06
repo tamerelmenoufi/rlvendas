@@ -37,6 +37,7 @@
         color:green;
         font-weight:bold;
         z-index: 10;
+        display:<?=(($_SESSION['AppCarrinho'])?'block':'none')?>;
     }
     .MensagemAddProduto{
         position:fixed;
@@ -50,6 +51,7 @@
         padding:5px;
         width:auto;
         z-index:3;
+        display:none;
     }
     .MensagemAddProduto span{
         position:absolute;
@@ -140,9 +142,7 @@
 </div>
 
 <script>
-    setTimeout(function(){
-        $(".MensagemAddProduto").remove();
-    }, 3000);
+
     $("button[acao_medida]").click(function(){
         opc = $(this).attr("opc");
         produto = $(this).attr("produto");

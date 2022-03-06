@@ -27,6 +27,7 @@
             echo json_encode([
                 "status" => "sucesso",
             ]);
+            $_SESSION['AppCarrinho'] = true;
         }
 
         exit();
@@ -328,7 +329,7 @@
             var produto_descricao = $(".observacoes").html();
 
             var produto_json = JSON.stringify(Object.assign({}, venda));
-
+            $(".IconePedidos, .MensagemAddProduto").css("display","none");
             $.ajax({
                 url:"src/produtos/produto.php",
                 type:"POST",
@@ -342,6 +343,10 @@
                 },
                 success:function(dados){
                     PageClose();
+                    $(".IconePedidos, .MensagemAddProduto").css("display","block");
+                    setTimeout(function(){
+                        $(".MensagemAddProduto").css('display','none');
+                    }, 3000);
                 }
             });
 
