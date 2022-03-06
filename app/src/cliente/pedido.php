@@ -32,7 +32,22 @@
 </h4>
 <div class="col" style="margin-bottom:60px;">
     <div class="col-12">
-        <button SairPedido class="btn btn-danger btn-block">SAIR</button>
+        <?php
+            $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}'";
+            $result = mysqli_query($con, $query);
+            while($d = mysqli_fetch_object($result)){
+        ?>
+        <div class="card mb-3">
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <?php
+            }
+        ?>
+
     </div>
 </div>
 
