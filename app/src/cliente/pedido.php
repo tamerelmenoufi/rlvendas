@@ -16,6 +16,9 @@
     .PedidoBottomItens{
         padding:10px;
     }
+    .PedidoBottomItens button{
+        padding:100%;
+    }
 
 </style>
 <div class="col" style="margin-bottom:60px;">
@@ -28,10 +31,10 @@
 <div class="PedidoBottomFixo">
     <div class="row">
         <div class="col PedidoBottomItens">
-            <button class="btn btn-success btn-block" pagar>Pagar</button>
+            <button class="btn btn-success" pagar>Pagar</button>
         </div>
         <div class="col PedidoBottomItens">
-            <button class="btn btn-danger btn-block" canelar>Cancelar</button>
+            <button class="btn btn-danger" canelar>Cancelar</button>
         </div>
     </div>
 </div>
