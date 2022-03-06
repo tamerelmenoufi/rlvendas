@@ -52,10 +52,27 @@
             <div class="card-body">
             <h5 class="card-title">
                 <?=$pedido->categoria->descricao?>
-                <?=$pedido->medida->descricao?>
+                - <?=$pedido->medida->descricao?>
             </h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">
+                <?php
+                    $ListaPedido = [];
+                    for($i=0; $i < count($pedido->pedidos); $i++){
+                        $opc = $pedido->medida;
+                        $ListaPedido[] = $opc['descricao'];
+                    }
+                    if($ListaPedido) echo implode(', ', $ListaPedido);
+                ?>
+
+
+            </p>
+            <p class="card-text">
+                <small class="text-muted">
+                <?php
+                    if($ListaPedido) echo implode(', ', $ListaPedido);
+                ?>
+                </small>
+            </p>
             </div>
         </div>
         <?php
