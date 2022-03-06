@@ -75,25 +75,6 @@ PageClose = () => {
 
 RenovaSessao = () =>{
 
-    // if (localStorage.hasOwnProperty("AppPedido")) {
-    //     AppPedido = localStorage.getItem('AppPedido');
-    // }else{
-    //     AppPedido = '';
-    // }
-
-    // if (localStorage.hasOwnProperty("AppVenda")) {
-    //     AppVenda = localStorage.getItem('AppVenda');
-    // }else{
-    //     AppVenda = '';
-    // }
-
-    // if (localStorage.hasOwnProperty("AppCliente")) {
-    //     AppCliente = localStorage.getItem('AppCliente');
-    // }else{
-    //     AppCliente = '';
-    // }
-
-
     var AppPedido = window.localStorage.getItem('AppPedido');
     var AppVenda = window.localStorage.getItem('AppVenda');
     var AppCliente = window.localStorage.getItem('AppCliente');
@@ -111,7 +92,7 @@ RenovaSessao = () =>{
                 $("body").append(dados);
             },
             error:function(){
-                alert('erro');
+                //alert('erro');
             }
         });
     }else{
@@ -119,7 +100,7 @@ RenovaSessao = () =>{
         //alert("Pedido:" + AppPedido);
         //alert("Cliente:" + AppCliente);
         //alert("Venda:" + AppVenda);
-        alert('erro2');
+        //alert('erro2');
 
     }
 }
