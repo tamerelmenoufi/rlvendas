@@ -75,6 +75,25 @@ PageClose = () => {
 
 RenovaSessao = () =>{
 
+    if (localStorage.hasOwnProperty("AppPedido")) {
+        AppPedido = document.localStorage.getItem('AppPedido');
+    }else{
+        AppPedido = '';
+    }
+
+    if (localStorage.hasOwnProperty("Appvenda")) {
+        Appvenda = document.localStorage.getItem('Appvenda');
+    }else{
+        Appvenda = '';
+    }
+
+    if (localStorage.hasOwnProperty("AppCliente")) {
+        AppCliente = document.localStorage.getItem('AppCliente');
+    }else{
+        AppCliente = '';
+    }
+
+
     // var AppPedido = document.localStorage.getItem('AppPedido');
     // var Appvenda = document.localStorage.getItem('Appvenda');
     // var Appcliente = document.localStorage.getItem('AppCliente');
