@@ -342,6 +342,10 @@
                 },
                 success:function(dados){
                     PageClose();
+                    $(".IconePedidos, .MensagemAddProduto").css("display","block");
+                    setTimeout(function(){
+                        $(".MensagemAddProduto").remove();
+                    }, 3000);
                 }
             });
 
