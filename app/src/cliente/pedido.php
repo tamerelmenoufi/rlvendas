@@ -69,6 +69,11 @@
                 ?>
                 </small>
             </p>
+
+                <div style="position:absolute; button:10px; color:red;">
+                    TESTE
+                </div>
+
             </div>
         </div>
         <?php
