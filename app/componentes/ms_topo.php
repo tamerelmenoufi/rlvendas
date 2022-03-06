@@ -7,15 +7,14 @@
 ?>
 <style>
     .topoImg{
-        position:absolute;
         height:50px;
-        left:10px;
+        margin-left:10px;
     }
     .DadosTopo{
         text-align:right;
         font-size:12px;
         padding:5px;
-        padding-right:10px;
+        margin-right:10px;
     }
 </style>
 <div class="row">
@@ -26,12 +25,12 @@
         <?php
             if($c->telefone){
         ?>
-            <p class="DadosTopo"><?=$c->telefone?> <?=$c->nome?></p>
+            <div class="DadosTopo"><?=$c->telefone?> <?=$c->nome?></div>
         <?php
             }
             if($m->mesa){
         ?>
-            <p class="DadosTopo"><?=$m->mesa?></p>
+            <div class="DadosTopo"><?=$m->mesa?></div>
         <?php
             }
         ?>
