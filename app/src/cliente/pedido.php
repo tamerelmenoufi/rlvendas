@@ -57,8 +57,8 @@
             <p class="card-text">
                 <?php
                     $ListaPedido = [];
-                    for($i=0; $i < count($pedido->pedidos); $i++){
-                        $opc = $pedido->pedidos;
+                    for($i=0; $i < count($pedido->produtos); $i++){
+                        $opc = $pedido->produtos;
                         $ListaPedido[] = $opc['descricao'];
                     }
                     if($ListaPedido) echo implode(', ', $ListaPedido);
