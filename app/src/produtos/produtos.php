@@ -66,7 +66,7 @@
     class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-3"
 ></i>
 
-<div class="MensagemAddProduto animate__animated animate__headShake animate__repeat-3">
+<div class="MensagemAddProduto animate__animated animate__shakeX">
     Produto Adicionado!
     <span><i class="fa-solid fa-caret-right"></i></span>
 </div>
