@@ -48,7 +48,7 @@
                 //print_r($pedido)
 
         ?>
-        <div class="card mb-3">
+        <div class="card mb-3" style="paddin-bottom:60px;">
             <div class="card-body">
             <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                 <?=$pedido->categoria->descricao?>
