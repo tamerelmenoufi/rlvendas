@@ -44,6 +44,7 @@
         bottom:0;
         width:50px;
         left:50px;
+        border:0;
     }
     #menos{
         position:absolute;
@@ -52,6 +53,11 @@
         left:10px;
     }
 
+    #rotulo_valor{
+        position:absolute;
+        right:10px;
+        bottom:0px;
+    }
 
 
 </style>
