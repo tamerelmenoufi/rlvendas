@@ -38,12 +38,12 @@
         bottom:0;
         width:40px;
         border:solid 1px red;
-        left:90px;
+        left:100px;
     }
     #quantidade{
         position:absolute;
         bottom:0;
-        width:40px;
+        width:50px;
         border:solid 1px red;
         left:50px;
     }
