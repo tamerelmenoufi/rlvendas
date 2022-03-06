@@ -15,7 +15,7 @@
         font-size:12px;
         padding:5px;
         margin-right:10px;
-        border:1px solid green;
+        color:#fff;
     }
 </style>
 <div class="row">
@@ -31,7 +31,7 @@
             }
             if($m->mesa){
         ?>
-            <div class="DadosTopo"><?=$m->mesa?></div>
+            <div class="DadosTopo">Pedido <?=$m->mesa?></div>
         <?php
             }
         ?>
