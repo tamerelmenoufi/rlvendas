@@ -20,7 +20,7 @@ Carregando = (opc) => {
     }else{
         $(".Carregando").css("display","block");
     }
-    RenovaSessao();
+    //RenovaSessao();
 }
 
 PageBack = () => {
