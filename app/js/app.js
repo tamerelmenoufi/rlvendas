@@ -115,7 +115,7 @@ RenovaSessao = () =>{
             }
         });
     }else{
-        alert("Pedido:" + AppPedido + " Venda:" + AppVenda + " Cliente:" + AppCliente );
+        //alert("Pedido:" + AppPedido + " Venda:" + AppVenda + " Cliente:" + AppCliente );
         //alert("Pedido:" + AppPedido);
         //alert("Cliente:" + AppCliente);
         //alert("Venda:" + AppVenda);
