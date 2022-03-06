@@ -33,19 +33,28 @@
     }
 
 
-    span[valor] {
-        margin-left: 10px;
+    #mais{
+        position:absolute;
+        bottom:0;
+        width:40px;
+        border:solid 1px red;
+        left:90px;
+    }
+    #quantidade{
+        position:absolute;
+        bottom:0;
+        width:40px;
+        border:solid 1px red;
+        left:50px;
+    }
+    #menos{
+        position:absolute;
+        bottom:0;
+        width:40px;
+        border:solid 1px red;
+        left:10px;
     }
 
-    #quantidade {
-        text-align: center;
-        font-size:12px;
-        padding-top:5px;
-    }
-
-    #rotulo_valor {
-        font-weight: bold;
-    }
 
 
 </style>
@@ -89,39 +98,35 @@
                 <div style="position:absolute; bottom:0px; left:0px; width:100%; border:solid 1px red;">
 
 
-                    <div class="input-group input-group-lg">
-                        <div class="input-group-prepend" style="width:30px;">
-                            <button
-                                    class="btn text-danger"
-                                    type="button"
-                                    id="menos">
-                                <i class="fa-solid fa-circle-minus"></i>
-                            </button>
-                        </div>
+
+                        <button
+                                class="btn text-danger"
+                                type="button"
+                                id="menos"
+                        >
+                            <i class="fa-solid fa-circle-minus"></i>
+                        </button>
 
                         <div
                                 class="form-control"
                                 id="quantidade"
-                                style="border:0; width:30px;"
                         >1</div>
 
-                        <div class="input-group-append" style="width:30px;">
-                            <button
-                                    class="btn text-success"
-                                    type="button"
-                                    id="mais">
-                                <i class="fa-solid fa-circle-plus"></i>
-                            </button>
-                        </div>
-                        <div class="input-group-append">
-                            <span
-                                    class="btn text-primary"
-                                    id="rotulo_valor">
-                                R$ <span valor atual="<?=$_POST['valor']?>">
-                                    <?= number_format($_POST['valor'], 2, ',', '.') ?>
-                                </span>
+                        <button
+                                class="btn text-success"
+                                type="button"
+                                id="mais">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </button>
+
+                        <span
+                                class="btn text-primary"
+                                id="rotulo_valor">
+                            R$ <span valor atual="<?=$_POST['valor']?>">
+                                <?= number_format($_POST['valor'], 2, ',', '.') ?>
                             </span>
-                        </div>
+                        </span>
+
                     </div>
 
 
