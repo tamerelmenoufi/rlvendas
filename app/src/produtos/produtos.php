@@ -51,7 +51,7 @@
         width:auto;
         z-index:2;
     }
-    .MensagemAddProduto i{
+    .MensagemAddProduto span{
         position:absolute;
         right:20px;
         font-size:40x;
@@ -69,7 +69,7 @@
 
 <div class="MensagemAddProduto">
     Produto Adicionado!
-    <i class="fa-solid fa-caret-right"></i>
+    <span><i class="fa-solid fa-caret-right"></i></span>
 </div>
 
 <!-- Informativo de pedidos ativos -->
