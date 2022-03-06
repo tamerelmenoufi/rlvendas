@@ -41,7 +41,12 @@
 </style>
 
 <!-- Informativo de pedidos ativos -->
-<i class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-3"></i>
+<i
+    class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-3"
+    data-toggle="tooltip"
+    data-placement="left"
+    title="Tooltip on left"
+></i>
 <!-- Informativo de pedidos ativos -->
 
 
