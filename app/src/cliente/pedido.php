@@ -18,7 +18,7 @@
         text-align:center;
     }
     .PedidoBottomItens button{
-        width:calc(100% - 20px);
+        width:calc(100% - 10px);
     }
 
 </style>
