@@ -33,29 +33,29 @@
     }
 
 
-    #mais{
+    .mais{
         position:absolute;
         bottom:0;
         width:40px;
         left:100px;
     }
-    #quantidade{
+    .quantidade{
         position:absolute;
         bottom:0;
         width:50px;
         left:50px;
         border:0;
     }
-    #menos{
+    .menos{
         position:absolute;
         bottom:0;
         width:40px;
         left:10px;
     }
 
-    #rotulo_valor{
+    .rotulo_valor{
         position:absolute;
-        right:10px;
+        right:0px;
         bottom:0px;
     }
 
@@ -103,30 +103,28 @@
 
 
                         <button
-                                class="btn text-danger"
+                                class="btn text-danger menos"
                                 type="button"
-                                id="menos"
                         >
                             <i class="fa-solid fa-circle-minus"></i>
                         </button>
 
                         <div
-                                class="form-control"
-                                id="quantidade"
-                        >1</div>
+                                class="form-control quantidade"
+                        ><?=$d->quantidade?></div>
 
                         <button
-                                class="btn text-success"
+                                class="btn text-success mais"
                                 type="button"
-                                id="mais">
+                        >
                             <i class="fa-solid fa-circle-plus"></i>
                         </button>
 
                         <span
-                                class="btn text-primary"
-                                id="rotulo_valor">
-                            R$ <span valor atual="<?=$_POST['valor']?>">
-                                <?= number_format($_POST['valor'], 2, ',', '.') ?>
+                                class="btn text-primary rotulo_valor"
+                        >
+                            R$ <span valor atual="<?=$d->valor_unitario?>">
+                                <?= number_format($d->valor_total, 2, ',', '.') ?>
                             </span>
                         </span>
 
