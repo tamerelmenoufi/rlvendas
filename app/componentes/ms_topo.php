@@ -13,7 +13,9 @@
     }
     .DadosTopo{
         text-align:right;
-        font-size:11px;
+        font-size:12px;
+        padding:5px;
+        padding-right:10px;
     }
 </style>
 <div class="row">
