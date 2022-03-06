@@ -36,7 +36,7 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
-                    . "WHERE v.situacao = '0' AND vp.deletado = '0'";
+                    . "WHERE vp.deletado = '0'";
 
                 $result = mysqli_query($con, $query);
 
