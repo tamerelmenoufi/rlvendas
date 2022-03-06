@@ -32,6 +32,21 @@
         width:calc(100% - 25px);
     }
 
+
+    span[valor] {
+        margin-left: 10px;
+    }
+
+    #quantidade {
+        text-align: center;
+    }
+
+    #rotulo_valor {
+        width: 180px;
+        font-weight: bold;
+    }
+
+
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pedido <?=$_SESSION['AppPedido']?></h4>
@@ -71,7 +86,44 @@
             </p>
 
                 <div style="position:absolute; bottom:10px; color:red;">
-                    TESTE
+
+
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <button
+                                    class="btn text-danger"
+                                    type="button"
+                                    id="menos">
+                                <i class="fa-solid fa-circle-minus"></i>
+                            </button>
+                        </div>
+
+                        <div
+                                class="form-control"
+                                id="quantidade"
+                                style="border:0;"
+                        >1</div>
+
+                        <div class="input-group-append">
+                            <button
+                                    class="btn text-success"
+                                    type="button"
+                                    id="mais">
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </button>
+                        </div>
+                        <div class="input-group-append">
+                            <span
+                                    class="btn text-primary"
+                                    id="rotulo_valor">
+                                R$ <span valor atual="<?=$_POST['valor']?>">
+                                    <?= number_format($_POST['valor'], 2, ',', '.') ?>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>
