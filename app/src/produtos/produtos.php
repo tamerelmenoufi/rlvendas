@@ -41,7 +41,7 @@
 
 
     .tooltip.bs-tooltip-left {
-        border-left-color: #ff0000 !important;
+        background-color: #ff0000 !important;
     }
     .tooltip.bs-tooltip-left .arrow:before {
         border-left-color: #ff0000 !important;
