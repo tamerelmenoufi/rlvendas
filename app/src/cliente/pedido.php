@@ -6,6 +6,11 @@
     }
 ?>
 <style>
+    .PedidoTopoTitulo{
+        position:fixed;
+        top:15px;
+        margin-left:65px;
+    }
     .PedidoBottomFixo{
         position:fixed;
         bottom:0;
@@ -22,6 +27,9 @@
     }
 
 </style>
+<h3 class="PedidoTopoTitulo">
+    Pedido <?=$_SESSION['AppPedido']?>
+</h3>
 <div class="col" style="margin-bottom:60px;">
     <div class="col-12">Pedido <?=$_SESSION['AppPedido']?></div>
     <div class="col-12">
