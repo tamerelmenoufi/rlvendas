@@ -74,6 +74,7 @@ PageClose = () => {
 
 
 RenovaSessao = () =>{
+
     AppPedido = window.localStorage.getItem('AppPedido');
     Appvenda = window.localStorage.getItem('Appvenda');
     Appcliente = window.localStorage.getItem('AppCliente');
@@ -95,7 +96,7 @@ RenovaSessao = () =>{
             }
         });
     }else{
-        $.alert('Pedido:'+AppPedido+'<br>Venda:'+AppVenda+'<br>Cliente:'+AppCliente+'<br>');
+        $.alert('Pedido:' + AppPedido + '<br>Venda:' + AppVenda + '<br>Cliente:' + AppCliente + '<br>');
     }
 }
 
