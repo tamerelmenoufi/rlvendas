@@ -17,6 +17,7 @@
         text-align:center;
         padding:10px;
     }
+
 </style>
 <div class="col" style="margin-bottom:60px;">
     <div class="col-12">Pedido <?=$_SESSION['AppPedido']?></div>
