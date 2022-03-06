@@ -58,11 +58,8 @@
                 <?php
                     $ListaPedido = [];
                     for($i=0; $i < count($pedido->produtos); $i++){
-                        $opc = $pedido->produtos;
-                        print_r($opc);
-                        $ListaPedido[] = $opc['descricao'];
+                        $ListaPedido[] = $pedido->produtos->descricao;
                     }
-                    if($ListaPedido) echo implode(', ', $ListaPedido);
                 ?>
 
 
