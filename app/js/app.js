@@ -75,9 +75,9 @@ PageClose = () => {
 
 RenovaSessao = () =>{
 
-    AppPedido = window.localStorage.getItem('AppPedido');
-    Appvenda = window.localStorage.getItem('Appvenda');
-    Appcliente = window.localStorage.getItem('AppCliente');
+    var AppPedido = window.localStorage.getItem('AppPedido');
+    var Appvenda = window.localStorage.getItem('Appvenda');
+    var Appcliente = window.localStorage.getItem('AppCliente');
 
     if(AppPedido && Appvenda && Appcliente){
         $.ajax({
