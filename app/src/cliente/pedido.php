@@ -79,25 +79,25 @@
         ?>
         <div class="card mb-3" style="padding-bottom:60px;">
             <div class="card-body">
-            <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
-                <?=$pedido->categoria->descricao?>
-                - <?=$pedido->medida->descricao?>
-            </h5>
-            <p class="card-text" style="padding:0; margin:0;">
-                <?php
-                    $ListaPedido = [];
-                    for($i=0; $i < count($pedido->produtos); $i++){
-                        $ListaPedido[] = $pedido->produtos[$i]->descricao;
-                    }
-                ?>
-            </p>
-            <p class="card-text" style="padding:0; margin:0;">
-                <small class="text-muted">
-                <?php
-                    if($ListaPedido) echo implode(', ', $ListaPedido);
-                ?>
-                </small>
-            </p>
+                <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
+                    <?=$pedido->categoria->descricao?>
+                    - <?=$pedido->medida->descricao?>
+                </h5>
+                <p class="card-text" style="padding:0; margin:0;">
+                    <?php
+                        $ListaPedido = [];
+                        for($i=0; $i < count($pedido->produtos); $i++){
+                            $ListaPedido[] = $pedido->produtos[$i]->descricao;
+                        }
+                    ?>
+                </p>
+                <p class="card-text" style="padding:0; margin:0;">
+                    <small class="text-muted">
+                    <?php
+                        if($ListaPedido) echo implode(', ', $ListaPedido);
+                    ?>
+                    </small>
+                </p>
 
                 <div style="position:absolute; bottom:0px; left:0px; width:100%;">
 
@@ -126,9 +126,6 @@
                                 <?= number_format($d->valor_total, 2, ',', '.') ?>
                             </span>
                         </span>
-
-                    </div>
-
 
                 </div>
 
