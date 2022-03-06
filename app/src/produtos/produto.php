@@ -149,8 +149,8 @@
                 <div class="card mb-3">
                     <div class="row">
                         <div
-                                class="col foto<?= $md5 ?>"
-                                style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)"
+                            class="col foto<?= $md5 ?>"
+                            style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)"
                         >
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
