@@ -39,6 +39,7 @@
 
     #quantidade {
         text-align: center;
+        font-size:12px;
     }
 
     #rotulo_valor {
