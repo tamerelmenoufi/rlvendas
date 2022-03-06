@@ -53,9 +53,9 @@
     }
     .MensagemAddProduto span{
         position:absolute;
-        right:-12px;
+        right:-10px;
         font-size:30px;
-        top:-5px;
+        top:-3px;
         color:red;
         z-index:3;
     }
