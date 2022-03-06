@@ -1,6 +1,8 @@
 <?php
     include("../../../lib/includes.php");
+
     if($_POST['telefone']){
+
         $query = "select * from clientes where telefone = '{$_POST['telefone']}'";
         $result = mysqli_query($con, $query);
         if(mysqli_num_rows($result)){
@@ -10,7 +12,25 @@
             mysqli_query($con, "insert into clientes set telefone = '{$_POST['telefone']}'");
             $_SESSION['AppCliente'] = mysqli_insert_id($con);
         }
+
+        if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
+            /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
+            $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' LIMIT 1";
+            $result = mysqli_query($con, $query);
+
+            if (mysqli_num_rows($result)) {
+                $queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' LIMIT 1";
+                list($codigo) = mysqli_fetch_row(mysqli_query($con, $queryInsert));
+                $_SESSION['AppVenda'] = $codigo;
+            } else {
+                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
+                $_SESSION['AppVenda'] = mysqli_insert_id($con);
+            }
+            /////////////////////////////////////////////////////////////////
+        }
+
         echo $_SESSION['AppCliente'];
+
         exit();
     }
 ?>

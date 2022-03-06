@@ -5,7 +5,7 @@
 
         $arrayInsert = [
             'venda' => $_SESSION['ConfVenda'],
-            'cliente' => $_SESSION['ConfCliente'],
+            'cliente' => $_SESSION['AppCliente'],
             'produto_descricao' => $_POST['produto_descricao'],
             'quantidade' => $_POST['quantidade'],
             'valor_unitario' => $_POST['valor_unitario'],
