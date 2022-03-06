@@ -109,7 +109,7 @@
                 <p class="card-text" style="padding:0; margin:0; text-align:right">
                     R$ <?= number_format($d->valor_unitario, 2, ',', '.') ?>
                 </p>
-                <p class="card-text" style="padding:0; margin:0;">
+                <p class="card-text" style="padding:0; margin:0; color:red; font-size:10px;">
                     <?= $d->produto_descricao?>
                 </p>
                 <div style="position:absolute; bottom:0px; left:0px; width:100%;">
