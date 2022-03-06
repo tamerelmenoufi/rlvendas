@@ -75,28 +75,28 @@ PageClose = () => {
 
 RenovaSessao = () =>{
 
-    // if (localStorage.hasOwnProperty("AppPedido")) {
-    //     AppPedido = localStorage.getItem('AppPedido');
-    // }else{
-    //     AppPedido = '';
-    // }
+    if (localStorage.hasOwnProperty("AppPedido")) {
+        AppPedido = localStorage.getItem('AppPedido');
+    }else{
+        AppPedido = '';
+    }
 
-    // if (localStorage.hasOwnProperty("AppVenda")) {
-    //     AppVenda = localStorage.getItem('AppVenda');
-    // }else{
-    //     AppVenda = '';
-    // }
+    if (localStorage.hasOwnProperty("AppVenda")) {
+        AppVenda = localStorage.getItem('AppVenda');
+    }else{
+        AppVenda = '';
+    }
 
-    // if (localStorage.hasOwnProperty("AppCliente")) {
-    //     AppCliente = localStorage.getItem('AppCliente');
-    // }else{
-    //     AppCliente = '';
-    // }
+    if (localStorage.hasOwnProperty("AppCliente")) {
+        AppCliente = localStorage.getItem('AppCliente');
+    }else{
+        AppCliente = '';
+    }
 
 
-    var AppPedido = document.localStorage.getItem('AppPedido');
-    var AppVenda = document.localStorage.getItem('AppVenda');
-    var AppCliente = document.localStorage.getItem('AppCliente');
+    // var AppPedido = document.localStorage.getItem('AppPedido');
+    // var AppVenda = document.localStorage.getItem('AppVenda');
+    // var AppCliente = document.localStorage.getItem('AppCliente');
 
     if(AppPedido && AppVenda && AppCliente){
         $.ajax({
