@@ -79,7 +79,7 @@
         ?>
         <div class="card mb-3" style="padding-bottom:60px;">
             <div class="card-body">
-                <p style="position:absolute; right:0; top:0;">
+                <p style="position:absolute; right:-10px; top:-10px;">
                     <i class="fa-solid fa-circle-xmark" style="color:red; font-size:30px;"></i>
                 <p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
