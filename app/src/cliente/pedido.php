@@ -31,7 +31,6 @@
     Pedido <?=$_SESSION['AppPedido']?>
 </h4>
 <div class="col" style="margin-bottom:60px;">
-    <div class="col-12">Pedido <?=$_SESSION['AppPedido']?></div>
     <div class="col-12">
         <button SairPedido class="btn btn-danger btn-block">SAIR</button>
     </div>
@@ -43,7 +42,7 @@
             <button class="btn btn-success" pagar>Pagar</button>
         </div>
         <div class="col PedidoBottomItens">
-            <button class="btn btn-danger" canelar>Cancelar</button>
+            <button class="btn btn-danger" SairPedido>Cancelar</button>
         </div>
     </div>
 </div>
@@ -52,35 +51,44 @@
 <script>
     $(function(){
 
-        $("button[canelar]").click(function(){
-            PageClose();
-        });
-
         $("button[pagar]").click(function(){
             PageClose();
         });
 
         $("button[SairPedido]").click(function(){
+            $.confirm({
+                content:"Deseja realmente cancelar o pedido <b><?=$_SESSION['AppPedido']?></b>?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
 
-            $.ajax({
-                url:"src/cliente/pedido.php",
-                type:"POST",
-                data:{
-                    SairPedido:'1',
-                },
-                success:function(dados){
-                    window.localStorage.removeItem('AppPedido');
-                    window.localStorage.removeItem('AppCliente');
+                        $.ajax({
+                            url:"src/cliente/pedido.php",
+                            type:"POST",
+                            data:{
+                                SairPedido:'1',
+                            },
+                            success:function(dados){
+                                window.localStorage.removeItem('AppPedido');
+                                window.localStorage.removeItem('AppCliente');
 
-                    $.ajax({
-                        url:"src/home/index.php",
-                        success:function(dados){
-                            $(".ms_corpo").html(dados);
-                        }
-                    });
+                                $.ajax({
+                                    url:"src/home/index.php",
+                                    success:function(dados){
+                                        $(".ms_corpo").html(dados);
+                                    }
+                                });
 
+                            }
+                        });
+
+                    },
+                    'NÃO':function(){
+
+                    }
                 }
             });
+
 
         });
     })
