@@ -175,7 +175,7 @@
             url:"componentes/ms_popup_100.php",
             type:"POST",
             data:{
-                local:"src/cliente/pedido.php",
+                local:"src/produtos/pedido.php",
             },
             success:function(dados){
                 PageClose();
