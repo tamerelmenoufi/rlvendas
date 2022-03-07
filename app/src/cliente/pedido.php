@@ -168,7 +168,7 @@
             </button>
         </div>
         <div class="col-8 PedidoBottomItens">
-            <button class="btn btn-success" pagar> <span valor_toal>R$ <?= number_format($valor_total, 2, ',', '.') ?></span> Pagar</button>
+            <button class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
     </div>
 </div>
@@ -186,8 +186,11 @@
             quantidade = obj.find(".quantidade").html();
             atual = obj.find("span[valor]").attr("atual");
             quantidade = (quantidade * 1 + 1);
+            valor_total = $("span[pedido_valor_toal]").text();
             obj.find(".quantidade").html(quantidade);
             valor = atual * quantidade;
+            valor_total = (valor_total*1 + atual*1);
+            $("span[pedido_valor_toal]").text(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
             obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
             $.ajax({
@@ -212,11 +215,14 @@
             quantidade = obj.find(".quantidade").html();
             atual = obj.find("span[valor]").attr("atual");
             quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
+            valor_total = $("span[pedido_valor_toal]").text();
             obj.find(".quantidade").html(quantidade);
             valor = atual * quantidade;
             obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
             if(quantidade > 1){
+                valor_total = (valor_total*1 - atual*1);
+                $("span[pedido_valor_toal]").text(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
                 $.ajax({
                     url:"src/cliente/pedido.php",
                     type:"POST",
