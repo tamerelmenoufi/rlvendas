@@ -168,4 +168,19 @@
             });
 
     });
+
+    $(".IconePedidos").click(function(){
+        PageClose();
+        $.ajax({
+            url:"componentes/ms_popup_100.php",
+            type:"POST",
+            data:{
+                local:"src/cliente/pedido.php",
+            },
+            success:function(dados){
+                $(".ms_corpo").append(dados);
+            }
+        });
+    });
+
 </script>
