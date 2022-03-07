@@ -91,8 +91,8 @@
             AppCliente = window.localStorage.getItem('AppCliente');
 
             if(
-                (AppPedido != 'undefined' || AppPedido != null) &&
-                (AppCliente != 'undefined' || AppCliente != null)
+                (AppPedido != 'undefined' && AppPedido != null) &&
+                (AppCliente != 'undefined' && AppCliente != null)
             ){
                 local = $(this).attr('local');
                 janela = $(this).attr('janela');
