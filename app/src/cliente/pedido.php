@@ -4,6 +4,10 @@
         $_SESSION = [];
         exit();
     }
+    if($_POST['acao'] == 'atualiza'){
+        mysqli_query($con, "update vendas_produtos set quantidade='{$_POST['quantidade']}', valor_total='{$_POST['valor_total']}' where codigo = '{$_POST['codigo']}'");
+        exit();
+    }
 ?>
 <style>
     .PedidoTopoTitulo{
@@ -172,6 +176,7 @@
 
         $(".mais").click(function () {
             obj = $(this).parent("div");
+            codigo = obj.attr('cod');
             quantidade = obj.find(".quantidade").html();
             atual = obj.find("span[valor]").attr("atual");
             quantidade = (quantidade * 1 + 1);
@@ -179,16 +184,47 @@
             valor = atual * quantidade;
             obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
+            $.ajax({
+                url:"src/cliente/pedido.php",
+                type:"POST",
+                data:{
+                    quantidade,
+                    valor_total:valor,
+                    codigo,
+                    acao:'atualiza'
+                },
+                success:function(data){
+
+                }
+            });
+
         });
 
         $(".menos").click(function () {
             obj = $(this).parent("div");
+            codigo = obj.attr('cod');
             quantidade = obj.find(".quantidade").html();
             atual = obj.find("span[valor]").attr("atual");
             quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
             obj.find(".quantidade").html(quantidade);
             valor = atual * quantidade;
             obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
+            if(quantidade > 1){
+                $.ajax({
+                    url:"src/cliente/pedido.php",
+                    type:"POST",
+                    data:{
+                        quantidade,
+                        valor_total:valor,
+                        codigo,
+                        acao:'atualiza'
+                    },
+                    success:function(data){
+
+                    }
+                });
+            }
 
         });
 
