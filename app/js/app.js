@@ -79,7 +79,7 @@ RenovaSessao = () =>{
     var AppVenda = window.localStorage.getItem('AppVenda');
     var AppCliente = window.localStorage.getItem('AppCliente');
 
-    if(AppPedido && AppVenda && AppCliente){
+    if(AppPedido /*&& AppVenda*/ && AppCliente){
         $.ajax({
             url:"src/cliente/sessao.php",
             type:"POST",
