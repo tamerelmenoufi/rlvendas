@@ -214,17 +214,25 @@
             obj = $(this).parent("div");
             codigo = obj.attr('cod');
             quantidade = obj.find(".quantidade").html();
-            atual = obj.find("span[valor]").attr("atual");
-            quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
             valortotal = $("span[pedido_valor_toal]").attr("valor");
+            atual = obj.find("span[valor]").attr("atual");
+
+            if(quantidade > 1){
+
+                valortotal = (valortotal*1 - atual*1);
+                $("span[pedido_valor_toal]").attr("valor", valortotal);
+                $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
+
+            }
+
+            quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
+
             obj.find(".quantidade").html(quantidade);
             valor = atual * quantidade;
             obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
             if(quantidade > 1){
-                valortotal = (valortotal*1 - atual*1);
-                $("span[pedido_valor_toal]").attr("valor", valortotal);
-                $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
                 $.ajax({
                     url:"src/cliente/pedido.php",
                     type:"POST",
