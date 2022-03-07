@@ -8,6 +8,6 @@
                "Venda: ". $_SESSION['AppVenda']."\n".
                "Pedido: ". $_SESSION['AppPedido']."\n";
 
-    file_put_contents(date("YmdHis").".txt", $dados);
+    file_put_contents(date("YmdHis").".txt", $dados."\n\n".print_r($_POST, true));
 
 ?>
