@@ -14,29 +14,58 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
     exit();
 }
 
+if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
+    $codigo = $_GET['codigo'];
+    $quantidade = $_GET['quantidade'];
+
+    $query = "UPDATE vendas_produtos SET quantidade = '{$quantidade}' WHERE codigo = '{$codigo}'";
+
+    if (mysqli_query($con, $query)) {
+        echo json_encode([
+            "status" => "sucesso",
+        ]);
+    }
+    exit();
+}
 ?>
 <style>
-    /*.comanda {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 40%;
-        overflow: auto;
-    }*/
+    /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    .comanda * {
+        scrollbar-width: auto;
+        scrollbar-color: #d43c16 #ffffff;
+    }
 
-    /*.itens
+    /* Chrome, Edge, and Safari */
+    .comanda *::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .comanda *::-webkit-scrollbar-track {
+        background: #ffffff;
+    }
+
+    .comanda *::-webkit-scrollbar-thumb {
+        background-color: #d43c16;
+        border-radius: 8px;
+        border: 0px;
+    }
+
+    .my-2:nth-of-type(1) {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
 </style>
 
 <div class="comanda">
 
     <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" style="height: 90vh; overflow-y: auto">
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
-                    . "WHERE vp.deletado = '0'";
+                    . "WHERE situacao = '0' AND vp.deletado = '0'";
 
                 $result = mysqli_query($con, $query);
 
@@ -46,14 +75,15 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
                     <input
                             type="hidden"
                             id="valor-<?= $d->codigo; ?>"
-                            value=" <?= $json->produtos[0]->valor; ?>"
+                            value=" <?= $d->valor_unitario; ?>"
                     >
 
                     <div class="card my-2" id="item-<?= $d->codigo; ?>">
-                        <div class="card-body">
+                        <div class="card-body py-2 pt-3">
                             <h5 class="text-gray-700 font-weight-bold">
                                 <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
                             </h5>
+
                             <div class="d-flex justify-content-center">
                                 <div style="flex: 1">
                                     <?php
@@ -72,7 +102,7 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
                                     }
                                     ?>
                                     <?php if ($d->produto_descricao) { ?>
-                                        <p>
+                                        <p class="mb-0">
                                             <i
                                                     class="fa-solid fa-message"
                                                     title="Observação"
@@ -85,7 +115,7 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
                                         R$
                                         <span valor-<?= $d->codigo; ?>>
                                             <?= number_format(
-                                                $d->valor_total,
+                                                $d->valor_unitario * $d->quantidade,
                                                 2,
                                                 ',',
                                                 '.'
@@ -145,6 +175,8 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
 
 <script>
     $(function () {
+        var time = null;
+
         $.ajax({
             url: "home/header.php",
             success: function (dados) {
@@ -214,6 +246,8 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
                 .attr(`quantidade-${cod}`, quantidade)
                 .text(quantidade);
 
+            atualiza_quantidade(cod, quantidade);
+
             var valor_original = Number($(`#valor-${cod}`).val());
 
             let valor = valor_original * quantidade;
@@ -231,10 +265,31 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
                 .attr(`quantidade-${cod}`, quantidade)
                 .text(quantidade);
 
+            atualiza_quantidade(cod, quantidade);
+
             let valor = valor_original * quantidade;
 
             $(`span[valor-${cod}]`).text(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         });
 
-    })
+        function atualiza_quantidade(codigo, quantidade) {
+            clearInterval(time);
+
+            time = setTimeout(() => {
+                $.ajax({
+                    url: "home/comanda.php",
+                    method: "GET",
+                    data: {
+                        acao: "atualiza_quantidade",
+                        codigo,
+                        quantidade
+                    },
+                    success: function (dados) {
+
+                    }
+                });
+            }, 500);
+        }
+
+    });
 </script>

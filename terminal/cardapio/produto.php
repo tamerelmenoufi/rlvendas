@@ -335,6 +335,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 
 <script>
     $(function () {
+
         var qt = 0;
 
         $.ajax({
