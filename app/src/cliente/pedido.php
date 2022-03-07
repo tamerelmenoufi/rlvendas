@@ -376,7 +376,10 @@
                     'SIM':function(){
                         obj.remove();
 
-                        if(n === 1) $(".SemProduto").css("display","block");
+                        if(n === 1){
+                            $(".SemProduto").css("display","block");
+                            $("button[pagar]").attr("disabled","disabled");
+                        }
 
                         $("span[pedido_valor_toal]").attr("valor", valortotal);
                         $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
