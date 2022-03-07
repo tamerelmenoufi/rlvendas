@@ -171,7 +171,6 @@
     });
 
     $(".IconePedidos").click(function(){
-        PageClose();
         $.ajax({
             url:"componentes/ms_popup_100.php",
             type:"POST",
@@ -179,6 +178,7 @@
                 local:"src/cliente/pedido.php",
             },
             success:function(dados){
+                PageClose();
                 $(".ms_corpo").append(dados);
             }
         });
