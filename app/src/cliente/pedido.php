@@ -318,13 +318,14 @@
 
             produto = $(this).attr('produto');
             codigo = $(this).attr('codigo');
+            obj = $(this).parent("div").parent("div");
 
             $.confirm({
                 content:"Deseja realmente cancelar o produto <b>"+produto+"</b>?",
                 title:false,
                 buttons:{
                     'SIM':function(){
-
+                        obj.remove();
                         $.ajax({
                             url:"src/cliente/pedido.php",
                             type:"POST",
