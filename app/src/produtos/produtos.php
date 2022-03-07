@@ -31,7 +31,7 @@
     }
     .IconePedidos{
         position:fixed;
-        top:20px;
+        top:10px;
         right:25px;
         font-size:30px;
         color:green;
