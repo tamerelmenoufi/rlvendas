@@ -84,17 +84,18 @@
     }
 
     .SemProduto{
-        position:absolute;
+        position:fixed;
         top:45%;
         text-align:center;
+        width:100%;
     }
     .SemProduto p{
         text-align:center;
-        color:#eee;
+        color:#ccc;
     }
     .icone{
-        font-size:50px;
-        color:#eee;
+        font-size:100px;
+        color:#ccc;
     }
 
 </style>
