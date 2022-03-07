@@ -11,9 +11,10 @@ function venda($cliente, $mesa)
     if (mysqli_num_rows($result)) {
         $queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$cliente}' AND mesa = '{$mesa}' LIMIT 1";
         list($codigo) = mysqli_fetch_row(mysqli_query($con, $queryInsert));
+
         $_SESSION['ConfVenda'] = $codigo;
     } else {
-        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$cliente}', mesa = '{$mesa}'");
+        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$cliente}', mesa = '{$mesa}', situacao = '0'");
         $_SESSION['ConfVenda'] = mysqli_insert_id($con);
     }
 
@@ -110,6 +111,7 @@ if ($_POST['cliente']) {
         </div>
     </div>
 </div>
+
 <script>
     $(function () {
         //$("#OpcCliente").masck("(99) 9 9999-9999");
@@ -197,7 +199,6 @@ if ($_POST['cliente']) {
             var r = v.replace(/\D/g, "");
 
             r = r.replace(/^0/, "");
-
 
             if (r.length > 10) {
                 r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
