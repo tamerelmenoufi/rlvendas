@@ -90,7 +90,7 @@
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
 
-            if(AppPedido && AppCliente){
+            if(AppPedido != 'undefined' && AppCliente != 'undefined'){
                 local = $(this).attr('local');
                 janela = $(this).attr('janela');
                 Carregando();
@@ -104,7 +104,7 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else if(!AppPedido){
+            }else if(!AppPedido || AppPedido === 'undefined'){
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
                     type:"POST",
@@ -115,7 +115,7 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else if(!AppCliente){
+            }else if(!AppCliente || AppCliente === 'undefined'){
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
                     type:"POST",
