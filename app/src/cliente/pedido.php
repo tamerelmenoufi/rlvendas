@@ -232,7 +232,7 @@
             valor = atual * quantidade;
             obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
-            if(quantidade > 1){
+            //if(quantidade > 1){
                 $.ajax({
                     url:"src/cliente/pedido.php",
                     type:"POST",
@@ -246,7 +246,7 @@
 
                     }
                 });
-            }
+            //}
 
         });
 
