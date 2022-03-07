@@ -88,9 +88,9 @@ RenovaSessao = () =>{
             url:"src/cliente/sessao.php",
             type:"POST",
             data:{
-                AppPedido,
-                AppVenda,
-                AppCliente
+                p:AppPedido,
+                v:AppVenda,
+                c:AppCliente
             },
             success:function(dados){
                 $("body").append(dados);

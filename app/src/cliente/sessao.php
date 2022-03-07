@@ -1,9 +1,8 @@
 <?php
     include("../../../lib/includes.php");
-    if($_POST['AppCliente']) $_SESSION['AppCliente'];
-    if($_POST['AppVenda']) $_SESSION['AppVenda'];
-    if($_POST['AppPedido']) $_SESSION['AppPedido'];
-
+    if($_POST['c']) $_SESSION['AppCliente'];
+    if($_POST['v']) $_SESSION['AppVenda'];
+    if($_POST['p']) $_SESSION['AppPedido'];
 
     $dados =   "Cliente: ". $_SESSION['AppCliente']."\n".
                "Venda: ". $_SESSION['AppVenda']."\n".
