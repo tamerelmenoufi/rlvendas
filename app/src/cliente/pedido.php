@@ -18,6 +18,8 @@
 
     if($_POST['acao'] == 'Excluirproduto'){
         mysqli_query($con, "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'");
+        $n = mysqli_num_rows("select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'");
+        if(!$n) $_SESSION['AppCarrinho'] = false;
         exit();
     }
 ?>
