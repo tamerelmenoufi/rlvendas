@@ -91,6 +91,7 @@
         <?php
             $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
             $result = mysqli_query($con, $query);
+            $valor_total = 0;
             while($d = mysqli_fetch_object($result)){
 
                 $pedido = json_decode($d->produto_json);
@@ -153,6 +154,7 @@
             </div>
         </div>
         <?php
+            $valor_total = ($valor_total + $d->valor_total);
             }
         ?>
     </div>
@@ -166,7 +168,7 @@
             </button>
         </div>
         <div class="col-8 PedidoBottomItens">
-            <button class="btn btn-success" pagar>Pagar</button>
+            <button class="btn btn-success" pagar> <span valor_toal>R$ <?= number_format($valor_total, 2, ',', '.') ?></span> Pagar</button>
         </div>
     </div>
 </div>
