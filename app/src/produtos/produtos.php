@@ -1,10 +1,10 @@
 <?php
     include("../../../lib/includes.php");
-    $query = "select * from categorias where codigo = '{$_GET['categoria']}'";
+    $query = "select * from categorias where codigo = '{$_GET['categoria']}' AND deletado != '1'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $m_q = "select * from categoria_medidas where codigo in({$d->medidas})";
+    $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1'";
     $m_r = mysqli_query($con, $m_q);
     while($m = mysqli_fetch_array($m_r)){
         $M[$m['codigo']] = $m['medida'];
@@ -64,9 +64,10 @@
 </style>
 
 <!-- Informativo de pedidos ativos -->
-<i
-    class="fa-solid fa-bell-concierge IconePedidos animate__animated animate__tada animate__repeat-3"
-></i>
+
+<span class="IconePedidos"><i
+    class="fa-solid fa-bell-concierge animate__animated animate__tada animate__repeat-3"
+></i></span>
 
 <div class="MensagemAddProduto animate__animated animate__shakeX">
     Produto Adicionado!
@@ -83,7 +84,7 @@
 
 <div class="col-md-12">
     <?php
-        $query = "select * from produtos where categoria = {$d->codigo}";
+        $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1'";
         $result = mysqli_query($con, $query);
         while($p = mysqli_fetch_object($result)){
             $detalhes = json_decode($p->detalhes);
@@ -168,4 +169,19 @@
             });
 
     });
+
+    $(".IconePedidos").click(function(){
+        PageClose();
+        $.ajax({
+            url:"componentes/ms_popup_100.php",
+            type:"POST",
+            data:{
+                local:"src/cliente/pedido.php",
+            },
+            success:function(dados){
+                $(".ms_corpo").append(dados);
+            }
+        });
+    });
+
 </script>
