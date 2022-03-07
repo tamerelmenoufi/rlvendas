@@ -83,6 +83,17 @@
         font-weight:bold;
     }
 
+    .SemProduto{
+        position:fixed;
+        top:40%;
+        left:0;
+        text-align:center;
+        width:100%;
+        color:#ccc;
+    }
+    .icone{
+        font-size:70px;
+    }
 
 </style>
 <div class="PedidoTopoTitulo">
@@ -94,6 +105,7 @@
             $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
             $result = mysqli_query($con, $query);
             $valor_total = 0;
+            $n = mysqli_num_rows($result);
             while($d = mysqli_fetch_object($result)){
 
                 $pedido = json_decode($d->produto_json);
@@ -159,6 +171,12 @@
             $valor_total = ($valor_total + $d->valor_total);
             }
         ?>
+
+        <div class="SemProduto" style="display:<?=(($n)?'none':'block')?>">
+            <i class="fa-solid fa-face-frown icone"></i>
+            <p>Poxa, ainda não tem produtos em seu pedido!</p>
+        </div>
+
     </div>
 </div>
 
@@ -170,7 +188,7 @@
             </button>
         </div>
         <div class="col-8 PedidoBottomItens">
-            <button class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
+            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
     </div>
 </div>
@@ -348,6 +366,8 @@
             valortotal = $("span[pedido_valor_toal]").attr("valor");
             valortotal = (valortotal*1 - desconto*1);
 
+            n = $("p[Excluirproduto]").length;
+
 
             $.confirm({
                 content:"Deseja realmente cancelar o produto <b>"+produto+"</b>?",
@@ -355,6 +375,11 @@
                 buttons:{
                     'SIM':function(){
                         obj.remove();
+
+                        if(n === 1){
+                            $(".SemProduto").css("display","block");
+                            $("button[pagar]").attr("disabled","disabled");
+                        }
 
                         $("span[pedido_valor_toal]").attr("valor", valortotal);
                         $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
