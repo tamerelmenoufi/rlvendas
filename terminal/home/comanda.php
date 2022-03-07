@@ -36,7 +36,8 @@ function getValorTotal()
 {
     global $con;
 
-    $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
+    $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
+        . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
         . "WHERE v.situacao = '0' AND "
         . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
         . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
