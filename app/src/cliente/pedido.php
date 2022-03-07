@@ -83,6 +83,19 @@
         font-weight:bold;
     }
 
+    .SemProduto{
+        position:absolute;
+        top:45%;
+        text-align:center;
+    }
+    .SemProduto p{
+        text-align:center;
+        color:#eee;
+    }
+    .icone{
+        font-size:50px;
+        color:#eee;
+    }
 
 </style>
 <div class="PedidoTopoTitulo">
@@ -163,7 +176,10 @@
             }else{
         ?>
 
-        NÃO TEM NADA
+        <div class="SemProduto">
+            <i class="fa-solid fa-face-frown icone"></i>
+            <p>Poxa, ainda não tem produtos em seu pedido!</p>
+        </div>
 
         <?php
             }
