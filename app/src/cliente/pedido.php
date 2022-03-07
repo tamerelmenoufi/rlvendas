@@ -88,14 +88,10 @@
         top:45%;
         text-align:center;
         width:100%;
-    }
-    .SemProduto p{
-        text-align:center;
         color:#ccc;
     }
     .icone{
-        font-size:100px;
-        color:#ccc;
+        font-size:70px;
     }
 
 </style>
