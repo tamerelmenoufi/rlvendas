@@ -295,20 +295,12 @@
         });
 
         $("button[ExcluirPedido]").click(function(){
-            obj = $(this).parent("div");
-            quantidade = obj.find(".quantidade").html();
-            atual = obj.find("span[valor]").attr("atual");
-            desconto = (quantidade * atual);
-            valortotal = $("span[pedido_valor_toal]").attr("valor");
-            valortotal = (valortotal*1 - desconto*1);
+
             $.confirm({
                 content:"Deseja realmente cancelar o pedido <b><?=$_SESSION['AppPedido']?></b>?",
                 title:false,
                 buttons:{
                     'SIM':function(){
-
-                        $("span[pedido_valor_toal]").attr("valor", valortotal);
-                        $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
                         $.ajax({
                             url:"src/cliente/pedido.php",
@@ -348,12 +340,23 @@
             codigo = $(this).attr('codigo');
             obj = $(this).parent("div").parent("div");
 
+            quantidade = obj.find(".quantidade").html();
+            atual = obj.find("span[valor]").attr("atual");
+            desconto = (quantidade * atual);
+            valortotal = $("span[pedido_valor_toal]").attr("valor");
+            valortotal = (valortotal*1 - desconto*1);
+
+
             $.confirm({
                 content:"Deseja realmente cancelar o produto <b>"+produto+"</b>?",
                 title:false,
                 buttons:{
                     'SIM':function(){
                         obj.remove();
+
+                        $("span[pedido_valor_toal]").attr("valor", valortotal);
+                        $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
                         $.ajax({
                             url:"src/cliente/pedido.php",
                             type:"POST",
