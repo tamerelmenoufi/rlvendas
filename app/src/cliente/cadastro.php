@@ -66,8 +66,8 @@
 
                         let retorno = JSON.parse(dados);
 
-                        window.localStorage.setItem('AppCliente', dados.AppCliente);
-                        window.localStorage.setItem('AppVenda', dados.AppVenda);
+                        window.localStorage.setItem('AppCliente', retorno.AppCliente);
+                        window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
                         $.ajax({
                             url:"src/home/index.php",
