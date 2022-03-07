@@ -105,8 +105,7 @@
             $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
             $result = mysqli_query($con, $query);
             $valor_total = 0;
-
-            if(mysqli_num_rows($result)){
+            $n = mysqli_num_rows($result);
             while($d = mysqli_fetch_object($result)){
 
                 $pedido = json_decode($d->produto_json);
@@ -171,17 +170,13 @@
         <?php
             $valor_total = ($valor_total + $d->valor_total);
             }
-            }else{
         ?>
 
-        <div class="SemProduto">
+        <div class="SemProduto" style="display:<?=(($n)?'none':'block')?>">
             <i class="fa-solid fa-face-frown icone"></i>
             <p>Poxa, ainda não tem produtos em seu pedido!</p>
         </div>
 
-        <?php
-            }
-        ?>
     </div>
 </div>
 
@@ -371,6 +366,8 @@
             valortotal = $("span[pedido_valor_toal]").attr("valor");
             valortotal = (valortotal*1 - desconto*1);
 
+            n = $("p[Excluirproduto]").length;
+
 
             $.confirm({
                 content:"Deseja realmente cancelar o produto <b>"+produto+"</b>?",
@@ -378,6 +375,8 @@
                 buttons:{
                     'SIM':function(){
                         obj.remove();
+
+                        if(n === 1) $(".SemProduto").css("display","block");
 
                         $("span[pedido_valor_toal]").attr("valor", valortotal);
                         $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
