@@ -65,7 +65,7 @@
                 $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
                     . "LEFT JOIN categorias b ON a.categoria = b.codigo "
                     #. "WHERE /*a.categoria = '{$p->categoria}' and*/ "
-                    . "WHERE a.codigo AND a.deletado != '1' AND b.deletado != '1' NOT IN ('{$p->codigo}')";
+                    . "WHERE a.codigo NOT IN ('{$p->codigo}') AND a.deletado != '1' AND b.deletado != '1'";
 
                 $result = mysqli_query($con, $query);
                 while ($p1 = mysqli_fetch_object($result)) {
