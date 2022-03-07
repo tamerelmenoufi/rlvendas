@@ -215,7 +215,7 @@
             obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
             $.ajax({
-                url:"src/cliente/pedido.php",
+                url:"src/produtos/pedido.php",
                 type:"POST",
                 data:{
                     quantidade,
@@ -254,7 +254,7 @@
 
             //if(quantidade > 1){
                 $.ajax({
-                    url:"src/cliente/pedido.php",
+                    url:"src/produtos/pedido.php",
                     type:"POST",
                     data:{
                         quantidade,
@@ -283,7 +283,7 @@
                     'SIM':function(){
 
                         $.ajax({
-                            url:"src/cliente/pedido.php",
+                            url:"src/produtos/pedido.php",
                             type:"POST",
                             data:{
                                 acao:'SairPedido',
@@ -323,7 +323,7 @@
                     'SIM':function(){
 
                         $.ajax({
-                            url:"src/cliente/pedido.php",
+                            url:"src/produtos/pedido.php",
                             type:"POST",
                             data:{
                                 acao:'ExcluirPedido',
@@ -385,7 +385,7 @@
                         $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
                         $.ajax({
-                            url:"src/cliente/pedido.php",
+                            url:"src/produtos/pedido.php",
                             type:"POST",
                             data:{
                                 acao:'Excluirproduto',
