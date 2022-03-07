@@ -159,12 +159,14 @@
 </div>
 
 <div class="PedidoBottomFixo">
+    <div class="col-4 PedidoBottomItens">
+        <button class="btn btn-danger" ExcluirPedido>
+        <i class="fa-solid fa-trash-can"></i>
+        </button>
+    </div>
     <div class="row">
-        <div class="col PedidoBottomItens">
+        <div class="col-8 PedidoBottomItens">
             <button class="btn btn-success" pagar>Pagar</button>
-        </div>
-        <div class="col PedidoBottomItens">
-            <button class="btn btn-danger" SairPedido>Cancelar</button>
         </div>
     </div>
 </div>
