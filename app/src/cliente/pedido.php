@@ -86,9 +86,11 @@
     .SemProduto{
         position:fixed;
         top:45%;
+        left:0;
         text-align:center;
         width:100%;
         color:#ccc;
+        border:solid 1px red;
     }
     .icone{
         font-size:70px;
