@@ -1,10 +1,10 @@
 <?php
     include("../../../lib/includes.php");
-    $query = "select * from categorias where codigo = '{$_GET['categoria']}'";
+    $query = "select * from categorias where codigo = '{$_GET['categoria']}' AND deletado != '1'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $m_q = "select * from categoria_medidas where codigo in({$d->medidas})";
+    $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1'";
     $m_r = mysqli_query($con, $m_q);
     while($m = mysqli_fetch_array($m_r)){
         $M[$m['codigo']] = $m['medida'];
@@ -83,7 +83,7 @@
 
 <div class="col-md-12">
     <?php
-        $query = "select * from produtos where categoria = {$d->codigo}";
+        $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1'";
         $result = mysqli_query($con, $query);
         while($p = mysqli_fetch_object($result)){
             $detalhes = json_decode($p->detalhes);
