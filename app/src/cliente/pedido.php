@@ -1,11 +1,23 @@
 <?php
     include("../../../lib/includes.php");
-    if($_POST['SairPedido']){
+    if($_POST['acao'] == 'SairPedido'){
         $_SESSION = [];
         exit();
     }
+    if($_POST['acao'] == 'ExcluirPedido'){
+        mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
+        mysqli_query($con, "update vendas_produtos set deletado = '1' where venda = '{$_SESSION['AppVenda']}'");
+        $_SESSION = [];
+        exit();
+    }
+
     if($_POST['acao'] == 'atualiza'){
         mysqli_query($con, "update vendas_produtos set quantidade='{$_POST['quantidade']}', valor_total='{$_POST['valor_total']}' where codigo = '{$_POST['codigo']}'");
+        exit();
+    }
+
+    if($_POST['acao'] == 'Excluirproduto'){
+        mysqli_query($con, "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'");
         exit();
     }
 ?>
@@ -82,33 +94,25 @@
             while($d = mysqli_fetch_object($result)){
 
                 $pedido = json_decode($d->produto_json);
-
+                $sabores = false;
                 //print_r($pedido)
-
+                $ListaPedido = [];
+                for($i=0; $i < count($pedido->produtos); $i++){
+                    $ListaPedido[] = $pedido->produtos[$i]->descricao;
+                }
+                if($ListaPedido) $sabores = implode(', ', $ListaPedido);
         ?>
         <div class="card bg-light mb-3" style="padding-bottom:40px;">
             <div class="card-body">
                 <p style="position:absolute; right:-10px; top:-10px;">
-                    <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px;"></i>
+                    <i Excluirproduto codigo="<?=$d->codigo?>" produto="<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?> <?=$sabores?>" class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px;"></i>
                 <p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
                     - <?=$pedido->medida->descricao?>
                 </h5>
                 <p class="card-text" style="padding:0; margin:0;">
-                    <?php
-                        $ListaPedido = [];
-                        for($i=0; $i < count($pedido->produtos); $i++){
-                            $ListaPedido[] = $pedido->produtos[$i]->descricao;
-                        }
-                    ?>
-                </p>
-                <p class="card-text" style="padding:0; margin:0;">
-                    <small class="text-muted">
-                    <?php
-                        if($ListaPedido) echo implode(', ', $ListaPedido);
-                    ?>
-                    </small>
+                    <small class="text-muted"><?=$sabores?></small>
                 </p>
                 <p class="card-text" style="padding:0; margin:0; text-align:right">
                     R$ <?= number_format($d->valor_unitario, 2, ',', '.') ?>
@@ -168,8 +172,6 @@
 
 <script>
     $(function(){
-
-
 
         var qt = 0;
         var v_produto_com_sabores = 0;
@@ -244,7 +246,7 @@
                             url:"src/cliente/pedido.php",
                             type:"POST",
                             data:{
-                                SairPedido:'1',
+                                acao:'SairPedido',
                             },
                             success:function(dados){
                                 window.localStorage.removeItem('AppPedido');
@@ -271,5 +273,82 @@
 
 
         });
+
+        $("button[ExcluirPedido]").click(function(){
+
+            $.confirm({
+                content:"Deseja realmente cancelar o pedido <b><?=$_SESSION['AppPedido']?></b>?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
+
+                        $.ajax({
+                            url:"src/cliente/pedido.php",
+                            type:"POST",
+                            data:{
+                                acao:'ExcluirPedido',
+                            },
+                            success:function(dados){
+                                window.localStorage.removeItem('AppPedido');
+                                window.localStorage.removeItem('AppCliente');
+                                window.localStorage.removeItem('AppPedido');
+
+
+                                $.ajax({
+                                    url:"src/home/index.php",
+                                    success:function(dados){
+                                        $(".ms_corpo").html(dados);
+                                    }
+                                });
+
+                            }
+                        });
+
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            });
+
+        });
+
+
+        $("i[Excluirproduto]").click(function(){
+
+            produto = $(this).attr('produto');
+            codigo = $(this).attr('codigo');
+
+            $.confirm({
+                content:"Deseja realmente cancelar o produto <b>"+produto+"</b>?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
+
+                        $.ajax({
+                            url:"src/cliente/pedido.php",
+                            type:"POST",
+                            data:{
+                                acao:'Excluirproduto',
+                                codigo,
+                                produto
+                            },
+                            success:function(dados){
+
+                            }
+                        });
+
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            });
+
+        });
+
+
+
+
     })
 </script>
