@@ -314,7 +314,7 @@
         });
 
 
-        $("i[Excluirproduto]").click(function(){
+        $("p[Excluirproduto]").click(function(){
 
             produto = $(this).attr('produto');
             codigo = $(this).attr('codigo');
