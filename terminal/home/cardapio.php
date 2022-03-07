@@ -85,11 +85,13 @@ include("../../lib/includes.php");
     <button class="btn btn-danger btn-lg btn-block" sair_venda>SAIR DO PEDIDO <?= $_SESSION['ConfMesa'] ?></button>
 </div>
 
-<div style="position:fixed; right:40px; bottom:20px;">
-    <button type="button" class="btn btn-primary btn-lg btn-block comanda">
-        <i class="fa-solid fa-bag-shopping"></i>
-    </button>
-</div>
+<?php if ($_SESSION['ConfCliente']): ?>
+    <div style="position:fixed; right:40px; bottom:20px;">
+        <button type="button" class="btn btn-primary btn-lg btn-block comanda">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </button>
+    </div>
+<?php endif; ?>
 
 <script>
     $(function () {
