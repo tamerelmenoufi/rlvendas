@@ -79,7 +79,11 @@ RenovaSessao = () =>{
     var AppVenda = window.localStorage.getItem('AppVenda');
     var AppCliente = window.localStorage.getItem('AppCliente');
     alert(AppPedido + '&&' + AppVenda + '&&' + AppCliente);
-    if(AppPedido != 'undefined' && AppVenda != 'undefined' && AppCliente != 'undefined'){
+    if(
+        (AppPedido != 'undefined' || AppPedido != null) &&
+        (AppVenda != 'undefined' || AppVenda != null) &&
+        (AppCliente != 'undefined' || AppCliente != null)
+    ){
         $.ajax({
             url:"src/cliente/sessao.php",
             type:"POST",
