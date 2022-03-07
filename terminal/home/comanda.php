@@ -9,6 +9,7 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
     if (@mysqli_query($con, $query)) {
         echo json_encode([
             "status" => "sucesso",
+            "valor_total" => getValorTotal(),
         ]);
     }
     exit();
@@ -18,22 +19,43 @@ if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
     $codigo = $_GET['codigo'];
     $quantidade = $_GET['quantidade'];
 
-    $query = "UPDATE vendas_produtos SET quantidade = '{$quantidade}' WHERE codigo = '{$codigo}'";
+    $query = "UPDATE vendas_produtos SET "
+        . "quantidade = '{$quantidade}', valor_total = (valor_unitario * {$quantidade}) "
+        . "WHERE codigo = '{$codigo}'";
 
     if (mysqli_query($con, $query)) {
         echo json_encode([
             "status" => "sucesso",
+            "valor_total" => getValorTotal(),
         ]);
     }
     exit();
 }
+
+function getValorTotal()
+{
+    global $con;
+
+    $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
+        . "WHERE v.situacao = '0' AND "
+        . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
+        . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
+        . "vp.deletado = '0'";
+
+    $result = mysqli_query($con, $query);
+    list($total) = mysqli_fetch_row($result);
+
+    return $total;
+}
+
+
 ?>
 <style>
     /* ===== Scrollbar CSS ===== */
     /* Firefox */
     .comanda * {
         scrollbar-width: auto;
-        scrollbar-color: #d43c16 #ffffff;
+        scrollbar-color: #e74a3b #ffffff;
     }
 
     /* Chrome, Edge, and Safari */
@@ -46,9 +68,9 @@ if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
     }
 
     .comanda *::-webkit-scrollbar-thumb {
-        background-color: #d43c16;
+        background-color: #e74a3b;
         border-radius: 8px;
-        border: 0px;
+        border: 0;
     }
 
     .my-2:nth-of-type(1) {
@@ -69,51 +91,52 @@ if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
 
                 $result = mysqli_query($con, $query);
 
-                while ($d = mysqli_fetch_object($result)):
-                    $json = json_decode($d->produto_json);
-                    ?>
-                    <input
-                            type="hidden"
-                            id="valor-<?= $d->codigo; ?>"
-                            value=" <?= $d->valor_unitario; ?>"
-                    >
+                if (mysqli_num_rows($result)) {
+                    while ($d = mysqli_fetch_object($result)):
+                        $json = json_decode($d->produto_json);
+                        ?>
+                        <input
+                                type="hidden"
+                                id="valor-<?= $d->codigo; ?>"
+                                value=" <?= $d->valor_unitario; ?>"
+                        >
 
-                    <div class="card my-2" id="item-<?= $d->codigo; ?>">
-                        <div class="card-body py-2 pt-3">
-                            <h5 class="text-gray-700 font-weight-bold">
-                                <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
-                            </h5>
+                        <div class="card my-2" id="item-<?= $d->codigo; ?>">
+                            <div class="card-body py-2 pt-3">
+                                <h5 class="text-gray-700 font-weight-bold">
+                                    <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
+                                </h5>
 
-                            <div class="d-flex justify-content-center">
-                                <div style="flex: 1">
-                                    <?php
-                                    $sabores = [];
+                                <div class="d-flex justify-content-center">
+                                    <div style="flex: 1">
+                                        <?php
+                                        $sabores = [];
 
-                                    if ($json->produtos) {
-                                        foreach ($json->produtos as $key => $produto) {
-                                            if ($key > 0) {
-                                                $sabores[] = $produto->descricao;
+                                        if ($json->produtos) {
+                                            foreach ($json->produtos as $key => $produto) {
+                                                if ($key > 0) {
+                                                    $sabores[] = $produto->descricao;
+                                                }
+                                            }
+
+                                            if (!empty($sabores)) {
+                                                echo '<i class="fa-solid fa-utensils"></i> ' . implode(", ", $sabores);
                                             }
                                         }
-
-                                        if (!empty($sabores)) {
-                                            echo '<i class="fa-solid fa-utensils"></i> ' . implode(", ", $sabores);
-                                        }
-                                    }
-                                    ?>
-                                    <?php if ($d->produto_descricao) { ?>
-                                        <p class="mb-0">
-                                            <i
-                                                    class="fa-solid fa-message"
-                                                    title="Observação"
-                                            ></i> <?= $d->produto_descricao; ?>
-                                        </p>
-                                    <?php } ?>
-                                </div>
-                                <div>
-                                    <h4 class="font-weight-bold text-success">
-                                        R$
-                                        <span valor-<?= $d->codigo; ?>>
+                                        ?>
+                                        <?php if ($d->produto_descricao) { ?>
+                                            <p class="mb-0">
+                                                <i
+                                                        class="fa-solid fa-message"
+                                                        title="Observação"
+                                                ></i> <?= $d->produto_descricao; ?>
+                                            </p>
+                                        <?php } ?>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-weight-bold text-success">
+                                            R$
+                                            <span valor-<?= $d->codigo; ?>>
                                             <?= number_format(
                                                 $d->valor_unitario * $d->quantidade,
                                                 2,
@@ -121,55 +144,97 @@ if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
                                                 '.'
                                             ); ?>
                                             </span>
-                                    </h4>
+                                        </h4>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <hr>
+                                <hr>
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <button type="button" cod="<?= $d->codigo; ?>" class="btn btn-outline-info menos">
-                                        <i class="fa-solid fa-minus"></i>
-                                    </button>
-                                    <span
-                                            class="font-weight-bold mx-2"
-                                            quantidade-<?= $d->codigo; ?>="<?= $d->quantidade; ?>"
-                                    >
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <button
+                                                type="button"
+                                                cod="<?= $d->codigo; ?>"
+                                                class="btn btn-outline-info menos"
+                                        >
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+
+                                        <span
+                                                class="font-weight-bold mx-2"
+                                                quantidade-<?= $d->codigo; ?>="<?= $d->quantidade; ?>"
+                                        >
                                         <?= $d->quantidade; ?>
                                     </span>
-                                    <button type="button" cod="<?= $d->codigo; ?>" class="btn btn-outline-info mais">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </button>
 
-                                </div>
-                                <div>
-                                    <button remover cod="<?= $d->codigo; ?>" type="button"
-                                            class="btn btn-outline-danger">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
+                                        <button
+                                                type="button"
+                                                cod="<?= $d->codigo; ?>"
+                                                class="btn btn-outline-info mais"
+                                        >
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+
+                                    </div>
+                                    <div>
+                                        <button
+                                                remover
+                                                cod="<?= $d->codigo; ?>"
+                                                type="button"
+                                                class="btn btn-outline-danger"
+                                        >
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    <?php endwhile;
+                } else { ?>
+                    <div class="text-center mt-4">
+                        <i class="fa-solid fa-face-frown h1 text-center"></i>
+                        <h4 class="h4 text font-weight-bold">Você ainda não tem nenhum pedido</h4>
                     </div>
-                <?php endwhile; ?>
+                <?php } ?>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="height: 90vh;">
                 <div class="card my-2">
-                    <div class="card-body">
-                        <h5 class="text-center font-weight-bold">Dados do Pagamento</h5>
+                    <div class="card-body position-relative" style="height: 400px">
+                        <h5 class="text-center font-weight-bold mb-4">DADOS DO PAGAMENTO</h5>
+
+                        <div class="row">
+                            <div class="col-3 font-weight-bold">MESA</div>
+                            <div class="col-6"><?= $_SESSION['ConfMesa']; ?></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 font-weight-bold">TOTAL</div>
+                            <div class="col-6">R$
+                                <span valor_total>
+                                    <?= number_format(
+                                        getValorTotal(),
+                                        2,
+                                        ',',
+                                        '.'
+                                    );
+                                    ?>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Botoes fixos -->
+                        <div class="position-absolute" style="bottom: 15px; right: 10px;">
+                            <button class="btn btn-success btn-lg" style="font-weight: 600">CONCLUIR COMPRA</button>
+                            <button sair class="btn btn-danger btn-lg" style="font-weight: 600">VOLTAR</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Botoes fixos -->
-    <div style="position:fixed; right:20px; bottom:20px;">
-        <button sair class="btn btn-danger btn-lg">SAIR</button>
-        <button class="btn btn-success btn-lg">CONCLUIR COMPRA</button>
-    </div>
+
 </div>
 
 
@@ -216,11 +281,17 @@ if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
                             $.ajax({
                                 url: "home/comanda.php",
                                 method: "POST",
-                                data: {codigo, acao: "remover"},
                                 dataType: "JSON",
+                                data: {
+                                    codigo,
+                                    acao: "remover"
+                                },
                                 success: function (dados) {
                                     if (dados.status === "sucesso") {
-                                        console.log(`#item-${codigo}`);
+                                        let valor_total = Number(dados.valor_total);
+
+                                        $("span[valor_total]").text(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
                                         $(`#item-${codigo}`).fadeOut(400).remove();
                                     }
                                 }
@@ -279,16 +350,19 @@ if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
                 $.ajax({
                     url: "home/comanda.php",
                     method: "GET",
+                    dataType: "JSON",
                     data: {
                         acao: "atualiza_quantidade",
                         codigo,
                         quantidade
                     },
                     success: function (dados) {
+                        let valor_total = Number(dados.valor_total);
 
+                        $("span[valor_total]").text(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
                     }
                 });
-            }, 500);
+            }, 400);
         }
 
     });
