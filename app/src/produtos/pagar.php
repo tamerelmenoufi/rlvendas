@@ -30,7 +30,8 @@
     .card-title div{
         width:100%;
         text-align:right;
-        font-size:12px;
+        font-size:14px;
+        font-weight:bold;
     }
 </style>
 <div class="PedidoTopoTitulo">
@@ -41,7 +42,7 @@
         Valor total da compra R$ <?=number_format($d->total,2,',','.')?>
 
 
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card bg-light mb-3">
             <div class="card-header">Dados da Compra</div>
             <div class="card-body">
                 <h5 class="card-title">
@@ -54,7 +55,7 @@
                 </h5>
                 <h5 class="card-title">
                     <small>Cliente</small>
-                    <div>R$ <?="{$d->nome} {$d->telefone}"?></div>
+                    <div><?="{$d->nome} {$d->telefone}"?></div>
                 </h5>
 
             </div>
