@@ -40,10 +40,10 @@
 <div class="PedidoTopoTitulo">
     <h4>Pagar <?=$_SESSION['AppPedido']?> com Débito</h4>
 </div>
-<div class="col" style="margin-bottom:60px; padding:20px;">
+<div class="col" style="margin-bottom:60px;">
     <div class="row">
             <div class="col-12">
-                <div class="card text-white bg-info mb-3">
+                <div class="card text-white bg-info mb-3" style="padding:20px;">
                     <small>Nome</small>
                     <div>TAMER M. ELMENOUFI</div>
                     <small>Número</small>
