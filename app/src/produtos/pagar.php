@@ -1,6 +1,10 @@
 <?php
     include("../../../lib/includes.php");
 
+    $query = "select sum(valor_total) as total from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
+    $result = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result);
+
 ?>
 <style>
     .PedidoTopoTitulo{
@@ -21,7 +25,7 @@
 </div>
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
-        Dados de teste
+        Valor total da compra R$ <?=number_format($d->total,2,',','.')?>
     </div>
 </div>
 
