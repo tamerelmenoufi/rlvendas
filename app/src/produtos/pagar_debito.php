@@ -32,6 +32,7 @@
         border:solid 1px #eee;
         border-radius:2px;
         background-color:#fff;
+        color:#333;
         font-size:20px;
         text-align:center;
     }
@@ -39,22 +40,21 @@
 <div class="PedidoTopoTitulo">
     <h4>Pagar <?=$_SESSION['AppPedido']?> com Débito</h4>
 </div>
-<div class="col" style="margin-bottom:60px;">
-
-<div class="row">
-        <div class="col-12">
-            <div class="card text-white bg-info mb-3">
-                <small>Nome</small>
-                <div>TAMER M. ELMENOUFI</div>
-                <small>Número</small>
-                <div>1144 3241 5783 3327</div>
-                <small>CCV</small>
-                <div>276</div>
+<div class="col" style="margin-bottom:60px; padding:20px;">
+    <div class="row">
+            <div class="col-12">
+                <div class="card text-white bg-info mb-3">
+                    <small>Nome</small>
+                    <div>TAMER M. ELMENOUFI</div>
+                    <small>Número</small>
+                    <div>1144 3241 5783 3327</div>
+                    <small>CCV</small>
+                    <div>276</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <script>
     $(function(){
 
