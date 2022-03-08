@@ -38,30 +38,56 @@
     <h4>Pagar <?=$_SESSION['AppPedido']?></h4>
 </div>
 <div class="col" style="margin-bottom:60px;">
-    <div class="col-12">
-        <div class="card bg-light mb-3">
-            <div class="card-header">Dados da Compra</div>
-            <div class="card-body">
-                <h5 class="card-title">
-                    <small>Pedido</small>
-                    <div><?=$_SESSION['AppPedido']?></div>
-                </h5>
-                <h5 class="card-title">
-                    <small>Valor</small>
-                    <div>R$ <?=number_format($d->total,2,',','.')?></div>
-                </h5>
-                <h5 class="card-title">
-                    <small>Cliente</small>
-                    <div><?="{$d->nome} {$d->telefone}"?></div>
-                </h5>
 
+<div class="row">
+        <div class="col-12">
+            <div class="card bg-light mb-3">
+                <div class="card-header">Dados da Compra</div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <small>Pedido</small>
+                        <div><?=$_SESSION['AppPedido']?></div>
+                    </h5>
+                    <h5 class="card-title">
+                        <small>Valor</small>
+                        <div>R$ <?=number_format($d->total,2,',','.')?></div>
+                    </h5>
+                    <h5 class="card-title">
+                        <small>Cliente</small>
+                        <div><?="{$d->nome} {$d->telefone}"?></div>
+                    </h5>
+
+                </div>
             </div>
         </div>
-
-
     </div>
-</div>
 
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-light mb-3">
+                <div class="card-header">Formas de Pagamento</div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Débito</a>
+                    </h5>
+                    <h5 class="card-title">
+                        <a class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Crédito</a>
+                    </h5>
+                    <h5 class="card-title">
+                        <a class="btn btn-success btn-lg"><i class="fa-brands fa-pix"></i> PIX</a>
+                    </h5>
+                    <h5 class="card-title">
+                        <a class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Dinheiro</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
 
 <script>
     $(function(){
