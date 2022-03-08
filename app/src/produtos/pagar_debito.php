@@ -54,10 +54,10 @@
                     <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='' />
                     <div class="row">
                         <div class="col-4">
-                            <h1>
-                                <i class="fa-brands fa-cc-mastercard"></i>
-                                <i class="fa-brands fa-cc-visa"></i>
-                            </h1>
+                            <div class="row">
+                                <div class="col"><h1><i class="fa-brands fa-cc-mastercard"></i></h1></div>
+                                <div class="col"><h1><i class="fa-brands fa-cc-visa"></i></h1></div>
+                            </div>
                         </div>
                         <div class="col-2">
                             <small>MM</small>
