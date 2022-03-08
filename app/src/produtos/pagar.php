@@ -50,11 +50,11 @@
                 <div class="card-body">
                     <h5 class="card-title">
                         <small>Pedido</small>
-                        <div><?=$_SESSION['AppPedido']?></div>
+                        <div style="font-size:18px; color:blue;"><?=$_SESSION['AppPedido']?></div>
                     </h5>
                     <h5 class="card-title">
                         <small>Valor</small>
-                        <div>R$ <?=number_format($d->total,2,',','.')?></div>
+                        <div style="font-size:20px; color:green;">R$ <?=number_format($d->total,2,',','.')?></div>
                     </h5>
                     <h5 class="card-title">
                         <small>Cliente</small>
