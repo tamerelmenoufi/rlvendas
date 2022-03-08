@@ -29,12 +29,13 @@
         text-align:left;
     }
     .card div{
-        border:solid 1px #eee;
-        border-radius:2px;
-        background-color:#fff;
+        border:solid 1px #ccc;
+        border-radius:3px;
+        background-color:#eee;
         color:#333;
         font-size:20px;
         text-align:center;
+        margin-bottom:15px;
     }
 </style>
 <div class="PedidoTopoTitulo">
@@ -48,8 +49,23 @@
                     <div>TAMER M. ELMENOUFI</div>
                     <small>Número</small>
                     <div>1144 3241 5783 3327</div>
-                    <small>CCV</small>
-                    <div>276</div>
+                    <div class="row">
+                        <div class="col-2">
+                            <small>MM</small>
+                            <div>12</div>
+                        </div>
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-3">
+                            <small>AAAA</small>
+                            <div>2027</div>
+                        </div>
+                        <div class="col-3">
+                            <small>CCV</small>
+                            <div>835</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
