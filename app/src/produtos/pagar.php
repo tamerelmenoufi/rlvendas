@@ -37,11 +37,8 @@
 <div class="PedidoTopoTitulo">
     <h4>Pagar <?=$_SESSION['AppPedido']?></h4>
 </div>
-<div class="col" style="margin-bottom:60px; margin-top:20px;">
+<div class="col" style="margin-bottom:60px;">
     <div class="col-12">
-        Valor total da compra R$ <?=number_format($d->total,2,',','.')?>
-
-
         <div class="card bg-light mb-3">
             <div class="card-header">Dados da Compra</div>
             <div class="card-body">
