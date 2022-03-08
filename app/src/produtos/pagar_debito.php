@@ -55,8 +55,8 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="row">
-                                <div class="col"><h1><i class="fa-brands fa-cc-mastercard"></i></h1></div>
-                                <div class="col"><h1><i class="fa-brands fa-cc-visa"></i></h1></div>
+                                <div class="col"><i class="fa-brands fa-cc-mastercard"></i></div>
+                                <div class="col"><i class="fa-brands fa-cc-visa"></i></div>
                             </div>
                         </div>
                         <div class="col-2">
