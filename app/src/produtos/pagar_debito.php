@@ -74,7 +74,7 @@
 </div>
 <script>
     $(function(){
-        $("#cartao_numero").mask("0000 0000 0000 0000");
+        $("#cartao_numero").mask("9999 9999 9999 9999");
 
 
     })
