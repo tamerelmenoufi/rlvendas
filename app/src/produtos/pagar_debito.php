@@ -56,12 +56,12 @@
                         <div class="col-4">
                             <div class="row">
                                 <div class="col">
-                                    <h2 style="display:flex; justify-content:center; align-items:center;">
+                                    <h2 style="display:flex; justify-content:center; align-items:center; align-content:center; flex-flow:column nowrap;">
                                         <i class="fa-brands fa-cc-mastercard"></i>
                                     </h2>
                                 </div>
                                 <div class="col">
-                                    <h2 style="display:flex; justify-content:center; align-items:center;">
+                                    <h2 style="display:flex; justify-content:center; align-items:center; align-content:center; flex-flow:column nowrap;">
                                         <i class="fa-brands fa-cc-visa"></i>
                                     </h2>
                                 </div>
