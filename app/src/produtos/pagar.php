@@ -113,7 +113,7 @@
                     local:'src/produtos/pagar_debito.php',
                 },
                 success:function(dados){
-                    PageClose();
+                    //PageClose();
                     $(".ms_corpo").append(dados);
                 }
             });
