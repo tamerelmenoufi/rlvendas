@@ -8,7 +8,7 @@
     <script src="<?= "{$caminho_vendor}/bootstrap-select/js/i18n/defaults-pt_BR.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/jquery/jquery.easing.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/jquery/jquery.validate.min.js"; ?>"></script>
-    <script src="<?= "{$caminho_vendor}/jquery/jquery.maskedinput.min.js"; ?>"></script>
+    <script src="<?= "{$caminho_vendor}/jquery/jquery.maskedinput.min.js?old"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/startbootstrap-sb-admin-2/js/sb-admin-2.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/jquery-confirm/js/jquery-confirm.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/fontawesome/js/all.min.js"; ?>"></script>
