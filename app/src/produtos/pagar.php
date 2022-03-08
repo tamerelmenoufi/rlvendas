@@ -24,7 +24,14 @@
         padding-top:15px;
         z-index:1;
     }
-
+    .card-title small{
+        font-size:10px;
+    }
+    .card-title div{
+        width:100%;
+        text-align:right;
+        font-size:12px;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pagar <?=$_SESSION['AppPedido']?></h4>
@@ -37,17 +44,17 @@
         <div class="card bg-light mb-3" style="max-width: 18rem;">
             <div class="card-header">Dados da Compra</div>
             <div class="card-body">
-            <h5 class="card-title">
+                <h5 class="card-title">
                     <small>Pedido</small>
-                    <?=$_SESSION['AppPedido']?>
+                    <div><?=$_SESSION['AppPedido']?></div>
                 </h5>
                 <h5 class="card-title">
                     <small>Valor</small>
-                    R$ <?=number_format($d->total,2,',','.')?>
+                    <div>R$ <?=number_format($d->total,2,',','.')?></div>
                 </h5>
                 <h5 class="card-title">
                     <small>Cliente</small>
-                    R$ <?="{$d->nome} {$d->telefone}"?>
+                    <div>R$ <?="{$d->nome} {$d->telefone}"?></div>
                 </h5>
 
             </div>
