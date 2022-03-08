@@ -54,7 +54,8 @@
                     <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='' />
                     <div class="row">
                         <div class="col-4">
-                            <div class="row" style="display:flex; justify-content:center; align-items:center; align-content:center; flex-flow:row nowrap;">
+                            <small>Bandeiras</small>
+                            <div class="row">
                                 <div class="col">
                                     <h2>
                                         <i class="fa-brands fa-cc-mastercard"></i>
