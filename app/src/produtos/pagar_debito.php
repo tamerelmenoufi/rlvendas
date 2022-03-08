@@ -49,7 +49,7 @@
                     <small>Nome</small>
                     <input value='TAMER M. ELMENOUFI' />
                     <small>Número</small>
-                    <input maxlenght='19' type="number" id="cartao_numero" value='1144 3241 5783 3327' />
+                    <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" value='1144 3241 5783 3327' />
                     <div class="row">
                         <div class="col-2">
                             <small>MM</small>
