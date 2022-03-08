@@ -47,6 +47,10 @@
     <div class="row">
             <div class="col-12">
                 <div class="card text-white bg-info mb-3" style="padding:20px;">
+                    <h1>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-visa"></i>
+                    </h1>
                     <small>Nome</small>
                     <input type="text" id="cartao_nome" placeholder="NOME NO CARTÃO" value='' />
                     <small>Número</small>
