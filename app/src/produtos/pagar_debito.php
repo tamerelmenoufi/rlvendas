@@ -54,14 +54,14 @@
                     <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='' />
                     <div class="row">
                         <div class="col-4">
-                            <div class="row">
+                            <div class="row" style="display:flex; justify-content:center; align-items:center; align-content:center; flex-flow:column nowrap;">
                                 <div class="col">
-                                    <h2 style="position:relative; border:solid 1px red; height:100%; display:flex; justify-content:center; align-items:center; align-content:center; flex-flow:column nowrap;">
+                                    <h2>
                                         <i class="fa-brands fa-cc-mastercard"></i>
                                     </h2>
                                 </div>
                                 <div class="col">
-                                    <h2 style="display:flex; justify-content:center; align-items:center; align-content:center; flex-flow:column nowrap;">
+                                    <h2>
                                         <i class="fa-brands fa-cc-visa"></i>
                                     </h2>
                                 </div>
