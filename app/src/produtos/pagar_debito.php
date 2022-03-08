@@ -37,6 +37,7 @@
         text-align:center;
         margin-bottom:15px;
         width:100%;
+        text-transform:uppercase;
     }
 </style>
 <div class="PedidoTopoTitulo">
