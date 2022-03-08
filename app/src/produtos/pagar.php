@@ -29,7 +29,7 @@
     }
     .card-title div{
         width:100%;
-        text-align:right;
+        text-align:left;
         font-size:14px;
         font-weight:bold;
     }
