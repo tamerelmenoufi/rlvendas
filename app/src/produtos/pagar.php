@@ -48,15 +48,15 @@
             <div class="card bg-light mb-3">
                 <div class="card-header">Dados da Compra</div>
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="col-6 card-title">
                         <small>Pedido</small>
                         <div style="font-size:18px; color:blue;"><?=$_SESSION['AppPedido']?></div>
                     </h5>
-                    <h5 class="card-title">
+                    <h5 class="col-6 card-title">
                         <small>Valor</small>
                         <div style="font-size:20px; color:green;">R$ <?=number_format($d->total,2,',','.')?></div>
                     </h5>
-                    <h5 class="card-title">
+                    <h5 class="col-12 card-title">
                         <small>Cliente</small>
                         <div><?="{$d->nome} {$d->telefone}"?></div>
                     </h5>
