@@ -77,7 +77,7 @@
                             <input inputmode="numeric" maxlength='4' type="text" id="cartao_validade_ano" placeholder="0000" value='' />
                         </div>
                         <div class="col-3">
-                            <small>CCV</small>
+                            <small>CVV</small>
                             <input inputmode="numeric" maxlength='4' type="text" id="cartao_ccv" placeholder="0000" value='' />
                         </div>
                     </div>
