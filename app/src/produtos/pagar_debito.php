@@ -47,15 +47,18 @@
     <div class="row">
             <div class="col-12">
                 <div class="card text-white bg-info mb-3" style="padding:20px;">
-                    <h1>
-                        <i class="fa-brands fa-cc-mastercard"></i>
-                        <i class="fa-brands fa-cc-visa"></i>
-                    </h1>
+
                     <small>Nome</small>
                     <input type="text" id="cartao_nome" placeholder="NOME NO CARTÃO" value='' />
                     <small>Número</small>
                     <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='' />
                     <div class="row">
+                        <div class="col-4">
+                            <h1>
+                                <i class="fa-brands fa-cc-mastercard"></i>
+                                <i class="fa-brands fa-cc-visa"></i>
+                            </h1>
+                        </div>
                         <div class="col-2">
                             <small>MM</small>
                             <input inputmode="numeric" maxlength='2' type="text" id="cartao_validade_mes" placeholder="00" value='' />
@@ -63,9 +66,6 @@
                         <div class="col-3">
                             <small>AAAA</small>
                             <input inputmode="numeric" maxlength='4' type="text" id="cartao_validade_ano" placeholder="0000" value='' />
-                        </div>
-                        <div class="col-4">
-
                         </div>
                         <div class="col-3">
                             <small>CCV</small>
