@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="row">
-                                <div class="col">
+                                <div style="border:solid 1px green;" class="col">
                                     <h2 style="border:solid 1px red; height:100%; width:100%; display:flex; justify-content:center; align-items:center; align-content:center; flex-flow:column nowrap;">
                                         <i class="fa-brands fa-cc-mastercard"></i>
                                     </h2>
