@@ -28,7 +28,7 @@
         font-size:12px;
         text-align:left;
     }
-    .card div{
+    .card input{
         border:solid 1px #ccc;
         border-radius:3px;
         background-color:#eee;
@@ -36,6 +36,7 @@
         font-size:20px;
         text-align:center;
         margin-bottom:15px;
+        width:100%;
     }
 </style>
 <div class="PedidoTopoTitulo">
@@ -46,24 +47,24 @@
             <div class="col-12">
                 <div class="card text-white bg-info mb-3" style="padding:20px;">
                     <small>Nome</small>
-                    <div>TAMER M. ELMENOUFI</div>
+                    <input value='TAMER M. ELMENOUFI' />
                     <small>Número</small>
-                    <div>1144 3241 5783 3327</div>
+                    <input value='1144 3241 5783 3327' />
                     <div class="row">
                         <div class="col-2">
                             <small>MM</small>
-                            <div>12</div>
+                            <input value='12' />
+                        </div>
+                        <div class="col-3">
+                            <small>AAAA</small>
+                            <input value='2027' />
                         </div>
                         <div class="col-4">
 
                         </div>
                         <div class="col-3">
-                            <small>AAAA</small>
-                            <div>2027</div>
-                        </div>
-                        <div class="col-3">
                             <small>CCV</small>
-                            <div>835</div>
+                            <input value='835' />
                         </div>
                     </div>
                 </div>
