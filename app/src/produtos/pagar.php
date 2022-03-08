@@ -33,6 +33,9 @@
         font-size:14px;
         font-weight:bold;
     }
+    .card-title a{
+        width:100%;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pagar <?=$_SESSION['AppPedido']?></h4>
