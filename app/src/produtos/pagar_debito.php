@@ -48,24 +48,24 @@
             <div class="col-12">
                 <div class="card text-white bg-info mb-3" style="padding:20px;">
                     <small>Nome</small>
-                    <input value='TAMER M. ELMENOUFI' />
+                    <input type="text" id="cartao_nome" placeholder="NOME NO CARTÃO" value='' />
                     <small>Número</small>
-                    <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" value='1144 3241 5783 3327' />
+                    <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='' />
                     <div class="row">
                         <div class="col-2">
                             <small>MM</small>
-                            <input value='12' />
+                            <input inputmode="numeric" maxlength='2' type="text" id="cartao_validade_mes" placeholder="00" value='' />
                         </div>
                         <div class="col-3">
                             <small>AAAA</small>
-                            <input value='2027' />
+                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_validade_ano" placeholder="0000" value='' />
                         </div>
                         <div class="col-4">
 
                         </div>
                         <div class="col-3">
                             <small>CCV</small>
-                            <input value='835' />
+                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_ccv" placeholder="0000" value='' />
                         </div>
                     </div>
                 </div>
@@ -76,6 +76,9 @@
 <script>
     $(function(){
         $("#cartao_numero").mask("9999 9999 9999 9999");
+        $("#cartao_validade_mes").mask("99");
+        $("#cartao_validade_ano").mask("9999");
+        $("#cartao_ccv").mask("9999");
 
 
     })
