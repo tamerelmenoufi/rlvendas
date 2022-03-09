@@ -47,7 +47,7 @@
     <div class="row">
             <div class="col-12">
                 <div class="card text-white bg-info mb-3" style="padding:20px;">
-                    <div style="margin-top:60px; text-align:center; font-size:50px;">
+                    <div style="margin-top:60px; margin-bottom:60px; text-align:center; font-size:100px;">
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
                 </div>
