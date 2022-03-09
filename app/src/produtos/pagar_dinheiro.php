@@ -46,12 +46,12 @@
 <div class="col" style="margin-bottom:60px;">
     <div class="row">
             <div class="col-12">
-                <div class="card text-white bg-info mb-3" style="padding:20px;">
+                <div class="card text-white bg-warning mb-3" style="padding:20px;">
                     <p style="text-align:center">Efetue o pagamento diretamente no caixa ou solicite a comanda.</p>
                     <div style="margin-top:60px; margin-bottom:60px; text-align:center; font-size:100px;">
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
-                    <button class="btn btn-success btn-lg btn-block"><i class="fa-solid fa-receipt"></i> Solicitar Comanda</button>
+                    <button class="btn btn-warning btn-lg btn-block"><i class="fa-solid fa-receipt"></i> Solicitar Comanda</button>
                 </div>
             </div>
         </div>
