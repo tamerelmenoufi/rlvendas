@@ -20,7 +20,7 @@
             if(AppPedido && local){
                 Carregando();
                 $.ajax({
-                    url:componente,
+                    url:"src/componentes/"+componente+".php",
                     type:"POST",
                     data:{
                         local,
