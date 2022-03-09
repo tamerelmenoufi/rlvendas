@@ -88,7 +88,10 @@ function getValorTotal()
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
-                    . "WHERE situacao = '0' AND vp.deletado = '0'";
+                    . "WHERE v.situacao = '0' AND "
+                    . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
+                    . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
+                    . "v.situacao = '0' AND vp.deletado = '0'";
 
                 $result = mysqli_query($con, $query);
 
@@ -201,33 +204,45 @@ function getValorTotal()
 
             <div class="col-md-6" style="height: 90vh;">
                 <div class="card my-2">
-                    <div class="card-body position-relative" style="height: 400px">
+                    <div class="card-body" style="height: 400px; position:relative;">
                         <h5 class="text-center font-weight-bold mb-4">DADOS DO PAGAMENTO</h5>
 
-                        <div class="row">
+                        <div class="row mb-1">
                             <div class="col-3 font-weight-bold">MESA</div>
                             <div class="col-6"><?= $_SESSION['ConfMesa']; ?></div>
                         </div>
 
                         <div class="row">
-                            <div class="col-3 font-weight-bold">TOTAL</div>
-                            <div class="col-6">R$
-                                <span valor_total>
-                                    <?= number_format(
-                                        getValorTotal(),
-                                        2,
-                                        ',',
-                                        '.'
-                                    );
-                                    ?>
-                                </span>
+                            <div class="col-3 font-weight-bold">OBSERVAÇÕES</div>
+                            <div class="col">
+                                <div class="texto_detalhes"></div>
+                                <button type="button" class="btn btn-sm btn-primary incluir_observacao">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
                             </div>
                         </div>
 
                         <!-- Botoes fixos -->
-                        <div class="position-absolute" style="bottom: 15px; right: 10px;">
-                            <button class="btn btn-success btn-lg" style="font-weight: 600">CONCLUIR COMPRA</button>
-                            <button sair class="btn btn-danger btn-lg" style="font-weight: 600">VOLTAR</button>
+                        <div class="position-absolute px-4" style="bottom: 15px;left:0;right:0;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="h4 text-success font-weight-bold">R$
+                                        <span valor_total>
+                                            <?= number_format(
+                                                getValorTotal(),
+                                                2,
+                                                ',',
+                                                '.'
+                                            );
+                                            ?>
+                                        </span>
+                                    </h4>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success btn-lg" style="font-weight: 600">CONCLUIR COMPRA
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -235,6 +250,9 @@ function getValorTotal()
         </div>
     </div>
 
+    <div style="position:fixed;bottom: 20px;right: 20px">
+        <button sair class="btn btn-danger btn-lg" style="font-weight: 600">VOLTAR</button>
+    </div>
 
 </div>
 
@@ -252,6 +270,13 @@ function getValorTotal()
 
         $.ajax({
             url: "home/footer.php",
+            success: function (dados) {
+                $("#body").append(dados);
+            }
+        });
+
+        $.ajax({
+            url: "cardapio/detalhes.php",
             success: function (dados) {
                 $("#body").append(dados);
             }
@@ -344,27 +369,29 @@ function getValorTotal()
             $(`span[valor-${cod}]`).text(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         });
 
+        $(".incluir_observacao").click(function () {
+            $("#keyboard_body").css("display", "block");
+        });
+
         function atualiza_quantidade(codigo, quantidade) {
-            clearInterval(time);
+            $.ajax({
+                url: "home/comanda.php",
+                method: "GET",
+                dataType: "JSON",
+                data: {
+                    acao: "atualiza_quantidade",
+                    codigo,
+                    quantidade
+                },
+                success: function (dados) {
+                    let valor_total = Number(dados.valor_total);
 
-            time = setTimeout(() => {
-                $.ajax({
-                    url: "home/comanda.php",
-                    method: "GET",
-                    dataType: "JSON",
-                    data: {
-                        acao: "atualiza_quantidade",
-                        codigo,
-                        quantidade
-                    },
-                    success: function (dados) {
-                        let valor_total = Number(dados.valor_total);
-
-                        $("span[valor_total]").text(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-                    }
-                });
-            }, 400);
+                    $("span[valor_total]")
+                        .text(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+                }
+            });
         }
+
 
     });
 </script>
