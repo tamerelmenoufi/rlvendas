@@ -47,40 +47,13 @@
     <div class="row">
             <div class="col-12">
                 <div class="card text-white bg-info mb-3" style="padding:20px;">
-
-                    <small>Nome</small>
-                    <input type="text" id="cartao_nome" placeholder="NOME NO CARTÃO" value='' />
-                    <small>Número</small>
-                    <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='' />
-                    <div class="row">
-                        <div class="col-4">
-                            <small>BANDEIRAS</small>
-                            <div class="row">
-                                <div class="col">
-                                    <h2>
-                                        <i class="fa-brands fa-cc-mastercard"></i>
-                                    </h2>
-                                </div>
-                                <div class="col">
-                                    <h2>
-                                        <i class="fa-brands fa-cc-visa"></i>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <small>MM</small>
-                            <input inputmode="numeric" maxlength='2' type="text" id="cartao_validade_mes" placeholder="00" value='' />
-                        </div>
-                        <div class="col-3">
-                            <small>AAAA</small>
-                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_validade_ano" placeholder="0000" value='' />
-                        </div>
-                        <div class="col-3">
-                            <small>CVV</small>
-                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_ccv" placeholder="0000" value='' />
-                        </div>
+                    <p style="text-align:center">Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.</p>
+                    <div style="padding:20px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAA…pcNOXzSFEOVBMdL/D4T8KXtKYnK373wAAAABJRU5ErkJggg==" style="width:100%"></i>
                     </div>
+                    <p style="text-align:center; font-size:12px;">Seu Código PIX</p>
+                    <p style="text-align:center; font-size:10px;">9873DKJHD87e39868885</p>
+                    <button class="btn btn-success btn-lg btn-block"><i class="fa-solid fa-copy"></i> Copiar Código PIX</button>
                 </div>
             </div>
         </div>
