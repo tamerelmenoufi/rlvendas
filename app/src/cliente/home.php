@@ -42,6 +42,7 @@
                     local:"src/cliente/perfil.php",
                 },
                 success:function(dados){
+                    PageClose();
                     $(".ms_corpo").append(dados);
                 }
             });

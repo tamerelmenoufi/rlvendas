@@ -69,9 +69,9 @@
         $("button[SalvarDados]").click(function(){
             nome = $("#nome").val();
             email = $("#email").val();
-
             $.ajax({
                 url:"src/cliente/perfil.php",
+                type:"POST",
                 data:{
                     nome,
                     email,
@@ -80,7 +80,8 @@
                 success:function(dados){
                     let retorno = JSON.parse(dados);
                     if(retorno.status === true){
-                        $("span[ClienteNomeApp]").html(retorno.msg)
+                        $("span[ClienteNomeApp]").html(retorno.msg);
+                        PageClose();
                     }
                 }
             });
