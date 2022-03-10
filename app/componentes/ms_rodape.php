@@ -8,6 +8,7 @@
     <div class="col acao" componente="ms_popup_100" local="src/produtos/pagar.php"><i class="fa-solid fa-circle-dollar-to-slot"></i><p>Pagar</p></div>
 </div>
 <script>
+    ///////////////
     $(function(){
 
         $(".acao").click(function(){
