@@ -25,7 +25,7 @@
         <?php
             if($c->telefone){
         ?>
-            <div class="DadosTopo"><?=$c->telefone?> <?=$c->nome?></div>
+            <div class="DadosTopo"><?=$c->telefone?> <span ClienteNomeApp><?=$c->nome?></span></div>
         <?php
             }
             if($m->mesa){

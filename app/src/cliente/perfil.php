@@ -1,6 +1,18 @@
 <?php
     include("../../../lib/includes.php");
 
+    if($_POST['acao'] == 'salvar'){
+        $query = "update clientes set nome = '{$_POST['nome']}', email = '{$_POST['email']}' where codigo = '{$_SESSION['AppCliente']}'";
+        mysqli_query($con, $query);
+
+        echo json_encode("[
+            'status' => true,
+            'msg' => {$_POST['nome']},
+        ]");
+
+        exit();
+    }
+
     $c = mysqli_fetch_object(mysqli_query($con, "select * from clientes where codigo = '{$_SESSION['AppCliente']}'"));
 
 ?>
@@ -46,7 +58,7 @@
                     <input type="text" class="form-control form-control-lg" id="ConfirmaSenha">
                     </div>
                 </div>
-                <button type="buttom" class="btn btn-primary">Salvar dados</button>
+                <button SalvarDados type="buttom" class="btn btn-primary btn-lg">Salvar dados</button>
             </div>
         </div>
     </div>
@@ -54,6 +66,26 @@
 <script>
     $(function(){
 
+        $("button[SalvarDados]").click(function(){
+            nome = $("#nome").val();
+            email = $("#email").val();
+
+            $.ajax({
+                url:"src/cliente/perfil.php",
+                data:{
+                    nome,
+                    email,
+                    acao:'salvar'
+                },
+                success:function(dados){
+                    let retorno = JSON.parse(dados);
+                    if(retorno.status === true){
+                        $("span[ClienteNomeApp]").html(retorno.msg)
+                    }
+                }
+            });
+
+        });
 
     })
 </script>
