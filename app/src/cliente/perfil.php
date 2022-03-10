@@ -82,6 +82,11 @@
                     let retorno = JSON.parse(dados);
                     //$.alert(retorno.status);
                     if(retorno.status){
+                        $.alert({
+                            content:'Dados salvos com sucesso!',
+                            title:false,
+                            type: "red",
+                        });
                         $("span[ClienteNomeApp]").html(retorno.msg);
                         PageClose();
                     }
