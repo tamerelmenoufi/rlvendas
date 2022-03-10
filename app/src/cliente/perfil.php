@@ -4,10 +4,8 @@
 <style>
     .PedidoTopoTitulo{
         position:fixed;
-        left:0px;
+        left:60px;
         top:0px;
-        width:100%;
-        text-align:center;
         height:60px;
         background:#fff;
         padding-left:70px;
