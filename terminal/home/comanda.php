@@ -84,7 +84,7 @@ function getValorTotal()
 
     <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-md-6" style="height: 90vh; overflow-y: auto">
+            <div class="col-md-8" style="height: 90vh; overflow-y: auto">
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
@@ -106,7 +106,7 @@ function getValorTotal()
                         >
 
                         <div class="card my-2" id="item-<?= $d->codigo; ?>">
-                            <div class="card-body py-2 pt-3">
+                            <div class="card-body py-4 pt-3">
                                 <h5 class="text-gray-700 font-weight-bold">
                                     <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
                                 </h5>
@@ -202,56 +202,78 @@ function getValorTotal()
                 <?php } ?>
             </div>
 
-            <div class="col-md-6" style="height: 90vh;">
+            <div class="col-md-4">
                 <div class="card my-2">
-                    <div class="card-body" style="height: 400px; position:relative;">
-                        <h5 class="text-center font-weight-bold mb-4">DADOS DO PAGAMENTO</h5>
+                    <div class="card-body">
+                        <h5 class="text-center font-weight-bold mb-4">DETALHES</h5>
 
                         <div class="row mb-1">
-                            <div class="col-3 font-weight-bold">MESA</div>
+                            <div class="col-4 font-weight-bold">MESA</div>
                             <div class="col-6"><?= $_SESSION['ConfMesa']; ?></div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-3 font-weight-bold">OBSERVAÇÕES</div>
-                            <div class="col">
-                                <div class="texto_detalhes"></div>
-                                <button type="button" class="btn btn-sm btn-primary incluir_observacao">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </button>
-                            </div>
+                        <div class="row mb-1">
+                            <div class="col-4 font-weight-bold">CLIENTE</div>
+                            <div class="col-6"><?= $_SESSION['ConfCliente']; ?></div>
                         </div>
-
-                        <!-- Botoes fixos -->
-                        <div class="position-absolute px-4" style="bottom: 15px;left:0;right:0;">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h4 class="h4 text-success font-weight-bold">R$
-                                        <span valor_total>
-                                            <?= number_format(
-                                                getValorTotal(),
-                                                2,
-                                                ',',
-                                                '.'
-                                            );
-                                            ?>
-                                        </span>
-                                    </h4>
-                                </div>
-                                <div>
-                                    <button class="btn btn-success btn-lg" style="font-weight: 600">CONCLUIR COMPRA
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 font-weight-bold">
+                                <center>
+                                    <button type="button" class="btn btn-sm btn-primary incluir_observacao mb-1">
+                                        <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
                                     </button>
-                                </div>
+                                </center>
+                            </div>
+                            <div class="col-12">
+                                <div class="texto_detalhes"></div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="card mt-2">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-md-4 font-weight-bold h5">
+                                Total
+                            </div>
+                            <div class="col-md-8">
+                                R$ <span valor_total>
+                                    <?= number_format(
+                                        getValorTotal(),
+                                        2,
+                                        ',',
+                                        '.'
+                                    ); ?>
+                                </span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <button class="btn btn-success btn-lg btn-block mb-2" style="font-weight: 600">
+                                CONCLUIR COMPRA
+                            </button>
+                        </div>
+
+                        <div>
+                            <button sair class="btn btn-danger btn-lg btn-block" style="font-weight: 600">
+                                VOLTAR
+                            </button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
 
     <div style="position:fixed;bottom: 20px;right: 20px">
-        <button sair class="btn btn-danger btn-lg" style="font-weight: 600">VOLTAR</button>
+
     </div>
 
 </div>
