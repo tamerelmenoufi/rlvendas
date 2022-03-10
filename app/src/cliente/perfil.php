@@ -8,7 +8,6 @@
         top:0px;
         height:60px;
         background:#fff;
-        padding-left:70px;
         padding-top:15px;
         z-index:1;
     }
