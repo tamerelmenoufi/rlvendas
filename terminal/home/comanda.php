@@ -49,7 +49,6 @@ function getValorTotal()
     return $total;
 }
 
-
 ?>
 <style>
     /* ===== Scrollbar CSS ===== */
@@ -82,9 +81,9 @@ function getValorTotal()
 
 <div class="comanda">
 
-    <div class="container-fluid mt-5">
+    <div class="container mt-5">
         <div class="row">
-            <div class="col-md-8" style="height: 90vh; overflow-y: auto">
+            <div class="col-md-7" style="height: 90vh; overflow-y: auto">
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
@@ -107,7 +106,7 @@ function getValorTotal()
 
                         <div class="card my-2" id="item-<?= $d->codigo; ?>">
                             <div class="card-body py-4 pt-3">
-                                <h5 class="text-gray-700 font-weight-bold">
+                                <h5 class="h5 font-weight-bold">
                                     <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
                                 </h5>
 
@@ -202,27 +201,28 @@ function getValorTotal()
                 <?php } ?>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <div class="card my-2">
                     <div class="card-body">
-                        <h5 class="text-center font-weight-bold mb-4">DETALHES</h5>
-
+                        <h4 class="font-weight-bold h4">Informações básicas</h4>
+                        <hr>
                         <div class="row mb-1">
-                            <div class="col-4 font-weight-bold">MESA</div>
+                            <div class="col-4 font-weight-bold">Mesa</div>
                             <div class="col-6"><?= $_SESSION['ConfMesa']; ?></div>
                         </div>
                         <div class="row mb-1">
-                            <div class="col-4 font-weight-bold">CLIENTE</div>
+                            <div class="col-4 font-weight-bold">Cliente</div>
                             <div class="col-6"><?= $_SESSION['ConfCliente']; ?></div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-12 font-weight-bold">
-                                <center>
-                                    <button type="button" class="btn btn-sm btn-primary incluir_observacao mb-1">
-                                        <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
-                                    </button>
-                                </center>
+                                <button
+                                        type="button"
+                                        class="btn btn-sm btn-danger incluir_observacao mb-1 font-weight-bold"
+                                >
+                                    <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
+                                </button>
                             </div>
                             <div class="col-12">
                                 <div class="texto_detalhes"></div>
@@ -252,13 +252,13 @@ function getValorTotal()
                         </div>
                         <hr>
                         <div>
-                            <button class="btn btn-success btn-lg btn-block mb-2" style="font-weight: 600">
+                            <button concluir_compra class="btn btn-success btn-lg btn-block mb-1 font-weight-bold">
                                 CONCLUIR COMPRA
                             </button>
                         </div>
 
                         <div>
-                            <button sair class="btn btn-danger btn-lg btn-block" style="font-weight: 600">
+                            <button sair class="btn btn-primary btn-lg btn-block font-weight-bold">
                                 VOLTAR
                             </button>
                         </div>
@@ -393,6 +393,15 @@ function getValorTotal()
 
         $(".incluir_observacao").click(function () {
             $("#keyboard_body").css("display", "block");
+        });
+
+        $("button[concluir_compra]").click(function () {
+            $.ajax({
+                url: "pagamento/index.php",
+                success: function (dados) {
+                    $("#body").html(dados);
+                }
+            })
         });
 
         function atualiza_quantidade(codigo, quantidade) {
