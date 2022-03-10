@@ -19,13 +19,13 @@
 <div class="col">
     <div class="col-12">
         <button perfil class="btn btn-success btn-lg btn-block">
-            Perfil pessoal
+            <i class="fa-solid fa-user-pen"></i> Perfil pessoal
         </button>
         <button class="btn btn-success btn-lg btn-block">
-            Meus Pedidos
+            <i class="fa-solid fa-bell-concierge"></i> Meus Pedidos
         </button>
         <button class="btn btn-success btn-lg btn-block">
-            Fale Conosco
+            <i class="fa-solid fa-envelope"></i> Fale Conosco
         </button>
     </div>
 </div>
