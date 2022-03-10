@@ -7,12 +7,13 @@
         position:relative;
         width:100%;
         text-align:center;
-        padding:20px;
     }
 </style>
 
 <div class="ClienteTopoTitulo">
-    <h4>Sobre o Cliente</h4>
+    <h4>
+        <i class="fa-solid fa-user"></i> Sobre o Cliente
+    </h4>
 </div>
 
 <div class="col">
