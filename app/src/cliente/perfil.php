@@ -5,10 +5,11 @@
         $query = "update clientes set nome = '{$_POST['nome']}', email = '{$_POST['email']}' where codigo = '{$_SESSION['AppCliente']}'";
         mysqli_query($con, $query);
 
-        echo json_encode("[
+        echo json_encode([
             'status' => true,
-            'msg' => {$_POST['nome']},
-        ]");
+            'msg' => 'Dados salvo com sucesso',
+            'msg' => $_POST['nome'],
+        ]);
 
         exit();
     }
@@ -79,7 +80,7 @@
                 },
                 success:function(dados){
                     let retorno = JSON.parse(dados);
-                    $.alert(retorno.status);
+                    //$.alert(retorno.status);
                     if(retorno.status){
                         $("span[ClienteNomeApp]").html(retorno.msg);
                         PageClose();
