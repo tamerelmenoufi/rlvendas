@@ -79,7 +79,7 @@
                 },
                 success:function(dados){
                     let retorno = JSON.parse(dados);
-                    if(retorno.status === true){
+                    if(retorno.status){
                         $("span[ClienteNomeApp]").html(retorno.msg);
                         PageClose();
                     }
