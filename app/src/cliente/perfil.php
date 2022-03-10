@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                     <label for="nome">Telefone</label>
-                    <div class="form-control form-control-lg" disabled><?=$c->telefone?></div>
+                    <div class="form-control form-control-lg" style="cursor:pointer; background-color:#ccc;"><?=$c->telefone?></div>
                 </div>
 
                 <div class="form-group">
