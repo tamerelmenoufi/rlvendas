@@ -28,7 +28,7 @@
             <i class="fa-solid fa-envelope"></i> Fale Conosco
         </button>
         <button acao opc="senha" class="btn btn-success btn-lg btn-block">
-            <i class="fa-solid fa-bell-concierge"></i> Alterar Senha
+            <i class="fa-solid fa-key"></i> Alterar Senha
         </button>
     </div>
 </div>
