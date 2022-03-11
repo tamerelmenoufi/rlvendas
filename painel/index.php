@@ -1,6 +1,13 @@
-<?php include("../lib/includes.php"); ?>
+<?php
+include("../lib/includes.php");
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ./login");
+}
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,22 +17,22 @@
 </head>
 <body id="page-top">
 
-    <div class="body"></div>
+<div class="body"></div>
 
-    <?php include("../lib/footer.php"); ?>
+<?php include("../lib/footer.php"); ?>
 
-    <script>
-        $(function(){
-            $.ajax({
-                url:"home/index.php",
-                success:function(dados){
-                    $(".body").html(dados);
-                },
-                error:function(){
-                    $.alert('Ocorreu um erro!');
-                }
-            });
-        })
-    </script>
+<script>
+    $(function () {
+        $.ajax({
+            url: "home/index.php",
+            success: function (dados) {
+                $(".body").html(dados);
+            },
+            error: function () {
+                $.alert('Ocorreu um erro!');
+            }
+        });
+    })
+</script>
 </body>
 </html>
