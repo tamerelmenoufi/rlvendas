@@ -14,7 +14,7 @@
 <body>
     <div class="Carregando">
         <span>
-            <i class="fa-solid fa-arrows-rotate"></i>
+            <i class="fa-solid fa-spinner"></i>
         </span>
     </div>
     <div class="ms_corpo"></div>
