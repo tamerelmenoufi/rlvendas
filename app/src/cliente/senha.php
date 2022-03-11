@@ -61,8 +61,8 @@
     $(function(){
 
         $("button[SalvarDados]").click(function(){
-            senha  = $("#senha").val();
-            senha1 = $("#senha1").val();
+            senha  = $("#Senha").val();
+            senha1 = $("#ConfirmaSenha").val();
 
             if(!senha && senha != senha1){
                 $.alert({
