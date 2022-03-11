@@ -18,7 +18,7 @@
 
 <div class="col">
     <div class="col-12">
-        <button perfil class="btn btn-success btn-lg btn-block">
+        <button acao opc="perfil" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-user-pen"></i> Perfil pessoal
         </button>
         <button class="btn btn-success btn-lg btn-block">
@@ -27,19 +27,23 @@
         <button class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-envelope"></i> Fale Conosco
         </button>
+        <button acao opc="senha" class="btn btn-success btn-lg btn-block">
+            <i class="fa-solid fa-bell-concierge"></i> Alterar Senha
+        </button>
     </div>
 </div>
 
 <script>
     $(function(){
         Carregando('none');
-        $("button[perfil]").click(function(){
+        $("button[acao]").click(function(){
+            local = $(this).attr("opc");
             Carregando();
             $.ajax({
                 url:"componentes/ms_popup_100.php",
                 type:"POST",
                 data:{
-                    local:"src/cliente/perfil.php",
+                    local:`src/cliente/${local}.php`,
                 },
                 success:function(dados){
                     PageClose();
