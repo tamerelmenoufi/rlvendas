@@ -63,10 +63,10 @@
 
             if(!nome || !email){
                 $.alert({
-                            content:'Preencha os campos do formulário!',
-                            title:false,
-                            type: "red",
-                        });
+                    content:'Preencha os campos do formulário!',
+                    title:false,
+                    type: "red",
+                });
                 return false;
             }
 
