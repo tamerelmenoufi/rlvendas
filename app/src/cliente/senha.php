@@ -2,7 +2,7 @@
     include("../../../lib/includes.php");
 
     if($_POST['acao'] == 'salvar'){
-        $senha = md5($_POST['nome']);
+        $senha = md5($_POST['senha']);
         $query = "update clientes set senha = '{$senha}' where codigo = '{$_SESSION['AppCliente']}'";
         mysqli_query($con, $query);
 
