@@ -64,7 +64,7 @@
             senha  = $("#Senha").val();
             senha1 = $("#ConfirmaSenha").val();
 
-            if(!senha && senha != senha1){
+            if(!senha || senha != senha1){
                 $.alert({
                     title:false,
                     content:"Preencha os campos corretamente para redefinir sua senha!",
