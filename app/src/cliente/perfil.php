@@ -49,16 +49,6 @@
                     <label for="email">E-mail</label>
                     <input type="email" class="form-control form-control-lg" id="email" placeholder="seuemail@seudominio.com" value="<?=$c->email?>">
                 </div>
-                <div class="form-row">
-                    <div class="form-group col">
-                    <label for="Senha">Senha</label>
-                    <input type="text" class="form-control form-control-lg" id="Senha">
-                    </div>
-                    <div class="form-group col">
-                    <label for="ConfirmaSenha">Confirmar Senha</label>
-                    <input type="text" class="form-control form-control-lg" id="ConfirmaSenha">
-                    </div>
-                </div>
                 <button SalvarDados type="buttom" class="btn btn-primary btn-lg">Salvar dados</button>
             </div>
         </div>
