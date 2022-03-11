@@ -60,6 +60,16 @@
         $("button[SalvarDados]").click(function(){
             nome = $("#nome").val();
             email = $("#email").val();
+
+            if(!nome && !email){
+                $.alert({
+                            content:'Preencha os campos do formulário!',
+                            title:false,
+                            type: "red",
+                        });
+                return false;
+            }
+
             $.ajax({
                 url:"src/cliente/perfil.php",
                 type:"POST",
@@ -75,7 +85,7 @@
                         $.alert({
                             content:'Dados salvos com sucesso!',
                             title:false,
-                            type: "red",
+                            type: "green",
                         });
                         $("span[ClienteNomeApp]").html(retorno.msg);
                         PageClose();
