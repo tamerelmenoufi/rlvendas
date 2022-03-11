@@ -22,6 +22,29 @@ if (!isset($_SESSION['usuario'])) {
 <?php include("../lib/footer.php"); ?>
 
 <script>
+    $(document).ready(function () {
+        //Datatables
+        $.extend(true, $.fn.dataTable.defaults, {
+            "language": {
+                "url": "<?= $caminho_vendor; ?>/datatables/pt_br.json",
+                responsive: true
+            },
+            "order": [],
+            "columnDefs": [{
+                targets: 'no-sort',
+                orderable: false,
+            }],
+            stateSave: true,
+        });
+
+        //Jconfirm
+        jconfirm.defaults = {
+            typeAnimated: true,
+            type: "blue",
+            smoothContent: true,
+        }
+    });
+
     $(function () {
         $.ajax({
             url: "home/index.php",
@@ -32,6 +55,8 @@ if (!isset($_SESSION['usuario'])) {
                 $.alert('Ocorreu um erro!');
             }
         });
+
+
     })
 </script>
 </body>
