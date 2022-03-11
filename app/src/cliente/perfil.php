@@ -61,7 +61,7 @@
             nome = $("#nome").val();
             email = $("#email").val();
 
-            if(!nome && !email){
+            if(!nome || !email){
                 $.alert({
                             content:'Preencha os campos do formulário!',
                             title:false,
