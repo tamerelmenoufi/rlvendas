@@ -3,7 +3,10 @@
 ?>
 
 <div class="row">
-    Dados da cozenha (Produção de Pizzas)
+    <div class="col">
+        Dados da cozenha (Produção de Pizzas)
+    </div>
+
 <?php
     $query = "select * from vendas_produtos where situacao = 'p' order by data asc";
     $result = mysqli_query($con, $query);
