@@ -1,7 +1,7 @@
 <?php
     include("../../lib/includes.php");
 ?>
-<div class="col">
+<div style="position:fixed; left:0px; top:0px; width:100%; border:solid 1px red;">
     <div class="row">
         <div class="col">
             Dados da cozenha (Produção de Pizzas)
