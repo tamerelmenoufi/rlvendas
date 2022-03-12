@@ -56,7 +56,6 @@ if (!isset($_SESSION['usuario'])) {
             }
         });
 
-
     })
 </script>
 </body>
