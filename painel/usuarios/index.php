@@ -1,12 +1,11 @@
 <?php
-
 include("../../lib/includes.php");
 include "./conf.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' and $_POST['acao'] === 'excluir') {
     $codigo = $_POST['codigo'];
 
-    if (exclusao('categoria_medidas', $codigo)) {
+    if (exclusao('usuarios', $codigo)) {
         echo json_encode(["status" => true, "msg" => "Registro excluído com sucesso"]);
     } else {
         echo json_encode(["status" => false, "msg" => "Error ao tentar excluír"]);
@@ -14,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' and $_POST['acao'] === 'excluir') {
     exit;
 }
 
-$query = "SELECT * FROM categoria_medidas WHERE deletado != '1' ORDER BY medida ASC";
+$query = "SELECT * FROM usuarios WHERE deletado != '1' ORDER BY nome ASC";
 $result = mysqli_query($con, $query);
 
 ?>
@@ -32,14 +31,9 @@ $result = mysqli_query($con, $query);
         <h6 class="m-0 font-weight-bold text-primary">
             <?= $ConfTitulo ?>
         </h6>
-        <div>
-            <button type="button" class="btn btn-primary btn-sm ordenar">
-                <i class="fa-solid fa-sort"></i> Ordenar
-            </button>
-            <button type="button" class="btn btn-success btn-sm" url="<?= $UrlScript; ?>/form.php">
-                <i class="fa-solid fa-plus"></i> Novo
-            </button>
-        </div>
+        <button type="button" class="btn btn-success btn-sm" url="<?= $UrlScript; ?>/form.php">
+            <i class="fa-solid fa-plus"></i> Novo
+        </button>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -47,16 +41,25 @@ $result = mysqli_query($con, $query);
             <table id="datatable" class="table" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>Medidas</th>
-                    <th>QT. Produtos</th>
+                    <th>Nome</th>
+                    <th>Usuário</th>
+                    <th>Situação</th>
                     <th class="mw-20">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php while ($d = mysqli_fetch_object($result)): ?>
+                <?php
+                while ($d = mysqli_fetch_object($result)):
+                    $status = $d->status == '1' ? 'success' : 'danger';
+                    ?>
                     <tr id="linha-<?= $d->codigo; ?>">
-                        <td><?= $d->medida; ?></td>
-                        <td><?= $d->qt_produtos; ?></td>
+                        <td><?= $d->nome; ?></td>
+                        <td><?= $d->usuario; ?></td>
+                        <td>
+                            <span class="badge badge-<?= $status; ?>">
+                                <?= getSituacaoOptions($d->status); ?>
+                            </span>
+                        </td>
                         <td>
                             <button
                                     class="btn btn-sm btn-link"
@@ -80,34 +83,6 @@ $result = mysqli_query($con, $query);
 <script>
     $(function () {
         $("#datatable").DataTable();
-
-        $(".ordenar").click(function () {
-            $.alert({
-                title: "Ordenar medidas",
-                content: "url: categorias_medidas/ordenar.php",
-                columnClass: "large",
-                buttons: {
-                    "OK": function () {
-
-                        $('#sortable li').each(function (e) {
-                            var codigo = $(this).data("codigo");
-
-                            console.log(codigo + " " + ($(this).index() + 1));
-                        });
-
-                        /*$(".loading").fadeIn(300);
-
-                        $.ajax({
-                            url: "categorias_medidas/index.php",
-                            success: function (dados) {
-                                $(".loading").fadeOut(300);
-                                $('#palco').html(dados);
-                            }
-                        })*/
-                    }
-                }
-            })
-        });
 
         $('.btn-excluir').click(function () {
             var codigo = $(this).data('codigo');

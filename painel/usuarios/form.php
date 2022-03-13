@@ -8,18 +8,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $codigo = $data['codigo'] ?: null;
 
-    unset($data['codigo']);
+    unset($data['codigo'], $data['senha_2']);
+
+    $query_existe = "SELECT codigo FROM usuarios WHERE usuario = '{$data['usuario']}'";
+
+    if (mysqli_num_rows(mysqli_query($con, $query_existe))) {
+        echo json_encode([
+            "status" => false,
+            "msg" => "Nome de usuário já existe",
+        ]);
+
+        exit();
+    }
+
+    if (!$codigo) $data['data_cadastro'] = date("Y-m-d H:i:s");
+
+    if ($codigo and empty($data['senha'])) unset($data['senha']);
 
     foreach ($data as $name => $value) {
-        $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
+        if ($name == 'senha') {
+            $attr[] = "{$name} = '" . md5($value) . "'";
+        } else {
+            $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
+        }
     }
 
     $attr = implode(', ', $attr);
 
     if ($codigo) {
-        $query = "UPDATE categoria_medidas SET {$attr} WHERE codigo = '{$codigo}'";
+        $query = "UPDATE usuarios SET {$attr} WHERE codigo = '{$codigo}'";
     } else {
-        $query = "INSERT INTO categoria_medidas SET {$attr}";
+        $query = "INSERT INTO usuarios SET {$attr}";
     }
 
     #file_put_contents("query.txt",$query);
@@ -27,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_query($con, $query)) {
         $codigo = $codigo ?: mysqli_insert_id($con);
 
-        sis_logs('categoria_medidas', $codigo, $query);
+        sis_logs('usuarios', $codigo, $query);
 
         echo json_encode([
             'status' => true,
@@ -49,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $codigo = $_GET['codigo'];
 
 if ($codigo) {
-    $query = "SELECT * FROM categoria_medidas WHERE codigo = '{$codigo}'";
+    $query = "SELECT * FROM usuarios WHERE codigo = '{$codigo}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 }
@@ -77,27 +96,56 @@ if ($codigo) {
     <div class="card-body">
         <form id="form-<?= $md5 ?>">
             <div class="form-group">
-                <label for="medida">Medida <i class="text-danger">*</i></label>
+                <label for="nome">Nome <i class="text-danger">*</i></label>
                 <input
                         type="text"
                         class="form-control"
-                        id="medida"
-                        name="medida"
-                        value="<?= $d->medida; ?>"
+                        id="nome"
+                        name="nome"
+                        value="<?= $d->nome; ?>"
                         required
                 >
             </div>
 
             <div class="form-group">
-                <label for="qt_produtos">Quantidade (Itens) <i class="text-danger">*</i></label>
+                <label for="usuario">Usuário <i class="text-danger">*</i></label>
                 <input
                         type="text"
                         class="form-control"
-                        id="qt_produtos"
-                        name="qt_produtos"
-                        value="<?= $d->qt_produtos; ?>"
+                        id="usuario"
+                        name="usuario"
+                        value="<?= $d->usuario; ?>"
                         required
                 >
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="senha">Senha <i class="text-danger">*</i></label>
+                        <input
+                                type="password"
+                                class="form-control"
+                                id="senha"
+                                name="senha"
+                                value="<?= !$codigo ? $d->senha : ''; ?>"
+                            <?= !$codigo ? 'required' : ''; ?>
+                        >
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="senha_2">Confirmar senha <i class="text-danger">*</i></label>
+                        <input
+                                type="password"
+                                class="form-control"
+                                id="senha_2"
+                                name="senha_2"
+                            <?= !$codigo ? 'required' : ''; ?>
+                        >
+                    </div>
+                </div>
             </div>
 
 

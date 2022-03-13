@@ -6,6 +6,7 @@
     <script src="<?= "{$caminho_vendor}/bootstrap4/js/bootstrap.bundle.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/bootstrap-select/js/bootstrap-select.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/bootstrap-select/js/i18n/defaults-pt_BR.min.js"; ?>"></script>
+    <script src="<?= "{$caminho_vendor}/jquery-ui/js/jquery-ui.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/jquery/jquery.easing.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/jquery/jquery.validate.min.js"; ?>"></script>
     <script src="<?= "{$caminho_vendor}/jquery/jquery.maskedinput.min.js?old"; ?>"></script>

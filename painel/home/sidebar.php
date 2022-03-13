@@ -35,13 +35,14 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Configurações:</h6> -->
                 <?php
-                    $query = "select * from categorias where deletado != '1' order by categoria";
-                    $result = mysqli_query($con, $query);
-                    while($c = mysqli_fetch_object($result)){
-                ?>
-                <a class="collapse-item" href="#" url="produtos/index.php?categoria=<?=$c->codigo?>"><?=$c->categoria?></a>
-                <?php
-                    }
+                $query = "select * from categorias where deletado != '1' order by categoria";
+                $result = mysqli_query($con, $query);
+                while ($c = mysqli_fetch_object($result)) {
+                    ?>
+                    <a class="collapse-item" href="#"
+                       url="produtos/index.php?categoria=<?= $c->codigo ?>"><?= $c->categoria ?></a>
+                    <?php
+                }
                 ?>
                 <a class="collapse-item" href="#" url="vendas/index.php">Vendas</a>
             </div>
@@ -74,7 +75,8 @@
         <div id="MenuUsuarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Configurações:</h6> -->
-                <a class="collapse-item" href="#" url="atendentes/index.php">Usuários</a>
+                <a class="collapse-item" href="#" url="atendentes/index.php">Atendentes</a>
+                <a class="collapse-item" href="#" url="usuarios/index.php">Usuários</a>
                 <a class="collapse-item" href="#" url="clientes/index.php">Clientes</a>
             </div>
         </div>
@@ -91,25 +93,24 @@
 </ul>
 
 <script>
-    $(function(){
-        $("#sidebarToggle").click(function(){
+    $(function () {
+        $("#sidebarToggle").click(function () {
             opc = $(this).attr('opc');
-            if(opc == '0'){
+            if (opc == '0') {
                 $("#page-top").addClass('sidebar-toggled');
                 $(".menus").addClass('toggled');
-                $(this).attr("opc","1");
-            }else{
+                $(this).attr("opc", "1");
+            } else {
                 $("#page-top").removeClass('sidebar-toggled');
                 $(".menus").removeClass('toggled');
-                $(this).attr("opc","0");
+                $(this).attr("opc", "0");
             }
 
         });
 
-
-
         $(document).on('click', '[url]', function (e) {
             e.preventDefault();
+
             var url = $(this).attr('url');
 
             $('.loading').fadeIn(200);
