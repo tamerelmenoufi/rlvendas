@@ -13,7 +13,7 @@
 
 
 <script>
-    const ws = new WebSocket("wss://websocket.yobom.com.br");
+    const ws = new WebSocket("https://websocket.yobom.com.br/wss/");
     const input = document.querySelector('input');
     const output = document.querySelector('output');
 
