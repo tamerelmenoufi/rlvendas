@@ -55,8 +55,7 @@ if (!isset($_SESSION['usuario'])) {
                 $.alert('Ocorreu um erro!');
             }
         });
-
-    })
+    });
 </script>
 </body>
 </html>
