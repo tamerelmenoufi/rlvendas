@@ -1,16 +1,18 @@
 <?php
 include("../../lib/includes.php");
 
-$query = "select * from categorias where codigo = '{$_GET['categoria']}'";
+$query = "SELECT * FROM categorias WHERE codigo = '{$_GET['categoria']}'";
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
 
-$m_q = "select * from categoria_medidas where codigo in({$d->medidas})";
+$m_q = "SELECT * FROM categoria_medidas WHERE codigo IN({$d->medidas}) ORDER BY ordem, medida ASC";
 $m_r = mysqli_query($con, $m_q);
+
 while ($m = mysqli_fetch_array($m_r)) {
     $M[$m['codigo']] = $m['medida'];
 }
 ?>
+
 <style>
     .cardapio_produtos {
         position: absolute;
@@ -34,8 +36,9 @@ while ($m = mysqli_fetch_array($m_r)) {
 
     <div class="col-md-12">
         <?php
-        $query = "select * from produtos where categoria = {$d->codigo}";
+        $query = "SELECT * FROM produtos WHERE categoria = {$d->codigo}";
         $result = mysqli_query($con, $query);
+
         while ($p = mysqli_fetch_object($result)) {
 
             $detalhes = json_decode($p->detalhes);
@@ -46,7 +49,7 @@ while ($m = mysqli_fetch_array($m_r)) {
             <div class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
                     <div class="col-md-4 foto<?= $md5 ?>"
-                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
+                         style="background-image:url('../painel/produtos/icon/<?= $p->icon ?>')">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -60,8 +63,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
                                         //echo "<br>R$ {$val[0]} -> Status: R$ {$val[1]}<br>";
 
-                                        if ($val[1] > 0) {
-                                            ?>
+                                        if ($val[1] > 0) { ?>
                                             <button
                                                     acao_medida
                                                     opc="<?= $val[1] ?>"
@@ -80,7 +82,6 @@ while ($m = mysqli_fetch_array($m_r)) {
                                         }
                                     }
                                     ?>
-
                                 </small>
                             </p>
                         </div>
@@ -186,8 +187,6 @@ while ($m = mysqli_fetch_array($m_r)) {
                 }
             })
         });
-
-
-    })
+    });
 
 </script>

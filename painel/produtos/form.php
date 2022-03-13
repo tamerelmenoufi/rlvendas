@@ -1,6 +1,6 @@
 <?php
-    include("../../lib/includes.php");
-    include "./conf.php";
+include("../../lib/includes.php");
+include "./conf.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = $_POST;
@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $codigo = $data['codigo'] ?: null;
 
-    if($data['file-base']){
+    if ($data['file-base']) {
 
         list($x, $icon) = explode(';base64,', $data['file-base']);
         $icon = base64_decode($icon);
         $pos = strripos($data['file-name'], '.');
-        $ext = substr($data['file-name'],$pos,strlen($data['file-name']));
+        $ext = substr($data['file-name'], $pos, strlen($data['file-name']));
 
         $atual = $data['file-atual'];
 
@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         unset($data['file-name']);
         unset($data['file-atual']);
 
-        if(file_put_contents("icon/{$md5}{$ext}", $icon)){
+        if (file_put_contents("icon/{$md5}{$ext}", $icon)) {
             $attr[] = "icon = '{$md5}{$ext}'";
-            if($atual){
+            if ($atual) {
                 unlink("icon/{$atual}");
             }
         }
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
     }
 
-    if(!$codigo) $attr[] = "categoria = '" . $ConfCategoria->codigo . "'";
+    if (!$codigo) $attr[] = "categoria = '" . $ConfCategoria->codigo . "'";
 
     $attr = implode(', ', $attr);
 
@@ -80,19 +80,22 @@ if ($codigo) {
 }
 
 ?>
+
 <style>
-    .cor{
+    .cor {
         padding-top: 15px;
     }
-    .cor:hover{
-        background-color:#eee;
+
+    .cor:hover {
+        background-color: #eee;
     }
 </style>
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb shadow bg-gray-custom">
         <li class="breadcrumb-item"><a href="#" url="./">Início</a></li>
         <li class="breadcrumb-item" aria-current="page">
-            <a href="#" url="<?= $UrlScript; ?>/index.php"><?=$ConfTitulo?> - <?=$ConfCategoria->categoria?></a>
+            <a href="#" url="<?= $UrlScript; ?>/index.php"><?= $ConfTitulo ?> - <?= $ConfCategoria->categoria ?></a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
             <?= $codigo ? 'Alterar' : 'Cadastrar'; ?>
@@ -103,13 +106,13 @@ if ($codigo) {
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">
-            <?= $codigo ? 'Alterar' : 'Cadastrar'; ?> <?=$ConfTitulo?> - <?=$ConfCategoria->categoria?>
+            <?= $codigo ? 'Alterar' : 'Cadastrar'; ?> <?= $ConfTitulo ?> - <?= $ConfCategoria->categoria ?>
         </h6>
     </div>
     <div class="card-body">
-        <form id="form-<?=$md5?>">
+        <form id="form-<?= $md5 ?>">
             <div class="form-group">
-                <label for="categoria">produto <i class="text-danger">*</i></label>
+                <label for="produto">produto <i class="text-danger">*</i></label>
                 <input
                         type="text"
                         class="form-control"
@@ -134,7 +137,7 @@ if ($codigo) {
                 <label for="medidas">Valores <i class="text-danger">*</i></label>
 
                 <?php
-                $query1 = "SELECT * FROM categoria_medidas where deletado != '1' and codigo in({$ConfCategoria->medidas}) ORDER BY medida";
+                $query1 = "SELECT * FROM categoria_medidas WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) ORDER BY ordem, medida";
                 $result1 = mysqli_query($con, $query1);
 
                 $detalhes = json_decode($d->detalhes);
@@ -151,11 +154,15 @@ if ($codigo) {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">R$</span>
                                 </div>
-                                <input valores opc="<?=$dados->codigo?>" value="<?=$detalhes->{$dados->codigo}[0]?>" type="number" class="form-control" >
+                                <input valores opc="<?= $dados->codigo ?>" value="<?= $detalhes->{$dados->codigo}[0] ?>"
+                                       type="number" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <input situacao opc="<?=$dados->codigo?>" value="<?=(($detalhes->{$dados->codigo}[1])?:'0')?>" type="checkbox" <?=(($detalhes->{$dados->codigo}[1])?'checked':false)?> data-toggle="toggle">
+                            <input situacao opc="<?= $dados->codigo ?>"
+                                   value="<?= (($detalhes->{$dados->codigo}[1]) ?: '0') ?>"
+                                   type="checkbox" <?= (($detalhes->{$dados->codigo}[1]) ? 'checked' : false) ?>
+                                   data-toggle="toggle">
                         </div>
 
                     </div>
@@ -168,13 +175,15 @@ if ($codigo) {
                     Situação <i class="text-danger">*</i>
                 </label>
                 <?php
-                if(is_file("icon/{$d->icon}")){
-                ?>
-                <center><img src="produtos/icon/<?=$d->icon?>?<?=$md5?>" style="width:200px; margin-bottom:20px;"></center>
-                <?php
+                if (is_file("icon/{$d->icon}")) {
+                    ?>
+                    <center><img src="produtos/icon/<?= $d->icon ?>?<?= $md5 ?>"
+                                 style="width:200px; margin-bottom:20px;"></center>
+                    <?php
                 }
                 ?>
-                <input type="file" name="file_<?=$md5?>" id="file_<?=$md5?>" accept="image/*" style="margin-buttom:20px">
+                <input type="file" name="file_<?= $md5 ?>" id="file_<?= $md5 ?>" accept="image/*"
+                       style="margin-buttom:20px">
                 <input
                         type="hidden"
                         id="encode_file"
@@ -184,7 +193,6 @@ if ($codigo) {
                         atual="<?= $d->icon; ?>"
                 />
             </div>
-
 
 
             <div class="form-group">
@@ -224,48 +232,47 @@ if ($codigo) {
         $("input[situacao]").bootstrapToggle();
 
         $('input[type="file"]').fileinput({
-                                showPreview: false,
-                                showRemove: false,
-                                showUpload: false,
-                            });
+            showPreview: false,
+            showRemove: false,
+            showUpload: false,
+        });
 
         if (window.File && window.FileList && window.FileReader) {
 
             $('input[type="file"]').change(function () {
 
-                if($(this).val()){
-                    $("div[carregando_metas]").css("display","block");
+                if ($(this).val()) {
+                    $("div[carregando_metas]").css("display", "block");
                     var files = $(this).prop("files");
                     for (var i = 0; i < files.length; i++) {
                         (function (file) {
-                                var fileReader = new FileReader();
-                                fileReader.onload = function (f) {
-            						var Base64 = f.target.result;
-            						var type = file.type;
-            						var name = file.name;
+                            var fileReader = new FileReader();
+                            fileReader.onload = function (f) {
+                                var Base64 = f.target.result;
+                                var type = file.type;
+                                var name = file.name;
 
-                                    $("#encode_file").val(Base64);
-                                    $("#encode_file").attr("nome", name);
-                                    $("#encode_file").attr("tipo", type);
+                                $("#encode_file").val(Base64);
+                                $("#encode_file").attr("nome", name);
+                                $("#encode_file").attr("tipo", type);
 
 
-                                };
-                                fileReader.readAsDataURL(file);
+                            };
+                            fileReader.readAsDataURL(file);
                         })(files[i]);
                     }
                 }
             });
-        }
-        else {
+        } else {
             alert('Nao suporta HTML5');
         }
 
 
-        $('input[situacao]').change(function() {
+        $('input[situacao]').change(function () {
             opc = $(this).attr("opc");
-            if($(this).prop('checked') === true){
+            if ($(this).prop('checked') === true) {
                 $(this).val(opc);
-            }else{
+            } else {
                 $(this).val('0');
             }
         })
@@ -309,20 +316,20 @@ if ($codigo) {
             detalhes = [];
             dds = [];
 
-            $("input[valores]").each(function(){
+            $("input[valores]").each(function () {
                 opc = $(this).attr('opc');
-                stu = $('input[situacao][opc="'+opc+'"]').val();
+                stu = $('input[situacao][opc="' + opc + '"]').val();
                 dds[opc] = [$(this).val(), stu];
             });
 
-            detalhes = JSON.stringify(Object.assign({},dds));
+            detalhes = JSON.stringify(Object.assign({}, dds));
 
             //console.log(detalhes);
 
             dados.push({name: 'detalhes', value: detalhes});
 
 
-            if($("#encode_file").val()){
+            if ($("#encode_file").val()) {
 
                 dados.push({name: 'file-name', value: $("#encode_file").attr("nome")});
                 dados.push({name: 'file-type', value: $("#encode_file").attr("tipo")});

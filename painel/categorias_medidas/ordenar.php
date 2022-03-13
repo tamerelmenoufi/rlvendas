@@ -1,11 +1,15 @@
 <?php
 include("../../lib/includes.php");
 
-$query = "SELECT codigo, medida FROM categoria_medidas ORDER BY ordem";
+$query = "SELECT codigo, medida FROM categoria_medidas ORDER BY ordem, medida";
 $result = mysqli_query($con, $query);
 
 ?>
-
+<style>
+    #sortable .list-group-item{
+        cursor: grab;
+    }
+</style>
 <ul class="list-group" id="sortable">
     <?php
     $i = 0;

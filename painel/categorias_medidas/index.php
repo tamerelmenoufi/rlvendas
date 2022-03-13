@@ -14,7 +14,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' and $_POST['acao'] === 'excluir') {
     exit;
 }
 
-$query = "SELECT * FROM categoria_medidas WHERE deletado != '1' ORDER BY medida ASC";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' and $_POST['acao'] === 'ordenar') {
+    $dados = $_POST['dados'];
+    $values = [];
+
+    foreach ($dados as $dado) {
+        $values[] = "('{$dado['codigo']}','{$dado['ordem']}')";
+    }
+
+    $query = "INSERT INTO categoria_medidas (codigo, ordem)"
+        . "VALUES " . implode(",", $values) . " ON "
+        . "DUPLICATE KEY UPDATE ordem = VALUES(ordem)";
+
+    if (mysqli_query($con, $query)) {
+        echo json_encode(["status" => true]);
+    } else {
+        echo json_encode(["status" => false]);
+    }
+    exit();
+}
+
+$query = "SELECT * FROM categoria_medidas WHERE deletado != '1' ORDER BY ordem, medida ASC";
 $result = mysqli_query($con, $query);
 
 ?>
@@ -82,31 +102,58 @@ $result = mysqli_query($con, $query);
         $("#datatable").DataTable();
 
         $(".ordenar").click(function () {
+            var dados = [];
+
             $.alert({
                 title: "Ordenar medidas",
                 content: "url: categorias_medidas/ordenar.php",
                 columnClass: "large",
+                closeIcon: true,
                 buttons: {
-                    "OK": function () {
+                    "SALVAR": {
+                        "btnClass": "btn-green",
+                        action: function () {
+                            $('#sortable li').each(function (e) {
+                                var codigo = $(this).data("codigo");
 
-                        $('#sortable li').each(function (e) {
-                            var codigo = $(this).data("codigo");
+                                dados.push({'codigo': codigo, 'ordem': ($(this).index() + 1)});
+                            });
 
-                            console.log(codigo + " " + ($(this).index() + 1));
-                        });
+                            $.ajax({
+                                url: "categorias_medidas/index.php",
+                                method: "POST",
+                                dataType: "JSON",
+                                data: {
+                                    acao: "ordenar",
+                                    dados,
+                                },
+                                success: function (dados) {
+                                    if (dados.status) {
+                                        tata.success('Sucesso', "Atualizado com sucesso");
 
-                        /*$(".loading").fadeIn(300);
+                                        $(".loading").fadeIn(300);
 
-                        $.ajax({
-                            url: "categorias_medidas/index.php",
-                            success: function (dados) {
-                                $(".loading").fadeOut(300);
-                                $('#palco').html(dados);
-                            }
-                        })*/
+                                        $.ajax({
+                                            url: "categorias_medidas/index.php",
+                                            success: function (dados) {
+                                                $(".loading").fadeOut(300);
+                                                $('#palco').html(dados);
+                                            }
+                                        });
+
+                                    } else {
+
+                                    }
+                                }
+                            });
+                        }
+
+                    },
+                    "CANCELAR": function () {
+
                     }
                 }
-            })
+            });
         });
 
         $('.btn-excluir').click(function () {
