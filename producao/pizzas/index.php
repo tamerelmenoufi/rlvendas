@@ -175,7 +175,7 @@
 
 
 
-    const ws = new WebSocket("ws://yobom.com.br:8001");
+    const ws = new WebSocket("wss://yobom.com.br:8001");
     //const input = document.querySelector('input');
     const output = document.querySelector('output');
 
