@@ -1,17 +1,69 @@
 <?php
     include("../../lib/includes.php");
+
+
+    if($_POST['opc']){
+
+        $query = "update vendas_produtos set situacao = '{$_POST['opc']}' where codigo = '{$_POST['cod']}'";
+        mysqli_query($con, $query);
+        exit();
+    }
+
+    $tipos = ['pizzas','sanduiches'];
 ?>
-<div style="position:fixed; left:0px; top:0px; bottom:0px; width:100%; border:solid 1px red; overflow:auto; padding-left:25px; padding-right:25px; ">
-    <div class="row">
-        <?php
-        $tipos = ['pizzas','sanduiches'];
-        foreach($tipos as $ind => $opc){
-        ?>
-        <div class="col">
-            Dados da cozenha (Produção de Pizzas)
+<style>
+
+    .pizzas{
+        position:fixed;
+        width:50%;
+        left:0px;
+        top:0px;
+        bottom:0px;
+        overflow:auto;
+    }
+    .sanduiches{
+        position:fixed;
+        width:50%;
+        right:0px;
+        top:0px;
+        bottom:0px;
+        overflow:auto;
+    }
+
+    /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    * {
+        scrollbar-width: auto;
+        scrollbar-color: #ccc #ffffff;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: #ffffff;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 2px;
+        border: 0;
+    }
+
+
+
+</style>
 
         <?php
-            $query = "select * from vendas_produtos /*where situacao = 'p'*/ order by data asc";
+        foreach($tipos as $ind => $opc){
+        ?>
+        <div class="<?=$opc?>">
+            <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozenha (Produção de <?=$opc?>)</h4>
+        <table class="table table-striped table-hover" style="margin-top:40px;">
+        <?php
+            $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo /*where a.situacao = 'p'*/ order by a.data asc";
             $result = mysqli_query($con, $query);
 
             while($d = mysqli_fetch_object($result)){
@@ -25,30 +77,127 @@
                 if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
         ?>
-        <div class="card bg-light mb-3" style="padding-bottom:40px;">
+        <!-- <div class="card bg-light mb-3">
             <div class="card-body">
-
-                <h5 class="card-title" style="paddig:0; margin:0; font-size:20px; font-weight:bold;">
-                    <span style="font-size:40px;"><?=$d->quantidade?></span> <?=$pedido->categoria->descricao?>
-                    - <?=$pedido->medida->descricao?>
+                <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
+                    <span style="font-size:20px;"><?=$d->quantidade?></span> <?=$pedido->categoria->descricao?>
+                    - <?=$pedido->medida->descricao?> (<?=$sabores?>)
                 </h5>
-                <p class="card-text" style="padding-left:30px; margin:0; font-size:20px;">
-                    <?=$sabores?>
-                </p>
-                <!-- <p class="card-text" style="padding:0; margin:0; text-align:right">
+                <p class="card-text" style="padding:0; margin:0; text-align:right">
                     R$ <?= number_format($d->valor_unitario, 2, ',', '.') ?>
-                </p> -->
-                <p class="card-text" style="padding-left:30px; margin:0; font-size:20px; color:red;">
+                </p>
+                <p class="card-text" style="padding-left:15px; margin:0; font-size:14px; color:red;">
                     <?= $d->produto_descricao?>
                 </p>
             </div>
-        </div>
+        </div> -->
+        <tr>
+
+            <td>
+                <div class="form-group form-check">
+                    <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">
+                </div>
+            </td>
+            <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><?=$d->mesa?></label></td>
+            <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
+            <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
+                <?=$pedido->categoria->descricao?>
+                - <?=$pedido->medida->descricao?> (<?=$sabores?>)
+                <p class="card-text" style="color:red;">
+                <?= $d->produto_descricao?></p>
+            </label></td>
+            <td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>
+        </tr>
+
+
         <?php
             }
         ?>
+        </table>
+
+            <output></output>
+
         </div>
-    <?php
-    }
-    ?>
-    </div>
-</div>
+        <?php
+        }
+        ?>
+
+<script>
+    $(function(){
+        $("input[status]").click(function(){
+            obj = $(this);
+            var opc;
+            var cod = obj.attr("cod");
+            if(obj.prop("checked") === true){
+                opc = 'i';
+                msg = 'Confirma o início do preparo do produto?';
+                tipo = 'green';
+                returno = false;
+            }else{
+                opc = 'p';
+                msg = 'Deseja remover da produto?';
+                tipo = 'red';
+                returno = true;
+            }
+            $.confirm({
+                content:msg,
+                title:false,
+                type:tipo,
+                buttons:{
+                    'SIM':function(){
+                        $.ajax({
+                            url:"pizzas/index.php",
+                            type:"POST",
+                            data:{
+                                cod,
+                                opc
+                            },
+                            success:function(dados){
+
+                            },
+                            error:function(){
+                                alert('erro');
+                            }
+                        });
+                    },
+                    'NÃO':function(){
+                        obj.prop("checked", returno);
+                    }
+                }
+            });
+
+
+        });
+    })
+
+
+
+
+
+
+    const ws = new WebSocket("ws://yobom.com.br:8001");
+    //const input = document.querySelector('input');
+    const output = document.querySelector('output');
+
+    ws.addEventListener('open', console.log);
+    ws.addEventListener('message', console.log);
+
+    ws.addEventListener('message', message => {
+        const dados = JSON.parse(message.data);
+        if(dados.type === 'chat'){
+            output.append('Outro: ' + dados.text, document.createElement('br'));
+        }
+    })
+
+    // input.addEventListener('keypress', e => {
+    //     if(e.code === 'Enter'){
+    //         const valor = input.value;
+    //         output.append('Eu: ' + valor, document.createElement('br'));
+    //         ws.send(valor);
+
+    //         input.value = '';
+    //     }
+    // });
+
+
+</script>
