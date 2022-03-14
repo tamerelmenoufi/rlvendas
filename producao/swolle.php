@@ -44,6 +44,9 @@
         });
 
     }
+
+    WebSocket()
+
 </script>
 
 </body>

@@ -220,4 +220,6 @@
         // });
     }
 
+    WebSocket();
+
 </script>
