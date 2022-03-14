@@ -173,8 +173,6 @@
 
 
 
-    function WebSocket(){
-
         const ws = new WebSocket("wss://websocket.yobom.com.br");
         //const input = document.querySelector('input');
         const output = document.querySelector('output');
@@ -182,7 +180,7 @@
         ws.addEventListener('open', console.log);
         ws.addEventListener('message', console.log);
         ws.addEventListener('close', function(){
-            WebSocket();
+            ws.addEventListener('open', console.log);
         });
 
         ws.addEventListener('message', message => {
@@ -218,8 +216,6 @@
         //         input.value = '';
         //     }
         // });
-    }
 
-    WebSocket();
 
 </script>
