@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(
             ['status' => false,
                 'msg' => 'Usuário ou senha incorreto',
+                'query' => $query,
             ]);
     }
     exit();
