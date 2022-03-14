@@ -14,40 +14,95 @@
 
 <script>
 
-    var ws;
+    // var ws;
 
-    WebSocket = function(){
+    // WebSocket = function(){
 
-        ws = new WebSocket("wss://websocket.yobom.com.br");
-        input = document.querySelector('input');
-        output = document.querySelector('output');
+    //     ws = new WebSocket("wss://websocket.yobom.com.br");
+    //     input = document.querySelector('input');
+    //     output = document.querySelector('output');
 
-        ws.addEventListener('open', console.log);
-        ws.addEventListener('message', console.log);
-        ws.addEventListener('close', function(){
-            setTimeout(function() { WebSocket(); }, 1000);
-        });
+    //     ws.addEventListener('open', console.log);
+    //     ws.addEventListener('message', console.log);
+    //     ws.addEventListener('close', function(){
+    //         setTimeout(function() { WebSocket(); }, 1000);
+    //     });
 
-        ws.addEventListener('message', message => {
-            const dados = JSON.parse(message.data);
-            if(dados.type === 'chat'){
-                output.append('Outro: ' + dados.text, document.createElement('br'));
-            }
-        })
+    //     ws.addEventListener('message', message => {
+    //         const dados = JSON.parse(message.data);
+    //         if(dados.type === 'chat'){
+    //             output.append('Outro: ' + dados.text, document.createElement('br'));
+    //         }
+    //     })
 
-        input.addEventListener('keypress', e => {
-            if(e.code === 'Enter'){
-                const valor = input.value;
-                output.append('Eu: ' + valor, document.createElement('br'));
-                ws.send(valor);
+    //     input.addEventListener('keypress', e => {
+    //         if(e.code === 'Enter'){
+    //             const valor = input.value;
+    //             output.append('Eu: ' + valor, document.createElement('br'));
+    //             ws.send(valor);
 
-                input.value = '';
-            }
-        });
+    //             input.value = '';
+    //         }
+    //     });
 
+    // }
+
+    // WebSocket();
+
+
+
+
+
+
+    // Socket Variable declaration
+var mySocket;
+const socketMessageListener = (event) => {
+
+    const dados = JSON.parse(event.data);
+    if(dados.type === 'chat'){
+        output.append('Outro: ' + dados.text, document.createElement('br'));
     }
 
-    WebSocket();
+
+};
+
+// Open
+const socketOpenListener = (event) => {
+   console.log('Connected');
+
+};
+
+// Closed
+const socketCloseListener = (event) => {
+   if (mySocket) {
+      console.error('Disconnected.');
+   }
+   mySocket = new WebSocket('wss://websocket.yobom.com.br');
+
+   input = document.querySelector('input');
+   output = document.querySelector('output');
+
+   mySocket.addEventListener('open', socketOpenListener);
+   mySocket.addEventListener('message', socketMessageListener);
+   mySocket.addEventListener('close', socketCloseListener);
+
+
+   input.addEventListener('keypress', e => {
+        if(e.code === 'Enter'){
+            const valor = input.value;
+            output.append('Eu: ' + valor, document.createElement('br'));
+            ws.send(valor);
+
+            input.value = '';
+        }
+    });
+
+
+};
+socketCloseListener();
+
+
+
 
 </script>
 
