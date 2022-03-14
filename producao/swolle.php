@@ -86,8 +86,10 @@ const socketCloseListener = (event) => {
    mySocket.addEventListener('message', socketMessageListener);
    mySocket.addEventListener('close', socketCloseListener);
 
+};
+socketCloseListener();
 
-   input.addEventListener('keypress', e => {
+input.addEventListener('keypress', e => {
         if(e.code === 'Enter'){
             const valor = input.value;
             output.append('Eu: ' + valor, document.createElement('br'));
@@ -96,11 +98,6 @@ const socketCloseListener = (event) => {
             input.value = '';
         }
     });
-
-
-};
-socketCloseListener();
-
 
 
 
