@@ -20,7 +20,7 @@
 
         ws.addEventListener('open', console.log);
         ws.addEventListener('message', console.log);
-        ws.addEventListener('close', function(){
+        ws.addEventListener('close', (ws) => {
             ws.addEventListener('message', console.log);
         });
 
