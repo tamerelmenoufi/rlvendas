@@ -14,11 +14,13 @@
 
 <script>
 
-    function WebSocket(){
+    var ws;
 
-        const ws = new WebSocket("wss://websocket.yobom.com.br");
-        const input = document.querySelector('input');
-        const output = document.querySelector('output');
+    WebSocket = function(){
+
+        ws = new WebSocket("wss://websocket.yobom.com.br");
+        input = document.querySelector('input');
+        output = document.querySelector('output');
 
         ws.addEventListener('open', console.log);
         ws.addEventListener('message', console.log);
