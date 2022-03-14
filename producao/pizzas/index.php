@@ -171,54 +171,107 @@
     })
 
 
-    var ws;
+    // var ws;
 
-    WebSocket = function(){
+    // WebSocket = function(){
 
-        ws = new WebSocket("wss://websocket.yobom.com.br");
-        //const input = document.querySelector('input');
-        output = document.querySelector('output');
+    //     ws = new WebSocket("wss://websocket.yobom.com.br");
+    //     //const input = document.querySelector('input');
+    //     output = document.querySelector('output');
 
-        ws.addEventListener('open', console.log);
-        ws.addEventListener('message', console.log);
-        ws.addEventListener('close', function(){
-            setTimeout(function() { WebSocket(); }, 1000);
-        });
+    //     ws.addEventListener('open', console.log);
+    //     ws.addEventListener('message', console.log);
+    //     ws.addEventListener('close', function(){
+    //         setTimeout(function() { WebSocket(); }, 1000);
+    //     });
 
-        ws.addEventListener('message', message => {
-            const dados = JSON.parse(message.data);
-            if(dados.type === 'chat'){
-                output.append('Outro: ' + dados.text, document.createElement('br'));
-                nova_linha = '<tr>'+
-                                '<td>'+
-                                '    <div class="form-group form-check">'+
-                                '        <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">'+
-                                '    </div>'+
-                                '</td>'+
-                                '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>'+
-                                '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>'+
-                                '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">'+
-                                '    <?=$pedido->categoria->descricao?>'+
-                                '    - <?=$pedido->medida->descricao?> (<?=$sabores?>)'+
-                                '    <p class="card-text" style="color:red;">'+
-                                '    <?= $d->produto_descricao?></p>'+
-                                '</label></td>'+
-                                '<td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>'+
-                                '</tr>';
-                $("table[pizzas]").append(nova_linha);
-            }
-        })
+    //     ws.addEventListener('message', message => {
+    //         const dados = JSON.parse(message.data);
+    //         if(dados.type === 'chat'){
+    //             output.append('Outro: ' + dados.text, document.createElement('br'));
+    //             nova_linha = '<tr>'+
+    //                             '<td>'+
+    //                             '    <div class="form-group form-check">'+
+    //                             '        <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">'+
+    //                             '    </div>'+
+    //                             '</td>'+
+    //                             '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>'+
+    //                             '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>'+
+    //                             '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">'+
+    //                             '    <?=$pedido->categoria->descricao?>'+
+    //                             '    - <?=$pedido->medida->descricao?> (<?=$sabores?>)'+
+    //                             '    <p class="card-text" style="color:red;">'+
+    //                             '    <?= $d->produto_descricao?></p>'+
+    //                             '</label></td>'+
+    //                             '<td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>'+
+    //                             '</tr>';
+    //             $("table[pizzas]").append(nova_linha);
+    //         }
+    //     })
 
-        // input.addEventListener('keypress', e => {
-        //     if(e.code === 'Enter'){
-        //         const valor = input.value;
-        //         output.append('Eu: ' + valor, document.createElement('br'));
-        //         ws.send(valor);
+    //     // input.addEventListener('keypress', e => {
+    //     //     if(e.code === 'Enter'){
+    //     //         const valor = input.value;
+    //     //         output.append('Eu: ' + valor, document.createElement('br'));
+    //     //         ws.send(valor);
 
-        //         input.value = '';
-        //     }
-        // });
+    //     //         input.value = '';
+    //     //     }
+    //     // });
+    // }
+
+    // WebSocket();
+
+
+
+
+    // Socket Variable declaration
+var mySocket;
+const socketMessageListener = (event) => {
+
+    const dados = JSON.parse(event.data);
+    if(dados.type === 'chat'){
+        output.append('Outro: ' + dados.text, document.createElement('br'));
+        nova_linha = '<tr>'+
+                        '<td>'+
+                        '    <div class="form-group form-check">'+
+                        '        <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">'+
+                        '    </div>'+
+                        '</td>'+
+                        '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>'+
+                        '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>'+
+                        '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">'+
+                        '    <?=$pedido->categoria->descricao?>'+
+                        '    - <?=$pedido->medida->descricao?> (<?=$sabores?>)'+
+                        '    <p class="card-text" style="color:red;">'+
+                        '    <?= $d->produto_descricao?></p>'+
+                        '</label></td>'+
+                        '<td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>'+
+                        '</tr>';
+        $("table[pizzas]").append(nova_linha);
     }
 
-    WebSocket();
+
+};
+
+// Open
+const socketOpenListener = (event) => {
+   console.log('Connected');
+
+};
+
+// Closed
+const socketCloseListener = (event) => {
+   if (mySocket) {
+      console.error('Disconnected.');
+   }
+   mySocket = new WebSocket('wss://websocket.yobom.com.br');
+   mySocket.addEventListener('open', socketOpenListener);
+   mySocket.addEventListener('message', socketMessageListener);
+   mySocket.addEventListener('close', socketCloseListener);
+};
+socketCloseListener();
+
+
+
 </script>
