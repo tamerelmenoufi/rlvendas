@@ -91,7 +91,7 @@ const socketCloseListener = (event) => {
         if(e.code === 'Enter'){
             const valor = input.value;
             output.append('Eu: ' + valor, document.createElement('br'));
-            ws.send(valor);
+            mySocket.send(valor);
 
             input.value = '';
         }
