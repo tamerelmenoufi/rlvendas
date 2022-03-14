@@ -231,7 +231,7 @@ const socketMessageListener = (event) => {
 
     const dados = JSON.parse(event.data);
     if(dados.type === 'chat'){
-        output.append('Outro: ' + dados.text, document.createElement('br'));
+        //output.append('Outro: ' + dados.text, document.createElement('br'));
         nova_linha = '<tr>'+
                         '<td>'+
                         '    <div class="form-group form-check">'+
