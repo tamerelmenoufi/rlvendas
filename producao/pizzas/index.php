@@ -61,7 +61,7 @@
         ?>
         <div class="<?=$opc?>">
             <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozenha (Produção de <?=$opc?>)</h4>
-        <table class="table table-striped table-hover" style="margin-top:40px;">
+        <table <?=$opc?> class="table table-striped table-hover" style="margin-top:40px;">
         <?php
             $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo /*where a.situacao = 'p'*/ order by a.data asc";
             $result = mysqli_query($con, $query);
@@ -124,7 +124,7 @@
 
 <script>
     $(function(){
-        $("input[status]").click(function(){
+        $(document).on("click", "input[status]", function(){
             obj = $(this);
             var opc;
             var cod = obj.attr("cod");
@@ -186,6 +186,23 @@
         const dados = JSON.parse(message.data);
         if(dados.type === 'chat'){
             output.append('Outro: ' + dados.text, document.createElement('br'));
+            nova_linha = '<tr>'+
+                            '<td>'+
+                            '    <div class="form-group form-check">'+
+                            '        <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">'+
+                            '    </div>'+
+                            '</td>'+
+                            '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>'+
+                            '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>'+
+                            '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">'+
+                            '    <?=$pedido->categoria->descricao?>'+
+                            '    - <?=$pedido->medida->descricao?> (<?=$sabores?>)'+
+                            '    <p class="card-text" style="color:red;">'+
+                            '    <?= $d->produto_descricao?></p>'+
+                            '</label></td>'+
+                            '<td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>'+
+                            '</tr>';
+            $("table[pizzas]").append(nova_linha);
         }
     })
 
