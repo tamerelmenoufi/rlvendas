@@ -19,6 +19,7 @@
 
     ws.addEventListener('open', console.log);
     ws.addEventListener('message', console.log);
+    ws.addEventListener('close', console.log);
 
     ws.addEventListener('message', message => {
         const dados = JSON.parse(message.data);
