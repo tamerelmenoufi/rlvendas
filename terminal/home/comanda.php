@@ -49,6 +49,8 @@ function getValorTotal()
     return $total;
 }
 
+$categoria = $_GET['categoria'];
+
 ?>
 <style>
     /* ===== Scrollbar CSS ===== */
@@ -217,17 +219,18 @@ function getValorTotal()
                         <hr>
                         <div class="row">
                             <div class="col-12 font-weight-bold">
+                                <h4 class="font-weight-bold h4">Observações</h4>
+                                <div class="col-12">
+                                    <div class="texto_detalhes"></div>
+                                </div>
                                 <button
                                         type="button"
-                                        class="btn btn-sm btn-danger incluir_observacao mb-1 font-weight-bold"
+                                        class="btn btn-sm btn-danger incluir_observacao mb-1 font-weight-bold btn-block"
                                 >
                                     <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
                                 </button>
                             </div>
-                            <div class="col-12">
-                                <div class="texto_detalhes"></div>
 
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,7 +261,11 @@ function getValorTotal()
                         </div>
 
                         <div>
-                            <button sair class="btn btn-primary btn-lg btn-block font-weight-bold">
+                            <button
+                                    sair
+                                    categoria="<?= $categoria; ?>"
+                                    class="btn btn-primary btn-lg btn-block font-weight-bold"
+                            >
                                 VOLTAR
                             </button>
                         </div>
@@ -305,12 +312,25 @@ function getValorTotal()
         });
 
         $("button[sair]").click(function () {
+            var categoria = $(this).attr("categoria");
+            var url = "";
+
+            if (categoria) {
+                url = `cardapio/produtos.php?categoria=${categoria}`;
+            } else {
+                url = "home/index.php";
+            }
+
             $.ajax({
-                url: "home/index.php",
+                url,
+                method: "GET",
+                data: {
+                    categoria,
+                },
                 success: function (dados) {
                     $("#body").html(dados);
                 }
-            })
+            });
         });
 
         $("button[remover]").click(function () {

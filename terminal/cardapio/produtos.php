@@ -1,6 +1,8 @@
 <?php
 include("../../lib/includes.php");
 
+$categoria = $_GET['categoria'];
+
 $query = "SELECT * FROM categorias WHERE codigo = '{$_GET['categoria']}'";
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
@@ -123,7 +125,11 @@ while ($m = mysqli_fetch_array($m_r)) {
 </div>
 
 <div style="position:fixed; right:40px; bottom:20px;">
-    <button type="button" class="btn btn-primary btn-lg btn-block comanda">
+    <button
+            type="button"
+            class="btn btn-primary btn-lg btn-block comanda"
+            categoria="<?= $categoria; ?>"
+    >
         <i class="fa-solid fa-bag-shopping"></i>
     </button>
 </div>
@@ -180,8 +186,12 @@ while ($m = mysqli_fetch_array($m_r)) {
         });
 
         $(".comanda").click(function () {
+            var categoria = $(this).attr("categoria");
+
             $.ajax({
                 url: "home/comanda.php",
+                method: "GET",
+                data: {categoria},
                 success: function (dados) {
                     $("#body").html(dados);
                 }

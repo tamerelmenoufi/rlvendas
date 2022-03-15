@@ -28,19 +28,19 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#MenuCardapio"
            aria-expanded="true" aria-controls="MenuCardapio">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fa-solid fa-clipboard-list"></i>
             <span>Cardápio</span>
         </a>
         <div id="MenuCardapio" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Configurações:</h6> -->
                 <?php
-                $query = "select * from categorias where deletado != '1' order by categoria";
+                $query = "SELECT * FROM categorias WHERE deletado != '1' ORDER BY categoria";
                 $result = mysqli_query($con, $query);
                 while ($c = mysqli_fetch_object($result)) {
                     ?>
                     <a class="collapse-item" href="#"
-                       url="produtos/index.php?categoria=<?= $c->codigo ?>"><?= $c->categoria ?></a>
+                       url="produtos/index.php?categoria=<?= $c->codigo ?>"><?= ucwords(mb_strtolower($c->categoria, 'UTF-8')); ?></a>
                     <?php
                 }
                 ?>
@@ -69,7 +69,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#MenuUsuarios"
            aria-expanded="true" aria-controls="MenuUsuarios">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fa-solid fa-users"></i>
             <span>Usuários</span>
         </a>
         <div id="MenuUsuarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

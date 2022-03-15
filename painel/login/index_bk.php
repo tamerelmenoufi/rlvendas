@@ -43,35 +43,26 @@ session_destroy();
     <?php include "../../lib/header.php"; ?>
 </head>
 
-<body class="">
+<body>
 
-<style>
-    .bg-login-imagem {
-        background: url('../../img/yobom.png'), no-repeat;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
-
-</style>
 <div class="container">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-        <div class="col-xl-10 col-lg-12 col-md-9 mt-5">
+        <div class="col-xl-8 col-lg-12 col-md-9 mt-5">
 
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-imagem"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 font-weight-bold mb-4 text-danger">Painel de Controle</h1>
-                                </div>
-                                <form class="user" id="form-login">
 
+                        <div class="col-md-12">
+                            <div class="p-4 p-md-5 p-lg-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-700 mb-4">Acesso ao sistema painel</h1>
+                                </div>
+                                <form class="form-login">
                                     <div class="form-group">
                                         <input
                                                 type="text"
@@ -92,15 +83,13 @@ session_destroy();
                                                 placeholder="senha"
                                         >
                                     </div>
-
                                     <button type="submit" class="btn btn-danger btn-user btn-block">
                                         Entrar
                                     </button>
-
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="#">Esqueci minha senha?</a>
+                                    <a class="small" href="#">Esqueceu a senha?</a>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +111,7 @@ session_destroy();
 
 <script>
     $(function () {
-        $("#form-login").submit(function (e) {
+        $(".form-login").submit(function (e) {
             e.preventDefault();
 
             $.ajax({
