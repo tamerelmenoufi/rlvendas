@@ -10,6 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     unset($data['codigo']);
 
+    if (!$codigo) {
+        list($max) = mysqli_fetch_row(mysqli_query($con, "SELECT MAX(ordem) AS max FROM categoria_medidas"));
+        $data['ordem'] = $max + 1;
+    }
+
     foreach ($data as $name => $value) {
         $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
     }
