@@ -2,7 +2,7 @@
 include("../../lib/includes.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = mysqli_real_escape_string($_POST['usuario']);
+    $usuario = $_POST['usuario'];
     $senha = md5($_POST['senha']);
 
     $query = "SELECT * FROM usuarios WHERE usuario = '{$usuario}' AND senha = '{$senha}' LIMIT 1";
@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             [
                 'status' => false,
                 'msg' => 'Usuário ou senha incorreto',
+                'query' => $query
             ]);
     }
     exit();
