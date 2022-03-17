@@ -1,7 +1,7 @@
 <?php
 
 
-    Class Rede {
+    class Rede {
 
         public function Pay(){
             return 'Efetuar pagamento!';
