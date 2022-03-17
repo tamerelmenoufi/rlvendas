@@ -3,19 +3,19 @@
 
     class Rede {
 
-        public function Pay(){
+        function Pay(){
             return 'Efetuar pagamento!';
         }
 
-        public function Capture(){
+        function Capture(){
             return 'Realizar Captura!';
         }
 
-        public function Cancel(){
+        function Cancel(){
             return 'Efetuar Cancelamento 1!';
         }
 
-        public function Cancel2(){
+        function Cancel2(){
             return 'Efetuar Cancrlamento 2!';
         }
 
