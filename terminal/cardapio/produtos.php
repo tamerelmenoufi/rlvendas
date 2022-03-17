@@ -13,6 +13,8 @@ $m_r = mysqli_query($con, $m_q);
 while ($m = mysqli_fetch_array($m_r)) {
     $M[$m['codigo']] = $m['medida'];
 }
+
+$_SESSION['categoria'] = "";
 ?>
 
 <style>

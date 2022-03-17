@@ -109,6 +109,7 @@ if ($codigo) {
             <?= $codigo ? 'Alterar' : 'Cadastrar'; ?> <?= $ConfTitulo ?> - <?= $ConfCategoria->categoria ?>
         </h6>
     </div>
+
     <div class="card-body">
         <form id="form-<?= $md5 ?>">
             <div class="form-group">
@@ -324,13 +325,12 @@ if ($codigo) {
 
             detalhes = JSON.stringify(Object.assign({}, dds));
 
-            //console.log(detalhes);
+            console.log(detalhes);
 
             dados.push({name: 'detalhes', value: detalhes});
 
 
             if ($("#encode_file").val()) {
-
                 dados.push({name: 'file-name', value: $("#encode_file").attr("nome")});
                 dados.push({name: 'file-type', value: $("#encode_file").attr("tipo")});
                 dados.push({name: 'file-atual', value: $("#encode_file").attr("atual")});

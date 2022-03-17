@@ -49,9 +49,11 @@ function getValorTotal()
     return $total;
 }
 
-$categoria = $_GET['categoria'];
+
+$_SESSION['categoria'] = $_GET['categoria'];
 
 ?>
+
 <style>
     /* ===== Scrollbar CSS ===== */
     /* Firefox */
@@ -221,7 +223,7 @@ $categoria = $_GET['categoria'];
                             <div class="col-12 font-weight-bold">
                                 <h4 class="font-weight-bold h4">Observações</h4>
                                 <div class="col-12">
-                                    <div class="texto_detalhes"></div>
+                                    <div class="texto_detalhes" style="min-height: 20px"></div>
                                 </div>
                                 <button
                                         type="button"

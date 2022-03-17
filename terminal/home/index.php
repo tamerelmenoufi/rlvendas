@@ -45,6 +45,7 @@ if ($_GET['sair']) {
         //         $(".body").append(dados);
         //     }
         // });
+
         $.ajax({
             url: "home/cardapio.php",
             success: function (dados) {

@@ -57,7 +57,7 @@ $d = mysqli_fetch_object($result);
                             <a
                                     pagar
                                     opc="pix"
-                                    class="btn btn-success btn-lg btn-block">
+                                    class="btn btn-info btn-lg btn-block">
                                 <i class="fa-brands fa-pix"></i> PIX
                             </a>
                         </h5>
@@ -65,7 +65,7 @@ $d = mysqli_fetch_object($result);
                             <a
                                     pagar
                                     opc="debito"
-                                    class="btn btn-success btn-lg btn-block">
+                                    class="btn btn-info btn-lg btn-block">
                                 <i class="fa-solid fa-credit-card"></i> Débito
                             </a>
                         </h5>
@@ -73,7 +73,7 @@ $d = mysqli_fetch_object($result);
                             <a
                                     pagar
                                     opc="credito"
-                                    class="btn btn-success btn-lg btn-block">
+                                    class="btn btn-info btn-lg btn-block">
                                 <i class="fa-solid fa-credit-card"></i> Crédito
                             </a>
                         </h5>
