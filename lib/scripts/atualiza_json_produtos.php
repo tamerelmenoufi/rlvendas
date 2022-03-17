@@ -2,15 +2,12 @@
 include("../includes.php");
 #include "./conf.php";
 
-
 $query = "SELECT * FROM produtos";
 $result = mysqli_query($con, $query);
 
 $json = [];
-
-$i = 0;
-
 $values = [];
+$i = 0;
 
 while ($d = mysqli_fetch_object($result)) {
     $dados = json_decode($d->detalhes);
@@ -23,14 +20,11 @@ while ($d = mysqli_fetch_object($result)) {
         ];
     }
 
-    $i++;
-
-    $json_encode = json_encode($json);
-
+    $json_encode = json_encode($json[$i]);
     $values[] = "('{$d->codigo}', '{$json_encode}')";
+    $i++;
 }
 
-print_r($json);die;
 $values = implode(", ", $values);
 
 $query = "INSERT INTO produtos (codigo, detalhes) "

@@ -155,15 +155,24 @@ if ($codigo) {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">R$</span>
                                 </div>
-                                <input valores opc="<?= $dados->codigo ?>" value="<?= $detalhes->{$dados->codigo}[0] ?>"
-                                       type="number" class="form-control">
+
+                                <input
+                                        valores
+                                        opc="<?= $dados->codigo ?>"
+                                        value="<?= $detalhes[$dados->codigo]->valor; ?>"
+                                        type="number"
+                                        class="form-control"
+                                >
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <input situacao opc="<?= $dados->codigo ?>"
-                                   value="<?= (($detalhes->{$dados->codigo}[1]) ?: '0') ?>"
-                                   type="checkbox" <?= (($detalhes->{$dados->codigo}[1]) ? 'checked' : false) ?>
-                                   data-toggle="toggle">
+                            <input
+                                    situacao
+                                    opc="<?= $dados->codigo ?>"
+                                    value="<?= (($detalhes[$dados->codigo]->quantidade) ?: '0') ?>"
+                                    type="checkbox" <?= (($detalhes[$dados->codigo]->quantidade) ? 'checked' : false) ?>
+                                    data-toggle="toggle"
+                            >
                         </div>
 
                     </div>
@@ -178,13 +187,23 @@ if ($codigo) {
                 <?php
                 if (is_file("icon/{$d->icon}")) {
                     ?>
-                    <center><img src="produtos/icon/<?= $d->icon ?>?<?= $md5 ?>"
-                                 style="width:200px; margin-bottom:20px;"></center>
+                    <center>
+                        <img
+                                src="produtos/icon/<?= $d->icon ?>?<?= $md5 ?>"
+                                style="width:200px; margin-bottom:20px;"
+                        >
+                    </center>
                     <?php
                 }
                 ?>
-                <input type="file" name="file_<?= $md5 ?>" id="file_<?= $md5 ?>" accept="image/*"
-                       style="margin-buttom:20px">
+                <input
+                        type="file"
+                        name="file_<?= $md5 ?>"
+                        id="file_<?= $md5 ?>"
+                        accept="image/*"
+                        style="margin-buttom:20px"
+                >
+
                 <input
                         type="hidden"
                         id="encode_file"

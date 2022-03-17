@@ -44,11 +44,7 @@ $_SESSION['categoria'] = "";
         $result = mysqli_query($con, $query);
 
         while ($p = mysqli_fetch_object($result)) {
-
             $detalhes = json_decode($p->detalhes);
-            //print_r($detalhes);
-            //echo "<br>";
-
             ?>
             <div class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
@@ -61,26 +57,31 @@ $_SESSION['categoria'] = "";
                             <p class="card-text"><?= $p->descricao ?></p>
                             <p class="card-text">
                                 <small class="text-muted">
-
                                     <?php
-                                    foreach ($detalhes as $i => $val) {
+                                    foreach ($detalhes as $val) {
 
                                         //echo "<br>R$ {$val[0]} -> Status: R$ {$val[1]}<br>";
 
-                                        if ($val[1] > 0) { ?>
+                                        if ($val->quantidade > 0) { ?>
                                             <button
                                                     acao_medida
-                                                    opc="<?= $val[1] ?>"
+                                                    opc="<?= $val->quantidade; ?>"
                                                     produto="<?= $p->codigo ?>"
-                                                    titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$val[1]]})" ?>'
+                                                    titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$val->medida]})" ?>'
                                                     categoria='<?= $d->codigo ?>'
-                                                    medida='<?= $val[1] ?>'
-                                                    valor='<?= $val[0] ?>'
+                                                    medida='<?= $val->quantidade ?>'
+                                                    valor='<?= $val->valor ?>'
                                                     class="btn btn-outline-success"
                                                     style="height:60px;"
                                             >
-                                                <?= $M[$val[1]] ?><br>
-                                                R$ <?= number_format($val[0], 2, ',', '.') ?>
+                                                <?= $M[$val->quantidade] ?>
+                                                <br>
+                                                R$ <?= number_format(
+                                                    $val->valor,
+                                                    2,
+                                                    ',',
+                                                    '.'
+                                                ); ?>
                                             </button>
                                             <?php
                                         }
