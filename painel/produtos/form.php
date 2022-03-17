@@ -320,9 +320,17 @@ if ($codigo) {
             $("input[valores]").each(function () {
                 opc = $(this).attr('opc');
                 stu = $('input[situacao][opc="' + opc + '"]').val();
-                dds[opc] = [$(this).val(), stu];
+                //dds[opc] = [$(this).val(), stu];
+
+                dds.push({
+                    "medida": opc,
+                    "valor": $(this).val(),
+                    "quantidade": stu,
+                });
             });
 
+            console.log(dds);
+            return false;
             detalhes = JSON.stringify(Object.assign({}, dds));
 
             console.log(detalhes);
