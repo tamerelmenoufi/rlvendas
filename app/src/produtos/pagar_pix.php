@@ -49,6 +49,8 @@
                 <div class="card mb-3" style="background-color:#fafcff; padding:20px;">
                     <p style="text-align:center">
                         <?php
+                            echo 'Classe: '.$NNN;
+                            echo "<br>";
                             $pagar = new Rede;
                             echo $pagar->Pay();
                             echo "<br>";

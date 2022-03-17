@@ -21,3 +21,6 @@
 
 
     }
+
+
+    $NNN = 'Estou na página das classes';
