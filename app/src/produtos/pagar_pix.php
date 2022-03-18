@@ -50,12 +50,37 @@
                         <?php
 
                             $pagar = new Rede;
-                            echo $pagar->Pay([
-                                nome=>"Tamer Mohamed Elmenoufi",
-                                email=>"tamer@mohatron.com.br",
-                                telefone=>"92991886570"
-                            ]);
+                            $pagar->Ambiente = 'homologacao';
+                            $pagar->PV = '19348375';
+                            $pagar->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
+
+                            $x = $pagar->Trasacao('{
+                                "capture": false,
+                                "kind": "credit",
+                                "reference": "pedido3",
+                                "amount": 2099,
+                                "installments": 2,
+                                "cardholderName": "John Snow",
+                                "cardNumber": "5448280000000007",
+                                "expirationMonth": 12,
+                                "expirationYear": 2028,
+                                "securityCode": "235",
+                                "softDescriptor": "string",
+                                "subscription": false,
+                                "origin": 1,
+                                "distributorAffiliation": 0,
+                                "brandTid": "string"
+                            }');
+
+                            var_dump($x);
+
+                            // echo $pagar->Pay([
+                            //     nome=>"Tamer Mohamed Elmenoufi",
+                            //     email=>"tamer@mohatron.com.br",
+                            //     telefone=>"92991886570"
+                            // ]);
                         ?>
+                        <br><br><br>
                         Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
                     </p>
                     <div style="padding:20px;">
