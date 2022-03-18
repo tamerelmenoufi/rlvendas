@@ -227,7 +227,7 @@ $cliente = mysqli_fetch_object($result);
                             <div class="col-md-4 font-weight-bold h5">
                                 Total
                             </div>
-                            <div class="col-md-8 h5">
+                            <div class="col-md-8 h5 text-success">
                                 R$ <span valor_total>
                                     <?= number_format(
                                         getValorTotal(),

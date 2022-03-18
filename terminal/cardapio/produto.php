@@ -34,15 +34,15 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
     // @formatter:off
 
     foreach ([
-                 'venda'             => $_SESSION['ConfVenda'],
-                 'cliente'           => $_SESSION['ConfCliente'],
-                 'mesa'              => $_SESSION['ConfMesa'],
-                 'quantidade'        => $_POST['quantidade'],
-                 'valor_unitario'    => $_POST['valor'],
+                 'venda' => $_SESSION['ConfVenda'],
+                 'cliente' => $_SESSION['ConfCliente'],
+                 'mesa' => $_SESSION['ConfMesa'],
+                 'quantidade' => $_POST['quantidade'],
+                 'valor_unitario' => $_POST['valor'],
                  'produto_descricao' => $_POST['produto_observacao'],
-                 'valor_total'       => ($_POST['valor'] * $_POST['quantidade']),
-                 'data'              => date('Y-m-d H:i:s'),
-                 'produto_json'      => json_encode($json, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+                 'valor_total' => ($_POST['valor'] * $_POST['quantidade']),
+                 'data' => date('Y-m-d H:i:s'),
+                 'produto_json' => json_encode($json, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
              ] as $key => $item) {
         $attr[] = "{$key} = '{$item}'";
     }
@@ -164,9 +164,8 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                         </span>
                                         - <span
                                                 class="font-weight-bold h5"
-                                                produto_descricao>
-                                            <?= $p->produto ?>
-                                        </span>
+                                                produto_descricao
+                                        ><?= $p->produto ?></span>
                                         (<span
                                                 class="font-weight-bold h5"
                                                 medida="<?= $m->codigo; ?>"
@@ -483,15 +482,15 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
         $("button[adicionar_produto]").click(function () {
 
             // @formatter:off
-                var produto_observacao  = $("#search_field").val();
-                var produto_descricao   = $("span[produto_descricao]").text();
-                var quantidade          = $("#quantidade").val();
-                var valor               = Number($("span[valor]").attr("valor"));
-                var medida              = $("#medida").val();
-                var medida_descricao    = $("span[medida]").text().trim();
-                var categoria           = '<?=$p->categoria?>';
-                var categoria_descricao = $("span[categoria]").text().trim();
-                // @formatter:on
+            var produto_observacao = $("#search_field").val();
+            var produto_descricao = $("span[produto_descricao]").text().trim();
+            var quantidade = $("#quantidade").val();
+            var valor = Number($("span[valor]").attr("valor"));
+            var medida = $("#medida").val();
+            var medida_descricao = $("span[medida]").text().trim();
+            var categoria = '<?=$p->categoria?>';
+            var categoria_descricao = $("span[categoria]").text().trim();
+            // @formatter:on
 
             let obj_sabores = $(".incluir_sabores.active");
 
@@ -524,6 +523,8 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     }
                 }
             });*/
+
+            console.log(produto_descricao);
 
             $.ajax({
                 url: "cardapio/produto.php",

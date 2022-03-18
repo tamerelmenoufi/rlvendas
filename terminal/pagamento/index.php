@@ -50,9 +50,17 @@ $d = mysqli_fetch_object($result);
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="h4 font-weight-bold">Formas de Pagamento</h4>
+                    <h4 class="h4 font-weight-bold">Formas de Pagamento desejada</h4>
                     <hr>
                     <div class="px-md-5">
+                        <h5 class="card-title">
+                            <a
+                                    pagar
+                                    opc="pix"
+                                    class="btn btn-info btn-lg btn-block">
+                                <i class="fa-solid fa-money-bill-1-wave"></i> DINHEIRO
+                            </a>
+                        </h5>
                         <h5 class="card-title">
                             <a
                                     pagar
@@ -66,17 +74,18 @@ $d = mysqli_fetch_object($result);
                                     pagar
                                     opc="debito"
                                     class="btn btn-info btn-lg btn-block">
-                                <i class="fa-solid fa-credit-card"></i> Débito
+                                <i class="fa-solid fa-credit-card"></i> Débito /
+                                Crédito
                             </a>
                         </h5>
-                        <h5 class="card-title">
+                        <!--<h5 class="card-title">
                             <a
                                     pagar
                                     opc="credito"
                                     class="btn btn-info btn-lg btn-block">
                                 <i class="fa-solid fa-credit-card"></i> Crédito
                             </a>
-                        </h5>
+                        </h5>-->
 
                     </div>
                 </div>
