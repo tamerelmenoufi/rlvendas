@@ -61,7 +61,12 @@
                             $pagar->PV = '19348375';
                             $pagar->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
 
-                            echo $pagar->capture('{"amount":2099}');
+                            echo $pagar->capture('
+                                                {
+                                                    "tid":"10012203142252512371",
+                                                    "amount":2099
+                                                }
+                                                ');
 
                             // $x = $pagar->Transacao('{
                             //     "capture": false,
