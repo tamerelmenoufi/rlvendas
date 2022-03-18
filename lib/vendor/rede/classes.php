@@ -5,7 +5,7 @@
 
         function Pay($dados){
             $d = json_decode($dados);
-            $retorno = "Olá {$d->nome}, verifiquei que o seu e-mail é {$d->email} e seu telefone é {$d->telefone}";
+            $retorno = "Olá {$d['nome']}, verifiquei que o seu e-mail é {$d['email']} e seu telefone é {$d['telefone']}";
             return $retorno;
         }
 
