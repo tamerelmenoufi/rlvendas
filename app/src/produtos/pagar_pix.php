@@ -82,11 +82,11 @@
                             //                     }
                             //                     ');
 
-                            echo    Consulta('
-                                            {
-                                                "reference":"pedido1"
-                                            }
-                                            ');
+                            echo    $pagar->Consulta('
+                                                    {
+                                                        "reference":"pedido1"
+                                                    }
+                                                    ');
 
 
                         ?>
