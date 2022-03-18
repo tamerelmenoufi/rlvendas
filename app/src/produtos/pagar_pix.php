@@ -77,8 +77,6 @@
 
                             // var_dump($x);
 
-
-
                             // echo $pagar->Pay([
                             //     nome=>"Tamer Mohamed Elmenoufi",
                             //     email=>"tamer@mohatron.com.br",
