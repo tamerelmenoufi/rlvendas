@@ -106,7 +106,7 @@
                             echo    $rede->CancelaRefundId('
                                                             {
                                                                 "tid":"10012203142252512371",
-                                                                "refundId":"pedido1"
+                                                                "refundId":"52d7b5f1-c667-4311-80d5-cbfdd81733f5"
                                                             }
                                                             ');
 
