@@ -46,7 +46,7 @@
                 \"amount\": {$d['amount']}
               }";
 
-              return 'Amount: '.$d['amount'];
+              return $d.' ---- Amount: '.$d['amount'];
 
 
 
