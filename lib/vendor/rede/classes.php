@@ -3,8 +3,10 @@
 
     class Rede {
 
-        function Pay(){
-            return 'Efetuar pagamento!';
+        function Pay($dados){
+            $d = json_decode($dados);
+            $retorno = "Olá {$d->nome}, verifiquei que o seu e-mail é {$d->email} e seu telefone é {$d->telefone}";
+            return $retorno;
         }
 
         function Capture(){
@@ -21,6 +23,3 @@
 
 
     }
-
-
-    $NNN = 'Estou na página das classes';

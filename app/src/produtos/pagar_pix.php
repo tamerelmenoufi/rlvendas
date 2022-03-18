@@ -49,17 +49,13 @@
                 <div class="card mb-3" style="background-color:#fafcff; padding:20px;">
                     <p style="text-align:center">
                         <?php
-                            echo 'Classe: '.$NNN;
-                            echo "<br>";
+
                             $pagar = new Rede;
-                            echo $pagar->Pay();
-                            echo "<br>";
-                            echo $pagar->Capture();
-                            echo "<br>";
-                            echo $pagar->Cancel();
-                            echo "<br>";
-                            echo $pagar->Cancel2();
-                            echo "<br>";
+                            echo $pagar->Pay("{
+                                nome:'Tamer Mohamed Elmenoufi',
+                                email:'tamer@mohatron.com.br',
+                                telefone:'92991886570'
+                            }");
                         ?>
                         Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
                     </p>
