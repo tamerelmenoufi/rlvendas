@@ -43,10 +43,10 @@
             $d1 = json_decode($d);
 
             $fields = "{
-                \"amount\": {$d['amount']}
+                \"amount\": {$d[0]->amount}
               }";
 
-              return $d.$d1.' ---- Amount: '.$d['amount'];
+              return $d.print_r($d1).' ---- Amount: '.$d['amount'];
 
 
 
