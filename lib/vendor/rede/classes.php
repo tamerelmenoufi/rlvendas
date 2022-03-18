@@ -71,7 +71,7 @@
                 \"amount\": {$d[0]['amount']}
               }";
 
-              return $echo."<br><br>Amount: ".$d1['amount'];
+              return $echo."<br><br>Amount: ".$d1->amount;
 
 
 
