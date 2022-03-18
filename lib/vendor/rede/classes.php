@@ -4,7 +4,7 @@
     class Rede {
 
         function Pay($d){
-            $retorno .= "Olá {$d['nome']}, verifiquei que o seu e-mail é {$d['email']} e seu telefone é {$d['telefone']}";
+            $retorno = "Olá {$d['nome']}, verifiquei que o seu e-mail é {$d['email']} e seu telefone é {$d['telefone']}";
             return $retorno;
         }
 
