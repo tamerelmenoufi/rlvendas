@@ -94,15 +94,28 @@
                             //                         }
                             //                         ');
                             //////////////////////////////////////////////////////////////////
-                            echo    $rede->Cancelar('
-                                                    {
-                                                        "tid":"10012203142252512371",
-                                                        "amount":2299,
-                                                        "url":"https://moh1.com.br/rede/cancelar/callback.php"
-                                                    }
-                                                    ');
-
-
+                            // echo    $rede->Cancelar('
+                            //                         {
+                            //                             "tid":"10012203142252512371",
+                            //                             "amount":2299,
+                            //                             "url":"https://moh1.com.br/rede/cancelar/callback.php"
+                            //                         }
+                            //                         ');
+                            //////////////////////////////////////////////////////////////////
+                            // echo "CancelaRefundId: <br>";
+                            // echo    $rede->ConsultaRefundId('
+                            //                                 {
+                            //                                     "tid":"10012203142252512371",
+                            //                                     "refundId":"52d7b5f1-c667-4311-80d5-cbfdd81733f5"
+                            //                                 }
+                            //                                 ');
+                            //////////////////////////////////////////////////////////////////
+                            echo "ConsultaCancelaTID: <br>";
+                            echo    $rede->ConsultaCancelaTID('
+                                                            {
+                                                                "tid":"10012203142252512371"
+                                                            }
+                                                            ');
                         ?>
                         <br><br><br>
                         Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
