@@ -50,23 +50,11 @@
                     <p style="text-align:center">
                         <?php
 
-                            $Teste = ['amount'=>2209];
-                            echo "TESTE:<br>";
-                            echo json_encode($Teste);
-                            echo "<br><br>";
-
-
                             $pagar = new Rede;
                             $pagar->Ambiente = 'homologacao';
                             $pagar->PV = '19348375';
                             $pagar->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
 
-                            echo $pagar->capture('
-                                                {
-                                                    "tid":"10012203142252512371",
-                                                    "amount":2099
-                                                }
-                                                ');
 
                             // $x = $pagar->Transacao('{
                             //     "capture": false,
@@ -86,13 +74,21 @@
                             //     "brandTid": "string"
                             // }');
 
-                            // var_dump($x);
+                            //////////////////////////////////////////////////////////////////
+                            // echo $pagar->capture('
+                            //                     {
+                            //                         "tid":"10012203142252512371",
+                            //                         "amount":2099
+                            //                     }
+                            //                     ');
 
-                            // echo $pagar->Pay([
-                            //     nome=>"Tamer Mohamed Elmenoufi",
-                            //     email=>"tamer@mohatron.com.br",
-                            //     telefone=>"92991886570"
-                            // ]);
+                            echo    Consulta('
+                                            {
+                                                "reference":"pedido1"
+                                            }
+                                            ');
+
+
                         ?>
                         <br><br><br>
                         Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
