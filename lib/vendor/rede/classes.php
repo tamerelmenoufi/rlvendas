@@ -138,7 +138,7 @@
 
         }
 
-        public function CancelaRefundId($d){
+        public function ConsultaRefundId($d){
 
             $d = json_decode($d);
 
