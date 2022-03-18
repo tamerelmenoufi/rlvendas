@@ -1,6 +1,6 @@
 <?php
     include("../../../lib/includes.php");
-    error_reporting(ALL);
+    error_reporting(9);
     $query = "select
                     sum(a.valor_total) as total,
                     b.nome,
