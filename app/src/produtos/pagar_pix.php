@@ -50,7 +50,7 @@
                     <p style="text-align:center">
                         <?php
 
-                            $Teste = [amount=>2209];
+                            $Teste = ['amount'=>2209];
                             echo "TESTE:<br>";
                             echo json_encode($Teste);
                             echo "<br><br>";
