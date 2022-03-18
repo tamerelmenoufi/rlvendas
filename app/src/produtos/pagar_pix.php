@@ -50,13 +50,13 @@
                     <p style="text-align:center">
                         <?php
 
-                            $pagar = new Rede;
-                            $pagar->Ambiente = 'homologacao';
-                            $pagar->PV = '19348375';
-                            $pagar->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
+                            $rede = new Rede;
+                            $rede->Ambiente = 'homologacao';
+                            $rede->PV = '19348375';
+                            $rede->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
 
 
-                            // $x = $pagar->Transacao('{
+                            // $x = $rede->Transacao('{
                             //     "capture": false,
                             //     "kind": "credit",
                             //     "reference": "pedido3",
@@ -75,16 +75,23 @@
                             // }');
 
                             //////////////////////////////////////////////////////////////////
-                            // echo $pagar->capture('
+                            // echo $rede->capture('
                             //                     {
                             //                         "tid":"10012203142252512371",
                             //                         "amount":2099
                             //                     }
                             //                     ');
-
-                            echo    $pagar->Consulta('
+                            //////////////////////////////////////////////////////////////////
+                            // echo    $rede->Consulta('
+                            //                         {
+                            //                             "reference":"pedido1"
+                            //                         }
+                            //                         ');
+                            //////////////////////////////////////////////////////////////////
+                            echo "TID CONSULTA: <br>";
+                            echo    $rede->ConsultaTID('
                                                     {
-                                                        "reference":"pedido1"
+                                                        "tid":"10012203142252512371"
                                                     }
                                                     ');
 
