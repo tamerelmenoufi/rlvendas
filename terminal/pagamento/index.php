@@ -27,18 +27,18 @@ $d = mysqli_fetch_object($result);
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div>
+                            <div class="h5">
                                 <b>PEDIDO</b>
                             </div>
-                            <div>
+                            <div class="h5 font-weight-bold">
                                 <?= $_SESSION['ConfMesa']; ?>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div>
+                            <div class="h5">
                                 <b>TOTAL</b>
                             </div>
-                            <div>
+                            <div class="h5 text-success font-weight-bold">
                                 R$ <?= number_format($d->total, 2, ',', '.'); ?>
                             </div>
                         </div>
