@@ -4,7 +4,11 @@
     class Rede {
 
         function Ambiente($Ambiente){
-            return UrlAmbiente($Ambiente);
+            if($Ambiente == 'homologacao'){
+                return 'https://sandbox-erede.useredecloud.com.br/v1/transactions';
+            }else{
+                return 'https://api.userede.com.br/erede/v1/transactions';
+            }
         }
         function PV($PV){
             return $PV;
@@ -14,13 +18,6 @@
         }
         function Autenticacao($opc){
             return base64_encode($opc);
-        }
-        function UrlAmbiente($opc){
-            if($opc == 'homologacao'){
-                return 'https://sandbox-erede.useredecloud.com.br/v1/transactions';
-            }else{
-                return 'https://api.userede.com.br/erede/v1/transactions';
-            }
         }
 
         function Transacao($d){
