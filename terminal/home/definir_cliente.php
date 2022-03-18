@@ -15,7 +15,7 @@ function venda($cliente, $mesa)
         $_SESSION['ConfVenda'] = $codigo;
     } else {
         $data_pedido = date('d-m-Y H:i:s');
-        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$cliente}', mesa = '{$mesa}',data_pedido = '{$data_pedido}' AND situacao = '0'");
+        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$cliente}', mesa = '{$mesa}',data_pedido = '{$data_pedido}', situacao = 'producao'");
         $_SESSION['ConfVenda'] = mysqli_insert_id($con);
     }
 
