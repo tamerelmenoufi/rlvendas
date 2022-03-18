@@ -51,11 +51,11 @@
                         <?php
 
                             $pagar = new Rede;
-                            echo $pagar->Pay('{
-                                "nome":"Tamer Mohamed Elmenoufi",
-                                "email":"tamer@mohatron.com.br",
-                                "telefone":"92991886570"
-                            }');
+                            echo $pagar->Pay([
+                                nome=>"Tamer Mohamed Elmenoufi",
+                                email=>"tamer@mohatron.com.br",
+                                telefone=>"92991886570"
+                            ]);
                         ?>
                         Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
                     </p>

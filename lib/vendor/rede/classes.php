@@ -3,10 +3,7 @@
 
     class Rede {
 
-        function Pay($dados){
-            $retorno = $dados;
-            $d = json_decode($dados);
-            $retorno .= print_r($d, true);
+        function Pay($d){
             $retorno .= "Olá {$d['nome']}, verifiquei que o seu e-mail é {$d['email']} e seu telefone é {$d['telefone']}";
             return $retorno;
         }
