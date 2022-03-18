@@ -49,9 +49,12 @@ function getValorTotal()
     return $total;
 }
 
-
 $_SESSION['categoria'] = $_GET['categoria'];
 
+$query = "SELECT * FROM clientes WHERE codigo = '{$_SESSION['ConfCliente']}'";
+$result = mysqli_query($con, $query);
+
+$cliente = mysqli_fetch_object($result);
 ?>
 
 <style>
@@ -85,7 +88,7 @@ $_SESSION['categoria'] = $_GET['categoria'];
 
 <div class="comanda">
 
-    <div class="container mt-5">
+    <div class="col-md-12 mt-5">
         <div class="row">
             <div class="col-md-7" style="height: 90vh; overflow-y: auto">
                 <?php
@@ -210,24 +213,41 @@ $_SESSION['categoria'] = $_GET['categoria'];
                     <div class="card-body">
                         <h4 class="font-weight-bold h4">Informações básicas</h4>
                         <hr>
-                        <div class="row mb-1">
-                            <div class="col-4 font-weight-bold">Mesa</div>
-                            <div class="col-6"><?= $_SESSION['ConfMesa']; ?></div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold h5">Mesa</div>
+                            <div class="col-6 h5"><?= $_SESSION['ConfMesa']; ?></div>
                         </div>
-                        <div class="row mb-1">
-                            <div class="col-4 font-weight-bold">Cliente</div>
-                            <div class="col-6"><?= $_SESSION['ConfCliente']; ?></div>
+                        <div class="row">
+                            <div class="col-4 font-weight-bold h5">Cliente</div>
+                            <div class="col-6 h5">
+                                <?= $cliente->nome ?: $cliente->telefone; ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 font-weight-bold h5">
+                                Total
+                            </div>
+                            <div class="col-md-8 h5">
+                                R$ <span valor_total>
+                                    <?= number_format(
+                                        getValorTotal(),
+                                        2,
+                                        ',',
+                                        '.'
+                                    ); ?>
+                                </span>
+                            </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-12 font-weight-bold">
                                 <h4 class="font-weight-bold h4">Observações</h4>
                                 <div class="col-12">
-                                    <div class="texto_detalhes" style="min-height: 20px"></div>
+                                    <div class="texto_detalhes" style="min-height: 50px"></div>
                                 </div>
                                 <button
                                         type="button"
-                                        class="btn btn-sm btn-danger incluir_observacao mb-1 font-weight-bold btn-block"
+                                        class="btn btn-sm btn-primary incluir_observacao mb-1 font-weight-bold btn-block"
                                 >
                                     <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
                                 </button>
@@ -240,21 +260,6 @@ $_SESSION['categoria'] = $_GET['categoria'];
                 <div class="card mt-2">
                     <div class="card-body">
 
-                        <div class="row">
-                            <div class="col-md-4 font-weight-bold h5">
-                                Total
-                            </div>
-                            <div class="col-md-8">
-                                R$ <span valor_total>
-                                    <?= number_format(
-                                        getValorTotal(),
-                                        2,
-                                        ',',
-                                        '.'
-                                    ); ?>
-                                </span>
-                            </div>
-                        </div>
                         <hr>
                         <div>
                             <button concluir_compra class="btn btn-success btn-lg btn-block mb-1 font-weight-bold">
@@ -266,9 +271,9 @@ $_SESSION['categoria'] = $_GET['categoria'];
                             <button
                                     sair
                                     categoria="<?= $categoria; ?>"
-                                    class="btn btn-primary btn-lg btn-block font-weight-bold"
+                                    class="btn btn-danger btn-lg btn-block font-weight-bold"
                             >
-                                VOLTAR
+                                CANCELAR PEDIDO
                             </button>
                         </div>
 
@@ -281,8 +286,14 @@ $_SESSION['categoria'] = $_GET['categoria'];
         </div>
     </div>
 
-    <div style="position:fixed;bottom: 20px;right: 20px">
-
+    <div style="position:fixed;bottom: 20px;left: 20px">
+        <button
+                sair
+                categoria="<?= $categoria; ?>"
+                class="btn btn-primary btn-lg btn-block font-weight-bold"
+        >
+            VOLTAR
+        </button>
     </div>
 
 </div>

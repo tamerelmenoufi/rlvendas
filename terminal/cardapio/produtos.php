@@ -56,8 +56,8 @@ $_SESSION['categoria'] = "";
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $p->produto ?></h5>
-                            <p class="card-text"><?= $p->descricao ?></p>
+                            <h5 class="card-title font-weight-bold h4"><?= $p->produto ?></h5>
+                            <p class="card-text h5 mb-3"><?= $p->descricao ?></p>
                             <p class="card-text">
                                 <small class="text-muted">
                                     <?php
@@ -80,7 +80,7 @@ $_SESSION['categoria'] = "";
                                                     medida='<?= $val->quantidade ?>'
                                                     valor='<?= $val->valor ?>'
                                                     class="btn btn-outline-success"
-                                                    style="height:60px;"
+                                                    style="height:60px; font-weight: 600;padding: 2px 25px"
                                             >
                                                 <?= $M[$val->quantidade]['descricao'] ?>
                                                 <br>
