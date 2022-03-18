@@ -67,7 +67,7 @@
         public function Consulta($d){
 
             $d = json_decode($d);
-            $fields = ['reference' => $d->pedido];
+            $fields = ['reference' => $d->reference];
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $this->Ambiente($this->Ambiente)."/?".http_build_query($fields));
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
