@@ -21,11 +21,11 @@
         public function Transacao($d){
 
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, Ambiente($Ambiente));
+            curl_setopt($ch, CURLOPT_URL, $this->Ambiente($this->Ambiente));
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
               "Content-Type: application/json",
-              "Authorization: Basic ".Autenticacao("{$PV}:{$TOKEN}")
+              "Authorization: Basic ".Autenticacao($this->PV.":".$this->TOKEN)
             ));
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
