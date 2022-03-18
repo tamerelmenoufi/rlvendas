@@ -138,5 +138,25 @@
 
         }
 
+        public function CancelaRefundId($d){
+
+            $d = json_decode($d);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $this->Ambiente($this->Ambiente)."/{$d->tid}/refunds/{$d->refundId}");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+              "Content-Type: application/json",
+              "Authorization: Basic ".$this->Autenticacao($this->PV.":".$this->TOKEN)
+            ));
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            return $response;
+        }
+
 
     }

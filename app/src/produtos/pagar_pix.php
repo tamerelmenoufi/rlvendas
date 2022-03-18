@@ -94,13 +94,20 @@
                             //                         }
                             //                         ');
                             //////////////////////////////////////////////////////////////////
-                            echo    $rede->Cancelar('
-                                                    {
-                                                        "tid":"10012203142252512371",
-                                                        "amount":2299,
-                                                        "url":"https://moh1.com.br/rede/cancelar/callback.php"
-                                                    }
-                                                    ');
+                            // echo    $rede->Cancelar('
+                            //                         {
+                            //                             "tid":"10012203142252512371",
+                            //                             "amount":2299,
+                            //                             "url":"https://moh1.com.br/rede/cancelar/callback.php"
+                            //                         }
+                            //                         ');
+                            //////////////////////////////////////////////////////////////////
+                            echo    $rede->CancelaRefundId('
+                                                            {
+                                                                "tid":"10012203142252512371",
+                                                                "refundId":"pedido1"
+                                                            }
+                                                            ');
 
 
                         ?>
