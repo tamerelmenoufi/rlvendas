@@ -25,7 +25,7 @@
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
               "Content-Type: application/json",
-              "Authorization: Basic ".Autenticacao($this->PV.":".$this->TOKEN)
+              "Authorization: Basic ".$this->Autenticacao($this->PV.":".$this->TOKEN)
             ));
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
