@@ -71,7 +71,7 @@
                 \"amount\": {$d[0]['amount']}
               }";
 
-              return $echo."<br><br>".print_r($d1);
+              return $echo."<br><br>Amount: ".$d1['amount'];
 
 
 
