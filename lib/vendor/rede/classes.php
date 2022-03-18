@@ -40,13 +40,13 @@
 
         public function Capture($d){
 
-            $d = json_decode($d);
+            $d1 = json_decode($d);
 
             $fields = "{
                 \"amount\": {$d['amount']}
               }";
 
-              return $d.' ---- Amount: '.$d['amount'];
+              return $d.$d1.' ---- Amount: '.$d['amount'];
 
 
 
