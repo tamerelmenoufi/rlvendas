@@ -3,15 +3,20 @@
 
     class Rede {
 
-        public $Ambiente = '';
-        public $PV = '';
-        public $TOKEN = '';
-
+        public function Ambiente($Ambiente){
+            return UrlAmbiente($Ambiente);
+        }
+        public function PV($PV){
+            return $PV;
+        }
+        public function TOKEN($TOKEN){
+            return $TOKEN;
+        }
         public function Autenticacao($opc){
             return base64_encode($opc);
         }
 
-        public function Ambiente($opc){
+        public function UrlAmbiente($opc){
             if($opc == 'homologacao'){
                 return 'https://sandbox-erede.useredecloud.com.br/v1/transactions';
             }else{

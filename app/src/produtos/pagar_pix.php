@@ -51,9 +51,9 @@
                         <?php
 
                             $pagar = new Rede;
-                            $pagar->Ambiente = 'homologacao';
-                            $pagar->PV = '19348375';
-                            $pagar->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
+                            $pagar->Ambiente('homologacao');
+                            $pagar->PV('19348375');
+                            $pagar->TOKEN('2b4e31d3a75b429c9ef5fdd02f2b5c59');
 
                             $x = $pagar->Transacao('{
                                 "capture": false,
