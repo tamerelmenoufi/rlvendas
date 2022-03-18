@@ -3,7 +3,19 @@
 
     class Rede {
 
-        public function UrlAmbiente($opc){
+        function Ambiente($Ambiente){
+            return UrlAmbiente($Ambiente);
+        }
+        function PV($PV){
+            return $PV;
+        }
+        function TOKEN($TOKEN){
+            return $TOKEN;
+        }
+        function Autenticacao($opc){
+            return base64_encode($opc);
+        }
+        function UrlAmbiente($opc){
             if($opc == 'homologacao'){
                 return 'https://sandbox-erede.useredecloud.com.br/v1/transactions';
             }else{
@@ -11,20 +23,7 @@
             }
         }
 
-        public function Ambiente($Ambiente){
-            return UrlAmbiente($Ambiente);
-        }
-        public function PV($PV){
-            return $PV;
-        }
-        public function TOKEN($TOKEN){
-            return $TOKEN;
-        }
-        public function Autenticacao($opc){
-            return base64_encode($opc);
-        }
-
-        public function Transacao($d){
+        function Transacao($d){
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, Ambiente($Ambiente));
@@ -44,20 +43,20 @@
 
         }
 
-        public function Pay($d){
+        function Pay($d){
             $retorno = "Olá {$d['nome']}, verifiquei que o seu e-mail é {$d['email']} e seu telefone é {$d['telefone']}";
             return $retorno;
         }
 
-        public function Capture(){
+        function Capture(){
             return 'Realizar Captura!';
         }
 
-        public function Cancel(){
+        function Cancel(){
             return 'Efetuar Cancelamento 1!';
         }
 
-        public function Cancel2(){
+        function Cancel2(){
             return 'Efetuar Cancrlamento 2!';
         }
 
