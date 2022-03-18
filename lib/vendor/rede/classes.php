@@ -46,7 +46,7 @@
                 \"amount\": {$d[0]['amount']}
               }";
 
-              return $d.print_r($d1).' ---- Amount: '.$d['amount'];
+              return $d.print_r($d1).' ---- Amount: '.$d1[0]['amount'];
 
 
 
