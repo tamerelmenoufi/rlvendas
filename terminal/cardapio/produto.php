@@ -90,7 +90,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
     .cardapio_produto {
         position: absolute;
         left: 0;
-        top: 90px;
+        top: 50px;
         bottom: 20px;
         width: 100%;
         overflow: auto;
@@ -155,18 +155,30 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <span categoria="<?= $p->cod_categoria; ?>">
+
+                                        <span
+                                                class="font-weight-bold h5"
+                                                categoria="<?= $p->cod_categoria; ?>"
+                                        >
                                             <?= $p->nome_categoria ?>
                                         </span>
-                                        - <span produto_descricao><?= $p->produto ?></span> (<span
-                                                medida="<?= $m->codigo; ?>"><?= $m->medida ?></span>)
+                                        - <span
+                                                class="font-weight-bold h5"
+                                                produto_descricao>
+                                            <?= $p->produto ?>
+                                        </span>
+                                        (<span
+                                                class="font-weight-bold h5"
+                                                medida="<?= $m->codigo; ?>"
+                                        ><?= $m->medida ?></span>)
                                     </h5>
-                                    <p class="card-text">
-                                        <span><?= $p->descricao ?></span>
+
+                                    <p class="card-text mb-1">
+                                        <span class="h5"><?= $p->descricao ?></span>
                                     </p>
 
                                     <p class="card-text d-flex flex-row">
-                                        <small valor_atual class="text-muted">
+                                        <small class="h5" valor_atual class="text-muted">
                                             R$ <?= number_format(
                                                 $valor,
                                                 2,
@@ -174,7 +186,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                                 '.'
                                             ); ?>
                                         </small>
-                                        <small valor_novo class="text-muted ml-1">
+                                        <small valor_novo class="text-muted ml-1 h6">
                                             R$ 0,00
                                         </small>
                                     </p>
@@ -268,13 +280,12 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     </div>
 
                 </div>
-
             </div>
 
             <!-- Sabores -->
             <div class="col-md-4">
                 <?php if ($m->qt_produtos > 1) { ?>
-                    <p style="position:fixed; right:50px; top:55px;">
+                    <p class="h5 text-center">
                         <b>
                             Você pode adicionar
                             mais <?= ($m->qt_produtos - 1) . ' ' . (($m->qt_produtos == 2) ? 'sabor' : 'sabores') ?>
@@ -289,11 +300,11 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     $result = mysqli_query($con, $query);
 
                     while ($p1 = mysqli_fetch_object($result)) {
-                        $detalhes = (array)json_decode($p1->detalhes, true);
+                        $detalhes = json_decode($p1->detalhes);
 
+                        #print_r($detalhes);
                         if ($detalhes[$medida]) {
-                            $valor_sabores = $detalhes[$medida][0] ?: 0.00;
-                            ?>
+                            $valor_sabores = $detalhes[$medida]->valor ?: 0.00; ?>
                             <div class="list-group" style="margin-bottom:10px;">
                                 <a
                                         href="#"
@@ -302,11 +313,13 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                         descricao="<?= $p1->produto; ?>"
                                         valor="<?= $valor_sabores; ?>"
                                 >
-                                    <div class="d-flex justify-content-between">
+
+                                    <div class="d-flex justify-content-between align-items-center">
                                         <div style="flex: 1">
-                                            <?= $p1->produto ?>
+                                            <span style="font-size: 20px;font-weight: 600"><?= $p1->produto ?></span>
                                         </div>
-                                        <div class="text-success">
+
+                                        <div class="text-success font-weight-bold">
                                             R$ <?= number_format(
                                                 $valor_sabores,
                                                 '2',
