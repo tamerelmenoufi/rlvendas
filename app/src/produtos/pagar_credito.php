@@ -1,6 +1,14 @@
 <?php
     include("../../../lib/includes.php");
 
+    if($_POST['acao'] == 'pagar'){
+
+        require "../../../lib/vendor/rede/Transacao.php";
+        $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
+        mysqli_query($con, $query);
+        exit();
+    }
+
     $query = "select
                     sum(a.valor_total) as total,
                     b.nome,
@@ -82,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block btn-lg">PAGAR</button>
+                <button class="btn btn-primary btn-block btn-lg">PAGAR R$ <?=number_format($d->total, 2, ',','.')?></button>
             </div>
         </div>
     </div>
@@ -97,8 +105,8 @@
         $("#Pagar").click(function(){
 
             kind = 'credit';
-            reference = '<?=$d->codigo?>';
-            amount = '<?=$d->valor_total?>';
+            reference = '<?=$_SESSION['AppVenda']?>';
+            amount = '<?=$d->total?>';
             cardholderName = $("#cartao_numero").val();
             cardNumber = $("#cartao_numero").val();
             expirationMonth = $("#cartao_validade_mes").val();
@@ -131,7 +139,8 @@
                     cardNumber,
                     expirationMonth,
                     expirationYear,
-                    securityCode
+                    securityCode,
+                    acao:'pagar'
                 },
                 success:function(dados){
 

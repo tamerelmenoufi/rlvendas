@@ -3,9 +3,8 @@
 if($_POST['amount']) $amount = str_replace(array('.',',',false),trim($_POST['amount']));
 if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST['cardNumber']));
 
-
     $rede = new Rede;
-    $x = $rede->Transacao('{
+    $retorno = $rede->Transacao('{
         "capture": '.(($_POST['capture'])?:false).',
         "kind": "'.(($_POST['kind'])?:'credit').'",
         "reference": "'.$_POST['reference'].'",
