@@ -12,8 +12,8 @@ if($_POST['cardNumber']) $cardNumber = str_replace(array(' '),false,trim($_POST[
         '.(($_POST['installments'])?'"installments": '.$_POST['installments'].',':false).'
         "cardholderName": "'.$_POST['cardholderName'].'",
         "cardNumber": "'.$cardNumber.'",
-        "expirationMonth": '.$_POST['expirationMonth'].',
-        "expirationYear": '.$_POST['expirationYear'].',
+        "expirationMonth": "'.$_POST['expirationMonth'].'",
+        "expirationYear": "'.$_POST['expirationYear'].'",
         "securityCode": "'.$_POST['securityCode'].'",
         "softDescriptor": "'.$_POST['softDescriptor'].'",
         "subscription": '.(($_POST['subscription'])?:'false').',
