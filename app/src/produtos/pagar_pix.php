@@ -105,7 +105,7 @@
                             //                                 }
                             //                                 ');
                             //////////////////////////////////////////////////////////////////
-                            echo "ConsultaCancelaTID - Atualizado: <br>";
+                            echo "ConsultaCancelaTID: <br>";
                             echo    $rede->ConsultaCancelaTID('
                                                             {
                                                                 "tid":"10012203142252512371"
