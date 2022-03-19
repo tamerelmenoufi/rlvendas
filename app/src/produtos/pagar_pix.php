@@ -51,11 +51,6 @@
                         <?php
 
                             $rede = new Rede;
-                            $rede->Ambiente = 'homologacao';
-                            $rede->PV = '19348375';
-                            $rede->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
-
-
                             // $x = $rede->Transacao('{
                             //     "capture": false,
                             //     "kind": "credit",
@@ -110,7 +105,7 @@
                             //                                 }
                             //                                 ');
                             //////////////////////////////////////////////////////////////////
-                            echo "ConsultaCancelaTID: <br>";
+                            echo "ConsultaCancelaTID - Atualizado: <br>";
                             echo    $rede->ConsultaCancelaTID('
                                                             {
                                                                 "tid":"10012203142252512371"
