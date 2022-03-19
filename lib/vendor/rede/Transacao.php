@@ -18,8 +18,8 @@ if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST[
         "softDescriptor": "'.$_POST['softDescriptor'].'",
         "subscription": '.(($_POST['subscription'])?:'false').',
         "origin": 1,
-        "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:'0').',
-        '.(($_POST['brandTid'])?'"brandTid": '.$_POST['brandTid'].',':false).'
+        "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:'0').'
+        '.(($_POST['brandTid'])?'", brandTid": '.$_POST['brandTid'].',':false).'
     }');
 
     echo '{
@@ -36,6 +36,6 @@ if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST[
         "softDescriptor": "'.$_POST['softDescriptor'].'",
         "subscription": '.(($_POST['subscription'])?:'false').',
         "origin": 1,
-        "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:'0').',
-        '.(($_POST['brandTid'])?'"brandTid": '.$_POST['brandTid'].',':false).'
+        "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:'0').'
+        '.(($_POST['brandTid'])?'", brandTid": '.$_POST['brandTid'].',':false).'
     }';
