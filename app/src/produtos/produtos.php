@@ -4,10 +4,15 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1'";
+    $m_q = "select medida, ordem from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1' "
+    ."ORDER BY ordem";
     $m_r = mysqli_query($con, $m_q);
+    
     while($m = mysqli_fetch_array($m_r)){
-        $M[$m['codigo']] = $m['medida'];
+        $M[$m['codigo']] = [
+            "ordem" => $m['ordem'],
+            "descricao" => $m['medida']
+        ];
     }
 ?>
 
@@ -105,9 +110,6 @@
 
                         <?php
                         foreach($detalhes as $i => $val){
-                            print_r($val);
-                            //echo "<br>R$ {$val[0]} -> Status: R$ {$val[1]}<br>";
-
                             if($val->quantidade > 0){
                         ?>
                         <button
