@@ -1,7 +1,7 @@
 <?php
 
-if($_POST['amount']) $amount = str_replace(array('.',',',false),trim($_POST['amount']));
-if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST['cardNumber']));
+if($_POST['amount']) $amount = str_replace(array('.',','),false,trim($_POST['amount']));
+if($_POST['cardNumber']) $cardNumber = str_replace(array(' '),false,trim($_POST['cardNumber']));
 
     $rede = new Rede;
     $retorno = $rede->Transacao('{
