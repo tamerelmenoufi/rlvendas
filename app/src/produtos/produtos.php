@@ -116,8 +116,8 @@
                         usort($detalhes, function ($a, $b) {
                             return strcmp($a->ordem, $b->ordem);
                         });
-                        
-                        foreach($detalhes as $i => $val){
+
+                        foreach($detalhes as $val){
                             if($val->quantidade > 0){
                         ?>
                         <button
