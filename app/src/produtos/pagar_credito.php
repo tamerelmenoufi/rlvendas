@@ -117,28 +117,28 @@
             securityCode = $("#cartao_ccv").val();
 
             if(
-                    kind
-                &&  reference
-                &&  amount
-                &&  cardholderName
-                &&  cardNumber
-                &&  expirationMonth
-                &&  expirationYear
-                &&  securityCode
+                    !kind
+                ||  !reference
+                ||  !amount
+                ||  !cardholderName
+                ||  !cardNumber
+                ||  !expirationMonth
+                ||  !expirationYear
+                ||  !securityCode
 
             ){
                 $.alert('Preenche os dados do cartão corretamente!');
                 return false;
             }
             $.alert(
-                "kind" + kind + "<br>" +
-                "&&  reference" + reference + "<br>" +
-                "&&  amount" + amount + "<br>" +
-                "&&  cardholderName" + cardholderName + "<br>" +
-                "&&  cardNumber" + cardNumber + "<br>" +
-                "&&  expirationMonth" + expirationMonth + "<br>" +
-                "&&  expirationYear" + expirationYear + "<br>" +
-                "&&  securityCode" + securityCode + "<br>"
+                "kind: " + kind + "<br>" +
+                "&&  reference: " + reference + "<br>" +
+                "&&  amount: " + amount + "<br>" +
+                "&&  cardholderName: " + cardholderName + "<br>" +
+                "&&  cardNumber: " + cardNumber + "<br>" +
+                "&&  expirationMonth: " + expirationMonth + "<br>" +
+                "&&  expirationYear: " + expirationYear + "<br>" +
+                "&&  securityCode: " + securityCode + "<br>"
             );
             return false;
 
