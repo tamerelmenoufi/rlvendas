@@ -121,7 +121,7 @@
                                 class="btn btn-outline-success btn-xs"
                                 style="height:40px; font-size:11px; line-height: 1.2;"
                         >
-                            <?=$M[$val[1]]?><br>
+                            <?=$M[$val->quantidade]?><br>
                             R$ <?=number_format($val->valor,2,',','.')?>
                         </button>
                         <?php
