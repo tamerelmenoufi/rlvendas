@@ -301,35 +301,36 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     while ($p1 = mysqli_fetch_object($result)) {
                         $detalhes = json_decode($p1->detalhes);
 
-                        #print_r($detalhes);
-                        if ($detalhes[$medida]) {
-                            $valor_sabores = $detalhes[$medida]->valor ?: 0.00; ?>
-                            <div class="list-group" style="margin-bottom:10px;">
-                                <a
-                                        href="#"
-                                        class="list-group-item list-group-item-action incluir_sabores"
-                                        cod="<?= $p1->codigo; ?>"
-                                        descricao="<?= $p1->produto; ?>"
-                                        valor="<?= $valor_sabores; ?>"
-                                >
-
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div style="flex: 1">
-                                            <span style="font-size: 20px;font-weight: 600"><?= $p1->produto ?></span>
+                        foreach($detalhes as $det){
+                            if ($det->medida == $medida and $det->valor) {
+                                $valor_sabores = $det->valor ?: 0.00; ?>
+                                <div class="list-group" style="margin-bottom:10px;">
+                                    <a
+                                            href="#"
+                                            class="list-group-item list-group-item-action incluir_sabores"
+                                            cod="<?= $p1->codigo; ?>"
+                                            descricao="<?= $p1->produto; ?>"
+                                            valor="<?= $valor_sabores; ?>"
+                                    >
+    
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div style="flex: 1">
+                                                <span style="font-size: 20px;font-weight: 600"><?= $p1->produto ?></span>
+                                            </div>
+    
+                                            <div class="text-success font-weight-bold">
+                                                R$ <?= number_format(
+                                                    $valor_sabores,
+                                                    '2',
+                                                    ',',
+                                                    '.'
+                                                ); ?>
+                                            </div>
                                         </div>
-
-                                        <div class="text-success font-weight-bold">
-                                            R$ <?= number_format(
-                                                $valor_sabores,
-                                                '2',
-                                                ',',
-                                                '.'
-                                            ); ?>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php
+                                    </a>
+                                </div>
+                                <?php
+                            }
                         }
                     }
                 }

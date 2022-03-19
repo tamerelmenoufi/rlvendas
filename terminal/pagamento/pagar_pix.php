@@ -14,7 +14,7 @@ include("../../lib/includes.php");
         <div class="card-body mb-4">
             <h4 class="h4 font-weight-bold">Pagamento com pix</h4>
 
-            <p>Conclua seu pagamento via o App de seu banco. Aponte a camera do celular para código</p>
+            <p class="h5 mb-4">Conclua seu pagamento via o App de seu banco. Aponte a camera do celular para código</p>
 
             <div class="d-flex align-items-center justify-content-center mt-2 flex-column">
                 <h4 class="font-weight-bold">Pagamento pelo QR code</h4>

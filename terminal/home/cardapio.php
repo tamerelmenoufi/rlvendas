@@ -52,7 +52,7 @@ include("../../lib/includes.php");
 </style>
 
 <div class="cardapio">
-    <h3 style="text-align:center; padding:20px;">
+    <h3 style="text-align:center; padding:20px; padding-bottom: 0">
         <i class="fa-brands fa-elementor"></i>
         CARDÁPIO
     </h3>
@@ -60,8 +60,7 @@ include("../../lib/includes.php");
         <?php
         $query = "select * from categorias where deletado != '1' and situacao = '1'";
         $result = mysqli_query($con, $query);
-        while ($d = mysqli_fetch_object($result)) {
-            ?>
+        while ($d = mysqli_fetch_object($result)) { ?>
             <div class="col-md-6 item_grup<?= $md5 ?>">
                 <button
                         type="button"

@@ -4,10 +4,15 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1'";
+    $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1' "
+    ."ORDER BY ordem";
     $m_r = mysqli_query($con, $m_q);
+    
     while($m = mysqli_fetch_array($m_r)){
-        $M[$m['codigo']] = $m['medida'];
+        $M[$m['codigo']] = [
+            "ordem" => $m['ordem'],
+            "descricao" => $m['medida']
+        ];
     }
 ?>
 
@@ -104,25 +109,30 @@
                         <small class="text-muted">
 
                         <?php
-                        foreach($detalhes as $i => $val){
+                         foreach ($detalhes as $key => $val) :
+                            $val->ordem = $M[$val->medida]['ordem'];
+                        endforeach;
 
-                            //echo "<br>R$ {$val[0]} -> Status: R$ {$val[1]}<br>";
+                        usort($detalhes, function ($a, $b) {
+                            return strcmp($a->ordem, $b->ordem);
+                        });
 
-                            if($val[1] > 0){
+                        foreach($detalhes as $val){
+                            if($val->quantidade > 0){
                         ?>
                         <button
                                 acao_medida
-                                opc="<?=$val[1]?>"
+                                opc="<?=$val->quantidade?>"
                                 produto="<?=$p->codigo?>"
-                                titulo='<?="{$d->categoria} - {$p->produto} ({$M[$val[1]]})"?>'
+                                titulo='<?="{$d->categoria} - {$p->produto} ({$M[$val->quantidade]['descricao']})"?>'
                                 categoria='<?=$d->codigo?>'
-                                medida='<?=$val[1]?>'
-                                valor='<?=$val[0]?>'
+                                medida='<?=$val->quantidade?>'
+                                valor='<?=$val->valor; ?>'
                                 class="btn btn-outline-success btn-xs"
                                 style="height:40px; font-size:11px; line-height: 1.2;"
                         >
-                            <?=$M[$val[1]]?><br>
-                            R$ <?=number_format($val[0],2,',','.')?>
+                            <?=$M[$val->quantidade]['descricao']; ?><br>
+                            R$ <?=number_format($val->valor,2,',','.')?>
                         </button>
                         <?php
                             }

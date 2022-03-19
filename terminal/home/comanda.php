@@ -38,7 +38,7 @@ function getValorTotal()
 
     $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
         . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
-        . "WHERE v.situacao = '0' AND "
+        . "WHERE v.situacao = 'producao' AND "
         . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
         . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
         . "vp.deletado = '0'";
@@ -62,7 +62,7 @@ $cliente = mysqli_fetch_object($result);
     /* Firefox */
     .comanda * {
         scrollbar-width: auto;
-        scrollbar-color: #e74a3b #ffffff;
+        scrollbar-color: #999 #ffffff;
     }
 
     /* Chrome, Edge, and Safari */
@@ -75,8 +75,8 @@ $cliente = mysqli_fetch_object($result);
     }
 
     .comanda *::-webkit-scrollbar-thumb {
-        background-color: #e74a3b;
-        border-radius: 8px;
+        background-color: #999;
+        border-radius: 2px;
         border: 0;
     }
 
@@ -94,10 +94,10 @@ $cliente = mysqli_fetch_object($result);
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
-                    . "WHERE v.situacao = '0' AND "
+                    . "WHERE v.situacao = 'producao' AND "
                     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
                     . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
-                    . "v.situacao = '0' AND vp.deletado = '0'";
+                    . "v.situacao = 'producao' AND vp.deletado = '0'";
 
                 $result = mysqli_query($con, $query);
 
@@ -173,9 +173,7 @@ $cliente = mysqli_fetch_object($result);
                                         <span
                                                 class="font-weight-bold mx-2"
                                                 quantidade-<?= $d->codigo; ?>="<?= $d->quantidade; ?>"
-                                        >
-                                        <?= $d->quantidade; ?>
-                                    </span>
+                                        ><?= $d->quantidade; ?></span>
 
                                         <button
                                                 type="button"
@@ -243,11 +241,11 @@ $cliente = mysqli_fetch_object($result);
                             <div class="col-12 font-weight-bold">
                                 <h4 class="font-weight-bold h4">Observações</h4>
                                 <div class="col-12">
-                                    <div class="texto_detalhes" style="min-height: 50px"></div>
+                                    <div class="texto_detalhes" style="min-height: 40px"></div>
                                 </div>
                                 <button
                                         type="button"
-                                        class="btn btn-sm btn-primary incluir_observacao mb-1 font-weight-bold btn-block"
+                                        class="btn btn-sm btn-info incluir_observacao mb-1 font-weight-bold btn-block"
                                 >
                                     <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
                                 </button>
@@ -262,7 +260,7 @@ $cliente = mysqli_fetch_object($result);
 
                         <hr>
                         <div>
-                            <button concluir_compra class="btn btn-success btn-lg btn-block mb-1 font-weight-bold">
+                            <button concluir_compra class="btn btn-info btn-lg btn-block mb-1 font-weight-bold">
                                 CONCLUIR COMPRA
                             </button>
                         </div>
