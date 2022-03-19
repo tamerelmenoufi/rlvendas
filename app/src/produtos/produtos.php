@@ -105,7 +105,7 @@
 
                         <?php
                         foreach($detalhes as $i => $val){
-
+                            print_r($val);
                             //echo "<br>R$ {$val[0]} -> Status: R$ {$val[1]}<br>";
 
                             if($val->quantidade > 0){
