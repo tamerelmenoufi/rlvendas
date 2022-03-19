@@ -62,7 +62,7 @@ $cliente = mysqli_fetch_object($result);
     /* Firefox */
     .comanda * {
         scrollbar-width: auto;
-        scrollbar-color: #e74a3b #ffffff;
+        scrollbar-color: #999 #ffffff;
     }
 
     /* Chrome, Edge, and Safari */
@@ -75,8 +75,8 @@ $cliente = mysqli_fetch_object($result);
     }
 
     .comanda *::-webkit-scrollbar-thumb {
-        background-color: #e74a3b;
-        border-radius: 8px;
+        background-color: #999;
+        border-radius: 2px;
         border: 0;
     }
 
