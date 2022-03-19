@@ -5,6 +5,7 @@
 
         require "../../../lib/vendor/rede/Transacao.php";
         echo $retorno;
+        exit();
         $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
         mysqli_query($con, $query);
 
@@ -129,6 +130,17 @@
                 $.alert('Preenche os dados do cartão corretamente!');
                 return false;
             }
+            $.alert(
+                "kind" + kind + "<br>" +
+                "&&  reference" + reference + "<br>" +
+                "&&  amount" + amount + "<br>" +
+                "&&  cardholderName" + cardholderName + "<br>" +
+                "&&  cardNumber" + cardNumber + "<br>" +
+                "&&  expirationMonth" + expirationMonth + "<br>" +
+                "&&  expirationYear" + expirationYear + "<br>" +
+                "&&  securityCode" + securityCode + "<br>"
+            );
+            return false;
 
             $.ajax({
                 url:"src/produtos/pagar_credito.php",
