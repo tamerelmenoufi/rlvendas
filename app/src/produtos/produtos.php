@@ -109,6 +109,14 @@
                         <small class="text-muted">
 
                         <?php
+                         foreach ($detalhes as $key => $val) :
+                            $val->ordem = $M[$val->medida]['ordem'];
+                        endforeach;
+
+                        usort($detalhes, function ($a, $b) {
+                            return strcmp($a->ordem, $b->ordem);
+                        });
+                        
                         foreach($detalhes as $i => $val){
                             if($val->quantidade > 0){
                         ?>
@@ -116,14 +124,14 @@
                                 acao_medida
                                 opc="<?=$val->quantidade?>"
                                 produto="<?=$p->codigo?>"
-                                titulo='<?="{$d->categoria} - {$p->produto} ({$M[$val->quantidade]})"?>'
+                                titulo='<?="{$d->categoria} - {$p->produto} ({$M[$val->quantidade]['descricao']})"?>'
                                 categoria='<?=$d->codigo?>'
                                 medida='<?=$val->quantidade?>'
                                 valor='<?=$val->valor; ?>'
                                 class="btn btn-outline-success btn-xs"
                                 style="height:40px; font-size:11px; line-height: 1.2;"
                         >
-                            <?=$M[$val->quantidade]?><br>
+                            <?=$M[$val->quantidade]['descricao']; ?><br>
                             R$ <?=number_format($val->valor,2,',','.')?>
                         </button>
                         <?php
