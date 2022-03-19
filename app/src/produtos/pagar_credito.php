@@ -60,9 +60,9 @@
                 <div class="card text-white bg-info mb-3" style="padding:20px;">
 
                     <small>Nome</small>
-                    <input type="text" id="cartao_nome" placeholder="NOME NO CARTÃO" value='' />
+                    <input type="text" id="cartao_nome" placeholder="NOME NO CARTÃO" value='JOHN SNOW' />
                     <small>Número</small>
-                    <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='' />
+                    <input inputmode="numeric" maxlength='19' type="text" id="cartao_numero" placeholder="0000 0000 0000 0000" value='5448280000000007' />
                     <div class="row">
                         <div class="col-4">
                             <small>BANDEIRAS</small>
@@ -81,15 +81,15 @@
                         </div>
                         <div class="col-2">
                             <small>MM</small>
-                            <input inputmode="numeric" maxlength='2' type="text" id="cartao_validade_mes" placeholder="00" value='' />
+                            <input inputmode="numeric" maxlength='2' type="text" id="cartao_validade_mes" placeholder="00" value='12' />
                         </div>
                         <div class="col-3">
                             <small>AAAA</small>
-                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_validade_ano" placeholder="0000" value='' />
+                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_validade_ano" placeholder="0000" value='2028' />
                         </div>
                         <div class="col-3">
                             <small>CVV</small>
-                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_ccv" placeholder="0000" value='' />
+                            <input inputmode="numeric" maxlength='4' type="text" id="cartao_ccv" placeholder="0000" value='235' />
                         </div>
                     </div>
                 </div>
