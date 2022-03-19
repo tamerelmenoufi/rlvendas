@@ -4,7 +4,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $m_q = "select medida, ordem from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1' "
+    $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1' "
     ."ORDER BY ordem";
     $m_r = mysqli_query($con, $m_q);
     

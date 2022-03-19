@@ -7,7 +7,7 @@ $query = "SELECT * FROM categorias WHERE codigo = '{$_GET['categoria']}'";
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
 
-$m_q = "SELECT medida, ordem FROM categoria_medidas WHERE codigo IN({$d->medidas}) ORDER BY ordem ASC";
+$m_q = "SELECT * FROM categoria_medidas WHERE codigo IN({$d->medidas}) ORDER BY ordem ASC";
 $m_r = mysqli_query($con, $m_q);
 
 while ($m = mysqli_fetch_array($m_r)) {
