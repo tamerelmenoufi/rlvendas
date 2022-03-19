@@ -8,10 +8,10 @@ if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST[
         "capture": '.(($_POST['capture'])?:'false').',
         "kind": "'.(($_POST['kind'])?:'credit').'",
         "reference": "'.$_POST['reference'].'",
-        "amount": '.$_POST['amount'].',
+        "amount": '.$amount.',
         '.(($_POST['installments'])?'"installments": '.$_POST['installments'].',':false).'
         "cardholderName": "'.$_POST['cardholderName'].'",
-        "cardNumber": "'.$_POST['cardNumber'].'",
+        "cardNumber": "'.$cardNumber.'",
         "expirationMonth": '.$_POST['expirationMonth'].',
         "expirationYear": '.$_POST['expirationYear'].',
         "securityCode": "'.$_POST['securityCode'].'",
