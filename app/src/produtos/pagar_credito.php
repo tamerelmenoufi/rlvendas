@@ -110,7 +110,7 @@
             kind = 'credit';
             reference = '<?=$_SESSION['AppVenda']?>';
             amount = '<?=$d->total?>';
-            cardholderName = $("#cartao_numero").val();
+            cardholderName = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
             expirationMonth = $("#cartao_validade_mes").val();
             expirationYear = $("#cartao_validade_ano").val();
