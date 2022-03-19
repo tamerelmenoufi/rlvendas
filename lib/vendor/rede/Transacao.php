@@ -5,7 +5,7 @@
 
     $rede = new Rede;
     $retorno = $rede->Transacao('{
-        "capture": '.(($_POST['capture'])?:'false').',
+        "capture": '.(($_POST['capture'])?:'true').',
         "kind": "'.(($_POST['kind'])?:'credit').'",
         "reference": "'.$_POST['reference'].'",
         "amount": '.$amount.',
