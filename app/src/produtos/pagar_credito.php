@@ -82,6 +82,7 @@
                         </div>
                     </div>
                 </div>
+                <button class="btn btn-primary btn-block btn-lg">PAGAR</button>
             </div>
         </div>
     </div>
@@ -92,6 +93,53 @@
         $("#cartao_validade_mes").mask("99");
         $("#cartao_validade_ano").mask("9999");
         $("#cartao_ccv").mask("9999");
+
+        $("#Pagar").click(function(){
+
+            kind = 'credit';
+            reference = '<?=$d->codigo?>';
+            amount = '<?=$d->valor_total?>';
+            cardholderName = $("#cartao_numero").val();
+            cardNumber = $("#cartao_numero").val();
+            expirationMonth = $("#cartao_validade_mes").val();
+            expirationYear = $("#cartao_validade_ano").val();
+            securityCode = $("#cartao_ccv").val();
+
+            if(
+                    kind
+                &&  reference
+                &&  amount
+                &&  cardholderName
+                &&  cardNumber
+                &&  expirationMonth
+                &&  expirationYear
+                &&  securityCode
+
+            ){
+                $.alert('Preenche os dados do cartão corretamente!');
+                return false;
+            }
+
+            $.ajax({
+                url:"src/produtos/pagar_credito.php",
+                type:"POST",
+                data:{
+                    kind,
+                    reference,
+                    amount,
+                    cardholderName,
+                    cardNumber,
+                    expirationMonth,
+                    expirationYear,
+                    securityCode
+                },
+                success:function(dados){
+
+                }
+            });
+
+
+        });
 
 
     })

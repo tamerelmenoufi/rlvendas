@@ -1,25 +1,24 @@
 <?php
 
+if($_POST['amount']) $amount = str_replace(array('.',',',false),trim($_POST['amount']));
+if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST['cardNumber']));
+
+
     $rede = new Rede;
-    $rede->Ambiente = 'homologacao';
-    $rede->PV = '19348375';
-    $rede->TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59';
-
-
     $x = $rede->Transacao('{
-        "capture": false,
-        "kind": "credit",
-        "reference": "pedido3",
-        "amount": 2099,
-        "installments": 2,
-        "cardholderName": "John Snow",
-        "cardNumber": "5448280000000007",
-        "expirationMonth": 12,
-        "expirationYear": 2028,
-        "securityCode": "235",
-        "softDescriptor": "string",
-        "subscription": false,
+        "capture": '.(($_POST['capture'])?:false).',
+        "kind": "'.(($_POST['kind'])?:'credit').'",
+        "reference": "'.$_POST['reference'].'",
+        "amount": '.$_POST['amount'].',
+        '.(($_POST['installments'])?'"installments": '.$_POST['installments'].',':false).'
+        "cardholderName": "'.$_POST['cardholderName'].'",
+        "cardNumber": "'.$_POST['cardNumber'].'",
+        "expirationMonth": '.$_POST['expirationMonth'].',
+        "expirationYear": '.$_POST['expirationYear'].',
+        "securityCode": "'.$_POST['securityCode'].'",
+        "softDescriptor": "'.$_POST['softDescriptor'].'",
+        "subscription": '.(($_POST['subscription'])?:false).',
         "origin": 1,
-        "distributorAffiliation": 0,
-        "brandTid": "string"
+        "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:0).',
+        '.(($_POST['brandTid'])?'"brandTid": '.$_POST['brandTid'].',':false).'
     }');
