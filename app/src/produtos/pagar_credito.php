@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block btn-lg">PAGAR R$ <?=number_format($d->total, 2, ',','.')?></button>
+                <button class="btn btn-primary btn-block btn-lg" id="Pagar">PAGAR R$ <?=number_format($d->total, 2, ',','.')?></button>
             </div>
         </div>
     </div>
