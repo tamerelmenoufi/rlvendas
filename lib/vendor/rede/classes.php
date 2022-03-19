@@ -3,9 +3,9 @@
 
     class Rede {
 
-        public $Ambiente;
-        public $PV;
-        public $TOKEN;
+        public $Ambiente = 'homologacaoXXX';
+        public $PV = '19348375XXX';
+        public $TOKEN = '2b4e31d3a75b429c9ef5fdd02f2b5c59XXX';
 
         public function Autenticacao($opc){
             return base64_encode($opc);
