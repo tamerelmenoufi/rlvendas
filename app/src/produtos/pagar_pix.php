@@ -77,11 +77,11 @@
                             //                     }
                             //                     ');
                             //////////////////////////////////////////////////////////////////
-                            // echo    $rede->Consulta('
-                            //                         {
-                            //                             "reference":"pedido1"
-                            //                         }
-                            //                         ');
+                            echo    $rede->Consulta('
+                                                    {
+                                                        "reference":"3"
+                                                    }
+                                                    ');
                             //////////////////////////////////////////////////////////////////
                             // echo    $rede->ConsultaTID('
                             //                         {
@@ -105,12 +105,12 @@
                             //                                 }
                             //                                 ');
                             //////////////////////////////////////////////////////////////////
-                            echo "ConsultaCancelaTID: <br>";
-                            echo    $rede->ConsultaCancelaTID('
-                                                            {
-                                                                "tid":"10012203142252512371"
-                                                            }
-                                                            ');
+                            // echo "ConsultaCancelaTID: <br>";
+                            // echo    $rede->ConsultaCancelaTID('
+                            //                                 {
+                            //                                     "tid":"10012203142252512371"
+                            //                                 }
+                            //                                 ');
                         ?>
                         <br><br><br>
                         Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
