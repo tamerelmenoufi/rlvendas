@@ -6,6 +6,7 @@
         require "../../../lib/vendor/rede/Transacao.php";
         $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
         mysqli_query($con, $query);
+        echo "Dados salvos com sucesso!";
         exit();
     }
 
@@ -143,7 +144,7 @@
                     acao:'pagar'
                 },
                 success:function(dados){
-
+                    $.alert(dados);
                 }
             });
 
