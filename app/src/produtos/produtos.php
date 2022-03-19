@@ -118,6 +118,7 @@
                         });
 
                         foreach($detalhes as $val){
+                            print_r($val);
                             if($val->quantidade > 0){
                         ?>
                         <button
