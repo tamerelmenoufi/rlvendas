@@ -69,10 +69,10 @@
 
                 $result = mysqli_query($con, $query);
                 while ($p1 = mysqli_fetch_object($result)) {
-                    $detalhes = (array)json_decode($p1->detalhes, true);
+                    $detalhes = (array)json_decode($p1->detalhes);
 
                     if ($detalhes[$medida]) {
-                        $valor_sabores = $detalhes[$medida][0] ?: 0.00;
+                        $valor_sabores = $detalhes[$medida]['valor'] ?: 0.00;
                         ?>
                         <div class="list-group" style="margin-bottom:10px;">
                             <a

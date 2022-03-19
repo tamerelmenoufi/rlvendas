@@ -31,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
+    $data['detalhes'] = json_encode(json_decode($_POST['detalhes'], true));
+
+    //print_r(json_encode($data['detalhes']));die;
     unset($data['codigo']);
 
     foreach ($data as $name => $value) {
@@ -142,7 +145,7 @@ if ($codigo) {
                 $result1 = mysqli_query($con, $query1);
 
                 $detalhes = json_decode($d->detalhes);
-
+    
                 while ($dados = mysqli_fetch_object($result1)):
 
                     ?>
@@ -188,7 +191,7 @@ if ($codigo) {
                 if (is_file("icon/{$d->icon}")) {
                     ?>
                     <center>
-                        <img
+                        <i  mg
                                 src="produtos/icon/<?= $d->icon ?>?<?= $md5 ?>"
                                 style="width:200px; margin-bottom:20px;"
                         >
@@ -348,8 +351,7 @@ if ($codigo) {
                 });
             });
 
-            console.log(dds);
-            return false;
+           
             detalhes = JSON.stringify(Object.assign({}, dds));
 
             console.log(detalhes);
@@ -371,6 +373,8 @@ if ($codigo) {
                 method: 'POST',
                 data: dados,
                 success: function (response) {
+                    //console.log(response);
+                    //return false;
                     let retorno = JSON.parse(response);
 
                     if (retorno.status) {
