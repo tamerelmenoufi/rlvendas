@@ -108,21 +108,21 @@
 
                             //echo "<br>R$ {$val[0]} -> Status: R$ {$val[1]}<br>";
 
-                            if($val[1] > 0){
+                            if($val->quantidade > 0){
                         ?>
                         <button
                                 acao_medida
-                                opc="<?=$val[1]?>"
+                                opc="<?=$val->quantidade?>"
                                 produto="<?=$p->codigo?>"
-                                titulo='<?="{$d->categoria} - {$p->produto} ({$M[$val[1]]})"?>'
+                                titulo='<?="{$d->categoria} - {$p->produto} ({$M[$val->quantidade]})"?>'
                                 categoria='<?=$d->codigo?>'
-                                medida='<?=$val[1]?>'
-                                valor='<?=$val[0]?>'
+                                medida='<?=$val->quantidade?>'
+                                valor='<?=$val->valor; ?>'
                                 class="btn btn-outline-success btn-xs"
                                 style="height:40px; font-size:11px; line-height: 1.2;"
                         >
                             <?=$M[$val[1]]?><br>
-                            R$ <?=number_format($val[0],2,',','.')?>
+                            R$ <?=number_format($val->valor,2,',','.')?>
                         </button>
                         <?php
                             }
