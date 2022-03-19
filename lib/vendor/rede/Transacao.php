@@ -5,7 +5,7 @@ if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST[
 
     $rede = new Rede;
     $retorno = $rede->Transacao('{
-        "capture": '.(($_POST['capture'])?:false).',
+        "capture": '.(($_POST['capture'])?:'false').',
         "kind": "'.(($_POST['kind'])?:'credit').'",
         "reference": "'.$_POST['reference'].'",
         "amount": '.$_POST['amount'].',
@@ -16,8 +16,8 @@ if($_POST['cardNumber']) $cardNumber = str_replace(array(' ',false),trim($_POST[
         "expirationYear": '.$_POST['expirationYear'].',
         "securityCode": "'.$_POST['securityCode'].'",
         "softDescriptor": "'.$_POST['softDescriptor'].'",
-        "subscription": '.(($_POST['subscription'])?:false).',
+        "subscription": '.(($_POST['subscription'])?:'false').',
         "origin": 1,
-        "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:0).',
+        "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:'0').',
         '.(($_POST['brandTid'])?'"brandTid": '.$_POST['brandTid'].',':false).'
     }');

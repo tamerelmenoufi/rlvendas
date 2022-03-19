@@ -4,9 +4,10 @@
     if($_POST['acao'] == 'pagar'){
 
         require "../../../lib/vendor/rede/Transacao.php";
-        echo $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
+        echo $retorno;
+        $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
         mysqli_query($con, $query);
-        echo "Dados salvos com sucesso!";
+
         exit();
     }
 
