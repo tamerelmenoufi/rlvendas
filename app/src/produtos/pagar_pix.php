@@ -85,7 +85,7 @@
 
                             $r = json_decode($r);
 
-                            //echo "<p>STATUS: ".$r['authorization']['status']."</p>";
+                            echo "<p>STATUS: ".$r->authorization->status."</p>";
                             print_r($r);
                             //////////////////////////////////////////////////////////////////
                             // echo    $rede->ConsultaTID('
