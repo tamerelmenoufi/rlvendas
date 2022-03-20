@@ -104,6 +104,9 @@ $cliente = mysqli_fetch_object($result);
                 if (mysqli_num_rows($result)) {
                     while ($d = mysqli_fetch_object($result)):
                         $json = json_decode($d->produto_json);
+
+                        list($img) = mysqli_fetch_row(mysqli_query($con, "SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'"));
+                        print_r("SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'");
                         ?>
                         <input
                                 type="hidden"
@@ -117,7 +120,11 @@ $cliente = mysqli_fetch_object($result);
                                     <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
                                 </h5>
 
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-center flex-row">
+                                    <!--<div>
+                                        <img src="painel/produtos/icon/<? /*= $img */
+                                    ?>" class="img-thumbnail">
+                                    </div>-->
                                     <div style="flex: 1">
                                         <?php
                                         $sabores = [];
@@ -143,19 +150,7 @@ $cliente = mysqli_fetch_object($result);
                                             </p>
                                         <?php } ?>
                                     </div>
-                                    <div>
-                                        <h4 class="font-weight-bold text-success">
-                                            R$
-                                            <span valor-<?= $d->codigo; ?>>
-                                            <?= number_format(
-                                                $d->valor_unitario * $d->quantidade,
-                                                2,
-                                                ',',
-                                                '.'
-                                            ); ?>
-                                            </span>
-                                        </h4>
-                                    </div>
+
                                 </div>
 
                                 <hr>
@@ -182,17 +177,29 @@ $cliente = mysqli_fetch_object($result);
                                         >
                                             <i class="fa-solid fa-plus"></i>
                                         </button>
-
-                                    </div>
-                                    <div>
                                         <button
                                                 remover
                                                 cod="<?= $d->codigo; ?>"
                                                 type="button"
-                                                class="btn btn-outline-danger"
+                                                class="btn btn-outline-danger ml-3"
                                         >
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
+                                    </div>
+                                    <div>
+
+                                        <h4 class="font-weight-bold text-success">
+                                            R$
+                                            <span valor-<?= $d->codigo; ?>>
+                                            <?= number_format(
+                                                $d->valor_unitario * $d->quantidade,
+                                                2,
+                                                ',',
+                                                '.'
+                                            ); ?>
+                                            </span>
+                                        </h4>
+
                                     </div>
                                 </div>
                             </div>

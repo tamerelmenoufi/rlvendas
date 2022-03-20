@@ -152,6 +152,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                     style="background-image:url('../painel/produtos/icon/<?= $p->icon ?>')"
                             >
                             </div>
+
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">
@@ -172,7 +173,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                         ><?= $m->medida ?></span>)
                                     </h5>
 
-                                    <p class="card-text mb-1">
+                                    <p class="card-text my-3">
                                         <span class="h5"><?= $p->descricao ?></span>
                                     </p>
 
@@ -190,7 +191,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                         </small>
                                     </p>
 
-                                    <p class="texto_sabores_adicionais mx-0" style="min-height: 25px;"></p>
+                                    <p class="texto_sabores_adicionais mx-0 mb-2" style="min-height: 25px;"></p>
 
                                     <p class="card-text">
                                     <div class="input-group input-group-lg mb-3">
@@ -340,6 +341,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
         </div>
     </div>
 
+    <input type="hidden" id="produto" value="<?= $produto; ?>" readonly>
     <input type="hidden" id="medida" value="<?= $medida; ?>" readonly>
     <input type="hidden" id="valor" value="<?= $valor; ?>" readonly>
 
@@ -482,6 +484,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
         $("button[adicionar_produto]").click(function () {
 
             // @formatter:off
+            var produto             = $("#produto").val();
             var produto_observacao  = $("#search_field").val();
             var produto_descricao   = $("span[produto_descricao]").text().trim();
             var quantidade          = $("#quantidade").val();
@@ -502,35 +505,20 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     let descricao = $(item).attr("descricao");
                     let valor = Number($(item).attr("valor"));
 
-                    sabores.push({"codigo": codigo, "descricao": descricao, "valor": valor});
+                    sabores.push({
+                        "codigo": codigo,
+                        "descricao": descricao,
+                        "valor": valor
+                    });
                 });
             }
-
-            /*$.alert({
-                title: "Confirmar pedido?",
-                content: false,
-                icon: 'fa-solid fa-question',
-                type: "red",
-                buttons: {
-                    sim: {
-                        text: "Sim",
-                        btnClass: 'btn-red',
-                        action: function () {
-
-                        }
-                    },
-                    nao: function () {
-                    }
-                }
-            });*/
-
-            console.log(produto_descricao);
 
             $.ajax({
                 url: "cardapio/produto.php",
                 method: 'POST',
                 dataType: 'JSON',
                 data: {
+                    produto,
                     quantidade,
                     produto_descricao,
                     produto_observacao,
