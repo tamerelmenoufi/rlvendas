@@ -143,6 +143,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
 <div class="cardapio_produto">
     <div class="col-md-12">
         <div class="row">
+
             <div class="col-md-8">
                 <div style="position:fixed; top:55px; left:30px; width:<?= (($m->qt_produtos > 1) ? '60%' : 'calc(100% - 60px)') ?>;">
                     <div class="card mb-3">

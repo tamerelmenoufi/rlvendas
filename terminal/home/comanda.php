@@ -105,8 +105,8 @@ $cliente = mysqli_fetch_object($result);
                     while ($d = mysqli_fetch_object($result)):
                         $json = json_decode($d->produto_json);
 
-                        list($img) = mysqli_fetch_row(mysqli_query($con, "SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'"));
-                        print_r("SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'");
+                        $queryProduto = "SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'";
+                        list($img) = mysqli_fetch_row(mysqli_query($con, $queryProduto));
                         ?>
                         <input
                                 type="hidden"
@@ -116,40 +116,50 @@ $cliente = mysqli_fetch_object($result);
 
                         <div class="card my-2" id="item-<?= $d->codigo; ?>">
                             <div class="card-body py-4 pt-3">
-                                <h5 class="h5 font-weight-bold">
-                                    <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
-                                </h5>
+
 
                                 <div class="d-flex justify-content-center flex-row">
-                                    <!--<div>
-                                        <img src="painel/produtos/icon/<? /*= $img */
-                                    ?>" class="img-thumbnail">
-                                    </div>-->
-                                    <div style="flex: 1">
-                                        <?php
-                                        $sabores = [];
 
-                                        if ($json->produtos) {
-                                            foreach ($json->produtos as $key => $produto) {
-                                                if ($key > 0) {
-                                                    $sabores[] = $produto->descricao;
+                                    <div>
+                                        <img
+                                                src="../painel/produtos/icon/<?= $img ?>"
+                                                class="img-thumbnail"
+                                                style="width: 180px; max-height: 85px"
+                                        >
+                                    </div>
+
+                                    <div class="px-2" style="flex: 1">
+                                        <h5 class="h5 font-weight-bold">
+                                            <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
+                                        </h5>
+
+                                        <div style="flex: 1">
+                                            <?php
+                                            $sabores = [];
+
+                                            if ($json->produtos) {
+                                                foreach ($json->produtos as $key => $produto) {
+                                                    if ($key > 0) {
+                                                        $sabores[] = $produto->descricao;
+                                                    }
+                                                }
+
+                                                if (!empty($sabores)) {
+                                                    echo '<i class="fa-solid fa-utensils"></i> ' . implode(", ", $sabores);
                                                 }
                                             }
-
-                                            if (!empty($sabores)) {
-                                                echo '<i class="fa-solid fa-utensils"></i> ' . implode(", ", $sabores);
-                                            }
-                                        }
-                                        ?>
-                                        <?php if ($d->produto_descricao) { ?>
-                                            <p class="mb-0">
-                                                <i
-                                                        class="fa-solid fa-message"
-                                                        title="Observação"
-                                                ></i> <?= $d->produto_descricao; ?>
-                                            </p>
-                                        <?php } ?>
+                                            ?>
+                                            <?php if ($d->produto_descricao) { ?>
+                                                <p class="mb-0">
+                                                    <i
+                                                            class="fa-solid fa-message"
+                                                            title="Observação"
+                                                    ></i> <?= $d->produto_descricao; ?>
+                                                </p>
+                                            <?php } ?>
+                                        </div>
                                     </div>
+
 
                                 </div>
 

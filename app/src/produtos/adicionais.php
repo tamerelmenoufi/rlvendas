@@ -1,18 +1,18 @@
 <?php
-    include("../../../lib/includes.php");
+include("../../../lib/includes.php");
 
-    $produto = $_POST['produto'];
-    $medida = $_POST['medida'];
-    $valor = $_POST['valor'];
+$produto = $_POST['produto'];
+$medida = $_POST['medida'];
+$valor = $_POST['valor'];
 
-    $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
-        . "LEFT JOIN categorias b ON a.categoria = b.codigo "
-        . "WHERE a.deletado != '1' AND b.deletado != '1' a.codigo = '{$produto}'";
+$query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
+    . "LEFT JOIN categorias b ON a.categoria = b.codigo "
+    . "WHERE a.deletado != '1' AND b.deletado != '1' a.codigo = '{$produto}'";
 
-    $result = mysqli_query($con, $query);
-    $p = mysqli_fetch_object($result);
+$result = mysqli_query($con, $query);
+$p = mysqli_fetch_object($result);
 
-    $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$medida}' AND deletado != '1'"));
+$m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$medida}' AND deletado != '1'"));
 
 
 ?>
@@ -40,7 +40,7 @@
         background-position: center;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
-        height:200px;
+        height: 200px;
     }
 
     small[valor_novo] {
@@ -51,6 +51,7 @@
         text-decoration-line: line-through;
     }
 </style>
+
 <div class="col">
     <div class="row">
         <div class="col">
@@ -69,7 +70,7 @@
 
                 $result = mysqli_query($con, $query);
                 while ($p1 = mysqli_fetch_object($result)) {
-                    $detalhes = (array)json_decode($p1->detalhes);
+                    $detalhes = json_decode($p1->detalhes, true);
 
                     if ($detalhes[$medida]) {
                         $valor_sabores = $detalhes[$medida]['valor'] ?: 0.00;
@@ -108,16 +109,16 @@
     </div>
 </div>
 <script>
-    $(function(){
+    $(function () {
 
         Carregando('none');
         var qt = $(".ListaSabores .grupo").length;
         var v_produto_com_sabores = 0;
 
 
-        $(".ListaSabores div").each(function(){
+        $(".ListaSabores div").each(function () {
             codigo = $(this).attr("cod");
-            $('.add_sabores[cod="'+codigo+'"]').addClass('active');
+            $('.add_sabores[cod="' + codigo + '"]').addClass('active');
         });
 
 
@@ -146,21 +147,21 @@
             ValorMaior = Number('<?=$valor?>');
             var Lista = '';
 
-            $(".add_sabores.active").each(function(){
+            $(".add_sabores.active").each(function () {
                 valor_produto = Number($(this).attr("valor"));
                 nome_produto = $(this).attr("nome");
                 codigo_produto = $(this).attr("cod");
 
-                if(valor_produto > ValorMaior){
+                if (valor_produto > ValorMaior) {
                     ValorMaior = valor_produto;
                 }
 
-                Lista += '<div class="list-group grupo" style="margin-bottom:5px;" cod="'+codigo_produto+'" nome="' + nome_produto + '" valor="' + valor_produto + '">' +
-                        '<div class="d-flex">' +
-                        '<div class="p-2"><i class="fa-solid fa-check-double text-success"></i> ' + nome_produto + '</div>' +
-                        //'<div class="ml-auto p-2">R$ '+ valor_produto.toLocaleString('pt-br', {minimumFractionDigits: 2}) +'</div>' +
-                        '</div>' +
-                        '</div>';
+                Lista += '<div class="list-group grupo" style="margin-bottom:5px;" cod="' + codigo_produto + '" nome="' + nome_produto + '" valor="' + valor_produto + '">' +
+                    '<div class="d-flex">' +
+                    '<div class="p-2"><i class="fa-solid fa-check-double text-success"></i> ' + nome_produto + '</div>' +
+                    //'<div class="ml-auto p-2">R$ '+ valor_produto.toLocaleString('pt-br', {minimumFractionDigits: 2}) +'</div>' +
+                    '</div>' +
+                    '</div>';
 
             });
 
@@ -172,7 +173,6 @@
             $(".ListaSabores").html(Lista);
 
         });
-
 
 
     })
