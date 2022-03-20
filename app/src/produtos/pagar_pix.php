@@ -78,15 +78,17 @@
                             //                     ');
                             //////////////////////////////////////////////////////////////////
                             $x = [3,6,7];
-                            foreach($x as $i => $v){
+                            $q = "select * from vendas where cliente = '{$_SESSION['AppCliente']}'";
+                            $x = mysqli_query($con, $q);
+                            while($x1 = mysqli_fetch_object($x)){
                                 $r =    $rede->Consulta('
                                                         {
-                                                            "reference":"'.$v.'"
+                                                            "reference":"'.$x1->codigo.'"
                                                         }
                                                         ');
                                 $r = json_decode($r);
 
-                                echo "<p>STATUS - {$v}: ".$r->authorization->status."</p>";
+                                echo "<p>STATUS - {$x1->codigo}: ".$r->authorization->status."</p>";
                             }
                             //////////////////////////////////////////////////////////////////
                             // echo    $rede->ConsultaTID('
