@@ -4,8 +4,7 @@
     if($_POST['acao'] == 'pagar'){
 
         require "../../../lib/vendor/rede/Transacao.php";
-        echo $retorno;
-        //exit();
+
         $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
         mysqli_query($con, $query);
 
@@ -15,6 +14,25 @@
         $query = "update vendas set operadora = 'rede', operadora_situacao = '{$r->authorization->status}', operadora_retorno = '{$retorno}' where codigo = '{$_POST['reference']}'";
         mysqli_query($con, $query);
 
+        if($r->authorization->status == 'Approved'){
+            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
+            $_SESSION['AppVenda'] = mysqli_insert_id($con);
+        }
+        if(isset($r->authorization->status))
+        {
+            echo json_encode([
+                'status' => $r->authorization->status,
+                'msg' => 'Operação realizada com sucesso!',
+                'AppVenda' => $_SESSION['AppVenda'],
+            ]);
+
+        }else{
+            echo json_encode([
+                'status' => false,
+                'msg' => 'Ocorreu um erro, tente novamente!',
+                'AppVenda' => $_SESSION['AppVenda'],
+            ]);
+        }
         exit();
     }
 
@@ -152,10 +170,14 @@
                     acao:'pagar'
                 },
                 success:function(dados){
-                    $.alert(dados);
+                    let retorno = JSON.parse(response);
+                    if (retorno.status) {
+                        window.localStorage.setItem('AppVenda', retorno.AppVenda);
+                    }
+                    $.alert(retorno.msg);
+                    PageClose();
                 }
             });
-
 
         });
 
