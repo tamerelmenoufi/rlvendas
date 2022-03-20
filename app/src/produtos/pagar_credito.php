@@ -9,7 +9,7 @@
         mysqli_query($con, $query);
 
         require "../../../lib/vendor/rede/Consulta.php";
-        $r = json_decode($r);
+        $r = json_decode($retorno);
 
         $query = "update vendas set operadora = 'rede', operadora_situacao = '{$r->authorization->status}', operadora_retorno = '{$retorno}' where codigo = '{$_POST['reference']}'";
         mysqli_query($con, $query);
@@ -170,7 +170,7 @@
                     acao:'pagar'
                 },
                 success:function(dados){
-                    let retorno = JSON.parse(response);
+                    let retorno = JSON.parse(dados);
                     if (retorno.status) {
                         window.localStorage.setItem('AppVenda', retorno.AppVenda);
                     }
