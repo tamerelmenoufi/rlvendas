@@ -66,7 +66,7 @@ PageClose = (pg = 1) => {
         pags.push($(this).attr("chave"));
     });
 
-    for(i=1; i<=pg.lenght;i++){
+    for(i=1; i<=pg.length;i++){
         pos = ((pags.length) - i);
         eval("FecharPopUp"+pags[pos]+"();");
     }
