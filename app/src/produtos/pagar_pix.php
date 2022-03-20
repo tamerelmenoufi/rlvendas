@@ -77,16 +77,17 @@
                             //                     }
                             //                     ');
                             //////////////////////////////////////////////////////////////////
-                            echo $r =    $rede->Consulta('
-                                                    {
-                                                        "reference":"3"
-                                                    }
-                                                    ');
+                            $x = [3,6,7];
+                            foreach($x as $i => $v){
+                                $r =    $rede->Consulta('
+                                                        {
+                                                            "reference":"'.$v.'"
+                                                        }
+                                                        ');
+                                $r = json_decode($r);
 
-                            $r = json_decode($r);
-
-                            echo "<p>STATUS: ".$r->authorization->status."</p>";
-                            print_r($r);
+                                echo "<p>STATUS: ".$r->authorization->status."</p>";
+                            }
                             //////////////////////////////////////////////////////////////////
                             // echo    $rede->ConsultaTID('
                             //                         {

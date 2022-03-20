@@ -49,6 +49,7 @@
     .icone{
         font-size:70px;
     }
+
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pagar <?=$_SESSION['AppPedido']?></h4>
