@@ -60,16 +60,16 @@ PageBack = () => {
     });
 }
 
-PageClose = () => {
+PageClose = (pg = 1) => {
     pags = [];
     $("close").each(function(){
         pags.push($(this).attr("chave"));
     });
-    pos = ((pags.length) - 1);
-    //console.log(pags);
-    //console.log([pos]);
 
-    eval("FecharPopUp"+pags[pos]+"();")
+    for(i=1; i<=pg.lenght;i++){
+        pos = ((pags.length) - i);
+        eval("FecharPopUp"+pags[pos]+"();");
+    }
 }
 
 

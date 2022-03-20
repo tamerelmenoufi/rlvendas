@@ -175,7 +175,7 @@
                         window.localStorage.setItem('AppVenda', retorno.AppVenda);
                     }
                     $.alert(retorno.msg);
-                    PageClose();
+                    PageClose(2);
                 }
             });
 
