@@ -31,9 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
-    $data['detalhes'] = json_encode(json_decode($_POST['detalhes'], true));
-
-    //print_r(json_encode($data['detalhes']));die;
     unset($data['codigo']);
 
     foreach ($data as $name => $value) {
@@ -49,8 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $query = "INSERT INTO produtos SET {$attr}";
     }
-
-    #file_put_contents("query.txt",$query);
 
     if (mysqli_query($con, $query)) {
         $codigo = $codigo ?: mysqli_insert_id($con);
@@ -141,13 +136,14 @@ if ($codigo) {
                 <label for="medidas">Valores <i class="text-danger">*</i></label>
 
                 <?php
-                $query1 = "SELECT * FROM categoria_medidas WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) ORDER BY ordem, medida";
+                $query1 = "SELECT * FROM categoria_medidas "
+                    . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
+                    . "ORDER BY ordem, medida";
                 $result1 = mysqli_query($con, $query1);
 
-                $detalhes = json_decode($d->detalhes);
-    
-                while ($dados = mysqli_fetch_object($result1)):
+                $detalhes = json_decode($d->detalhes, true);
 
+                while ($dados = mysqli_fetch_object($result1)):
                     ?>
                     <div class="row cor">
                         <div class="col-md-8">
@@ -162,7 +158,7 @@ if ($codigo) {
                                 <input
                                         valores
                                         opc="<?= $dados->codigo ?>"
-                                        value="<?= $detalhes[$dados->codigo]->valor; ?>"
+                                        value="<?= $detalhes[$dados->codigo]['valor']; ?>"
                                         type="number"
                                         class="form-control"
                                 >
@@ -172,8 +168,8 @@ if ($codigo) {
                             <input
                                     situacao
                                     opc="<?= $dados->codigo ?>"
-                                    value="<?= (($detalhes[$dados->codigo]->quantidade) ?: '0') ?>"
-                                    type="checkbox" <?= (($detalhes[$dados->codigo]->quantidade) ? 'checked' : false) ?>
+                                    value="<?= (($detalhes[$dados->codigo]['quantidade']) ?: '0') ?>"
+                                    type="checkbox" <?= (($detalhes[$dados->codigo]['quantidade']) ? 'checked' : false) ?>
                                     data-toggle="toggle"
                             >
                         </div>
@@ -191,9 +187,9 @@ if ($codigo) {
                 if (is_file("icon/{$d->icon}")) {
                     ?>
                     <center>
-                        <i  mg
-                                src="produtos/icon/<?= $d->icon ?>?<?= $md5 ?>"
-                                style="width:200px; margin-bottom:20px;"
+                        <i mg
+                           src="produtos/icon/<?= $d->icon ?>?<?= $md5 ?>"
+                           style="width:200px; margin-bottom:20px;"
                         >
                     </center>
                     <?php
@@ -343,21 +339,20 @@ if ($codigo) {
                 opc = $(this).attr('opc');
                 stu = $('input[situacao][opc="' + opc + '"]').val();
                 //dds[opc] = [$(this).val(), stu];
-
-                dds.push({
-                    "medida": opc,
+                dds[opc] = {
                     "valor": $(this).val(),
                     "quantidade": stu,
-                });
+                };
+
+                /*dds.push({
+                    "valor": $(this).val(),
+                    "quantidade": stu,
+                });*/
             });
 
-           
             detalhes = JSON.stringify(Object.assign({}, dds));
 
-            console.log(detalhes);
-
             dados.push({name: 'detalhes', value: detalhes});
-
 
             if ($("#encode_file").val()) {
                 dados.push({name: 'file-name', value: $("#encode_file").attr("nome")});

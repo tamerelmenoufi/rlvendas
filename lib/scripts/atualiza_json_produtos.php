@@ -12,9 +12,11 @@ $i = 0;
 while ($d = mysqli_fetch_object($result)) {
     $dados = json_decode($d->detalhes);
 
+    #print_r($dados);
+
     foreach ($dados as $key => $value) {
-        $json[$i][] = [
-            "medida" => $key,
+        #print_r($key);
+        $json[$i][$key] = [
             "valor" => $value[0],
             "quantidade" => $value[1],
         ];
