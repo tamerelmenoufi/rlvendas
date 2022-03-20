@@ -25,7 +25,7 @@
                 'msg' => 'Operação realizada com sucesso!',
                 'AppVenda' => $_SESSION['AppVenda'],
             ]);
-
+            $_SESSION['AppCarrinho'] = false;
         }else{
             echo json_encode([
                 'status' => false,
