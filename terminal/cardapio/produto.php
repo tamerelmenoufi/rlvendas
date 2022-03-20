@@ -296,7 +296,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                     $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
                         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
                         . "WHERE a.categoria = '{$p->categoria}' "
-                        . "AND a.codigo NOT IN ('{$p->codigo}')";
+                        . "AND a.codigo NOT IN ('{$p->codigo}') ORDER BY a.produto ";
 
                     $result = mysqli_query($con, $query);
 
