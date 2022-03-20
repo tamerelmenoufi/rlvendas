@@ -10,8 +10,9 @@
         mysqli_query($con, $query);
 
         require "../../../lib/vendor/rede/Consulta.php";
+        $r = json_decode($r);
 
-        $query = "update vendas set operadora = 'rede', operadora_situacao = '', operadora_retorno = '{$retorno}' where codigo = '{$_POST['reference']}'";
+        $query = "update vendas set operadora = 'rede', operadora_situacao = '{$r->authorization->status}', operadora_retorno = '{$retorno}' where codigo = '{$_POST['reference']}'";
         mysqli_query($con, $query);
 
         exit();

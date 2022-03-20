@@ -37,13 +37,25 @@
         width:100%;
         text-align:left;
     }
+
+    .SemProduto{
+        position:fixed;
+        top:40%;
+        left:0;
+        text-align:center;
+        width:100%;
+        color:#ccc;
+    }
+    .icone{
+        font-size:70px;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pagar <?=$_SESSION['AppPedido']?></h4>
 </div>
-<div class="col" style="margin-bottom:60px;">
 
-<div class="row">
+<div class="col" style="margin-bottom:60px; display:<?=(($d->total)?'block':'none')?>">
+    <div class="row">
         <div class="col-12">
             <div class="card bg-light mb-3">
                 <div class="card-header">Dados da Compra</div>
@@ -101,6 +113,13 @@
 
 
 </div>
+
+
+<div class="SemProduto" style="display:<?=(($d->total)?'none':'block')?>">
+    <i class="fa-solid fa-face-frown icone"></i>
+    <p>Poxa, ainda não tem produtos em seu pedido!</p>
+</div>
+
 
 <script>
     $(function(){
