@@ -68,6 +68,7 @@ PageClose = (pg = 1) => {
 
     for(i=1; i<=pg.length;i++){
         pos = ((pags.length) - i);
+        alert(pos);
         eval("FecharPopUp"+pags[pos]+"();");
     }
 }
