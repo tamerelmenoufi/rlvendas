@@ -9,6 +9,11 @@
         $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
         mysqli_query($con, $query);
 
+        require "../../../lib/vendor/rede/Consulta.php";
+
+        $query = "update vendas set operadora = 'rede', operadora_situacao = '', operadora_retorno = '{$retorno}' where codigo = '{$_POST['reference']}'";
+        mysqli_query($con, $query);
+
         exit();
     }
 

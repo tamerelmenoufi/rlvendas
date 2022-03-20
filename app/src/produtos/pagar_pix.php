@@ -77,11 +77,16 @@
                             //                     }
                             //                     ');
                             //////////////////////////////////////////////////////////////////
-                            echo    $rede->Consulta('
+                            echo $r =    $rede->Consulta('
                                                     {
                                                         "reference":"3"
                                                     }
                                                     ');
+
+                            $r = json_decode($r);
+
+                            echo "<p>STATUS: ".$r['authorization']['status']."</p>";
+
                             //////////////////////////////////////////////////////////////////
                             // echo    $rede->ConsultaTID('
                             //                         {
