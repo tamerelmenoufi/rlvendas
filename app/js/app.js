@@ -65,12 +65,12 @@ PageClose = (pg = 1) => {
     $("close").each(function(){
         pags.push($(this).attr("chave"));
     });
-
-    for(i=1; i<=pg.length;i++){
-        pos = ((pags.length) - i);
-        alert(pos);
-        eval("FecharPopUp"+pags[pos]+"();");
-    }
+    alert('pages:'+pags+"\n\nPG:"+pg);
+    // for(i=1; i<=pg.length;i++){
+    //     pos = ((pags.length) - i);
+    //     alert(pos);
+    //     eval("FecharPopUp"+pags[pos]+"();");
+    // }
 }
 
 
