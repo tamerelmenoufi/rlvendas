@@ -1,6 +1,62 @@
 <?php
     include("../../../lib/includes.php");
 
+
+    if($_POST['acao'] == 'pagar'){
+
+        require "../../../lib/vendor/rede/Transacao.php";
+
+        $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
+        mysqli_query($con, $query);
+
+        require "../../../lib/vendor/rede/Consulta.php";
+        $r = json_decode($retorno);
+
+        $query = "update vendas set
+
+                                    operadora = 'rede',
+                                    operadora_situacao = '{$r->authorization->status}',
+                                    operadora_retorno = '{$retorno}',
+                                    valor = '{$_POST['amount']}',
+                                    taxa = '{$_POST['taxa']}',
+                                    desconto = '{$_POST['desconto']}',
+                                    acrescimo = '{$_POST['acrescimo']}',
+                                    total = '".($_POST['amount'] + $_POST['taxa'] - $_POST['desconto'] + $_POST['acrescimo'])."',
+                                    observacoes = '{$_POST['observacoes']}',
+                                    data_finalizacao = NOW(),
+                                    situacao = '{$r->authorization->status}',
+                                    forma_pagamento = 'debito'
+
+                where codigo = '{$_POST['reference']}'";
+        mysqli_query($con, $query);
+
+        if($r->authorization->status == 'Approved'){
+            //mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
+            $_SESSION['AppVenda'] = false; //mysqli_insert_id($con);
+            $_SESSION['AppPedido'] = false;
+            $_SESSION['AppCarrinho'] = false;
+            echo json_encode([
+                'status' => $r->authorization->status,
+                'msg' => 'Operação realizada com sucesso!',
+                //'AppVenda' => $_SESSION['AppVenda'],
+            ]);
+        }else if($r->authorization->status == 'Denied')
+        {
+            echo json_encode([
+                'status' => $r->authorization->status,
+                'msg' => 'Operação Negada, consulte os dados do Cartão ou entre em contato com sua operadora!',
+                //'AppVenda' => $_SESSION['AppVenda'],
+            ]);
+        }else{
+            echo json_encode([
+                'status' => false,
+                'msg' => 'Ocorreu um erro, tente novamente!',
+                //'AppVenda' => $_SESSION['AppVenda'],
+            ]);
+        }
+        exit();
+    }
+
     $query = "select
                     sum(a.valor_total) as total,
                     b.nome,
@@ -88,10 +144,64 @@
 </div>
 <script>
     $(function(){
+
         $("#cartao_numero").mask("9999 9999 9999 9999");
         $("#cartao_validade_mes").mask("99");
         $("#cartao_validade_ano").mask("9999");
         $("#cartao_ccv").mask("9999");
+
+        $("#Pagar").click(function(){
+
+            kind = 'debit';
+            reference = '<?=$_SESSION['AppVenda']?>';
+            amount = '<?=$d->total?>';
+            cardholderName = $("#cartao_nome").val();
+            cardNumber = $("#cartao_numero").val();
+            expirationMonth = $("#cartao_validade_mes").val();
+            expirationYear = $("#cartao_validade_ano").val();
+            securityCode = $("#cartao_ccv").val();
+
+            if(
+                    !kind
+                ||  !reference
+                ||  !amount
+                ||  !cardholderName
+                ||  !cardNumber
+                ||  !expirationMonth
+                ||  !expirationYear
+                ||  !securityCode
+
+            ){
+                $.alert('Preenche os dados do cartão corretamente!');
+                return false;
+            }
+
+            $.ajax({
+                url:"src/produtos/pagar_debito.php",
+                type:"POST",
+                data:{
+                    kind,
+                    reference,
+                    amount,
+                    cardholderName,
+                    cardNumber,
+                    expirationMonth,
+                    expirationYear,
+                    securityCode,
+                    acao:'pagar'
+                },
+                success:function(dados){
+                    let retorno = JSON.parse(dados);
+                    if (retorno.status) {
+                        window.localStorage.removeItem('AppVenda');
+                        window.localStorage.removeItem('AppPedido');
+                    }
+                    $.alert(retorno.msg);
+                    PageClose(2);
+                }
+            });
+
+        });
 
 
     })

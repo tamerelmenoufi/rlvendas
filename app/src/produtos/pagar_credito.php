@@ -33,15 +33,19 @@
             //mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
             $_SESSION['AppVenda'] = false; //mysqli_insert_id($con);
             $_SESSION['AppPedido'] = false;
-        }
-        if(isset($r->authorization->status))
-        {
+            $_SESSION['AppCarrinho'] = false;
             echo json_encode([
                 'status' => $r->authorization->status,
                 'msg' => 'Operação realizada com sucesso!',
                 //'AppVenda' => $_SESSION['AppVenda'],
             ]);
-            $_SESSION['AppCarrinho'] = false;
+        }else if($r->authorization->status == 'Denied')
+        {
+            echo json_encode([
+                'status' => $r->authorization->status,
+                'msg' => 'Operação Negada, consulte os dados do Cartão ou entre em contato com sua operadora!',
+                //'AppVenda' => $_SESSION['AppVenda'],
+            ]);
         }else{
             echo json_encode([
                 'status' => false,
