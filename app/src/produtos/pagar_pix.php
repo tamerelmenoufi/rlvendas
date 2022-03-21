@@ -78,7 +78,7 @@
                             //                     ');
                             //////////////////////////////////////////////////////////////////
                             $x = [3,6,7];
-                            $q = "select * from vendas where cliente = '{$_SESSION['AppCliente']}'";
+                            $q = "select * from vendas where cliente = '{$_SESSION['AppCliente']}' and operadora_situacao != ''";
                             $x = mysqli_query($con, $q);
                             while($x1 = mysqli_fetch_object($x)){
                                 $r =    $rede->Consulta('
