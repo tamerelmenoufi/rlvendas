@@ -15,7 +15,7 @@
 
         if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
             /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
-            $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
+            $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND operadora_situacao = '' LIMIT 1";
             $result = mysqli_query($con, $query);
 
             if (mysqli_num_rows($result)) {
