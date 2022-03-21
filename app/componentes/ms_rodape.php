@@ -14,11 +14,23 @@
         $(".acao").click(function(){
 
             AppPedido = window.localStorage.getItem('AppPedido');
-
+            AppCliente = window.localStorage.getItem('AppCliente');
             componente = $(this).attr("componente");
             local = $(this).attr("local");
 
             if(AppPedido && local){
+                Carregando();
+                $.ajax({
+                    url:"componentes/"+componente+".php",
+                    type:"POST",
+                    data:{
+                        local,
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
+            }else if(AppCliente && local == 'src/cliente/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
