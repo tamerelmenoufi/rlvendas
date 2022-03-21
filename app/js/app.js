@@ -78,35 +78,30 @@ RenovaSessao = () =>{
     var AppPedido = window.localStorage.getItem('AppPedido');
     var AppVenda = window.localStorage.getItem('AppVenda');
     var AppCliente = window.localStorage.getItem('AppCliente');
-     alert(AppPedido + '&&' + AppVenda + '&&' + AppCliente);
-    if(
-        (AppPedido != 'undefined' && AppPedido != null) &&
-        (AppVenda != 'undefined' && AppVenda != null) &&
-        (AppCliente != 'undefined' && AppCliente != null)
-    ){
-        $.ajax({
-            url:"src/cliente/sessao.php",
-            type:"POST",
-            data:{
-                AppPedido,
-                AppVenda,
-                AppCliente
-            },
-            success:function(dados){
-                $("body").append(dados);
-            },
-            error:function(){
-                //alert('erro');
-            }
-        });
-    }else{
-        //alert("Pedido:" + AppPedido + " Venda:" + AppVenda + " Cliente:" + AppCliente );
-        //alert("Pedido:" + AppPedido);
-        //alert("Cliente:" + AppCliente);
-        //alert("Venda:" + AppVenda);
-        //alert('erro2');
+    alert(AppPedido + '&&' + AppVenda + '&&' + AppCliente);
 
-    }
+    if(AppPedido == 'undefined' || AppPedido == null) AppPedido = '';
+    if(AppVenda == 'undefined' || AppVenda == null) AppVenda = '';
+    if(AppCliente == 'undefined' || AppCliente == null) AppCliente = '';
+
+    alert(AppPedido + '&&' + AppVenda + '&&' + AppCliente);
+
+    $.ajax({
+        url:"src/cliente/sessao.php",
+        type:"POST",
+        data:{
+            AppPedido,
+            AppVenda,
+            AppCliente
+        },
+        success:function(dados){
+            $("body").append(dados);
+        },
+        error:function(){
+            //alert('erro');
+        }
+    });
+
 }
 
 
