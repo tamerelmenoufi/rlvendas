@@ -1,6 +1,22 @@
 <?php
 include("../../lib/includes.php");
 
+function aasort(&$array, $key)
+{
+    $sorter = array();
+    $ret = array();
+    reset($array);
+    foreach ($array as $ii => $va) {
+        $sorter[$ii] = $va[$key];
+    }
+    asort($sorter);
+    foreach ($sorter as $ii => $va) {
+        $ret[$ii] = $array[$ii];
+    }
+    $array = $ret;
+}
+
+
 $categoria = $_GET['categoria'];
 
 $query = "SELECT * FROM categorias WHERE codigo = '{$_GET['categoria']}'";
@@ -47,7 +63,8 @@ $_SESSION['categoria'] = "";
         $result = mysqli_query($con, $query);
 
         while ($p = mysqli_fetch_object($result)) {
-            $detalhes = json_decode($p->detalhes);
+            $detalhes = json_decode($p->detalhes, true);
+            $detalhes_2 = [];
             ?>
             <div class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
@@ -61,31 +78,36 @@ $_SESSION['categoria'] = "";
                             <p class="card-text">
                                 <small class="text-muted">
                                     <?php
+
                                     foreach ($detalhes as $key => $val) :
-                                        $val->ordem = $M[$val->medida]['ordem'];
+                                        $val['ordem'] = $M[$key]['ordem'];
+                                        $detalhes_2[$key] = $val;
                                     endforeach;
 
-                                    usort($detalhes, function ($a, $b) {
-                                        return strcmp($a->ordem, $b->ordem);
-                                    });
+                                    /*usort($detalhes_2, function ($a, $b) {
+                                        return strcmp($a['ordem'], $b['ordem']);
+                                    });*/
 
-                                    foreach ($detalhes as $val) :
-                                        if ($val->quantidade > 0) { ?>
+                                    aasort($detalhes_2, "ordem");
+
+                                    foreach ($detalhes_2 as $key2 => $val) :
+                                        #print_r($key2);
+                                        if ($key2 >= 0) { ?>
                                             <button
                                                     acao_medida
-                                                    opc="<?= $val->quantidade; ?>"
+                                                    opc="<?= $val['quantidade']; ?>"
                                                     produto="<?= $p->codigo ?>"
-                                                    titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$val->medida]['descricao']})" ?>'
+                                                    titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]['descricao']})" ?>'
                                                     categoria='<?= $d->codigo ?>'
-                                                    medida='<?= $val->quantidade ?>'
-                                                    valor='<?= $val->valor ?>'
+                                                    medida='<?= $val['quantidade'] ?>'
+                                                    valor='<?= $val['valor'] ?>'
                                                     class="btn btn-outline-success"
                                                     style="height:60px; font-weight: 600;padding: 2px 25px"
                                             >
-                                                <?= $M[$val->quantidade]['descricao'] ?>
+                                                <?= $M[$key2]['descricao'] ?>
                                                 <br>
                                                 R$ <?= number_format(
-                                                    $val->valor,
+                                                    $val['valor'],
                                                     2,
                                                     ',',
                                                     '.'
