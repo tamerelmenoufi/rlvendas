@@ -15,22 +15,23 @@
         mysqli_query($con, $query);
 
         if($r->authorization->status == 'Approved'){
-            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
-            $_SESSION['AppVenda'] = mysqli_insert_id($con);
+            //mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
+            $_SESSION['AppVenda'] = false; //mysqli_insert_id($con);
+            $_SESSION['AppCliente'] = false;
         }
         if(isset($r->authorization->status))
         {
             echo json_encode([
                 'status' => $r->authorization->status,
                 'msg' => 'Operação realizada com sucesso!',
-                'AppVenda' => $_SESSION['AppVenda'],
+                //'AppVenda' => $_SESSION['AppVenda'],
             ]);
             $_SESSION['AppCarrinho'] = false;
         }else{
             echo json_encode([
                 'status' => false,
                 'msg' => 'Ocorreu um erro, tente novamente!',
-                'AppVenda' => $_SESSION['AppVenda'],
+                //'AppVenda' => $_SESSION['AppVenda'],
             ]);
         }
         exit();
@@ -172,7 +173,8 @@
                 success:function(dados){
                     let retorno = JSON.parse(dados);
                     if (retorno.status) {
-                        window.localStorage.setItem('AppVenda', retorno.AppVenda);
+                        window.localStorage.removeItem('AppVenda');
+                        window.localStorage.removeItem('AppVenda');
                     }
                     $.alert(retorno.msg);
                     PageClose(2);
