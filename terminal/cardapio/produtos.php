@@ -91,8 +91,8 @@ $_SESSION['categoria'] = "";
                                     aasort($detalhes_2, "ordem");
 
                                     foreach ($detalhes_2 as $key2 => $val) :
-                                        #print_r($key2);
-                                        if ($key2 >= 0) { ?>
+
+                                        if ($key2 > 0) { ?>
                                             <button
                                                     acao_medida
                                                     opc="<?= $val['quantidade']; ?>"
