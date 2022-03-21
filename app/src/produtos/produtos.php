@@ -136,10 +136,9 @@ while ($m = mysqli_fetch_array($m_r)) {
                                 $detalhes_2[$key] = $val;
                             endforeach;
 
-
                             aasort($detalhes_2, "ordem");
 
-                            foreach ($detalhes as $key2 => $val) {
+                            foreach ($detalhes_2 as $key2 => $val) {
                                 if ($key2 > 0) {
                                     ?>
                                     <button
