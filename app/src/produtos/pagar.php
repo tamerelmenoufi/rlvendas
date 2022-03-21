@@ -11,6 +11,8 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    if(!$d->total) $_SESSION['AppCarrinho'] = false;
+
 ?>
 <style>
     .PedidoTopoTitulo{
