@@ -17,7 +17,7 @@
         if($r->authorization->status == 'Approved'){
             //mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
             $_SESSION['AppVenda'] = false; //mysqli_insert_id($con);
-            $_SESSION['AppCliente'] = false;
+            $_SESSION['AppPedido'] = false;
         }
         if(isset($r->authorization->status))
         {
@@ -174,7 +174,7 @@
                     let retorno = JSON.parse(dados);
                     if (retorno.status) {
                         window.localStorage.removeItem('AppVenda');
-                        window.localStorage.removeItem('AppVenda');
+                        window.localStorage.removeItem('AppPedido');
                     }
                     $.alert(retorno.msg);
                     PageClose(2);
