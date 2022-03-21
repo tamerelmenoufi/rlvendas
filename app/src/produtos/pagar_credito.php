@@ -11,7 +11,22 @@
         require "../../../lib/vendor/rede/Consulta.php";
         $r = json_decode($retorno);
 
-        $query = "update vendas set operadora = 'rede', operadora_situacao = '{$r->authorization->status}', operadora_retorno = '{$retorno}' where codigo = '{$_POST['reference']}'";
+        $query = "update vendas set
+
+                                    operadora = 'rede',
+                                    operadora_situacao = '{$r->authorization->status}',
+                                    operadora_retorno = '{$retorno}',
+                                    valor = '{$_POST['amount']}',
+                                    taxa = '{$_POST['taxa']}',
+                                    desconto = '{$_POST['desconto']}',
+                                    acrescimo = '{$_POST['acrescimo']}',
+                                    total = '".($_POST['amount'] + $_POST['taxa'] - $_POST['desconto'] + $_POST['acrescimo'])."',
+                                    observacoes = '{$_POST['observacoes']}',
+                                    data_finalizacao = NOW(),
+                                    situacao = '{$r->authorization->status}',
+                                    forma_pagamento = 'credito'
+
+                where codigo = '{$_POST['reference']}'";
         mysqli_query($con, $query);
 
         if($r->authorization->status == 'Approved'){

@@ -4,7 +4,7 @@
     if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
         if(!$_SESSION['AppVenda']){
-            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");
+            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW()");
             $_SESSION['AppVenda'] = mysqli_insert_id($con);
         }
 
