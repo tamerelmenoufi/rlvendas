@@ -92,7 +92,7 @@ $_SESSION['categoria'] = "";
 
                                     foreach ($detalhes_2 as $key2 => $val) :
 
-                                        if ($key2 > 0) { ?>
+                                        if ($val["quantidade"] > 0) { ?>
                                             <button
                                                     acao_medida
                                                     opc="<?= $val['quantidade']; ?>"

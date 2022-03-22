@@ -139,15 +139,15 @@ while ($m = mysqli_fetch_array($m_r)) {
                             aasort($detalhes_2, "ordem");
 
                             foreach ($detalhes_2 as $key2 => $val) {
-                                if ($key2 > 0) {
+                                if ($val["quantidade"] > 0) {
                                     ?>
                                     <button
                                             acao_medida
-                                            opc="<?= $val['quantidade']; ?>"
+                                            opc="<?= $val["quantidade"]; ?>"
                                             produto="<?= $p->codigo ?>"
-                                            titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]['descricao']})" ?>'
+                                            titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]["descricao"]})" ?>'
                                             categoria='<?= $d->codigo ?>'
-                                            medida='<?= $val['quantidade']; ?>'
+                                            medida='<?= $val["quantidade"]; ?>'
                                             valor='<?= $val['valor']; ?>'
                                             class="btn btn-outline-success btn-xs"
                                             style="height:40px; font-size:11px; line-height: 1.2;"
