@@ -44,7 +44,7 @@
         <input type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="ClienteTeleofne">
     </div>
     <div class="col-12">
-        <button CadastrarCliente class="btn btn-primary btn-block">Cadastrar</button>
+        <button CadastrarCliente class="btn btn-primary btn-block btn-lg">Cadastrar</button>
     </div>
 </div>
 
