@@ -39,12 +39,12 @@
 ?>
 
 <div class="col">
-    <div class="col-12">Cadastro de Cliente</div>
+    <div class="col-12">Cadastro/Acesso do Cliente</div>
     <div class="col-12 mb-3">
         <input type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="ClienteTeleofne">
     </div>
     <div class="col-12">
-        <button CadastrarCliente class="btn btn-primary btn-block btn-lg">Cadastrar</button>
+        <button CadastrarCliente class="btn btn-primary btn-block btn-lg">Cadastrar/Acessar</button>
     </div>
 </div>
 
