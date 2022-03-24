@@ -17,7 +17,7 @@
             AppCliente = window.localStorage.getItem('AppCliente');
             componente = $(this).attr("componente");
             local = $(this).attr("local");
-
+            alert(AppCliente);
             if(AppCliente && local == 'src/cliente/home.php'){
                 Carregando();
                 $.ajax({
