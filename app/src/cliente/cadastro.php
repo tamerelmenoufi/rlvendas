@@ -41,7 +41,7 @@
 <div class="col">
     <div class="col-12">Cadastro de Cliente</div>
     <div class="col-12">
-        <input type="text" class="form-control form-control-lg" id="ClienteTeleofne">
+        <input type="text" inputmode="numeric" class="form-control form-control-lg" id="ClienteTeleofne">
     </div>
     <div class="col-12">
         <button CadastrarCliente class="btn btn-primary btn-block">Cadastrar</button>
