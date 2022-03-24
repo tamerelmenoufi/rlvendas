@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         unset($data['file-type']);
         unset($data['file-name']);
         unset($data['file-atual']);
-
+        $attr[] = "icon = '{$md5}{$ext}'";
         if (file_put_contents("icon/{$md5}{$ext}", $icon)) {
             $attr[] = "icon = '{$md5}{$ext}'";
             if ($atual) {
