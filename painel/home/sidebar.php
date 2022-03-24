@@ -40,7 +40,7 @@
                 while ($c = mysqli_fetch_object($result)) {
                     ?>
                     <a class="collapse-item" href="#"
-                       url="produtos/index.php?categoria=<?= $c->codigo ?>"><?= ucwords(mb_strtolower($c->categoria, 'UTF-8')); ?></a>
+                       url="produtos/index.php?categoria=<?= $c->codigo ?>"><?= ucfirst(mb_strtolower($c->categoria, 'UTF-8')); ?></a>
                     <?php
                 }
                 ?>
