@@ -55,7 +55,7 @@
 
         $("button[CadastrarCliente]").click(function(){
             telefone = $("#ClienteTeleofne").val();
-            if(telefone){
+            if(telefone.length === 15){
                 $.ajax({
                     url:"src/cliente/cadastro.php",
                     type:"POST",
