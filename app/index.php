@@ -36,6 +36,24 @@
             }
         });
     })
+
+
+    //Configurações globais
+
+    //Jconfirm
+    jconfirm.defaults = {
+        theme: "modern",
+        type: "blue",
+        typeAnimated: true,
+        smoothContent: true,
+        draggable: false,
+        animation: 'bottom',
+        closeAnimation: 'top',
+        animateFromElement: false,
+        animationBounce: 1.5
+    }
+
+
 </script>
 <form></form>
 </body>
