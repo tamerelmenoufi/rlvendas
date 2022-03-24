@@ -18,7 +18,7 @@
             componente = $(this).attr("componente");
             local = $(this).attr("local");
 
-            if(AppPedido && local){
+            if(AppCliente && local == 'src/cliente/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
@@ -30,7 +30,19 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else if(AppCliente && local == 'src/cliente/home.php'){
+            }else if(!AppCliente && local == 'src/cliente/home.php'){
+                Carregando();
+                $.ajax({
+                    url:"componentes/ms_popup_100.php",
+                    type:"POST",
+                    data:{
+                        'src/cliente/cadastro.php',
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
+            }else if(AppPedido && local){
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
