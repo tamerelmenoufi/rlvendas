@@ -183,6 +183,7 @@ if ($codigo) {
                     Situação <i class="text-danger">*</i>
                 </label>
                 <?php
+                echo "icon/{$d->icon}";
                 if (is_file("icon/{$d->icon}")) {
                     ?>
                     <center>
