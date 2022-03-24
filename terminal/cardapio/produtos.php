@@ -59,7 +59,7 @@ $_SESSION['categoria'] = "";
 
     <div class="col-md-12">
         <?php
-        $query = "SELECT * FROM produtos WHERE categoria = {$d->codigo}";
+        $query = "SELECT * FROM produtos WHERE categoria = {$d->codigo} AND deletado != '1'";
         $result = mysqli_query($con, $query);
 
         while ($p = mysqli_fetch_object($result)) {
