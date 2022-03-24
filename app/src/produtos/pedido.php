@@ -343,7 +343,6 @@
                                 window.localStorage.removeItem('AppCliente');
                                 window.localStorage.removeItem('AppPedido');
 
-
                                 $.ajax({
                                     url:"src/home/index.php",
                                     success:function(dados){
