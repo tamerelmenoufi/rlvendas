@@ -8,6 +8,11 @@
     <title>TERMINAL</title>
     <?php include("../lib/header.php"); ?>
 </head>
+<style>
+    body{
+        background-color: #f9f9f9;
+    }
+</style>
 <body id="page-top">
 
 <div id="body"></div>

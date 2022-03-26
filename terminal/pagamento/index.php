@@ -14,7 +14,7 @@ $d = mysqli_fetch_object($result);
 ?>
 
 <div id="pagamento" class="mt-5">
-    <div style="position:fixed;left: 30px; bottom: 20px;z-index: 999">
+    <div style="position:fixed;left: 20px; bottom: 20px;z-index: 999">
         <button voltar class="btn btn-primary btn-lg">VOLTAR</button>
     </div>
 

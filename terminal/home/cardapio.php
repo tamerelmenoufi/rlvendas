@@ -2,6 +2,10 @@
 include("../../lib/includes.php");
 ?>
 <style>
+    body{
+        background-color: #FFFFFF;
+    }
+
     .cardapio {
         position: absolute;
         left: 0;
@@ -12,11 +16,11 @@ include("../../lib/includes.php");
     }
 
     .itens<?=$md5?> {
-        margin: 10px;
+        margin: 0 10px 10px;
     }
 
     .item_grup<?=$md5?> {
-        margin-top: 40px;
+        margin-top: 30px;
     }
 
     .item_button<?=$md5?> {
@@ -45,20 +49,20 @@ include("../../lib/includes.php");
         text-align: center;
         padding-top: 30px;
         float: right;
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 26px;
+        font-weight: 600;
     }
 
 </style>
 
 <div class="cardapio">
-    <h3 style="text-align:center; padding:20px; padding-bottom: 0">
+    <h3 style="text-align:center; margin-top: 15px;padding:20px; padding-bottom: 0">
         <i class="fa-brands fa-elementor"></i>
         CARDÁPIO
     </h3>
     <div class="row itens<?= $md5 ?>">
         <?php
-        $query = "select * from categorias where deletado != '1' and situacao = '1'";
+        $query = "SELECT * FROM categorias WHERE deletado != '1' AND situacao = '1'";
         $result = mysqli_query($con, $query);
         while ($d = mysqli_fetch_object($result)) { ?>
             <div class="col-md-6 item_grup<?= $md5 ?>">
@@ -140,21 +144,32 @@ include("../../lib/includes.php");
 
         $("button[sair_venda]").click(function () {
             $.confirm({
-                content: "<center>Deseja realmente sair do seu pedido em <b>PEDIDO <?=$_SESSION['ConfMesa']?></b>?</center>",
-                title: false,
+                icon: "fa-solid fa-right-from-bracket",
+                content: false,
+                title: "Deseja realmente sair do seu pedido",
+                columnClass: "medium",
+                type: "red",
                 buttons: {
-                    'SIM': function () {
-                        window.localStorage.clear();
-                        $.ajax({
-                            url: "home/index.php?sair=1",
-                            success: function (dados) {
-                                $("#body").html(dados);
-                            }
-                        });
-                    },
-                    'NÃO': function () {
+                    'nao': {
+                        text: "NÃO, Continuar",
+                        action: function () {
 
+                        }
+                    },
+                    'sim': {
+                        text: "Sim, Sair",
+                        btnClass: 'btn-red',
+                        action: function () {
+                            window.localStorage.clear();
+                            $.ajax({
+                                url: "home/index.php?sair=1",
+                                success: function (dados) {
+                                    $("#body").html(dados);
+                                }
+                            });
+                        },
                     }
+
                 }
             });
         });

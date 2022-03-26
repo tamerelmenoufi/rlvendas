@@ -15,6 +15,20 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
     exit();
 }
 
+if (!empty($_POST) and $_POST["acao"] === "cancelar") {
+    $codigo = $_SESSION['ConfVenda'];
+
+    $query = "UPDATE vendas SET situacao = 'cancelado' WHERE codigo = '{$codigo}'";
+
+    if (mysqli_query($con, $query)) {
+        echo json_encode([
+            "status" => "sucesso",
+        ]);
+    }
+
+    exit();
+}
+
 if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
     $codigo = $_GET['codigo'];
     $quantidade = $_GET['quantidade'];
@@ -90,7 +104,7 @@ $cliente = mysqli_fetch_object($result);
 
     <div class="col-md-12 mt-5">
         <div class="row">
-            <div class="col-md-7" style="height: 90vh; overflow-y: auto">
+            <div id="comanda-content" class="col-md-7" style="height: 90vh; overflow-y: auto">
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
@@ -99,9 +113,12 @@ $cliente = mysqli_fetch_object($result);
                     . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
                     . "v.situacao = 'producao' AND vp.deletado = '0'";
 
+                #echo $query;
                 $result = mysqli_query($con, $query);
 
-                if (mysqli_num_rows($result)) {
+                $existeVenda = mysqli_num_rows($result);
+
+                if ($existeVenda) {
                     while ($d = mysqli_fetch_object($result)):
                         $json = json_decode($d->produto_json);
 
@@ -216,9 +233,9 @@ $cliente = mysqli_fetch_object($result);
                         </div>
                     <?php endwhile;
                 } else { ?>
-                    <div class="text-center mt-4">
+                    <div class="text-center" style="margin-top: 4rem">
                         <i class="fa-solid fa-face-frown h1 text-center"></i>
-                        <h4 class="h4 text font-weight-bold">Você ainda não tem nenhum pedido</h4>
+                        <h3 style="font-weight: 600" class="h3 text">Você ainda não tem nenhum pedido</h3>
                     </div>
                 <?php } ?>
             </div>
@@ -226,7 +243,7 @@ $cliente = mysqli_fetch_object($result);
             <div class="col-md-5">
                 <div class="card my-2">
                     <div class="card-body">
-                        <h4 class="font-weight-bold h4">Informações básicas</h4>
+                        <h4 class="font-weight-bold h4">Informações do pedido</h4>
                         <hr>
                         <div class="row">
                             <div class="col-4 font-weight-bold h5">Mesa</div>
@@ -261,8 +278,10 @@ $cliente = mysqli_fetch_object($result);
                                     <div class="texto_detalhes" style="min-height: 40px"></div>
                                 </div>
                                 <button
+                                        incluir_observacao
                                         type="button"
-                                        class="btn btn-sm btn-info incluir_observacao mb-1 font-weight-bold btn-block"
+                                        class="btn btn-sm incluir_observacao mb-1 font-weight-bold btn-block btn-outline-info"
+                                    <?= !$existeVenda ? "disabled" : ""; ?>
                                 >
                                     <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
                                 </button>
@@ -277,16 +296,21 @@ $cliente = mysqli_fetch_object($result);
 
                         <hr>
                         <div>
-                            <button concluir_compra class="btn btn-info btn-lg btn-block mb-1 font-weight-bold">
+                            <button
+                                    concluir_pedido
+                                    class="btn btn-primary btn-lg btn-block mb-1 font-weight-bold"
+                                <?= !$existeVenda ? "disabled" : ""; ?>
+                            >
                                 CONCLUIR COMPRA
                             </button>
                         </div>
 
                         <div>
                             <button
-                                    sair
+                                    cancelar_pedido
                                     categoria="<?= $categoria; ?>"
                                     class="btn btn-danger btn-lg btn-block font-weight-bold"
+                                <?= !$existeVenda ? "disabled" : ""; ?>
                             >
                                 CANCELAR PEDIDO
                             </button>
@@ -305,7 +329,7 @@ $cliente = mysqli_fetch_object($result);
         <button
                 sair
                 categoria="<?= $categoria; ?>"
-                class="btn btn-primary btn-lg btn-block font-weight-bold"
+                class="btn btn-primary btn-lg btn-block"
         >
             VOLTAR
         </button>
@@ -365,13 +389,20 @@ $cliente = mysqli_fetch_object($result);
             var codigo = $(this).attr('cod');
 
             $.alert({
-                icon: 'fa-solid fa-question',
-                title: "Aviso",
-                content: "Deseja remover este item?",
+                icon: "fa-solid fa-question",
+                title: "Tem certeza de que deseja remover este produto?",
+                content: false,
+                columnClass: "medium",
                 type: "red",
                 buttons: {
+                    nao: {
+                        text: "Não, Remover",
+                        action: function () {
+
+                        }
+                    },
                     sim: {
-                        text: "Sim",
+                        text: "Sim, Remover",
                         btnClass: "btn-red",
                         action: function () {
                             $.ajax({
@@ -386,22 +417,29 @@ $cliente = mysqli_fetch_object($result);
                                     if (dados.status === "sucesso") {
                                         let valor_total = Number(dados.valor_total);
 
+                                        if (!valor_total) {
+                                            $("#comanda-content").html(`
+                                            <div class="text-center" style="margin-top: 4rem">
+                                                <i class="fa-solid fa-face-frown h1 text-center"></i>
+                                                <h3 style="font-weight: 600" class="h3 text">Você ainda não tem nenhum pedido</h3>
+                                            </div>
+                                            `);
+
+                                            $("button[incluir_observacao], button[concluir_pedido], button[cancelar_pedido]")
+                                                .attr("disabled", "");
+                                        }
+
                                         $("span[valor_total]").text(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
                                         $(`#item-${codigo}`).fadeOut(400).remove();
+
                                     }
                                 }
                             })
                         }
                     },
-                    nao: {
-                        text: "Não",
-                        action: function () {
-
-                        }
-                    },
                 }
-            })
+            });
         });
 
         $(".mais").click(function () {
@@ -443,13 +481,57 @@ $cliente = mysqli_fetch_object($result);
             $("#keyboard_body").css("display", "block");
         });
 
-        $("button[concluir_compra]").click(function () {
+        $("button[concluir_pedido]").click(function () {
             $.ajax({
                 url: "pagamento/index.php",
                 success: function (dados) {
                     $("#body").html(dados);
                 }
             })
+        });
+
+        $("button[cancelar_pedido]").click(function () {
+
+            $.alert({
+                icon: "fa-solid fa-question",
+                title: "Tem certeza de que deseja cancelar seu pedido?",
+                content: false,
+                columnClass: "medium",
+                type: "red",
+                buttons: {
+                    nao: {
+                        text: "Não",
+                        action: function () {
+                        }
+                    },
+                    sim: {
+                        text: "Sim, Cancelar",
+                        btnClass: "btn-red",
+                        action: function () {
+                            $.ajax({
+                                url: "home/comanda.php",
+                                method: "POST",
+                                dataType: "JSON",
+                                data: {
+                                    codigo,
+                                    acao: "cancelar"
+                                },
+                                success: function (dados) {
+                                    if (dados.status === "sucesso") {
+                                        $.ajax({
+                                            url: "home/index.php",
+                                            success: function (dados) {
+                                                $("#body").html(dados);
+                                            }
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    },
+                }
+            });
+
         });
 
         function atualiza_quantidade(codigo, quantidade) {

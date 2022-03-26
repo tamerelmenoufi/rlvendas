@@ -260,7 +260,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                         </div>
                     </div>
 
-                    <div style="position:fixed; right:20px; <?= (($m->qt_produtos > 1) ? 'margin-right:calc(40% - 60px);' : false) ?> bottom:30px;">
+                    <div style="position:fixed; right:20px; <?= (($m->qt_produtos > 1) ? 'margin-right:calc(40% - 60px);' : false) ?> bottom:20px;">
                         <button
                                 class="btn btn-success btn-lg btn-block"
                                 adicionar_produto
@@ -270,7 +270,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                         </button>
                     </div>
 
-                    <div style="position:fixed; left:20px; bottom:30px;">
+                    <div style="position:fixed; left:20px; bottom:20px;">
                         <button
                                 class="btn btn-danger btn-lg btn-block"
                                 cancelar_produto
