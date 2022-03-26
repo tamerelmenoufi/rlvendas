@@ -44,7 +44,21 @@
                     <?php
                 }
                 ?>
-                <a class="collapse-item" href="#" url="vendas/index.php">Vendas</a>
+
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#MenuVendas"
+           aria-expanded="true" aria-controls="MenuVendas">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Vendas</span>
+        </a>
+
+        <div id="MenuVendas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#" url="vendas/index.php">Geral</a>
             </div>
         </div>
     </li>

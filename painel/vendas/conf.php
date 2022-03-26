@@ -8,6 +8,7 @@ $UrlScript = 'vendas/';
 function getSituacao()
 {
     return [
+        '' => 'Não definido',
         '0' => 'Inativo',
         '1' => 'Ativo',
     ];

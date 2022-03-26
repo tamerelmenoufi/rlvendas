@@ -53,11 +53,9 @@ $result = mysqli_query($con, $query);
                         <td><?= $d->mesa_descricao; ?></td>
                         <td><?= formata_datahora($d->data_pedido, DATA_HM); ?></td>
                         <td>
-                            <?php if ($d->situacao !== "") { ?>
-                                <span class="badge badge-<?= $status; ?>">
+                            <span class="badge badge-<?= $status; ?>">
                                 <?= getSituacaoOptions($d->situacao); ?>
                             </span>
-                            <?php } ?>
                         </td>
                         <!--<td>
                             <button
