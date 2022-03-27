@@ -141,7 +141,7 @@ $cliente = mysqli_fetch_object($result);
                                         <img
                                                 src="../painel/produtos/icon/<?= $img ?>"
                                                 class="img-thumbnail"
-                                                style="width: 180px; max-height: 85px"
+                                                style="width: 180px; max-height: 115px"
                                         >
                                     </div>
 
