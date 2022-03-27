@@ -104,7 +104,7 @@ $cliente = mysqli_fetch_object($result);
 
     <div class="col-md-12 mt-5">
         <div class="row">
-            <div id="comanda-content" class="col-md-7" style="height: 90vh; overflow-y: auto">
+            <div id="comanda-content" class="col-md-7" style="height: 80vh; overflow-y: auto">
                 <?php
                 $query = "SELECT * FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
