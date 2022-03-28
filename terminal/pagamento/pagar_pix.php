@@ -31,7 +31,7 @@ include("../../lib/includes.php");
 </div>
 
 <div style="position: fixed; bottom: 15px; left: 15px;">
-    <button voltar class="btn btn-primary btn-lg">VOLTAR</button>
+    <button voltar class="btn btn-primary btn-lg">Continuar Comprando</button>
 </div>
 <script>
     $(function () {

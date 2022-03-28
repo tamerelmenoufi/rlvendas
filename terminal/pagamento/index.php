@@ -15,7 +15,7 @@ $d = mysqli_fetch_object($result);
 
 <div id="pagamento" class="mt-5">
     <div style="position:fixed;left: 20px; bottom: 20px;z-index: 999">
-        <button voltar class="btn btn-primary btn-lg">VOLTAR</button>
+        <button voltar class="btn btn-primary btn-lg">Continuar Comprando</button>
     </div>
 
     <div class="container">
@@ -58,7 +58,7 @@ $d = mysqli_fetch_object($result);
                                     pagar
                                     opc="pix"
                                     class="btn btn-info btn-lg btn-block">
-                                <i class="fa-solid fa-money-bill-1-wave"></i> DINHEIRO
+                                <i class="fa-solid fa-money-bill-1-wave"></i> Dinheiro
                             </a>
                         </h5>
                         <h5 class="card-title">
@@ -66,7 +66,7 @@ $d = mysqli_fetch_object($result);
                                     pagar
                                     opc="pix"
                                     class="btn btn-info btn-lg btn-block">
-                                <i class="fa-brands fa-pix"></i> PIX
+                                <i class="fa-brands fa-pix"></i> Pix
                             </a>
                         </h5>
                         <h5 class="card-title">
