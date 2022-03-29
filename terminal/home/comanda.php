@@ -132,7 +132,7 @@ $cliente = mysqli_fetch_object($result);
                         >
 
                         <div class="card my-2" id="item-<?= $d->codigo; ?>">
-                            <div class="card-body py-4 pt-3">
+                            <div class="card-body py-2 pt-3">
 
 
                                 <div class="d-flex justify-content-center flex-row">
