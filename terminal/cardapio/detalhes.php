@@ -1,19 +1,19 @@
-
 <?php
-    include("../../lib/includes.php");
+include("../../lib/includes.php");
 ?>
 <style>
-    #keyboard_body{
-        position:fixed;
-        width:100%;
-        top:40px;
-        bottom:20px;
-        z-index:10;
-        display:none;
-        background-color:#144766;
+    #keyboard_body {
+        position: fixed;
+        width: 100%;
+        top: 40px;
+        bottom: 20px;
+        z-index: 10;
+        display: none;
+        background-color: #144766;
     }
-    #search_field{
-        height:200px;
+
+    #search_field {
+        height: 200px;
     }
 </style>
 
@@ -21,10 +21,12 @@
     <div class="row">
 
         <div class="col-md-12">
-            <textarea class="form-control" id="search_field"></textarea>
+            <textarea 
+                class="form-control" 
+                id="search_field" 
+                maxlength="140"
+            ></textarea>
             <div id="keyboard"></div>
-
-
         </div>
 
     </div>
@@ -38,7 +40,7 @@
 </div>
 
 <script>
-    $(function(){
+    $(function() {
 
         $('#keyboard').jkeyboard({
             layout: "english_capital",
@@ -46,26 +48,26 @@
             customLayouts: {
                 selectable: ["english_capital"],
                 english_capital: [
-                    ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',],
-                    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',],
+                    ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', ],
+                    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ],
                     ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
                     ['space', 'backspace']
-                    ],
+                ],
             }
         });
 
 
 
 
-        $("button[adicionar_detalhes]").click(function(){
+        $("button[adicionar_detalhes]").click(function() {
             $(".texto_detalhes").text($("#search_field").val());
-            $("#keyboard_body").css("display","none");
+            $("#keyboard_body").css("display", "none");
         });
 
-        $("button[cancelar_detalhes]").click(function(){
+        $("button[cancelar_detalhes]").click(function() {
             $("#search_field").val('');
             $(".texto_detalhes").text('');
-            $("#keyboard_body").css("display","none");
+            $("#keyboard_body").css("display", "none");
         });
 
 

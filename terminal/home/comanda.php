@@ -299,21 +299,9 @@ $cliente = mysqli_fetch_object($result);
                     </div>
                 </div>
 
-                <div class="card mt-2">
-                    <div class="card-body">
-
-                        <hr>
-                        <div>
-                            <button
-                                    concluir_pedido
-                                    class="btn btn-primary btn-lg btn-block mb-1 font-weight-bold"
-                                <?= !$existeVenda ? "disabled" : ""; ?>
-                            >
-                                Concluir Compra
-                            </button>
-                        </div>
-
-                        <div>
+                <div style="position: fixed; right: 40px; bottom: 20px; width: 450px;">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="mr-1">
                             <button
                                     cancelar_pedido
                                     categoria="<?= $categoria; ?>"
@@ -324,11 +312,17 @@ $cliente = mysqli_fetch_object($result);
                             </button>
                         </div>
 
-
+                        <div class="ml-1">
+                            <button
+                                    concluir_pedido
+                                    class="btn btn-primary btn-lg btn-block mb-1 font-weight-bold"
+                                <?= !$existeVenda ? "disabled" : ""; ?>
+                            >
+                                Concluir Compra
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -560,7 +554,5 @@ $cliente = mysqli_fetch_object($result);
                 }
             });
         }
-
-
     });
 </script>
