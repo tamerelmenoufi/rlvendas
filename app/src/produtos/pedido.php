@@ -102,7 +102,7 @@
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
         <?php
-            echo $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
+            $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
             $result = mysqli_query($con, $query);
             $valor_total = 0;
             $n = mysqli_num_rows($result);
@@ -341,7 +341,7 @@
                             success:function(dados){
                                 window.localStorage.removeItem('AppPedido');
                                 window.localStorage.removeItem('AppCliente');
-                                window.localStorage.removeItem('AppPedido');
+                                window.localStorage.removeItem('AppVenda');
 
                                 $.ajax({
                                     url:"src/home/index.php",
