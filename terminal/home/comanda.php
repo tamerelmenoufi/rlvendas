@@ -273,54 +273,56 @@ $cliente = mysqli_fetch_object($result);
                         <hr>
                         <div class="row">
                             <div class="col-12 font-weight-bold">
-                                <h4 class="font-weight-bold h4">Observações</h4>
+                                <div class="d-flex flex-row align-items-center justify-content-between">
+                                    <div>
+                                        <h4 class="font-weight-bold h4">Observações</h4>
+                                    </div>
+                                    <div>
+                                        <button
+                                                incluir_observacao
+                                                type="button"
+                                                class="btn btn-sm incluir_observacao mb-1 font-weight-bold btn-block btn-outline-info"
+                                            <?= !$existeVenda ? "disabled" : ""; ?>
+                                        >
+                                            <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
+                                        </button>
+                                    </div>
+                                </div>
+
                                 <div class="col-12">
                                     <div class="texto_detalhes" style="min-height: 40px"></div>
                                 </div>
-                                <button
-                                        incluir_observacao
-                                        type="button"
-                                        class="btn btn-sm incluir_observacao mb-1 font-weight-bold btn-block btn-outline-info"
-                                    <?= !$existeVenda ? "disabled" : ""; ?>
-                                >
-                                    <i class="fa-solid fa-pen-to-square"></i> ADICIONAR OBSERVAÇÃO
-                                </button>
+
                             </div>
 
                         </div>
                     </div>
                 </div>
 
-                <div class="card mt-2">
-                    <div class="card-body">
-
-                        <hr>
-                        <div>
-                            <button
-                                    concluir_pedido
-                                    class="btn btn-primary btn-lg btn-block mb-1 font-weight-bold"
-                                <?= !$existeVenda ? "disabled" : ""; ?>
-                            >
-                                CONCLUIR COMPRA
-                            </button>
-                        </div>
-
-                        <div>
+                <div style="position: fixed; right: 40px; bottom: 20px; width: 450px;">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="mr-1">
                             <button
                                     cancelar_pedido
                                     categoria="<?= $categoria; ?>"
                                     class="btn btn-danger btn-lg btn-block font-weight-bold"
                                 <?= !$existeVenda ? "disabled" : ""; ?>
                             >
-                                CANCELAR PEDIDO
+                                Cancelar Pedido
                             </button>
                         </div>
 
-
+                        <div class="ml-1">
+                            <button
+                                    concluir_pedido
+                                    class="btn btn-primary btn-lg btn-block mb-1 font-weight-bold"
+                                <?= !$existeVenda ? "disabled" : ""; ?>
+                            >
+                                Concluir Compra
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -331,7 +333,7 @@ $cliente = mysqli_fetch_object($result);
                 categoria="<?= $categoria; ?>"
                 class="btn btn-primary btn-lg btn-block"
         >
-            VOLTAR
+            Continuar Comprando
         </button>
     </div>
 
@@ -552,7 +554,5 @@ $cliente = mysqli_fetch_object($result);
                 }
             });
         }
-
-
     });
 </script>
