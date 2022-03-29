@@ -55,7 +55,7 @@ function getValorTotal()
         . "WHERE v.situacao = 'producao' AND "
         . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
         . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
-        . "vp.deletado = '0'";
+        . "vp.deletado != '1' and v.deletado != '1'";
 
     $result = mysqli_query($con, $query);
     list($total) = mysqli_fetch_row($result);
