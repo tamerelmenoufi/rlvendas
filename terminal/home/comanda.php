@@ -144,8 +144,8 @@ $cliente = mysqli_fetch_object($result);
                         if($d->st != 'n'){
                             $blq = 'display:none;';
                             $acao_cancelar = false;
-                        }else{
                             $acao_preparar = true;
+                        }else{
                             $blq = false;
                         }
 
