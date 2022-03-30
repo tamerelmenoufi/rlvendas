@@ -337,6 +337,7 @@ $cliente = mysqli_fetch_object($result);
                                     categoria="<?= $categoria; ?>"
                                     class="btn btn-primary btn-lg btn-block font-weight-bold"
                                 <?= !$existeVenda ? "disabled" : ""; ?>
+                                style="<?=((!$acao_preparar)?'display:none;':false)?>"
                             >
                                 Confirmar Pedido
                             </button>
@@ -344,10 +345,11 @@ $cliente = mysqli_fetch_object($result);
 
                         <div class="mr-1">
                             <button
-                                    cancelar_pedido
-                                    categoria="<?= $categoria; ?>"
-                                    class="btn btn-danger btn-lg btn-block font-weight-bold"
+                                cancelar_pedido
+                                categoria="<?= $categoria; ?>"
+                                class="btn btn-danger btn-lg btn-block font-weight-bold"
                                 <?= !$existeVenda ? "disabled" : ""; ?>
+                                style="<?=(($acao_preparar)?'display:none;':false)?>"
                             >
                                 Cancelar Pedido
                             </button>
