@@ -18,7 +18,9 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
 if (!empty($_POST) and $_POST["acao"] === "cancelar") {
     $codigo = $_SESSION['ConfVenda'];
 
-    $query = "UPDATE vendas SET situacao = 'cancelado' WHERE codigo = '{$codigo}'";
+    mysqli_query($con, "UPDATE vendas_produtos SET deletado = '1' WHERE venda = '{$codigo}'");
+
+    $query = "UPDATE vendas SET deletado = '1' WHERE codigo = '{$codigo}'";
 
     if (mysqli_query($con, $query)) {
         echo json_encode([
