@@ -65,11 +65,17 @@ $_SESSION['categoria'] = "";
         while ($p = mysqli_fetch_object($result)) {
             $detalhes = json_decode($p->detalhes, true);
             $detalhes_2 = [];
+
+            $url = "../painel/produtos/icon/<?= $p->icon ?>";
+            $url_imagem = is_file($url) ? $url : "../img/default_produto.jpg";
+
             ?>
             <div class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
-                    <div class="col-md-4 foto<?= $md5 ?>"
-                         style="background-image:url('../painel/produtos/icon/<?= $p->icon ?>')">
+                    <div 
+                        class="col-md-4 foto<?= $md5 ?>"
+                        style="background-image:url('<?= $url_imagem; ?>');"
+                    >
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

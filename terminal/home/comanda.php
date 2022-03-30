@@ -124,6 +124,9 @@ $cliente = mysqli_fetch_object($result);
 
                         $queryProduto = "SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'";
                         list($img) = mysqli_fetch_row(mysqli_query($con, $queryProduto));
+
+                        $url = "../painel/produtos/icon/{$img}";
+                        $url_imagem = is_file($url) ? $url : "../img/default_produto.jpg";
                         ?>
                         <input
                                 type="hidden"
@@ -132,23 +135,23 @@ $cliente = mysqli_fetch_object($result);
                         >
 
                         <div class="card my-2" id="item-<?= $d->codigo; ?>">
-                            <div class="card-body py-2 pt-3">
+                            <div class="card-body py-2">
 
 
                                 <div class="d-flex justify-content-center flex-row">
 
                                     <div>
                                         <img
-                                                src="../painel/produtos/icon/<?= $img ?>"
-                                                class="img-thumbnail"
-                                                style="width: 180px; max-height: 115px"
+                                                src="<?= $url_imagem; ?>"
+                                                class=""
+                                                style="width: 190px; height: 100px; border-radius: 0"
                                         >
                                     </div>
 
-                                    <div class="px-2" style="flex: 1">
-                                        <h5 class="h5 font-weight-bold">
+                                    <div class="px-2 pl-4" style="flex: 1">
+                                        <h4 class="h4 font-weight-bold">
                                             <?= "{$json->categoria->descricao} - {$json->produtos[0]->descricao} ({$json->medida->descricao})" ?>
-                                        </h5>
+                                        </h4>
 
                                         <div style="flex: 1">
                                             <?php
@@ -183,7 +186,7 @@ $cliente = mysqli_fetch_object($result);
                                 <hr>
 
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div>
+                                    <div class="mx-1">
                                         <button
                                                 type="button"
                                                 cod="<?= $d->codigo; ?>"
@@ -208,7 +211,7 @@ $cliente = mysqli_fetch_object($result);
                                                 remover
                                                 cod="<?= $d->codigo; ?>"
                                                 type="button"
-                                                class="btn btn-outline-danger ml-3"
+                                                class="btn btn-outline-danger ml-4"
                                         >
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
@@ -417,6 +420,9 @@ $cliente = mysqli_fetch_object($result);
                                 },
                                 success: function (dados) {
                                     if (dados.status === "sucesso") {
+
+                                        tata.success('Sucesso', 'Produto removido com sucesso');
+
                                         let valor_total = Number(dados.valor_total);
 
                                         if (!valor_total) {
