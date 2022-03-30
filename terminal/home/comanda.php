@@ -553,7 +553,6 @@ $cliente = mysqli_fetch_object($result);
                                 method: "POST",
                                 dataType: "JSON",
                                 data: {
-                                    codigo,
                                     acao: "cancelar"
                                 },
                                 success: function (dados) {
@@ -600,7 +599,6 @@ $cliente = mysqli_fetch_object($result);
                                 method: "POST",
                                 dataType: "JSON",
                                 data: {
-                                    codigo,
                                     acao: "preparar"
                                 },
                                 success: function (dados) {
