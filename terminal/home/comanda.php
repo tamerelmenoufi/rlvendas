@@ -29,6 +29,22 @@ if (!empty($_POST) and $_POST["acao"] === "cancelar") {
     exit();
 }
 
+if (!empty($_POST) and $_POST["acao"] === "preparar") {
+    $codigo = $_SESSION['ConfVenda'];
+
+    $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE venda = '{$codigo}'";
+
+    if (mysqli_query($con, $query)) {
+        echo json_encode([
+            "status" => "sucesso",
+        ]);
+    }
+
+    exit();
+}
+
+
+
 if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
     $codigo = $_GET['codigo'];
     $quantidade = $_GET['quantidade'];
@@ -311,6 +327,17 @@ $cliente = mysqli_fetch_object($result);
                     <div class="d-flex flex-row justify-content-center">
                         <div class="mr-1">
                             <button
+                                    confirmar_pedido
+                                    categoria="<?= $categoria; ?>"
+                                    class="btn btn-primary btn-lg btn-block font-weight-bold"
+                                <?= !$existeVenda ? "disabled" : ""; ?>
+                            >
+                                Confirmar Pedido
+                            </button>
+                        </div>
+
+                        <div class="mr-1">
+                            <button
                                     cancelar_pedido
                                     categoria="<?= $categoria; ?>"
                                     class="btn btn-danger btn-lg btn-block font-weight-bold"
@@ -323,10 +350,10 @@ $cliente = mysqli_fetch_object($result);
                         <div class="ml-1">
                             <button
                                     concluir_pedido
-                                    class="btn btn-primary btn-lg btn-block mb-1 font-weight-bold"
+                                    class="btn btn-success btn-lg btn-block mb-1 font-weight-bold"
                                 <?= !$existeVenda ? "disabled" : ""; ?>
                             >
-                                Concluir Compra
+                                PAGAR
                             </button>
                         </div>
                     </div>
@@ -546,6 +573,56 @@ $cliente = mysqli_fetch_object($result);
             });
 
         });
+
+
+
+        $("button[confirmar_pedido]").click(function () {
+
+            $.alert({
+                icon: "fa-solid fa-question",
+                title: "Seu pedido será enviado para o preparo após a sua confirmação.<br><br>Deseja confirmar o envio?",
+                content: false,
+                columnClass: "medium",
+                type: "red",
+                buttons: {
+                    nao: {
+                        text: "Não",
+                        btnClass: "btn-red",
+                        action: function () {
+                        }
+                    },
+                    sim: {
+                        text: "Sim, Pode Preparar",
+                        btnClass: "btn-success",
+                        action: function () {
+                            $.ajax({
+                                url: "home/comanda.php",
+                                method: "POST",
+                                dataType: "JSON",
+                                data: {
+                                    codigo,
+                                    acao: "preparar"
+                                },
+                                success: function (dados) {
+                                    if (dados.status === "sucesso") {
+                                        $.ajax({
+                                            url: "home/index.php",
+                                            success: function (dados) {
+                                                $("#body").html(dados);
+                                            }
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    },
+                }
+            });
+
+        });
+
+
+
 
         function atualiza_quantidade(codigo, quantidade) {
             $.ajax({
