@@ -583,7 +583,7 @@ $cliente = mysqli_fetch_object($result);
                 title: "Seu pedido será enviado para o preparo após a sua confirmação.<br><br>Deseja confirmar o envio?",
                 content: false,
                 columnClass: "medium",
-                type: "red",
+                type: "green",
                 buttons: {
                     nao: {
                         text: "Não",
