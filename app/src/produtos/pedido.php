@@ -116,11 +116,15 @@
                     $ListaPedido[] = $pedido->produtos[$i]->descricao;
                 }
                 if($ListaPedido) $sabores = implode(', ', $ListaPedido);
+
+
+                $blq = (($d->situacao != 'n')?'display:none;':'display:block;');
+
         ?>
         <div class="card bg-light mb-3" style="padding-bottom:40px;">
             <div class="card-body">
                 <p Excluirproduto codigo="<?=$d->codigo?>" produto="<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?> <?=$sabores?>" style="position:absolute; right:-10px; top:-10px; width:auto;">
-                    <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px;"></i>
+                    <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blq?>"></i>
                 <p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
@@ -140,6 +144,7 @@
                         <button
                                 class="btn text-danger menos"
                                 type="button"
+                                style="<?=$blq?>"
                         >
                             <i class="fa-solid fa-circle-minus"></i>
                         </button>
@@ -151,6 +156,7 @@
                         <button
                                 class="btn text-success mais"
                                 type="button"
+                                style="<?=$blq?>"
                         >
                             <i class="fa-solid fa-circle-plus"></i>
                         </button>
