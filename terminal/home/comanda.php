@@ -32,7 +32,7 @@ if (!empty($_POST) and $_POST["acao"] === "cancelar") {
 if (!empty($_POST) and $_POST["acao"] === "preparar") {
     $codigo = $_SESSION['ConfVenda'];
 
-    $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE venda = '{$codigo}'";
+    $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE venda = '{$codigo}' and situacao = 'n'";
 
     if (mysqli_query($con, $query)) {
         echo json_encode([
