@@ -128,7 +128,7 @@ $cliente = mysqli_fetch_object($result);
                         list($img) = mysqli_fetch_row(mysqli_query($con, $queryProduto));
 
                         $url = "../painel/produtos/icon/{$img}";
-                        $url_imagem = is_file($url) ? $url : "../img/default_produto.jpg";
+                        $url_imagem = is_file("../{$url}") ? $url : "../img/default_produto.jpg";
                         ?>
                         <input
                                 type="hidden"
