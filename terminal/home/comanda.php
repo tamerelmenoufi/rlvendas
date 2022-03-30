@@ -136,11 +136,14 @@ $cliente = mysqli_fetch_object($result);
 
                 if ($existeVenda) {
                     $acao_preparar = false;
+                    $acao_cancelar = true;
+
                     while ($d = mysqli_fetch_object($result)):
                         $json = json_decode($d->produto_json);
 
                         if($d->st != 'n'){
                             $blq = 'display:none;';
+                            $acao_cancelar = false;
                         }else{
                             $acao_preparar = true;
                             $blq = false;
@@ -349,7 +352,7 @@ $cliente = mysqli_fetch_object($result);
                                 categoria="<?= $categoria; ?>"
                                 class="btn btn-danger btn-lg btn-block font-weight-bold"
                                 <?= !$existeVenda ? "disabled" : ""; ?>
-                                style="<?=(($acao_preparar)?'display:none;':false)?>"
+                                style="<?=((!$acao_preparar)?'display:none;':false)?>"
                             >
                                 Cancelar Pedido
                             </button>
