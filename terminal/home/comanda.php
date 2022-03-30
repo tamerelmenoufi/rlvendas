@@ -17,6 +17,7 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
 
 if (!empty($_POST) and $_POST["acao"] === "cancelar") {
     $codigo = $_SESSION['ConfVenda'];
+    $_SESSION['ConfMesa'] = $_SESSION['ConfVenda'] = $_SESSION['ConfCliente'] = false;
 
     mysqli_query($con, "UPDATE vendas_produtos SET deletado = '1' WHERE venda = '{$codigo}'");
 
