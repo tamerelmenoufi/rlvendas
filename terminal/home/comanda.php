@@ -352,7 +352,7 @@ $cliente = mysqli_fetch_object($result);
                                 categoria="<?= $categoria; ?>"
                                 class="btn btn-danger btn-lg btn-block font-weight-bold"
                                 <?= !$existeVenda ? "disabled" : ""; ?>
-                                style="<?=((!$acao_preparar)?'display:none;':false)?>"
+                                style="<?=((!$acao_cancelar)?'display:none;':false)?>"
                             >
                                 Cancelar Pedido
                             </button>
