@@ -135,10 +135,16 @@ $cliente = mysqli_fetch_object($result);
                 $existeVenda = mysqli_num_rows($result);
 
                 if ($existeVenda) {
+                    $acao_preparar = false;
                     while ($d = mysqli_fetch_object($result)):
                         $json = json_decode($d->produto_json);
 
-                        $blq = (($d->st != 'n')?'display:none;':false);
+                        if($d->st != 'n'){
+                            $blq = 'display:none;';
+                        }else{
+                            $acao_preparar = true;
+                            $blq = false;
+                        }
 
                         $queryProduto = "SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'";
                         list($img) = mysqli_fetch_row(mysqli_query($con, $queryProduto));
