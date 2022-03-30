@@ -106,7 +106,7 @@ $cliente = mysqli_fetch_object($result);
         <div class="row">
             <div id="comanda-content" class="col-md-7" style="height: 80vh; overflow-y: auto">
                 <?php
-                $query = "SELECT * FROM vendas v "
+                $query = "SELECT *, vp.situacao as st FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
                     . "WHERE v.situacao = 'producao' AND "
                     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
@@ -122,7 +122,7 @@ $cliente = mysqli_fetch_object($result);
                     while ($d = mysqli_fetch_object($result)):
                         $json = json_decode($d->produto_json);
 
-                        $blq = (($d->situacao != 'n')?'display:none;':'display:block;');
+                        $blq = (($d->st != 'n')?'display:none;':false);
 
                         $queryProduto = "SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'";
                         list($img) = mysqli_fetch_row(mysqli_query($con, $queryProduto));
