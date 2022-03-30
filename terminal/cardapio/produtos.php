@@ -67,12 +67,12 @@ $_SESSION['categoria'] = "";
             $detalhes_2 = [];
 
             $url = "../painel/produtos/icon/<?= $p->icon ?>";
-            $url_imagem = is_file($url) ? $url : "../img/default_produto.jpg";
+            $url_imagem = is_file("../$url") ? $url : "../img/default_produto.jpg";
 
             ?>
             <div class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
-                    <div 
+                    <div
                         class="col-md-4 foto<?= $md5 ?>"
                         style="background-image:url('<?= $url_imagem; ?>');"
                     >
