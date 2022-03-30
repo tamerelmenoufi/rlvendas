@@ -72,6 +72,8 @@ $p = mysqli_fetch_object($result);
 
 $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$medida}'"));
 
+$url = "../painel/produtos/icon/<?= $m->icon ?>";
+$url_imagem = is_file($url) ? $url : "../img/default_produto.jpg";
 ?>
 
 <style>
@@ -145,12 +147,12 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
         <div class="row">
 
             <div class="col-md-8">
-                <div style="position:fixed; top:55px; left:30px; width:<?= (($m->qt_produtos > 1) ? '60%' : 'calc(100% - 60px)') ?>;">
+                <div style="position:fixed; top:55px; left:30px; width:<?= (($m->qt_produtos > 1) ? '62%' : 'calc(100% - 60px)') ?>;">
                     <div class="card mb-3">
                         <div class="row">
                             <div
                                     class="col-md-4 foto<?= $md5 ?>"
-                                    style="background-image:url('../painel/produtos/icon/<?= $p->icon ?>')"
+                                    style="background-image:url('<?= $url_imagem; ?>')"
                             >
                             </div>
 
@@ -159,22 +161,22 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                     <h5 class="card-title">
 
                                         <span
-                                                class="font-weight-bold h5"
+                                                class="font-weight-bold h4"
                                                 categoria="<?= $p->cod_categoria; ?>"
                                         >
                                             <?= $p->nome_categoria ?>
                                         </span>
                                         - <span
-                                                class="font-weight-bold h5"
+                                                class="font-weight-bold h4"
                                                 produto_descricao
                                         ><?= $p->produto ?></span>
                                         (<span
-                                                class="font-weight-bold h5"
+                                                class="font-weight-bold h4"
                                                 medida="<?= $m->codigo; ?>"
                                         ><?= $m->medida ?></span>)
                                     </h5>
 
-                                    <p class="card-text my-3">
+                                    <p class="card-text my-1">
                                         <span class="h5"><?= $p->descricao ?></span>
                                     </p>
 
@@ -195,7 +197,7 @@ $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHE
                                     <p class="texto_sabores_adicionais mx-0 mb-2" style="min-height: 25px;"></p>
 
                                     <p class="card-text">
-                                    <div class="input-group input-group-lg mb-3">
+                                    <div class="input-group input-group-lg mb-2">
                                         <div class="input-group-prepend">
                                             <button
                                                     class="btn btn-danger"
