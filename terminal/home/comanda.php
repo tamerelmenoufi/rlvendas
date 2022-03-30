@@ -122,6 +122,8 @@ $cliente = mysqli_fetch_object($result);
                     while ($d = mysqli_fetch_object($result)):
                         $json = json_decode($d->produto_json);
 
+                        $blq = (($d->situacao != 'n')?'display:none;':'display:block;');
+
                         $queryProduto = "SELECT icon FROM produtos WHERE codigo = '{$json->produtos[0]->codigo}'";
                         list($img) = mysqli_fetch_row(mysqli_query($con, $queryProduto));
 
@@ -191,6 +193,7 @@ $cliente = mysqli_fetch_object($result);
                                                 type="button"
                                                 cod="<?= $d->codigo; ?>"
                                                 class="btn btn-outline-info menos"
+                                                style="<?=$blq?>"
                                         >
                                             <i class="fa-solid fa-minus"></i>
                                         </button>
@@ -204,6 +207,7 @@ $cliente = mysqli_fetch_object($result);
                                                 type="button"
                                                 cod="<?= $d->codigo; ?>"
                                                 class="btn btn-outline-info mais"
+                                                style="<?=$blq?>"
                                         >
                                             <i class="fa-solid fa-plus"></i>
                                         </button>
@@ -212,6 +216,7 @@ $cliente = mysqli_fetch_object($result);
                                                 cod="<?= $d->codigo; ?>"
                                                 type="button"
                                                 class="btn btn-outline-danger ml-4"
+                                                style="<?=$blq?>"
                                         >
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
