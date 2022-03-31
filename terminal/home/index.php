@@ -14,13 +14,18 @@ if ($_GET['sair']) {
         echo json_encode([
             "status" => "erro",
         ]);
+        exit();
+    }else if($_GET['confirm']){
+        $_SESSION = [];
+
     }else{
         echo json_encode([
             "status" => "sucesso",
         ]);
         $_SESSION = [];
+        exit();
     }
-    exit();
+
 }
 
 ?>
