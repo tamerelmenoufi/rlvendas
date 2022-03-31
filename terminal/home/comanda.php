@@ -284,11 +284,11 @@ $cliente = mysqli_fetch_object($result);
                         <hr>
                         <div class="row">
                             <div class="col-4 font-weight-bold h5">Mesa</div>
-                            <div class="col-6 h5"><?= $_SESSION['ConfMesa']; ?></div>
+                            <div class="col-8 h5"><?= $_SESSION['ConfMesa']; ?></div>
                         </div>
                         <div class="row">
                             <div class="col-4 font-weight-bold h5">Cliente</div>
-                            <div class="col-6 h5">
+                            <div class="col-8 h5">
                                 <?= $cliente->nome ?: $cliente->telefone; ?>
                             </div>
                         </div>
@@ -336,8 +336,8 @@ $cliente = mysqli_fetch_object($result);
                     </div>
                 </div>
 
-                <div style="position: fixed; right: 40px; bottom: 20px; width: 450px;">
-                    <div class="d-flex flex-row justify-content-center">
+                <div style="position: fixed; right: 40px; bottom: 20px; width: 500px;">
+                    <div class="d-flex flex-row justify-content-right">
                         <div class="mr-1">
                             <button
                                     confirmar_pedido
