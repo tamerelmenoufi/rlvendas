@@ -307,7 +307,8 @@ $cliente = mysqli_fetch_object($result);
                                 </span>
                             </div>
                         </div>
-                        <hr>
+
+                        <!-- <hr>
                         <div class="row">
                             <div class="col-12 font-weight-bold">
                                 <div class="d-flex flex-row align-items-center justify-content-between">
@@ -332,7 +333,8 @@ $cliente = mysqli_fetch_object($result);
 
                             </div>
 
-                        </div>
+                        </div> -->
+
                     </div>
                 </div>
 
@@ -347,7 +349,7 @@ $cliente = mysqli_fetch_object($result);
                                 <?= !$existeVenda ? "disabled" : ""; ?>
                                 style="<?=((!$acao_preparar)?'display:none;':false)?>"
                             >
-                                Confirmar Pedido
+                                CONFIRMAR PEDIDO
                             </button>
                         </div>
 
@@ -359,7 +361,7 @@ $cliente = mysqli_fetch_object($result);
                                 <?= !$existeVenda ? "disabled" : ""; ?>
                                 style="<?=((!$acao_cancelar)?'display:none;':false)?>"
                             >
-                                Cancelar Pedido
+                                CANCELAR PEDIDO
                             </button>
                         </div>
 
