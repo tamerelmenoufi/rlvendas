@@ -640,43 +640,39 @@ $cliente = mysqli_fetch_object($result);
                 }
             });
 
-
-
-            $("button[sair_venda]").click(function () {
-                $.confirm({
-                    icon: "fa-solid fa-right-from-bracket",
-                    content: false,
-                    title: "Deseja realmente sair do terminal?",
-                    columnClass: "medium",
-                    type: "red",
-                    buttons: {
-                        'nao': {
-                            text: "NÃO, Continuar",
-                            action: function () {
-
-                            }
-                        },
-                        'sim': {
-                            text: "Sim, Sair",
-                            btnClass: 'btn-red',
-                            action: function () {
-                                window.localStorage.clear();
-                                $.ajax({
-                                    url: "home/index.php?sair=1",
-                                    success: function (dados) {
-                                        $("#body").html(dados);
-                                    }
-                                });
-                            },
-                        }
-
-                    }
-                });
-            });
-
         });
 
+        $("button[sair_venda]").click(function () {
+            $.confirm({
+                icon: "fa-solid fa-right-from-bracket",
+                content: false,
+                title: "Deseja realmente sair do terminal?",
+                columnClass: "medium",
+                type: "red",
+                buttons: {
+                    'nao': {
+                        text: "NÃO, Continuar",
+                        action: function () {
 
+                        }
+                    },
+                    'sim': {
+                        text: "Sim, Sair",
+                        btnClass: 'btn-red',
+                        action: function () {
+                            window.localStorage.clear();
+                            $.ajax({
+                                url: "home/index.php?sair=1",
+                                success: function (dados) {
+                                    $("#body").html(dados);
+                                }
+                            });
+                        },
+                    }
+
+                }
+            });
+        });
 
 
         function atualiza_quantidade(codigo, quantidade) {
