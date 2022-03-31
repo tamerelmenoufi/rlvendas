@@ -383,7 +383,7 @@ $cliente = mysqli_fetch_object($result);
         <button
                 sair
                 categoria="<?= $categoria; ?>"
-                class="btn btn-primary btn-lg btn-block"
+                class="btn btn-warning btn-lg btn-block"
         >
             Continuar Comprando
         </button>
