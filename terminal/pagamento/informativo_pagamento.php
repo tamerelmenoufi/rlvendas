@@ -4,7 +4,7 @@ include("../../lib/includes.php");
 ?>
 
 <div style="position:fixed;left: 30px; bottom: 20px;z-index: 999">
-    <button voltar class="btn btn-primary btn-lg">Continuar Comprando</button>
+    <button voltar class="btn btn-primary btn-lg">VOLTAR</button>
 </div>
 
 
