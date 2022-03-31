@@ -388,7 +388,7 @@ $cliente = mysqli_fetch_object($result);
                 categoria="<?= $categoria; ?>"
                 class="btn btn-warning btn-lg "
         >
-            Continuar Comprando
+            CONTINUAR COMPRANDO
         </button>
 
 
