@@ -177,15 +177,12 @@ include("../../lib/includes.php");
                                 url: "home/index.php?sair=1",
                                 dataType: "JSON",
                                 success: function (dados) {
-                                    if (dados.status === "sucesso") {
-                                        $("#body").load("home/index.php");
-                                    }else{
-
+                                    if (dados.status === "erro") {
 
                                         $.confirm({
                                             icon: "fa-solid fa-right-from-bracket",
                                             content: false,
-                                            title: "Você ainda não autorizou seus últimos pedidos para inciarmos o preparo.<br>Por favor escolha uma das opções:",
+                                            title: "Você ainda não confirmou seus últimos pedidos para inciarmos o preparo.<br><br>Por favor escolha uma das opções:",
                                             columnClass: "medium",
                                             type: "red",
                                             buttons: {
@@ -196,13 +193,16 @@ include("../../lib/includes.php");
                                                     }
                                                 },
                                                 'sim': {
-                                                    text: "Quero Autorizar",
+                                                    text: "Quero Confirmar",
                                                     action: function () {
                                                         $("#body").load("home/comanda.php");
                                                     }
                                                 }
                                             }
                                         })
+
+                                    }else{
+                                        $("#body").load("home/index.php");
                                     }
                                 }
                             });

@@ -157,10 +157,7 @@ $d = mysqli_fetch_object($result);
                                 url: "home/index.php?sair=1",
                                 dataType: "JSON",
                                 success: function (dados) {
-                                    if (dados.status === "sucesso") {
-                                        $("#body").load("home/index.php");
-                                    }else{
-
+                                    if (dados.status === "erro") {
 
                                         $.confirm({
                                             icon: "fa-solid fa-right-from-bracket",
@@ -183,6 +180,9 @@ $d = mysqli_fetch_object($result);
                                                 }
                                             }
                                         })
+
+                                    }else{
+                                        $("#body").load("home/index.php");
                                     }
                                 }
                             });
