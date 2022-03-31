@@ -338,15 +338,6 @@ $cliente = mysqli_fetch_object($result);
 
                 <div style="position: fixed; right: 40px; bottom: 20px; border:solid 1px red">
                     <div class="d-flex flex-row justify-content-center">
-                        <div class="ml-1">
-                            <button
-                                    concluir_pedido
-                                    class="btn btn-success btn-lg btn-block mb-1 font-weight-bold"
-                                <?= !$existeVenda ? "disabled" : ""; ?>
-                            >
-                                PAGAR
-                            </button>
-                        </div>
 
                         <div class="mr-1">
                             <button
@@ -372,6 +363,15 @@ $cliente = mysqli_fetch_object($result);
                             </button>
                         </div>
 
+                        <div class="ml-1">
+                            <button
+                                    concluir_pedido
+                                    class="btn btn-success btn-lg btn-block mb-1 font-weight-bold"
+                                <?= !$existeVenda ? "disabled" : ""; ?>
+                            >
+                                PAGAR
+                            </button>
+                        </div>
 
                     </div>
                 </div>
