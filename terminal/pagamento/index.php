@@ -15,7 +15,8 @@ $d = mysqli_fetch_object($result);
 
 <div id="pagamento" class="mt-5">
     <div style="position:fixed;left: 20px; bottom: 20px;z-index: 999">
-        <button voltar class="btn btn-primary btn-lg">Continuar Comprando</button>
+        <button class="btn btn-danger btn-lg " sair_venda>SAIR DO TERMINAL</button>
+        <button voltar class="btn btn-primary btn-lg">CONTINUAR COMPRANDO</button>
     </div>
 
     <div class="container">
@@ -131,5 +132,40 @@ $d = mysqli_fetch_object($result);
                 }
             });
         });
+
+
+        $("button[sair_venda]").click(function () {
+            $.confirm({
+                icon: "fa-solid fa-right-from-bracket",
+                content: false,
+                title: "Deseja realmente sair do terminal?",
+                columnClass: "medium",
+                type: "red",
+                buttons: {
+                    'nao': {
+                        text: "NÃO, Continuar",
+                        action: function () {
+
+                        }
+                    },
+                    'sim': {
+                        text: "Sim, Sair",
+                        btnClass: 'btn-red',
+                        action: function () {
+                            window.localStorage.clear();
+                            $.ajax({
+                                url: "home/index.php?sair=1",
+                                success: function (dados) {
+                                    $("#body").html(dados);
+                                }
+                            });
+                        },
+                    }
+
+                }
+            });
+        });
+
+
     });
 </script>
