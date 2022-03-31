@@ -66,7 +66,7 @@ $_SESSION['categoria'] = "";
             $detalhes = json_decode($p->detalhes, true);
             $detalhes_2 = [];
 
-            echo $url = "../painel/produtos/icon/<?= $p->icon ?>";
+            echo $url = "../painel/produtos/icon/<?=$p->icon?>";
             $url_imagem = is_file("../$url") ? $url : "../img/default_produto.jpg";
 
             ?>
