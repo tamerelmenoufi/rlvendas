@@ -381,12 +381,12 @@ $cliente = mysqli_fetch_object($result);
 
     <div style="position:fixed;bottom: 20px;left: 20px">
 
-        <button class="btn btn-danger btn-lg btn-block" sair_venda>SAIR DO TERMINAL</button>
+        <button class="btn btn-danger btn-lg " sair_venda>SAIR DO TERMINAL</button>
 
         <button
                 sair
                 categoria="<?= $categoria; ?>"
-                class="btn btn-warning btn-lg btn-block"
+                class="btn btn-warning btn-lg "
         >
             Continuar Comprando
         </button>
