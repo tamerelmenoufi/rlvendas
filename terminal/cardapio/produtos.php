@@ -79,7 +79,7 @@ $_SESSION['categoria'] = "";
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold h4"><?= $p->produto ?></h5>
+                            <h5 class="card-title font-weight-bold h4"><?= $p->produto ?> XX</h5>
                             <p class="card-text h5 mb-3"><?= $p->descricao ?></p>
                             <p class="card-text">
                                 <small class="text-muted">
