@@ -337,7 +337,7 @@ $cliente = mysqli_fetch_object($result);
                 </div>
 
                 <div style="position: fixed; right: 40px; bottom: 20px; border:solid 1px red">
-                    <div class="d-flex flex-row justify-content-right">
+                    <div class="d-flex flex-row justify-content-center">
                         <div class="ml-1">
                             <button
                                     concluir_pedido
