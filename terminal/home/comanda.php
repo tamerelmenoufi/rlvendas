@@ -675,7 +675,7 @@ $cliente = mysqli_fetch_object($result);
                                         $.confirm({
                                             icon: "fa-solid fa-right-from-bracket",
                                             content: false,
-                                            title: "Você ainda não autorizou seus últimos pedidos para inciarmos o preparo.<br>Por favor escolha uma das opções:",
+                                            title: "Você ainda não confirmou seus últimos pedidos para inciarmos o preparo.<br><br>Por favor escolha uma das opções:",
                                             columnClass: "medium",
                                             type: "red",
                                             buttons: {
@@ -686,7 +686,7 @@ $cliente = mysqli_fetch_object($result);
                                                     }
                                                 },
                                                 'sim': {
-                                                    text: "Quero Autorizar",
+                                                    text: "Quero Confirmar",
                                                     action: function () {
                                                         $("#body").load("home/comanda.php");
                                                     }
