@@ -85,7 +85,7 @@ include("../../lib/includes.php");
 
 
 <div style="position:fixed; left:20px; bottom:20px; display:none">
-    <button class="btn btn-danger btn-lg btn-block" sair_venda>SAIR DO PEDIDO <?= $_SESSION['ConfMesa'] ?></button>
+    <button class="btn btn-danger btn-lg btn-block" sair_venda>SAIR DO TERMINAL</button>
 </div>
 
 <?php if ($_SESSION['ConfCliente']): ?>
