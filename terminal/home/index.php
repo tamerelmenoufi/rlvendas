@@ -6,7 +6,22 @@ if ($_GET['mesa']) {
 }
 
 if ($_GET['sair']) {
-    $_SESSION = [];
+
+    $query = "select * from vendas_produtos where venda = '{$_SESSION['ConfVenda']}' and deletado != '1' and situacao = 'n'";
+    $result = mysqli_query($con, $query);
+    $n = mysqli_num_rows($result);
+    if($n > 0 and !$_GET['confirm']){
+        echo json_encode([
+            "status" => "erro",
+        ]);
+    }else{
+        echo json_encode([
+            "status" => "sucesso",
+        ]);
+        $_SESSION = [];
+    }
+
+    exit();
 }
 
 ?>

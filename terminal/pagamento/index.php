@@ -114,7 +114,7 @@ $d = mysqli_fetch_object($result);
 
         $("button[voltar]").click(function () {
             $.ajax({
-                url: "home/comanda.php",
+                url: "home/index.php",
                 success: function (dados) {
                     $("#body").html(dados);
                 }
@@ -155,8 +155,35 @@ $d = mysqli_fetch_object($result);
                             window.localStorage.clear();
                             $.ajax({
                                 url: "home/index.php?sair=1",
+                                dataType: "JSON",
                                 success: function (dados) {
-                                    $("#body").html(dados);
+                                    if (dados.status === "sucesso") {
+                                        $("#body").load("home/index.php");
+                                    }else{
+
+
+                                        $.confirm({
+                                            icon: "fa-solid fa-right-from-bracket",
+                                            content: false,
+                                            title: "Você ainda não autorizou seus últimos pedidos para inciarmos o preparo.<br>Por favor escolha uma das opções:",
+                                            columnClass: "medium",
+                                            type: "red",
+                                            buttons: {
+                                                'nao': {
+                                                    text: "Sair mesmo!",
+                                                    action: function () {
+                                                        $("#body").load("home/index.php?sair=1&confirm=1");
+                                                    }
+                                                },
+                                                'sim': {
+                                                    text: "Quero Autorizar",
+                                                    action: function () {
+                                                        $("#body").load("home/comanda.php");
+                                                    }
+                                                }
+                                            }
+                                        })
+                                    }
                                 }
                             });
                         },

@@ -142,11 +142,23 @@ include("../../lib/includes.php");
             });
         });
 
+        $(".comanda").click(function () {
+            $.ajax({
+                url: "home/comanda.php",
+                success: function (dados) {
+                    $("#body").html(dados);
+                }
+            })
+        });
+
+
+
+
         $("button[sair_venda]").click(function () {
             $.confirm({
                 icon: "fa-solid fa-right-from-bracket",
                 content: false,
-                title: "Deseja realmente sair do terminal",
+                title: "Deseja realmente sair do terminal?",
                 columnClass: "medium",
                 type: "red",
                 buttons: {
@@ -163,8 +175,35 @@ include("../../lib/includes.php");
                             window.localStorage.clear();
                             $.ajax({
                                 url: "home/index.php?sair=1",
+                                dataType: "JSON",
                                 success: function (dados) {
-                                    $("#body").html(dados);
+                                    if (dados.status === "sucesso") {
+                                        $("#body").load("home/index.php");
+                                    }else{
+
+
+                                        $.confirm({
+                                            icon: "fa-solid fa-right-from-bracket",
+                                            content: false,
+                                            title: "Você ainda não autorizou seus últimos pedidos para inciarmos o preparo.<br>Por favor escolha uma das opções:",
+                                            columnClass: "medium",
+                                            type: "red",
+                                            buttons: {
+                                                'nao': {
+                                                    text: "Sair mesmo!",
+                                                    action: function () {
+                                                        $("#body").load("home/index.php?sair=1&confirm=1");
+                                                    }
+                                                },
+                                                'sim': {
+                                                    text: "Quero Autorizar",
+                                                    action: function () {
+                                                        $("#body").load("home/comanda.php");
+                                                    }
+                                                }
+                                            }
+                                        })
+                                    }
                                 }
                             });
                         },
@@ -174,13 +213,6 @@ include("../../lib/includes.php");
             });
         });
 
-        $(".comanda").click(function () {
-            $.ajax({
-                url: "home/comanda.php",
-                success: function (dados) {
-                    $("#body").html(dados);
-                }
-            })
-        });
+
     })
 </script>
