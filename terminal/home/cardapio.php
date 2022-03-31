@@ -91,7 +91,7 @@ include("../../lib/includes.php");
 <?php if ($_SESSION['ConfCliente']): ?>
     <div style="position:fixed; right:40px; bottom:20px;">
         <button type="button" class="btn btn-primary btn-lg btn-block comanda">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-solid fa-bag-shopping"></i> MEU PEDIDO
         </button>
     </div>
 <?php endif; ?>
