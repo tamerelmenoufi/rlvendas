@@ -16,9 +16,9 @@ if ($_GET['sair']) {
         ]);
         exit();
     }else{
-        echo json_encode([
-            "status" => "sucesso",
-        ]);
+        // echo json_encode([
+        //     "status" => "sucesso",
+        // ]);
         $_SESSION = [];
     }
 }
