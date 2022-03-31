@@ -146,7 +146,7 @@ include("../../lib/includes.php");
             $.confirm({
                 icon: "fa-solid fa-right-from-bracket",
                 content: false,
-                title: "Deseja realmente sair do seu pedido",
+                title: "Deseja realmente sair do terminal",
                 columnClass: "medium",
                 type: "red",
                 buttons: {
