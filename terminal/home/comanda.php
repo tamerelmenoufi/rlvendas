@@ -629,7 +629,7 @@ $cliente = mysqli_fetch_object($result);
                                 success: function (dados) {
                                     if (dados.status === "sucesso") {
                                         $.ajax({
-                                            url: "home/index.php",
+                                            url: "home/comanda.php",
                                             success: function (dados) {
                                                 $("#body").html(dados);
                                             }
