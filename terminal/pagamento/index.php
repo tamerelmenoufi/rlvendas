@@ -15,8 +15,8 @@ $d = mysqli_fetch_object($result);
 
 <div id="pagamento" class="mt-5">
     <div style="position:fixed;left: 20px; bottom: 20px;z-index: 999">
-        <button class="btn btn-warning btn-lg " sair_venda>SAIR DO TERMINAL</button>
-        <button voltar class="btn btn-primary btn-lg">CONTINUAR COMPRANDO</button>
+        <button class="btn btn-danger btn-lg " sair_venda>SAIR DO TERMINAL</button>
+        <button voltar class="btn btn-warning btn-lg">CONTINUAR COMPRANDO</button>
     </div>
 
     <div class="container">
