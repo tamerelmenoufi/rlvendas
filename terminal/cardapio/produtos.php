@@ -59,14 +59,14 @@ $_SESSION['categoria'] = "";
 
     <div class="col-md-12">
         <?php
-        echo $query = "SELECT * FROM produtos WHERE categoria = {$d->codigo} AND deletado != '1'";
+        $query = "SELECT * FROM produtos WHERE categoria = {$d->codigo} AND deletado != '1'";
         $result = mysqli_query($con, $query);
 
         while ($p = mysqli_fetch_object($result)) {
             $detalhes = json_decode($p->detalhes, true);
             $detalhes_2 = [];
 
-            echo $url = "../painel/produtos/icon/<?=$p->icon?>";
+            $url = "../painel/produtos/icon/{$p->icon}";
             $url_imagem = is_file("../$url") ? $url : "../img/default_produto.jpg";
 
             ?>
