@@ -336,7 +336,7 @@ $cliente = mysqli_fetch_object($result);
                     </div>
                 </div>
 
-                <div style="position: fixed; right: 40px; bottom: 20px; border:solid 1px red">
+                <div style="position: fixed; right: 40px; bottom: 20px;">
                     <div class="d-flex flex-row justify-content-center">
 
                         <div class="mr-1">
