@@ -336,7 +336,7 @@ $cliente = mysqli_fetch_object($result);
                     </div>
                 </div>
 
-                <div style="position: fixed; right: 40px; bottom: 20px; width: 500px;">
+                <div style="position: fixed; right: 40px; bottom: 20px; width: 500px; border:solid 1px red">
                     <div class="d-flex flex-row justify-content-right">
                         <div class="mr-1">
                             <button
