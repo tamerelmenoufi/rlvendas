@@ -280,10 +280,10 @@ const socketMessageListener = (event) => {
             url:"pizzas/add.php",
             type:"POST",
             data:{
-                cod:dados.text
+                cod:dados.text,
             },
             success:function(dados){
-                $("table[pizzas]").append(nova_linha);
+                $("table[pizzas]").append(dados);
             }
         });
 
