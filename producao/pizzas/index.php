@@ -63,7 +63,7 @@
             <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozenha (Produção de <?=$opc?>)</h4>
         <table <?=$opc?> class="table table-striped table-hover" style="margin-top:40px;">
         <?php
-            $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo /*where a.situacao = 'p'*/ order by a.data asc";
+            $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao = 'p' and a.delete != '1' order by a.data asc";
             $result = mysqli_query($con, $query);
 
             while($d = mysqli_fetch_object($result)){
