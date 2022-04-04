@@ -1,7 +1,7 @@
 <?php
     include("../../lib/includes.php");
 
-    $cod = str_replace("|", ",", $_POST['cod']);
+    $cod = base64_decode($_POST['cod']);
 
     $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo = ({$cod})";
     $result = mysqli_query($con, $query);
