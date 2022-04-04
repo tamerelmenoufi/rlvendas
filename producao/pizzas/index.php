@@ -9,7 +9,8 @@
         exit();
     }
 
-    $tipos = [  'pizzas'
+    $tipos = [
+                'pizzas'
                 // ,'sanduiches'
             ];
 ?>
