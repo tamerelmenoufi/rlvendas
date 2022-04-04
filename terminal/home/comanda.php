@@ -46,7 +46,7 @@ if (!empty($_POST) and $_POST["acao"] === "preparar") {
     if (mysqli_query($con, $query)) {
         echo json_encode([
             "status" => "sucesso",
-            "venda" => $codigos,
+            "venda" => str_replace(",", "|", $codigos),
         ]);
     }
 

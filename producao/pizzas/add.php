@@ -1,7 +1,9 @@
 <?php
     include("../../lib/includes.php");
 
-    $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo = ({$_POST['cod']})";
+    $cod = str_replace("|", ",", $_POST['cod']);
+
+    $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo = ({$cod})";
     $result = mysqli_query($con, $query);
 
     while($d = mysqli_fetch_object($result)){
