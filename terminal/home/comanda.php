@@ -635,12 +635,13 @@ $cliente = mysqli_fetch_object($result);
                                 },
                                 success: function (dados) {
                                     if (dados.status === "sucesso") {
-                                        atauliza = dados.venda;
+                                        atualiza = dados.venda;
                                         $.ajax({
                                             url: "home/comanda.php",
                                             success: function (dados) {
+                                                mySocket.send(atualiza);
+                                                $.alert(atualiza);
                                                 $("#body").html(dados);
-                                                mySocket.send(atauliza);
                                             }
                                         })
                                     }
