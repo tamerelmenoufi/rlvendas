@@ -275,7 +275,7 @@ const socketMessageListener = (event) => {
     const dados = JSON.parse(event.data);
     if(dados.type === 'chat'){
         //output.append('Outro: ' + dados.text, document.createElement('br'));
-
+        console.log('Entrou na função');
         $.ajax({
             url:"pizzas/add.php",
             type:"POST",
@@ -283,7 +283,11 @@ const socketMessageListener = (event) => {
                 cod:dados.text,
             },
             success:function(dados){
+                console.log(dados);
                 $("table[pizzas]").append(dados);
+            },
+            error:function(){
+                console.log('algo deu errado!');
             }
         });
 

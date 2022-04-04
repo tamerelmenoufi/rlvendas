@@ -640,7 +640,7 @@ $cliente = mysqli_fetch_object($result);
                                             url: "home/comanda.php",
                                             success: function (dados) {
                                                 mySocket.send(atualiza);
-                                                $.alert(atualiza);
+                                                //$.alert(atualiza);
                                                 $("#body").html(dados);
                                             }
                                         })
