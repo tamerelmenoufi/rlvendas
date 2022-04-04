@@ -42,7 +42,7 @@ if (!empty($_POST) and $_POST["acao"] === "preparar") {
     }
     $codigos = implode(",", $codigos);
 
-    $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE codigo in ({$codigo})";
+    $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE codigo in ({$codigos})";
     if (mysqli_query($con, $query)) {
         echo json_encode([
             "status" => "sucesso",
