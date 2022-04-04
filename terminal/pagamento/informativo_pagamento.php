@@ -13,7 +13,7 @@ include("../../lib/includes.php");
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-center flex-column">
-                    <h2 class="h2 font-weight-bold">Pagamento</h2>
+                    <h2 class="h2 font-weight-bold">Pagamento com <?=$_GET['opc']?></h2>
                     <p class="h4">Por favor se direcione até o caixa para efetuar o pagamento</p>
                     <p class="h4 text-center">OU</p>
                     <p class="h4">Você pode Solicitar que o garçon envie comanda de pagamento em sua mesa.</p>

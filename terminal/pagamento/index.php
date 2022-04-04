@@ -79,14 +79,14 @@ $d = mysqli_fetch_object($result);
                                 Crédito
                             </a>
                         </h5>
-                        <!--<h5 class="card-title">
+                        <h5 class="card-title">
                             <a
                                     pagar
-                                    opc="credito"
+                                    opc="dinheiro"
                                     class="btn btn-info btn-lg btn-block">
-                                <i class="fa-solid fa-credit-card"></i> Crédito
+                                <i class="fa-solid fa-credit-card"></i> Dinheiro
                             </a>
-                        </h5>-->
+                        </h5>
 
                     </div>
                 </div>
@@ -126,7 +126,7 @@ $d = mysqli_fetch_object($result);
 
             $.ajax({
                 url: `pagamento/informativo_pagamento.php`,
-                data: {opc},
+                data:{opc},
                 success: function (dados) {
                     $("#body").html(dados);
                 }
