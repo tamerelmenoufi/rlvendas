@@ -3,7 +3,7 @@
 
     $cod = base64_decode($_POST['cod']);
 
-    echo $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo = ({$cod})";
+    $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo IN ({$cod})";
     $result = mysqli_query($con, $query);
 
     while($d = mysqli_fetch_object($result)){
