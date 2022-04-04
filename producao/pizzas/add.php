@@ -5,6 +5,15 @@
     $result = mysqli_query($con, $query);
 
     while($d = mysqli_fetch_object($result)){
+
+        $pedido = json_decode($d->produto_json);
+        $sabores = false;
+        $ListaPedido = [];
+        for($i=0; $i < count($pedido->produtos); $i++){
+            $ListaPedido[] = $pedido->produtos[$i]->descricao;
+        }
+        if($ListaPedido) $sabores = implode(', ', $ListaPedido);
+
 ?>
     <tr>
         <td>
@@ -12,7 +21,7 @@
                 <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">
             </div>
         </td>
-        <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>
+        <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><?=$d->mesa?></label></td>
         <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
         <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
             <?=$pedido->categoria->descricao?>
