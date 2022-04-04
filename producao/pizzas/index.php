@@ -276,6 +276,7 @@ const socketMessageListener = (event) => {
     if(dados.type === 'chat'){
         //output.append('Outro: ' + dados.text, document.createElement('br'));
         console.log('Entrou na função');
+        console.log(dados.text);
         $.ajax({
             url:"pizzas/add.php",
             type:"POST",
