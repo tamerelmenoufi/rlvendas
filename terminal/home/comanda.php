@@ -34,12 +34,19 @@ if (!empty($_POST) and $_POST["acao"] === "cancelar") {
 
 if (!empty($_POST) and $_POST["acao"] === "preparar") {
     $codigo = $_SESSION['ConfVenda'];
+    $codigos = [];
+    $query = "SELECT * FROM vendas_produtos WHERE venda = '{$codigo}' and situacao = 'n'";
+    $result = mysqli_query($con, $query);
+    while($d = mysqli_fetch_object($result)){
+        $codigos[] = $d->codigo;
+    }
+    $codigos = implode(",", $codigos);
 
-    $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE venda = '{$codigo}' and situacao = 'n'";
-
+    $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE codigo in ({$codigo})";
     if (mysqli_query($con, $query)) {
         echo json_encode([
             "status" => "sucesso",
+            "venda" => $codigos,
         ]);
     }
 
@@ -632,6 +639,7 @@ $cliente = mysqli_fetch_object($result);
                                             url: "home/comanda.php",
                                             success: function (dados) {
                                                 $("#body").html(dados);
+                                                mySocket.send(dados.venda);
                                             }
                                         })
                                     }
@@ -724,4 +732,60 @@ $cliente = mysqli_fetch_object($result);
             });
         }
     });
+
+
+
+
+
+
+
+
+
+
+
+// Socket Variable declaration
+var mySocket;
+// const socketMessageListener = (event) => {
+//     const dados = JSON.parse(event.data);
+//     if(dados.type === 'chat'){
+//         output.append('Outro: ' + dados.text, document.createElement('br'));
+//     }
+// };
+
+// Open
+const socketOpenListener = (event) => {
+   console.log('Connected');
+
+};
+
+// Closed
+const socketCloseListener = (event) => {
+   if (mySocket) {
+      console.error('Disconnected.');
+   }
+   mySocket = new WebSocket('wss://websocket.yobom.com.br');
+
+   input = document.querySelector('input');
+   output = document.querySelector('output');
+
+   mySocket.addEventListener('open', socketOpenListener);
+ //  mySocket.addEventListener('message', socketMessageListener);
+   mySocket.addEventListener('close', socketCloseListener);
+
+};
+socketCloseListener();
+
+// input.addEventListener('keypress', e => {
+//         if(e.code === 'Enter'){
+//             const valor = input.value;
+//             //output.append('Eu: ' + valor, document.createElement('br'));
+//             mySocket.send(valor);
+
+//             input.value = '';
+//         }
+//     });
+
+
+
+
 </script>

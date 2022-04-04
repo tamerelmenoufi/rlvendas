@@ -275,23 +275,35 @@ const socketMessageListener = (event) => {
     const dados = JSON.parse(event.data);
     if(dados.type === 'chat'){
         //output.append('Outro: ' + dados.text, document.createElement('br'));
-        nova_linha = '<tr>'+
-                        '<td>'+
-                        '    <div class="form-group form-check">'+
-                        '        <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">'+
-                        '    </div>'+
-                        '</td>'+
-                        '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>'+
-                        '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>'+
-                        '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">'+
-                        '    <?=$pedido->categoria->descricao?>'+
-                        '    - <?=$pedido->medida->descricao?> (<?=$sabores?>)'+
-                        '    <p class="card-text" style="color:red;">'+
-                        '    <?= $d->produto_descricao?></p>'+
-                        '</label></td>'+
-                        '<td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>'+
-                        '</tr>';
-        $("table[pizzas]").append(nova_linha);
+
+        $.ajax({
+            url:"pizzas/add.php",
+            type:"POST",
+            data:{
+                cod:dados.text
+            },
+            success:function(dados){
+                $("table[pizzas]").append(nova_linha);
+            }
+        });
+
+        // nova_linha = '<tr>'+
+        //                 '<td>'+
+        //                 '    <div class="form-group form-check">'+
+        //                 '        <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">'+
+        //                 '    </div>'+
+        //                 '</td>'+
+        //                 '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>'+
+        //                 '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>'+
+        //                 '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">'+
+        //                 '    <?=$pedido->categoria->descricao?>'+
+        //                 '    - <?=$pedido->medida->descricao?> (<?=$sabores?>)'+
+        //                 '    <p class="card-text" style="color:red;">'+
+        //                 '    <?= $d->produto_descricao?></p>'+
+        //                 '</label></td>'+
+        //                 '<td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>'+
+        //                 '</tr>';
+
     }
 
 
