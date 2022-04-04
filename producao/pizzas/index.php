@@ -124,6 +124,8 @@
 
 <script>
     $(function(){
+
+
         $(document).on("click", "input[status]", function(){
             obj = $(this);
             var opc;
@@ -168,6 +170,47 @@
 
 
         });
+
+
+        $(document).on("click", "button[concluir]", function(){
+            obj = $(this);
+            elimina = obj.parent("td").parent("tr");
+            var cod = obj.attr("cod");
+            var opc = 'c';
+            var msg = 'Confirma a conclusão do produto?';
+            var tipo = 'blue';
+
+            $.confirm({
+                content:msg,
+                title:false,
+                type:tipo,
+                buttons:{
+                    'SIM':function(){
+                        $.ajax({
+                            url:"pizzas/index.php",
+                            type:"POST",
+                            data:{
+                                cod,
+                                opc
+                            },
+                            success:function(dados){
+                                elimina.remove();
+                            },
+                            error:function(){
+                                alert('erro');
+                            }
+                        });
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            });
+
+
+        });
+
+
     })
 
 
