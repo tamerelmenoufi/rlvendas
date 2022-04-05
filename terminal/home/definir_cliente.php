@@ -5,7 +5,7 @@ function venda($cliente, $mesa)
 {
     global $con;
 
-    $query = "SELECT codigo FROM vendas WHERE cliente = '{$cliente}' AND mesa = '{$mesa}' AND deletado != '1' LIMIT 1";
+    $query = "SELECT codigo FROM vendas WHERE cliente = '{$cliente}' AND situacao = 'producao' AND mesa = '{$mesa}' AND deletado != '1' LIMIT 1";
     $result = mysqli_query($con, $query);
 
     if (mysqli_num_rows($result)) {
@@ -14,7 +14,7 @@ function venda($cliente, $mesa)
 
         $_SESSION['ConfVenda'] = $codigo;
     } else {
-        $data_pedido = date('d-m-Y H:i:s');
+        $data_pedido = date('Y-m-d H:i:s');
         mysqli_query($con, "INSERT INTO vendas SET cliente = '{$cliente}', mesa = '{$mesa}', data_pedido = '{$data_pedido}', situacao = 'producao'");
         $_SESSION['ConfVenda'] = mysqli_insert_id($con);
     }

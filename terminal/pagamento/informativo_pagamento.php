@@ -1,6 +1,31 @@
 <?php
 include("../../lib/includes.php");
 
+
+if($_POST['acao'] == 'fechar_conta'){
+
+    $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
+    . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
+    . "WHERE v.situacao = 'producao' AND "
+    . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
+    . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
+    . "vp.deletado != '1' AND v.codigo = '{$_SESSION['ConfVenda']}'";
+
+    $result = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result);
+
+
+    mysqli_query($con, "update vendas SET
+                                            situacao = 'pago',
+                                            valor='{$d->total}',
+                                            total='{$d->total}',
+                                            forma_pagamento='{$_POST['forma_pagamento']}',
+                                            data_finalizacao = NOW()
+                        where codigo = '{$_SESSION['ConfVenda']}'
+                ");
+
+}
+
 ?>
 
 <div style="position:fixed;left: 20px; bottom: 20px; z-index: 999">
@@ -42,6 +67,11 @@ include("../../lib/includes.php");
         $("button[fechar_conta]").click(function () {
             $.ajax({
                 url: "pagamento/informativo_pagamento.php",
+                type:"POST",
+                data:{
+                    acao:'forma_pagamento',
+                    forma_pagamento:'<?=$_GET['opc']?>',
+                },
                 success: function (dados) {
 
                     $.ajax({
