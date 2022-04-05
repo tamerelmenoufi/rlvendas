@@ -57,7 +57,7 @@ $d = mysqli_fetch_object($result);
                         <h5 class="card-title">
                             <a
                                     pagar
-                                    opc="pix"
+                                    opc="dinheiro"
                                     class="btn btn-info btn-lg btn-block">
                                 <i class="fa-solid fa-money-bill-1-wave"></i> Dinheiro
                             </a>
@@ -75,16 +75,15 @@ $d = mysqli_fetch_object($result);
                                     pagar
                                     opc="debito"
                                     class="btn btn-info btn-lg btn-block">
-                                <i class="fa-solid fa-credit-card"></i> Débito /
-                                Crédito
+                                <i class="fa-solid fa-credit-card"></i> Débito
                             </a>
                         </h5>
                         <h5 class="card-title">
                             <a
                                     pagar
-                                    opc="dinheiro"
+                                    opc="credito"
                                     class="btn btn-info btn-lg btn-block">
-                                <i class="fa-solid fa-credit-card"></i> Dinheiro
+                                <i class="fa-solid fa-credit-card"></i> Crédito
                             </a>
                         </h5>
 
