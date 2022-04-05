@@ -20,7 +20,7 @@ include("../../lib/includes.php");
                 </div>
 
                 <button class="btn btn-info btn-lg btn-block mt-4">
-                    <i class="fa-solid fa-bell-concierge"></i> Solicitar pagamento na mesa
+                    <i class="fa-solid fa-bell-concierge"></i> Solicitar pagamento na mesa / Fechar a Conta
                 </button>
             </div>
         </div>
