@@ -24,6 +24,7 @@ if($_POST['acao'] == 'fechar_conta'){
                         where codigo = '{$_SESSION['ConfVenda']}'
                 ");
 
+    $_SESSION = [];
 }
 
 ?>
@@ -69,7 +70,7 @@ if($_POST['acao'] == 'fechar_conta'){
                 url: "pagamento/informativo_pagamento.php",
                 type:"POST",
                 data:{
-                    acao:'forma_pagamento',
+                    acao:'fechar_conta',
                     forma_pagamento:'<?=$_GET['opc']?>',
                 },
                 success: function (dados) {
