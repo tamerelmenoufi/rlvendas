@@ -359,7 +359,7 @@ $cliente = mysqli_fetch_object($result);
                 <div style="position: fixed; right: 40px; bottom: 20px;">
                     <div class="d-flex flex-row justify-content-center">
 
-                        <div class="mr-1">
+                        <!-- <div class="mr-1">
                             <button
                                     confirmar_pedido
                                     categoria="<?= $categoria; ?>"
@@ -369,7 +369,7 @@ $cliente = mysqli_fetch_object($result);
                             >
                                 CONFIRMAR PEDIDO
                             </button>
-                        </div>
+                        </div> -->
 
                         <div class="mr-1">
                             <button
