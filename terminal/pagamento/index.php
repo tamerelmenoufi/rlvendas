@@ -6,7 +6,7 @@ $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
     . "WHERE v.situacao = 'producao' AND "
     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
     . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
-    . "vp.deletado = '0'";
+    . "vp.deletado != '1' AND v.codigo = '{$_SESSION['ConfVenda']}'";
 
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
