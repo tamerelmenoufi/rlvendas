@@ -313,6 +313,17 @@ $cliente = mysqli_fetch_object($result);
                                     ); ?>
                                 </span>
                             </div>
+                            <div class="col-md-12">
+                                <button
+                                        confirmar_pedido
+                                        categoria="<?= $categoria; ?>"
+                                        class="btn btn-primary btn-lg btn-block font-weight-bold"
+                                    <?= !$existeVenda ? "disabled" : ""; ?>
+                                    style="<?=((!$acao_preparar)?'display:none;':false)?>"
+                                >
+                                    CONFIRMAR PEDIDO
+                                </button>
+                            </div>
                         </div>
 
                         <!-- <hr>
