@@ -19,7 +19,7 @@ include("../../lib/includes.php");
                     <p class="h4">Você pode Solicitar que o garçon envie comanda de pagamento em sua mesa.</p>
                 </div>
 
-                <button class="btn btn-info btn-lg btn-block mt-4">
+                <button fechar_conta class="btn btn-info btn-lg btn-block mt-4">
                     <i class="fa-solid fa-bell-concierge"></i> Solicitar pagamento na mesa / Fechar a Conta
                 </button>
             </div>
@@ -37,5 +37,23 @@ include("../../lib/includes.php");
                 }
             });
         });
+
+
+        $("button[fechar_conta]").click(function () {
+            $.ajax({
+                url: "pagamento/informativo_pagamento.php",
+                success: function (dados) {
+
+                    $.ajax({
+                        url: "home/index.php",
+                        success: function (dados) {
+                            $("#body").html(dados);
+                        }
+                    });
+
+                }
+            });
+        });
+
     });
 </script>
