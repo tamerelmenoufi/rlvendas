@@ -1,6 +1,13 @@
 <?php
 include("../../lib/includes.php");
 
+$n = mysqli_num_rows(mysqli_query($con, "select * from vendas where codigo = '{$_SESSION['ConfVenda']}' and situacao = 'producao' and deletado != '1'  "));
+if(!$n){
+    $_SESSION = [];
+    header("location:./");
+    exit();
+}
+
 if (!empty($_POST) and $_POST["acao"] === "remover") {
     $codigo = $_POST["codigo"];
 
@@ -137,6 +144,7 @@ $cliente = mysqli_fetch_object($result);
                     . "WHERE v.situacao = 'producao' AND "
                     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
                     . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
+                    . "v.codigo = '{$_SESSION['ConfVenda']}' AND "
                     . "v.situacao = 'producao' AND vp.deletado != '1' and v.deletado != '1' order by vp.codigo desc";
 
                 #echo $query;
