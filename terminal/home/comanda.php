@@ -1,10 +1,10 @@
 <?php
 include("../../lib/includes.php");
 
-$n = mysqli_num_rows(mysqli_query($con, "select * from vendas where codigo = '{$_SESSION['ConfVenda']}' and situacao = 'producao' and deletado != '1'  "));
+$n = mysqli_fetch_object(mysqli_query($con, "select * from vendas where codigo = '{$_SESSION['ConfVenda']}' and situacao = 'producao' and deletado != '1'  "));
 
 echo "<br><br><br>";
-echo "N = {$n}";
+echo "N = {$n->codigo}";
 echo "<br><br><br>";
 
 if(!$n){
