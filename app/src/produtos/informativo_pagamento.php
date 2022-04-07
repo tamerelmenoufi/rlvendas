@@ -1,5 +1,5 @@
 <?php
-include("../../lib/includes.php");
+include("../../../lib/includes.php");
 
 
 if($_POST['acao'] == 'fechar_conta'){
