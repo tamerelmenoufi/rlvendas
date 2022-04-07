@@ -97,16 +97,16 @@
                 <div class="card-header">Formas de Pagamento</div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a pagar opc="debito" class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Débito</a>
-                    </h5>
-                    <h5 class="card-title">
-                        <a pagar opc="credito" class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Crédito</a>
+                        <a pagar opc="dinheiro" class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Dinheiro</a>
                     </h5>
                     <h5 class="card-title">
                         <a pagar opc="pix" class="btn btn-success btn-lg"><i class="fa-brands fa-pix"></i> PIX</a>
                     </h5>
                     <h5 class="card-title">
-                        <a pagar opc="dinheiro" class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Dinheiro</a>
+                        <a pagar opc="debito" class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Débito</a>
+                    </h5>
+                    <h5 class="card-title">
+                        <a pagar opc="credito" class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Crédito</a>
                     </h5>
                 </div>
             </div>
