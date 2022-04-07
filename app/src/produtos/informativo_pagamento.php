@@ -36,11 +36,6 @@ if($_POST['acao'] == 'fechar_conta'){
 
 ?>
 
-<div style="position:fixed;left: 20px; bottom: 20px; z-index: 999">
-    <button voltar class="btn btn-primary btn-lg">VOLTAR</button>
-</div>
-
-
 <div class="container">
     <div class="col-md-12" style="margin-top: 3rem">
         <div class="card">
@@ -52,6 +47,9 @@ if($_POST['acao'] == 'fechar_conta'){
                     <p class="h5">Você pode Solicitar que o garçon envie comanda de pagamento em sua mesa.</p>
                 </div>
 
+                <button fechar_conta class="btn btn-info btn-lg btn-block mt-4">
+                    <i class="fa-solid fa-bell-concierge"></i> Solicitar pagamento na mesa / Fechar a Conta
+                </button>
             </div>
         </div>
     </div>
