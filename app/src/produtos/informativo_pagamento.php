@@ -42,19 +42,16 @@ if($_POST['acao'] == 'fechar_conta'){
 
 
 <div class="container">
-    <div class="col-md-12" style="margin-top: 6rem">
+    <div class="col-md-12" style="margin-top: 3rem">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-center flex-column">
                     <h2 class="h2 font-weight-bold">Pagamento com <?=$_GET['opc']?></h2>
-                    <p class="h4">Por favor se direcione até o caixa para efetuar o pagamento</p>
-                    <p class="h4 text-center">OU</p>
-                    <p class="h4">Você pode Solicitar que o garçon envie comanda de pagamento em sua mesa.</p>
+                    <p class="h5">Por favor se direcione até o caixa para efetuar o pagamento</p>
+                    <p class="h5 text-center">OU</p>
+                    <p class="h5">Você pode Solicitar que o garçon envie comanda de pagamento em sua mesa.</p>
                 </div>
 
-                <button fechar_conta class="btn btn-info btn-lg btn-block mt-4">
-                    <i class="fa-solid fa-bell-concierge"></i> Solicitar pagamento na mesa / Fechar a Conta
-                </button>
             </div>
         </div>
     </div>
@@ -62,15 +59,6 @@ if($_POST['acao'] == 'fechar_conta'){
 
 <script>
     $(function () {
-        $("button[voltar]").click(function () {
-            $.ajax({
-                url: "pagamento/index.php",
-                success: function (dados) {
-                    $("#body").html(dados);
-                }
-            });
-        });
-
 
         $("button[fechar_conta]").click(function () {
             $.ajax({
