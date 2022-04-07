@@ -158,7 +158,7 @@
                             class="col foto<?= $md5 ?>"
                             style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)"
                         >
-                            <span sabor><?= $p->produto ?></span>
+                            <span sabor><?= $p->produto. ' ==> ' .$_SESSION['AppVenda'] ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
                             <!-- <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span> -->
