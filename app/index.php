@@ -29,6 +29,18 @@
 
 <script>
     $(function () {
+
+        <?php
+        if($_GET['s']){
+        ?>
+        window.localStorage.removeItem('AppPedido');
+        window.location.href='./';
+        return false;
+        <?php
+        }
+        ?>
+
+
         $.ajax({
             url: "src/home/index.php",
             success: function (dados) {

@@ -1,5 +1,9 @@
 <?php
     include("../../../lib/includes.php");
+
+    VerificarVendaApp();
+
+
     if($_POST['acao'] == 'SairPedido'){
         $_SESSION = [];
         exit();

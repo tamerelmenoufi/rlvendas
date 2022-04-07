@@ -1,6 +1,8 @@
 <?php
 include("../../../lib/includes.php");
 
+VerificarVendaApp();
+
 function aasort(&$array, $key)
 {
     $sorter = array();

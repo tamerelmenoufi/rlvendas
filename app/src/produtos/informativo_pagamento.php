@@ -1,6 +1,7 @@
 <?php
 include("../../../lib/includes.php");
 
+VerificarVendaApp();
 
 if($_POST['acao'] == 'fechar_conta'){
 
