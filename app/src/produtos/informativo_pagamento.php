@@ -41,7 +41,7 @@ if($_POST['acao'] == 'fechar_conta'){
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-center flex-column">
-                    <h2 class="h2 font-weight-bold">Pagamento com <?=$_GET['opc']?></h2>
+                    <h2 class="h2 font-weight-bold">Pagamento com <?=$_POST['opc']?></h2>
                     <p class="h5">Por favor se direcione até o caixa para efetuar o pagamento</p>
                     <p class="h5 text-center">OU</p>
                     <p class="h5">Você pode Solicitar que o garçon envie comanda de pagamento em sua mesa.</p>
@@ -64,7 +64,7 @@ if($_POST['acao'] == 'fechar_conta'){
                 type:"POST",
                 data:{
                     acao:'fechar_conta',
-                    forma_pagamento:'<?=$_GET['opc']?>',
+                    forma_pagamento:'<?=$_POST['opc']?>',
                 },
                 success: function (dados) {
 
