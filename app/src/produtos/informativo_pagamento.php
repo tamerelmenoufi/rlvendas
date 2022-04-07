@@ -48,7 +48,7 @@ if($_POST['acao'] == 'fechar_conta'){
                 </div>
 
                 <button fechar_conta class="btn btn-info btn-block mt-4">
-                    <i class="fa-solid fa-bell-concierge"></i> Solicitar pagamento na mesa / Fechar a Conta
+                    <i class="fa-solid fa-bell-concierge"></i> Solicitar pagamento na mesa<br>Fechar a Conta
                 </button>
             </div>
         </div>
