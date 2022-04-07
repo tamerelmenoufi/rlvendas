@@ -70,7 +70,7 @@ if($_POST['acao'] == 'fechar_conta'){
 
                     let retorno = JSON.parse(dados);
 
-                    if(dados.status){
+                    if(retorno.status){
                         window.localStorage.removeItem('AppPedido');
                         window.localStorage.removeItem('AppVenda');
                         window.location.href='./';
