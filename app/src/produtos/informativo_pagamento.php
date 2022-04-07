@@ -60,7 +60,7 @@ if($_POST['acao'] == 'fechar_conta'){
 
         $("button[fechar_conta]").click(function () {
             $.ajax({
-                url: "pagamento/informativo_pagamento.php",
+                url: "src/protutos/informativo_pagamento.php",
                 type:"POST",
                 data:{
                     acao:'fechar_conta',
