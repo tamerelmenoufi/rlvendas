@@ -133,7 +133,9 @@
                 url:"componentes/ms_popup_100.php",
                 type:"POST",
                 data:{
-                    local:'src/produtos/pagar_'+opc+'.php',
+                    //local:'src/produtos/pagar_'+opc+'.php',
+                    local:'src/produtos/informativo_pagamento.php',
+                    opc,
                 },
                 success:function(dados){
                     //PageClose();
