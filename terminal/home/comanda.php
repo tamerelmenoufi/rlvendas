@@ -1,7 +1,7 @@
 <?php
 include("../../lib/includes.php");
 echo "<br><br><br>";
-$teste = "select * from vendas where codigo = '{$_SESSION['ConfVenda']}' and situacao = 'producao' and deletado != '1'  ";
+echo $teste = "select * from vendas where codigo = '{$_SESSION['ConfVenda']}' and situacao = 'producao' and deletado != '1'  ";
 echo "<br><br><br>";
 $n = mysqli_num_rows(mysqli_query($con, "select * from vendas where codigo = '{$_SESSION['ConfVenda']}' and situacao = 'producao' and deletado != '1'  "));
 if(!$n){
