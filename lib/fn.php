@@ -86,7 +86,7 @@ function VerificarVendaApp(){
         //$_SESSION = [];
         // header("location:./?s=1");
         echo "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
-        exit();
+        //exit();
     }
 
 
