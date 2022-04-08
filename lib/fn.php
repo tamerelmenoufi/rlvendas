@@ -80,7 +80,8 @@ function VerificarVendaApp(){
 
     if(!$n){
         $_SESSION = [];
-        header("location:./?s=1");
+        // header("location:./?s=1");
+        echo "<script>window.location.href='./?s=1'</script>";
         exit();
     }
 
