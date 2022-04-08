@@ -30,15 +30,15 @@
 <script>
     $(function () {
 
-        <?php
-        if($_GET['s']){
-        ?>
-        window.localStorage.removeItem('AppPedido');
-        window.location.href='./';
-        return false;
-        <?php
-        }
-        ?>
+        // <?php
+        // if($_GET['s']){
+        // ?>
+        // window.localStorage.removeItem('AppPedido');
+        // window.location.href='./';
+        // return false;
+        // <?php
+        // }
+        // ?>
 
 
         $.ajax({
