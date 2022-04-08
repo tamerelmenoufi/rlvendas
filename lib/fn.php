@@ -77,7 +77,7 @@ function VerificarVendaApp(){
     global $SESSION;
     global $con;
 
-    $r = mysqli_query($con, "select * from vendas where /*codigo = '{$_SESSION['AppVenda']}' and*/ situacao = 'producao' and deletado != '1'  ");
+    $r = mysqli_query($con, "SELECT * FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao = 'producao' AND deletado != '1'  ");
     $n = mysqli_num_rows($r);
 
     if(!$n){
