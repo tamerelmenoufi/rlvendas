@@ -76,7 +76,7 @@ function UpdateQuery($query){
 function VerificarVendaApp(){
     global $SESSION;
 
-    $n = mysqli_fetch_object(mysqli_query($con, "select * from vendas where codigo = '{$_SESSION['AppVenda']}' and situacao = 'producao' and deletado != '1'  "));
+    $n = mysqli_fetch_object(mysqli_query($con, "select * from vendas where /*codigo = '{$_SESSION['AppVenda']}' and*/ situacao = 'producao' and deletado != '1'  "));
 
     if(!$n){
 
