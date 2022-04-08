@@ -75,6 +75,7 @@ function UpdateQuery($query){
 
 function VerificarVendaApp(){
     global $SESSION;
+    global $con;
 
     $r = mysqli_query($con, "select * from vendas where /*codigo = '{$_SESSION['AppVenda']}' and*/ situacao = 'producao' and deletado != '1'  ");
     $n = mysqli_num_rows($r);
