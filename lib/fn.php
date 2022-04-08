@@ -86,14 +86,15 @@ function VerificarVendaApp(){
 
         //$_SESSION = [];
         // header("location:./?s=1");
-        return "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
+        echo "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
+        $echo = "<h1>TESTE 1<h1>";
         //exit();
     }else if(!$_SESSION['AppVenda']){
         $_SESSION['AppVenda'] = mysqli_fetch_object($r)->codigo;
-        //return "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
-        return "<h1>TESTE <h1>";
+        echo "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
+        $echo = "<h1>TESTE 2<h1>";
     }else{
-        return "<h1>TESTE 2<h1>" . $_SESSION['AppVenda'];
+        $echo = "<h1>TESTE 3<h1>";
     }
 
 
