@@ -93,7 +93,7 @@ function VerificarVendaApp(){
         //return "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
         return "<h1>TESTE <h1>";
     }else{
-        return "<h1>TESTE 2<h1>";
+        return "<h1>TESTE 2<h1>" . $_SESSION['AppVenda'];
     }
 
 
