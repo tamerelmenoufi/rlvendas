@@ -34,8 +34,7 @@
         if($_GET['s']){
         ?>
         window.localStorage.removeItem('AppPedido');
-        // window.location.href='./';
-        alert(window.localStorage.getItem('AppPedido'))
+        window.location.href='./';
         return false;
         <?php
         }

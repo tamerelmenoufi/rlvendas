@@ -81,9 +81,11 @@ function VerificarVendaApp(){
     if(!$n){
 
         mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
-        $_SESSION = [];
+        $_SESSION['AppVenda'] = mysqli_insert_id($con);
+
+        //$_SESSION = [];
         // header("location:./?s=1");
-        echo "<script>window.location.href='./?s=1'</script>";
+        echo "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
         exit();
     }
 
