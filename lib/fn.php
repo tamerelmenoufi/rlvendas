@@ -91,7 +91,7 @@ function VerificarVendaApp(){
     }else if(!$_SESSION['AppVenda']){
         $_SESSION['AppVenda'] = mysqli_fetch_object($r)->codigo;
         echo "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
-        echo "<h1>TESTE <h1>";
+        $echo = "<h1>TESTE <h1>";
     }
 
 
