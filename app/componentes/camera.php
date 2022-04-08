@@ -7,6 +7,24 @@
     while($m = mysqli_fetch_object($result)){
         $mesas[] = $m->mesa;
     }
+
+    if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
+        /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
+        $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND situacao = 'producao' LIMIT 1";
+        $result = mysqli_query($con, $query);
+
+        if (mysqli_num_rows($result)) {
+            //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
+            list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
+            $_SESSION['AppVenda'] = $codigo;
+        } else {
+            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
+            $_SESSION['AppVenda'] = mysqli_insert_id($con);
+        }
+        /////////////////////////////////////////////////////////////////
+    }
+
+
 ?>
 <style>
     #videoCaptura{
