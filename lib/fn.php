@@ -79,6 +79,8 @@ function VerificarVendaApp(){
     $n = mysqli_fetch_object(mysqli_query($con, "select * from vendas where codigo = '{$_SESSION['AppVenda']}' and situacao = 'producao' and deletado != '1'  "));
 
     if(!$n){
+
+        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
         $_SESSION = [];
         // header("location:./?s=1");
         echo "<script>window.location.href='./?s=1'</script>";
