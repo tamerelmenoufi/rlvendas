@@ -76,7 +76,8 @@ function UpdateQuery($query){
 function VerificarVendaApp(){
     global $SESSION;
 
-    $n = mysqli_num_rows(mysqli_query($con, "select * from vendas where /*codigo = '{$_SESSION['AppVenda']}' and*/ situacao = 'producao' and deletado != '1'  "));
+    $r = mysqli_query($con, "select * from vendas where /*codigo = '{$_SESSION['AppVenda']}' and*/ situacao = 'producao' and deletado != '1'  ");
+    $n = mysqli_num_rows($r);
 
     if(!$n){
 
@@ -87,6 +88,8 @@ function VerificarVendaApp(){
         // header("location:./?s=1");
         echo "<script>window.localStorage.addItem('AppPedido','{$_SESSION['AppVenda']}');</script>";
         //exit();
+    }else if(!$_SESSION['AppVenda']){
+        $_SESSION['AppVenda'] = mysqli_fetch_object($r)->codigo;
     }
 
 
