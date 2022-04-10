@@ -126,7 +126,6 @@
                     <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blq?>"></i>
                 <p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
-                    <?='Ação: '.$_POST['acao']?>
                     <?=$pedido->categoria->descricao?>
                     - <?=$pedido->medida->descricao?>
                 </h5>
