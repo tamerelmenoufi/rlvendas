@@ -3,6 +3,24 @@
 
     VerificarVendaApp();
 
+
+    if (!empty($_POST) and $_POST["acao"] === "preparar") {
+
+        $codigo = $_SESSION['AppVenda'];
+        $codigos = [];
+        $query = "SELECT * FROM vendas_produtos WHERE venda = '{$codigo}' and situacao = 'n'";
+        $result = mysqli_query($con, $query);
+        while($d = mysqli_fetch_object($result)){
+            $codigos[] = $d->codigo;
+        }
+        $codigos = implode(",", $codigos);
+
+        $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE codigo in ({$codigos})";
+        mysqli_query($con, $query);
+
+    }
+
+
     if($_POST['acao'] == 'ExcluirPedido'){
         mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
         mysqli_query($con, "update vendas_produtos set deletado = '1' where venda = '{$_SESSION['AppVenda']}'");
@@ -196,6 +214,7 @@
             <button
                 confirmar_pedido
                 class="btn btn-primary"
+                style="<?=((!$acao_preparar)?'display:none;':false)?>"
             >
                 ok
             </button>
