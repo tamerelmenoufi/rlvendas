@@ -140,7 +140,7 @@ $cliente = mysqli_fetch_object($result);
         <div class="row">
             <div id="comanda-content" class="col-md-7" style="height: 80vh; overflow-y: auto">
                 <?php
-                echo $query = "SELECT *, vp.situacao as st FROM vendas v "
+                $query = "SELECT *, vp.situacao as st FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
                     . "WHERE v.situacao = 'producao' AND "
                     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
