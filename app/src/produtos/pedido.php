@@ -22,7 +22,7 @@
                 "venda" => base64_encode($codigos),
             ]);
         }
-
+        exit();
     }
 
 
