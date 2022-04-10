@@ -123,7 +123,7 @@
                                                             confirm:'1',
                                                         },
                                                         success:function(dados){
-                                                            PageClose();
+                                                            window.location.href='./';
                                                         }
                                                     });
 
@@ -133,7 +133,7 @@
                                             'sim': {
                                                 text: "Quero Confirmar",
                                                 action: function () {
-
+                                                    PageClose();
                                                 }
                                             }
                                         }
