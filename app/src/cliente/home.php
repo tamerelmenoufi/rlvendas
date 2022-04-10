@@ -123,6 +123,7 @@
                                                             confirm:'1',
                                                         },
                                                         success:function(dados){
+                                                            PageClose();
                                                             window.location.href='./';
                                                         }
                                                     });
