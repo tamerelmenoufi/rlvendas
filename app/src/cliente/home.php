@@ -1,6 +1,12 @@
 <?php
     include("../../../lib/includes.php");
 
+
+    if($_POST['acao'] == 'Sair'){
+        $_SESSION = [];
+        exit();
+    }
+
 ?>
 <style>
     .ClienteTopoTitulo{
@@ -30,6 +36,10 @@
         <button acao opc="senha" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-key"></i> Alterar Senha
         </button>
+        <button sair class="btn btn-danger btn-lg btn-block">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            Desconectar
+        </button>
     </div>
 </div>
 
@@ -51,5 +61,47 @@
                 }
             });
         });
+
+
+
+
+        $("button[sair]").click(function(){
+            $.confirm({
+                content:"Deseja realmente Sair do aplicativo?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
+
+                        $.ajax({
+                            url:"src/home/home.php",
+                            type:"POST",
+                            data:{
+                                acao:'Sair',
+                            },
+                            success:function(dados){
+                                window.localStorage.removeItem('AppPedido');
+                                window.localStorage.removeItem('AppCliente');
+                                window.localStorage.removeItem('AppVenda');
+
+                                $.ajax({
+                                    url:"src/home/index.php",
+                                    success:function(dados){
+                                        $(".ms_corpo").html(dados);
+                                    }
+                                });
+
+                            }
+                        });
+
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            });
+
+
+        });
+
     })
 </script>
