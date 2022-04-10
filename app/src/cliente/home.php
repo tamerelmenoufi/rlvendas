@@ -3,7 +3,24 @@
 
 
     if($_POST['acao'] == 'Sair'){
-        $_SESSION = [];
+
+        $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1' and situacao = 'n'";
+        $result = mysqli_query($con, $query);
+        $n = mysqli_num_rows($result);
+
+        if($n > 0 and !$_GET['confirm']){
+            echo json_encode([
+                "status" => "erro",
+            ]);
+        }else if($_GET['confirm']){
+            $_SESSION = [];
+
+        }else{
+            echo json_encode([
+                "status" => "sucesso",
+            ]);
+            $_SESSION = [];
+        }
         exit();
     }
 
@@ -75,23 +92,60 @@
                         $.ajax({
                             url:"src/cliente/home.php",
                             type:"POST",
+                            dataType: "JSON",
                             data:{
                                 acao:'Sair',
                             },
                             success:function(dados){
-                                window.localStorage.removeItem('AppPedido');
-                                window.localStorage.removeItem('AppCliente');
-                                window.localStorage.removeItem('AppVenda');
 
-                                $.ajax({
-                                    url:"src/home/index.php",
-                                    success:function(dados){
-                                        $(".ms_corpo").html(dados);
-                                    }
-                                });
+                                if (dados.status === "erro") {
+
+                                    $.confirm({
+                                        icon: "fa-solid fa-right-from-bracket",
+                                        content: false,
+                                        title: "Você ainda não confirmou seus últimos pedidos para inciarmos o preparo.<br><br>Por favor escolha uma das opções:",
+                                        columnClass: "medium",
+                                        type: "red",
+                                        buttons: {
+                                            'nao': {
+                                                text: "Sair mesmo!",
+                                                action: function () {
+
+                                                    window.localStorage.removeItem('AppPedido');
+                                                    window.localStorage.removeItem('AppCliente');
+                                                    window.localStorage.removeItem('AppVenda');
+
+                                                    $.ajax({
+                                                        url:"src/home/index.php",
+                                                        type:"POST",
+                                                        data:{
+                                                            acao:'Sair',
+                                                            confirm:'1',
+                                                        },
+                                                        success:function(dados){
+                                                            PageClose();
+                                                        }
+                                                    });
+
+
+                                                }
+                                            },
+                                            'sim': {
+                                                text: "Quero Confirmar",
+                                                action: function () {
+
+                                                }
+                                            }
+                                        }
+                                    })
+
+                                }
+
 
                             }
                         });
+
+
 
                     },
                     'NÃO':function(){
