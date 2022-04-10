@@ -31,7 +31,7 @@
 
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
-            "AppVenda" => $_SESSION['AppVenda']
+            //"AppVenda" => $_SESSION['AppVenda']
         ]);
 
         exit();
@@ -67,7 +67,8 @@
                         let retorno = JSON.parse(dados);
 
                         window.localStorage.setItem('AppCliente', retorno.AppCliente);
-                        window.localStorage.setItem('AppVenda', retorno.AppVenda);
+
+                        //window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
                         $.ajax({
                             url:"src/home/index.php",
