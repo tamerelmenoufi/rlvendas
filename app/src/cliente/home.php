@@ -111,10 +111,6 @@
                                                 text: "Sair mesmo!",
                                                 action: function () {
 
-                                                    window.localStorage.removeItem('AppPedido');
-                                                    window.localStorage.removeItem('AppCliente');
-                                                    window.localStorage.removeItem('AppVenda');
-
                                                     $.ajax({
                                                         url:"src/home/index.php",
                                                         type:"POST",
@@ -124,6 +120,10 @@
                                                         },
                                                         success:function(dados){
                                                             PageClose();
+
+                                                            window.localStorage.removeItem('AppPedido');
+                                                            window.localStorage.removeItem('AppCliente');
+                                                            window.localStorage.removeItem('AppVenda');
                                                             window.location.href='./';
                                                         }
                                                     });
