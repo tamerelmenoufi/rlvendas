@@ -73,7 +73,7 @@
                     'SIM':function(){
 
                         $.ajax({
-                            url:"src/home/home.php",
+                            url:"src/cliente/home.php",
                             type:"POST",
                             data:{
                                 acao:'Sair',
