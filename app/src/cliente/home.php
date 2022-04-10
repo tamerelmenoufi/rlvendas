@@ -140,6 +140,23 @@
                                         }
                                     })
 
+                                }else{
+                                    window.localStorage.removeItem('AppPedido');
+                                    window.localStorage.removeItem('AppCliente');
+                                    window.localStorage.removeItem('AppVenda');
+
+                                    $.ajax({
+                                        url:"src/home/index.php",
+                                        type:"POST",
+                                        data:{
+                                            acao:'Sair',
+                                            confirm:'1',
+                                        },
+                                        success:function(dados){
+                                            PageClose();
+                                            window.location.href='./?s=1';
+                                        }
+                                    });
                                 }
 
 
