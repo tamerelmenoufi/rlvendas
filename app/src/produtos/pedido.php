@@ -4,7 +4,7 @@
     VerificarVendaApp();
 
 
-    if (!empty($_POST) and $_POST["acao"] === "preparar") {
+    if (!empty($_POST) and $_POST["acao"] === "confirmar_pedido") {
 
         $codigo = $_SESSION['AppVenda'];
         $codigos = [];
@@ -123,6 +123,10 @@
             $result = mysqli_query($con, $query);
             $valor_total = 0;
             $n = mysqli_num_rows($result);
+
+            $acao_preparar = false;
+            $acao_cancelar = true;
+
             while($d = mysqli_fetch_object($result)){
 
                 $pedido = json_decode($d->produto_json);
@@ -135,7 +139,16 @@
                 if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
 
-                $blq = (($d->situacao != 'n')?'display:none;':'display:block;');
+                if($d->situacao != 'n'){
+                    $blq = 'display:none;';
+                    $acao_cancelar = false;
+
+                }else{
+                    $blq = false;
+                    $acao_preparar = true;
+                }
+
+
 
         ?>
         <div class="card bg-light mb-3" style="padding-bottom:40px;">
@@ -206,7 +219,11 @@
 <div class="PedidoBottomFixo">
     <div class="row">
         <div class="col-3 PedidoBottomItens">
-            <button class="btn btn-danger" ExcluirPedido>
+            <button
+                class="btn btn-danger"
+                ExcluirPedido
+                style="<?=((!$acao_cancelar)?'display:none;':false)?>"
+            >
             <i class="fa-solid fa-trash-can"></i>
             </button>
         </div>
