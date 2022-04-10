@@ -119,7 +119,7 @@
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
         <?php
-            $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
+            $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1' order by codigo desc";
             $result = mysqli_query($con, $query);
             $valor_total = 0;
             $n = mysqli_num_rows($result);
