@@ -1,4 +1,7 @@
-<?php include("../lib/includes.php"); ?>
+<?php
+    include("../lib/includes.php");
+    if($_GET['s']) $_SESSION = [];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
