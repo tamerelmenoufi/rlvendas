@@ -16,7 +16,12 @@
         $codigos = implode(",", $codigos);
 
         $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE codigo in ({$codigos})";
-        mysqli_query($con, $query);
+        if (mysqli_query($con, $query)) {
+            echo json_encode([
+                "status" => "sucesso",
+                "venda" => base64_encode($codigos),
+            ]);
+        }
 
     }
 
@@ -348,17 +353,39 @@
 
 
                             $.ajax({
-                                url:"componentes/ms_popup_100.php",
-                                type:"POST",
-                                data:{
-                                    local:'src/produtos/pedido.php',
-                                    acao:'confirmar_pedido',
+                                url: "src/produtos/pedido.php",
+                                method: "POST",
+                                dataType: "JSON",
+                                data: {
+                                    acao: "confirmar_pedido"
                                 },
-                                success:function(dados){
-                                    PageClose();
-                                    $(".ms_corpo").append(dados);
+                                success: function (dados) {
+                                    if (dados.status === "sucesso") {
+                                        atualiza = dados.venda;
+
+
+                                        $.ajax({
+                                            url:"componentes/ms_popup_100.php",
+                                            type:"POST",
+                                            data:{
+                                                local:'src/produtos/pedido.php',
+                                            },
+                                            success:function(dados){
+                                                mySocket.send(atualiza);
+                                                PageClose();
+                                                $(".ms_corpo").append(dados);
+                                            }
+                                        });
+
+
+
+                                    }
                                 }
-                            });
+                            })
+
+
+
+
 
 
                         }
