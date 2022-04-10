@@ -192,6 +192,14 @@
             <i class="fa-solid fa-trash-can"></i>
             </button>
         </div>
+        <div class="col-4 PedidoBottomItens">
+            <button
+                confirmar_pedido
+                class="btn btn-primary"
+            >
+                ok
+            </button>
+        </div>
         <div class="col-8 PedidoBottomItens">
             <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
@@ -274,6 +282,60 @@
             //}
 
         });
+
+
+
+
+
+
+
+
+        $("button[confirmar_pedido]").click(function () {
+
+            $.alert({
+                icon: "fa-solid fa-question",
+                title: "Seu pedido será enviado para o preparo após a sua confirmação.<br><br>Deseja confirmar o envio?",
+                content: false,
+                columnClass: "medium",
+                type: "green",
+                buttons: {
+                    nao: {
+                        text: "Não",
+                        btnClass: "btn-red",
+                        action: function () {
+                        }
+                    },
+                    sim: {
+                        text: "Sim, Pode Preparar",
+                        btnClass: "btn-success",
+                        action: function () {
+
+
+                            $.ajax({
+                                url:"componentes/ms_popup_100.php",
+                                type:"POST",
+                                data:{
+                                    local:'src/produtos/pedido.php',
+                                    acao:'confirmar_pedido',
+                                },
+                                success:function(dados){
+                                    PageClose();
+                                    $(".ms_corpo").append(dados);
+                                }
+                            });
+
+
+                        }
+                    },
+                }
+            });
+
+        });
+
+
+
+
+
 
 
         $("button[pagar]").click(function(){
