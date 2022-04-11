@@ -5,15 +5,15 @@ include "./conf.php";
 
 switch($_GET['opc']){
     case 'producao':{
-        $where = "AND v.situacao = '{$_GET['opc']}'";
+        $where = "AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
         break;
     }
     case 'pagar':{
-        $where = " AND v.situacao = '{$_GET['opc']}' ";
+        $where = " AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
         break;
     }
     case 'Pago':{
-        $where = " AND v.situacao = '{$_GET['opc']}' ";
+        $where = " AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
         break;
     }
     case 'cancelados':{
