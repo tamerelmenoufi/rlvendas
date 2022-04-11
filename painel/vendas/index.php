@@ -1,12 +1,36 @@
 <?php
+
 include("../../lib/includes.php");
 include "./conf.php";
+
+switch($_GET['opc']){
+    case 'producao':{
+        $where = "AND v.situacao = '{$_GET['opc']}'";
+        break;
+    }
+    case 'pagar':{
+        $where = " AND v.situacao = '{$_GET['opc']}' ";
+        break;
+    }
+    case 'Pago':{
+        $where = " AND v.situacao = '{$_GET['opc']}' ";
+        break;
+    }
+    case 'cancelados':{
+        $where = " AND v.deletado = '1' ";
+        break;
+    }
+    default:{
+        $where = false;
+    }
+}
+
 
 $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_nome FROM vendas v "
     . "INNER JOIN clientes c ON c.codigo = v.cliente "
     . "INNER JOIN mesas m ON m.codigo = v.mesa "
     . "LEFT JOIN atendentes a ON a.codigo = v.atendente "
-    . "WHERE v.deletado != '1'";
+    . "WHERE 1 {$where}";
 
 #echo $query;
 
