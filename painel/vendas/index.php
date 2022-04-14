@@ -73,7 +73,7 @@ $result = mysqli_query($con, $query);
                 <tbody>
                 <?php
                 while ($d = mysqli_fetch_object($result)):
-                    $status = $d->status == '1' ? 'success' : 'danger'; ?>
+                ?>
                     <tr id="linha-<?= $d->codigo; ?>">
                         <td><?= $d->cliente_nome ?: $d->telefone; ?></td>
                         <td>
