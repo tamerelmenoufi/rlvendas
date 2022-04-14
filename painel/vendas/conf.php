@@ -46,7 +46,7 @@ function getSituacaoOptions($situacao, $venda)
                     </div>";
     }else{
         $list = getSituacao();
-        $retorno = "<span class='badge badge-{$status}'>{$list[$situacao]}</span>";
+        $retorno = "<span class='badge badge-{$situacao}'>{$list[$situacao]}</span>";
 
     }
     return $retorno;
