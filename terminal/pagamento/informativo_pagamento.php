@@ -6,7 +6,7 @@ if($_POST['acao'] == 'fechar_conta'){
 
     $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
-    . "WHERE v.situacao = 'producao' AND "
+    . "WHERE v.situacao NOT IN ('pago','pagar') AND "
     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
     . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
     . "vp.deletado != '1' AND v.codigo = '{$_SESSION['ConfVenda']}'";
