@@ -122,49 +122,32 @@
             var tipo = 'blue';
 
 
-            $.ajax({
-                url:"pizzas/index.php",
-                type:"POST",
-                data:{
-                    cod,
-                    opc
-                },
-                success:function(dados){
-                    elimina.remove();
-                },
-                error:function(){
-                    alert('erro');
+            $.confirm({
+                content:msg,
+                title:false,
+                type:tipo,
+                buttons:{
+                    'SIM':function(){
+                        $.ajax({
+                            url:"pizzas/index.php",
+                            type:"POST",
+                            data:{
+                                cod,
+                                opc
+                            },
+                            success:function(dados){
+                                elimina.remove();
+                            },
+                            error:function(){
+                                alert('erro');
+                            }
+                        });
+                    },
+                    'NÃO':function(){
+
+                    }
                 }
             });
-
-
-
-            // $.confirm({
-            //     content:msg,
-            //     title:false,
-            //     type:tipo,
-            //     buttons:{
-            //         'SIM':function(){
-            //             $.ajax({
-            //                 url:"pizzas/index.php",
-            //                 type:"POST",
-            //                 data:{
-            //                     cod,
-            //                     opc
-            //                 },
-            //                 success:function(dados){
-            //                     elimina.remove();
-            //                 },
-            //                 error:function(){
-            //                     alert('erro');
-            //                 }
-            //             });
-            //         },
-            //         'NÃO':function(){
-
-            //         }
-            //     }
-            // });
 
 
         });
