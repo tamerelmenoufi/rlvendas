@@ -8,6 +8,10 @@ switch($_GET['opc']){
         $where = "AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
         break;
     }
+    case 'preparo':{
+        $where = " AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
+        break;
+    }
     case 'pagar':{
         $where = " AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
         break;

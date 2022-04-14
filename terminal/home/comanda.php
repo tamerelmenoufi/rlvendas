@@ -58,6 +58,8 @@ if (!empty($_POST) and $_POST["acao"] === "preparar") {
         ]);
     }
 
+    mysqli_query($con, "update vendas set situacao = 'preparo' where codigo = '{$codigo}'");
+
     exit();
 }
 
