@@ -26,7 +26,7 @@ switch($_GET['opc']){
 }
 
 
-echo $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_nome FROM vendas v "
+$query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_nome FROM vendas v "
     . "INNER JOIN clientes c ON c.codigo = v.cliente "
     . "INNER JOIN mesas m ON m.codigo = v.mesa "
     . "LEFT JOIN atendentes a ON a.codigo = v.atendente "
