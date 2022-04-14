@@ -5,7 +5,7 @@ function venda($cliente, $mesa)
 {
     global $con;
 
-    $query = "SELECT codigo FROM vendas WHERE cliente = '{$cliente}' AND situacao = 'producao' AND mesa = '{$mesa}' AND deletado != '1' LIMIT 1";
+    $query = "SELECT codigo FROM vendas WHERE cliente = '{$cliente}' AND situacao not in ('pago','pagar') AND mesa = '{$mesa}' AND deletado != '1' LIMIT 1";
     $result = mysqli_query($con, $query);
 
     if (mysqli_num_rows($result)) {
