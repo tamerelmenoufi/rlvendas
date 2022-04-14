@@ -144,7 +144,7 @@ $cliente = mysqli_fetch_object($result);
                 <?php
                 $query = "SELECT *, vp.situacao as st FROM vendas v "
                     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
-                    . "WHERE v.situacao = 'producao' AND "
+                    . "WHERE v.situacao not in ('pago','pagar') AND "
                     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
                     . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
                     . "v.codigo = '{$_SESSION['ConfVenda']}' AND "
