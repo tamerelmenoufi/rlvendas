@@ -65,32 +65,49 @@
                 tipo = 'red';
                 returno = true;
             }
-            $.confirm({
-                content:msg,
-                title:false,
-                type:tipo,
-                buttons:{
-                    'SIM':function(){
-                        $.ajax({
-                            url:"pizzas/index.php",
-                            type:"POST",
-                            data:{
-                                cod,
-                                opc
-                            },
-                            success:function(dados){
 
-                            },
-                            error:function(){
-                                alert('erro');
-                            }
-                        });
-                    },
-                    'NÃO':function(){
-                        obj.prop("checked", returno);
-                    }
+            $.ajax({
+                url:"pizzas/index.php",
+                type:"POST",
+                data:{
+                    cod,
+                    opc
+                },
+                success:function(dados){
+
+                },
+                error:function(){
+                    alert('erro');
                 }
             });
+
+
+            // $.confirm({
+            //     content:msg,
+            //     title:false,
+            //     type:tipo,
+            //     buttons:{
+            //         'SIM':function(){
+            //             $.ajax({
+            //                 url:"pizzas/index.php",
+            //                 type:"POST",
+            //                 data:{
+            //                     cod,
+            //                     opc
+            //                 },
+            //                 success:function(dados){
+
+            //                 },
+            //                 error:function(){
+            //                     alert('erro');
+            //                 }
+            //             });
+            //         },
+            //         'NÃO':function(){
+            //             obj.prop("checked", returno);
+            //         }
+            //     }
+            // });
 
 
         });
@@ -104,32 +121,50 @@
             var msg = 'Confirma a conclusão do produto?';
             var tipo = 'blue';
 
-            $.confirm({
-                content:msg,
-                title:false,
-                type:tipo,
-                buttons:{
-                    'SIM':function(){
-                        $.ajax({
-                            url:"pizzas/index.php",
-                            type:"POST",
-                            data:{
-                                cod,
-                                opc
-                            },
-                            success:function(dados){
-                                elimina.remove();
-                            },
-                            error:function(){
-                                alert('erro');
-                            }
-                        });
-                    },
-                    'NÃO':function(){
 
-                    }
+            $.ajax({
+                url:"pizzas/index.php",
+                type:"POST",
+                data:{
+                    cod,
+                    opc
+                },
+                success:function(dados){
+                    elimina.remove();
+                },
+                error:function(){
+                    alert('erro');
                 }
             });
+
+
+
+            // $.confirm({
+            //     content:msg,
+            //     title:false,
+            //     type:tipo,
+            //     buttons:{
+            //         'SIM':function(){
+            //             $.ajax({
+            //                 url:"pizzas/index.php",
+            //                 type:"POST",
+            //                 data:{
+            //                     cod,
+            //                     opc
+            //                 },
+            //                 success:function(dados){
+            //                     elimina.remove();
+            //                 },
+            //                 error:function(){
+            //                     alert('erro');
+            //                 }
+            //             });
+            //         },
+            //         'NÃO':function(){
+
+            //         }
+            //     }
+            // });
 
 
         });
