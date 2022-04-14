@@ -9,7 +9,6 @@ function getSituacao()
 {
     return [
         'producao' => 'Produção',
-        'preparo' => 'Preparo',
         'pagar' => 'Pagar',
         'pago' => 'Pago',
         'cancelado' => 'Cancelado',
@@ -17,8 +16,38 @@ function getSituacao()
     ];
 }
 
-function getSituacaoOptions($situacao)
+function produtos_preparo($v){
+    global $con;
+    $query = "select situacao from vendas_produtos where venda = '{$v}'";
+    $result = mysqli_query($con, $query);
+    $n = mysqli_num_rows($con);
+    $c = 0;
+    while($d = mysqli_fetch_object($result)){
+        if($d->situacao == 'c') $c++;
+    }
+    return number_format($c*$n/100,0,false,false);
+}
+
+
+function getSituacaoOptions($situacao, $venda)
 {
-    $list = getSituacao();
-    return $list[$situacao];
+    if($situacao == 'preparo'){
+        $list = getSituacao();
+        $pct = produtos_preparo($venda);
+        $retorno = "<div class=\"progress\">
+                        <div
+                            class=\"progress-bar bg-success\"
+                            role=\"progressbar\"
+                            style=\"width: {$pct}%\"
+                            aria-valuenow=\"25\"
+                            aria-valuemin=\"0\"
+                            aria-valuemax=\"100\"
+                        >{$list[$situacao]}</div>
+                    </div>";
+    }else{
+        $list = getSituacao();
+        $retorno = "<span class='badge badge-{$status}'>{$list[$situacao]}</span>";
+
+    }
+    return $retorno;
 }

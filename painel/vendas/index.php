@@ -3,21 +3,23 @@
 include("../../lib/includes.php");
 include "./conf.php";
 
-switch($_GET['opc']){
+if($_GET['opc']) $_SESSION['opc_status'] = $_GET['opc'];
+
+switch($_SESSION['opc_status']){
     case 'producao':{
-        $where = "AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
+        $where = "AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
         break;
     }
     case 'preparo':{
-        $where = " AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
+        $where = " AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
         break;
     }
     case 'pagar':{
-        $where = " AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
+        $where = " AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
         break;
     }
     case 'pago':{
-        $where = " AND v.situacao = '{$_GET['opc']}' AND v.deletado != '1' ";
+        $where = " AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
         break;
     }
     case 'cancelados':{
@@ -28,7 +30,6 @@ switch($_GET['opc']){
         $where = false;
     }
 }
-
 
 $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_nome FROM vendas v "
     . "INNER JOIN clientes c ON c.codigo = v.cliente "
@@ -81,9 +82,7 @@ $result = mysqli_query($con, $query);
                         <td><?= $d->mesa_descricao; ?></td>
                         <td><?= formata_datahora($d->data_pedido, DATA_HM); ?></td>
                         <td>
-                            <span class="badge badge-<?= $status; ?>">
-                                <?= getSituacaoOptions($d->situacao); ?>
-                            </span>
+                            <?= getSituacaoOptions($d->situacao, $d->codigo); ?>
                         </td>
                         <!--<td>
                             <button
