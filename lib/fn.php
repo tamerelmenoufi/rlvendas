@@ -77,12 +77,12 @@ function VerificarVendaApp(){
     global $SESSION;
     global $con;
 
-    $r = mysqli_query($con, "SELECT * FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao = 'producao' AND deletado != '1'  ");
+    $r = mysqli_query($con, "SELECT * FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1'  ");
     $n = mysqli_num_rows($r);
 
     if(!$n){
 
-        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
+        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(),  situacao not in ('pago','pagar')");
         $_SESSION['AppVenda'] = mysqli_insert_id($con);
 
         //$_SESSION = [];
