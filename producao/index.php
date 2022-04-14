@@ -112,7 +112,7 @@
 
         });
 
-
+        //Teste sem confirmação adaotado
         $(document).on("click", "button[concluir]", function(){
             obj = $(this);
             elimina = obj.parent("td").parent("tr");
