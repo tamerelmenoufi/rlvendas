@@ -148,7 +148,7 @@ $cliente = mysqli_fetch_object($result);
                     . "vp.mesa = '{$_SESSION['ConfMesa']}' AND "
                     . "vp.cliente = '{$_SESSION['ConfCliente']}' AND "
                     . "v.codigo = '{$_SESSION['ConfVenda']}' AND "
-                    . "v.situacao = 'producao' AND vp.deletado != '1' and v.deletado != '1' order by vp.codigo desc";
+                    . "vp.deletado != '1' and v.deletado != '1' order by vp.codigo desc";
 
                 #echo $query;
                 $result = mysqli_query($con, $query);
