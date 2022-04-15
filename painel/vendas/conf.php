@@ -20,7 +20,7 @@ function produtos_preparo($v){
     global $con;
     $query = "select situacao from vendas_produtos where venda = '{$v}'";
     $result = mysqli_query($con, $query);
-    $n = mysqli_num_rows($con);
+    $n = mysqli_num_rows($result);
     $c = 0;
     while($d = mysqli_fetch_object($result)){
         if($d->situacao == 'c') $c++;
