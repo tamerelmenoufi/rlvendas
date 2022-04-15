@@ -9,6 +9,7 @@ function getSituacao()
 {
     return [
         'producao' => 'Produção',
+        'preparo' => 'Preparo',
         'pagar' => 'Pagar',
         'pago' => 'Pago',
         'cancelado' => 'Cancelado',
