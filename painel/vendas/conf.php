@@ -18,7 +18,7 @@ function getSituacao()
 
 function produtos_preparo($v){
     global $con;
-    $query = "select situacao from vendas_produtos where venda = '{$v}'";
+    $query = "select situacao from vendas_produtos where venda = '{$v}' and situacao != 'n'";
     $result = mysqli_query($con, $query);
     $n = mysqli_num_rows($result);
     $c = 0;
