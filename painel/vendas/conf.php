@@ -25,7 +25,7 @@ function produtos_preparo($v){
     while($d = mysqli_fetch_object($result)){
         if($d->situacao == 'c') $c++;
     }
-    return number_format($c*$n/100,0,false,false);
+    return number_format($c*100/$n,0,false,false);
 }
 
 
