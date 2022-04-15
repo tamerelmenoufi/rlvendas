@@ -39,7 +39,7 @@ function getSituacaoOptions($situacao, $venda)
                             class=\"progress-bar bg-success\"
                             role=\"progressbar\"
                             style=\"width: {$pct}%\"
-                            aria-valuenow=\"25\"
+                            aria-valuenow=\"{$pct}\"
                             aria-valuemin=\"0\"
                             aria-valuemax=\"100\"
                         >{$list[$situacao]}</div>
