@@ -13,7 +13,7 @@
     curl_setopt($ch, CURLOPT_POST, TRUE);
 
     curl_setopt($ch, CURLOPT_POSTFIELDS, "{
-      \"externalId\": 36
+      \"externalId\": 37
     }");
 
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
