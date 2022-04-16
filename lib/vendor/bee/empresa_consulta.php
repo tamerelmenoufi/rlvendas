@@ -17,6 +17,4 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $response = curl_exec($ch);
 curl_close($ch);
 
-echo "<h1>ATUALIZAÇÂO</h1>";
-
 var_dump($response);
