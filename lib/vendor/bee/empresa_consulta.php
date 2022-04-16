@@ -1,7 +1,7 @@
 <?php
 
 $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
-$external_Id = 37;
+$external_Id = 38;
 
 $ch = curl_init();
 
