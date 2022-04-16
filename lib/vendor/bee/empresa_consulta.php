@@ -1,7 +1,7 @@
 <?php
 
 $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
-$external_Id = '37';
+$external_Id = 37;
 
 $ch = curl_init();
 
@@ -16,5 +16,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 $response = curl_exec($ch);
 curl_close($ch);
+
+echo "<h1>ATUALIZAÇÂO</h1>";
 
 var_dump($response);
