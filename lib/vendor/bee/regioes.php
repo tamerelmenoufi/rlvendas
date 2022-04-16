@@ -21,10 +21,11 @@
       "Authorization: $chave"
     ));
 
-    $response = curl_exec($ch);
+    echo $response = curl_exec($ch);
     curl_close($ch);
 
     $regioes = json_decode($response);
+
     echo "<table width='100%'>";
     echo "<tr>";
     echo "<td>Codigo</td>";
