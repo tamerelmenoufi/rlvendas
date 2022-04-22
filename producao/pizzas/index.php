@@ -61,6 +61,7 @@
             <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozenha (Produção de PIZZAS)</h4>
         <table painel class="table table-striped table-hover" style="margin-top:40px;">
         <?php
+            echo "<br><br><br><br><br><br>";
             echo $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' and a.categoria = '{$Categoria}' order by a.data asc";
             $result = mysqli_query($con, $query);
 
