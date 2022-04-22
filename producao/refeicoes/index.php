@@ -60,6 +60,16 @@
         <div class="painel">
             <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozenha (Produção de REFEIÇÕES/BEBIDAS)</h4>
         <table painel class="table table-striped table-hover" style="margin-top:40px;">
+            <thead>
+                <tr>
+                    <th>MESA</th>
+                    <th>QUANTIDADE</th>
+                    <th>PRODUTO</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
         <?php
             $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria}) order by a.data asc";
             $result = mysqli_query($con, $query);
@@ -91,11 +101,11 @@
         </div> -->
         <tr>
 
-            <td>
+            <!-- <td>
                 <div class="form-group form-check">
                     <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">
                 </div>
-            </td>
+            </td> -->
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><?=$d->mesa?></label></td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
@@ -104,13 +114,14 @@
                 <p class="card-text" style="color:red;">
                 <?= $d->produto_descricao?></p>
             </label></td>
-            <td style="text-align:right"><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>
+            <!-- <td style="text-align:right"><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td> -->
         </tr>
 
 
         <?php
             }
         ?>
+            </tbody>
         </table>
 
             <output></output>
