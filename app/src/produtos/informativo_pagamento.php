@@ -24,6 +24,7 @@ if($_POST['acao'] == 'fechar_conta'){
                                             data_finalizacao = NOW()
                         where codigo = '{$_SESSION['AppVenda']}'
                 ");
+    mysqli_query($con, "update vendas_produtos set situacao = 'c' where venda = '{$_SESSION['AppVenda']}'");
 
     $_SESSION = [];
 
