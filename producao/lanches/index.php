@@ -62,9 +62,11 @@
         <table painel class="table table-striped table-hover" style="margin-top:40px;">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>MESA</th>
                     <th>QUANTIDADE</th>
                     <th>PRODUTO</th>
+                    <th>AÇÃO</th>
                 </tr>
             </thead>
 
@@ -100,11 +102,11 @@
         </div> -->
         <tr>
 
-            <!-- <td>
+            <td>
                 <div class="form-group form-check">
                     <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">
                 </div>
-            </td> -->
+            </td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><?=$d->mesa?></label></td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
@@ -113,7 +115,7 @@
                 <p class="card-text" style="color:red;">
                 <?= $d->produto_descricao?></p>
             </label></td>
-            <!-- <td style="text-align:right"><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td> -->
+            <td style="text-align:right"><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>
         </tr>
 
 
