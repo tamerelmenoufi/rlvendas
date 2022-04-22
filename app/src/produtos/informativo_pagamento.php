@@ -74,7 +74,7 @@ if($_POST['acao'] == 'fechar_conta'){
                     let retorno = JSON.parse(dados);
 
                     if(retorno.status){
-                        mySocket.send(<?=$_SESSION['AppVenda']?>);
+                        //mySocket.send(<?=$_SESSION['AppVenda']?>);
                         window.localStorage.removeItem('AppPedido');
                         window.localStorage.removeItem('AppVenda');
                         window.location.href='./';

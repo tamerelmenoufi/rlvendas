@@ -372,7 +372,7 @@
                                                 local:'src/produtos/pedido.php',
                                             },
                                             success:function(dados){
-                                                mySocket.send(atualiza);
+                                                mySocket.send('atualiza');
                                                 PageClose();
                                                 $(".ms_corpo").append(dados);
                                             }
