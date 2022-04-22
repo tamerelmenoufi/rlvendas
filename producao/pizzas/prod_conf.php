@@ -1,3 +1,3 @@
 <?php
 
-    $Categoria = '5';
+    $Categoria = '0,5';
