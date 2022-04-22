@@ -67,7 +67,7 @@
             }
 
             $.ajax({
-                url:"pizzas/index.php",
+                url:"<?=$opc?>/index.php",
                 type:"POST",
                 data:{
                     cod,
@@ -129,7 +129,7 @@
                 buttons:{
                     'SIM':function(){
                         $.ajax({
-                            url:"pizzas/index.php",
+                            url:"<?=$opc?>/index.php",
                             type:"POST",
                             data:{
                                 cod,
@@ -179,14 +179,14 @@
             console.log('Entrou na função');
             console.log(dados.text);
             $.ajax({
-                url:"pizzas/add.php",
+                url:"<?=$opc?>/add.php",
                 type:"POST",
                 data:{
                     cod:dados.text,
                 },
                 success:function(dados){
                     console.log(dados);
-                    $("table[pizzas]").append(dados);
+                    $("table[painel]").append(dados);
                 },
                 error:function(){
                     console.log('algo deu errado!');

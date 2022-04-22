@@ -1,6 +1,10 @@
 <?php
     include("../../lib/includes.php");
 
+    include("prod_conf.php");
+
+
+
     $cod = base64_decode($_POST['cod']);
 
     $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo IN ({$cod}) and a.categoria = '{$Categoria}'";
