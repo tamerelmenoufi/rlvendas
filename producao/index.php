@@ -114,13 +114,13 @@
 
         //Teste sem confirmação adaotado
         $(document).on("click", "button[concluir]", function(){
+
             obj = $(this);
             elimina = obj.parent("td").parent("tr");
             var cod = obj.attr("cod");
             var opc = 'c';
             var msg = 'Confirma a conclusão do produto?';
             var tipo = 'blue';
-
 
             $.confirm({
                 content:msg,
