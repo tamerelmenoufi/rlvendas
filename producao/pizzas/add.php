@@ -7,7 +7,7 @@
 
     $cod = base64_decode($_POST['cod']);
 
-    $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo IN ({$cod}) and a.categoria = '{$Categoria}'";
+    $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.codigo IN ({$cod}) and JSON_EXTRACT(produto_json, '$.categoria.codigo') = '{$Categoria}'";
     $result = mysqli_query($con, $query);
 
     while($d = mysqli_fetch_object($result)){
