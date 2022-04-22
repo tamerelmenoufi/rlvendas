@@ -35,7 +35,7 @@
             <p class="card-text" style="color:red;">
             <?= $d->produto_descricao?></p>
         </label></td>
-        <td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>
+        <td style="text-align:right"><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>
     </tr>
 <?php
     }
