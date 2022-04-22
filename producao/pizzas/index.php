@@ -62,7 +62,7 @@
         <table painel class="table table-striped table-hover" style="margin-top:40px;">
         <?php
             echo "<br><br><br><br><br><br>";
-            echo $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' and a.categoria = '{$Categoria}' order by a.data asc";
+            echo $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') = '{$Categoria}' order by a.data asc";
             $result = mysqli_query($con, $query);
 
             while($d = mysqli_fetch_object($result)){
