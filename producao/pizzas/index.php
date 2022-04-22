@@ -16,22 +16,23 @@
 ?>
 <style>
 
-    .pizzas{
+    .painel{
         position:fixed;
-        width:50%;
+        width:100%;
         left:0px;
         top:0px;
         bottom:0px;
         overflow:auto;
     }
-    .sanduiches{
+
+    /* .sanduiches{
         position:fixed;
         width:50%;
         right:0px;
         top:0px;
         bottom:0px;
         overflow:auto;
-    }
+    } */
 
     /* ===== Scrollbar CSS ===== */
     /* Firefox */
@@ -62,9 +63,9 @@
         <?php
         foreach($tipos as $ind => $opc){
         ?>
-        <div class="<?=$opc?>">
+        <div class="painel">
             <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozenha (Produção de <?=$opc?>)</h4>
-        <table <?=$opc?> class="table table-striped table-hover" style="margin-top:40px;">
+        <table painel class="table table-striped table-hover" style="margin-top:40px;">
         <?php
             $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' order by a.data asc";
             $result = mysqli_query($con, $query);
