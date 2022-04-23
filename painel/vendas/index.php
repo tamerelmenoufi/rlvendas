@@ -112,7 +112,7 @@ $result = mysqli_query($con, $query);
     $(function () {
         $("#datatable").DataTable();
 
-        $("div[acao]").click(function(){
+        $("span[acao]").click(function(){
             acao = $(this).attr("acao");
             $.confirm({
                 content:"Confirma o pagamento?",
