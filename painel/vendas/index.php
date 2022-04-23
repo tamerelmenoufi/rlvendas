@@ -114,6 +114,7 @@ $result = mysqli_query($con, $query);
 
         $("span[acao]").click(function(){
             acao = $(this).attr("acao");
+            cod = $(this).attr("cod");
             $.confirm({
                 content:"Confirma o pagamento?",
                 title:false,
