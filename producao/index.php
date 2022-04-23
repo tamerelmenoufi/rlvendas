@@ -1,16 +1,5 @@
 <?php
     include("../lib/includes.php");
-
-    foreach($_GET as $ind => $val){
-        $opc = $ind;
-    }
-
-    if(!$_SESSION['terminal']){
-        $_SESSION['terminal'] = true;
-        header("location:./?{$opc}");
-        exit();
-    }
-
 ?>
 
 
