@@ -82,7 +82,22 @@ $result = mysqli_query($con, $query);
                         <td><?= $d->mesa_descricao; ?></td>
                         <td><?= formata_datahora($d->data_pedido, DATA_HM); ?></td>
                         <td>
-                            <?= getSituacaoOptions($d->situacao, $d->codigo); ?>
+
+
+
+                            <?php
+                                $opc = getSituacaoOptions($d->situacao, $d->codigo);
+                                if($opc == 'pagar'){
+                            ?>
+                                <div acao="pago">
+                                    <?=$opc?>
+                                </div>
+                            <?php
+                                }else{
+                                    echo $opc;
+                                }
+
+                            ?>
                         </td>
                         <!--<td>
                             <button
@@ -113,5 +128,22 @@ $result = mysqli_query($con, $query);
 <script>
     $(function () {
         $("#datatable").DataTable();
+
+        $("div[acao]").click(function(){
+            acao = $(this).attr("acao");
+            $.confirm({
+                content:"Confirma o pagamento?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
+
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            });
+        });
+
     });
 </script>
