@@ -87,7 +87,7 @@ $result = mysqli_query($con, $query);
 
                             <?php
                                 $opc = getSituacaoOptions($d->situacao, $d->codigo);
-                                if($opc == 'pagar'){
+                                if($opc == 'Pagar'){
                             ?>
                                 <div acao="pago">
                                     <?=$opc?>
