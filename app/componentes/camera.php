@@ -1,6 +1,14 @@
 <?php
     include("../../lib/includes.php");
 
+    if($_POST['acao'] == 'Mesa'){
+        $query = "SELECT * FROM mesas WHERE mesa = '{$_POST['cod']}'";
+        $result = mysqli_query($con, $query);
+        $m = mysqli_fetch_object($result);
+        echo $m->codigo;
+        exit();
+    }
+
     $mesas = [];
     $query = "SELECT * FROM mesas WHERE situacao = '1' AND deletado != '1'";
     $result = mysqli_query($con, $query);
@@ -54,19 +62,29 @@
             m = ['<?=@implode("','",$mesas)?>'];
 
             if(content && $.inArray( content, m ) != -1){
-                window.localStorage.setItem('AppPedido', content);
 
-                $(function(){
-                    $.ajax({
-                        url:"src/home/index.php",
-                        data:{
-                            pedido: content,
-                        },
-                        success:function(dados){
-                            $(".ms_corpo").html(dados);
-                        }
-                    });
-                })
+
+                $.ajax({
+                    url:"componentes/camera.php",
+                    data:{
+                        acao: 'Mesa',
+                        cod: content
+                    },
+                    success:function(dados_mesa){
+
+                        window.localStorage.setItem('AppPedido', dados_mesa);
+                        $(function(){
+                            $.ajax({
+                                url:"src/home/index.php",
+                                data:{
+                                    pedido: dados_mesa,
+                                },
+                                success:function(dados){
+                                    $(".ms_corpo").html(dados);
+                                }
+                            });
+                        })
+                    }
 
 
                 PageClose();
