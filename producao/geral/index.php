@@ -4,7 +4,6 @@
     include("prod_conf.php");
 
     if($_POST['opc']){
-
         $query = "update vendas_produtos set situacao = '{$_POST['opc']}' where codigo = '{$_POST['cod']}'";
         mysqli_query($con, $query);
         exit();
