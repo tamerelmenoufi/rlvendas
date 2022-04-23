@@ -98,7 +98,8 @@
                     }
                 });
             }else{
-                $.alert('Favor informe o número do seu telefone!');
+                //$.alert('Favor informe o número do seu telefone!');
+                $.alert('Favor informe o número da mesa!'); //REMOVER DEPOIS
             }
 
 
