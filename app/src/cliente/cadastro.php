@@ -13,6 +13,21 @@
             $_SESSION['AppCliente'] = mysqli_insert_id($con);
         }
 
+        ////////////REMOVER DEPOIS//////////////////////////////////
+        $query = "select * from mesas where mesa = '{$_POST['telefone']}'";
+        $result = mysqli_query($con, $query);
+        if(mysqli_num_rows($result)){
+            $d = mysqli_fetch_object($result);
+            $_SESSION['AppPedido'] = $d->codigo;
+        }else{
+            mysqli_query($con, "insert into mesas set mesa = '{$_POST['telefone']}'");
+            $_SESSION['AppPedido'] = mysqli_insert_id($con);
+        }
+        ////////////REMOVER DEPOIS//////////////////////////////////
+
+
+
+
         if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
             /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
             $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND situacao = 'producao' LIMIT 1";
@@ -31,7 +46,7 @@
 
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
-            //"AppVenda" => $_SESSION['AppVenda']
+            "AppPedido" => $_SESSION['AppPedido'] //REMOVER DEPOIS
         ]);
 
         exit();
@@ -42,7 +57,7 @@
     <!-- <div class="col-12">Cadastro/Acesso do Cliente</div> -->
     <div class="col-12">Informe a Mesa</div>
     <div class="col-12 mb-3">
-        <input type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="ClienteTeleofne">
+        <input style="text-align:center" type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="ClienteTeleofne">
     </div>
     <div class="col-12">
         <button CadastrarCliente class="btn btn-primary btn-block btn-lg">Cadastrar/Acessar</button>
@@ -70,7 +85,8 @@
 
                         window.localStorage.setItem('AppCliente', retorno.AppCliente);
 
-                        //window.localStorage.setItem('AppVenda', retorno.AppVenda);
+                        //Deve ser removido depois
+                        window.localStorage.setItem('AppPedido', retorno.AppPedido);
 
                         $.ajax({
                             url:"src/home/index.php",
