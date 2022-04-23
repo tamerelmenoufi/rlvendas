@@ -73,7 +73,6 @@
 
                         window.localStorage.setItem('AppPedido', dados_mesa);
 
-                        $(function(){
                             $.ajax({
                                 url:"src/home/index.php",
                                 data:{
@@ -84,7 +83,6 @@
                                     PageClose();
                                 }
                             });
-                        })
 
                     }
 
