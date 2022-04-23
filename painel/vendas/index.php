@@ -81,24 +81,7 @@ $result = mysqli_query($con, $query);
                         </td>
                         <td><?= $d->mesa_descricao; ?></td>
                         <td><?= formata_datahora($d->data_pedido, DATA_HM); ?></td>
-                        <td>
-
-
-
-                            <?php
-                                $opc = getSituacaoOptions($d->situacao, $d->codigo);
-                                if($opc == 'Pagar'){
-                            ?>
-                                <div acao="pago">
-                                    <?=$opc?>
-                                </div>
-                            <?php
-                                }else{
-                                    echo $opc;
-                                }
-
-                            ?>
-                        </td>
+                        <td><?=getSituacaoOptions($d->situacao, $d->codigo)?></td>
                         <!--<td>
                             <button
                                     class="btn btn-sm btn-link"
