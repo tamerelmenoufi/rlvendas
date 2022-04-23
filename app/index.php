@@ -2,7 +2,7 @@
     include("../lib/includes.php");
     if($_GET['s']) {
         $_SESSION = [];
-        header("location:./");
+        //header("location:./");
     }
 ?>
 <!DOCTYPE html>
@@ -36,15 +36,17 @@
 <script>
     $(function () {
 
-        // <?php
-        // if($_GET['s']){
-        // ?>
-        // window.localStorage.removeItem('AppPedido');
-        // window.location.href='./';
-        // return false;
-        // <?php
-        // }
-        // ?>
+        <?php
+        if($_GET['s']){
+        ?>
+        window.localStorage.removeItem('AppPedido');
+        window.localStorage.removeItem('AppVenda');
+        window.localStorage.removeItem('AppCliente');
+        window.location.href='./';
+        return false;
+        <?php
+        }
+        ?>
 
 
         $.ajax({

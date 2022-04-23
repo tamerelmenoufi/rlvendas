@@ -73,16 +73,16 @@
 
                         window.localStorage.setItem('AppPedido', dados_mesa);
 
-                            $.ajax({
-                                url:"src/home/index.php",
-                                data:{
-                                    pedido: dados_mesa,
-                                },
-                                success:function(dados){
-                                    $(".ms_corpo").html(dados);
-                                    PageClose();
-                                }
-                            });
+                        $.ajax({
+                            url:"src/home/index.php",
+                            data:{
+                                pedido: dados_mesa,
+                            },
+                            success:function(dados){
+                                $(".ms_corpo").html(dados);
+                                PageClose();
+                            }
+                        });
 
                     }
 
