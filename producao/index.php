@@ -2,8 +2,6 @@
     include("../lib/includes.php");
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
