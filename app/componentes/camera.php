@@ -2,7 +2,7 @@
     include("../../lib/includes.php");
 
     if($_POST['acao'] == 'Mesa'){
-        $query = "SELECT * FROM mesas WHERE mesa = '{$_POST['cod']}'";
+        $query = "SELECT * FROM mesas WHERE mesa = '{$_POST['mesa']}'";
         $result = mysqli_query($con, $query);
         $m = mysqli_fetch_object($result);
         echo $m->codigo;
@@ -65,9 +65,10 @@
 
                 $.ajax({
                     url:"componentes/camera.php",
+                    type:"POST",
                     data:{
                         acao: 'Mesa',
-                        cod: content
+                        mesa: content
                     },
                     success:function(dados_mesa){
 
