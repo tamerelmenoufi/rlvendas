@@ -63,7 +63,6 @@
 
             if(content && $.inArray( content, m ) != -1){
 
-
                 $.ajax({
                     url:"componentes/camera.php",
                     data:{
@@ -84,10 +83,12 @@
                                 }
                             });
                         })
+
+                        PageClose();
                     }
 
 
-                PageClose();
+                });
 /*
                 $.ajax({
                     url:"home/index.php?mesa="+mesa,
