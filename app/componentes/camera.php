@@ -72,6 +72,7 @@
                     success:function(dados_mesa){
 
                         window.localStorage.setItem('AppPedido', dados_mesa);
+
                         $(function(){
                             $.ajax({
                                 url:"src/home/index.php",
@@ -80,13 +81,12 @@
                                 },
                                 success:function(dados){
                                     $(".ms_corpo").html(dados);
+                                    PageClose();
                                 }
                             });
                         })
 
-                        PageClose();
                     }
-
 
                 });
 /*
