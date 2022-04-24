@@ -73,7 +73,7 @@ $result = mysqli_query($con, $query);
                     <th>Mesa</th>
                     <th>Data do Pedido</th>
                     <th>Situação</th>
-                    <!-- <th class="mw-20">Ações</th>-->
+                    <th class="mw-20">Lista</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -88,6 +88,12 @@ $result = mysqli_query($con, $query);
                         <td><?= $d->mesa_descricao; ?></td>
                         <td><?= formata_datahora($d->data_pedido, DATA_HM); ?></td>
                         <td><?=getSituacaoOptions($d->situacao, $d->codigo)?></td>
+                        <td>
+                            <button lista="<?=$d->codigo?>" class="btn btn-primary">
+                                <i class="fa-solid fa-rectangle-list"></i>
+                            </button>
+                        </td>
+
                         <!--<td>
                             <button
                                     class="btn btn-sm btn-link"
@@ -145,6 +151,16 @@ $result = mysqli_query($con, $query);
 
                     }
                 }
+            });
+        });
+
+
+        $("button[lista]").click(function(){
+            cod = $(this).attr("lista");
+            $.dialog({
+                content:"url:vendas/detalhes.php?cod="+cod,
+                title:false,
+                columnCLass:"col-md-6"
             });
         });
 
