@@ -3,6 +3,12 @@
 include("../../lib/includes.php");
 include "./conf.php";
 
+
+if($_POST['acao'] == 'pago'){
+    mysqli_query("update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'");
+}
+
+
 if($_GET['opc']) $_SESSION['opc_status'] = $_GET['opc'];
 
 switch($_SESSION['opc_status']){
@@ -120,6 +126,19 @@ $result = mysqli_query($con, $query);
                 title:false,
                 buttons:{
                     'SIM':function(){
+
+                        $.ajax({
+                            url:"vendas/index.php",
+                            type:"POST",
+                            data:{
+                                acao,
+                                cod
+                            },
+                            success:function(dados){
+                                $("#palco").html(dados);
+                            }
+                        });
+
 
                     },
                     'NÃO':function(){
