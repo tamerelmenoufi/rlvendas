@@ -68,7 +68,7 @@ $result = mysqli_query($con, $query);
             <table id="datatable" class="table" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>Cliente</th>
+                    <th>XXCliente</th>
                     <th>Valor</th>
                     <th>Mesa</th>
                     <th>Data do Pedido</th>
