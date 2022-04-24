@@ -68,7 +68,7 @@ $result = mysqli_query($con, $query);
             <table id="datatable" class="table" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>XXCliente</th>
+                    <th>Cliente</th>
                     <th>Valor</th>
                     <th>Mesa</th>
                     <th>Data do Pedido</th>
@@ -160,7 +160,7 @@ $result = mysqli_query($con, $query);
             $.dialog({
                 content:"url:vendas/detalhes.php?cod="+cod,
                 title:false,
-                columnClass: 'col-md-12'
+                columnClass: 'col-md-6'
             });
         });
 
