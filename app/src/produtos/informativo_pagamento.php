@@ -77,6 +77,7 @@ if($_POST['acao'] == 'fechar_conta'){
                         //mySocket.send(<?=$_SESSION['AppVenda']?>);
                         window.localStorage.removeItem('AppPedido');
                         window.localStorage.removeItem('AppVenda');
+                        window.localStorage.removeItem('AppCliente');
                         window.location.href='./';
                     }
 
