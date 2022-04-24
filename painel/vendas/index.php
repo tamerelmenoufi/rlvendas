@@ -5,7 +5,7 @@ include "./conf.php";
 
 
 if($_POST['acao'] == 'pago'){
-    mysqli_query("update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'");
+    mysqli_query($con, "update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'");
 }
 
 
