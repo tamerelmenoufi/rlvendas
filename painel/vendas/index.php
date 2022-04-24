@@ -160,7 +160,7 @@ $result = mysqli_query($con, $query);
             $.dialog({
                 content:"url:vendas/detalhes.php?cod="+cod,
                 title:false,
-                columnCLass:"col-md-6"
+                columnCLass:"col-md-8"
             });
         });
 
