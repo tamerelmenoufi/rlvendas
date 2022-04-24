@@ -3,7 +3,7 @@
     include "./conf.php";
 ?>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Produto</th>
