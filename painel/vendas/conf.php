@@ -47,7 +47,11 @@ function getSituacaoOptions($situacao, $venda)
                     </div>";
     }else{
         $list = getSituacao();
-        $retorno = "<span class='badge badge-danger'>{$list[$situacao]}</span>";
+        if($list[$situacao] == 'Pagar'){
+            $retorno = "<span acao='pago' cod='{$venda}' class='badge badge-danger'>{$list[$situacao]}</span>";
+        }else{
+            $retorno = "<span class='badge badge-danger'>{$list[$situacao]}</span>";
+        }
 
     }
     return $retorno;
