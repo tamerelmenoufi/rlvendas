@@ -56,3 +56,25 @@ function getSituacaoOptions($situacao, $venda)
     }
     return $retorno;
 }
+
+function GerarPDF($d){
+
+    $dadosParaEnviar = http_build_query(
+        array(
+            'tipo' => 'pdf',
+            'html' => base64_encode($d),
+            'width' => 400,
+        )
+    );
+    $opcoes = array('http' =>
+           array(
+            'method'  => 'POST',
+            'header'  => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => $dadosParaEnviar
+        )
+    );
+    $contexto = stream_context_create($opcoes);
+    $result   = file_get_contents('http://html2img.mohatron.com/gerar.php', false, $contexto);
+
+    return $result;
+}

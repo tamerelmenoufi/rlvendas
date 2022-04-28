@@ -3,6 +3,15 @@
 include("../../lib/includes.php");
 include "./conf.php";
 
+if($_POST['acao'] == 'NotaPdf'){
+
+    $documento = GerarPDF($_POST['doc']);
+
+    file_put_contents("print-{$md5}.pdf", base64_decode($documento));
+    exit();
+
+}
+
 
 if($_POST['acao'] == 'pago'){
     mysqli_query($con, "update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'");
@@ -164,6 +173,35 @@ $result = mysqli_query($con, $query);
             cod = $(this).attr("lista");
             $.dialog({
                 content:"url:vendas/detalhes.php?cod="+cod,
+                title:false,
+                columnClass: 'col-md-8'
+            });
+        });
+
+        $("button[print]").click(function(){
+            cod = $(this).attr("lista");
+            $.ajax({
+                url:"vendas/print.php?cod="+cod,
+                type:"POST",
+                data{
+                    cod,
+                },
+                success:function(dados){
+                    $.ajax({
+                        url:"vendas/index.php",
+                        type:"POST",
+                        data:{
+                            acao:'NotaPdf',
+                            doc:dados
+                        },
+                        success:function(dados){
+                            $.alert('Dados enviados!');
+                        }
+                    });
+                }
+            });
+            $.dialog({
+                content:"url:vendas/print.php?cod="+cod,
                 title:false,
                 columnClass: 'col-md-8'
             });
