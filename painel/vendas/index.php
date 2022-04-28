@@ -192,7 +192,7 @@ $result = mysqli_query($con, $query);
                         type:"POST",
                         data:{
                             acao:'NotaPdf',
-                            doc:dados
+                            doc:dados,
                         },
                         success:function(dados){
                             $.alert('Dados enviados!');
@@ -200,11 +200,7 @@ $result = mysqli_query($con, $query);
                     });
                 }
             });
-            $.dialog({
-                content:"url:vendas/print.php?cod="+cod,
-                title:false,
-                columnClass: 'col-md-8'
-            });
+
         });
 
     });
