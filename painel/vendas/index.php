@@ -183,7 +183,7 @@ $result = mysqli_query($con, $query);
             $.ajax({
                 url:"vendas/print.php?cod="+cod,
                 type:"POST",
-                data{
+                data:{
                     cod,
                 },
                 success:function(dados){
