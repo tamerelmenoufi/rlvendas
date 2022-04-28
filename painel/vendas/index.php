@@ -92,6 +92,11 @@ $result = mysqli_query($con, $query);
                             <button lista="<?=$d->codigo?>" class="btn btn-primary">
                                 <i class="fa-solid fa-rectangle-list"></i>
                             </button>
+                            <button print="<?=$d->codigo?>" class="btn btn-success">
+                                <i class="fa-solid fa-print"></i>
+                            </button>
+
+
                         </td>
 
                         <!--<td>
