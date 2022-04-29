@@ -56,8 +56,6 @@ $retorno .= '<tr>
 </tbody>
 </table>';
 
-$r = base64_decode(GerarPDF($retorno));
-
-echo 'Nome1: '.print_r($r, true);
+echo GerarPDF($retorno);
 
 ?>
