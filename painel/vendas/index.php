@@ -7,9 +7,11 @@ if($_POST['acao'] == 'NotaPdf'){
 
     $documento = GerarPDF($_POST['doc']);
 
-    file_put_contents("print-{$md5}.pdf", base64_decode($documento));
+    $dados = json_decode($documento);
 
-    echo "print-{$md5}.pdf";
+    file_put_contents($dados['name'], base64_decode($dados['doc']));
+
+    echo "{$dados['name']}";
     exit();
 
 }
