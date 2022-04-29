@@ -8,6 +8,7 @@ if($_POST['acao'] == 'NotaPdf'){
     $documento = GerarPDF($_POST['doc']);
 
     file_put_contents("print-{$md5}.pdf", base64_decode($documento));
+
     exit();
 
 }
@@ -181,7 +182,7 @@ $result = mysqli_query($con, $query);
         $("button[print]").click(function(){
             cod = $(this).attr("lista");
             $.ajax({
-                url:"vendas/print.php?cod="+cod,
+                url:"vendas/print.php",
                 type:"POST",
                 data:{
                     cod,
@@ -196,6 +197,7 @@ $result = mysqli_query($con, $query);
                         },
                         success:function(dados){
                             $.alert('Dados enviados!');
+                            window.open('http://localhost/print/print.php');
                         }
                     });
                 }
