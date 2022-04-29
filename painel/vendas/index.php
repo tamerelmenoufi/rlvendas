@@ -183,7 +183,7 @@ $result = mysqli_query($con, $query);
         });
 
         $("button[print]").click(function(){
-            cod = $(this).attr("lista");
+            cod = $(this).attr("print");
             $.ajax({
                 url:"vendas/print.php",
                 type:"POST",
@@ -200,8 +200,10 @@ $result = mysqli_query($con, $query);
                         },
                         success:function(dados){
                             $.alert('Dados enviados!');
-                            window.open('http://localhost/print/print.php?pdf=' + dados);
+                            acao = '<iframe src="" border="0" width="0" height="0" style="opacity:0"></iframe>';
+                            $("body").append(acao);
                             //Dados de teste
+
                         }
                     });
                 }
