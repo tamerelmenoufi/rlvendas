@@ -219,8 +219,8 @@ $result = mysqli_query($con, $query);
                             $.alert(dados);
                             //$.alert('Dados enviados!');
 
-                            //acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
-                            //$("body").append(acao);
+                            acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
+                            $("body").append(acao);
                             //Dados de teste
 
                         }
