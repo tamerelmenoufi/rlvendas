@@ -7,7 +7,7 @@ if($_POST['acao'] == 'NotaPdf'){
 
     $dadosParaEnviar = http_build_query(
         array(
-            'arq' => $_POST['arq'],
+            'doc' => $_POST['doc'],
         )
     );
     $opcoes = array('http' =>
@@ -20,7 +20,7 @@ if($_POST['acao'] == 'NotaPdf'){
     $contexto = stream_context_create($opcoes);
     $result   = file_get_contents('http://html2img.mohatron.com/get.php', false, $contexto);
 
-    return $_POST['arq'];
+    return $_POST['doc'];
 
 
     exit();
