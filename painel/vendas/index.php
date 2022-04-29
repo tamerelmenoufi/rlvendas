@@ -192,14 +192,14 @@ $result = mysqli_query($con, $query);
                 },
                 success:function(dados){
 
-                    b64 = btoa(unescape(encodeURIComponent(dados)));
-                    $.alert(b64);
+                    //b64 = btoa(unescape(encodeURIComponent(dados)));
+                    $.alert(dados);
                     $.ajax({
                         url:"vendas/index.php",
                         type:"POST",
                         data:{
                             acao:'NotaPdf',
-                            doc:b64,
+                            doc:dados,
                         },
                         success:function(dados){
 
