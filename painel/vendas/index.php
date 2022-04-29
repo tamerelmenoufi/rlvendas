@@ -7,9 +7,9 @@ if($_POST['acao'] == 'NotaPdf'){
 
     $documento = GerarPDF($_POST['doc']);
 
-    file_put_contents("print-{$md5}.pdf", base64_decode($documento));
+    //file_put_contents("print-{$md5}.pdf", base64_decode($documento));
 
-    echo "print-{$md5}.pdf";
+    echo $documento;
     exit();
 
 }
@@ -197,8 +197,8 @@ $result = mysqli_query($con, $query);
                             doc:dados,
                         },
                         success:function(dados){
-                            $.alert('Dados enviados Novo!');
-                            window.open('http://localhost/print/print.php?pdf='+dados);
+                            $.alert('Dados enviados!');
+                            window.open('http://localhost/print/print.php?pdf=' + dados);
                             //Dados de teste
                         }
                     });
