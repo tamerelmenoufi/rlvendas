@@ -192,6 +192,7 @@ $result = mysqli_query($con, $query);
                 },
                 success:function(dados){
                     $.alert(dados);
+                    b64 = btoa(unescape(encodeURIComponent(dados)));
                     $.ajax({
                         url:"vendas/index.php",
                         type:"POST",
@@ -202,6 +203,7 @@ $result = mysqli_query($con, $query);
                         success:function(dados){
 
 
+                            $.alert(dados);
                             //$.alert('Dados enviados!');
 
                             //acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
