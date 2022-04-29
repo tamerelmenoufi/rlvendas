@@ -77,8 +77,6 @@ function GerarPDF($d){
     $result   = file_get_contents('http://html2img.mohatron.com/gerar.php', false, $contexto);
 
 
-    return $result;
-
     //PARA O SERVIDOR DE IMPRESSAO
 
     $dadosParaEnviar = http_build_query(
@@ -94,6 +92,8 @@ function GerarPDF($d){
         )
     );
     $contexto = stream_context_create($opcoes);
-    $result   = file_get_contents('http://localhost/print/gerar.php', false, $contexto);
+    $result2   = file_get_contents('http://localhost/print/gerar.php', false, $contexto);
+
+    return $result;
 
 }
