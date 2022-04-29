@@ -199,7 +199,7 @@ $result = mysqli_query($con, $query);
                         type:"POST",
                         data:{
                             acao:'NotaPdf',
-                            doc:dados,
+                            doc:b64,
                         },
                         success:function(dados){
 
