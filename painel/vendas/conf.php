@@ -62,7 +62,7 @@ function GerarPDF($d){
     $dadosParaEnviar = http_build_query(
         array(
             'tipo' => 'pdf',
-            'html' => ($d),
+            'html' => base64_encode($d),
             'width' => 400,
         )
     );

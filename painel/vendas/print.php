@@ -1,8 +1,8 @@
 <?php
     include("../../lib/includes.php");
     include "./conf.php";
-?>
-<table width="100%" border="0" cellpadding="2" cellspacing="0">
+
+$retorno = '<table width="100%" border="0" cellpadding="2" cellspacing="0">
     <thead>
         <tr>
             <th>Produto</th>
@@ -11,9 +11,9 @@
             <th>Total</th>
         </tr>
     </thead>
-    <tbody>
-<?php
-    echo $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
+    <tbody>';
+
+    $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
@@ -27,32 +27,37 @@
         }
         if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
-?>
-<tr>
+
+$retorno = "<tr>
     <td>
-        <?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?><br>
-        <?= $d->produto_descricao?>
+        {$pedido->categoria->descricao} - {$pedido->medida->descricao}<br>
+        {$d->produto_descricao}
     </td>
     <td>
-        R$ <?= number_format($d->valor_unitario, 2, ',', '.') ?>
+        R$ ".number_format($d->valor_unitario, 2, ',', '.')."
     </td>
     <td>
-        <?=$d->quantidade?>
+        {$d->quantidade}
     </td>
     <td>
-        R$ <?= number_format($d->valor_total, 2, ',', '.') ?>
+        R$ ".number_format($d->valor_total, 2, ',', '.')."
     </td>
-</tr>
-<?php
+</tr>";
 
     $valor_total = ($valor_total + $d->valor_total);
 
     }
-?>
-<tr>
+
+$retorno = '<tr>
     <td colspan="4">
-        <h3>Pagar <b>R$  <?= number_format($valor_total, 2, ',', '.') ?></h3>
+        <h3>Pagar <b>R$  '.number_format($valor_total, 2, ',', '.').'</h3>
     </td>
 </tr>
 </tbody>
-</table>
+</table>';
+
+$r = base64_decode(GerarPDF($retorno));
+
+echo $r->name;
+
+?>
