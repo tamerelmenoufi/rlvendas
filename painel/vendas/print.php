@@ -28,7 +28,7 @@ $retorno = '<table width="100%" border="0" cellpadding="2" cellspacing="0">
         if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
 
-$retorno = "<tr>
+$retorno .= "<tr>
     <td>
         {$pedido->categoria->descricao} - {$pedido->medida->descricao}<br>
         {$d->produto_descricao}
@@ -48,7 +48,7 @@ $retorno = "<tr>
 
     }
 
-$retorno = '<tr>
+$retorno .= '<tr>
     <td colspan="4">
         <h3>Pagar <b>R$  '.number_format($valor_total, 2, ',', '.').'</h3>
     </td>
