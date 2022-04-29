@@ -191,8 +191,9 @@ $result = mysqli_query($con, $query);
                     cod,
                 },
                 success:function(dados){
-                    $.alert(dados);
+
                     b64 = btoa(unescape(encodeURIComponent(dados)));
+                    $.alert(b64);
                     $.ajax({
                         url:"vendas/index.php",
                         type:"POST",
