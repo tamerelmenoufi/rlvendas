@@ -8,10 +8,10 @@ if($_POST['acao'] == 'NotaPdf'){
     $documento = GerarPDF($_POST['doc']);
 
     $dados = json_decode($documento);
+    print_r($dados);
+    // file_put_contents($dados->name, base64_decode($dados->doc));
 
-    file_put_contents($dados->name, base64_decode($dados->doc));
-
-    echo "{$dados->name}";
+    // echo "{$dados['name']}";
     exit();
 
 }
