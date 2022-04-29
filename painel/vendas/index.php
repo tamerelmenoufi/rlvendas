@@ -197,8 +197,9 @@ $result = mysqli_query($con, $query);
                             doc:dados,
                         },
                         success:function(dados){
-                            $.alert('Dados enviados!');
+                            $.alert('Dados enviados Novo!');
                             window.open('http://localhost/print/print.php?pdf='+dados);
+                            //Dados de teste
                         }
                     });
                 }
