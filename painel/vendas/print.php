@@ -13,7 +13,7 @@
     </thead>
     <tbody>
 <?php
-    $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
+    echo $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
