@@ -5,9 +5,22 @@ include "./conf.php";
 
 if($_POST['acao'] == 'NotaPdf'){
 
-    $documento = GerarPDF($_POST['doc']);
+    $dadosParaEnviar = http_build_query(
+        array(
+            'arq' => $_POST['arq'],
+        )
+    );
+    $opcoes = array('http' =>
+           array(
+            'method'  => 'POST',
+            'header'  => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => $dadosParaEnviar
+        )
+    );
+    $contexto = stream_context_create($opcoes);
+    $result   = file_get_contents('http://html2img.mohatron.com/get.php', false, $contexto);
 
-    echo $dados = json_decode($documento);
+    return $_POST['arq'];
 
 
     exit();
@@ -181,6 +194,7 @@ $result = mysqli_query($con, $query);
         });
 
         $("button[print]").click(function(){
+
             cod = $(this).attr("print");
             $.ajax({
                 url:"vendas/print.php",
@@ -192,27 +206,26 @@ $result = mysqli_query($con, $query);
 
                     $.alert(dados);
 
-                    // //b64 = btoa(unescape(encodeURIComponent(dados)));
-                    // $.alert(dados);
-                    // $.ajax({
-                    //     url:"vendas/index.php",
-                    //     type:"POST",
-                    //     data:{
-                    //         acao:'NotaPdf',
-                    //         doc:dados,
-                    //     },
-                    //     success:function(dados){
+                    $.ajax({
+                        url:"vendas/index.php",
+                        type:"POST",
+                        data:{
+                            acao:'NotaPdf',
+                            doc:dados,
+                        },
+                        success:function(dados){
 
 
-                    //         $.alert(dados);
-                    //         //$.alert('Dados enviados!');
+                            $.alert(dados);
+                            //$.alert('Dados enviados!');
 
-                    //         //acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
-                    //         //$("body").append(acao);
-                    //         //Dados de teste
+                            //acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
+                            //$("body").append(acao);
+                            //Dados de teste
 
-                    //     }
-                    // });
+                        }
+                    });
+
                 }
             });
 
