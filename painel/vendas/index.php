@@ -11,10 +11,10 @@ if($_POST['acao'] == 'NotaPdf'){
         )
     );
     $opcoes = array('http' =>
-           array(
-            'method'  => 'POST',
-            'header'  => 'Content-Type: application/x-www-form-urlencoded',
-            'content' => $dadosParaEnviar
+        array(
+        'method'  => 'POST',
+        'header'  => 'Content-Type: application/x-www-form-urlencoded',
+        'content' => $dadosParaEnviar
         )
     );
     $contexto = stream_context_create($opcoes);
