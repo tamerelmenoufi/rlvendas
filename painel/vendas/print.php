@@ -58,6 +58,6 @@ $retorno .= '<tr>
 
 $r = base64_decode(GerarPDF($retorno));
 
-echo $r->name;
+echo 'Nome: '.$r['name'];
 
 ?>
