@@ -9,7 +9,7 @@ $retorno .= '
         <meta charset="UTF-8">
         <style>
             td{
-                font-size:40px;
+                font-size:30px;
             }
         </style>
     </head>
