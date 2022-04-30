@@ -9,7 +9,7 @@ $retorno .= '
         <meta charset="UTF-8">
         <style>
             body{
-                font-size:50px;
+                size:25px;
             }
         </style>
     </head>
@@ -59,7 +59,7 @@ $retorno .= "<tr>
     }
 
 $retorno .= '<tr>
-    <td colspan="4">
+    <td colspan="4" style="text-align:right">
         <h3>Pagar <b>R$  '.number_format($valor_total, 2, ',', '.').'</h3>
     </td>
 </tr>
