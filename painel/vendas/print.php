@@ -86,6 +86,11 @@ $retorno .= '<tr>
       <h3>Pagar <b>R$  '.number_format($valor_total, 2, ',', '.').'</h3>
     </td>
 </tr>
+<tr>
+    <td colspan="4" style="text-align:center">
+      Yobom.com.br - '.date("d/m/Y H:i:s").'
+    </td>
+</tr>
 </tbody>
 </table>';
 
