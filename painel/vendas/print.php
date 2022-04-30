@@ -83,7 +83,6 @@ $retorno .= "<tr>
 
 $retorno .= '<tr>
     <td colspan="4" style="text-align:right">
-  '.$quebra.'
       <h3>Pagar <b>R$  '.number_format($valor_total, 2, ',', '.').'</h3>
     </td>
 </tr>
