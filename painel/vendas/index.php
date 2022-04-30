@@ -204,7 +204,7 @@ $result = mysqli_query($con, $query);
                 },
                 success:function(dados){
 
-                    $.alert(dados);
+                    // $.alert(dados);
 
                     // acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
                     window.open('http://html2img.mohatron.com/pdf/'+dados);
