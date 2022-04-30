@@ -2,7 +2,15 @@
     include("../../lib/includes.php");
     include "./conf.php";
 
-$retorno = '<table width="100%" border="0" cellpadding="2" cellspacing="0">
+$retorno .= '
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+';
+
+$retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
     <thead>
         <tr>
             <th>Produto</th>
@@ -55,6 +63,12 @@ $retorno .= '<tr>
 </tr>
 </tbody>
 </table>';
+
+
+$retorno .= '
+    </body>
+    </html>
+';
 
 echo GerarPDF($retorno);
 
