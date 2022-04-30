@@ -8,8 +8,8 @@ $retorno .= '
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
         <style>
-            body{
-                font-size40px;
+            td{
+                font-size:40px;
             }
         </style>
     </head>
@@ -42,11 +42,11 @@ $retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
 
 
 $retorno .= "<tr>
-    <td style=\"text-align:right\">
+    <td>
         {$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}<br>
         {$d->produto_descricao}
     </td>
-    <td>
+    <td style=\"text-align:right\">
         R$ ".number_format($d->valor_unitario, 2, ',', '.')."
     </td>
     <td style=\"text-align:right\">
