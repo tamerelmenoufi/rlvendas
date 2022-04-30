@@ -9,7 +9,7 @@ $retorno .= '
         <meta charset="UTF-8">
         <style>
             body{
-                size:25px;
+                font-size40px;
             }
         </style>
     </head>
@@ -42,14 +42,14 @@ $retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
 
 
 $retorno .= "<tr>
-    <td>
+    <td style=\"text-align:right\">
         {$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}<br>
         {$d->produto_descricao}
     </td>
     <td>
         R$ ".number_format($d->valor_unitario, 2, ',', '.')."
     </td>
-    <td>
+    <td style=\"text-align:right\">
         R$ ".number_format($d->valor_total, 2, ',', '.')."
     </td>
 </tr>";
