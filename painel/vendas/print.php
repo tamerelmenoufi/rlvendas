@@ -27,13 +27,15 @@ $retorno .= '
     <body>
 ';
 
+$quebra = '-----------------------------------------------------------------------------------------------------------------------------------------------------';
+
+
 $retorno .= '<h1>YOBOM SORVETES CNPJ - 28856577000119</h1>';
 $retorno .= '<h2>Rua Bruxelas, 15, Manaus - AM</h2>';
-$retorno .= '---------------------------------------------------------------------------------------------------------------------------------------';
+$retorno .= $quebra;
 $retorno .= "<h2>PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}</h2>";
 $retorno .= "<h2>Pedido em : ".$p->data_pedido."</h2>";
-
-
+$retorno .= $quebra;
 
 
 
@@ -81,7 +83,8 @@ $retorno .= "<tr>
 
 $retorno .= '<tr>
     <td colspan="4" style="text-align:right">
-        <h3>Pagar <b>R$  '.number_format($valor_total, 2, ',', '.').'</h3>
+  '.$quebra.'
+      <h3>Pagar <b>R$  '.number_format($valor_total, 2, ',', '.').'</h3>
     </td>
 </tr>
 </tbody>
