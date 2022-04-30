@@ -13,6 +13,12 @@ $retorno .= '
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
         <style>
+            html{
+                height: 100%;
+            }
+            body {
+                min-height: 100%;
+            }
             td, th{
                 font-size:30px;
             }
