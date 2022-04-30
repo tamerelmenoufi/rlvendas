@@ -27,7 +27,7 @@ $retorno .= '
     <body>
 ';
 
-$retorno .= '<h1>XX YOBOM SORVETES CNPJ - 28856577000119</h1>';
+$retorno .= '<h1>YOBOM SORVETES CNPJ - 28856577000119</h1>';
 $retorno .= '<h2>Rua Bruxelas, 15, Manaus - AM</h2>';
 $retorno .= '---------------------------------------------';
 $retorno .= "<h2>PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}</h2>";
