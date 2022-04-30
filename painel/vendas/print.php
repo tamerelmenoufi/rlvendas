@@ -6,9 +6,10 @@ $retorno .= '
     <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
         <style>
             body{
-                font-size:20px;
+                font-size:50px;
             }
         </style>
     </head>
@@ -19,7 +20,7 @@ $retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
     <thead>
         <tr>
             <th>Produto</th>
-            <th>valor Unitário</th>
+            <th>VL Uni</th>
             <th>Total</th>
         </tr>
     </thead>
