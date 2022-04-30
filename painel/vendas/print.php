@@ -2,8 +2,7 @@
     include("../../lib/includes.php");
     include "./conf.php";
 
-$retorno .= "<h2>PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."</h2>";
-$query = "select a.*, b.mesa as mesa from vendas a left join mesas on a.mesa = b.codigo where a.venda = '{$_POST['cod']}'";
+    $query = "select a.*, b.mesa as mesa from vendas a left join mesas b on a.mesa = b.codigo where a.venda = '{$_POST['cod']}'";
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
 
