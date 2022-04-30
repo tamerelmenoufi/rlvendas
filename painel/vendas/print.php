@@ -6,6 +6,11 @@ $retorno .= '
     <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                font-size:20px;
+            }
+        </style>
     </head>
     <body>
 ';
