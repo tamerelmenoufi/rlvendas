@@ -2,26 +2,42 @@
     include("../../lib/includes.php");
     include "./conf.php";
 
+$retorno .= "<h2>PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."</h2>";
+$query = "select a.*, b.mesa as mesa from vendas a left join mesas on a.mesa = b.codigo where a.venda = '{$_POST['cod']}'";
+    $result = mysqli_query($con, $query);
+    $p = mysqli_fetch_object($result);
+
+
 $retorno .= '
     <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
         <style>
-            td{
+            td, th{
                 font-size:30px;
             }
         </style>
     </head>
-    <body onload="window.print()">
+    <body>
 ';
+
+$retorno .= '<h1>YOBOM SORVETES CNPJ - 28856577000119</h1>';
+$retorno .= '<h2>Rua Bruxelas, 15, Manaus - AM</h2>';
+$retorno .= '---------------------------------------------';
+$retorno .= "<h2>PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}</h2>";
+$retorno .= "<h2>Pedido em : ".$p->data_pedido."</h2>";
+
+
+
+
 
 $retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
     <thead>
         <tr>
             <th>Produto</th>
-            <th>VL Uni</th>
-            <th>Total</th>
+            <th>VL Uni (R$)</th>
+            <th>Total (R$)</th>
         </tr>
     </thead>
     <tbody>';
@@ -44,13 +60,13 @@ $retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
 $retorno .= "<tr>
     <td>
         {$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}<br>
-        {$d->produto_descricao}
+        <i>{$d->produto_descricao}</i>
     </td>
     <td style=\"text-align:right\">
-        R$ ".number_format($d->valor_unitario, 2, ',', '.')."
+        ".number_format($d->valor_unitario, 2, ',', '.')."
     </td>
     <td style=\"text-align:right\">
-        R$ ".number_format($d->valor_total, 2, ',', '.')."
+        ".number_format($d->valor_total, 2, ',', '.')."
     </td>
 </tr>";
 
