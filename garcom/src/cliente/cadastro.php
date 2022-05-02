@@ -14,15 +14,15 @@
         }
 
         ////////////REMOVER DEPOIS//////////////////////////////////
-        // $query = "select * from mesas where mesa = '{$_POST['telefone']}'";
-        // $result = mysqli_query($con, $query);
-        // if(mysqli_num_rows($result)){
-        //     $d = mysqli_fetch_object($result);
-        //     $_SESSION['AppPedido'] = $d->codigo;
-        // }else{
-        //     mysqli_query($con, "insert into mesas set mesa = '{$_POST['telefone']}'");
-        //     $_SESSION['AppPedido'] = mysqli_insert_id($con);
-        // }
+        $query = "select * from mesas where mesa = '{$_POST['telefone']}'";
+        $result = mysqli_query($con, $query);
+        if(mysqli_num_rows($result)){
+            $d = mysqli_fetch_object($result);
+            $_SESSION['AppPedido'] = $d->codigo;
+        }else{
+            mysqli_query($con, "insert into mesas set mesa = '{$_POST['telefone']}'");
+            $_SESSION['AppPedido'] = mysqli_insert_id($con);
+        }
         ////////////REMOVER DEPOIS//////////////////////////////////
 
 
@@ -46,7 +46,7 @@
 
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
-            // "AppPedido" => $_SESSION['AppPedido'] //REMOVER DEPOIS
+            "AppPedido" => $_SESSION['AppPedido'] //REMOVER DEPOIS
         ]);
 
         exit();
@@ -54,17 +54,10 @@
 ?>
 
 <div class="col">
-    <div class="col-12">Cadastro/Acesso do Cliente</div>
-    <!-- <div class="col-12">Informe a Mesa</div> -->
+    <!-- <div class="col-12">Cadastro/Acesso do Cliente</div> -->
+    <div class="col-12">Informe a Mesa</div>
     <div class="col-12 mb-3">
-        <input
-            style="text-align:center; font-size:15px; font-weight:bold;"
-            type="text"
-            inputmode="numeric"
-            autocomplete="off"
-            class="form-control form-control-lg"
-            id="ClienteTeleofne"
-        >
+        <input style="text-align:center" type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="ClienteTeleofne">
     </div>
     <div class="col-12">
         <button CadastrarCliente class="btn btn-primary btn-block btn-lg">Cadastrar/Acessar</button>
@@ -74,12 +67,12 @@
 <script>
     $(function(){
 
-        $("#ClienteTeleofne").mask("(99) 99999-9999");
-        // $("#ClienteTeleofne").mask("999");
+        // $("#ClienteTeleofne").mask("(99) 99999-9999");
+        $("#ClienteTeleofne").mask("999");
 
         $("button[CadastrarCliente]").click(function(){
             telefone = $("#ClienteTeleofne").val();
-            if(telefone.length === 15){
+            if(telefone.length === 3){
                 $.ajax({
                     url:"src/cliente/cadastro.php",
                     type:"POST",
