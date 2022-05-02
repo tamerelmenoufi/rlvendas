@@ -27,9 +27,15 @@
 ?>
 <style>
     .ClienteTopoTitulo{
-        position:relative;
+        position:fixed;
+        left:0px;
+        top:0px;
         width:100%;
-        text-align:center;
+        height:60px;
+        background:#fff;
+        padding-left:70px;
+        padding-top:15px;
+        z-index:1;
     }
     .btn_mesa{
         width:90%;
