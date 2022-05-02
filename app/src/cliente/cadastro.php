@@ -58,7 +58,7 @@
     <!-- <div class="col-12">Informe a Mesa</div> -->
     <div class="col-12 mb-3">
         <input
-            style="text-align:center; font-size:15px; font-weight:bold;"
+            style="text-align:center; font-size:20px; font-weight:bold;"
             type="text"
             inputmode="numeric"
             autocomplete="off"
