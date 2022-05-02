@@ -56,8 +56,6 @@
 </div>
 
 <div class="col">
-    <div class="col-12">
-
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' order by mesa";
@@ -92,7 +90,6 @@
 
 
 
-    </div>
 </div>
 
 <script>
