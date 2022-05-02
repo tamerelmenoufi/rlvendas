@@ -31,7 +31,7 @@
         left:0px;
         top:0px;
         width:100%;
-        height:80px;
+        height:70px;
         background:#fff;
         padding-left:70px;
         padding-top:15px;
