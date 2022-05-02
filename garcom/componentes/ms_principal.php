@@ -113,7 +113,7 @@
                     type:"POST",
                     data:{
                         //local:"componentes/camera.php",
-                        local:"src/cliente/home.php",
+                        local:"src/mesas/home.php",
                     },
                     success:function(dados){
                         $(".ms_corpo").append(dados);
