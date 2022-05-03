@@ -53,11 +53,11 @@
     }
 
 
-    $query = "select * from vendas where situacao != 'pago' and deletado != '1'";
+    $query = "select * from vendas where situacao not in ('pago', 'pagar') and deletado != '1'";
     $result = mysqli_query($con, $query);
     $Ocupadas = [];
     while($d = mysqli_fetch_object($result)){
-        $Ocupadas[] = $d->codigo;
+        $Ocupadas[] = $d->mesa;
     }
 
 
