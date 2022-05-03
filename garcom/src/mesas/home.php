@@ -3,32 +3,46 @@
 
     if($_POST['mesa']){
 
-        $query = "select * from clientes where telefone = '{$_POST['mesa']}'";
+
+        $query = "SELECT codigo, cliente, mesa FROM vendas WHERE mesa = '{$_POST['cod_mesa']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
         $result = mysqli_query($con, $query);
-        if(mysqli_num_rows($result)){
-            $d = mysqli_fetch_object($result);
-            $_SESSION['AppCliente'] = $d->codigo;
-        }else{
-            mysqli_query($con, "insert into clientes set telefone = '{$_POST['mesa']}'");
-            $_SESSION['AppCliente'] = mysqli_insert_id($con);
+
+        if (mysqli_num_rows($result)) {
+            //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
+            list($codigo, $cliente, $mesa) = mysqli_fetch_row(mysqli_query($con, $query));
+            $_SESSION['AppVenda'] = $codigo;
+            $_SESSION['AppCliente'] = $cliente;
+            $_SESSION['AppPedido'] = $d->mesa;
+
+        } else {
+
+            $query = "select * from clientes where telefone = '{$_POST['mesa']}'";
+            $result = mysqli_query($con, $query);
+            if(mysqli_num_rows($result)){
+                $d = mysqli_fetch_object($result);
+                $_SESSION['AppCliente'] = $d->codigo;
+            }else{
+                mysqli_query($con, "insert into clientes set telefone = '{$_POST['mesa']}'");
+                $_SESSION['AppCliente'] = mysqli_insert_id($con);
+            }
+
+            ////////////REMOVER DEPOIS//////////////////////////////////
+            $query = "select * from mesas where mesa = '{$_POST['mesa']}'";
+            $result = mysqli_query($con, $query);
+            if(mysqli_num_rows($result)){
+                $d = mysqli_fetch_object($result);
+                $_SESSION['AppPedido'] = $d->codigo;
+            }else{
+                mysqli_query($con, "insert into mesas set mesa = '{$_POST['mesa']}'");
+                $_SESSION['AppPedido'] = mysqli_insert_id($con);
+            }
+            ////////////REMOVER DEPOIS//////////////////////////////////
+
         }
 
-        ////////////REMOVER DEPOIS//////////////////////////////////
-        $query = "select * from mesas where mesa = '{$_POST['mesa']}'";
-        $result = mysqli_query($con, $query);
-        if(mysqli_num_rows($result)){
-            $d = mysqli_fetch_object($result);
-            $_SESSION['AppPedido'] = $d->codigo;
-        }else{
-            mysqli_query($con, "insert into mesas set mesa = '{$_POST['mesa']}'");
-            $_SESSION['AppPedido'] = mysqli_insert_id($con);
-        }
-        ////////////REMOVER DEPOIS//////////////////////////////////
 
 
-
-
-        if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
+        if($_SESSION['AppCliente'] && $_SESSION['AppPedido'] && !$_SESSION['AppVenda']){
             /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
             $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
             $result = mysqli_query($con, $query);
@@ -46,7 +60,8 @@
 
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
-            "AppPedido" => $_SESSION['AppPedido'] //REMOVER DEPOIS
+            "AppPedido" => $_SESSION['AppPedido'], //REMOVER DEPOIS
+            "AppVenda" => $_SESSION['AppVenda'] //REMOVER DEPOIS
         ]);
 
         exit();
@@ -143,7 +158,7 @@
 
         ?>
         <div class="col-4">
-            <div acao="<?=$d->mesa?>" class="btn_mesa <?=$icone?>"><?=$d->mesa?></div>
+            <div acao="<?=$d->mesa?>" cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=$d->mesa?></div>
         </div>
         <?php
             }
@@ -158,17 +173,21 @@
         Carregando('none');
         $("div[acao]").click(function(){
             mesa = $(this).attr("acao");
+            cod_mesa = $(this).attr("cod");
             Carregando();
             $.ajax({
                 url:"src/mesas/home.php",
                 type:"POST",
                 data:{
-                    mesa
+                    mesa,
+                    cod_mesa
                 },
                 success:function(dados){
                     let retorno = JSON.parse(dados);
                     window.localStorage.setItem('AppCliente', retorno.AppCliente);
                     window.localStorage.setItem('AppPedido', retorno.AppPedido);
+                    window.localStorage.setItem('AppVenda', retorno.AppVenda);
+
                     window.location.href="./";
                 }
             });
