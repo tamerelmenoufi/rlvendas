@@ -128,7 +128,7 @@
             while($d = mysqli_fetch_object($result)){
         ?>
         <div class="col-4">
-            <div acao="<?=$d->codigo?>" class="btn_mesa <?=((in_array($d->codigo, $Ocupadas))?'ocupada':false)?>"><?=$d->mesa?></div>
+            <div acao="<?=$d->mesa?>" class="btn_mesa <?=((in_array($d->codigo, $Ocupadas))?'ocupada':false)?>"><?=$d->mesa?></div>
         </div>
 
         <?php
