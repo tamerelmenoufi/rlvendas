@@ -40,9 +40,10 @@
     .btn_mesa{
         width:90%;
         padding:10px;
+        margin:10px;
         border:solid 1px #ccc;
-        border-radius:20px;
-        min-height:40px;
+        border-radius:5px;
+        min-height:80px;
         font-size:50px;
         color:#333;
         text-align:center;
@@ -64,7 +65,7 @@
             while($d = mysqli_fetch_object($result)){
         ?>
         <div class="col-2">
-            <div class="btn_mesa"></div>
+            <div class="btn_mesa"><?=$d->mesa?></div>
         </div>
 
         <?php
