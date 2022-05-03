@@ -22,7 +22,7 @@
             AppCliente = window.localStorage.getItem('AppCliente');
             componente = $(this).attr("componente");
             local = $(this).attr("local");
-            if(AppCliente && local == 'src/cliente/home.php'){
+            if(AppCliente && local == 'src/mesas/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
