@@ -34,7 +34,7 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else if(!AppCliente && local == 'src/cliente/home.php'){
+            }else if(!AppCliente && local == 'src/mesas/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
