@@ -2,6 +2,14 @@
     include("../../../lib/includes.php");
 
 
+    $query = "select * from vendas where situacao != 'pago' and deletado != '1'";
+    $result = mysqli_query($con, $query);
+    $Ocupadas = [];
+    while($d = mysqli_fetch_object($result)){
+        $Ocupadas[] = $d->codigo;
+    }
+
+
     if($_POST['acao'] == 'Sair'){
 
         $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1' and situacao = 'n'";
@@ -49,6 +57,9 @@
         text-align:center;
         background:#eee;
     }
+    .ocupada{
+        background:green;
+    }
 </style>
 
 <div class="ClienteTopoTitulo">
@@ -66,7 +77,7 @@
             while($d = mysqli_fetch_object($result)){
         ?>
         <div class="col-4">
-            <div class="btn_mesa"><?=$d->mesa?></div>
+            <div class="btn_mesa <?=((in_array($d->codigo, $Ocupadas))?'ocupada':false)?>"><?=$d->mesa?></div>
         </div>
 
         <?php
