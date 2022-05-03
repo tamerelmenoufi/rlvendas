@@ -53,11 +53,12 @@
     }
 
 
-    $query = "select * from vendas where situacao not in ('pago', 'pagar') and deletado != '1'";
+    $query = "select a.*, (select count(*) from vendas_produtos where venda = a.codigo and deletado != '1') as produtos from vendas a where a.situacao not in ('pago', 'pagar') and a.deletado != '1'";
     $result = mysqli_query($con, $query);
     $Ocupadas = [];
     while($d = mysqli_fetch_object($result)){
         $Ocupadas[] = $d->mesa;
+        $Produtos[$d->mesa] = $d->produtos;
     }
 
 
@@ -110,6 +111,11 @@
     }
     .ocupada{
         background:green;
+        color:#fff;
+    }
+    .ComProdutos{
+        background:blue;
+        color:#fff;
     }
 </style>
 
@@ -126,17 +132,22 @@
             $query = "select * from mesas where deletado != '1' and situacao != '0' order by mesa";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
+
+                if( $Produtos[$d->codigo]){
+                    $icone = 'ComProdutos';
+                }else if(in_array($d->codigo, $Ocupadas)){
+                    $icone = 'ocupado';
+                }else{
+                    $icone = false;
+                }
+
         ?>
         <div class="col-4">
-            <div acao="<?=$d->mesa?>" class="btn_mesa <?=((in_array($d->codigo, $Ocupadas))?'ocupada':false)?>"><?=$d->mesa?></div>
+            <div acao="<?=$d->mesa?>" class="btn_mesa <?=$icone?>"><?=$d->mesa?></div>
         </div>
-
         <?php
             }
         ?>
-
-
-
 
     </div>
 
