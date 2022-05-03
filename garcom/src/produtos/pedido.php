@@ -3,6 +3,10 @@
 
     VerificarVendaApp();
 
+    if($_SESSION['AppPedido']){
+        $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}'"));
+    }
+
 
     if (!empty($_POST) and $_POST["acao"] === "confirmar_pedido") {
 
@@ -120,7 +124,7 @@
 
 </style>
 <div class="PedidoTopoTitulo">
-    <h4>Pedido <?=$_SESSION['AppPedido']?></h4>
+    <h4>Pedido Mesa <?=$m->mesa?></h4>
 </div>
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
