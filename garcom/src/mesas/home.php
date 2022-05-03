@@ -1,6 +1,57 @@
 <?php
     include("../../../lib/includes.php");
 
+    if($_POST['mesa']){
+
+        $query = "select * from clientes where telefone = '{$_POST['mesa']}'";
+        $result = mysqli_query($con, $query);
+        if(mysqli_num_rows($result)){
+            $d = mysqli_fetch_object($result);
+            $_SESSION['AppCliente'] = $d->codigo;
+        }else{
+            mysqli_query($con, "insert into clientes set telefone = '{$_POST['mesa']}'");
+            $_SESSION['AppCliente'] = mysqli_insert_id($con);
+        }
+
+        ////////////REMOVER DEPOIS//////////////////////////////////
+        $query = "select * from mesas where mesa = '{$_POST['mesa']}'";
+        $result = mysqli_query($con, $query);
+        if(mysqli_num_rows($result)){
+            $d = mysqli_fetch_object($result);
+            $_SESSION['AppPedido'] = $d->codigo;
+        }else{
+            mysqli_query($con, "insert into mesas set mesa = '{$_POST['mesa']}'");
+            $_SESSION['AppPedido'] = mysqli_insert_id($con);
+        }
+        ////////////REMOVER DEPOIS//////////////////////////////////
+
+
+
+
+        if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
+            /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
+            $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
+            $result = mysqli_query($con, $query);
+
+            if (mysqli_num_rows($result)) {
+                //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
+                list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
+                $_SESSION['AppVenda'] = $codigo;
+            } else {
+                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
+                $_SESSION['AppVenda'] = mysqli_insert_id($con);
+            }
+            /////////////////////////////////////////////////////////////////
+        }
+
+        echo json_encode([
+            "AppCliente" => $_SESSION['AppCliente'],
+            "AppPedido" => $_SESSION['AppPedido'] //REMOVER DEPOIS
+        ]);
+
+        exit();
+    }
+
 
     $query = "select * from vendas where situacao != 'pago' and deletado != '1'";
     $result = mysqli_query($con, $query);
@@ -77,7 +128,7 @@
             while($d = mysqli_fetch_object($result)){
         ?>
         <div class="col-4">
-            <div class="btn_mesa <?=((in_array($d->codigo, $Ocupadas))?'ocupada':false)?>"><?=$d->mesa?></div>
+            <div acao="<?=$d->codigo?>" class="btn_mesa <?=((in_array($d->codigo, $Ocupadas))?'ocupada':false)?>"><?=$d->mesa?></div>
         </div>
 
         <?php
@@ -85,22 +136,7 @@
         ?>
 
 
-        <!-- <button acao opc="perfil" class="btn btn-success btn-lg btn-block">
-            <i class="fa-solid fa-user-pen"></i> Perfil pessoal
-        </button>
-        <button class="btn btn-success btn-lg btn-block">
-            <i class="fa-solid fa-bell-concierge"></i> Meus Pedidos
-        </button>
-        <button class="btn btn-success btn-lg btn-block">
-            <i class="fa-solid fa-envelope"></i> Fale Conosco
-        </button>
-        <button acao opc="senha" class="btn btn-success btn-lg btn-block">
-            <i class="fa-solid fa-key"></i> Alterar Senha
-        </button>
-        <button sair class="btn btn-danger btn-lg btn-block">
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
-            Desconectar
-        </button> -->
+
 
     </div>
 
@@ -109,116 +145,22 @@
 <script>
     $(function(){
         Carregando('none');
-        $("button[acao]").click(function(){
-            local = $(this).attr("opc");
+        $("div[acao]").click(function(){
+            mesa = $(this).attr("acao");
             Carregando();
             $.ajax({
-                url:"componentes/ms_popup_100.php",
+                url:"src/mesas/home.php",
                 type:"POST",
                 data:{
-                    local:`src/cliente/${local}.php`,
+                    mesa
                 },
                 success:function(dados){
-                    //PageClose();
-                    $(".ms_corpo").append(dados);
+                    let retorno = JSON.parse(dados);
+                    window.localStorage.setItem('AppCliente', retorno.AppCliente);
+                    window.localStorage.setItem('AppPedido', retorno.AppPedido);
+                    PageClose();
                 }
             });
-        });
-
-
-
-
-        $("button[sair]").click(function(){
-            $.confirm({
-                content:"Deseja realmente Sair do aplicativo?",
-                title:false,
-                buttons:{
-                    'SIM':function(){
-
-                        $.ajax({
-                            url:"src/cliente/home.php",
-                            type:"POST",
-                            dataType: "JSON",
-                            data:{
-                                acao:'Sair',
-                            },
-                            success:function(dados){
-
-                                if (dados.status === "erro") {
-
-                                    $.confirm({
-                                        icon: "fa-solid fa-right-from-bracket",
-                                        content: false,
-                                        title: "Você ainda não confirmou seus últimos pedidos para inciarmos o preparo.<br><br>Por favor escolha uma das opções:",
-                                        columnClass: "medium",
-                                        type: "red",
-                                        buttons: {
-                                            'nao': {
-                                                text: "Sair mesmo!",
-                                                action: function () {
-
-                                                    window.localStorage.removeItem('AppPedido');
-                                                    window.localStorage.removeItem('AppCliente');
-                                                    window.localStorage.removeItem('AppVenda');
-
-                                                    $.ajax({
-                                                        url:"src/home/index.php",
-                                                        type:"POST",
-                                                        data:{
-                                                            acao:'Sair',
-                                                            confirm:'1',
-                                                        },
-                                                        success:function(dados){
-                                                            PageClose();
-                                                            window.location.href='./?s=1';
-                                                        }
-                                                    });
-
-
-                                                }
-                                            },
-                                            'sim': {
-                                                text: "Quero Confirmar",
-                                                action: function () {
-                                                    PageClose();
-                                                }
-                                            }
-                                        }
-                                    })
-
-                                }else{
-                                    window.localStorage.removeItem('AppPedido');
-                                    window.localStorage.removeItem('AppCliente');
-                                    window.localStorage.removeItem('AppVenda');
-
-                                    $.ajax({
-                                        url:"src/home/index.php",
-                                        type:"POST",
-                                        data:{
-                                            acao:'Sair',
-                                            confirm:'1',
-                                        },
-                                        success:function(dados){
-                                            PageClose();
-                                            window.location.href='./?s=1';
-                                        }
-                                    });
-                                }
-
-
-                            }
-                        });
-
-
-
-                    },
-                    'NÃO':function(){
-
-                    }
-                }
-            });
-
-
         });
 
     })
