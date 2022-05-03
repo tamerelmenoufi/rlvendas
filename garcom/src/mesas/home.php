@@ -56,13 +56,14 @@
 </div>
 
 <div class="col">
+    <div class="row">
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' order by mesa";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
         ?>
-        <div class="col-sm-2">
+        <div class="col-2">
             <div class="btn_mesa"></div>
         </div>
 
@@ -88,7 +89,7 @@
             Desconectar
         </button> -->
 
-
+    </div>
 
 </div>
 
