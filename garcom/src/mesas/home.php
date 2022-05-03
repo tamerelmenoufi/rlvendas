@@ -43,8 +43,8 @@
         margin:10px;
         border:solid 1px #ccc;
         border-radius:5px;
-        min-height:80px;
-        font-size:50px;
+        min-height:60px;
+        font-size:30px;
         color:#333;
         text-align:center;
     }
@@ -64,7 +64,7 @@
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
         ?>
-        <div class="col-2">
+        <div class="col-4">
             <div class="btn_mesa"><?=$d->mesa?></div>
         </div>
 
