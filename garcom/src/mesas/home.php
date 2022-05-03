@@ -62,7 +62,7 @@
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
         ?>
-        <div class="col-2">
+        <div class="col-sm-2">
             <div class="btn_mesa"></div>
         </div>
 
