@@ -136,7 +136,7 @@
                 if( $Produtos[$d->codigo]){
                     $icone = 'ComProdutos';
                 }else if(in_array($d->codigo, $Ocupadas)){
-                    $icone = 'ocupado';
+                    $icone = 'ocupada';
                 }else{
                     $icone = false;
                 }
