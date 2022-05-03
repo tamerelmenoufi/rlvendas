@@ -158,7 +158,7 @@
                     let retorno = JSON.parse(dados);
                     window.localStorage.setItem('AppCliente', retorno.AppCliente);
                     window.localStorage.setItem('AppPedido', retorno.AppPedido);
-                    PageClose();
+                    window.location.href="./";
                 }
             });
         });
