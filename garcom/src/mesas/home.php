@@ -38,7 +38,7 @@
         z-index:1;
     }
     .btn_mesa{
-        width:90%;
+        width:100%;
         padding:10px;
         margin:10px;
         border:solid 1px #ccc;
@@ -47,6 +47,7 @@
         font-size:30px;
         color:#333;
         text-align:center;
+        background:#eee;
     }
 </style>
 
