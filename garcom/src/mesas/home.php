@@ -40,7 +40,7 @@
     .btn_mesa{
         width:100%;
         padding:10px;
-        margin:10px;
+        margin:5px;
         border:solid 1px #ccc;
         border-radius:5px;
         min-height:60px;
