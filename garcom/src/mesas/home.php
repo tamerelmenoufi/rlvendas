@@ -189,6 +189,7 @@
                     window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
                     // window.location.href="./";
+                    PageClose();
 
                     $.ajax({
                         url: "src/home/index.php",
