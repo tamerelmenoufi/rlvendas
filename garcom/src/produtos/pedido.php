@@ -424,7 +424,7 @@
         $("button[ExcluirPedido]").click(function(){
 
             $.confirm({
-                content:"Deseja realmente cancelar o pedido <b><?=$_SESSION['AppPedido']?></b>?",
+                content:"Deseja realmente cancelar o pedido <b><?=$m->mesa?></b>?",
                 title:false,
                 buttons:{
                     'SIM':function(){
