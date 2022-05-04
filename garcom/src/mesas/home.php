@@ -188,7 +188,15 @@
                     window.localStorage.setItem('AppPedido', retorno.AppPedido);
                     window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
-                    window.location.href="./";
+                    // window.location.href="./";
+
+                    $.ajax({
+                        url: "src/home/index.php",
+                        success: function (dados) {
+                            $(".ms_corpo").html(dados);
+                        }
+                    });
+
                 }
             });
         });
