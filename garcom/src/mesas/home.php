@@ -12,7 +12,7 @@
             list($codigo, $cliente, $mesa) = mysqli_fetch_row(mysqli_query($con, $query));
             $_SESSION['AppVenda'] = $codigo;
             $_SESSION['AppCliente'] = $cliente;
-            $_SESSION['AppPedido'] = $d->mesa;
+            $_SESSION['AppPedido'] = $mesa;
 
         } else {
 
