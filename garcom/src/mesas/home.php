@@ -158,7 +158,7 @@
 
         ?>
         <div class="col-4">
-            <div acao="<?=$d->mesa?>" cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=$d->mesa?></div>
+            <div acao="<?=$d->mesa?>" cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=str_pad($d->mesa , 3 , '0' , STR_PAD_LEFT)?></div>
         </div>
         <?php
             }
