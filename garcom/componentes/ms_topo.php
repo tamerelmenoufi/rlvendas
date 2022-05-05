@@ -17,10 +17,11 @@
         margin-right:10px;
         color:#fff;
     }
-    i[sair]{
-        margin:5px;
+    div[sair]{
+        padding:5px;
         color:#fff;
         cursor:pointer;
+        text-align:center;
     }
 </style>
 <div class="row">
@@ -41,8 +42,8 @@
             }
         ?>
     </div>
-    <div class="col-1">
-        <i sair class="fa-solid fa-circle-xmark"></i>
+    <div sair class="col-1">
+        <i class="fa-solid fa-circle-xmark"></i>
     </div>
 </div>
 
