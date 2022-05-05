@@ -27,9 +27,11 @@
     <!-- <div class="col-12">Cadastro/Acesso do Cliente</div> -->
     <div class="col-12">Informe seus dados de acesso</div>
     <div class="col-12 mb-3">
+        <label for="cpf">Digite seu CPF</label>
         <input style="text-align:center" type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="cpf">
     </div>
     <div class="col-12 mb-3">
+    <label for="cpf">Informe sua senha</label>
         <input style="text-align:center" type="password" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="senha">
     </div>
     <div class="col-12">
