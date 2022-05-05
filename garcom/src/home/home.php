@@ -1,6 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
+    if($_GET['garcom']) $_SESSION['AppGarcom'] = $_GET['garcom'];
     if($_GET['cliente']) $_SESSION['AppCliente'] = $_GET['cliente'];
     if($_GET['pedido']) $_SESSION['AppPedido'] = $_GET['pedido'];
 

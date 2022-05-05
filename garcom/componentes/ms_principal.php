@@ -87,10 +87,25 @@
 
         $("button[acao<?=$md5?>]").off('click').on('click',function(){
 
+            AppGarcom = window.localStorage.getItem('AppGarcom');
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
 
             if(
+                (AppGarcom != 'undefined' && AppGarcom != null)
+            ){
+                Carregando();
+                $.ajax({
+                    url:"componentes/ms_popup_100.php",
+                    type:"POST",
+                    data:{
+                        local:"src/garcom/login.php",
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
+            }else if(
                 (AppPedido != 'undefined' && AppPedido != null) &&
                 (AppCliente != 'undefined' && AppCliente != null)
             ){
