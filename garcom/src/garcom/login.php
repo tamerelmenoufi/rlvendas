@@ -3,7 +3,7 @@
 
     if($_POST['cpf'] and $_POST['senha']){
 
-        $query = "select * from atendentes where cpf = '{$_POST['cpf']}' and senha = '{$_POST['senha']}'";
+        $query = "select * from atendentes where cpf = '{$_POST['cpf']}' and senha = '".md5($_POST['senha'])."'";
         $result = mysqli_query($con, $query);
         if(mysqli_num_rows($result)){
             $d = mysqli_fetch_object($result);
