@@ -91,6 +91,8 @@
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
 
+            $.alert(AppGarcom);
+
             if(
                 (AppGarcom != 'undefined' && AppGarcom != null)
             ){
