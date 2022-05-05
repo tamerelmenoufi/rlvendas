@@ -8,6 +8,10 @@
         $_SESSION['AppCliente'] = $_GET['cliente'];
     }
 
+    if($_GET['garcom']){
+        $_SESSION['AppGarsom'] = $_GET['garcom'];
+    }
+
 ?>
 <style>
     .bg_home{
@@ -32,6 +36,7 @@
                 data:{
                     cliente: '<?=$_SESSION['AppCliente']?>',
                     pedido: '<?=$_SESSION['AppPedido']?>',
+                    garsom: '<?=$_SESSION['AppGarcom']?>',
                 },
                 success:function(dados){
                     $(".ms_corpo").html(dados);

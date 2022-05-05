@@ -78,10 +78,12 @@ RenovaSessao = () =>{
     var AppPedido = window.localStorage.getItem('AppPedido');
     var AppVenda = window.localStorage.getItem('AppVenda');
     var AppCliente = window.localStorage.getItem('AppCliente');
+    var AppGarsom = window.localStorage.getItem('AppGarsom');
 
     if(AppPedido == 'undefined' || AppPedido == null) AppPedido = '';
     if(AppVenda == 'undefined' || AppVenda == null) AppVenda = '';
     if(AppCliente == 'undefined' || AppCliente == null) AppCliente = '';
+    if(AppGarsom == 'undefined' || AppGarsom == null) AppGarsom = '';
 
     $.ajax({
         url:"src/cliente/sessao.php",
@@ -89,7 +91,8 @@ RenovaSessao = () =>{
         data:{
             AppPedido,
             AppVenda,
-            AppCliente
+            AppCliente,
+            AppGarsom
         },
         success:function(dados){
             $("body").append(dados);

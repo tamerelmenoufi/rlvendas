@@ -3,6 +3,7 @@
     if($_POST['AppCliente']) $_SESSION['AppCliente'] = $_POST['AppCliente'];
     if($_POST['AppVenda']) $_SESSION['AppVenda'] = $_POST['AppVenda'];
     if($_POST['AppPedido']) $_SESSION['AppPedido'] = $_POST['AppPedido'];
+    if($_POST['AppGarcom']) $_SESSION['AppGarcom'] = $_POST['AppGarcom'];
 
 
     // $dados =   "Cliente: ". $_SESSION['AppCliente']."\n".
