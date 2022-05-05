@@ -86,7 +86,7 @@ RenovaSessao = () =>{
     if(AppGarcom == 'undefined' || AppGarcom == null) AppGarcom = '';
 
     $.ajax({
-        url:"src/cliente/sessao.php",
+        url:"src/garcom/sessao.php",
         type:"POST",
         data:{
             AppPedido,
