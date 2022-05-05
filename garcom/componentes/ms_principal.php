@@ -91,10 +91,8 @@
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
 
-            $.alert('TESTE: ' + AppGarcom);
-
             if(
-                (AppGarcom != 'undefined' && AppGarcom != null)
+                (AppGarcom == 'undefined' || AppGarcom == null)
             ){
                 Carregando();
                 $.ajax({
