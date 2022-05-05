@@ -26,7 +26,7 @@
         <?php
             if($g->nome){
         ?>
-            <div class="DadosTopo"><?=$c->nome?></div>
+            <div class="DadosTopo"><?=$g->nome?></div>
         <?php
             }
             if($m->mesa){
