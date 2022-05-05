@@ -51,7 +51,7 @@
 <script>
     $(function(){
 
-        $("i[sair]").click(function(){
+        $("div[sair]").click(function(){
 
 
             $.confirm({
