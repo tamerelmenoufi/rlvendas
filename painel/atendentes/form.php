@@ -97,6 +97,18 @@ if ($codigo) {
             </div>
 
             <div class="form-group">
+                <label for="nome">CPF <i class="text-danger">*</i></label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="cpf"
+                        name="cpf"
+                        value="<?= $d->cpf; ?>"
+                        required
+                >
+            </div>
+
+            <div class="form-group">
                 <label for="telefone">Telefone <i class="text-danger">*</i></label>
                 <input
                         type="text"
