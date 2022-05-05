@@ -52,7 +52,7 @@
                 list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
                 $_SESSION['AppVenda'] = $codigo;
             } else {
-                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
+                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
                 $_SESSION['AppVenda'] = mysqli_insert_id($con);
             }
             /////////////////////////////////////////////////////////////////
