@@ -78,12 +78,12 @@ RenovaSessao = () =>{
     var AppPedido = window.localStorage.getItem('AppPedido');
     var AppVenda = window.localStorage.getItem('AppVenda');
     var AppCliente = window.localStorage.getItem('AppCliente');
-    var AppGarsom = window.localStorage.getItem('AppGarsom');
+    var AppGarcom = window.localStorage.getItem('AppGarcom');
 
     if(AppPedido == 'undefined' || AppPedido == null) AppPedido = '';
     if(AppVenda == 'undefined' || AppVenda == null) AppVenda = '';
     if(AppCliente == 'undefined' || AppCliente == null) AppCliente = '';
-    if(AppGarsom == 'undefined' || AppGarsom == null) AppGarsom = '';
+    if(AppGarcom == 'undefined' || AppGarcom == null) AppGarcom = '';
 
     $.ajax({
         url:"src/cliente/sessao.php",
@@ -92,7 +92,7 @@ RenovaSessao = () =>{
             AppPedido,
             AppVenda,
             AppCliente,
-            AppGarsom
+            AppGarcom
         },
         success:function(dados){
             $("body").append(dados);

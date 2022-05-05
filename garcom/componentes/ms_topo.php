@@ -3,7 +3,7 @@
 
     if($_SESSION['AppCliente']) $c = mysqli_fetch_object(mysqli_query($con, "select * from clientes where codigo = '{$_SESSION['AppCliente']}'"));
     if($_SESSION['AppPedido']) $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}' AND deletado != '1'"));
-    if($_SESSION['AppGarsom']) $g = mysqli_fetch_object(mysqli_query($con, "select * from atendentes where codigo = '{$_SESSION['AppGarsom']}' AND deletado != '1'"));
+    if($_SESSION['AppGarcom']) $g = mysqli_fetch_object(mysqli_query($con, "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}' AND deletado != '1'"));
 ?>
 <style>
     .topoImg{

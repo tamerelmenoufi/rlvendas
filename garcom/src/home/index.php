@@ -9,7 +9,7 @@
     }
 
     if($_GET['garcom']){
-        $_SESSION['AppGarsom'] = $_GET['garcom'];
+        $_SESSION['AppGarcom'] = $_GET['garcom'];
     }
 
 ?>
@@ -36,7 +36,7 @@
                 data:{
                     cliente: '<?=$_SESSION['AppCliente']?>',
                     pedido: '<?=$_SESSION['AppPedido']?>',
-                    garsom: '<?=$_SESSION['AppGarcom']?>',
+                    Garcom: '<?=$_SESSION['AppGarcom']?>',
                 },
                 success:function(dados){
                     $(".ms_corpo").html(dados);
