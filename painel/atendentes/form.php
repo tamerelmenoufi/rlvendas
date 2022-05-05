@@ -104,6 +104,7 @@ if ($codigo) {
                         id="cpf"
                         name="cpf"
                         value="<?= $d->cpf; ?>"
+                        inputmode="numeric"
                         required
                 >
             </div>
@@ -174,6 +175,8 @@ if ($codigo) {
 
 <script>
     $(function () {
+
+        $("#cpf").mask("999.999.999-99");
 
         $('#form-<?=$md5?>').validate({
             rules: {
