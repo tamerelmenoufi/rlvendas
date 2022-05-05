@@ -22,7 +22,7 @@
     <div class="col-4">
         <img class="topoImg" src="img/logo.png" />
     </div>
-    <div class="col-8">
+    <div class="col-6">
         <?php
             if($g->nome){
         ?>
@@ -35,5 +35,8 @@
         <?php
             }
         ?>
+    </div>
+    <div class="col-2">
+        <i sair class="fa-solid fa-exit"></i>
     </div>
 </div>
