@@ -57,6 +57,19 @@
 
 ?>
 <style>
+
+    .topo<?=$md5?> {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 55px;
+        background-color: #fff;
+        padding: 20px;
+        font-weight: bold;
+        z-index: 1;
+    }
+
     span[valor] {
         margin-left: 10px;
     }
@@ -158,7 +171,7 @@
 
 
 <div class="col">
-    <div class="row" style="margin-top:-65px;">
+    <div class="row" style="margin-top:10px;">
         <div class="col">
 
                 <!-- <div class="card mb-3">
@@ -176,7 +189,7 @@
                     </div>
                 </div> -->
 
-                <div class="row" style="margin-top:10px;">
+                <div class="row">
                         <div class="col">
                             <div class="card-body">
                                 <!-- <h5 class="card-title">
