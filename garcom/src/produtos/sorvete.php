@@ -220,7 +220,7 @@
 
         $("#peso").keyup(function(){
             peso = $(this).val();
-            valor = peso/<?=$valor?>;
+            valor = peso*<?=$valor?>;
             $("#custo").val(valor);
         });
 
