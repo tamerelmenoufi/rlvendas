@@ -171,7 +171,7 @@
 
 
 <div class="topo<?= $md5 ?>">
-    <center><?= $d->categoria ?></center>
+    <center>Sorvete</center>
 </div>
 
 
