@@ -41,10 +41,6 @@
         exit();
     }
 
-    $produto = $_POST['produto'];
-    $medida = $_POST['medida'];
-    $valor = $_POST['valor'];
-
     $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
         . "WHERE a.categoria = '8' AND a.deletado != '1' AND b.deletado != '1'";
@@ -52,7 +48,15 @@
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
 
-    $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$medida}' AND deletado != '1'"));
+    $detalhes = json_decode($p->detalhes);
+
+    foreach($detalhes as $ind => $val){
+        $valor = $val['valor'];
+    }
+
+    print_r($detalhes);
+
+    $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$valor}' AND deletado != '1'"));
 
 
 ?>
@@ -164,7 +168,7 @@
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
-                            <!-- <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span> -->
+                            <!-- <span val>R$ <?= number_format($p->nome_categoria, 2, ',', '.') ?></span> -->
 
                         </div>
                     </div>
