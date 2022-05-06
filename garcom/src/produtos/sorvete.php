@@ -156,7 +156,7 @@
     }
 </style>
 <div class="col">
-    <div class="row" style="margin-top:65px;">
+    <div class="row" style="margin-top:10px;">
         <div class="col">
 
                 <!-- <div class="card mb-3">
