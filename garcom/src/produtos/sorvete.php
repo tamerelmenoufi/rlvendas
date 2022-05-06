@@ -219,7 +219,9 @@
         Carregando('none');
 
         $("#peso").keyup(function(){
-            alert('up');
+            peso = $(this).val();
+            valor = peso*100/<?=$valor?>;
+            $("#custo").val(valor);
         });
 
 
