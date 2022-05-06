@@ -78,7 +78,7 @@
                                     confirm:'1',
                                 },
                                 success:function(dados){
-                                    PageClose();
+                                    //PageClose();
                                     window.location.href='./?s=1';
                                 }
                             });
@@ -89,7 +89,7 @@
                     'Não': {
                         text: "NÃO",
                         action: function () {
-                            PageClose();
+                            //PageClose();
                         }
                     }
                 }
