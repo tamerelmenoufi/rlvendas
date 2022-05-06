@@ -47,7 +47,7 @@
         if($g->nome){
     ?>
     <div sair class="col-2">
-        <i class="fa-solid fa-circle-xmark"></i>
+        <i class="fa fa-sign-out"></i>
     </div>
     <?php
         }
