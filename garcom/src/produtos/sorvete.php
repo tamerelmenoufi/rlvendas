@@ -218,64 +218,8 @@
     $(function(){
         Carregando('none');
 
-        var qt = 0;
-        var v_produto_com_sabores = 0;
-
-        $("#mais").click(function () {
-            quantidade = $("#quantidade").html();
-            atual = $("span[valor]").attr("atual");
-            quantidade = (quantidade * 1 + 1);
-            $("#quantidade").html(quantidade);
-            valor = atual * quantidade;
-            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-
-        });
-
-        $("#menos").click(function () {
-            quantidade = $("#quantidade").html();
-            atual = $("span[valor]").attr("atual");
-            quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
-
-            $("#quantidade").html(quantidade);
-
-            valor = atual * quantidade;
-            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-
-        });
-
-        $(".mais_sabores").click(function () {
-            produto = '<?=$_POST['produto']?>';
-            medida = '<?=$_POST['medida']?>';
-            valor = '<?=$_POST['valor']?>';
-
-            Carregando();
-            $.ajax({
-                url:"componentes/ms_popup.php",
-                type:"POST",
-                data:{
-                    local:"src/produtos/adicionais.php",
-                    produto,
-                    medida,
-                    valor,
-                },
-                success:function(dados){
-                    $(".ms_corpo").append(dados);
-                }
-            });
-        });
-
-        $("button[observacoes]").click(function(){
-            Carregando();
-            $.ajax({
-                url:"componentes/ms_popup_100.php",
-                type:"POST",
-                data:{
-                    local:"src/produtos/observacoes.php",
-                },
-                success:function(dados){
-                    $(".ms_corpo").append(dados);
-                }
-            });
+        $("#peso").keyup(function(){
+            alert('up');
         });
 
 
