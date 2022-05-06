@@ -58,7 +58,7 @@
 </style>
 
         <div class="painel">
-            <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozenha (Produção de REFEIÇÕES/BEBIDAS)</h4>
+            <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozinha (Produção de REFEIÇÕES/BEBIDAS)</h4>
         <table painel class="table table-striped table-hover" style="margin-top:40px;">
             <thead>
                 <tr>
