@@ -183,26 +183,20 @@
                                 <p class="card-text"><?= $p->descricao ?></p>
                                 <p class="observacoes"></p>
                                 <div class="row">
-                                <div class="col-8">
-                                    <button observacoes class="btn btn-warning btn-block"><i class="fa-solid fa-pencil"></i> Recomendações</button>
-                                </div>
-                                <div class="col-4">
-                                    <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, ',', '.') ?></small></div>
-                                    <div style="font-size:10px; text-align:right;">Valor Cobrado</div>
-                                </div>
+                                    <div class="col-12">
+                                        <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($valor, 2, ',', '.') ?></small></div>
+                                        <div style="font-size:10px; text-align:right;">Valor por Kg</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="peso">Peso</label>
+                                        <input type="number" class="form-control" id="peso">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="peso">Custo</label>
+                                        <input type="number" class="form-control" id="custo">
+                                    </div>
                                 </div>
 
-
-                                <div class="col-md-12" style="margin-bottom:20px;">
-                                    <p class="card-text texto_detalhes"></p>
-                                </div>
-                                <?php if ($m->qt_produtos > 1) { ?>
-                                <button class="btn btn-primary btn-block mais_sabores" style="margin-bottom:5px;">
-                                    Pode adicionar até mais
-                                    <?= ($m->qt_produtos - 1) . ' ' . (($m->qt_produtos == 2) ? 'sabor' : 'sabores') ?>
-                                </button>
-                                <div class="ListaSabores"></div>
-                                <?php } ?>
                             </div>
                         </div>
 
