@@ -221,7 +221,13 @@
         $("#peso").keyup(function(){
             peso = $(this).val();
             valor = peso*<?=$valor?>/1000;
-            $("#custo").val(valor);
+            $("#custo").val(valor.indexOf(2));
+        });
+
+        $("#custo").keyup(function(){
+            custo = $(this).val();
+            peso = custo*1000/<?=$valor?>;
+            $("#peso").val(peso.indexOf(0));
         });
 
 
