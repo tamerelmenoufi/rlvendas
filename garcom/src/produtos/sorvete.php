@@ -61,6 +61,19 @@
 
 ?>
 <style>
+
+    .topo<?=$md5?> {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 55px;
+        background-color: #fff;
+        padding: 20px;
+        font-weight: bold;
+        z-index: 1;
+    }
+
     span[valor] {
         margin-left: 10px;
     }
@@ -155,6 +168,13 @@
         /* text-align:justify; */
     }
 </style>
+
+
+<div class="topo<?= $md5 ?>">
+    <center><?= $d->categoria ?></center>
+</div>
+
+
 <div class="col">
     <div class="row" style="margin-top:10px;">
         <div class="col">
