@@ -52,11 +52,11 @@
 
     foreach($detalhes as $ind => $val){
         $valor = $val->valor;
+        $medida = $val->quantidade;
     }
 
 
-    echo 'VALOR:'.$valor;
-    $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$valor}' AND deletado != '1'"));
+    $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$medida}' AND deletado != '1'"));
 
 
 ?>
