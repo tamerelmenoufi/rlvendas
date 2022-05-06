@@ -50,9 +50,10 @@
 
     $detalhes = json_decode($p->detalhes);
 
-    // foreach($detalhes as $ind => $val){
-    //     $valor = $val['valor'];
-    // }
+    foreach($detalhes as $ind => $val){
+        //$valor = $val['valor'];
+        print_r($val);
+    }
 
     print_r($detalhes);
 
