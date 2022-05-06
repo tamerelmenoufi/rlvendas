@@ -111,7 +111,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <div class="col-md-12">
     <?php
-    $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1'";
+    $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' order by produto asc";
     $result = mysqli_query($con, $query);
     while ($p = mysqli_fetch_object($result)) {
         $detalhes = json_decode($p->detalhes, true);
