@@ -51,11 +51,11 @@
     $detalhes = json_decode($p->detalhes);
 
     foreach($detalhes as $ind => $val){
-        //$valor = $val['valor'];
-        print_r($val);
+        $valor = $val->valor;
+        //print_r($val);
     }
 
-    print_r($detalhes);
+    //print_r($detalhes);
 
     $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$valor}' AND deletado != '1'"));
 
