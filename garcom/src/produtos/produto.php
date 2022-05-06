@@ -166,7 +166,7 @@
 </style>
 
 <div class="topo<?= $md5 ?>">
-    <center><?= $p->produto ?></center>
+    <center><?= $p->produto ?> <?= $m->medida ?></center>
 </div>
 
 
