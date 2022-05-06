@@ -188,7 +188,7 @@
                                         <div style="font-size:10px; text-align:right;">Valor por Kg</div>
                                     </div>
                                     <div class="col-6">
-                                        <label for="peso">Por Peso</label>
+                                        <label for="peso">Peso (em gramas)</label>
                                         <input type="number" class="form-control" id="peso">
                                     </div>
                                     <div class="col-6">
@@ -220,7 +220,7 @@
 
         $("#peso").keyup(function(){
             peso = $(this).val();
-            valor = peso*<?=$valor?>;
+            valor = peso*<?=$valor?>/1000;
             $("#custo").val(valor);
         });
 
