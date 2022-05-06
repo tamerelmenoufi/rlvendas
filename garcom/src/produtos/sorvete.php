@@ -234,11 +234,8 @@
         $("button[adicionar_produto]").click(function(){
             /////////// PRODUTOS ////////////////////////////
 
-            //-------
             valor_unitario = $("#custo").val();
-            //-------
             quantidade = 1;
-            //-------
             valor_total = (valor_unitario*quantidade);
 
             venda = [];
