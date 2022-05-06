@@ -125,7 +125,8 @@ while ($m = mysqli_fetch_array($m_r)) {
                 <div class="col-12">
                     <div class="card-body">
                         <h5 class="card-title"><?= $p->produto ?></h5>
-                        <p class="card-text"><?= $p->descricao ?>
+                        <p class="card-text">
+                            <p><?= $p->descricao ?></p>
                         <small class="text-muted">
 
                             <?php
