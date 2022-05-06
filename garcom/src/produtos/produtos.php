@@ -160,7 +160,8 @@ while ($m = mysqli_fetch_array($m_r)) {
                             ?>
 
                         </small>
-                    </p>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
