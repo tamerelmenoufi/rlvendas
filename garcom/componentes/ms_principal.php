@@ -55,6 +55,7 @@
             acao<?=$md5?>
             local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
             janela="ms_popup_100"
+            categoria = '<?=$d->codigo?>'
     >
         <?=$d->categoria?>
     </button>
@@ -91,6 +92,8 @@
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
 
+
+
             if(
                 (AppGarcom == 'undefined' || AppGarcom == null)
             ){
@@ -109,9 +112,14 @@
                 (AppPedido != 'undefined' && AppPedido != null) &&
                 (AppCliente != 'undefined' && AppCliente != null)
             ){
-                local = $(this).attr('local');
+
+                categoria = $(this).attr('categoria');
+
+                local = ((categoria == '8')?'src/produtos/sorvete.php':$(this).attr('local'));
                 janela = $(this).attr('janela');
+
                 Carregando();
+
                 $.ajax({
                     url:"componentes/"+janela+".php",
                     type:"POST",
