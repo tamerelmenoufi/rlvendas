@@ -41,7 +41,7 @@
         exit();
     }
 
-    echo $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
+    $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
         . "WHERE a.categoria = '8' AND a.deletado != '1' AND b.deletado != '1'";
 
@@ -52,11 +52,10 @@
 
     foreach($detalhes as $ind => $val){
         $valor = $val->valor;
-        //print_r($val);
     }
 
-    //print_r($detalhes);
 
+    echo 'VALOR:'.$valor;
     $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$valor}' AND deletado != '1'"));
 
 
