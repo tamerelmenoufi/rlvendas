@@ -29,7 +29,7 @@
     <div class="col-4">
         <img class="topoImg" src="img/logo.png" />
     </div>
-    <div class="col-7">
+    <div class="col-6">
         <?php
             if($g->nome){
         ?>
@@ -46,7 +46,7 @@
     <?php
         if($g->nome){
     ?>
-    <div sair class="col-1">
+    <div sair class="col-2">
         <i class="fa-solid fa-circle-xmark"></i>
     </div>
     <?php
