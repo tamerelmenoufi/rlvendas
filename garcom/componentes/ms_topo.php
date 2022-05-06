@@ -42,9 +42,15 @@
             }
         ?>
     </div>
+    <?php
+        if($g->nome){
+    ?>
     <div sair class="col-1">
         <i class="fa-solid fa-circle-xmark"></i>
     </div>
+    <?php
+        }
+    ?>
 </div>
 
 
