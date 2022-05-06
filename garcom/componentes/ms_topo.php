@@ -22,7 +22,7 @@
         color:#fff;
         cursor:pointer;
         text-align:center;
-        font-size:20px;
+        font-size:30px;
     }
 </style>
 <div class="row">
