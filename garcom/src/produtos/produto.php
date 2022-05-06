@@ -151,11 +151,17 @@
         /* text-align:justify; */
     }
 </style>
+
+<div class="topo<?= $md5 ?>">
+    <center><?= $p->produto ?></center>
+</div>
+
+
 <div class="col">
     <div class="row" style="margin-top:-65px;">
         <div class="col">
 
-                <div class="card mb-3">
+                <!-- <div class="card mb-3">
                     <div class="row">
                         <div
                             class="col foto<?= $md5 ?>"
@@ -164,13 +170,13 @@
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
-                            <!-- <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span> -->
+                            <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span>
 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="row">
+                <div class="row" style="margin-top:10px;">
                         <div class="col">
                             <div class="card-body">
                                 <!-- <h5 class="card-title">
