@@ -18,10 +18,11 @@
         color:#fff;
     }
     div[sair]{
-        padding:5px;
+        padding:10px;
         color:#fff;
         cursor:pointer;
         text-align:center;
+        font-size:20px;
     }
 </style>
 <div class="row">
