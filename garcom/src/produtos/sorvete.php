@@ -41,7 +41,7 @@
         exit();
     }
 
-    $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
+    echo $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
         . "WHERE a.categoria = '8' AND a.deletado != '1' AND b.deletado != '1'";
 
