@@ -20,7 +20,7 @@ $retorno .= '
                 min-height: 100%;
             }
             td, th{
-                font-size:50px;
+                font-size:40px;
             }
         </style>
     </head>
