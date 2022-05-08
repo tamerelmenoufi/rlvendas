@@ -51,7 +51,9 @@
         border-radius: 2px;
         border: 0;
     }
-
+    td{
+        padding:0;
+    }
 
 
 </style>
