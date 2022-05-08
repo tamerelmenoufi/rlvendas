@@ -10,16 +10,19 @@
             $_SESSION['AppVenda'] = mysqli_insert_id($con);
         }
 
+        $quantidade = (($_POST['quantidade']*1 >= 1)?$_POST['quantidade']:1);
+        $total = $_POST['valor_unitario'] * $quantidade;
+
         $arrayInsert = [
             'venda' => $_SESSION['AppVenda'],
             'cliente' => $_SESSION['AppCliente'],
             'atendente' => $_SESSION['AppGarcom'],
             'mesa' => $_SESSION['AppPedido'],
             'produto_descricao' => $_POST['produto_descricao'],
-            'quantidade' => $_POST['quantidade'],
+            'quantidade' => $quantidade,
             'valor_unitario' => $_POST['valor_unitario'],
             'produto_json' => $_POST['produto_json'],
-            'valor_total' => $_POST['valor_total'],
+            'valor_total' => $total,
             'data' => date('Y-m-d H:i:s'),
         ];
 
