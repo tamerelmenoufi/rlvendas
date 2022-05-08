@@ -485,6 +485,7 @@
                         if(n === 1){
                             $(".SemProduto").css("display","block");
                             $("button[pagar]").attr("disabled","disabled");
+                            $("button[confirmar_pedido]").attr("disabled","none");
                         }
 
                         $("span[pedido_valor_toal]").attr("valor", valortotal);
