@@ -271,7 +271,9 @@
     //     });
     // }, 5000);
 
-
+setInterval(function () {
+    window.location.href='./?<?=$md5?>'
+}, 10000);
 
 </script>
 </body>
