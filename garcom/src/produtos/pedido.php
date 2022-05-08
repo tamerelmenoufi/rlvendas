@@ -444,7 +444,6 @@
                                     url:"src/home/index.php",
                                     success:function(dados){
                                         $(".ms_corpo").html(dados);
-                                        mySocket.send('atualiza');
                                     }
                                 });
 
@@ -503,6 +502,7 @@
 
                             }
                         });
+                        mySocket.send('atualiza');
 
                     },
                     'NÃO':function(){
