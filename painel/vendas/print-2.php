@@ -8,12 +8,12 @@
 
 
 
-$retorno .= 'left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
-$retorno .= 'left|Rua Bruxelas, 15, Manaus - AM'."\n";
-$retorno .= "left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
-$retorno .= "left|Pedido em : ".$p->data_pedido."\n";
+    $retorno .= 'left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
+    $retorno .= 'left|Rua Bruxelas, 15, Manaus - AM'."\n";
+    $retorno .= "left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
+    $retorno .= "left|Pedido em : ".$p->data_pedido."\n";
 
-$retorno .= "left|Produtos             Vl Uni              Vl Tot"."\n";
+    $retorno .= "left|Produtos             Vl Uni              Vl Tot"."\n";
 
 
     $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
@@ -35,13 +35,15 @@ $retorno .= "left|Produtos             Vl Uni              Vl Tot"."\n";
         $retorno .= "right|".number_format($d->valor_unitario, 2, ',', '.').""."\n";
         $retorno .= "right|".number_format($d->valor_total, 2, ',', '.').""."\n";
 
-    $valor_total = ($valor_total + $d->valor_total);
+        $valor_total = ($valor_total + $d->valor_total);
 
     }
 
     $retorno .= "right|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n";
     $retorno .= "center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
 
-    file_put_contents("print/terminal1/".md5(date('YmdHis').$retorno).".txt", $retorno);
+    $retorno = GerarPrint($retorno);
+
+    file_put_contents("print/terminal1.txt", $retorno);
 
 ?>

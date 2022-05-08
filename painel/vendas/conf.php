@@ -80,3 +80,26 @@ function GerarPDF($d){
 
 }
 
+function GerarPrint($d){
+
+    $dadosParaEnviar = http_build_query(
+        array(
+            'tipo' => 'print',
+            'doc' => base64_encode($d),
+            'width' => 400,
+        )
+    );
+    $opcoes = array('http' =>
+           array(
+            'method'  => 'POST',
+            'header'  => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => $dadosParaEnviar
+        )
+    );
+    $contexto = stream_context_create($opcoes);
+    $result   = file_get_contents('https://yobom.com.br/rlvendas/escpos-php/example/api-print.php', false, $contexto);
+
+    return $result;
+
+}
+
