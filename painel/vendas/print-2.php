@@ -42,6 +42,6 @@ $retorno .= "left|Produtos             Vl Uni              Vl Tot";
     $retorno .= "right|Pagar R$ ".number_format($valor_total, 2, ',', '.')."";
     $retorno .= "center|Yobom.com.br - ".date("d/m/Y H:i:s")."";
 
-    file_put_contents("print/terminal1/".md5(date('YmdHis').$retorno).".txt");
+    file_put_contents("print/terminal1/".md5(date('YmdHis').$retorno).".txt", $retorno);
 
 ?>
