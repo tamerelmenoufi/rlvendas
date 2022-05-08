@@ -244,8 +244,6 @@
             }
         });
 
-        window.location.href='./?<?=$md5?>';
-
     };
 
     // Closed
