@@ -2,11 +2,11 @@
     include("../../lib/includes.php");
     include "./conf.php";
 
-    echo $query = "select a.*, b.mesa as mesa from vendas a left join mesas b on a.mesa = b.codigo where a.codigo = '{$_POST['cod']}'";
+    $query = "select a.*, b.mesa as mesa from vendas a left join mesas b on a.mesa = b.codigo where a.codigo = '{$_POST['cod']}'";
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
 
-
+    $retorno .= $query;
 
     $retorno .= 'left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
     $retorno .= 'left|Rua Bruxelas, 15, Manaus - AM'."\n";
