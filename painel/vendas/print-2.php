@@ -2,7 +2,7 @@
     include("../../lib/includes.php");
     include "./conf.php";
 
-    $query = "select a.*, b.mesa as mesa from vendas a left join mesas b on a.mesa = b.codigo where a.codigo = '{$_POST['cod']}'";
+    echo $query = "select a.*, b.mesa as mesa from vendas a left join mesas b on a.mesa = b.codigo where a.codigo = '{$_POST['cod']}'";
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
 
