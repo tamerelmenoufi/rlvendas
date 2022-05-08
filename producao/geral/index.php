@@ -55,7 +55,6 @@
         padding:2px !important;
     }
 
-
 </style>
 
         <div class="painel">
