@@ -224,14 +224,13 @@ $result = mysqli_query($con, $query);
 
             cod = $(this).attr("print");
             $.ajax({
-                url:"vendas/print.php",
+                url:"vendas/print-2.php",
                 type:"POST",
                 data:{
                     cod,
                 },
                 success:function(dados){
-
-
+                    alert('x');
                 }
             });
 
