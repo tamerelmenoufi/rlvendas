@@ -120,6 +120,10 @@ $result = mysqli_query($con, $query);
                                 <i class="fa-solid fa-print"></i>
                             </button>
 
+                            <button print2="<?=$d->codigo?>" class="btn btn-success" style="opacity:0">
+                                <i class="fa-solid fa-print"></i>
+                            </button>
+
 
                         </td>
 
@@ -208,6 +212,24 @@ $result = mysqli_query($con, $query);
 
                     // acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
                     window.open('http://html2img.mohatron.com/pdf/'+dados);
+
+
+                }
+            });
+
+        });
+
+
+        $("button[print2]").click(function(){
+
+            cod = $(this).attr("print");
+            $.ajax({
+                url:"vendas/print.php",
+                type:"POST",
+                data:{
+                    cod,
+                },
+                success:function(dados){
 
 
                 }

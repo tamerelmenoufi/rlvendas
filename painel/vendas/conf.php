@@ -79,3 +79,4 @@ function GerarPDF($d){
     return $result;
 
 }
+
