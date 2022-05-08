@@ -52,7 +52,7 @@
         border: 0;
     }
     td{
-        padding:0;
+        padding:0 !important;
     }
 
 
