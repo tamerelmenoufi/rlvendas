@@ -181,20 +181,33 @@
             //output.append('Outro: ' + dados.text, document.createElement('br'));
             console.log('Entrou na função');
             console.log(dados.text);
+
+
             $.ajax({
-                url:"<?=$opc?>/add.php?<?=$md5?>",
-                type:"POST",
-                data:{
-                    cod:dados.text,
+                url: "<?=$opc?>/index.php?<?=$md5?>",
+                success: function (dados) {
+                    $("#body").html(dados);
                 },
-                success:function(dados){
-                    console.log(dados);
-                    $("table[painel]").append(dados);
-                },
-                error:function(){
-                    console.log('algo deu errado!');
+                error: function () {
+                    $.alert('Ocorreu um erro!');
                 }
             });
+
+
+            // $.ajax({
+            //     url:"<?=$opc?>/add.php?<?=$md5?>",
+            //     type:"POST",
+            //     data:{
+            //         cod:dados.text,
+            //     },
+            //     success:function(dados){
+            //         console.log(dados);
+            //         $("table[painel]").append(dados);
+            //     },
+            //     error:function(){
+            //         console.log('algo deu errado!');
+            //     }
+            // });
 
             // nova_linha = '<tr>'+
             //                 '<td>'+
@@ -247,18 +260,17 @@
     };
     socketCloseListener();
 
-
-    setInterval(function () {
-        $.ajax({
-            url: "<?=$opc?>/index.php?<?=$md5?>",
-            success: function (dados) {
-                $("#body").html(dados);
-            },
-            error: function () {
-                $.alert('Ocorreu um erro!');
-            }
-        });
-    }, 5000);
+    // setInterval(function () {
+    //     $.ajax({
+    //         url: "<?=$opc?>/index.php?<?=$md5?>",
+    //         success: function (dados) {
+    //             $("#body").html(dados);
+    //         },
+    //         error: function () {
+    //             $.alert('Ocorreu um erro!');
+    //         }
+    //     });
+    // }, 5000);
 
 
 
