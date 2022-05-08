@@ -100,6 +100,7 @@ function GerarPrint($d){
     $result   = file_get_contents('https://yobom.com.br/rlvendas/escpos-php/example/api-print.php', false, $contexto);
 
     return $result;
+    ////////////////
 
 }
 
