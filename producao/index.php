@@ -182,7 +182,6 @@
             console.log('Entrou na função');
             console.log(dados.text);
 
-
             $.ajax({
                 url: "<?=$opc?>/index.php?<?=$md5?>",
                 success: function (dados) {
