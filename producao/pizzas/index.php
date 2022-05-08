@@ -133,7 +133,7 @@
 <script>
     $(function(){
 
-        window.location.href='./?pizzas';
+        // window.location.href='./?pizzas';
 
 
     })

@@ -133,7 +133,7 @@
 <script>
     $(function(){
 
-        window.location.href='./?geral';
+        // window.location.href='./?geral';
 
     })
 

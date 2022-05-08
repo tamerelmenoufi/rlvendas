@@ -134,7 +134,7 @@
 <script>
     $(function(){
 
-        window.location.href='./?refeicoes';
+        // window.location.href='./?refeicoes';
 
     })
 
