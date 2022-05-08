@@ -254,7 +254,7 @@
     }
     mySocket = new WebSocket('wss://websocket.yobom.com.br');
     mySocket.addEventListener('open', socketOpenListener);
-    //mySocket.addEventListener('message', socketMessageListener);
+    mySocket.addEventListener('message', socketMessageListener);
     mySocket.addEventListener('close', socketCloseListener);
     };
     socketCloseListener();
