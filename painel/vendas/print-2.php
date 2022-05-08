@@ -6,7 +6,7 @@
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
 
-    $retorno .= $query;
+    // $retorno .= $query;
 
     $retorno .= 'left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
     $retorno .= 'left|Rua Bruxelas, 15, Manaus - AM'."\n";
