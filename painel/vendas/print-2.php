@@ -42,7 +42,7 @@
     $retorno .= "right|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n";
     $retorno .= "center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
 
-    $retorno = GerarPrint($retorno);
+    //$retorno = GerarPrint($retorno);
 
     file_put_contents("print/terminal1.txt", $retorno);
 
