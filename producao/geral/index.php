@@ -73,7 +73,7 @@
             <tbody>
 
         <?php
-            $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' /*and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria})*/ order by a.data asc";
+            $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria}) order by a.data asc";
             $result = mysqli_query($con, $query);
 
             while($d = mysqli_fetch_object($result)){
