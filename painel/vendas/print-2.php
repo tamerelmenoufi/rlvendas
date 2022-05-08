@@ -8,12 +8,12 @@
 
 
 
-$retorno .= 'left|YOBOM SORVETES CNPJ - 28856577000119';
-$retorno .= 'left|Rua Bruxelas, 15, Manaus - AM';
-$retorno .= "left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}";
-$retorno .= "left|Pedido em : ".$p->data_pedido;
+$retorno .= 'left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
+$retorno .= 'left|Rua Bruxelas, 15, Manaus - AM'."\n";
+$retorno .= "left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
+$retorno .= "left|Pedido em : ".$p->data_pedido."\n";
 
-$retorno .= "left|Produtos             Vl Uni              Vl Tot";
+$retorno .= "left|Produtos             Vl Uni              Vl Tot"."\n";
 
 
     $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
@@ -30,17 +30,17 @@ $retorno .= "left|Produtos             Vl Uni              Vl Tot";
         }
         if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
-        $retorno .= "left|{$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}";
-        $retorno .= "left|{$d->produto_descricao}";
-        $retorno .= "right|".number_format($d->valor_unitario, 2, ',', '.')."";
-        $retorno .= "right|".number_format($d->valor_total, 2, ',', '.')."";
+        $retorno .= "left|{$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}"."\n";
+        $retorno .= "left|{$d->produto_descricao}"."\n";
+        $retorno .= "right|".number_format($d->valor_unitario, 2, ',', '.').""."\n";
+        $retorno .= "right|".number_format($d->valor_total, 2, ',', '.').""."\n";
 
     $valor_total = ($valor_total + $d->valor_total);
 
     }
 
-    $retorno .= "right|Pagar R$ ".number_format($valor_total, 2, ',', '.')."";
-    $retorno .= "center|Yobom.com.br - ".date("d/m/Y H:i:s")."";
+    $retorno .= "right|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n";
+    $retorno .= "center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
 
     file_put_contents("print/terminal1/".md5(date('YmdHis').$retorno).".txt", $retorno);
 
