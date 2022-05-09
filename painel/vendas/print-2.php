@@ -7,13 +7,14 @@
     $p = mysqli_fetch_object($result);
 
     // $retorno .= $query;
+    //$tipo, $largura, $altura, $alinhamento, $registro)
 
-    $retorno .= 'left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
-    $retorno .= 'left|Rua Bruxelas, 15, Manaus - AM'."\n";
-    $retorno .= "left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
-    $retorno .= "left|Pedido em : ".$p->data_pedido."\n";
+    $retorno .= 'txt|1|1|left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
+    $retorno .= 'txt|1|1|left|Rua Bruxelas, 15, Manaus - AM'."\n";
+    $retorno .= "txt|1|1|left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
+    $retorno .= "txt|1|1|left|Pedido em : ".$p->data_pedido."\n";
 
-    $retorno .= "left|Produtos             Vl Uni              Vl Tot"."\n";
+    $retorno .= "txt|1|1|left|Produtos             Vl Uni              Vl Tot"."\n";
 
 
     $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
@@ -30,17 +31,17 @@
         }
         if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
-        $retorno .= "left|{$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}"."\n";
-        $retorno .= "left|{$d->produto_descricao}"."\n";
-        $retorno .= "right|".number_format($d->valor_unitario, 2, ',', '.').""."\n";
-        $retorno .= "right|".number_format($d->valor_total, 2, ',', '.').""."\n";
+        $retorno .= "txt|1|1|left|{$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}"."\n";
+        $retorno .= "txt|1|1|left|{$d->produto_descricao}"."\n";
+        $retorno .= "txt|1|1|left|".number_format($d->valor_unitario, 2, ',', '.').""."\n";
+        $retorno .= "txt|1|1|left|".number_format($d->valor_total, 2, ',', '.').""."\n";
 
         $valor_total = ($valor_total + $d->valor_total);
 
     }
 
-    $retorno .= "right|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n";
-    $retorno .= "center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
+    $retorno .= "txt|1|1|left|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n";
+    $retorno .= "txt|1|1|left|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
 
     //$retorno = GerarPrint($retorno);
 
