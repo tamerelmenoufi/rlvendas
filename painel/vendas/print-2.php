@@ -13,7 +13,7 @@
     $retorno .= 'txt|1|1|left|CNPJ - 28.856.577/0001-19'."\n";
     $retorno .= 'txt|1|2|left|Rua Bruxelas, 15, Manaus - AM'."\n";
     $retorno .= "txt|1|2|left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
-    $retorno .= "txt|1|2|left|Pedido em : ".$p->data_pedido."\n\n";
+    $retorno .= "txt|1|1|left|Pedido em : ".$p->data_pedido."\n\n";
 
     $retorno .= "txt|1|1|left|Produtos             Vl Uni              Vl Tot"."\n";
 
