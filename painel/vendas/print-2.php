@@ -9,10 +9,10 @@
     // $retorno .= $query;
     //$tipo, $largura, $altura, $alinhamento, $registro)
 
-    $retorno .= 'txt|1|1|left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
-    $retorno .= 'txt|1|1|left|Rua Bruxelas, 15, Manaus - AM'."\n";
-    $retorno .= "txt|1|1|left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
-    $retorno .= "txt|1|1|left|Pedido em : ".$p->data_pedido."\n";
+    $retorno .= 'txt|3|3|left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
+    $retorno .= 'txt|2|2|left|Rua Bruxelas, 15, Manaus - AM'."\n";
+    $retorno .= "txt|2|2|left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
+    $retorno .= "txt|2|2|left|Pedido em : ".$p->data_pedido."\n";
 
     $retorno .= "txt|1|1|left|Produtos             Vl Uni              Vl Tot"."\n";
 
@@ -32,16 +32,18 @@
         if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
         $retorno .= "txt|1|1|left|{$d->quantidade} X {$pedido->categoria->descricao} - {$pedido->medida->descricao}"."\n";
-        $retorno .= "txt|1|1|left|{$d->produto_descricao}"."\n";
-        $retorno .= "txt|1|1|left|".number_format($d->valor_unitario, 2, ',', '.').""."\n";
-        $retorno .= "txt|1|1|left|".number_format($d->valor_total, 2, ',', '.').""."\n";
+        if($d->produto_descricao){
+        $retorno .= "txt|1|1|left|    {$d->produto_descricao}"."\n";
+        }
+        $retorno .= "txt|1|1|right|".number_format($d->valor_unitario, 2, ',', '.')."              ".number_format($d->valor_total, 2, ',', '.')."\n";
+        //$retorno .= "txt|1|1|left|".number_format($d->valor_total, 2, ',', '.').""."\n";
 
         $valor_total = ($valor_total + $d->valor_total);
 
     }
 
-    $retorno .= "txt|1|1|left|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n";
-    $retorno .= "txt|1|1|left|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
+    $retorno .= "\ntxt|3|3|right|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n\n";
+    $retorno .= "txt|1|1|center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
 
     //$retorno = GerarPrint($retorno);
 
