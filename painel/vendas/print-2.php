@@ -9,8 +9,8 @@
     // $retorno .= $query;
     //$tipo, $largura, $altura, $alinhamento, $registro)
 
-    $retorno .= 'txt|2|1|left|YOBOM SORVETES'."\n";
-    $retorno .= 'txt|2|1|left|CNPJ - 28856577000119'."\n";
+    $retorno .= 'txt|2|1|center|YOBOM SORVETES'."\n";
+    $retorno .= 'txt|1|1|left|CNPJ - 28.856.577/0001-19'."\n";
     $retorno .= 'txt|1|2|left|Rua Bruxelas, 15, Manaus - AM'."\n";
     $retorno .= "txt|1|2|left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
     $retorno .= "txt|1|2|left|Pedido em : ".$p->data_pedido."\n\n";
@@ -38,7 +38,7 @@
         }
         $retorno .= "txt|1|1|right|R$ ".
         str_pad(number_format($d->valor_unitario, 2, ',', '.') , 6 , ' ' , STR_PAD_LEFT).
-        "              R$ ".
+        "         R$ ".
         str_pad(number_format($d->valor_total, 2, ',', '.') , 6 , ' ' , STR_PAD_LEFT)."\n";
         //$retorno .= "txt|1|1|left|".number_format($d->valor_total, 2, ',', '.').""."\n";
 
