@@ -9,10 +9,10 @@
     // $retorno .= $query;
     //$tipo, $largura, $altura, $alinhamento, $registro)
 
-    $retorno .= 'txt|2|1|left|YOBOM SORVETES CNPJ - 28856577000119'."\n";
+    $retorno .= 'txt|2|1|left|YOBOM SORVETES'."\n".'CNPJ - 28856577000119'."\n";
     $retorno .= 'txt|1|2|left|Rua Bruxelas, 15, Manaus - AM'."\n";
     $retorno .= "txt|1|2|left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
-    $retorno .= "txt|1|2|left|Pedido em : ".$p->data_pedido."\n";
+    $retorno .= "txt|1|2|left|Pedido em : ".$p->data_pedido."\n\n";
 
     $retorno .= "txt|1|1|left|Produtos             Vl Uni              Vl Tot"."\n";
 
