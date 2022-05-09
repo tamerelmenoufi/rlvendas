@@ -10,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRODUÇÃO</title>
     <?php include("../lib/header.php"); ?>
+    <style>
+        td{
+            padding:2px !important;
+        }
+    </style>
 </head>
 <body id="page-top">
 
