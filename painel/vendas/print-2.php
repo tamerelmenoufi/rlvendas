@@ -35,7 +35,7 @@
         if($d->produto_descricao){
         $retorno .= "txt|1|1|left|    {$d->produto_descricao}"."\n";
         }
-        $retorno .= "txt|1|1|right|".number_format($d->valor_unitario, 2, ',', '.')."              ".number_format($d->valor_total, 2, ',', '.')."\n";
+        $retorno .= "txt|1|1|right|".str_pad(number_format($d->valor_unitario, 2, ',', '.') , 6 , ' ' , STR_PAD_LEFT)."              ".str_pad(number_format($d->valor_total, 2, ',', '.') , 6 , ' ' , STR_PAD_LEFT)."\n";
         //$retorno .= "txt|1|1|left|".number_format($d->valor_total, 2, ',', '.').""."\n";
 
         $valor_total = ($valor_total + $d->valor_total);
