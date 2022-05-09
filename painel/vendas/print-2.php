@@ -50,8 +50,8 @@
     }
 
     $retorno .= "\ntxt|1|2|right|Pagar R$ ".number_format($valor_total, 2, ',', '.').""."\n\n";
-    $retorno .= "\nqrcode|20|20|center|https://notas.yobom.com.br/?{$p->codigo}"."\n\n";
-    $retorno .= "txt|1|1|center|".md5($p->codigo).""."\n\n";
+    $retorno .= "qrcode|20|20|center|https://notas.yobom.com.br/?{$p->codigo}";
+    $retorno .= "\ntxt|1|1|center|".md5($p->codigo).""."\n\n";
     $retorno .= "txt|1|1|center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
 
     //$retorno = GerarPrint($retorno);
