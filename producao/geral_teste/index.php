@@ -73,7 +73,8 @@
 
     ?>
     <div class="col-3">
-        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+
+        <div class="card text-dark bg-warning mb-3 p-2">
             <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
             <div class="card-body">
                 <p class="card-text">
@@ -86,6 +87,7 @@
                 </p>
             </div>
         </div>
+
     </div>
     <?php
         }
