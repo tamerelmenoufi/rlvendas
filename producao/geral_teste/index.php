@@ -72,19 +72,21 @@
             if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
     ?>
-
-
     <div class="col-3">
-        <p><b>MESA:</b> <?=$d->mesa?></p>
-        <p><b>Quantidade: </b><?=$d->quantidade?></p>
-        <p><b>Produto: </b><br>
-            <?=$pedido->categoria->descricao?>
-            - <?=$pedido->medida->descricao?> (<?=$sabores?>)
-            <p class="card-text" style="color:red;">
-            <?= $d->produto_descricao?></p>
-        </p>
+        <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
+            <div class="card-body">
+                <p class="card-text">
+                    <b>Quantidade: </b><?=$d->quantidade?><br>
+                    <b>Produto: </b><br>
+                    <?=$pedido->categoria->descricao?>
+                    - <?=$pedido->medida->descricao?> (<?=$sabores?>)<br>
+                    <span class="card-text" style="color:red;">
+                    <?= $d->produto_descricao?></span>
+                </p>
+            </div>
+        </div>
     </div>
-
     <?php
         }
     ?>
