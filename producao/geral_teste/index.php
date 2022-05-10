@@ -53,7 +53,7 @@
     }
 
 </style>
-<div class="p-2">
+<div class="p-3">
     <div class="row">
         <?php
 
