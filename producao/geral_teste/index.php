@@ -55,44 +55,44 @@
 </style>
 
 <div class="row">
+    <div class="p-2">
+        <?php
 
-    <?php
+            $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria}) order by a.data asc";
+            $result = mysqli_query($con, $query);
 
-        $query = "select a.*, b.mesa as mesa from vendas_produtos a left join mesas b on a.mesa = b.codigo where a.situacao in('p','i') and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria}) order by a.data asc";
-        $result = mysqli_query($con, $query);
+            while($d = mysqli_fetch_object($result)){
 
-        while($d = mysqli_fetch_object($result)){
+                $pedido = json_decode($d->produto_json);
+                $sabores = false;
+                $ListaPedido = [];
+                for($i=0; $i < count($pedido->produtos); $i++){
+                    $ListaPedido[] = $pedido->produtos[$i]->descricao;
+                }
+                if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
-            $pedido = json_decode($d->produto_json);
-            $sabores = false;
-            $ListaPedido = [];
-            for($i=0; $i < count($pedido->produtos); $i++){
-                $ListaPedido[] = $pedido->produtos[$i]->descricao;
-            }
-            if($ListaPedido) $sabores = implode(', ', $ListaPedido);
+        ?>
+        <div class="col-3">
 
-    ?>
-    <div class="col-3">
-
-        <div class="card text-dark bg-warning mb-3 p-2">
-            <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
-            <div class="card-body">
-                <p class="card-text">
-                    <b>Quantidade: </b><?=$d->quantidade?><br>
-                    <b>Produto: </b><br>
-                    <?=$pedido->categoria->descricao?>
-                    - <?=$pedido->medida->descricao?> (<?=$sabores?>)<br>
-                    <span class="card-text" style="color:red;">
-                    <?= $d->produto_descricao?></span>
-                </p>
+            <div class="card text-dark bg-warning mb-3">
+                <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b>Quantidade: </b><?=$d->quantidade?><br>
+                        <b>Produto: </b><br>
+                        <?=$pedido->categoria->descricao?>
+                        - <?=$pedido->medida->descricao?> (<?=$sabores?>)<br>
+                        <span class="card-text" style="color:red;">
+                        <?= $d->produto_descricao?></span>
+                    </p>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
     <?php
         }
     ?>
-
+    </div>
 </div>
 <script>
     $(function(){
