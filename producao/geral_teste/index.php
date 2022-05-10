@@ -73,7 +73,6 @@
         ?>
         <div class="col-3">
 
-
             <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
                 <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
                 <div class="card-body">
