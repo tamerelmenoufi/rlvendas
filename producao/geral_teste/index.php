@@ -73,8 +73,8 @@
         ?>
         <div class="col-3">
 
-            <div class="card text-white bg-warning mb-3">
-                <div class="card-header text-white bg-warning"><b>MESA:</b> <?=$d->mesa?></div>
+            <div class="card bg-light mb-3">
+                <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
                 <div class="card-body">
                     <p class="card-text">
                         <?=$d->quantidade?> X <?=$pedido->categoria->descricao?>
