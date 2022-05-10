@@ -77,9 +77,7 @@
                 <div class="card-header text-white bg-warning"><b>MESA:</b> <?=$d->mesa?></div>
                 <div class="card-body">
                     <p class="card-text">
-                        <b>Quantidade: </b><?=$d->quantidade?><br>
-                        <b>Produto: </b><br>
-                        <?=$pedido->categoria->descricao?>
+                        <?=$d->quantidade?> X <?=$pedido->categoria->descricao?>
                         - <?=$pedido->medida->descricao?> (<?=$sabores?>)<br>
                         <span class="card-text" style="color:red;">
                         <?= $d->produto_descricao?></span>
