@@ -55,9 +55,8 @@ if (!isset($_SESSION['usuario'])) {
             type: "blue",
             smoothContent: true,
         }
-    });
 
-    $(function () {
+
         $.ajax({
             url: "home/index.php",
             success: function (dados) {
@@ -67,7 +66,17 @@ if (!isset($_SESSION['usuario'])) {
                 $.alert('Ocorreu um erro!');
             }
         });
+
+
+
+        $(".fecharTelaVendas").off('click').on('click', function(){
+            $(".TelaVendas").css("display","none");
+        });
+
     });
+
+
+
 </script>
 </body>
 </html>

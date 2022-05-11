@@ -16,7 +16,7 @@ include "./conf.php";
 </style>
 
 <div>
-    <i class="fa-solid fa-rectangle-xmark fechar"></i>
+    <i class="fa-solid fa-rectangle-xmark fecharTelaVendas"></i>
 </div>
 
 
@@ -24,9 +24,7 @@ include "./conf.php";
 <script>
     $(function () {
 
-        $(".fechar").off('click').on('click', function(){
-            $(".TelaVendas").css("display","none");
-        });
+
 
     });
 </script>
