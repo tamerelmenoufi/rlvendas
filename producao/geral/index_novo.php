@@ -93,7 +93,5 @@
 <script>
     $(function(){
 
-        // window.location.href='./?geral';
-
     })
 </script>

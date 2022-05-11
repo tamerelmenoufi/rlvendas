@@ -73,7 +73,7 @@
         ?>
         <div class="col-3">
 
-            <div class="card bg-light mb-3">
+            <div pedido="<?=$d->codigo?>" venda="<?=$d->venda?>" class="card bg-light mb-3">
                 <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
                 <div class="card-body">
                     <p class="card-text">

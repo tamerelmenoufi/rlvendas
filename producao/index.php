@@ -161,6 +161,17 @@
         });
 
 
+        $(document).on('click', "div[pedido]", function(){
+            pedido = $(this).attr("pedido");
+            obj = $(this);
+            obj.addClass('bg-warning');
+            obj.removeClass('bg-light');
+
+
+
+        });
+
+
 
 
     });
