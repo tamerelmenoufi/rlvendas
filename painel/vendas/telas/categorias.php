@@ -101,6 +101,7 @@ include "../conf.php";
                     categoria
                 },
                 sucecess:function(dados){
+                    alert('ok');
                     $("#CorpoTelaVendas").append(dados);
                 }
             });
