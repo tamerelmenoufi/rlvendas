@@ -16,7 +16,7 @@ if (!isset($_SESSION['usuario'])) {
     <?php include("../lib/header.php"); ?>
     <style>
         .TelaVendas{
-            position: absolute;
+            position: fixed;
             top:0;
             left:0;
             width:100%;
