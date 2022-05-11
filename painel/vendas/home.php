@@ -21,8 +21,7 @@ include "./conf.php";
         top:40px;
         left:0;
         right:0;
-        height:90px;
-        background:green;
+        height:120px;
     }
     .bk_categoria_scroll {
         display: flex;
@@ -67,7 +66,7 @@ include "./conf.php";
 
     }
     .bk_categoria_scroll::-webkit-scrollbar {
-        display: hidden;
+        display: none;
     }
 
 </style>
