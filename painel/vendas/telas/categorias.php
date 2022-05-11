@@ -96,11 +96,10 @@ include "../conf.php";
             categoria = $(this).attr("categoria");
             $.ajax({
                 url:"vendas/telas/produtos.php",
-                type:"POST",
                 data:{
                     categoria
                 },
-                sucecess:function(dados){
+                success:function(dados){
                     alert('ok');
                     $("#CorpoTelaVendas").append(dados);
                 }
