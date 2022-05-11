@@ -54,9 +54,6 @@
             <i class="fa-solid fa-bag-shopping"></i>
             <span>Vendas</span>
         </a>
-    </li>
-    <li class="nav-item">
-
         <div id="MenuVendas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=producao">Novos</a>
