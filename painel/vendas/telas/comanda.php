@@ -53,8 +53,7 @@
         top:210px;
         right:0;
         width:40%;
-        bottom:0;
-        padding-bottom:40px;
+        bottom:40;
         border:solid 1px green;
         overflow-x: auto;
     }
@@ -62,6 +61,7 @@
         position:fixed;
         bottom:0;
         right:0;
+        height:40px;
         width:40%;
         background:#fff;
     }
