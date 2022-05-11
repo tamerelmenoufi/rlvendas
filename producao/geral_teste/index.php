@@ -67,7 +67,7 @@
         font-size:10px;
         color:#ccc;
     }
-    div[acoe]{
+    div[acao]{
         cursor:pointer;
     }
 </style>
