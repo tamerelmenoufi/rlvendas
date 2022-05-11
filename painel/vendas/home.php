@@ -67,7 +67,7 @@ include "./conf.php";
 
     }
     .bk_categoria_scroll::-webkit-scrollbar {
-        /* display: none; */
+        display: hidden;
     }
 
 </style>
