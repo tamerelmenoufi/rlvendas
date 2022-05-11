@@ -110,6 +110,7 @@
 
 <script>
     $(function () {
+
         $("#sidebarToggle").click(function () {
             opc = $(this).attr('opc');
             if (opc == '0') {
@@ -124,9 +125,33 @@
 
         });
 
-        $(document).on('click', '[url]', function (e) {
+        $("a[AbrirVendas]").click(function(){
+            $('.loading').fadeIn(200);
+
+            $.ajax({
+                url:"vendas/home.php",
+                success: function (data) {
+                    $(".TelaVendas").html(data);
+                }
+            })
+            .done(function () {
+                $('.loading').fadeOut(200);
+                $(".TelaVendas").css("display","block");
+            })
+            .fail(function (error) {
+                alert('Error');
+                $('.loading').fadeOut(200);
+            })
+
+
+        });
+
+    })
+
+
+    $(document).on('click', '[url]', function (e) {
             e.preventDefault();
-            alert('teste');
+
             var url = $(this).attr('url');
 
             $('.loading').fadeIn(200);
@@ -146,7 +171,4 @@
             })
         });
 
-
-
-    })
 </script>
