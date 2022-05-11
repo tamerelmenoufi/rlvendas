@@ -47,7 +47,7 @@ while ($m = mysqli_fetch_array($m_r)) {
         top:210px;
         left:0;
         width:60%;
-        bottom:0;
+        bottom:60px;
         border:solid 1px red;
         overflow-x: auto;
     }

@@ -62,7 +62,7 @@
         bottom:0;
         right:0;
         height:60px;
-        width:40%;
+        width:100%;
         background:#fff;
     }
     .PedidoBottomItens{
