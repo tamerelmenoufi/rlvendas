@@ -75,7 +75,7 @@
 
             <div pedido="<?=$d->codigo?>" venda="<?=$d->venda?>" class="card text-white bg-dark mb-3">
                 <div class="card-header"><b>MESA:</b> <?=$d->mesa?></div>
-                <div class="card-body">
+                <div class="card-body bg-dark">
                     <p class="card-text">
                         <?=$d->quantidade?> X <?=$pedido->categoria->descricao?>
                         - <?=$pedido->medida->descricao?> (<?=$sabores?>)<br>
