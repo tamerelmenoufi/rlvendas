@@ -69,7 +69,7 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
-        $(".fecharTelaVendas").off('click').on('click', function(){
+        $(document).off('click').on('click', ".fecharTelaVendas", function(){
             $(".TelaVendas").css("display","none");
         });
 

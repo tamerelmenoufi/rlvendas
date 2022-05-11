@@ -5,7 +5,7 @@ include "./conf.php";
 
 ?>
 <style>
-    .fechar{
+    .fecharTelaVendas{
         position:absolute;
         top:5px;
         right:5px;
