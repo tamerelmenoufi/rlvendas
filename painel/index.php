@@ -25,6 +25,9 @@ if (!isset($_SESSION['usuario'])) {
             display:none;
             z-index:999;
         }
+        body::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 <body id="page-top">
