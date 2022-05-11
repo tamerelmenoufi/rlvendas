@@ -17,6 +17,14 @@
             <i class="fa-solid fa-house"></i>
             <span>Dashboard</span></a>
     </li>
+    <!-- Divider  -->
+    <hr class="sidebar-divider">
+    <!-- Nav Item - Dahboard -->
+    <li class="nav-item active">
+        <a AbrirVendas class="nav-link" href="#">
+            <i class="fa-solid fa-house"></i>
+            <span>Vendas</span></a>
+    </li>
 
     <!-- Divider  -->
     <hr class="sidebar-divider">
@@ -170,5 +178,8 @@
                 $('.loading').fadeOut(200);
             })
         });
+
+
+
 
 </script>
