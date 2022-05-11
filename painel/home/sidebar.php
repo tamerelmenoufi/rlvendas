@@ -18,14 +18,6 @@
             <span>Dashboard</span></a>
     </li>
 
-
-    <li class="nav-item active">
-        <a class="nav-link" href="#" AbrirVendas>
-            <i class="fa-solid fa-house"></i>
-            <span>Vendas</span></a>
-    </li>
-
-
     <!-- Divider  -->
     <hr class="sidebar-divider">
 
@@ -63,9 +55,14 @@
             <span>Vendas</span>
         </a>
     </li>
-
     <li class="nav-item">
-        <div id="MenuVendasRelatorios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#MenuVendas"
+           aria-expanded="true" aria-controls="MenuVendas">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Vendas</span>
+        </a>
+
+        <div id="MenuVendas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=producao">Novos</a>
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=preparo">Preparo</a>
