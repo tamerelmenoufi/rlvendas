@@ -67,7 +67,7 @@
         font-size:10px;
         color:#ccc;
     }
-    i[acoe]{
+    div[acoe]{
         cursor:pointer;
     }
 </style>
@@ -103,14 +103,14 @@
                         <?= $d->produto_descricao?></span>
                     </p>
                     <div class="row acoes">
-                        <div class='col'>
-                            <i class="fa-solid fa-arrow-up-right-from-square" acao='pedido'></i> Pedido
+                        <div class='col' acao='pedido'>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Pedido
                         </div>
-                        <div class='col'>
-                            <i class="fa-solid fa-check" acao='preparar'></i> Preparando
+                        <div class='col' acao='preparar'>
+                            <i class="fa-solid fa-check"></i> Preparando
                         </div>
-                        <div class='col'>
-                            <i class="fa-solid fa-check-double" acao='concluir'></i> Concluir
+                        <div class='col' acao='concluir'>
+                            <i class="fa-solid fa-check-double"></i> Concluir
                         </div>
                     </div>
                 </div>
