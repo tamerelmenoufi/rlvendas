@@ -146,13 +146,13 @@
                     $('#palco').html(data);
                 }
             })
-                .done(function () {
-                    $('.loading').fadeOut(200);
-                })
-                .fail(function (error) {
-                    alert('Error');
-                    $('.loading').fadeOut(200);
-                })
+            .done(function () {
+                $('.loading').fadeOut(200);
+            })
+            .fail(function (error) {
+                alert('Error');
+                $('.loading').fadeOut(200);
+            })
         });
 
         $("a[AbrirVendas]").click(function(){
