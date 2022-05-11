@@ -15,7 +15,7 @@ include "./conf.php";
     }
 </style>
 <div class="TelaVendas">
-
+    Dados da página padrão HOME
 </div>
 
 <script>
