@@ -65,7 +65,7 @@
     }
     .acoes{
         font-size:10px;
-        color:#eee;
+        color:#ccc;
     }
     .acoes i{
         cursor:pointer;
@@ -104,7 +104,7 @@
                     </p>
                     <div class="row acoes">
                         <div class='col'>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Pedido Completo
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Pedido
                         </div>
                         <div class='col'>
                             <i class="fa-solid fa-check"></i> Preparando
