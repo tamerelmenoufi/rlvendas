@@ -70,7 +70,7 @@ if (!isset($_SESSION['usuario'])) {
 
         $(document).on('click', ".fecharTelaVendas", function(){
             $(".TelaVendas").css("display","none");
-            $("body::-webkit-scrollbar").css("display",'block');
+            $(".TelaVendas").html('');
         });
 
     });
