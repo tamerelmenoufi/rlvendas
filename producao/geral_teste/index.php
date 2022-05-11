@@ -67,7 +67,7 @@
         font-size:10px;
         color:#ccc;
     }
-    .acoes i{
+    i[acoe]{
         cursor:pointer;
     }
 </style>
@@ -104,13 +104,13 @@
                     </p>
                     <div class="row acoes">
                         <div class='col'>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Pedido
+                            <i class="fa-solid fa-arrow-up-right-from-square" acao='pedido'></i> Pedido
                         </div>
                         <div class='col'>
-                            <i class="fa-solid fa-check"></i> Preparando
+                            <i class="fa-solid fa-check" acao='preparar'></i> Preparando
                         </div>
                         <div class='col'>
-                            <i class="fa-solid fa-check-double"></i> Concluir
+                            <i class="fa-solid fa-check-double" acao='concluir'></i> Concluir
                         </div>
                     </div>
                 </div>
