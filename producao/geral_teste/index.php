@@ -90,7 +90,7 @@
                 <div class="card-body">
                     <p class="card-text">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        <?=$d->quantidade?> X <?=$pedido->categoria->descricao?>
+                        <?=$d->quantidade?> x <?=$pedido->categoria->descricao?>
                         - <?=$pedido->medida->descricao?> (<?=$sabores?>)<br>
                         <span class="card-text" style="color:red;">
                         <?= $d->produto_descricao?></span>
