@@ -23,7 +23,7 @@ include "./conf.php";
 
 <script>
     $(function () {
-        $(".fechar").click(function(){
+        $(".fechar").off('click').on('click', function(){
             $(".TelaVendas").css("display","none");
         });
     });
