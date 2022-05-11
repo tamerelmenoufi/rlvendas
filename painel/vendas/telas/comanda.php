@@ -57,7 +57,7 @@
         overflow-x: auto;
     }
     .PedidoBottomFixo{
-        position:fixed;
+        position:absolute;
         bottom:0;
         left:0;
         width:100%;
@@ -105,7 +105,7 @@
     }
 
     .SemProduto{
-        position:fixed;
+        position:absolute;
         top:40%;
         left:0;
         text-align:center;
