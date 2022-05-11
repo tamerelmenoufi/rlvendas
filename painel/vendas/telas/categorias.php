@@ -1,20 +1,10 @@
 <?php
 
-include("../../lib/includes.php");
-include "./conf.php";
+include("../../../lib/includes.php");
+include "../conf.php";
 
 ?>
 <style>
-    .fecharTelaVendas{
-        position:absolute;
-        top:20px;
-        right:20px;
-        cursor: pointer;
-        color:red;
-        font-size:50px;
-    }
-
-
     .bk_categoria_scroll_palco {
         overflow-x: auto;
         position:absolute;
@@ -76,27 +66,36 @@ include "./conf.php";
 
 </style>
 
-<div id="CorpoTelaVendas">
-    <!-- Apenas o botão de fechar -->
-    <i class="fa-solid fa-rectangle-xmark fecharTelaVendas"></i>
 
-    Criação do espaço para
-
-</div>
-
-
+    <!-- Lista das categorias a serem exibidas -->
+    <div class="bk_categoria_scroll_palco">
+        <div class="bk_categoria_scroll">
+            <?php
+                $query = "select * from categorias where deletado != '1'";
+                $result = mysqli_query($con,$query);
+                while($d = mysqli_fetch_object($result)){
+            ?>
+                <button
+                        class="btn btn-success btn-lg btn-block"
+                        categoria="<?=$d->codigo?>"
+                >
+                    <?=$d->categoria?>
+                </button>
+            <?php
+                }
+            ?>
+        </div>
+    </div>
+    <!-- Fim das Categorias -->
 
 
 <script>
     $(function () {
 
-        $.ajax({
-            url:"vendas/telas/categorias.php",
-            success:function(dados){
-                $("#CorpoTelaVendas").append(dados);
-            }
+        $("button[categoria]").click(function(){
+            categoria = $(this).attr("categoria");
+            $.alert(categoria);
         });
-
 
     });
 </script>
