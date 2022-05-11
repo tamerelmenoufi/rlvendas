@@ -41,7 +41,7 @@ include "./conf.php";
         border-radius:10px;
         float:none;
         text-align:center;
-        font-size:20px;
+        font-size:15px;
         margin:5px;
     }
 
@@ -93,7 +93,7 @@ include "./conf.php";
     while($d = mysqli_fetch_object($result)){
 ?>
     <button
-            class="btn btn-success btn-lg btn-block"
+            class="btn btn-secundary btn-lg btn-block"
             acao<?=$md5?>
             local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
             janela="ms_popup_100"
