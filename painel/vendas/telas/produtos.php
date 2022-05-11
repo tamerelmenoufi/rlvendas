@@ -35,7 +35,13 @@ while ($m = mysqli_fetch_array($m_r)) {
 ?>
 
 <style>
-
+    topo<?= $md5 ?>{
+        position:fixed;
+        top:20px;
+        left:50%;
+        font-size:30px;
+        font-weight:bold;
+    }
     .ListaProdutosVendas{
         position:absolute;
         top:210px;
