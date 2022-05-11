@@ -35,25 +35,6 @@ while ($m = mysqli_fetch_array($m_r)) {
 ?>
 
 <style>
-    .foto<?=$md5?> {
-        background-size: cover;
-        background-position: center;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-    }
-
-    .topo<?=$md5?> {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 55px;
-        background-color: #fff;
-        padding: 20px;
-        font-weight: bold;
-        z-index: 1;
-    }
-
     .IconePedidos {
         position: fixed;
         top: 10px;
@@ -90,12 +71,6 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 </style>
 
-<!-- Informativo de pedidos ativos -->
-<br><br><br><br><br><br>
-
-<span class="IconePedidos"><i
-            class="fa-solid fa-bell-concierge animate__animated animate__tada animate__repeat-3"
-    ></i></span>
 
 <div class="MensagemAddProduto animate__animated animate__shakeX">
     Produto Adicionado!
@@ -112,7 +87,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <div class="col-md-12">
     <?php
-    echo $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1'";
+    $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1'";
     $result = mysqli_query($con, $query);
     while ($p = mysqli_fetch_object($result)) {
         $detalhes = json_decode($p->detalhes, true);
@@ -120,10 +95,7 @@ while ($m = mysqli_fetch_array($m_r)) {
         ?>
         <div class="card mb-3 item_button<?= $md5 ?>">
             <div class="row no-gutters">
-                <div class="col-4 foto<?= $md5 ?>"
-                     style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
-                </div>
-                <div class="col-8">
+                <div class="col-12">
                     <div class="card-body">
                         <h5 class="card-title"><?= $p->produto ?></h5>
                         <p class="card-text"><?= $p->descricao ?></p>
@@ -153,7 +125,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                                             medida='<?= $val["quantidade"]; ?>'
                                             valor='<?= $val['valor']; ?>'
                                             class="btn btn-outline-success btn-xs"
-                                            style="height:40px; font-size:11px; line-height: 1.2;"
+                                            style="height:60px; font-size:20px; line-height: 1.2;"
                                     >
                                         <?= $M[$key2]['descricao']; ?><br>
                                         R$ <?= number_format($val['valor'], 2, ',', '.') ?>
