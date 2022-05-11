@@ -43,6 +43,7 @@ while ($m = mysqli_fetch_array($m_r)) {
         width:60%;
         bottom:0;
         border:solid 1px red;
+        overflow-x: auto;
     }
     .IconePedidos {
         position: fixed;

@@ -100,7 +100,7 @@ include "../conf.php";
                     categoria
                 },
                 success:function(dados){
-                    alert('ok');
+                    $(".ListaProdutosVendas").remove();
                     $("#CorpoTelaVendas").append(dados);
                 }
             });
