@@ -54,6 +54,7 @@
         right:0;
         width:40%;
         bottom:0;
+        padding-bottom:40px;
         border:solid 1px green;
         overflow-x: auto;
     }
