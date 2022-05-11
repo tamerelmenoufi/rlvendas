@@ -94,6 +94,7 @@ include "./conf.php";
 <script>
     $(function () {
 
+
         $.ajax({
             url:"vendas/telas/categorias.php",
             success:function(dados){

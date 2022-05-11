@@ -94,7 +94,16 @@ include "../conf.php";
 
         $("button[categoria]").click(function(){
             categoria = $(this).attr("categoria");
-            $.alert(categoria);
+            $.ajax({
+                url:"vendas/telas/produtos.php",
+                type:"POST",
+                data:{
+                    categoria
+                },
+                sucecess:function(dados){
+                    $("#CorpoTelaVendas").append(dados);
+                }
+            });
         });
 
     });
