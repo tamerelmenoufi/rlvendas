@@ -167,7 +167,7 @@ $result = mysqli_query($con, $query);
                     'SIM':function(){
 
                         $.ajax({
-                            url:"vendas/index.php",
+                            url:"vendas/index1.php",
                             type:"POST",
                             data:{
                                 acao,
