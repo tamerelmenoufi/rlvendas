@@ -19,6 +19,13 @@
     </li>
 
 
+    <li class="nav-item active">
+        <a class="nav-link" href="#" url="vendas/home.php">
+            <i class="fa-solid fa-house"></i>
+            <span>Vendas</span></a>
+    </li>
+
+
     <!-- Divider  -->
     <hr class="sidebar-divider">
 
