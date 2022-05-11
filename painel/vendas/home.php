@@ -94,9 +94,7 @@ include "./conf.php";
 ?>
     <button
             class="btn btn-success btn-lg btn-block"
-            acao<?=$md5?>
-            local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
-            janela="ms_popup_100"
+            categoria="<?=$d->codigo?>"
     >
         <?=$d->categoria?>
     </button>
@@ -117,7 +115,10 @@ include "./conf.php";
 <script>
     $(function () {
 
-
+        $("button[categoria]").click(function(){
+            categoria = $(this).attr("categoria");
+            $.alert(categoria);
+        });
 
     });
 </script>
