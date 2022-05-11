@@ -14,9 +14,21 @@ if (!isset($_SESSION['usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAINEL DE CONTROLE</title>
     <?php include("../lib/header.php"); ?>
+    <style>
+        .TelaVendas{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            bottom:0;
+            background:#fff;
+            display:none;
+            z-index:999;
+        }
+    </style>
 </head>
 <body id="page-top">
-
+<div class = "TelaVendas"></div>
 <div class="body"></div>
 
 <?php include("../lib/footer.php"); ?>
@@ -43,9 +55,8 @@ if (!isset($_SESSION['usuario'])) {
             type: "blue",
             smoothContent: true,
         }
-    });
 
-    $(function () {
+
         $.ajax({
             url: "home/index.php",
             success: function (dados) {
@@ -55,7 +66,17 @@ if (!isset($_SESSION['usuario'])) {
                 $.alert('Ocorreu um erro!');
             }
         });
+
+
+
+        $(document).off('click').on('click', ".fecharTelaVendas", function(){
+            $(".TelaVendas").css("display","none");
+        });
+
     });
+
+
+
 </script>
 </body>
 </html>
