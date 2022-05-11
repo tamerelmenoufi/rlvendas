@@ -65,11 +65,11 @@
 
         <div id="MenuVendas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#" url="vendas/index.php?opc=producao">Novos</a>
-                <a class="collapse-item" href="#" url="vendas/index.php?opc=preparo">Preparo</a>
-                <a class="collapse-item" href="#" url="vendas/index.php?opc=pagar">Pagar</a>
-                <a class="collapse-item" href="#" url="vendas/index.php?opc=pago">Pago</a>
-                <a class="collapse-item" href="#" url="vendas/index.php?opc=cancelados">Cancelados</a>
+                <a class="collapse-item" href="#" url="vendas/index1.php?opc=producao">Novos</a>
+                <a class="collapse-item" href="#" url="vendas/index1.php?opc=preparo">Preparo</a>
+                <a class="collapse-item" href="#" url="vendas/index1.php?opc=pagar">Pagar</a>
+                <a class="collapse-item" href="#" url="vendas/index1.php?opc=pago">Pago</a>
+                <a class="collapse-item" href="#" url="vendas/index1.php?opc=cancelados">Cancelados</a>
             </div>
         </div>
     </li>
