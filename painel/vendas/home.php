@@ -15,10 +15,16 @@ include "./conf.php";
     }
 
 
-    .ms_categoria_scroll_palco {
+    .bk_categoria_scroll_palco {
         overflow-x: auto;
+        position:absolute;
+        top:40px;
+        left:0;
+        right:0;
+        height:90px;
+        background:green;
     }
-    .ms_categoria_scroll {
+    .bk_categoria_scroll {
         display: flex;
         flex-direction: row;
         justify-content: left;
@@ -27,7 +33,7 @@ include "./conf.php";
         padding:0px;
         overflow:scroll;
     }
-    .ms_categoria_scroll_card {
+    .bk_categoria_scroll_card {
         min-width: 80px;
         height: 100px;
         text-align: center;
@@ -35,7 +41,7 @@ include "./conf.php";
         background:transparent;
         margin:5px;
     }
-    .ms_categoria_scroll_card div{
+    .bk_categoria_scroll_card div{
         position:relative;
         width:80px;
         height:80px;
@@ -44,7 +50,7 @@ include "./conf.php";
         float:none;
         text-align:center;
     }
-    .ms_categoria_scroll_card p{
+    .bk_categoria_scroll_card p{
         position:relative;
         width:80px;
         height:auto;
@@ -60,39 +66,37 @@ include "./conf.php";
         white-space: nowrap;
 
     }
-    .ms_categoria_scroll::-webkit-scrollbar {
+    .bk_categoria_scroll::-webkit-scrollbar {
         display: none;
     }
 
 </style>
 
 <div>
+    <!-- Apenas o botão de fechar -->
     <i class="fa-solid fa-rectangle-xmark fecharTelaVendas"></i>
 
-    <div class="VendasCategorias">
-
-
-        <div class="ms_categoria_scroll_palco">
-            <div class="ms_categoria_scroll">
-            <?php
-                for($i=1;$i<50;$i++){
-            ?>
-                <div opc="<?=$i?>" categoria="<?=$i?>" class="ms_categoria_scroll_card">
-                    <div>
-                        <img src="svg/frutas.svg" style="margin-top:15px;" />
-                    </div>
-                    <p>Eletrodomésticos</p>
+    <!-- Lista das categorias a serem exibidas -->
+    <div class="bk_categoria_scroll_palco">
+        <div class="bk_categoria_scroll">
+        <?php
+            for($i=1;$i<50;$i++){
+        ?>
+            <div opc="<?=$i?>" categoria="<?=$i?>" class="bk_categoria_scroll_card">
+                <div>
+                    <img src="svg/frutas.svg" style="margin-top:15px;" />
                 </div>
-            <?php
-                }
-            ?>
+                <p>Eletrodomésticos</p>
             </div>
+        <?php
+            }
+        ?>
         </div>
-
     </div>
-
+    <!-- Fim das Categorias -->
 
 </div>
+
 
 
 
