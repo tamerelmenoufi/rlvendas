@@ -68,7 +68,9 @@ if (!isset($_SESSION['usuario'])) {
         });
 
 
-
+        $(".fecharTelaVendas").click(function(){
+            $(".TelaVendas").css("display","none");
+        });
 
     });
 
