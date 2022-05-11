@@ -102,6 +102,13 @@ include "./conf.php";
             }
         });
 
+        $.ajax({
+            url:"vendas/telas/comanda.php",
+            success:function(dados){
+                $("#CorpoTelaVendas").append(dados);
+            }
+        });
+
 
     });
 </script>
