@@ -41,6 +41,7 @@ include "./conf.php";
         border-radius:10px;
         float:none;
         text-align:center;
+        font-size:20px;
         margin:5px;
     }
 
