@@ -146,26 +146,7 @@
             })
         });
 
-        $("a[AbrirVendas]").click(function(){
-            $('.loading').fadeIn(200);
 
-            $.ajax({
-                url:"vendas/home.php",
-                success: function (data) {
-                    $(".TelaVendas").html(data);
-                }
-            })
-            .done(function () {
-                $('.loading').fadeOut(200);
-                $(".TelaVendas").css("display","block");
-            })
-            .fail(function (error) {
-                alert('Error');
-                $('.loading').fadeOut(200);
-            })
-
-
-        });
 
     })
 </script>
