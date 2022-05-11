@@ -25,9 +25,6 @@ if (!isset($_SESSION['usuario'])) {
             display:none;
             z-index:999;
         }
-        body::-webkit-scrollbar {
-            display: none;
-        }
     </style>
 </head>
 <body id="page-top">
@@ -73,6 +70,7 @@ if (!isset($_SESSION['usuario'])) {
 
         $(document).on('click', ".fecharTelaVendas", function(){
             $(".TelaVendas").css("display","none");
+            $("body::-webkit-scrollbar").css("display",'block');
         });
 
     });
