@@ -118,11 +118,23 @@
 
 <script>
     $(function () {
+        $("#sidebarToggle").click(function () {
+            opc = $(this).attr('opc');
+            if (opc == '0') {
+                $("#page-top").addClass('sidebar-toggled');
+                $(".menus").addClass('toggled');
+                $(this).attr("opc", "1");
+            } else {
+                $("#page-top").removeClass('sidebar-toggled');
+                $(".menus").removeClass('toggled');
+                $(this).attr("opc", "0");
+            }
 
+        });
 
         $(document).on('click', '[url]', function (e) {
             e.preventDefault();
-
+            alert('teste');
             var url = $(this).attr('url');
 
             $('.loading').fadeIn(200);
