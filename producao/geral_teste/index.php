@@ -63,6 +63,10 @@
     div[pedido]{
         position:relative;
     }
+    .acoes{
+        font-size:10px;
+        color:#eee;
+    }
 </style>
 <div class="p-3">
     <div class="row">
@@ -95,7 +99,7 @@
                         <span class="card-text" style="color:red;">
                         <?= $d->produto_descricao?></span>
                     </p>
-                    <div class="row">
+                    <div class="row acoes">
                         <div class='col'>
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Pedido Completo
                         </div>
