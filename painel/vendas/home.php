@@ -7,18 +7,18 @@ include "./conf.php";
 <style>
     .fecharTelaVendas{
         position:absolute;
-        top:5px;
-        right:5px;
+        top:20px;
+        right:20px;
         cursor: pointer;
         color:red;
-        font-size:25px;
+        font-size:50px;
     }
 
 
     .bk_categoria_scroll_palco {
         overflow-x: auto;
         position:absolute;
-        top:40px;
+        top:80px;
         left:0;
         right:0;
         height:120px;
