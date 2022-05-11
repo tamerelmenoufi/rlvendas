@@ -120,6 +120,10 @@
     .ComandaVendas::-webkit-scrollbar {
         display: none;
     }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
 </style>
 
 <div class="ComandaVendas">
