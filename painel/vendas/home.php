@@ -32,16 +32,9 @@ include "./conf.php";
         padding:0px;
         overflow:scroll;
     }
-    .bk_categoria_scroll_card {
-        min-width: 80px;
-        height: 100px;
-        text-align: center;
-        border:0;
-        background:transparent;
-        margin:5px;
-    }
 
-    .bk_categoria_scroll_card button{
+
+    .bk_categoria_scroll button{
         position:relative;
         width:120px;
         height:80px;
@@ -51,7 +44,7 @@ include "./conf.php";
         margin:5px;
     }
 
-    .bk_categoria_scroll_card div{
+    .bk_categoria_scroll div{
         position:relative;
         width:80px;
         height:80px;
@@ -60,7 +53,7 @@ include "./conf.php";
         float:none;
         text-align:center;
     }
-    .bk_categoria_scroll_card p{
+    .bk_categoria_scroll p{
         position:relative;
         width:80px;
         height:auto;
