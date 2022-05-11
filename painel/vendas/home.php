@@ -80,7 +80,11 @@ include "./conf.php";
     <!-- Apenas o botão de fechar -->
     <i class="fa-solid fa-rectangle-xmark fecharTelaVendas"></i>
 
-    Criação do espaço para
+    <!-- Tela dos produtos filtrados -->
+
+    <!-- Tela da comanda da mesa -->
+
+    <!-- Tela das ações -->
 
 </div>
 
