@@ -52,6 +52,16 @@
         border: 0;
     }
 
+    .clipe{
+        position:absolute;
+        right:10px;
+        top:-10px;
+        z-index: 10;
+        color:red;
+    }
+    div[pedido]{
+        position:relative;
+    }
 </style>
 <div class="p-3">
     <div class="row">
@@ -74,6 +84,7 @@
         <div class="col-3">
 
             <div pedido="<?=$d->codigo?>" venda="<?=$d->venda?>" class="card text-white bg-dark mb-3">
+                <i class='fa fa-close clipe'></i>
                 <div class="card-header bg-dark"><b>MESA:</b> <?=$d->mesa?></div>
                 <div class="card-body">
                     <p class="card-text">
