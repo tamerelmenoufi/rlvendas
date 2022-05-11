@@ -23,8 +23,10 @@ include "./conf.php";
 
 <script>
     $(function () {
+
         $(".fechar").off('click').on('click', function(){
             $(".TelaVendas").css("display","none");
         });
+
     });
 </script>
