@@ -20,7 +20,7 @@
 
 
     <li class="nav-item active">
-        <a class="nav-link" href="#" url="vendas/home.php">
+        <a class="nav-link" href="#" AbrirVendas>
             <i class="fa-solid fa-house"></i>
             <span>Vendas</span></a>
     </li>
@@ -153,6 +153,10 @@
                     alert('Error');
                     $('.loading').fadeOut(200);
                 })
+        });
+
+        $("a[AbrirVendas]").click(function(){
+            $(".TelaVendas").css("display","block");
         });
 
     })

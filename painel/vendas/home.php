@@ -5,15 +5,7 @@ include "./conf.php";
 
 ?>
 <style>
-    .TelaVendas{
-        position: absolute;
-        top:0;
-        left:0;
-        width:100%;
-        bottom:0;
-        background:green;
-        opacity:0.8;
-    }
+
 </style>
 <div class="TelaVendas">
     Dados da página padrão HOME

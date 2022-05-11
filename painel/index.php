@@ -14,9 +14,22 @@ if (!isset($_SESSION['usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAINEL DE CONTROLE</title>
     <?php include("../lib/header.php"); ?>
+    <style>
+        .TelaVendas{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            bottom:0;
+            background:green;
+            opacity:0.8;
+            display:none;
+            z-index:999;
+        }
+    </style>
 </head>
 <body id="page-top">
-
+<div class = "TelaVendas"></div>
 <div class="body"></div>
 
 <?php include("../lib/footer.php"); ?>
