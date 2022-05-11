@@ -21,8 +21,7 @@ if (!isset($_SESSION['usuario'])) {
             left:0;
             width:100%;
             bottom:0;
-            background:green;
-            opacity:0.8;
+            background:#fff;
             display:none;
             z-index:999;
         }
