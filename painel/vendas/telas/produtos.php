@@ -35,6 +35,15 @@ while ($m = mysqli_fetch_array($m_r)) {
 ?>
 
 <style>
+
+    .ListaProdutosVendas{
+        position:absolute;
+        top:210px;
+        left:0;
+        width:60%;
+        bottom:0;
+        border:solid 1px red;
+    }
     .IconePedidos {
         position: fixed;
         top: 10px;
@@ -71,83 +80,85 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 </style>
 
-
-<div class="MensagemAddProduto animate__animated animate__shakeX">
-    Produto Adicionado!
-    <span><i class="fa-solid fa-caret-right"></i></span>
-</div>
-
-<!-- Informativo de pedidos ativos -->
+<div class="ListaProdutosVendas">
 
 
-<div class="topo<?= $md5 ?>">
-    <center><?= $d->categoria ?></center>
-</div>
+    <div class="MensagemAddProduto animate__animated animate__shakeX">
+        Produto Adicionado!
+        <span><i class="fa-solid fa-caret-right"></i></span>
+    </div>
+
+    <!-- Informativo de pedidos ativos -->
 
 
-<div class="col-md-12">
-    <?php
-    $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1'";
-    $result = mysqli_query($con, $query);
-    while ($p = mysqli_fetch_object($result)) {
-        $detalhes = json_decode($p->detalhes, true);
-        $detalhes_2 = [];
-        ?>
-        <div class="card mb-3 item_button<?= $md5 ?>">
-            <div class="row no-gutters">
-                <div class="col-12">
+    <div class="topo<?= $md5 ?>">
+        <center><?= $d->categoria ?></center>
+    </div>
+
+
+    <div class="col-md-12">
+        <?php
+        $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1'";
+        $result = mysqli_query($con, $query);
+        while ($p = mysqli_fetch_object($result)) {
+            $detalhes = json_decode($p->detalhes, true);
+            $detalhes_2 = [];
+            ?>
+            <div class="card mb-3 item_button<?= $md5 ?>">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $p->produto ?></h5>
+                            <p class="card-text"><?= $p->descricao ?></p>
+                        </div>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title"><?= $p->produto ?></h5>
-                        <p class="card-text"><?= $p->descricao ?></p>
+                        <p class="card-text">
+                            <small class="text-muted">
+
+                                <?php
+                                foreach ($detalhes as $key => $val) :
+                                    $val['ordem'] = $M[$key]['ordem'];
+                                    $detalhes_2[$key] = $val;
+                                endforeach;
+
+                                aasort($detalhes_2, "ordem");
+
+                                foreach ($detalhes_2 as $key2 => $val) {
+                                    if ($val["quantidade"] > 0) {
+                                        ?>
+                                        <button
+                                                acao_medida
+                                                opc="<?= $val["quantidade"]; ?>"
+                                                produto="<?= $p->codigo ?>"
+                                                titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]["descricao"]})" ?>'
+                                                categoria='<?= $d->codigo ?>'
+                                                medida='<?= $val["quantidade"]; ?>'
+                                                valor='<?= $val['valor']; ?>'
+                                                class="btn btn-outline-success btn-xs"
+                                                style="height:60px; font-size:20px; line-height: 1.2;"
+                                        >
+                                            <?= $M[$key2]['descricao']; ?><br>
+                                            R$ <?= number_format($val['valor'], 2, ',', '.') ?>
+                                        </button>
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+                            </small>
+                        </p>
                     </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        <small class="text-muted">
-
-                            <?php
-                            foreach ($detalhes as $key => $val) :
-                                $val['ordem'] = $M[$key]['ordem'];
-                                $detalhes_2[$key] = $val;
-                            endforeach;
-
-                            aasort($detalhes_2, "ordem");
-
-                            foreach ($detalhes_2 as $key2 => $val) {
-                                if ($val["quantidade"] > 0) {
-                                    ?>
-                                    <button
-                                            acao_medida
-                                            opc="<?= $val["quantidade"]; ?>"
-                                            produto="<?= $p->codigo ?>"
-                                            titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]["descricao"]})" ?>'
-                                            categoria='<?= $d->codigo ?>'
-                                            medida='<?= $val["quantidade"]; ?>'
-                                            valor='<?= $val['valor']; ?>'
-                                            class="btn btn-outline-success btn-xs"
-                                            style="height:60px; font-size:20px; line-height: 1.2;"
-                                    >
-                                        <?= $M[$key2]['descricao']; ?><br>
-                                        R$ <?= number_format($val['valor'], 2, ',', '.') ?>
-                                    </button>
-                                    <?php
-                                }
-                            }
-                            ?>
-
-                        </small>
-                    </p>
-                </div>
             </div>
-        </div>
 
 
-        <?php
-    }
-    ?>
+            <?php
+        }
+        ?>
+    </div>
+    </div>
 </div>
-</div>
-
 <script>
 
 
