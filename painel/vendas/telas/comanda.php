@@ -47,6 +47,7 @@
     }
 ?>
 <style>
+
     .ComandaVendas{
         position:absolute;
         top:210px;
@@ -115,7 +116,9 @@
     .icone{
         font-size:70px;
     }
-
+    .ComandaVendas::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 <div class="ComandaVendas">
