@@ -57,6 +57,7 @@
         right:10px;
         top:-10px;
         z-index: 10;
+        font-size:30px;
         color:red;
     }
     div[pedido]{
@@ -84,7 +85,7 @@
         <div class="col-3">
 
             <div pedido="<?=$d->codigo?>" venda="<?=$d->venda?>" class="card text-white bg-dark mb-3">
-                <i class='fa fa-close clipe'></i>
+                <i class="fa-solid fa-paperclip clipe"></i>
                 <div class="card-header bg-dark"><b>MESA:</b> <?=$d->mesa?></div>
                 <div class="card-body">
                     <p class="card-text">
