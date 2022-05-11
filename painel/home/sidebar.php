@@ -18,6 +18,7 @@
             <span>Dashboard</span></a>
     </li>
 
+
     <!-- Divider  -->
     <hr class="sidebar-divider">
 
@@ -54,13 +55,14 @@
             <i class="fa-solid fa-bag-shopping"></i>
             <span>Vendas</span>
         </a>
+
         <div id="MenuVendas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#" url="vendas/index1.php?opc=producao">Novos</a>
-                <a class="collapse-item" href="#" url="vendas/index1.php?opc=preparo">Preparo</a>
-                <a class="collapse-item" href="#" url="vendas/index1.php?opc=pagar">Pagar</a>
-                <a class="collapse-item" href="#" url="vendas/index1.php?opc=pago">Pago</a>
-                <a class="collapse-item" href="#" url="vendas/index1.php?opc=cancelados">Cancelados</a>
+                <a class="collapse-item" href="#" url="vendas/index.php?opc=producao">Novos</a>
+                <a class="collapse-item" href="#" url="vendas/index.php?opc=preparo">Preparo</a>
+                <a class="collapse-item" href="#" url="vendas/index.php?opc=pagar">Pagar</a>
+                <a class="collapse-item" href="#" url="vendas/index.php?opc=pago">Pago</a>
+                <a class="collapse-item" href="#" url="vendas/index.php?opc=cancelados">Cancelados</a>
             </div>
         </div>
     </li>
@@ -110,7 +112,6 @@
 
 <script>
     $(function () {
-
         $("#sidebarToggle").click(function () {
             opc = $(this).attr('opc');
             if (opc == '0') {
@@ -125,31 +126,7 @@
 
         });
 
-        $("a[AbrirVendas]").click(function(){
-            $('.loading').fadeIn(200);
-
-            $.ajax({
-                url:"vendas/home.php",
-                success: function (data) {
-                    $(".TelaVendas").html(data);
-                }
-            })
-            .done(function () {
-                $('.loading').fadeOut(200);
-                $(".TelaVendas").css("display","block");
-            })
-            .fail(function (error) {
-                alert('Error');
-                $('.loading').fadeOut(200);
-            })
-
-
-        });
-
-    })
-
-
-    $(document).on('click', '[url]', function (e) {
+        $(document).on('click', '[url]', function (e) {
             e.preventDefault();
 
             var url = $(this).attr('url');
@@ -162,13 +139,14 @@
                     $('#palco').html(data);
                 }
             })
-            .done(function () {
-                $('.loading').fadeOut(200);
-            })
-            .fail(function (error) {
-                alert('Error');
-                $('.loading').fadeOut(200);
-            })
+                .done(function () {
+                    $('.loading').fadeOut(200);
+                })
+                .fail(function (error) {
+                    alert('Error');
+                    $('.loading').fadeOut(200);
+                })
         });
 
+    })
 </script>
