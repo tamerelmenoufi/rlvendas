@@ -67,6 +67,9 @@
         font-size:10px;
         color:#eee;
     }
+    .acoes i{
+        cursor:pointer;
+    }
 </style>
 <div class="p-3">
     <div class="row">
