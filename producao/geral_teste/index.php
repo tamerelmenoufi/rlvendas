@@ -89,12 +89,23 @@
                 <div class="card-header bg-dark"><b>MESA:</b> <?=$d->mesa?></div>
                 <div class="card-body">
                     <p class="card-text">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
                         <?=$d->quantidade?> x <?=$pedido->categoria->descricao?>
                         - <?=$pedido->medida->descricao?> (<?=$sabores?>)<br>
                         <span class="card-text" style="color:red;">
                         <?= $d->produto_descricao?></span>
                     </p>
+                    <div class="row">
+                        <div class='col'>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Pedido Completo
+                        </div>
+                        <div class='col'>
+                            <i class="fa-solid fa-check"></i> Preparando
+                        </div>
+                        <div class='col'>
+                            <i class="fa-solid fa-check-double"></i> Concluir
+                        </div>
+                    </div>
                 </div>
             </div>
 
