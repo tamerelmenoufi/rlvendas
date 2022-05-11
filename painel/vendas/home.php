@@ -24,7 +24,7 @@ include "./conf.php";
 <script>
     $(function () {
         $(".fechar").click(function(){
-            $("div[TelaVendas]").css("display","none");
+            $(".TelaVendas").css("display","none");
         });
     });
 </script>
