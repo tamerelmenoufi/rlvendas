@@ -78,7 +78,9 @@ while ($m = mysqli_fetch_array($m_r)) {
         top: -3px;
         color: green;
     }
-
+    .ListaProdutosVendas::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 <div class="ListaProdutosVendas">
