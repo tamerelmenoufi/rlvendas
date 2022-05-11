@@ -35,7 +35,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 ?>
 
 <style>
-    topo<?= $md5 ?>{
+    .topo<?= $md5 ?>{
         position:fixed;
         top:20px;
         left:50%;
