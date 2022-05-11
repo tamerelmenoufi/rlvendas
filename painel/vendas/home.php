@@ -40,6 +40,17 @@ include "./conf.php";
         background:transparent;
         margin:5px;
     }
+
+    .bk_categoria_scroll_card button{
+        position:relative;
+        width:120px;
+        height:80px;
+        border-radius:10px;
+        float:none;
+        text-align:center;
+        margin:5px;
+    }
+
     .bk_categoria_scroll_card div{
         position:relative;
         width:80px;
