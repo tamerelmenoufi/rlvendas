@@ -78,18 +78,28 @@ include "./conf.php";
     <!-- Lista das categorias a serem exibidas -->
     <div class="bk_categoria_scroll_palco">
         <div class="bk_categoria_scroll">
+
+
+
+
         <?php
-            for($i=1;$i<50;$i++){
-        ?>
-            <div opc="<?=$i?>" categoria="<?=$i?>" class="bk_categoria_scroll_card">
-                <div>
-                    <img src="svg/frutas.svg" style="margin-top:15px;" />
-                </div>
-                <p>Eletrodomésticos</p>
-            </div>
-        <?php
-            }
-        ?>
+    $query = "select * from categorias where deletado != '1'";
+    $result = mysqli_query($con,$query);
+    while($d = mysqli_fetch_object($result)){
+?>
+    <button
+            class="btn btn-success btn-lg btn-block"
+            acao<?=$md5?>
+            local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
+            janela="ms_popup_100"
+    >
+        <?=$d->categoria?>
+    </button>
+<?php
+    }
+?>
+
+
         </div>
     </div>
     <!-- Fim das Categorias -->
