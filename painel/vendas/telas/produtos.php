@@ -3,6 +3,7 @@ include("../../../lib/includes.php");
 
 //VerificarVendaApp();
 
+
 function aasort(&$array, $key)
 {
     $sorter = array();
@@ -170,6 +171,32 @@ while ($m = mysqli_fetch_array($m_r)) {
 </div>
 <script>
 
+    $(function(){
+
+        $("button[acao_medida]").click(function () {
+            opc = $(this).attr("opc");
+            produto = $(this).attr("produto");
+            title = $(this).attr("titulo");
+            categoria = $(this).attr("categoria");
+            medida = $(this).attr("medida");
+            valor = $(this).attr("valor");
+
+            $.ajax({
+                url:"vendas/telas/produto.php",
+                type: "POST",
+                data: {
+                    local: "src/produtos/produto.php",
+                    categoria,
+                    produto,
+                    medida,
+                    valor
+                },
+                success:function(dados){
+                    $("#CorpoTelaVendas").append(dados);
+                }
+            });
 
 
+        });
+    })
 </script>
