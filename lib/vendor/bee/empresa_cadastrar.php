@@ -20,7 +20,11 @@ $dados = "{
     \"externalId\": \"{$externalId}\"
   }";
 
+echo json_decode($dados);
 
+
+
+  exit();
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, "https://integrationtest.beedelivery.com.br/api/v1/public/companies/new");
