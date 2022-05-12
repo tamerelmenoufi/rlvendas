@@ -37,7 +37,7 @@
 
 <tr>
     <td>
-        <?=$Prod?> (<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?>)<br>
+        <?=$pedido->categoria->descricao?> <?=$Prod?> - <?=$pedido->medida->descricao?><br>
         <?= $d->produto_descricao?>
     </td>
     <td>

@@ -66,7 +66,7 @@ $retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
 
 $retorno .= "<tr>
     <td>
-        {$d->quantidade} X {$sabores} ({$pedido->categoria->descricao} - {$pedido->medida->descricao})<br>
+        {$d->quantidade} X {$pedido->categoria->descricao} {$sabores} - {$pedido->medida->descricao}<br>
         <i>{$d->produto_descricao}</i>
     </td>
     <td style=\"text-align:right\">

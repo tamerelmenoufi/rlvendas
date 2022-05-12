@@ -35,7 +35,7 @@
         }
         if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
-        $retorno .= "txt|1|1|left|{$d->quantidade} X {$sabores} ({$pedido->categoria->descricao} - {$pedido->medida->descricao})"."\n";
+        $retorno .= "txt|1|1|left|{$d->quantidade} X {$pedido->categoria->descricao} {$sabores} - {$pedido->medida->descricao}"."\n";
         if($d->produto_descricao){
         $retorno .= "txt|1|1|left|    {$d->produto_descricao}"."\n";
         }
