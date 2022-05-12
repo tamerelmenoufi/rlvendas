@@ -289,7 +289,6 @@
 
 <script>
     $(function(){
-        Carregando('none');
 
         var qt = 0;
         var v_produto_com_sabores = 0;
@@ -321,7 +320,6 @@
             medida = '<?=$_POST['medida']?>';
             valor = '<?=$_POST['valor']?>';
 
-            Carregando();
             $.ajax({
                 url:"componentes/ms_popup.php",
                 type:"POST",
@@ -338,7 +336,7 @@
         });
 
         $("button[observacoes]").click(function(){
-            Carregando();
+
             $.ajax({
                 url:"componentes/ms_popup_100.php",
                 type:"POST",
@@ -387,11 +385,8 @@
                     acao:'adicionar_pedido'
                 },
                 success:function(dados){
-                    PageClose();
-                    $(".IconePedidos, .MensagemAddProduto").css("display","block");
-                    setTimeout(function(){
-                        $(".MensagemAddProduto").css('display','none');
-                    }, 3000);
+
+
                 }
             });
 
