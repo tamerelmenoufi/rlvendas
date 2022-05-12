@@ -13,7 +13,7 @@ curl_setopt($ch, CURLOPT_POST, TRUE);
 
 curl_setopt($ch, CURLOPT_POSTFIELDS, "{
   \"cpfCnpj\": \"26277931000125\",
-  \"name\": \"BURGER KING (Drive Humberto Calderaro)\",
+  \"name\": \"SP RESTAURANTES LTDA\",
   \"email\": \"ger.bkparaiba@spgrupo.com\",
   \"uf\": \"AM\",
   \"cidade\": \"Manaus\",
