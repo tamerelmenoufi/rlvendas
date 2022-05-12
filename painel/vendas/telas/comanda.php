@@ -2,7 +2,6 @@
     include("../../../lib/includes.php");
 
     //VerificarVendaApp();
-    $_SESSION['AppVenda'] = 608;
 
 
     if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
