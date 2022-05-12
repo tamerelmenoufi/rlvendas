@@ -142,6 +142,7 @@
 
 <div class="col">
     <div class="row">
+        <div class="col">
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' order by mesa";
@@ -163,6 +164,31 @@
         <?php
             }
         ?>
+        </div>
+
+        <div class="col">
+        <?php
+
+            $query = "select * from mesas where deletado != '1' and situacao != '0' order by mesa";
+            $result = mysqli_query($con, $query);
+            while($d = mysqli_fetch_object($result)){
+
+                if( $Produtos[$d->codigo]){
+                    $icone = 'ComProdutos';
+                }else if(in_array($d->codigo, $Ocupadas)){
+                    $icone = 'ocupada';
+                }else{
+                    $icone = false;
+                }
+
+        ?>
+        <div class="col-4">
+            <div acao="<?=$d->mesa?>" cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=str_pad($d->mesa , 3 , '0' , STR_PAD_LEFT)?></div>
+        </div>
+        <?php
+            }
+        ?>
+        </div>
 
     </div>
 
