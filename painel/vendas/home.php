@@ -106,7 +106,7 @@ include "./conf.php";
         if(!$_SESSION['PainelGarcom']){
         ?>
 
-            $.dialog({
+            janela_login = $.dialog({
                 title:false,
                 content:"url:vendas/garcom/login.php",
                 columnClass:'col-md-4'

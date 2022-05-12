@@ -8,11 +8,11 @@
         $result = mysqli_query($con, $query);
 
         if (mysqli_num_rows($result)) {
-            //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
+            //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['PainelCliente']}' AND mesa = '{$_SESSION['PainelPedido']}' AND deletado != '1' LIMIT 1";
             list($codigo, $cliente, $mesa) = mysqli_fetch_row(mysqli_query($con, $query));
-            $_SESSION['AppVenda'] = $codigo;
-            $_SESSION['AppCliente'] = $cliente;
-            $_SESSION['AppPedido'] = $mesa;
+            $_SESSION['PainelVenda'] = $codigo;
+            $_SESSION['PainelCliente'] = $cliente;
+            $_SESSION['PainelPedido'] = $mesa;
 
         } else {
 
@@ -20,10 +20,10 @@
             $result = mysqli_query($con, $query);
             if(mysqli_num_rows($result)){
                 $d = mysqli_fetch_object($result);
-                $_SESSION['AppCliente'] = $d->codigo;
+                $_SESSION['PainelCliente'] = $d->codigo;
             }else{
                 mysqli_query($con, "insert into clientes set telefone = '{$_POST['mesa']}'");
-                $_SESSION['AppCliente'] = mysqli_insert_id($con);
+                $_SESSION['PainelCliente'] = mysqli_insert_id($con);
             }
 
             ////////////REMOVER DEPOIS//////////////////////////////////
@@ -31,10 +31,10 @@
             $result = mysqli_query($con, $query);
             if(mysqli_num_rows($result)){
                 $d = mysqli_fetch_object($result);
-                $_SESSION['AppPedido'] = $d->codigo;
+                $_SESSION['PainelPedido'] = $d->codigo;
             }else{
                 mysqli_query($con, "insert into mesas set mesa = '{$_POST['mesa']}'");
-                $_SESSION['AppPedido'] = mysqli_insert_id($con);
+                $_SESSION['PainelPedido'] = mysqli_insert_id($con);
             }
             ////////////REMOVER DEPOIS//////////////////////////////////
 
@@ -42,26 +42,26 @@
 
 
 
-        if($_SESSION['AppCliente'] && $_SESSION['AppPedido'] && !$_SESSION['AppVenda']){
+        if($_SESSION['PainelCliente'] && $_SESSION['PainelPedido'] && !$_SESSION['PainelVenda']){
             /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
-            $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
+            $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['PainelCliente']}' AND mesa = '{$_SESSION['PainelPedido']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
             $result = mysqli_query($con, $query);
 
             if (mysqli_num_rows($result)) {
-                //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
+                //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['PainelCliente']}' AND mesa = '{$_SESSION['PainelPedido']}' AND deletado != '1' LIMIT 1";
                 list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
-                $_SESSION['AppVenda'] = $codigo;
+                $_SESSION['PainelVenda'] = $codigo;
             } else {
-                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
-                $_SESSION['AppVenda'] = mysqli_insert_id($con);
+                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['PainelCliente']}', mesa = '{$_SESSION['PainelPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
+                $_SESSION['PainelVenda'] = mysqli_insert_id($con);
             }
             /////////////////////////////////////////////////////////////////
         }
 
         echo json_encode([
-            "AppCliente" => $_SESSION['AppCliente'],
-            "AppPedido" => $_SESSION['AppPedido'], //REMOVER DEPOIS
-            "AppVenda" => $_SESSION['AppVenda'] //REMOVER DEPOIS
+            "PainelCliente" => $_SESSION['PainelCliente'],
+            "PainelPedido" => $_SESSION['PainelPedido'], //REMOVER DEPOIS
+            "PainelVenda" => $_SESSION['PainelVenda'] //REMOVER DEPOIS
         ]);
 
         exit();
@@ -79,7 +79,7 @@
 
     if($_POST['acao'] == 'Sair'){
 
-        $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1' and situacao = 'n'";
+        $query = "select * from vendas_produtos where venda = '{$_SESSION['PainelVenda']}' and deletado != '1' and situacao = 'n'";
         $result = mysqli_query($con, $query);
         $n = mysqli_num_rows($result);
 
@@ -214,13 +214,13 @@
 
 <script>
     $(function(){
-        Carregando('none');
+
         $("div[acao]").click(function(){
             mesa = $(this).attr("acao");
             cod_mesa = $(this).attr("cod");
-            Carregando();
+
             $.ajax({
-                url:"src/mesas/home.php",
+                url:"vendas/mesas/home.php",
                 type:"POST",
                 data:{
                     mesa,
@@ -228,17 +228,20 @@
                 },
                 success:function(dados){
                     let retorno = JSON.parse(dados);
-                    window.localStorage.setItem('AppCliente', retorno.AppCliente);
-                    window.localStorage.setItem('AppPedido', retorno.AppPedido);
-                    window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
-                    // window.location.href="./";
 
                     $.ajax({
-                        url: "src/home/index.php",
-                        success: function (dados) {
-                            PageClose();
-                            $(".ms_corpo").html(dados);
+                        url:"vendas/telas/categorias.php",
+                        success:function(dados){
+                            $("#CorpoTelaVendas").append(dados);
+                            janela_login.close();
+                        }
+                    });
+
+                    $.ajax({
+                        url:"vendas/telas/comanda.php",
+                        success:function(dados){
+                            $("#CorpoTelaVendas").append(dados);
                         }
                     });
 
