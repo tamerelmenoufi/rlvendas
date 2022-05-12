@@ -134,15 +134,15 @@
     }
 </style>
 
-<div class="ClienteTopoTitulo">
+<!-- <div class="ClienteTopoTitulo">
     <h4>
         <i class="fa-solid fa-user"></i> Lista das Mesas
     </h4>
-</div>
+</div> -->
 
 <div class="col">
     <div class="row">
-        <div class="col">
+        <div class="col-6">
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 0 and 100 order by mesa";
@@ -166,7 +166,7 @@
         ?>
         </div>
 
-        <div class="col">
+        <div class="col-6">
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 101 and 200 order by mesa";
@@ -191,7 +191,6 @@
         </div>
 
     </div>
-
 </div>
 
 <script>
