@@ -162,7 +162,7 @@
         <div class="row">
         <?php
 
-            $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 0 and 100 order by mesa";
+            $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 0 and 199 order by mesa";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
@@ -188,7 +188,7 @@
         <div class="row">
         <?php
 
-            $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 101 and 200 order by mesa";
+            $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 200 and 400 order by mesa";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
