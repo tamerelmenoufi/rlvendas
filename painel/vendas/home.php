@@ -3,13 +3,6 @@
 include("../../lib/includes.php");
 include "./conf.php";
 
-
-// $_SESSION['PainelVenda'] = $codigo;
-// $_SESSION['PainelCliente'] = $cliente;
-// $_SESSION['PainelPedido'] = $mesa;
-// $_SESSION['PainelGarcom'] = $garcom;
-
-
 ?>
 <style>
     .fecharTelaVendas{

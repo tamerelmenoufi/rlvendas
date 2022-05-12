@@ -6,19 +6,19 @@
 
     if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
-        if(!$_SESSION['AppVenda']){
-            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
-            $_SESSION['AppVenda'] = mysqli_insert_id($con);
+        if(!$_SESSION['PainelVenda']){
+            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['PainelCliente']}', mesa = '{$_SESSION['PainelPedido']}', atendente = '{$_SESSION['PainelGarcom']}', data_pedido = NOW(), situacao = 'producao'");
+            $_SESSION['PainelVenda'] = mysqli_insert_id($con);
         }
 
         $quantidade = (($_POST['quantidade']*1 >= 1)?$_POST['quantidade']:1);
         $total = $_POST['valor_unitario'] * $quantidade;
 
         $arrayInsert = [
-            'venda' => $_SESSION['AppVenda'],
-            'cliente' => $_SESSION['AppCliente'],
-            'atendente' => $_SESSION['AppGarcom'],
-            'mesa' => $_SESSION['AppPedido'],
+            'venda' => $_SESSION['PainelVenda'],
+            'cliente' => $_SESSION['PainelCliente'],
+            'atendente' => $_SESSION['PainelGarcom'],
+            'mesa' => $_SESSION['PainelPedido'],
             'produto_descricao' => $_POST['produto_descricao'],
             'quantidade' => $quantidade,
             'valor_unitario' => $_POST['valor_unitario'],
@@ -39,7 +39,7 @@
             echo json_encode([
                 "status" => "sucesso",
             ]);
-            $_SESSION['AppCarrinho'] = true;
+            $_SESSION['PainelCarrinho'] = true;
         }
 
     }
@@ -47,7 +47,7 @@
 
     if (!empty($_POST) and $_POST["acao"] === "confirmar_pedido") {
 
-        $codigo = $_SESSION['AppVenda'];
+        $codigo = $_SESSION['PainelVenda'];
         $codigos = [];
         $query = "SELECT * FROM vendas_produtos WHERE venda = '{$codigo}' and situacao = 'n'";
         $result = mysqli_query($con, $query);
@@ -69,8 +69,8 @@
 
 
     if($_POST['acao'] == 'ExcluirPedido'){
-        mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
-        mysqli_query($con, "update vendas_produtos set deletado = '1' where venda = '{$_SESSION['AppVenda']}'");
+        mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['PainelVenda']}'");
+        mysqli_query($con, "update vendas_produtos set deletado = '1' where venda = '{$_SESSION['PainelVenda']}'");
         $_SESSION = [];
         exit();
     }
@@ -82,8 +82,8 @@
 
     if($_POST['acao'] == 'Excluirproduto'){
         mysqli_query($con, "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'");
-        $n = mysqli_num_rows("select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'");
-        if(!$n) $_SESSION['AppCarrinho'] = false;
+        $n = mysqli_num_rows("select * from vendas_produtos where venda = '{$_SESSION['PainelVenda']}' and deletado != '1'");
+        if(!$n) $_SESSION['PainelCarrinho'] = false;
         exit();
     }
 ?>
@@ -173,7 +173,7 @@
     <div class="col" style="margin-bottom:60px; margin-top:20px;">
         <div class="col-12">
             <?php
-                $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1' order by codigo desc";
+                $query = "select * from vendas_produtos where venda = '{$_SESSION['PainelVenda']}' and deletado != '1' order by codigo desc";
                 $result = mysqli_query($con, $query);
                 $valor_total = 0;
                 $n = mysqli_num_rows($result);
@@ -421,7 +421,7 @@
                                             },
                                             success:function(dados){
                                                 mySocket.send(atualiza);
-                                                PageClose();
+
                                                 $(".ms_corpo").append(dados);
                                             }
                                         });
@@ -458,7 +458,7 @@
                     local:'src/produtos/pagar.php',
                 },
                 success:function(dados){
-                    PageClose();
+
                     $(".ms_corpo").append(dados);
                 }
             });
@@ -468,7 +468,7 @@
         $("button[ExcluirPedido]").click(function(){
 
             $.confirm({
-                content:"Deseja realmente cancelar o pedido <b><?=$_SESSION['AppPedido']?></b>?",
+                content:"Deseja realmente cancelar o pedido <b><?=$_SESSION['PainelPedido']?></b>?",
                 title:false,
                 buttons:{
                     'SIM':function(){
@@ -480,9 +480,6 @@
                                 acao:'ExcluirPedido',
                             },
                             success:function(dados){
-                                window.localStorage.removeItem('AppPedido');
-                                //window.localStorage.removeItem('AppCliente');
-                                window.localStorage.removeItem('AppVenda');
 
                                 $.ajax({
                                     url:"src/home/index.php",
