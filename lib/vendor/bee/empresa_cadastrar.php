@@ -23,8 +23,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "{
     \"numero\": \"1712\",
     \"telefone\": \"92984122099\"
     \"celular\": \"92984122099\",
-    \"latitude\": \"-3.0929237\",
-    \"longitude\": \"-60.0092208\",
+    \"latitude\": -3.0929237,
+    \"longitude\": -60.0092208,
     \"externalId\": \"{$externalId}\"
   }");
 
