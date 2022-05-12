@@ -21,7 +21,7 @@ $dados = [
     "externalId" => "{$externalId}"
 ];
 
-echo json_encode($dados);
+$fild = json_encode($dados);
 
 
 // $dados = "{
@@ -45,7 +45,7 @@ echo json_encode($dados);
 
 
 
-  exit();
+//   exit();
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, "https://integrationtest.beedelivery.com.br/api/v1/public/companies/new");
@@ -54,7 +54,7 @@ curl_setopt($ch, CURLOPT_HEADER, FALSE);
 
 curl_setopt($ch, CURLOPT_POST, TRUE);
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, $dados);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $fild);
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Content-Type: application/json",
