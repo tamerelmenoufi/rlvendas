@@ -72,7 +72,7 @@
     }
 
     .topo<?=$md5?> {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -238,7 +238,7 @@
 
                         </div>
 
-                    <div style="position:fixed; bottom:0; left:0; width:100%; z-index:1; background-color:#fff;">
+                    <div style="position:absolute; bottom:0; left:0; width:100%; z-index:1; background-color:#fff;">
                         <div class="input-group input-group-lg">
                             <div class="input-group-prepend">
                                 <button
