@@ -116,19 +116,28 @@ include "./conf.php";
         }else{
         ?>
 
+
         $.ajax({
-            url:"vendas/telas/categorias.php",
+            url:"vendas/mesas/home.php",
             success:function(dados){
                 $("#CorpoTelaVendas").append(dados);
             }
         });
 
-        $.ajax({
-            url:"vendas/telas/comanda.php",
-            success:function(dados){
-                $("#CorpoTelaVendas").append(dados);
-            }
-        });
+
+        // $.ajax({
+        //     url:"vendas/telas/categorias.php",
+        //     success:function(dados){
+        //         $("#CorpoTelaVendas").append(dados);
+        //     }
+        // });
+
+        // $.ajax({
+        //     url:"vendas/telas/comanda.php",
+        //     success:function(dados){
+        //         $("#CorpoTelaVendas").append(dados);
+        //     }
+        // });
 
         <?php
         }
