@@ -60,7 +60,7 @@ while ($m = mysqli_fetch_array($m_r)) {
         color: green;
         font-weight: bold;
         z-index: 10;
-        display: <?=(($_SESSION['AppCarrinho'])?'block':'none')?>;
+        display: <?=(($_SESSION['PainelCarrinho'])?'block':'none')?>;
     }
 
     .MensagemAddProduto {
