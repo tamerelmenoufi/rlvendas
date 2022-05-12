@@ -14,7 +14,7 @@
     </thead>
     <tbody>
 <?php
-    $query = "select * from vendas_produtos where venda = '{$_GET['cod']}'";
+    $query = "select * from vendas_produtos where venda = '{$_GET['cod']}' and deletado != '1'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
