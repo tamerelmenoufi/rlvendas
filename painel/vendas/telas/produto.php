@@ -59,6 +59,9 @@
 
 
 ?>
+
+<div class="ProdutoVendas">
+
 <style>
 
     .ProdutoVendas{
@@ -179,7 +182,7 @@
     }
 </style>
 
-<div class="ProdutoVendas">
+
 
     <div class="topo<?= $md5 ?>">
         <center><?= $p->produto ?> <?= $m->medida ?></center>
@@ -285,7 +288,7 @@
         </div>
     </div>
 
-</div>
+
 
 <script>
     $(function(){
@@ -399,3 +402,4 @@
 
     })
 </script>
+</div>
