@@ -104,10 +104,10 @@
 <style>
     .PainelMesas{
         position:absolute;
-        top:210px;
+        top:60px;
         left:0;
         width:100%;
-        bottom:60px;
+        bottom:0px;
         border:solid 1px black;
         overflow-x: auto;
     }
