@@ -1,7 +1,7 @@
 <?php
 
 $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
-$externalId = 40;
+$externalId = 39;
 
 $ch = curl_init();
 
@@ -17,7 +17,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "{
   \"email\": \"ger.bkparaiba@spgrupo.com\",
   \"uf\": \"AM\",
   \"cidade\": \"Manaus\",
-  \"cep\": \" 69057015\",
+  \"cep\": \"69057015\",
   \"bairro\": \"Adrianopolis\",
   \"rua\": \"AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2\",
   \"numero\": \"1712\",
