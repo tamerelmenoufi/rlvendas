@@ -1,7 +1,7 @@
 <?php
 
 $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
-$externalId = 38;
+$externalId = 39;
 
 $ch = curl_init();
 
@@ -13,8 +13,8 @@ curl_setopt($ch, CURLOPT_POST, TRUE);
 
 curl_setopt($ch, CURLOPT_POSTFIELDS, "{
   \"externalId\": {$externalId},
-  \"docType\": \"F\",
-  \"doc\": 60110970225
+  \"docType\": \"J\",
+  \"doc\": 26277931000125
 }");
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
