@@ -52,7 +52,7 @@
                 list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
                 $_SESSION['PainelVenda'] = $codigo;
             } else {
-                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['PainelCliente']}', mesa = '{$_SESSION['PainelPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
+                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['PainelCliente']}', mesa = '{$_SESSION['PainelPedido']}', atendente = '{$_SESSION['PainelGarcom']}', data_pedido = NOW(), situacao = 'producao'");
                 $_SESSION['PainelVenda'] = mysqli_insert_id($con);
             }
             /////////////////////////////////////////////////////////////////
