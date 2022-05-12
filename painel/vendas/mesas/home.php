@@ -108,7 +108,6 @@
         left:0;
         width:100%;
         bottom:0px;
-        border:solid 1px black;
         overflow-x: auto;
     }
     .ClienteTopoTitulo{
