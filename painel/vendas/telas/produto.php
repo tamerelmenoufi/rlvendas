@@ -242,50 +242,48 @@
 
                         </div>
 
-                    <div style="position:absolute; bottom:0; left:0; width:100%; z-index:1; background-color:#fff;">
-                        <div class="input-group input-group-lg">
-                            <div class="input-group-prepend">
-                                <button
-                                        class="btn btn-dangerX text-danger"
-                                        type="button"
-                                        id="menos">
-                                    <i class="fa-solid fa-circle-minus"></i>
-                                </button>
-                            </div>
-
-                            <div
-                                    class="form-control"
-                                    id="quantidade"
-                                    style="border:0;"
-                            >1</div>
-
-                            <div class="input-group-append">
-                                <button
-                                        class="btn btn-successX text-success"
-                                        type="button"
-                                        id="mais">
-                                    <i class="fa-solid fa-circle-plus"></i>
-                                </button>
-                            </div>
-                            <div class="input-group-append">
-                                <span
-                                        class="btn btn-primaryX text-primary"
-                                        id="rotulo_valor">
-                                    R$ <span valor atual="<?=$_POST['valor']?>">
-                                        <?= number_format($_POST['valor'], 2, ',', '.') ?>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="input-group input-group-lg">
-                            <button adicionar_produto class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
-                        </div>
-                    </div>
-
             </div>
         </div>
     </div>
+    <div style="position:absolute; bottom:0; left:0; width:100%; z-index:1; background-color:#fff;">
+        <div class="input-group input-group-lg">
+            <div class="input-group-prepend">
+                <button
+                        class="btn btn-dangerX text-danger"
+                        type="button"
+                        id="menos">
+                    <i class="fa-solid fa-circle-minus"></i>
+                </button>
+            </div>
 
+            <div
+                    class="form-control"
+                    id="quantidade"
+                    style="border:0;"
+            >1</div>
+
+            <div class="input-group-append">
+                <button
+                        class="btn btn-successX text-success"
+                        type="button"
+                        id="mais">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
+            </div>
+            <div class="input-group-append">
+                <span
+                        class="btn btn-primaryX text-primary"
+                        id="rotulo_valor">
+                    R$ <span valor atual="<?=$_POST['valor']?>">
+                        <?= number_format($_POST['valor'], 2, ',', '.') ?>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="input-group input-group-lg">
+            <button adicionar_produto class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
+        </div>
+    </div>
 
 
 <script>
