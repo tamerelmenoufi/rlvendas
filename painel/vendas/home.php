@@ -3,6 +3,13 @@
 include("../../lib/includes.php");
 include "./conf.php";
 
+
+// $_SESSION['PainelVenda'] = $codigo;
+// $_SESSION['PainelCliente'] = $cliente;
+// $_SESSION['PainelPedido'] = $mesa;
+// $_SESSION['PainelGarcom'] = $garcom;
+
+
 ?>
 <style>
     .fecharTelaVendas{
@@ -95,6 +102,20 @@ include "./conf.php";
     $(function () {
 
 
+        <?php
+        if(!$_SESSION['PainelGarcom']){
+        ?>
+
+            $.dialog({
+                title:false,
+                content:"url:vendas/garcom/login.php",
+                columnClass:'col-md-4'
+            });
+
+        <?php
+        }else{
+        ?>
+
         $.ajax({
             url:"vendas/telas/categorias.php",
             success:function(dados){
@@ -109,6 +130,8 @@ include "./conf.php";
             }
         });
 
-
+        <?php
+        }
+        ?>
     });
 </script>
