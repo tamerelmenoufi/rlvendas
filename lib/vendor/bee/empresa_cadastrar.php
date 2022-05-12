@@ -3,6 +3,27 @@
 $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
 $externalId = 39;
 
+
+// $dados = [
+//     "cpfCnpj" => "26277931000125",
+//     "name" => "SP RESTAURANTES LTDA",
+//     "email" => "ger.bkparaiba@spgrupo.com",
+//     "uf" => "AM",
+//     "cidade" => "Manaus",
+//     "cep" => "69057015",
+//     "bairro" => "Adrianopolis",
+//     "rua" => "AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2",
+//     "numero" => "1712",
+//     "telefone" => "92984122099",
+//     "celular" => "92984122099",
+//     "latitude" => "-3.0929237",
+//     "longitude" => "-60.0092208",
+//     "externalId" => "{$externalId}"
+// ];
+
+// echo json_encode($dados);
+
+
 $dados = "{
     \"cpfCnpj\": \"26277931000125\",
     \"name\": \"SP RESTAURANTES LTDA\",
@@ -13,7 +34,7 @@ $dados = "{
     \"bairro\": \"Adrianopolis\",
     \"rua\": \"AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2\",
     \"numero\": \"1712\",
-    \"telefone\": \"92984122099\"
+    \"telefone\": \"92984122099\",
     \"celular\": \"92984122099\",
     \"latitude\": \"-3.0929237\",
     \"longitude\": \"-60.0092208\",
