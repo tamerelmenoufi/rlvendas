@@ -192,6 +192,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                     valor
                 },
                 success:function(dados){
+                    $("#CorpoTelaVendas").remove();
                     $("#CorpoTelaVendas").append(dados);
                 }
             });
