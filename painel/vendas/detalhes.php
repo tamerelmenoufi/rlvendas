@@ -28,11 +28,16 @@
         }
         if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
+        $Prod = [];
+        foreach($pedido->produtos as $ind => $prod){
+            $Prod[] = $prod;
+        }
+        $Prod = (($Prod)?implode(' ',$Prod):false);
 ?>
 
 <tr>
     <td>
-        <?=$pedido->produtos->descricao?> <?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?><br>
+        <?=$Prod?> <?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?><br>
         <?= $d->produto_descricao?>
     </td>
     <td>
