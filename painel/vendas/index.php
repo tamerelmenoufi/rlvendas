@@ -95,7 +95,7 @@ $result = mysqli_query($con, $query);
                     <th>Cliente</th>
                     <th>Valor</th>
                     <th>Mesa</th>
-                    <th>Data do Pedido</th>
+                    <th>Período</th>
                     <th>Situação</th>
                     <th class="mw-20">Lista</th>
                 </tr>
@@ -110,7 +110,10 @@ $result = mysqli_query($con, $query);
                             <?= number_format($d->total, 2, ',', '.'); ?>
                         </td>
                         <td><?= $d->mesa_descricao; ?></td>
-                        <td><?= formata_datahora($d->data_pedido, DATA_HM); ?></td>
+                        <td>
+                            De: <?= formata_datahora($d->data_pedido, DATA_HM); ?><br>
+                            Até: <?= formata_datahora($d->data_finalizacao, DATA_HM); ?>
+                        </td>
                         <td><?=getSituacaoOptions($d->situacao, $d->codigo)?></td>
                         <td>
                             <button lista="<?=$d->codigo?>" class="btn btn-primary">
