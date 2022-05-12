@@ -21,7 +21,7 @@
 
         $pedido = json_decode($d->produto_json);
         $sabores = false;
-        //print_r($pedido)
+        print_r($pedido);
         $ListaPedido = [];
         for($i=0; $i < count($pedido->produtos); $i++){
             $ListaPedido[] = $pedido->produtos[$i]->descricao;
