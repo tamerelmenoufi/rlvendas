@@ -20,11 +20,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "{
   \"cep\": \" 69057015\",
   \"bairro\": \"Adrianopolis\",
   \"rua\": \"AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2\",
-  \"numero\": 1712,
+  \"numero\": \"1712\",
   \"telefone\": \"92984122099\"
   \"celular\": \"92984122099\",
-  \"latitude\": -3.0929237,
-  \"longitude\": -60.0092208,
+  \"latitude\": \"-3.0929237\",
+  \"longitude\": \"-60.0092208\",
   \"externalId\": \"{$externalId}\"
 }");
 
