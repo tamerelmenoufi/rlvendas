@@ -3,15 +3,7 @@
 $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
 $externalId = 39;
 
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, "https://integrationtest.beedelivery.com.br/api/v1/public/companies/new");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-curl_setopt($ch, CURLOPT_HEADER, FALSE);
-
-curl_setopt($ch, CURLOPT_POST, TRUE);
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, "{
+$dados = "{
     \"cpfCnpj\": \"26277931000125\",
     \"name\": \"SP RESTAURANTES LTDA\",
     \"email\": \"ger.bkparaiba@spgrupo.com\",
@@ -23,10 +15,21 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "{
     \"numero\": \"1712\",
     \"telefone\": \"92984122099\"
     \"celular\": \"92984122099\",
-    \"latitude\": -3.0929237,
-    \"longitude\": -60.0092208,
+    \"latitude\": \"-3.0929237\",
+    \"longitude\": \"-60.0092208\",
     \"externalId\": \"{$externalId}\"
-  }");
+  }";
+
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, "https://integrationtest.beedelivery.com.br/api/v1/public/companies/new");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, FALSE);
+
+curl_setopt($ch, CURLOPT_POST, TRUE);
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, $dados);
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Content-Type: application/json",
