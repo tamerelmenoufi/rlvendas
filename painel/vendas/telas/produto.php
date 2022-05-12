@@ -69,6 +69,7 @@
         bottom:60px;
         border:solid 1px green;
         overflow-x: auto;
+        background-color:#fff;
     }
 
     .topo<?=$md5?> {
