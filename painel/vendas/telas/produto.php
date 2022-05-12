@@ -62,7 +62,7 @@
 <style>
 
     .ProdutoVendas{
-        position:absolute;
+        position:fixed;
         top:210px;
         right:0;
         width:40%;
