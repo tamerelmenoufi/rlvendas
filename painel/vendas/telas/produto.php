@@ -70,7 +70,7 @@
         right:0;
         width:40%;
         bottom:60px;
-        border:solid 1px green;
+        border:solid 1px yellow;
         overflow-x: auto;
         background-color:#fff;
     }
