@@ -19,7 +19,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, "{
   \"cidade\": \"Manaus\",
   \"cep\": \" 69057015\",
   \"bairro\": \"Adrianopolis\",
-  \"rua\": \"AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2 \",
+  \"rua\": \"AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2\",
   \"numero\": 1712,
   \"telefone\": \"92984122099\"
   \"celular\": \"92984122099\",
