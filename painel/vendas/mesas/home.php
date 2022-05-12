@@ -235,6 +235,7 @@
                         success:function(dados){
                             $("#CorpoTelaVendas").append(dados);
                             janela_login.close();
+                            $(".PainelMesas").remove();
                         }
                     });
 
@@ -242,6 +243,7 @@
                         url:"vendas/telas/comanda.php",
                         success:function(dados){
                             $("#CorpoTelaVendas").append(dados);
+                            $(".PainelMesas").remove();
                         }
                     });
 
