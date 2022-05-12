@@ -100,7 +100,17 @@
     }
 
 ?>
+<div class="PainelMesas">
 <style>
+    .PainelMesas{
+        position:absolute;
+        top:210px;
+        left:0;
+        width:100%;
+        bottom:60px;
+        border:solid 1px black;
+        overflow-x: auto;
+    }
     .ClienteTopoTitulo{
         position:fixed;
         left:0px;
@@ -132,6 +142,12 @@
         background:blue;
         color:#fff;
     }
+    .PainelMesas::-webkit-scrollbar {
+        display: none;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 <!-- <div class="ClienteTopoTitulo">
@@ -143,6 +159,7 @@
 <div class="col">
     <div class="row">
         <div class="col-6">
+        <div class="row">
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 0 and 100 order by mesa";
@@ -165,8 +182,10 @@
             }
         ?>
         </div>
+        </div>
 
         <div class="col-6">
+        <div class="row">
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa between 101 and 200 order by mesa";
@@ -188,6 +207,7 @@
         <?php
             }
         ?>
+        </div>
         </div>
 
     </div>
@@ -229,3 +249,4 @@
 
     })
 </script>
+</div>
