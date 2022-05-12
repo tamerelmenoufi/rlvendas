@@ -30,7 +30,7 @@
 
         $Prod = [];
         foreach($pedido->produtos as $ind => $prod){
-            $Prod[] = $prod;
+            $Prod[] = $prod->descricao;
         }
         $Prod = (($Prod)?implode(' ',$Prod):false);
 ?>
