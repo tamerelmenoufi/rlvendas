@@ -46,6 +46,7 @@
         exit();
     }
 ?>
+<div class="ComandaVendas">
 <style>
 
     .ComandaVendas{
@@ -127,7 +128,7 @@
 
 </style>
 
-<div class="ComandaVendas">
+
     <div class="col" style="margin-bottom:60px; margin-top:20px;">
         <div class="col-12">
             <?php
@@ -253,7 +254,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 <script>
     $(function(){
@@ -519,3 +520,5 @@
 
     })
 </script>
+
+</div>

@@ -141,10 +141,13 @@ while ($m = mysqli_fetch_array($m_r)) {
                                                 acao_medida
                                                 opc="<?= $val["quantidade"]; ?>"
                                                 produto="<?= $p->codigo ?>"
+                                                descricao="<?= $p->produto ?>"
+                                                valor='<?= $val['valor']; ?>'
+                                                nome_categoria="<?="{$d->categoria}"?>"
                                                 titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]["descricao"]})" ?>'
                                                 categoria='<?= $d->codigo ?>'
-                                                medida='<?= $val["quantidade"]; ?>'
-                                                valor='<?= $val['valor']; ?>'
+                                                medida='<?= $key2 ?>'
+                                                medida_descricao='<?= $M[$key2]["descricao"] ?>'
                                                 class="btn btn-outline-success btn-xs"
                                                 style="height:60px; font-size:20px; line-height: 1.2;"
                                         >
@@ -173,31 +176,68 @@ while ($m = mysqli_fetch_array($m_r)) {
 
     $(function(){
 
-        $("button[acao_medida]").click(function () {
+
+        $("button[acao_medida]").click(function(){
+            /////////// PRODUTOS ////////////////////////////
+
             opc = $(this).attr("opc");
             produto = $(this).attr("produto");
+            descricao = $(this).attr("descricao");
             title = $(this).attr("titulo");
             categoria = $(this).attr("categoria");
+            nome_categoria = $(this).attr("nome_categoria");
+
             medida = $(this).attr("medida");
+            medida_descricao = $(this).attr("medida_descricao");
+
             valor = $(this).attr("valor");
 
+            venda = [];
+            venda['categoria'] = {codigo:categoria, descricao:nome_categoria};
+            venda['medida'] = {codigo:medida, descricao:medida_descricao};
+            venda['produtos'] = [];
+            venda['produtos'].push({codigo:produto, descricao:descricao, valor:valor});
+
+            // $('.grupo').each(function(){
+            //     venda['produtos'].push({codigo:$(this).attr("cod"), descricao:$(this).attr("nome"), valor:$(this).attr("valor")});
+            // })
+
+            //-------
+            valor_unitario = $("span[valor]").attr("atual");
+            //-------
+            quantidade = $("#quantidade").html();
+            //-------
+            valor_total = (valor_unitario*quantidade);
+
+            //-------
+            var produto_descricao = $(".observacoes").html();
+
+            var produto_json = JSON.stringify(Object.assign({}, venda));
+            $(".IconePedidos, .MensagemAddProduto").css("display","none");
             $.ajax({
-                url:"vendas/telas/produto.php",
-                type: "POST",
-                data: {
-                    local: "src/produtos/produto.php",
-                    categoria,
-                    produto,
-                    medida,
-                    valor
+                url:"vendas/telas/comanda.php",
+                type:"POST",
+                data:{
+                    produto_json,
+                    produto_descricao,
+                    valor_unitario,
+                    quantidade,
+                    valor_total,
+                    acao:'adicionar_pedido'
                 },
                 success:function(dados){
-                     $("#ProdutoVendas").remove();
+                    $(".IconePedidos, .MensagemAddProduto").css("display","block");
+                    // setTimeout(function(){
+                    //     $(".MensagemAddProduto").css('display','none');
+                    // }, 3000);
+                    $(".ComandaVendas").remove();
                     $("#CorpoTelaVendas").append(dados);
                 }
             });
 
-
         });
+
+
+
     })
 </script>
