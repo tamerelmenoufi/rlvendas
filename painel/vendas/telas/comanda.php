@@ -4,6 +4,48 @@
     //VerificarVendaApp();
     $_SESSION['AppVenda'] = 608;
 
+
+    if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
+
+        if(!$_SESSION['AppVenda']){
+            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
+            $_SESSION['AppVenda'] = mysqli_insert_id($con);
+        }
+
+        $quantidade = (($_POST['quantidade']*1 >= 1)?$_POST['quantidade']:1);
+        $total = $_POST['valor_unitario'] * $quantidade;
+
+        $arrayInsert = [
+            'venda' => $_SESSION['AppVenda'],
+            'cliente' => $_SESSION['AppCliente'],
+            'atendente' => $_SESSION['AppGarcom'],
+            'mesa' => $_SESSION['AppPedido'],
+            'produto_descricao' => $_POST['produto_descricao'],
+            'quantidade' => $quantidade,
+            'valor_unitario' => $_POST['valor_unitario'],
+            'produto_json' => $_POST['produto_json'],
+            'valor_total' => $total,
+            'data' => date('Y-m-d H:i:s'),
+        ];
+
+        $attr = [];
+
+        foreach ($arrayInsert as $key => $item) {
+            $attr[] = "{$key} = '{$item}'";
+        }
+
+        $query = "INSERT INTO vendas_produtos SET " . implode(", ", $attr);
+
+        if (@mysqli_query($con, $query)) {
+            echo json_encode([
+                "status" => "sucesso",
+            ]);
+            $_SESSION['AppCarrinho'] = true;
+        }
+
+    }
+
+
     if (!empty($_POST) and $_POST["acao"] === "confirmar_pedido") {
 
         $codigo = $_SESSION['AppVenda'];
