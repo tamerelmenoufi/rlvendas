@@ -49,7 +49,7 @@ $retorno .= '<table width="100%" border="0" cellpadding="2" cellspacing="0">
     </thead>
     <tbody>';
 
-    $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
+    $query = "select * from vendas_produtos where venda = '{$_POST['cod']}' and deletado != '1'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 

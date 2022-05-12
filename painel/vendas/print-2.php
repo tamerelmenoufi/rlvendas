@@ -21,7 +21,7 @@
     $retorno .= "txt|1|1|left|Produtos             Vl Uni              Vl Tot"."\n";
 
 
-    $query = "select * from vendas_produtos where venda = '{$_POST['cod']}'";
+    $query = "select * from vendas_produtos where venda = '{$_POST['cod']}' and deletado != '1'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
