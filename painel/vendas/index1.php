@@ -233,7 +233,7 @@ $result = mysqli_query($con, $query);
                     cod,
                 },
                 success:function(dados){
-                    alert('x');
+                    //alert('x');
                 }
             });
 
