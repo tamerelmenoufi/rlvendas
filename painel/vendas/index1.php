@@ -119,11 +119,11 @@ $result = mysqli_query($con, $query);
                             <button lista="<?=$d->codigo?>" class="btn btn-primary">
                                 <i class="fa-solid fa-rectangle-list"></i>
                             </button>
-                            <button print="<?=$d->codigo?>" class="btn btn-success">
+                            <!-- <button print="<?=$d->codigo?>" class="btn btn-success">
                                 <i class="fa-solid fa-print"></i>
-                            </button>
+                            </button> -->
 
-                            <button print2="<?=$d->codigo?>" class="btn btn-success" style="opacity:0">
+                            <button print2="<?=$d->codigo?>" class="btn btn-success">
                                 <i class="fa-solid fa-print"></i>
                             </button>
 
