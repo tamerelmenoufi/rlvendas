@@ -19,6 +19,8 @@ curl_close($ch);
 
 $dados = json_decode($response);
 
+print_r($dados);
+
 echo "<hr>";
 foreach($dados as $i => $v){
   echo "{$i} : {$v} <br>";
