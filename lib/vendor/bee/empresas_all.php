@@ -19,9 +19,9 @@ curl_close($ch);
 
 $dados = json_decode($response);
 
-print_r($dados);
+print_r($dados->data);
 
 echo "<h4>Clientes:</h4>";
-foreach($dados['data'] as $i => $v){
+foreach($dados->data as $i => $v){
   echo "Cliente {$v->tipo} : ".(($v->tipo == 'J')?$v->cnpj:$v->cpf)."<br><hr>";
 }
