@@ -19,7 +19,7 @@ curl_close($ch);
 
 $dados = json_decode($response);
 
-print_r($dados->data);
+//print_r($dados->data);
 
 echo "<h4>Clientes:</h4>";
 foreach($dados->data as $i => $v){
