@@ -17,7 +17,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $response = curl_exec($ch);
 curl_close($ch);
 
-echo ($response);
+$dados = json_decode($response);
 
 echo "<hr>";
 foreach($response as $i => $v){
