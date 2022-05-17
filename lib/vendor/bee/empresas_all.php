@@ -19,9 +19,7 @@ curl_close($ch);
 
 var_dump($response);
 
-var_dump($response['data']);
-
 echo "<hr>";
-foreach($response['data'] as $i => $v){
+foreach($response as $i => $v){
   echo "{$i} : {$v} <br>";
 }
