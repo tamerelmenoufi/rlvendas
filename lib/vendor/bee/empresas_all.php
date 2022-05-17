@@ -20,6 +20,6 @@ curl_close($ch);
 $dados = json_decode($response);
 
 echo "<hr>";
-foreach($response as $i => $v){
+foreach($dados as $i => $v){
   echo "{$i} : {$v} <br>";
 }
