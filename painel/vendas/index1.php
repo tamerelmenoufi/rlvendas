@@ -65,7 +65,7 @@ $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_no
     . "INNER JOIN clientes c ON c.codigo = v.cliente "
     . "INNER JOIN mesas m ON m.codigo = v.mesa "
     . "LEFT JOIN atendentes a ON a.codigo = v.atendente "
-    . "WHERE 1 {$where} order by v.codigo desc";
+    . "WHERE 1 {$where} order by v.codigo desc limit 100";
 
 #echo $query;
 
