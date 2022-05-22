@@ -8,11 +8,11 @@
         $result = mysqli_query($con, $query);
         $n = mysqli_num_rows($result);
 
-        if($n > 0 and !$_GET['confirm']){
+        if($n > 0 and !$_POST['confirm']){
             echo json_encode([
                 "status" => "erro",
             ]);
-        }else if($_GET['confirm']){
+        }else if($_POST['confirm']){
             $_SESSION = [];
 
         }else{
@@ -62,6 +62,7 @@
 
 <script>
     $(function(){
+
         Carregando('none');
         $("button[acao]").click(function(){
             local = $(this).attr("opc");
@@ -97,6 +98,7 @@
                                 acao:'Sair',
                             },
                             success:function(dados){
+
 
                                 if (dados.status === "erro") {
 
@@ -141,6 +143,7 @@
                                     })
 
                                 }else{
+
                                     window.localStorage.removeItem('AppPedido');
                                     window.localStorage.removeItem('AppCliente');
                                     window.localStorage.removeItem('AppVenda');
