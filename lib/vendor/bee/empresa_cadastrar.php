@@ -37,7 +37,7 @@ $Geral = [
     "externalId" => $externalId+1
   ],
   [
-    "cpfCnpj" => "26277931000479",
+    "cpfCnpj" => "26277931000478",
     "name" => "BURGER KING (Shopping Sumaúma)",
     "email" => "ger.bksumauma@spgrupo.com",
     "uf" => "AM",
