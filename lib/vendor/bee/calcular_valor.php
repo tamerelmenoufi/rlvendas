@@ -15,13 +15,12 @@
         \"needReturn\": \"N\",
         \"origin\": {
             \"externalId\": 39
-
         },
         \"destination\": {
             \"type\": \"COORDS\",
             \"address\": {
                 \"latitude\": -3.1290315,
-                \"longitude\": -60.02384969999999,
+                \"longitude\": -60.02384969999999
             }
         }
     }");
