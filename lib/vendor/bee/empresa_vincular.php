@@ -42,3 +42,5 @@ $e = [
 for($i=0;$i<count($e);$i++){
   Vincular($e[$i][0], $e[$i][1], $e[$i][2]);
 }
+
+//TETSTE
