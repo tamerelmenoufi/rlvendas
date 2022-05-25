@@ -127,6 +127,8 @@ $dados = $Geral[1];
 echo $fild = json_encode($dados);
 
 
+echo "<hr>";
+
 // $dados = "{
 //     \"cpfCnpj\": \"26277931000125\",
 //     \"name\": \"SP RESTAURANTES LTDA\",
@@ -147,7 +149,7 @@ echo $fild = json_encode($dados);
 //  echo json_decode($dados);
 
 
-exit();
+//exit();
 
 $ch = curl_init();
 
