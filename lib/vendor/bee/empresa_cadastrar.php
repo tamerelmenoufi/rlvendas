@@ -122,7 +122,7 @@ $Geral = [
 ];
 
 
-$dados = $Geral[6];
+$dados = $Geral[4];
 
 echo $fild = json_encode($dados);
 
