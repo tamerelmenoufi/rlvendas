@@ -14,7 +14,7 @@ function Vincular($Id, $t, $c){
   curl_setopt($ch, CURLOPT_POST, TRUE);
 
   curl_setopt($ch, CURLOPT_POSTFIELDS, "{
-    \"externalId\": {$externalId},
+    \"externalId\": $externalId,
     \"docType\": \"{$t}\",
     \"doc\": $c
   }");
@@ -37,7 +37,7 @@ $e = [
   [41,'j',26277931000479],
   [42,'j',26277931000559],
   [44,'j',26277931000800],
-  [45,'j',26277931000710],
+  [45,'j',26277931000710]
 ];
 
 for($i=0;$i<count($e);$i++){
