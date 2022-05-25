@@ -41,5 +41,5 @@ $e = [
 ];
 
 for($i=0;$i<count($e);$i++){
-  Vincular($e[0], $e[1], $e[2]);
+  Vincular($e[$i][0], $e[$i][1], $e[$i][2]);
 }
