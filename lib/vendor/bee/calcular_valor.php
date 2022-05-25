@@ -12,9 +12,9 @@
 
     curl_setopt($ch, CURLOPT_POSTFIELDS, "{
         \"vehicle\": \"M\",
-        \"needReturn\": \"S\",
+        \"needReturn\": \"N\",
         \"origin\": {
-            \"externalId\": 26277931000125
+            \"externalId\": 39
 
         },
         \"destination\": {
