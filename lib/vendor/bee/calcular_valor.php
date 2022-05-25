@@ -13,6 +13,7 @@
         curl_setopt($ch, CURLOPT_POST, TRUE);
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, "{
+            \"vehicle\": \"B\",
             \"needReturn\": \"N\",
             \"origin\": {
                 \"externalId\": {$Id}
