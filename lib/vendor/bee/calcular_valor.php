@@ -14,7 +14,7 @@
         \"vehicle\": \"M\",
         \"needReturn\": \"N\",
         \"origin\": {
-            \"externalId\": 39
+            \"externalId\": 37
         },
         \"destination\": {
             \"type\": \"COORDS\",
