@@ -1,8 +1,6 @@
 <?php
 
-$chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
 $externalId = 39;
-
 
 $Geral = [
   [
@@ -122,51 +120,64 @@ $Geral = [
 ];
 
 
-$dados = $Geral[4];
+function Cadastrar($dados){
 
-echo $fild = json_encode($dados);
+  $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
 
+  //$dados = $Geral[4];
 
-echo "<hr>";
-
-// $dados = "{
-//     \"cpfCnpj\": \"26277931000125\",
-//     \"name\": \"SP RESTAURANTES LTDA\",
-//     \"email\": \"ger.bkparaiba@spgrupo.com\",
-//     \"uf\": \"AM\",
-//     \"cidade\": \"Manaus\",
-//     \"cep\": \"69057015\",
-//     \"bairro\": \"Adrianopolis\",
-//     \"rua\": \"AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2\",
-//     \"numero\": \"1712\",
-//     \"telefone\": \"92984122099\",
-//     \"celular\": \"92984122099\",
-//     \"latitude\": \"-3.0929237\",
-//     \"longitude\": \"-60.0092208\",
-//     \"externalId\": \"{$externalId}\"
-//   }";
-
-//  echo json_decode($dados);
+  echo $fild = json_encode($dados);
 
 
-//exit();
+  echo "<br>______________________________________________________________________________________<br>";
 
-$ch = curl_init();
+  // $dados = "{
+  //     \"cpfCnpj\": \"26277931000125\",
+  //     \"name\": \"SP RESTAURANTES LTDA\",
+  //     \"email\": \"ger.bkparaiba@spgrupo.com\",
+  //     \"uf\": \"AM\",
+  //     \"cidade\": \"Manaus\",
+  //     \"cep\": \"69057015\",
+  //     \"bairro\": \"Adrianopolis\",
+  //     \"rua\": \"AV JORNALISTA UMBERTO CALDERARO FILHO LOJA 2\",
+  //     \"numero\": \"1712\",
+  //     \"telefone\": \"92984122099\",
+  //     \"celular\": \"92984122099\",
+  //     \"latitude\": \"-3.0929237\",
+  //     \"longitude\": \"-60.0092208\",
+  //     \"externalId\": \"{$externalId}\"
+  //   }";
 
-curl_setopt($ch, CURLOPT_URL, "https://api.beedelivery.com.br/api/v1/public/companies/new");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-curl_setopt($ch, CURLOPT_HEADER, FALSE);
+  //  echo json_decode($dados);
 
-curl_setopt($ch, CURLOPT_POST, TRUE);
 
-curl_setopt($ch, CURLOPT_POSTFIELDS, $fild);
+  //exit();
 
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  "Content-Type: application/json",
-  "Authorization: {$chave}"
-));
+  $ch = curl_init();
 
-$response = curl_exec($ch);
-curl_close($ch);
+  curl_setopt($ch, CURLOPT_URL, "https://api.beedelivery.com.br/api/v1/public/companies/new");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  curl_setopt($ch, CURLOPT_HEADER, FALSE);
 
-var_dump($response);
+  curl_setopt($ch, CURLOPT_POST, TRUE);
+
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $fild);
+
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    "Content-Type: application/json",
+    "Authorization: {$chave}"
+  ));
+
+  $response = curl_exec($ch);
+  curl_close($ch);
+
+  var_dump($response);
+
+  echo "<hr>";
+
+}
+
+
+for($i=0;$i<count($Geral);$i++){
+  Cadastrar($Geral[$i]);
+}
