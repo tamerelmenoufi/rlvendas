@@ -3,7 +3,10 @@
 function Vincular($Id, $t, $c){
 
   $chave = "7ee80ecf9002e205789139ef9179b3b4c3dbe776";
-  $externalId = $Id;
+
+  $field = ['externalId' => $Id, 'docType' => $t, 'doc' => $c];
+
+  $field = json_encode($field);
 
   $ch = curl_init();
 
@@ -13,11 +16,7 @@ function Vincular($Id, $t, $c){
 
   curl_setopt($ch, CURLOPT_POST, TRUE);
 
-  curl_setopt($ch, CURLOPT_POSTFIELDS, "{
-    \"externalId\": \"{$externalId}\",
-    \"docType\": \"{$t}\",
-    \"doc\": \"{$c}\"
-  }");
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $field);
 
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Content-Type: application/json",
