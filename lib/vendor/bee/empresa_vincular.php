@@ -14,9 +14,9 @@ function Vincular($Id, $t, $c){
   curl_setopt($ch, CURLOPT_POST, TRUE);
 
   curl_setopt($ch, CURLOPT_POSTFIELDS, "{
-    \"externalId\": $externalId,
+    \"externalId\": \"{$externalId}\",
     \"docType\": \"{$t}\",
-    \"doc\": $c
+    \"doc\": \"{$c}\"
   }");
 
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
