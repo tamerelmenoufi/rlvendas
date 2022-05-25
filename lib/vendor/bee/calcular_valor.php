@@ -34,7 +34,7 @@
 
         $response = curl_exec($ch);
         curl_close($ch);
-
+        echo "{$Id}<br>";
         var_dump($response);
         echo "<hr>";
     }
