@@ -238,6 +238,8 @@
     $(function(){
         Carregando('none');
 
+        $('#custo').maskMoney();
+
         $("#peso").keyup(function(){
             peso = $(this).val();
             valor = peso*<?=$valor?>/1000;
