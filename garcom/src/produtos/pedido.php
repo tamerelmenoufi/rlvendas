@@ -475,11 +475,12 @@
             n = $("p[Excluirproduto]").length;
 
 
-            $.confirm({
+            JanelaConfirmacao = $.confirm({
                 content:"Deseja realmente cancelar o produto <b>"+produto+"</b>?",
                 title:false,
                 buttons:{
                     'SIM':function(){
+
                         obj.remove();
 
                         if(n === 1){
@@ -500,10 +501,11 @@
                                 produto
                             },
                             success:function(dados){
-
+                                mySocket.send('atualiza');
+                                JanelaConfirmacao.close();
                             }
                         });
-                        mySocket.send('atualiza');
+
 
                     },
                     'NÃO':function(){
