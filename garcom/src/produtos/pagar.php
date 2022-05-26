@@ -86,8 +86,8 @@
                     <div class="row">
                         <div class="col-12">
                             <h5 class="card-title">
-                                <small>Cliente</small>
-                                <div><?="{$d->nome} {$d->telefone}"?></div>
+                                <small>Mesa</small>
+                                <div><?="{$m->mesa}"?></div>
                             </h5>
                         </div>
                     </div>
