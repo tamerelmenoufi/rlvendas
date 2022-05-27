@@ -213,7 +213,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="peso">Por Valor</label>
-                                        <input type="text" class="form-control" id="custo" data-thousands="" data-decimal=",">
+                                        <input type="text" class="form-control" id="custo" data-thousands="" data-decimal=".">
                                     </div>
                                 </div>
 
