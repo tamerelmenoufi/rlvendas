@@ -213,7 +213,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="peso">Por Valor</label>
-                                        <input type="number" class="form-control" id="custo" data-thousands="" data-decimal=".">
+                                        <input type="number" class="form-control" id="custo" >
                                     </div>
                                 </div>
 
@@ -238,7 +238,7 @@
     $(function(){
         Carregando('none');
 
-        //$('#custo').maskMoney();
+        $('#custo').maskMoney();
 
         $("#peso").keyup(function(){
             peso = $(this).val();
