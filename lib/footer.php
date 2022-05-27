@@ -24,4 +24,4 @@
     <script src="<?= "{$caminho_vendor}/js/js.js"; ?>" ></script>
     <script src="<?= "{$caminho_vendor}/bootstrap4-toggle-3.6.1/bootstrap4-toggle.min.js"; ?>" ></script>
     <script src="<?= "{$caminho_vendor}/jkeyboard/js.js"; ?>" ></script>
-    <script src="<?= "{$caminho_vendor}/jquery-maskmoney/jquery.maskMoney.js"; ?>" ></script>
+    <script src="<?= "{$caminho_vendor}/jquery-maskmoney/jquery.maskMoney.min.js"; ?>" ></script>
