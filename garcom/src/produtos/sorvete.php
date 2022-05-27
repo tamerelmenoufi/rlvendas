@@ -238,7 +238,7 @@
     $(function(){
         Carregando('none');
 
-        $('#custo').maskMoney();
+        //$('#custo').maskMoney();
 
         $("#peso").keyup(function(){
             peso = $(this).val();
