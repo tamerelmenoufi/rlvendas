@@ -17,15 +17,15 @@
         while($d = mysqli_fetch_object($result)){
             $codigos[] = $d->codigo;
         }
-        $Codigos = implode(",", $codigos);
+        $codigos = implode(",", $codigos);
 
         $ordem = strtotime("now");
 
-        $query = "UPDATE vendas_produtos SET situacao = 'p', ordem = '{$ordem}' WHERE codigo in ({$Codigos})";
+        $query = "UPDATE vendas_produtos SET situacao = 'p', ordem = '{$ordem}' WHERE codigo in ({$codigos})";
         if (mysqli_query($con, $query)) {
             echo json_encode([
                 "status" => "sucesso",
-                "venda" => base64_encode($codigos),
+                "venda" => base64_encode($codigo),
             ]);
         }
         mysqli_query($con, "update vendas set situacao = 'preparo' where codigo = '{$codigo}'");
