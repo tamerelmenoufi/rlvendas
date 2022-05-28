@@ -10,7 +10,7 @@
 
     if($_POST['acao'] == 'excluir_operacao'){
 
-        echo $query = "update vendas_pagamento set deletado = '1' where codigo = '{$_POST['cod']}'";
+        $query = "update vendas_pagamento set deletado = '1' where codigo = '{$_POST['cod']}'";
         mysqli_query($con, $query);
 
     }
@@ -40,7 +40,7 @@
             <td>
                 <i
                     class="excluir_operacao fa fa-trash text-red"
-                    cod="<?=$p->codig?>"
+                    cod="<?=$p->codigo?>"
                     content="Deja realmente excluir a operação <b><?=$p->forma_pagamento?></b> no valor de <b>R$ <?=number_format($p->valor,2,',','.')?></b>"
                     ></i>
             </td>
