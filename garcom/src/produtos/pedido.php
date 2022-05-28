@@ -379,8 +379,8 @@
                                             },
                                             success:function(dados){
                                                 PageClose();
-                                                mySocket.send(atualiza);
                                                 $(".ms_corpo").append(dados);
+                                                mySocket.send(atualiza);
                                             }
                                         });
 
