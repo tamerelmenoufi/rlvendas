@@ -50,8 +50,9 @@
         }
         ?>
         <tr>
-            <th colspan="2" align="right">TOTAL</th>
-            <td><?=number_format($p->valor,2,',','.')?></td>
+            <th align="right">TOTAL</th>
+            <th><?=number_format($soma_valores,2,',','.')?></th>
+            <th></th>
         </tr>
     </tbody>
 </table>
