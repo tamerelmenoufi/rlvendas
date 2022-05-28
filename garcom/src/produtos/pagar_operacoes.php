@@ -38,11 +38,13 @@
             <td><?=$p->forma_pagamento?></td>
             <td><?=$p->valor?></td>
             <td>
-                <i
-                    class="excluir_operacao fa fa-trash text-red"
+                <span
+                    class="excluir_operacao"
                     cod="<?=$p->codigo?>"
                     content="Deja realmente excluir a operação <b><?=$p->forma_pagamento?></b> no valor de <b>R$ <?=number_format($p->valor,2,',','.')?></b>"
-                    ></i>
+                >
+                    <i class="fa fa-trash text-red"></i>
+                </span>
             </td>
         </tr>
         <?php
