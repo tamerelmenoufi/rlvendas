@@ -19,9 +19,9 @@
         }
         $codigos = implode(",", $codigos);
 
-        //$ordem = strtotime("now");
-        //, ordem = '{$ordem}'
-        $query = "UPDATE vendas_produtos SET situacao = 'p' WHERE codigo in ({$codigos})";
+        $ordem = strtotime("now");
+
+        $query = "UPDATE vendas_produtos SET situacao = 'p', ordem = '{$ordem}' WHERE codigo in ({$codigos})";
         if (mysqli_query($con, $query)) {
             echo json_encode([
                 "status" => "sucesso",
