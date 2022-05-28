@@ -103,7 +103,7 @@
                         <div class="col-12">
                             <h5 class="card-title">
                                 <small>Valor Pendente</small>
-                                <div class="valor_pendente" valor="<?=$d->total?>">R$ <?=number_format($d->total,2,',','.')?></div>
+                                <div class="valor_pendente" valor=""></div>
                             </h5>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                 <div pagar_operacoes class="card-body">
 
 
-                    <h5 class="card-title">
+                    <!-- <h5 class="card-title">
                         <a pagar opc="dinheiro" class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Dinheiro</a>
                     </h5>
                     <h5 class="card-title">
@@ -174,7 +174,7 @@
                     </h5>
                     <h5 class="card-title">
                         <a pagar opc="credito" class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Crédito</a>
-                    </h5>
+                    </h5> -->
 
                 </div>
             </div>
