@@ -10,7 +10,7 @@
 
     if($_POST['acao'] == 'excluir_operacao'){
 
-        $query = "update vendas_pagamento set deletado = '1' where codigo = '{$_POST['cod']}'";
+        echo $query = "update vendas_pagamento set deletado = '1' where codigo = '{$_POST['cod']}'";
         mysqli_query($con, $query);
 
     }
