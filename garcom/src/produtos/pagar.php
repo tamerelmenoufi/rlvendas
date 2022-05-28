@@ -62,7 +62,9 @@
         font-size:14px;
         cursor:pointer;
     }
-
+    .formas_pagamento{
+        display:none;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pagar Mesa <?=$m->mesa?></h4>
@@ -156,7 +158,7 @@
     </div>
 
 
-    <div class="row">
+    <div class="formas_pagamento row">
         <div class="col-12">
             <div class="card bg-light mb-3">
                 <div class="card-header">Formas de Pagamento</div>

@@ -80,6 +80,12 @@
 
         $(".UmPagamento").val(valor_pendente);
 
+        if(valor_pendente == 0){
+            $(".formas_pagamento").css("display","none");
+        }else{
+            $(".formas_pagamento").css("display","block");
+        }
+
         $(".excluir_operacao").click(function(){
             content = $(this).attr("content");
             cod = $(this).attr("cod");
