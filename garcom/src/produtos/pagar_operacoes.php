@@ -80,7 +80,7 @@
 
         $(".UmPagamento").val(valor_pendente);
 
-        if(valor_pendente == 0){
+        if(soma_valores == 0){
             $(".formas_pagamento").css("display","none");
         }else{
             $(".formas_pagamento").css("display","block");
