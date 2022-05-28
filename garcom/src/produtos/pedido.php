@@ -378,8 +378,8 @@
                                                 local:'src/produtos/pedido.php',
                                             },
                                             success:function(dados){
-                                                mySocket.send(atualiza);
                                                 PageClose();
+                                                mySocket.send(atualiza);
                                                 $(".ms_corpo").append(dados);
                                             }
                                         });
