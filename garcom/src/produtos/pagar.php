@@ -207,7 +207,7 @@
                 $.alert('Favor definir a operação do pagamento!');
             }else if(valor_pendente == 0){
                 $.alert('Não existe valor pendente para pagamento!');
-            }else if(valor > valor_pendente){
+            }else if(int(valor) > int(valor_pendente)){
                 $.alert('O valor informado não pode ser maior que o valor pendente!');
             }else{
                 $.ajax({
