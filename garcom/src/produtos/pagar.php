@@ -83,6 +83,7 @@
                             </h5>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-12">
                             <h5 class="card-title">
@@ -91,6 +92,59 @@
                             </h5>
                         </div>
                     </div>
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="card-title">
+                                <small>Valor Pendente</small>
+                                <div class="valor_pendente" valor="<?=$d->total?>">R$ <?=number_format($d->total,2,',','.')?></div>
+                            </h5>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title">
+                                <small>Operação</small>
+                                <div>
+                                    <select class="operacao form-control form-control-sm">
+                                        <option value="">::Selecione::</option>
+                                <?php
+                                    $qf = "select * from pagamentos where deletado != '1'";
+                                    $rf = mysqli_query($con, $qf);
+                                    while($f = mysqli_fetch_object($rf)){
+                                ?>
+                                        <option value="<?=$f->pagamento?>"><?=strtoupper($f->pagamento)?></option>
+                                <?php
+                                    }
+                                ?>
+                                    </select>
+                                </div>
+                            </h5>
+                        </div>
+
+                        <div class="col">
+                            <h5 class="card-title">
+                                <small>Valor</small>
+                                <div>
+                                <input class="form-control form-control-sm UmPagamento" type="text" value="<?=$d->total?>">
+                                </div>
+                            </h5>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button
+                                type="button"
+                                class="adicionarPagamento btn btn-primary btn-sm btn-block"
+                            >Adicionar</button>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -101,7 +155,9 @@
         <div class="col-12">
             <div class="card bg-light mb-3">
                 <div class="card-header">Formas de Pagamento</div>
-                <div class="card-body">
+                <div pagar_operacoes class="card-body">
+
+
                     <h5 class="card-title">
                         <a pagar opc="dinheiro" class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Dinheiro</a>
                     </h5>
@@ -114,6 +170,7 @@
                     <h5 class="card-title">
                         <a pagar opc="credito" class="btn btn-success btn-lg"><i class="fa-solid fa-credit-card"></i> Crédito</a>
                     </h5>
+
                 </div>
             </div>
         </div>
@@ -133,23 +190,41 @@
 <script>
     $(function(){
 
-        $("a[pagar]").click(function(){
-            opc = $(this).attr("opc");
-            $.ajax({
-                url:"componentes/ms_popup_100.php",
-                type:"POST",
-                data:{
-                    //local:'src/produtos/pagar_'+opc+'.php',
-                    local:'src/produtos/informativo_pagamento.php',
-                    opc,
-                },
-                success:function(dados){
-                    //PageClose();
-                    $(".ms_corpo").append(dados);
-                }
-            });
+        $.ajax({
+            url:"src/produtos/pagar_operacoes.php",
+            success:function(dados){
+                $("div[pagar_operacoes]").html(dados);
+            }
         });
 
+        $(".adicionarPagamento").click(function(){
+
+            valor_pendente = $(".valor_pendente").attr('valor');
+            operacao = $(".operacao").val();
+            valor = $(".UmPagamento").val();
+
+            if(!operacao || !pagamento || valor_pendente){
+                $.alert('Favor definir a operação do pagamento!');
+            }else if(valor_pendente == 0){
+                $.alert('Não existe valor pendente para pagamento!');
+            }else if(valor > valor_pendente){
+                $.alert('O valor informado não pode ser maior que o valor pendente!');
+            }else{
+                $.ajax({
+                    url:"src/produtos/pagar_operacoes.php",
+                    type:"POST",
+                    data:{
+                        operacao,
+                        valor,
+                        acao:'nova_operacao'
+                    },
+                    success:function(dados){
+                        $("div[pagar_operacoes]").html(dados);
+                    }
+                });
+            }
+
+        });
 
     })
 </script>
