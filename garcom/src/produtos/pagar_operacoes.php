@@ -78,6 +78,8 @@
         $(".valor_pendente").attr("valor", valor_pendente);
         $(".valor_pendente").html(valor_pendente);
 
+        $(".UmPagamento").val(valor_pendente);
+
         $(".excluir_operacao").click(function(){
             content = $(this).attr("content");
             cod = $(this).attr("cod");
