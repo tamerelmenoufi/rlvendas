@@ -68,10 +68,12 @@
 <script>
     $(function(){
 
-        $(".adicionarPagamento").attr("soma_valores", '<?=$soma_valores?>');
+        valor_total = $(".valor_total").attr("valor");
+        soma_valores = '<?=$soma_valores?>';
+        valor_pendente = (valor_total - soma_valores);
 
-        $(".valor_pendente").attr("valor", '<?=$soma_valores?>');
-        $(".valor_pendente").html("R$ <?=number_format($soma_valores,2,',','.')?>");
+        $(".valor_pendente").attr("valor", valor_pendente);
+        $(".valor_pendente").html(valor_pendente);
 
         $(".excluir_operacao").click(function(){
             content = $(this).attr("content");

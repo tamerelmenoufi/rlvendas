@@ -79,7 +79,7 @@
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Valor</small>
-                                <div style="font-size:20px; color:green;">R$ <?=number_format($d->total,2,',','.')?></div>
+                                <div style="font-size:20px; color:green;" class="valor_total" valor="<?=$d->total?>">R$ <?=number_format($d->total,2,',','.')?></div>
                             </h5>
                         </div>
                     </div>
