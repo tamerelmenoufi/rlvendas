@@ -76,7 +76,7 @@
         valor_pendente = (valor_total - soma_valores);
 
         $(".valor_pendente").attr("valor", valor_pendente);
-        $(".valor_pendente").html(valor_pendente);
+        $(".valor_pendente").html(valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         $(".UmPagamento").val(valor_pendente);
 
