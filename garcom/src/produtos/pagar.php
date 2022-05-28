@@ -203,7 +203,7 @@
             operacao = $(".operacao").val();
             valor = $(".UmPagamento").val();
 
-            if(!operacao || !pagamento || valor_pendente){
+            if(!operacao || !valor || valor_pendente){
                 $.alert('Favor definir a operação do pagamento!');
             }else if(valor_pendente == 0){
                 $.alert('Não existe valor pendente para pagamento!');
