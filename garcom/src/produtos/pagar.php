@@ -57,6 +57,11 @@
     .icone{
         font-size:70px;
     }
+    .valor_pendente{
+        color:red;
+        font-size:14px;
+        cursor:pointer;
+    }
 
 </style>
 <div class="PedidoTopoTitulo">
@@ -195,6 +200,11 @@
             success:function(dados){
                 $("div[pagar_operacoes]").html(dados);
             }
+        });
+
+        $(".valor_pendente").click(function(){
+            valor = $(this).attr("valor");
+            $(".UmPagamento").val(valor);
         });
 
         $(".adicionarPagamento").click(function(){
