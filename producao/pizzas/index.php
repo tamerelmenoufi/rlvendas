@@ -66,7 +66,7 @@
                     <th>MESA</th>
                     <th>QUANTIDADE</th>
                     <th>PRODUTO</th>
-                    <th>AÇÃO X</th>
+                    <th>AÇÃO</th>
                 </tr>
             </thead>
 
