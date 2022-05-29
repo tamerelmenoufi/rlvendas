@@ -135,7 +135,7 @@ if ($codigo) {
 
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Perfil de Acesso</h3>
+                    <h4>Perfil de Acesso</h4>
                     <?php
                     $perfis = [
                         'ExcluirProduto' => 'Excluir Priduto em produção',
@@ -232,6 +232,15 @@ if ($codigo) {
 
             var codigo = $('#codigo').val();
             var dados = $(this).serializeArray();
+
+            perfil = [];
+            $("input[perfil]").each(function(){
+                perfil.push(perfil:$(this).attr("id"), valor:$(this).prop("checked"));
+            });
+
+            if(perfil){
+                dados.push({name: 'perfil', value: perfil})
+            }
 
             if (codigo) {
                 dados.push({name: 'codigo', value: codigo})
