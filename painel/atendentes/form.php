@@ -235,11 +235,11 @@ if ($codigo) {
 
             perfil = [];
             $("input[perfil]").each(function(){
-                perfil.push(perfil : $(this).attr("id"), valor : $(this).prop("checked"));
+                perfil.push(name : $(this).attr("id"), value : $(this).prop("checked"));
             });
 
             if(perfil){
-                // dados.push({name: 'perfil', value: perfil});
+                 dados.push({name: 'perfil', value: perfil});
             }
 
             if (codigo) {
