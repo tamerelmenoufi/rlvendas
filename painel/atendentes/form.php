@@ -235,7 +235,7 @@ if ($codigo) {
 
             perfil = [];
             $("input[perfil]").each(function(){
-                perfil.push(name : $(this).attr("id"), value : $(this).prop("checked"));
+                perfil.push({name: $(this).attr("id"), value: $(this).prop("checked")});
             });
 
             if(perfil){
