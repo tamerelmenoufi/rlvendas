@@ -20,6 +20,7 @@
         top:0px;
         bottom:0px;
         overflow:auto;
+        padding:5px;
     }
 
     /* .sanduiches{
