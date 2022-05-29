@@ -380,11 +380,12 @@
                                             success:function(dados){
                                                 PageClose();
                                                 $(".ms_corpo").append(dados);
-
+                                                mySocket.send(atualiza);
+                                                console.log(atualiza);
                                             }
                                         });
 
-                                        mySocket.send(atualiza);
+
 
                                     }
                                 }
