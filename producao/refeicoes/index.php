@@ -109,7 +109,7 @@
                 </div>
             </td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><?=$d->mesa?></label></td>
-            <td><label class="form-check-label <?=(($d->quantidade>1)?'text-red':false)?>" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
+            <td><label class="form-check-label <?=(($d->quantidade > 1)?'text-danger':false)?>" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
                 <?=$pedido->categoria->descricao?>
                 - <?=$pedido->medida->descricao?> (<?=$sabores?>)
