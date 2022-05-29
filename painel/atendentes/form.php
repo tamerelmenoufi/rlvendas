@@ -235,15 +235,15 @@ if ($codigo) {
 
             perfil = [];
             $("input[perfil]").each(function(){
-                perfil.push(perfil:$(this).attr("id"), valor:$(this).prop("checked"));
+                perfil.push(perfil : $(this).attr("id"), valor : $(this).prop("checked"));
             });
 
             if(perfil){
-                dados.push({name: 'perfil', value: perfil})
+                dados.push({name: 'perfil', value: perfil});
             }
 
             if (codigo) {
-                dados.push({name: 'codigo', value: codigo})
+                dados.push({name: 'codigo', value: codigo});
             }
 
             $.ajax({
