@@ -133,6 +133,28 @@ if ($codigo) {
                 >
             </div>
 
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Perfil de Acesso</h3>
+                    <?php
+                    $perfis = [
+                        'ExcluirProduto' => 'Excluir Priduto em produção',
+                    ];
+                    foreach($perfis as $indice => $valor){
+                    ?>
+                    <div class="form-group">
+                        <div class="form-check">
+                        <input perfil class="form-check-input" type="checkbox" value="" id="<?=$indice?>">
+                        <label class="form-check-label" for="<?=$indice?>">
+                            <?=$valor?>
+                        </label>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-md-6">
