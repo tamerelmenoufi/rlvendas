@@ -25,7 +25,7 @@
         if (mysqli_query($con, $query)) {
             echo json_encode([
                 "status" => "sucesso",
-                "venda" => base64_encode($codigo),
+                "venda" => base64_encode($codigos),
             ]);
         }
         mysqli_query($con, "update vendas set situacao = 'preparo' where codigo = '{$codigo}'");
