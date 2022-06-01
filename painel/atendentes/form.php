@@ -239,7 +239,7 @@ if ($codigo) {
             });
 
             if(perfil){
-                 dados.push({name: 'perfil', value: perfil});
+                 dados.push({name: 'perfil', value: JSON.stringify(perfil)});
             }
 
             if (codigo) {
