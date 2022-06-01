@@ -172,7 +172,7 @@
 
         ?>
         <div class="col-4">
-            <div <?=(($blq)?' acao="'.$d->mesa.'" ':false)?> cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=str_pad($d->mesa , 3 , '0' , STR_PAD_LEFT)?></div>
+            <div <?=(($blq)?false:' acao="'.$d->mesa.'" ')?> cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=str_pad($d->mesa , 3 , '0' , STR_PAD_LEFT)?></div>
         </div>
         <?php
             }
