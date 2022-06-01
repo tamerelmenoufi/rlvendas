@@ -63,7 +63,6 @@ if ($codigo) {
 
     $GetPerfis = json_decode($d->perfil);
 
-    var_dump($GetPerfis);
 }
 
 ?>
