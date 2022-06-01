@@ -161,7 +161,7 @@
                 }
 
 
-
+var_dump($_SESSION['AppPerfil']);
         ?>
         <div class="card bg-light mb-3" style="padding-bottom:40px;">
             <div class="card-body">
