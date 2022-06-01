@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo json_encode([
             'status' => false,
-            'msg' => 'Erro ao salvar '.$query,
+            'msg' => 'Erro ao salvar ',
             'codigo' => $codigo,
             'mysql_error' => mysqli_error($con),
         ]);
@@ -60,6 +60,8 @@ if ($codigo) {
     $query = "SELECT * FROM atendentes WHERE codigo = '{$codigo}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
+    $GetPerfis = json_decode($d->perfil);
 }
 
 ?>
@@ -144,7 +146,14 @@ if ($codigo) {
                     ?>
                     <div class="form-group">
                         <div class="form-check">
-                        <input perfil class="form-check-input" type="checkbox" value="" id="<?=$indice?>">
+                        <input
+                                perfil
+                                class="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="<?=$indice?>"
+                                <?=(($GetPerfis[$indice])?'checked':false)?>
+                        >
                         <label class="form-check-label" for="<?=$indice?>">
                             <?=$valor?>
                         </label>
