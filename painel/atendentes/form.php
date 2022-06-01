@@ -143,8 +143,6 @@ if ($codigo) {
                     <?php
                     $perfis = [
                         ['name' => 'ExcluirProduto', 'value' => 'Excluir Priduto em produção'],
-                        ['name' => 'ExcluirProduto1', 'value' => 'Excluir Priduto em produção 1'],
-                        ['name' => 'ExcluirProduto2', 'value' => 'Excluir Priduto em produção 2'],
                     ];
                     foreach($perfis as $indice => $valor){
                     ?>
