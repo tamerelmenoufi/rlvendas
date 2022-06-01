@@ -155,11 +155,11 @@ if ($codigo) {
                                 class="form-check-input"
                                 type="checkbox"
                                 value=""
-                                id="<?=$valor->name?>"
+                                id="<?=$valor['name']?>"
                                 <?=(($GetPerfis[$indice]->value)?'checked':false)?>
                         >
-                        <label class="form-check-label" for="<?=$valor->name?>">
-                            <?=$valor->value?>
+                        <label class="form-check-label" for="<?=$valor['name']?>">
+                            <?=$valor['value']?>
                         </label>
                         </div>
                     </div>
