@@ -68,12 +68,17 @@
     }
 
 
-    $query = "select a.*, (select count(*) from vendas_produtos where venda = a.codigo and deletado != '1') as produtos from vendas a where a.situacao not in ('pago', 'pagar') and a.deletado != '1'";
+    $query = "select a.*, (select count(*) from vendas_produtos where venda = a.codigo and deletado != '1') as produtos from vendas a where a.situacao not in ('pago') and a.deletado != '1'";
     $result = mysqli_query($con, $query);
     $Ocupadas = [];
     while($d = mysqli_fetch_object($result)){
         $Ocupadas[] = $d->mesa;
         $Produtos[$d->mesa] = $d->produtos;
+        if($d->situacao == 'pagar'){
+            $Pagar[$d->mesa] = true;
+        }else{
+            $Pagar[$d->mesa] = false;
+        }
     }
 
 
@@ -132,6 +137,10 @@
         background:blue;
         color:#fff;
     }
+    .Pagar{
+        background:orange;
+        color:#fff;
+    }
 </style>
 
 <div class="ClienteTopoTitulo">
@@ -148,7 +157,11 @@
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
-                if( $Produtos[$d->codigo]){
+                $blq = false;
+                if( $Pagar[$d->codigo]){
+                    $blq = true;
+                    $icone = 'Pagar';
+                }else if( $Produtos[$d->codigo]){
                     $icone = 'ComProdutos';
                 }else if(in_array($d->codigo, $Ocupadas)){
                     $icone = 'ocupada';
@@ -158,7 +171,7 @@
 
         ?>
         <div class="col-4">
-            <div acao="<?=$d->mesa?>" cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=str_pad($d->mesa , 3 , '0' , STR_PAD_LEFT)?></div>
+            <div <?=(($blq)?' acao="'.$d->mesa.'" ':false)?> cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=str_pad($d->mesa , 3 , '0' , STR_PAD_LEFT)?></div>
         </div>
         <?php
             }
