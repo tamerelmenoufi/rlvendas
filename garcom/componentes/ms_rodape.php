@@ -1,7 +1,7 @@
 <?php
     include("../../lib/includes.php");
 
-    if($_SESSION['AppCliente']) $c = mysqli_fetch_object(mysqli_query($con, "select * from clientes where codigo = '{$_SESSION['AppCliente']}'"));
+    if($_SESSION['AppGarcom']) $c = mysqli_fetch_object(mysqli_query($con, "select * from clientes where codigo = '{$_SESSION['AppGarcom']}'"));
     if($_SESSION['AppPedido']) $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}' AND deletado != '1'"));
 
 
@@ -20,11 +20,11 @@
         $(".acao").click(function(){
 
             AppPedido = window.localStorage.getItem('AppPedido');
-            AppCliente = window.localStorage.getItem('AppCliente');
+            AppGarcom = window.localStorage.getItem('AppGarcom');
             componente = $(this).attr("componente");
             local = $(this).attr("local");
 
-            if(AppCliente && local == 'src/mesas/home.php'){
+            if(AppGarcom && local == 'src/mesas/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
@@ -36,7 +36,7 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else if(!AppCliente && local == 'src/mesas/home.php'){
+            }else if(!AppGarcom && local == 'src/mesas/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
