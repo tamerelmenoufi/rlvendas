@@ -151,7 +151,7 @@
                 if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
 
-                if($d->situacao != 'n' and $_SESSION['AppPerfil']['ExcluirProduto']->value){
+                if($d->situacao != 'n' or $_SESSION['AppPerfil']['ExcluirProduto']->value){
                     $blq = 'display:none;';
                     $acao_cancelar = false;
 
