@@ -8,10 +8,12 @@
         if(mysqli_num_rows($result)){
             $d = mysqli_fetch_object($result);
             $_SESSION['AppGarcom'] = $d->codigo;
+            $_SESSION['AppPerfil'] = json_decode($d->perfil);
             $status = 'sucesso';
         }else{
             $status = 'erro';
             $_SESSION['AppGarcom'] = false;
+            $_SESSION['AppPerfil'] = false;
         }
 
         echo json_encode([

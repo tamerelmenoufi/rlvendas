@@ -151,7 +151,7 @@
                 if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
 
-                if($d->situacao != 'n'){
+                if($d->situacao != 'n' and $_SESSION['AppPerfil']['ExcluirProduto']->value){
                     $blq = 'display:none;';
                     $acao_cancelar = false;
 
@@ -166,7 +166,7 @@
         <div class="card bg-light mb-3" style="padding-bottom:40px;">
             <div class="card-body">
                 <p Excluirproduto codigo="<?=$d->codigo?>" produto="<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?> <?=$sabores?>" style="position:absolute; right:-10px; top:-10px; width:auto;">
-                    <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blqX?>"></i>
+                    <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blq?>"></i>
                 <p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
