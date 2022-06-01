@@ -142,10 +142,9 @@ if ($codigo) {
                     <h4>Perfil de Acesso</h4>
                     <?php
                     $perfis = [
-                        'ExcluirProduto' => 'Excluir Priduto em produção',
-                        'ExcluirProduto1' => 'Excluir Priduto em produção 1',
-                        'ExcluirProduto2' => 'Excluir Priduto em produção 2',
-
+                        ['name' => 'ExcluirProduto', 'value' => 'Excluir Priduto em produção'],
+                        ['name' => 'ExcluirProduto1', 'value' => 'Excluir Priduto em produção 1'],
+                        ['name' => 'ExcluirProduto2', 'value' => 'Excluir Priduto em produção 2'],
                     ];
                     foreach($perfis as $indice => $valor){
                     ?>
@@ -156,11 +155,11 @@ if ($codigo) {
                                 class="form-check-input"
                                 type="checkbox"
                                 value=""
-                                id="<?=$indice?>"
-                                <?=(($GetPerfis[$indice])?'checked':false)?>
+                                id="<?=$valor->name?>"
+                                <?=(($GetPerfis[$indice]->value)?'checked':false)?>
                         >
-                        <label class="form-check-label" for="<?=$indice?>">
-                            <?=$valor?>
+                        <label class="form-check-label" for="<?=$valor->name?>">
+                            <?=$valor->value?>
                         </label>
                         </div>
                     </div>
