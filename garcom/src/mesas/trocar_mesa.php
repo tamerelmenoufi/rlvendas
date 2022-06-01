@@ -6,6 +6,9 @@
         $query = "update vendas set mesa = '{$_POST['cod_mesa']}', alertas='Ocorreu alteração de mesa' where codigo = '{$_SESSION['AppVenda']}'";
         $result = mysqli_query($con, $query);
 
+        $query = "update vendas_produtos set mesa = '{$_POST['cod_mesa']}' where venda = '{$_SESSION['AppVenda']}'";
+        $result = mysqli_query($con, $query);
+
         $_SESSION['AppPedido'] = $_POST['cod_mesa'];
         echo json_encode([
             "status" => "sucesso",
