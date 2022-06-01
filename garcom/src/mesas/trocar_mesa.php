@@ -107,7 +107,6 @@
                 success:function(dados){
                     let retorno = JSON.parse(dados);
                     // window.localStorage.setItem('AppCliente', retorno.AppCliente);
-                    alert(retorno.AppPedido);
                     window.localStorage.setItem('AppPedido', retorno.AppPedido);
                     // window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
