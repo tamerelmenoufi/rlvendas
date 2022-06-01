@@ -18,7 +18,7 @@
         exit();
     }
 
-    $query = "select a.*, (select count(*) from vendas_produtos where venda = a.codigo and deletado != '1') as produtos from vendas a where a.situacao not in ('pago', 'pagar') and a.deletado != '1'";
+    $query = "select a.*, (select count(*) from vendas_produtos where venda = a.codigo and deletado != '1') as produtos from vendas a where a.situacao not in ('pago') and a.deletado != '1'";
     $result = mysqli_query($con, $query);
     $Ocupadas = [];
     while($d = mysqli_fetch_object($result)){
