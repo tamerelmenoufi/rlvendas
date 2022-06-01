@@ -74,6 +74,7 @@
     while($d = mysqli_fetch_object($result)){
         $Ocupadas[] = $d->mesa;
         $Produtos[$d->mesa] = $d->produtos;
+
         if($d->situacao == 'pagar'){
             $Pagar[$d->mesa] = true;
         }else{
