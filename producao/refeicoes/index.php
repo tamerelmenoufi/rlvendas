@@ -109,7 +109,18 @@
                     <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">
                 </div>
             </td>
-            <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><?=$d->mesa?></label></td>
+            <td>
+                <label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
+                    <?php
+                        if($d->alertas){
+                    ?>
+                    <i class="fa-solid fa-triangle-exclamation text-danger" title="<?=$d->alertas?>"></i>
+                    <?php
+                        }
+                    ?>
+                    <?=$d->mesa?>
+                </label>
+            </td>
             <td><label class="form-check-label <?=(($d->quantidade > 1)?'text-danger':false)?>" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
             <td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
                 <?=$pedido->categoria->descricao?>
