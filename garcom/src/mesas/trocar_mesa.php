@@ -3,7 +3,7 @@
 
     if($_POST['acao'] == 'trocar'){
 
-        $query = "update vendas set mesa = '{$_POST['cod_mesa']}' where codigo = '{$_SESSION['AppVenda']}'";
+        $query = "update vendas set mesa = '{$_POST['cod_mesa']}', alertas='Ocorreu alteração de mesa' where codigo = '{$_SESSION['AppVenda']}'";
         $result = mysqli_query($con, $query);
 
         $_SESSION['AppPedido'] = $_POST['cod_mesa'];
