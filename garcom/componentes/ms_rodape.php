@@ -23,6 +23,9 @@
             AppCliente = window.localStorage.getItem('AppCliente');
             componente = $(this).attr("componente");
             local = $(this).attr("local");
+
+            alert(AppPedido);
+
             if(AppCliente && local == 'src/mesas/home.php'){
                 Carregando();
                 $.ajax({
