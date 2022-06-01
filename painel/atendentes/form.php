@@ -62,6 +62,8 @@ if ($codigo) {
     $d = mysqli_fetch_object($result);
 
     $GetPerfis = json_decode($d->perfil);
+
+    var_dump($GetPerfis);
 }
 
 ?>
