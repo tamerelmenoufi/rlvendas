@@ -154,7 +154,7 @@
 <div class="row">
         <?php
 
-            $query = "select * from mesas where deletado != '1' and situacao != '0' and mesa <= 199 order by mesa";
+            $query = "select * from mesas where deletado != '1' and situacao != '0' /*and mesa <= 199*/ order by mesa";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
@@ -180,7 +180,7 @@
 
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
         <?php
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' order by mesa";
@@ -207,7 +207,7 @@
             }
         ?>
 
-    </div>
+    </div> -->
 
 </div>
 
