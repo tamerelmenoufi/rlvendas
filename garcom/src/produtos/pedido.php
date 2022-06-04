@@ -3,6 +3,16 @@
 
     VerificarVendaApp();
 
+    if($_SESSION['AppGarcom']){
+        $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";
+        $result = mysqli_query($con, $query);
+        $d = mysqli_fetch_object($result);
+        $_SESSION['AppPerfil'] = json_decode($d->perfil);
+    }
+
+
+
+
     if($_SESSION['AppPedido']){
         $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}'"));
     }
