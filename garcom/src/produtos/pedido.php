@@ -133,7 +133,7 @@
     .icone{
         font-size:70px;
     }
-    .p[Tempo]{
+    p[Tempo]{
         position:absolute;
         right:30px;
         top:5px;
