@@ -126,7 +126,7 @@ function CalcTempo($ini, $fim = false){
 
     if($minutos){
         // echo $minutos."min ";
-        printf( '%dmin', $minutos );
+        printf( '%dminX', $minutos );
     }
 
     // printf( '%d:%d', $diferenca/3600, $diferenca/60%60 );
