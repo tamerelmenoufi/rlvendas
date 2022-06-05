@@ -139,7 +139,7 @@
         top:5px;
         width:auto;
         font-size:11px;
-        color:orange;
+        color:red;
         font-weight:bold;
     }
 </style>
