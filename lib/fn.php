@@ -123,7 +123,7 @@ function CalcTempo($ini, $fim = false){
 
     if($horas){
         // echo $horas."h ";
-        printf( $dataIni.' - %dh ', $horas );
+        printf( '<small>'.$dataIni.'</small> - %dh ', $horas );
     }
 
     if($minutos){
