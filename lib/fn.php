@@ -106,7 +106,7 @@ function CalcTempo($ini, $fim = false){
 
     $fim = (($fim)?:date("Y-m-d H:i:s"));
     list($d1,$H1) = explode(" ",$ini);
-    list($d2,$H2) = explode("-",$fim);
+    list($d2,$H2) = explode(" ",$fim);
     list($a1, $m1, $d1) = explode("-",$d1);
     list($a2, $m2, $d2) = explode("-",$d2);
     list($h1, $i1, $s1) = explode(":",$H1);
