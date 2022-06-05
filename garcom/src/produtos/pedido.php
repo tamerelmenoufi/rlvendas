@@ -184,7 +184,7 @@
                 <p Excluirproduto codigo="<?=$d->codigo?>" produto="<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?> <?=$sabores?>" style="position:absolute; right:-10px; top:-10px; width:auto;">
                     <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blqc?>"></i>
                 <p>
-                <p Tempo style="position:absolute; right:100px; top:10px; width:auto;">
+                <p Tempo style="position:absolute; right:50px; top:5px; width:auto; font-size:10px; color:orange;">
                     1h 15min
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
