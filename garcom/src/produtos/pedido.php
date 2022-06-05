@@ -193,7 +193,7 @@
                     <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blqc?>"></i>
                 <p>
                 <p Tempo>
-                    <?=CalcTempo($d->data)?>
+                    <?=CalcTempo($d->data)?> - <?=$d->codigo.' - '.$d->data_concluido?>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
