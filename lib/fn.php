@@ -119,9 +119,11 @@ function CalcTempo($ini, $fim = false){
     $horas = ($diferenca/3600);
     $minutos = ($diferenca/60%60);
 
+    $dataIni = "{$d1}/{$m1}/{$a1} {$h1}:{$i}";
+
     if($horas){
         // echo $horas."h ";
-        printf( '%dh ', $horas );
+        printf( $dataIni.' - %dh ', $horas );
     }
 
     if($minutos){
