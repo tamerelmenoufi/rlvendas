@@ -55,7 +55,49 @@
     $valor_total = ($valor_total + $d->valor_total);
 
     }
+
+
+
+
+    $q = "select * from vendas_pagamento where venda = '{$_GET['cod']}' and deletado != '1'";
+    $r = mysqli_query($con, $q);
+
+    if(mysqli_num_rows($r)){
 ?>
+<tr>
+    <td colspan="4">
+        <h5>Esquema de pagamento</h5>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Operação</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        while($p = mysqli_fetch_object($r)){
+        ?>
+        <tr>
+            <td><?=$p->forma_pagamento?></td>
+            <td><?=$p->valor?></td>
+        </tr>
+        <?php
+            $soma_valores = ($soma_valores + $p->valor);
+        }
+        ?>
+        <tr>
+            <th align="right">TOTAL</th>
+            <th><?=number_format($soma_valores,2,',','.')?></th>
+        </tr>
+    </tbody>
+    </table>
+    </td>
+</tr>
+<?php
+    }
+?>
+
 </tbody>
 </table>
 
