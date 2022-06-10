@@ -22,6 +22,7 @@ $dados = json_decode($response);
 print_r($dados->data);
 
 echo "<h4>Clientes:</h4>";
+$qr = [];
 foreach($dados->data as $i => $v){
   echo "Cliente {$v->tipo} : {$v->external_id} - ".(($v->tipo == 'J')?$v->cnpj:$v->cpf)."<br><hr>";
 
