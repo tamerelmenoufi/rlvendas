@@ -24,4 +24,9 @@ print_r($dados->data);
 echo "<h4>Clientes:</h4>";
 foreach($dados->data as $i => $v){
   echo "Cliente {$v->tipo} : {$v->external_id} - ".(($v->tipo == 'J')?$v->cnpj:$v->cpf)."<br><hr>";
+
+  $qr[] = "INSERT INTO empresas SET id = '{$v->external_id}', tipo = '{$v->tipo}', doc = '{".(($v->tipo == 'J')?$v->cnpj:$v->cpf)."}';";
+
 }
+
+echo @implode("<br>", $qr);
