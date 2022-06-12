@@ -150,6 +150,7 @@
         font-size:11px;
         color:blue;
         font-weight:normal;
+        display:<?=(($_SESSION['AppGarcom'] == 3 or $_SESSION['AppGarcom'] == 10)?'block':'none')?>;
     }
 </style>
 <div class="PedidoTopoTitulo">
