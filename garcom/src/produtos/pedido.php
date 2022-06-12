@@ -145,7 +145,7 @@
     p[Garcom]{
         position:absolute;
         right:30px;
-        top:25px;
+        top:20px;
         width:auto;
         font-size:11px;
         color:blue;
