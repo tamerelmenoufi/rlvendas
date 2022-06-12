@@ -142,6 +142,15 @@
         color:red;
         font-weight:bold;
     }
+    p[Garcom]{
+        position:absolute;
+        right:30px;
+        top:25px;
+        width:auto;
+        font-size:11px;
+        color:blue;
+        font-weight:normal;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pedido Mesa <?=$m->mesa?></h4>
@@ -149,7 +158,11 @@
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
         <?php
-            $query = "select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1' order by codigo desc";
+            $query = "select a.*,
+                        b.nome as atendente
+                        from vendas_produtos a
+                        left join atendentes b on a.atendente = b.codigo
+                    where a.venda = '{$_SESSION['AppVenda']}' and a.deletado != '1' order by a.codigo desc";
             $result = mysqli_query($con, $query);
             $valor_total = 0;
             $n = mysqli_num_rows($result);
@@ -194,6 +207,9 @@
                 <p>
                 <p Tempo>
                     <?=CalcTempo($d->data)?>
+                </p>
+                <p Garcom>
+                    <?=$d->atendente?>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
