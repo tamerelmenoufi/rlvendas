@@ -3,7 +3,11 @@
 
     if($_POST['acao'] == 'nova_operacao'){
 
-        $query = "insert into vendas_pagamento set venda = '{$_SESSION['AppVenda']}', forma_pagamento = '{$_POST['operacao']}', valor = '{$_POST['valor']}'";
+        $query = "insert into vendas_pagamento set
+                                                venda = '{$_SESSION['AppVenda']}',
+                                                atendente = '{$_SESSION['AppGarcom']}',
+                                                forma_pagamento = '{$_POST['operacao']}',
+                                                valor = '{$_POST['valor']}'";
         mysqli_query($con, $query);
 
     }
