@@ -1,6 +1,10 @@
 <?php
 
     include("../../../lib/includes.php");
+
+    $mes = (($_GET['mes'])?:date("m"));
+    $ano = (($_GET['ano'])?:date("Y"));
+
 ?>
 
 <div class="row">
@@ -97,3 +101,38 @@
     </div>
 </div>
 
+<script>
+    $(function(){
+
+
+        $(document).on('click', '#OpMes, #OpAno', function (e) {
+            e.preventDefault();
+
+            var url = 'vendas/caixa.index.php';
+            var mes = $("#OpMes").val();
+            var ano = $("#OpAno").val();
+
+            $('.loading').fadeIn(200);
+
+            $.ajax({
+                url,
+                data:{
+                    mes,
+                    ano
+                }
+                success: function (data) {
+                    $('#palco').html(data);
+                }
+            })
+            .done(function () {
+                $('.loading').fadeOut(200);
+            })
+            .fail(function (error) {
+                alert('Error');
+                $('.loading').fadeOut(200);
+            })
+        });
+
+
+    })
+</script>
