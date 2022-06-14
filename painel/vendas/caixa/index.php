@@ -81,7 +81,7 @@
                         $r = mysqli_query($con, $q);
                         $d = mysqli_fetch_object($r);
                         echo "$linha ".$hoje;
-                        echo (($d->total > 0)?"<br>R$ ".number_format($d->total,2,",","."):false);
+                        echo (($d->total > 0)?"<div class='CaixaValor'>R$ ".number_format($d->total,2,",",".")."</div>":false);
 						echo "</td>";
 					    // Se Sábado desce uma linha
                         if (date('w',$d1) == 6) {
