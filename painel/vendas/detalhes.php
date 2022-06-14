@@ -59,7 +59,12 @@
 
 
 
-    $q = "select * from vendas_pagamento where venda = '{$_GET['cod']}' and deletado != '1'";
+    $q = "select
+                a.*,
+                b.nome as atendente
+            from vendas_pagamento a
+                left join atendentes b on a.atendente = b.codigo
+            where a.venda = '{$_GET['cod']}' and a.deletado != '1'";
     $r = mysqli_query($con, $q);
 
     if(mysqli_num_rows($r)){
@@ -70,6 +75,7 @@
     <table class="table">
     <thead>
         <tr>
+            <th>Atendente</th>
             <th>Operação</th>
             <th>Valor</th>
         </tr>
@@ -79,6 +85,7 @@
         while($p = mysqli_fetch_object($r)){
         ?>
         <tr>
+            <td><?=$p->atendente?></td>
             <td><?=$p->forma_pagamento?></td>
             <td><?=$p->valor?></td>
         </tr>
