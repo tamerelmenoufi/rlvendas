@@ -6,7 +6,17 @@
     $ano = (($_GET['ano'])?:date("Y"));
 
 ?>
+<style>
+    .CaixaValor{
+        background-color:blue;
+        color:#fff;
+        font-weight:bold;
+        font-size:10px;
+        padding:5px;
+        border-radius:3px;
 
+    }
+</style>
 <div class="row">
     <div class="col">
 
