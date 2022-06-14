@@ -106,7 +106,6 @@
 
 
         $('#OpMes, #OpAno').click(function () {
-            e.preventDefault();
 
             var url = 'vendas/caixa.index.php';
             var mes = $("#OpMes").val();
