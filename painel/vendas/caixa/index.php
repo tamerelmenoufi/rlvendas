@@ -105,7 +105,7 @@
     $(function(){
 
 
-        $(document).on('click', '#OpMes, #OpAno', function (e) {
+        $('#OpMes, #OpAno').on('click', function (e) {
             e.preventDefault();
 
             var url = 'vendas/caixa.index.php';
