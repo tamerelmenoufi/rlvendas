@@ -69,6 +69,7 @@
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=pagar">Pagar</a>
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=pago">Pago</a>
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=cancelados">Cancelados</a>
+                <a style="opacity:0" class="collapse-item" href="#" url="vendas/caixa/index.php">CAIXA</a>
             </div>
         </div>
     </li>
