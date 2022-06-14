@@ -94,11 +94,11 @@
 						if($d->total > 0){
                             echo '<div class="btn-group" role="group">
                                     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle btn-group-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    '.number_format($d->total,2,",",".").'
+                                    R$ '.number_format($d->total,2,",",".").'
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                        <a class="dropdown-item" href="#">'.number_format($d->total,2,",",".").'</a>
-                                        <a class="dropdown-item" href="#">'.number_format($d->total,2,",",".").'</a>
+                                        <a class="dropdown-item" href="#">R$ '.number_format($d->total,2,",",".").'</a>
+                                        <a class="dropdown-item" href="#">R$ '.number_format($d->total,2,",",".").'</a>
                                     </div>
                                 </div>';
                         }
