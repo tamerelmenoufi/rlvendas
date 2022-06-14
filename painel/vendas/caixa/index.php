@@ -119,7 +119,7 @@
                 data:{
                     mes,
                     ano
-                }
+                },
                 success: function (data) {
                     $('#palco').html(data);
                 }
