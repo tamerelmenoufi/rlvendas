@@ -15,7 +15,7 @@
   <table class='table' cellpadding="5" cellspacing="0" border="0" align="center">
       <tr>
           <td colspan="7" align="left" class="titulo">
-        Registro de envios em <select id="OpMes">
+        Fechamento de caixa em <select id="OpMes">
             <option value="">M&eacute;s</option>
             <?php
                 for($i=1;$i<=12;$i++){
@@ -77,9 +77,11 @@
 
 						echo "<td geral class='lista_agenda' valign='top' cel>";
 
-
+                        $q = "select sum(total) as total from vendas where data_finalizacao like '%{$ano}-{$w}-{$linha}%' and situacao = 'pago'";
+                        $r = mysqli_query($con, $q);
+                        $d = mysqli_fetch_object($r);
                         echo "$linha ".$hoje;
-
+                        echo "<br>({$d->total})";
 						echo "</td>";
 					    // Se Sábado desce uma linha
                         if (date('w',$d1) == 6) {
