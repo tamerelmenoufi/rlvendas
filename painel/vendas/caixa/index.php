@@ -14,7 +14,7 @@
         font-size:10px;
         padding:5px;
         border-radius:3px;
-
+        cursor:pointer;
     }
 </style>
 <div class="row">
