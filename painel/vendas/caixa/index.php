@@ -105,9 +105,9 @@
     $(function(){
 
 
-        $('#OpMes, #OpAno').click(function () {
+        $('#OpMes, #OpAno').change(function () {
 
-            var url = 'vendas/caixa.index.php';
+            var url = 'vendas/caixa/index.php';
             var mes = $("#OpMes").val();
             var ano = $("#OpAno").val();
 
