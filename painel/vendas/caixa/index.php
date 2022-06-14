@@ -11,7 +11,7 @@
         background-color:blue;
         color:#fff;
         font-weight:bold;
-        font-size:10px;
+        font-size:11px;
         padding:5px;
         border-radius:3px;
         cursor:pointer;
