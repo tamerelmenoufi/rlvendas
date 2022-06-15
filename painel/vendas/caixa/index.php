@@ -88,7 +88,7 @@
 						echo "<td geral class='lista_agenda' valign='top' cel>";
 
                         $q = "select
-                                    (select sum(total) as total from vendas where data_finalizacao like '%{$ano}-{$w}-{$linha}%' and situacao = 'pago') ";
+                                    (select sum(total) from vendas where data_finalizacao like '%{$ano}-{$w}-{$linha}%' and situacao = 'pago')  as total";
                         $r = mysqli_query($con, $q);
                         $d = mysqli_fetch_object($r);
                         echo "$linha ".$hoje;
