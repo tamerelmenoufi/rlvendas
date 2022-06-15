@@ -87,8 +87,14 @@
 
 						echo "<td geral class='lista_agenda' valign='top' cel>";
 
-                        $q = "select
-                                    (select sum(total) from vendas where data_finalizacao like '%{$ano}-{$w}-{$linha}%' and situacao = 'pago')  as total";
+                        $ini = "%".date("Y-m-d H:i:s", mktime(16, 0, 0, $mes, $dia, $ano))."%";
+                        $fim = "%".date("Y-m-d H:i:s", mktime(10, 0, 0, $mes, ($dia+1), $ano))."%";
+
+                        echo $q = "select
+                                    (select sum(total) from vendas where data_finalizacao like '%{$ano}-{$w}-{$linha}%' and situacao = 'pago')  as total,
+                                    (select sum(total) from vendas where (data_finalizacao between '%{$ano}-{$w}-{$linha} 09:59:59%' and '%{$ano}-{$w}-{$linha}  15:59:59%') and situacao = 'pago')  as turno1,
+                                    (select sum(total) from vendas where (data_finalizacao between '{$ini}' and '{$fim}') and situacao = 'pago')  as turno2
+                            ";
                         $r = mysqli_query($con, $q);
                         $d = mysqli_fetch_object($r);
                         echo "$linha ".$hoje;
