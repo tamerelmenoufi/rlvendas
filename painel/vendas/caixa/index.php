@@ -87,8 +87,8 @@
 
 						echo "<td geral class='lista_agenda' valign='top' cel>";
 
-                        $ini = date("Y-m-d H:i:s", mktime(16, 1, 0, $mes, $dia, $ano));
-                        $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, $mes, ($dia+1), $ano));
+                        $ini = date("Y-m-d H:i:s", mktime(16, 1, 0, $w, $linha, $ano));
+                        $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, $w, ($linha+1), $ano));
 
                         echo $q = "select
                                     (select sum(total) from vendas where (data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$fim}') and situacao = 'pago')  as total,
