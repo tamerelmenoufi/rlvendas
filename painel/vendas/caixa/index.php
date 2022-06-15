@@ -90,7 +90,7 @@
                         $ini = date("Y-m-d H:i:s", mktime(16, 1, 0, $w, $linha, $ano));
                         $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, $w, ($linha+1), $ano));
 
-                        echo $q = "select
+                        $q = "select
                                     (select sum(total) from vendas where (data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$fim}') and situacao = 'pago')  as total,
                                     (select sum(total) from vendas where (data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$ano}-{$w}-{$linha}  16:00:00') and situacao = 'pago')  as turno1,
                                     (select sum(total) from vendas where (data_finalizacao between '{$ini}' and '{$fim}') and situacao = 'pago')  as turno2
@@ -104,8 +104,8 @@
                                     R$ '.number_format($d->total,2,",",".").'
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                        <a class="dropdown-item" href="#">R$ '.number_format($d->total,2,",",".").'</a>
-                                        <a class="dropdown-item" href="#">R$ '.number_format($d->total,2,",",".").'</a>
+                                        <a class="dropdown-item" href="#">10:00 as 16:00 - R$ '.number_format($d->turno1,2,",",".").'</a>
+                                        <a class="dropdown-item" href="#">16:00 as 00:30 - R$ '.number_format($d->turno2,2,",",".").'</a>
                                     </div>
                                 </div>';
                         }
