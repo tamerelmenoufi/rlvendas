@@ -87,7 +87,7 @@
 
 						echo "<td geral class='lista_agenda' valign='top' cel>";
 
-                        $ini = date("Y-m-d H:i:s", mktime(16, 01, 00, $mes, $dia, $ano));
+                        $ini = date("Y-m-d H:i:s", mktime(15, 59, 59, $mes, $dia, $ano));
                         $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, $mes, ($dia+1), $ano));
 
                         echo $q = "select
