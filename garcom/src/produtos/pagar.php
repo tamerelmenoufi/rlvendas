@@ -274,7 +274,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
             pendente = $(".valor_pendente").attr("pendente");
             valor = $(this).val();
 
-            if(valor*1 < pendente*1){
+            if(valor*1 < 0){
                 $.alert('Valor do acrescimo não pode ser negativo!');
                 $('input[calc="acrescimo"]').val('0.00');
                 return false;
