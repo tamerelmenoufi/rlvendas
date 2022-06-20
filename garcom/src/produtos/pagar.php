@@ -100,6 +100,38 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" calc="TaxaServico">
+                                    <label class="form-check-label" for="exampleCheck1">Taxa de Serviço (Opcional)</label>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title">
+                                <small>Acréscimo</small>
+                                <div>
+                                    <input calc="Acrescimo" class="form-control form-control-sm " type="text" value="<?=$d->acrescimo?>">
+                                </div>
+                            </h5>
+                        </div>
+
+                        <div class="col">
+                            <h5 class="card-title">
+                                <small>Desconto</small>
+                                <div>
+                                    <input calc="Desconto" class="form-control form-control-sm " type="text" value="<?=$d->desconto?>">
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+
+
 
                     <div class="row">
                         <div class="col-12">
