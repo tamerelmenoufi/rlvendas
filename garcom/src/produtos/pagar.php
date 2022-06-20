@@ -263,10 +263,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
             }
             valor_pendente = (pendente*1 - valor*1);
 
-            $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
-            $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            // $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
+            // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
-            $(".UmPagamento").val(valor_pendente.toFixed(2));
+            // $(".UmPagamento").val(valor_pendente.toFixed(2));
 
         });
 
