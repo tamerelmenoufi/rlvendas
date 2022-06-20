@@ -261,13 +261,14 @@ where codigo = '{$_SESSION['AppVenda']}'";
         $('input[calc="desconto"]').blur(function(){
             pendente = $(".valor_pendente").attr("pendente");
             valor = $(this).val();
+            valor_oposto = $('input[calc="acrescimo"]').val();
 
             if(valor*1 > pendente*1){
                 $.alert('Valor do desconto não pode ser superior ao valor pendente!');
                 $('input[calc="desconto"]').val('0.00');
                 return false;
             }
-            valor_pendente = (pendente*1 - valor*1);
+            valor_pendente = (pendente*1 - valor*1 + valor_oposto*1);
 
             $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
             $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
@@ -292,13 +293,14 @@ where codigo = '{$_SESSION['AppVenda']}'";
         $('input[calc="acrescimo"]').blur(function(){
             pendente = $(".valor_pendente").attr("pendente");
             valor = $(this).val();
+            valor_oposto = $('input[calc="desconto"]').val();
 
             if(valor*1 < 0){
                 $.alert('Valor do acrescimo não pode ser negativo!');
                 $('input[calc="acrescimo"]').val('0.00');
                 return false;
             }
-            valor_pendente = (pendente*1 + valor*1);
+            valor_pendente = (pendente*1 + valor*1 - valor_oposto*1);
 
             $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
             $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
