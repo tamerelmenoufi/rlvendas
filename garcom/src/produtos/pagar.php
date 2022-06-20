@@ -98,7 +98,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Valor</small>
-                                <div style="font-size:20px; color:green;" class="valor_total" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div>
+                                <div style="font-size:20px; color:green;" class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div>
                             </h5>
                         </div>
                     </div>

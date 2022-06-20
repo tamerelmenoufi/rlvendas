@@ -75,7 +75,27 @@
 <script>
     $(function(){
 
-        valor_total = $(".valor_total").attr("valor");
+        valor = $(".valor").attr("valor");
+        $("input[calc]").each(function(){
+            tipo = $(this).attr("calc");
+            if(tipo == 'taxa'){
+                if($(this).prop("checked") == true){
+                    taxa = $(this).val();
+                }else{
+                    taxa = 0;
+                }
+            }
+            if(tipo == 'acrescimo'){
+                acrescimo = $(this).val();
+            }
+            if(tipo == 'desconto'){
+                desconto = $(this).val();
+            }
+        }).then(function(){
+            valor_total = (valor + taxa + acrecimo - desconto);
+        });
+
+
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
 
