@@ -2,7 +2,8 @@
     include("../../../lib/includes.php");
 
     if($_POST['acao'] == 'acrescimo' or $_POST['acao'] == 'desconto'){
-        mysqli_query($con, "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppPedido']}'");
+        echo $q = "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppPedido']}'";
+        mysqli_query($con, $q);
         exit();
     }
 
@@ -281,7 +282,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     valor
                 },
                 success:function(dados){
-
+                    $.alert(dados);
                 }
             });
 
@@ -312,7 +313,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     valor
                 },
                 success:function(dados){
-
+                    $.alert(dados);
                 }
             });
 
