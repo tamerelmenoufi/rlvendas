@@ -116,7 +116,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" calc="TaxaServico" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->taxa > 0)?'checked':false)?>>
-                                <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço (Opcional)</label>
+                                <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço <b><?=number_format($d->taxa, 2,',','.')?></b> (Opcional)</label>
                             </div>
                         </div>
                     </div>
