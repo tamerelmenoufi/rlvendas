@@ -78,7 +78,7 @@
         valor = $(".valor").attr("valor");
         $("input[calc]").each(function(){
             tipo = $(this).attr("calc");
-            if(tipo == 'taxa'){
+            if(tipo == 'TaxaServico'){
                 if($(this).prop("checked") == true){
                     taxa = $(this).val();
                 }else{
