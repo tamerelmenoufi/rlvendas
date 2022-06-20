@@ -282,7 +282,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     valor
                 },
                 success:function(dados){
-                    $(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
+                    //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
                 }
             });
 
@@ -313,7 +313,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     valor
                 },
                 success:function(dados){
-                    $(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
+                    //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
                 }
             });
 
