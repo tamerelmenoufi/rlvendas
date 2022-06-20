@@ -15,7 +15,18 @@
                     left join clientes b on a.cliente = b.codigo
                 where a.venda = '{$_SESSION['AppVenda']}' and a.deletado != '1'";
     $result = mysqli_query($con, $query);
+    $c = mysqli_fetch_object($result);
+
+    mysqli_query($con, "update vendas set
+                                        valor='{$c->total}',
+                                        taxa='".($c->total/100*10)."',
+                                        total= sum(".($c->total + ($c->total/100*10))." + acrescimo - desconto)
+                where codigo = '{$_SESSION['AppVenda']}'");
+
+    $query = "select * from vendas where codigo = '{$_SESSION['AppVenda']}' and a.deletado != '1'";
+    $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
 
     if(!$d->total) $_SESSION['AppCarrinho'] = false;
 
@@ -103,7 +114,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" calc="TaxaServico" id="MarcarTaxa">
+                                <input type="checkbox" class="form-check-input" calc="TaxaServico" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->taxa > 0)?'checked':false)?>>
                                 <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço (Opcional)</label>
                             </div>
                         </div>
@@ -114,7 +125,7 @@
                             <h5 class="card-title">
                                 <small>Acréscimo</small>
                                 <div>
-                                    <input calc="Acrescimo" class="form-control form-control-sm " type="text" value="<?=$d->acrescimo?>">
+                                    <input calc="Acrescimo" class="form-control form-control-sm money" type="text" value="<?=$d->acrescimo?>" data-thousands="" data-decimal=".">
                                 </div>
                             </h5>
                         </div>
@@ -123,7 +134,7 @@
                             <h5 class="card-title">
                                 <small>Desconto</small>
                                 <div>
-                                    <input calc="Desconto" class="form-control form-control-sm " type="text" value="<?=$d->desconto?>">
+                                    <input calc="Desconto" class="form-control form-control-sm money" type="text" value="<?=$d->desconto?>" data-thousands="" data-decimal=".">
                                 </div>
                             </h5>
                         </div>
@@ -226,6 +237,8 @@
 
 <script>
     $(function(){
+
+        $('.money').maskMoney();
 
         $.ajax({
             url:"src/produtos/pagar_operacoes.php",
