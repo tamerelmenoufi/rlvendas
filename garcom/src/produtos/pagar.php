@@ -151,7 +151,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-12">
                             <h5 class="card-title">
                                 <small>Valor Pendente</small>
-                                <div class="valor_pendente" valor=""></div>
+                                <div class="valor_pendente" pendente="" valor=""></div>
                             </h5>
                         </div>
                     </div>
@@ -253,7 +253,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
         });
 
         $('input[calc="desconto"]').blur(function(){
-            pendente = $(".valor_pendente").attr("valor");
+            pendente = $(".valor_pendente").attr("pendente");
             valor = $(this).val();
 
             if(valor*1 > pendente*1){
