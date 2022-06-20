@@ -1,6 +1,11 @@
 <?php
     include("../../../lib/includes.php");
 
+    if($_POST['acao'] == 'acrescimo' or $_POST['acao'] == 'desconto'){
+        mysqli_query($con, "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppPedido']}'");
+        exit();
+    }
+
     VerificarVendaApp();
 
     if($_SESSION['AppPedido']){
@@ -268,6 +273,19 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
             $(".UmPagamento").val(valor_pendente.toFixed(2));
 
+            $.ajax({
+                url:"src/produtos/pagar.php",
+                type:"POST",
+                data:{
+                    acao:"desconto",
+                    valor
+                },
+                success:function(dados){
+
+                }
+            });
+
+
         });
 
         $('input[calc="acrescimo"]').blur(function(){
@@ -285,6 +303,19 @@ where codigo = '{$_SESSION['AppVenda']}'";
             $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
             $(".UmPagamento").val(valor_pendente.toFixed(2));
+
+            $.ajax({
+                url:"src/produtos/pagar.php",
+                type:"POST",
+                data:{
+                    acao:"acrescimo",
+                    valor
+                },
+                success:function(dados){
+
+                }
+            });
+
 
         });
 
