@@ -102,12 +102,10 @@
 
                     <div class="row">
                         <div class="col">
-                            <h5 class="card-title">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" calc="TaxaServico">
-                                    <label class="form-check-label" for="exampleCheck1">Taxa de Serviço (Opcional)</label>
-                                </div>
-                            </h5>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" calc="TaxaServico" id="MarcarTaxa">
+                                <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço (Opcional)</label>
+                            </div>
                         </div>
                     </div>
 
