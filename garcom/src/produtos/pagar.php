@@ -2,7 +2,7 @@
     include("../../../lib/includes.php");
 
     if($_POST['acao'] == 'acrescimo' or $_POST['acao'] == 'desconto'){
-        echo $q = "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppPedido']}'";
+        echo $q = "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppVendas']}'";
         mysqli_query($con, $q);
         exit();
     }
@@ -10,7 +10,7 @@
     VerificarVendaApp();
 
     if($_SESSION['AppPedido']){
-        $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}'"));
+        $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppVendas']}'"));
     }
 
     $query = "select
