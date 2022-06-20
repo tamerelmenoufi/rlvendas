@@ -23,7 +23,7 @@
                                         total= sum(".($c->total + ($c->total/100*10))." + acrescimo - desconto)
                 where codigo = '{$_SESSION['AppVenda']}'");
 
-    $query = "select * from vendas where codigo = '{$_SESSION['AppVenda']}' and a.deletado != '1'";
+    $query = "select * from vendas where codigo = '{$_SESSION['AppVenda']}' and deletado != '1'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
