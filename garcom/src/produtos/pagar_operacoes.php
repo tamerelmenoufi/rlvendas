@@ -98,7 +98,7 @@
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
 
-        $(".valor_pendente").attr("valor", valor_pendente);
+        $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
         $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         $(".UmPagamento").val(valor_pendente.toFixed(2));
