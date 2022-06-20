@@ -126,7 +126,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <h5 class="card-title">
                                 <small>Acréscimo</small>
                                 <div>
-                                    <input calc="Acrescimo" class="form-control form-control-sm money" type="text" value="<?=$d->acrescimo?>" data-thousands="" data-decimal=".">
+                                    <input calc="acrescimo" class="form-control form-control-sm money" type="text" value="<?=$d->acrescimo?>" data-thousands="" data-decimal=".">
                                 </div>
                             </h5>
                         </div>
@@ -135,7 +135,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <h5 class="card-title">
                                 <small>Desconto</small>
                                 <div>
-                                    <input calc="Desconto" class="form-control form-control-sm money" type="text" value="<?=$d->desconto?>" data-thousands="" data-decimal=".">
+                                    <input calc="desconto" class="form-control form-control-sm money" type="text" value="<?=$d->desconto?>" data-thousands="" data-decimal=".">
                                 </div>
                             </h5>
                         </div>
