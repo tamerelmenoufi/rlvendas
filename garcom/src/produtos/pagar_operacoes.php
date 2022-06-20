@@ -91,10 +91,9 @@
             if(tipo == 'desconto'){
                 desconto = $(this).val();
             }
-        }).then(function(){
-            valor_total = (valor + taxa + acrecimo - desconto);
         });
 
+        valor_total = (valor + taxa + acrecimo - desconto);
 
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
