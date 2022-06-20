@@ -284,6 +284,20 @@ where codigo = '{$_SESSION['AppVenda']}'";
                 },
                 success:function(dados){
                     //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
+
+                    $.ajax({
+                        url:"src/produtos/pagar_operacoes.php",
+                        type:"POST",
+                        data:{
+                            cod,
+                            acao:'excluir_operacao'
+                        },
+                        success:function(dados){
+                            $("div[pagar_operacoes]").html(dados);
+                        }
+                    });
+
+
                 }
             });
 
@@ -316,6 +330,17 @@ where codigo = '{$_SESSION['AppVenda']}'";
                 },
                 success:function(dados){
                     //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
+                    $.ajax({
+                        url:"src/produtos/pagar_operacoes.php",
+                        type:"POST",
+                        data:{
+                            cod,
+                            acao:'excluir_operacao'
+                        },
+                        success:function(dados){
+                            $("div[pagar_operacoes]").html(dados);
+                        }
+                    });
                 }
             });
 
