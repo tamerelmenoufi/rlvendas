@@ -17,10 +17,10 @@
     $result = mysqli_query($con, $query);
     $c = mysqli_fetch_object($result);
 
-    echo $q = "update vendas set
+    $q = "update vendas set
     valor='{$c->total}',
     taxa='".($c->total/100*10)."',
-    total= sum(".($c->total + ($c->total/100*10))." + acrescimo - desconto)
+    total= (".($c->total + ($c->total/100*10))." + acrescimo - desconto)
 where codigo = '{$_SESSION['AppVenda']}'";
     mysqli_query($con, $q);
 
