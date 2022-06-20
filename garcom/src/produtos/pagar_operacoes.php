@@ -93,7 +93,7 @@
             }
         });
 
-        valor_total = (valor + taxa + acrecimo - desconto);
+        valor_total = (valor + taxa + acrescimo - desconto);
 
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
