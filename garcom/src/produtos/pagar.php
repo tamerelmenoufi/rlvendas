@@ -188,7 +188,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <h5 class="card-title">
                                 <small>Valor</small>
                                 <div>
-                                <input class="form-control form-control-sm UmPagamento" type="text" value="<?=$d->total?>">
+                                <input class="form-control form-control-sm UmPagamento money" type="text" value="<?=$d->total?>">
                                 </div>
                             </h5>
                         </div>
