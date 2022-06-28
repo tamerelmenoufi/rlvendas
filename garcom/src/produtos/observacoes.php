@@ -18,6 +18,17 @@
     $(function(){
         Carregando('none');
 
+        function AddKeyboard() {
+            windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
+            windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
+
+            if (windowWidth > 768) {
+                $('#observacoes').keyboard();
+            }
+        }
+
+        AddKeyboard();
+
         $("#observacoes").val($(".observacoes").html());
 
         $("#incluir_observacoes").click(function(){

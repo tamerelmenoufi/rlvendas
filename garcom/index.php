@@ -1,9 +1,9 @@
 <?php
-    include("../lib/includes.php");
-    if($_GET['s']) {
-        $_SESSION = [];
-        header("location:./");
-    }
+include("../lib/includes.php");
+if ($_GET['s']) {
+    $_SESSION = [];
+    header("location:./");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +34,8 @@
 <script src="<?= "js/wow.js"; ?>"></script>
 
 <script>
+
+
     $(function () {
 
         // <?php
@@ -74,9 +76,6 @@
     }
 
 
-
-
-
     // Socket Variable declaration
     var mySocket;
     // const socketMessageListener = (event) => {
@@ -88,25 +87,26 @@
 
     // Open
     const socketOpenListener = (event) => {
-    console.log('Connected');
+        console.log('Connected');
 
     };
 
     // Closed
     const socketCloseListener = (event) => {
-    if (mySocket) {
-        console.error('Disconnected.');
-    }
-    mySocket = new WebSocket('wss://websocket.yobom.com.br');
+        if (mySocket) {
+            console.error('Disconnected.');
+        }
+        mySocket = new WebSocket('wss://websocket.yobom.com.br');
 
-    input = document.querySelector('input');
-    output = document.querySelector('output');
+        input = document.querySelector('input');
+        output = document.querySelector('output');
 
-    mySocket.addEventListener('open', socketOpenListener);
-    //  mySocket.addEventListener('message', socketMessageListener);
-    mySocket.addEventListener('close', socketCloseListener);
+        mySocket.addEventListener('open', socketOpenListener);
+        //  mySocket.addEventListener('message', socketMessageListener);
+        mySocket.addEventListener('close', socketCloseListener);
 
     };
+
     socketCloseListener();
 
     // input.addEventListener('keypress', e => {
@@ -118,10 +118,6 @@
     //             input.value = '';
     //         }
     //     });
-
-
-
-
 
 
 </script>
