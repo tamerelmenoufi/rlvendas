@@ -75,6 +75,8 @@
 <script>
     $(function(){
 
+        Carregando('none');
+
         valor = $(".valor").attr("valor");
         $("input[calc]").each(function(){
             tipo = $(this).attr("calc");
