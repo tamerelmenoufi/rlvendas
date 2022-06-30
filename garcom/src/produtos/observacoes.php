@@ -25,5 +25,7 @@
             PageClose();
         });
 
+        $('#observacoes').keyboard();
+
     })
 </script>
