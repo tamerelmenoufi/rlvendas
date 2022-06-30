@@ -93,7 +93,10 @@ session_destroy();
                                         >
                                     </div>
                                     <div class="form-group">
-                                        <select id="terminal">
+                                        <select
+                                            id="terminal"
+                                            class="form-control form-control-user"
+                                        >
                                             <option value="terminal1">Terminal 1</option>
                                             <option value="terminal2">Terminal 2</option>
                                         </select>
