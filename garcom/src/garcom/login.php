@@ -52,7 +52,7 @@
         }
 
         $("#cpf").blur(function(){
-            $('#cpf').keyboard();
+            $("#cpf").mask("999.999.999-99");
         });
 
         $("button[AcessoGarcom]").click(function(){
