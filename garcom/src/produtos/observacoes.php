@@ -25,7 +25,9 @@
             PageClose();
         });
 
-        $('#observacoes').keyboard();
+        if(terminal){
+            $('#observacoes').keyboard();
+        }
 
     })
 </script>
