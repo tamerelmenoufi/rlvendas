@@ -255,7 +255,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
         });
 
         if(terminal){
-            $('.money').keyboard();
+            $('.money').keyboard({type:'numpad'});;
         }
 
 
