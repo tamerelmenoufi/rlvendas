@@ -298,10 +298,6 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     $.ajax({
                         url:"src/produtos/pagar_operacoes.php",
                         type:"POST",
-                        data:{
-                            cod,
-                            acao:'excluir_operacao'
-                        },
                         success:function(dados){
                             $("div[pagar_operacoes]").html(dados);
                         }
@@ -345,10 +341,6 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     $.ajax({
                         url:"src/produtos/pagar_operacoes.php",
                         type:"POST",
-                        data:{
-                            cod,
-                            acao:'excluir_operacao'
-                        },
                         success:function(dados){
                             $("div[pagar_operacoes]").html(dados);
                         },
