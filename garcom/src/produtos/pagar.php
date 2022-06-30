@@ -351,6 +351,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         },
                         success:function(dados){
                             $("div[pagar_operacoes]").html(dados);
+                        },
+                        error:function(){
+                            $.alert('Erro');
+                            Carregando('none');
                         }
                     });
                 }
