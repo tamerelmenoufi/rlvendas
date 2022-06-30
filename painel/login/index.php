@@ -96,9 +96,10 @@ session_destroy();
                                         <select
                                             id="terminal"
                                             class="form-control form-control-user"
+                                            placeholder="Caixa"
                                         >
-                                            <option value="terminal1">Terminal 1</option>
-                                            <option value="terminal2">Terminal 2</option>
+                                            <option value="terminal1">Caixa</option>
+                                            <option value="terminal2">Terminais</option>
                                         </select>
                                     </div>
                                     <button type="submit" class="btn btn-danger btn-user btn-block">
