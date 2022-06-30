@@ -267,7 +267,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
         });
 
         $('input[calc="desconto"]').blur(function(){
-            pendente = $(".valor_pendente").attr("pendente");
+            pendente = $(".valor_pendente").attr("valor");
             valor = $(this).val();
             valor_oposto = 0; //$('input[calc="acrescimo"]').val();
 
