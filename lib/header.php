@@ -18,3 +18,7 @@ $caminho_vendor = getUrl() . "lib/vendor";
         <link rel="stylesheet" href="<?= $caminho_vendor ?>/bootstrap4-toggle-3.6.1/bootstrap4-toggle.min.css">
 
         <link rel="stylesheet" href="<?= $caminho_vendor ?>/jkeyboard/css.css">
+
+
+        <link rel="stylesheet" href="<?= $caminho_vendor ?>/jqbtk/jqbtk.min.css" />
+        <script src="<?= $caminho_vendor ?>/jqbtk/jqbtk.min.js"></script>
