@@ -18,8 +18,6 @@
     $(function(){
         Carregando('none');
 
-        $('#observacoes').keyboard();
-
         $("#observacoes").val($(".observacoes").html());
 
         $("#incluir_observacoes").click(function(){
