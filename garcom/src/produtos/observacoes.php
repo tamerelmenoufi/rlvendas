@@ -1,7 +1,7 @@
 <?php
-    include("../../../lib/includes.php");
+include("../../../lib/includes.php");
 
-    VerificarVendaApp();
+VerificarVendaApp();
 ?>
 <div class="col">
     <div class="col">
@@ -15,23 +15,16 @@
 </div>
 
 <script>
-    $(function(){
+    $(function () {
         Carregando('none');
 
-        function AddKeyboard() {
-            windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
-            windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
-
-            if (windowWidth > 768) {
-                $('#observacoes').keyboard();
-            }
+        if (isDesktop) {
+            $('#observacoes').keyboard();
         }
-
-        AddKeyboard();
 
         $("#observacoes").val($(".observacoes").html());
 
-        $("#incluir_observacoes").click(function(){
+        $("#incluir_observacoes").click(function () {
             $(".observacoes").html($("#observacoes").val());
             PageClose();
         });

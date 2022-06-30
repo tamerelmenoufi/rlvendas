@@ -71,26 +71,18 @@ if ($_POST['cpf'] and $_POST['senha']) {
 
 <script>
     $(function () {
+        $("#cpf").mask("999.999.999-99");
 
-        function AddKeyboard() {
-            windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
-            windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
+        if (isDesktop) {
+            $('#cpf').keyboard({
+                layout: [
+                    [['1'], ['2'], ['3'], ['4'], ['5'], ['6'], ['7'], ['8'], ['9'], ['0'], ['del']],
+                ]
+            });
 
-            if (windowWidth > 768) {
-                $('#cpf').keyboard({
-                    layout: [
-                        [[1], [2], [3], [4], [5], [6], [7], [8], [9], [0], ['del', 'del']],
-                        [['.'], ['space', 'space'], ['-']]
-                    ]
-                });
-                $('#senha').keyboard();
-            } else {
-                $("#cpf").mask("999.999.999-99");
-            }
+            $('#senha').keyboard();
         }
 
-        AddKeyboard();
-        //$("#cpf").mask("999.999.999-99");
 
         $("button[AcessoGarcom]").click(function () {
             cpf = $("#cpf").val();

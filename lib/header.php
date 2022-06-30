@@ -17,9 +17,12 @@ $caminho_vendor = getUrl() . "lib/vendor";
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/bootstrap-fileinput/css/fileinput.min.css">
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/bootstrap4-toggle-3.6.1/bootstrap4-toggle.min.css">
 
+<script src="<?= "{$caminho_vendor}/jquery/jquery.min.js"; ?>"></script>
+<script src="<?= "{$caminho_vendor}/bootstrap4/js/bootstrap.bundle.min.js"; ?>"></script>
+
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/jkeyboard/css.css">
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/jqbtk/jqbtk.min.css">
-
+<script src="<?= "{$caminho_vendor}/jqbtk/jqbtk.js"; ?>"></script>
 <style>
     .jqbtk-container .btn {
         border: 1px solid #999999;

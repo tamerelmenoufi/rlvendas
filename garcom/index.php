@@ -17,7 +17,12 @@ if ($_GET['s']) {
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/app.css">
 
+    <script>
+        windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
+        windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
 
+        isDesktop = windowWidth > 768;
+    </script>
 </head>
 <body>
 <div class="Carregando">

@@ -2,8 +2,6 @@
 $caminho_vendor = getUrl() . "lib/vendor";
 ?>
 
-<script src="<?= "{$caminho_vendor}/jquery/jquery.min.js"; ?>"></script>
-<script src="<?= "{$caminho_vendor}/bootstrap4/js/bootstrap.bundle.min.js"; ?>"></script>
 <script src="<?= "{$caminho_vendor}/bootstrap-select/js/bootstrap-select.min.js"; ?>"></script>
 <script src="<?= "{$caminho_vendor}/bootstrap-select/js/i18n/defaults-pt_BR.min.js"; ?>"></script>
 <script src="<?= "{$caminho_vendor}/jquery-ui/js/jquery-ui.min.js"; ?>"></script>
@@ -25,4 +23,3 @@ $caminho_vendor = getUrl() . "lib/vendor";
 <script src="<?= "{$caminho_vendor}/bootstrap4-toggle-3.6.1/bootstrap4-toggle.min.js"; ?>"></script>
 <script src="<?= "{$caminho_vendor}/jkeyboard/js.js"; ?>"></script>
 <script src="<?= "{$caminho_vendor}/jquery-maskmoney/jquery.maskMoney.min.js"; ?>"></script>
-<script src="<?= "{$caminho_vendor}/jqbtk/jqbtk.min.js"; ?>"></script>
