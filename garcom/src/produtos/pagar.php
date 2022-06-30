@@ -251,6 +251,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
         $('.money').maskMoney();
 
+        if (isDesktop) {
+            $('input').keyboard();
+        }
+
         $.ajax({
             url:"src/produtos/pagar_operacoes.php",
             success:function(dados){
