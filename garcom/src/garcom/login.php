@@ -51,10 +51,6 @@
             $('#senha').keyboard();
         }
 
-        $(document).click(function(){
-            $("#cpf").mask("999.999.999-99");
-        });
-
         $("button[AcessoGarcom]").click(function(){
             cpf = $("#cpf").val();
             senha = $("#senha").val();
