@@ -33,7 +33,7 @@
         <input style="text-align:center" type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="cpf">
     </div>
     <div class="col-12 mb-3">
-    <label for="cpf">Informe sua senha</label>
+    <label for="senha">Informe sua senha</label>
         <input style="text-align:center" type="password" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="senha">
     </div>
     <div class="col-12">
@@ -45,6 +45,11 @@
     $(function(){
 
         $("#cpf").mask("999.999.999-99");
+
+        if(terminal){
+            $('#cpf').keyboard();
+            $('#senha').keyboard();
+        }
 
         $("button[AcessoGarcom]").click(function(){
             cpf = $("#cpf").val();
