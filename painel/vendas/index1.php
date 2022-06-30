@@ -123,9 +123,23 @@ $result = mysqli_query($con, $query);
                                 <i class="fa-solid fa-print"></i>
                             </button> -->
 
-                            <button print2="<?=$d->codigo?>" class="btn btn-success">
+                            <!-- <button print2="<?=$d->codigo?>" class="btn btn-success">
                                 <i class="fa-solid fa-print"></i>
-                            </button>
+                            </button> -->
+
+
+                            <div class="btn-group" role="group">
+                                <!-- <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle btn-group-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                R$ '.number_format($d->total,2,",",".").'
+                                </button> -->
+                                <button id="btnGroupDrop1" class="btn btn-success dropdown-toggle btn-group-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid fa-print"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a print2="<?=$d->codigo?>" local="terminal1" class="dropdown-item" href="#">Caixa</a>
+                                    <a print2="<?=$d->codigo?>" local="terminal2" class="dropdown-item" href="#">Terminais</a>
+                                </div>
+                            </div>
 
 
                         </td>
@@ -240,6 +254,26 @@ $result = mysqli_query($con, $query);
             });
 
         });
+
+
+        $("a[print2]").click(function(){
+
+            terminal = $(this).attr("local");
+            cod = $(this).attr("print2");
+            $.ajax({
+                url:"vendas/print-2.php",
+                type:"POST",
+                data:{
+                    cod,
+                    terminal
+                },
+                success:function(dados){
+                    //alert('x');
+                }
+            });
+
+        });
+
 
     });
 </script>
