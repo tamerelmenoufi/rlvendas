@@ -20,5 +20,5 @@ $caminho_vendor = getUrl() . "lib/vendor";
         <link rel="stylesheet" href="<?= $caminho_vendor ?>/jkeyboard/css.css">
 
 
-        <link rel="stylesheet" href="<?= $caminho_vendor ?>/jqbtk/jqbtk.min.css" />
-        <script src="<?= $caminho_vendor ?>/jqbtk/jqbtk.min.js"></script>
+        <link rel="stylesheet" href="<?= $caminho_vendor ?>/keyboard/keyboard.min.css" />
+        <script src="<?= $caminho_vendor ?>/keyboard/keyboard.min.js"></script>
