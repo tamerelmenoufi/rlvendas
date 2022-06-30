@@ -250,7 +250,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
     $(function(){
 
         $('.money').maskMoney();
-
+        $('.money').click(function(){
+            $(this).val('0.00');
+        });
 
         if(terminal){
             $('.money').keyboard();
