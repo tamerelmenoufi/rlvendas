@@ -225,12 +225,14 @@ $result = mysqli_query($con, $query);
 
         $("button[print2]").click(function(){
 
+            terminal = window.localStorage.getItem('AppTerminal');
             cod = $(this).attr("print2");
             $.ajax({
                 url:"vendas/print-2.php",
                 type:"POST",
                 data:{
                     cod,
+                    terminal
                 },
                 success:function(dados){
                     //alert('x');

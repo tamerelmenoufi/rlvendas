@@ -62,6 +62,6 @@
 
     //$retorno = GerarPrint($retorno);
 
-    file_put_contents("print/terminal1.txt", $retorno);
+    file_put_contents("print/{$_POST['terminal']}.txt", $retorno);
 
 ?>
