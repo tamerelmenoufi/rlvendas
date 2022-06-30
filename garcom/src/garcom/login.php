@@ -51,6 +51,10 @@
             $('#senha').keyboard();
         }
 
+        $("#cpf").blur(function(){
+            $('#cpf').keyboard();
+        });
+
         $("button[AcessoGarcom]").click(function(){
             cpf = $("#cpf").val();
             senha = $("#senha").val();
