@@ -181,8 +181,8 @@ RenovaSessao = () =>{
   || navigator.userAgent.match(/BlackBerry/i)
   || navigator.userAgent.match(/Windows Phone/i)
   ){
-     terminal = true;
+     terminal = false;
    }
   else {
-    terminal = false;
+    terminal = true;
    }
