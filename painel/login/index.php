@@ -92,7 +92,12 @@ session_destroy();
                                                 placeholder="senha"
                                         >
                                     </div>
-
+                                    <div class="form-group">
+                                        <select id="terminal">
+                                            <option value="terminal1">Terminal 1</option>
+                                            <option value="terminal2">Terminal 2</option>
+                                        </select>
+                                    </div>
                                     <button type="submit" class="btn btn-danger btn-user btn-block">
                                         Entrar
                                     </button>
@@ -122,8 +127,19 @@ session_destroy();
 
 <script>
     $(function () {
+
+        Terminal = window.localStorage.getItem('AppTerminal');
+
+        if(Terminal != null && Terminal != undefined && Terminal){
+            $("#terminal").val(Terminal);
+        }
+
+
         $("#form-login").submit(function (e) {
             e.preventDefault();
+
+            var terminal = $("#terminal").val();
+            window.localStorage.setItem('AppTerminal', terminal);
 
             $.ajax({
                 url: 'index.php',
