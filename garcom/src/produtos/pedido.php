@@ -283,7 +283,7 @@
             <i class="fa-solid fa-trash-can"></i>
             </button>
         </div>
-        <div class="col-3 PedidoBottomItens">
+        <div class="col-2 PedidoBottomItens">
             <button
                 confirmar_pedido
                 class="btn btn-primary"
@@ -292,7 +292,7 @@
                 ok
             </button>
         </div>
-        <div class="col-3 PedidoBottomItens">
+        <div class="col-2 PedidoBottomItens">
             <button
                 print_pedido
                 class="btn btn-warning"
@@ -302,7 +302,7 @@
                 <i class="fa-solid fa-print"></i>
             </button>
         </div>
-        <div class="col-3 PedidoBottomItens">
+        <div class="col-5 PedidoBottomItens">
             <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
     </div>
