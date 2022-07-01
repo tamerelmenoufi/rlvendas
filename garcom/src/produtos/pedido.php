@@ -292,6 +292,16 @@
                 ok
             </button>
         </div>
+        <div class="col-3 PedidoBottomItens">
+            <button
+                print_pedido
+                class="btn btn-warning"
+                style="opacity:0.3"
+                <?=((!$valor_total)?'disabled':false)?>
+            >
+                <i class="fa-solid fa-print"></i>
+            </button>
+        </div>
         <div class="col-6 PedidoBottomItens">
             <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
