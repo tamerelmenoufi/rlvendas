@@ -302,7 +302,7 @@
                 <i class="fa-solid fa-print"></i>
             </button>
         </div>
-        <div class="col-6 PedidoBottomItensX">
+        <div class="col-3 PedidoBottomItensX">
             <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
     </div>
