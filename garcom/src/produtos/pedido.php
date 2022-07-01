@@ -576,6 +576,22 @@
 
 
 
+        $("button[print_pedido]").click(function(){
+            $.confirm({
+                content:"Confirma a Impressão da comanda?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
+
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            })
+        });
+
+
 
     })
 </script>
