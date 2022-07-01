@@ -297,7 +297,6 @@
             <button
                 print_pedido
                 class="btn btn-warning btn-block"
-                style="opacity:0.3"
                 <?=((!$valor_total)?'disabled':false)?>
             >
                 <i class="fa-solid fa-print"></i>
