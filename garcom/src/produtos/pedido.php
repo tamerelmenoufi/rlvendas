@@ -582,7 +582,14 @@
                 title:false,
                 buttons:{
                     'SIM':function(){
-
+                        Carregando();
+                        $.ajax({
+                            url:"src/produtos/print.php",
+                            success:function(dados){
+                                $.alert('Comanda enviada para impressão!');
+                                Carregando('none');
+                            }
+                        });
                     },
                     'NÃO':function(){
 

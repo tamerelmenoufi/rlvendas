@@ -1,20 +1,24 @@
 <?php
 
-$dadosParaEnviar = http_build_query(
-    array(
-        'cod' => $_POST['cod'],
-        'terminal' => 'terminal2'
-    )
-);
+include("../../../lib/includes.php");
 
-$opcoes = array('http' =>
-       array(
-        'method'  => 'POST',
-        'header'  => 'Content-Type: application/x-www-form-urlencoded',
-        'content' => $dadosParaEnviar
-    )
-);
+if($_SESSION['AppVenda']){
+    $dadosParaEnviar = http_build_query(
+        array(
+            'cod' => $_SESSION['AppVenda'],
+            'terminal' => 'terminal2'
+        )
+    );
 
-$contexto = stream_context_create($opcoes);
+    $opcoes = array('http' =>
+        array(
+            'method'  => 'POST',
+            'header'  => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => $dadosParaEnviar
+        )
+    );
 
-$result   = file_get_contents('https://yobom.com.br/rlvendas/painel/vendas/print-2.php', false, $contexto);
+    $contexto = stream_context_create($opcoes);
+
+    $result   = file_get_contents('https://yobom.com.br/rlvendas/painel/vendas/print-2.php', false, $contexto);
+}
