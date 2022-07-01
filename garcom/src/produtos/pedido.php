@@ -292,11 +292,11 @@
                 ok
             </button>
         </div>
-        <div class="col-2 PedidoBottomItens">
+        <div class="col-2">
             <button
                 print_pedido
                 class="btn btn-warning"
-                style="opacity:0.3"
+                style="opacity:0.3 width:100%;"
                 <?=((!$valor_total)?'disabled':false)?>
             >
                 <i class="fa-solid fa-print"></i>
