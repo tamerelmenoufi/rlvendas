@@ -274,36 +274,36 @@
 
 <div class="PedidoBottomFixo">
     <div class="row">
-        <div class="col-3 PedidoBottomItens">
+        <div class="col-3">
             <button
-                class="btn btn-danger"
+                class="btn btn-danger btn-block"
                 ExcluirPedido
                 style="<?=((!$acao_cancelar)?'display:none;':false)?>"
             >
             <i class="fa-solid fa-trash-can"></i>
             </button>
         </div>
-        <div class="col-2 PedidoBottomItens">
+        <div class="col-2">
             <button
                 confirmar_pedido
-                class="btn btn-primary"
+                class="btn btn-primary btn-block"
                 style="<?=((!$acao_preparar)?'display:none;':false)?>"
             >
                 ok
             </button>
         </div>
-        <div class="col-3 PedidoBottomItens">
+        <div class="col-2">
             <button
                 print_pedido
-                class="btn btn-warning"
+                class="btn btn-warning btn-block"
                 style="opacity:0.3"
                 <?=((!$valor_total)?'disabled':false)?>
             >
                 <i class="fa-solid fa-print"></i>
             </button>
         </div>
-        <div class="col-4 PedidoBottomItens">
-            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
+        <div class="col-5">
+            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
     </div>
 </div>
