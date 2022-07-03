@@ -23,14 +23,14 @@
 </div>
 
 <div class="col">
-    <div class="row">
+    <div class="row mb-3">
         <div class="col">
-            <div acao="terminal1" class="btn btn-success">Caixa</div>
+            <div acao="terminal1" class="btn btn-success btn-block">Caixa</div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <div class="col">
-            <div acao="terminal2" class="btn btn-success">Terminal</div>
+            <div acao="terminal2" class="btn btn-success btn-block">Terminal</div>
         </div>
     </div>
 </div>
