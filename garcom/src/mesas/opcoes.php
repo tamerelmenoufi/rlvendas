@@ -35,7 +35,11 @@
 
         Carregando('none');
         impressora = window.localStorage.getItem('AppImpressora');
-        $("span[impressora_padrao]").html(impressora);
+        tipo_impressora = [];
+        tipo_impressora['terminal1'] = 'Caixa';
+        tipo_impressora['terminal2'] = 'Terminais';
+
+        $("span[impressora_padrao]").html(tipo_impressora[impressora]);
 
         $("button[acao]").click(function(){
             local = $(this).attr("opc");
