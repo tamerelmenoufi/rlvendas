@@ -2,11 +2,16 @@
 
 include("../../../lib/includes.php");
 
+$local = [
+    'terminal1' => '1',
+    'terminal2' => '2',
+];
+
 if($_SESSION['AppVenda']){
     $dadosParaEnviar = http_build_query(
         array(
             'cod' => $_SESSION['AppVenda'],
-            'terminal' => 'terminal2'
+            'terminal' => $_POST['impressora']
         )
     );
 
@@ -20,5 +25,5 @@ if($_SESSION['AppVenda']){
 
     $contexto = stream_context_create($opcoes);
 
-    $result   = file_get_contents('https://yobom.com.br/rlvendas/painel/vendas/print-2.php', false, $contexto);
+    $result   = file_get_contents('https://yobom.com.br/rlvendas/painel/vendas/print-'.$local[$_POST['impressora']].'.php', false, $contexto);
 }

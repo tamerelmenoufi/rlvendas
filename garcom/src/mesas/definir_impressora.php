@@ -13,7 +13,9 @@
         padding-top:15px;
         z-index:1;
     }
-
+    .esquerda{
+        text-align:left;
+    }
 </style>
 
 <div class="PrintTopoTitulo">
@@ -25,12 +27,12 @@
 <div class="col">
     <div class="row mb-3">
         <div class="col">
-            <div acao="terminal1" class="btn btn-success btn-block">Caixa</div>
+            <div acao="terminal1" class="btn btn-success btn-block esquerda"><i class="fa-solid fa-print"></i> Caixa</div>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col">
-            <div acao="terminal2" class="btn btn-success btn-block">Terminal</div>
+            <div acao="terminal2" class="btn btn-success btn-block esquerda"><i class="fa-solid fa-print"></i> Terminal</div>
         </div>
     </div>
 </div>

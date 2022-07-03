@@ -35,6 +35,11 @@
 
         Carregando('none');
         impressora = window.localStorage.getItem('AppImpressora');
+
+        if(impressora == null || impressora == undefined || !impressora){
+            impressora = 'terminal2';
+        }
+
         tipo_impressora = [];
         tipo_impressora['terminal1'] = 'Caixa';
         tipo_impressora['terminal2'] = 'Terminais';

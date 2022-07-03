@@ -582,8 +582,13 @@
                 buttons:{
                     'SIM':function(){
                         Carregando();
+                        impressora = window.localStorage.getItem('AppImpressora');
                         $.ajax({
                             url:"src/produtos/print.php",
+                            type:"POST",
+                            data:{
+                                impressora
+                            },
                             success:function(dados){
                                 $.alert('Comanda enviada para impressão!');
                                 Carregando('none');
