@@ -21,6 +21,9 @@
         <button acao opc="trocar_mesa" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-user-pen"></i> Trocar de Mesa
         </button>
+        <button acao opc="definir_impressora" class="btn btn-success btn-lg btn-block">
+            <i class="fa-solid fa-user-pen"></i> <span impressora_padrao></span>
+        </button>
         <button class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-bell-concierge"></i> Incluir Comandas
         </button>
@@ -31,6 +34,9 @@
     $(function(){
 
         Carregando('none');
+        impressora = window.localStorage.getItem('AppImpressora');
+        $("span[impressora_padrao]").html(impressora);
+
         $("button[acao]").click(function(){
             local = $(this).attr("opc");
             Carregando();
