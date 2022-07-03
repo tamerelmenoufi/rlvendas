@@ -22,7 +22,7 @@
             <i class="fa-solid fa-user-pen"></i> Trocar de Mesa
         </button>
         <button acao opc="definir_impressora" class="btn btn-success btn-lg btn-block">
-            <i class="fa-solid fa-print"></i>Impressora <span impressora_padrao></span>
+            <i class="fa-solid fa-print"></i> Impressora <span impressora_padrao></span>
         </button>
         <button class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-bell-concierge"></i> Incluir Comandas
