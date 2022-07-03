@@ -42,7 +42,7 @@
             print = $(this).attr("acao");
             window.localStorage.setItem('AppImpressora', print);
             print_html = tipo_impressora[print]
-            $.alert(`Impressora padrão definida: ${print_html}`);
+            $.alert(`Impressora padrão definida: <b>${print_html}</b>`);
             PageClose(2);
         });
     })
