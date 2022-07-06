@@ -18,7 +18,8 @@
 
         echo json_encode([
             "AppGarcom" => $_SESSION['AppGarcom'],
-            "status" => $status
+            "status" => $status,
+            "query" => $query,
         ]);
 
         exit();

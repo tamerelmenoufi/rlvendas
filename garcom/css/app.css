@@ -40,9 +40,6 @@ body{
     animation: loading 2s linear infinite;
 }
 
-.jqbtk-container .btn {
-    border: 1px solid #999999;
-}
 
 @keyframes loading {
 	0% {

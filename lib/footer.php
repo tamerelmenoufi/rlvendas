@@ -27,4 +27,4 @@
     <script src="<?= "{$caminho_vendor}/jquery-maskmoney/jquery.maskMoney.min.js"; ?>" ></script>
 
 
-    <script src="<?= $caminho_vendor ?>/keyboard/keyboard.min.js"></script>
+    <script src="<?= $caminho_vendor ?>/keyboard/keyboard.js"></script>
