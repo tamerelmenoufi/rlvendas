@@ -66,7 +66,7 @@ session_destroy();
                     <div class="row">
                         <div class="col-lg-6 d-none d-lg-block bg-login-imagem"></div>
                         <div class="col-lg-6">
-                            <div class="p-5">
+                            <div class="py-5 px-lg-5 px-3">
                                 <div class="text-center">
                                     <h1 class="h4 font-weight-bold mb-4 text-danger">Painel de Controle</h1>
                                 </div>
@@ -94,9 +94,9 @@ session_destroy();
                                     </div>
                                     <div class="form-group">
                                         <select
-                                            id="terminal"
-                                            class="form-control form-control-user"
-                                            placeholder="Caixa"
+                                                id="terminal"
+                                                class="form-control form-control-user"
+                                                placeholder="Caixa"
                                         >
                                             <option value="terminal1">Caixa</option>
                                             <option value="terminal2">Terminais</option>
@@ -134,7 +134,7 @@ session_destroy();
 
         Terminal = window.localStorage.getItem('AppTerminal');
 
-        if(Terminal != null && Terminal != undefined && Terminal){
+        if (Terminal != null && Terminal != undefined && Terminal) {
             $("#terminal").val(Terminal);
         }
 
