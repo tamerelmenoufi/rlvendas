@@ -222,7 +222,7 @@ $result = mysqli_query($con, $query);
             $.dialog({
                 content: "url:vendas/detalhes.php?cod=" + cod,
                 title: false,
-                columnClass: 'col-md-8'
+                columnClass: 'col-md-8 col-xs-12'
             });
         });
 
