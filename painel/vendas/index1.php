@@ -89,7 +89,7 @@ $result = mysqli_query($con, $query);
     <div class="card-body">
         <div class="table-responsive">
 
-            <table id="datatable" class="table" width="100%" cellspacing="0">
+            <table id="datatable" class="table display nowrap" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>Cliente</th>
@@ -172,7 +172,9 @@ $result = mysqli_query($con, $query);
 
 <script>
     $(function () {
-        $("#datatable").DataTable();
+        $("#datatable").DataTable({
+            responsive : true
+        });
 
         $("span[acao]").click(function(){
             acao = $(this).attr("acao");

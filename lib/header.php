@@ -10,8 +10,7 @@ $caminho_vendor = getUrl() . "lib/vendor";
 <link type="text/css" rel="stylesheet" href="<?= "{$caminho_vendor}/fontawesome/css/all.min.css"; ?>">
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/css/loading.css">
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/datatables/datatables.min.css">
-<link rel="stylesheet" href="<?= $caminho_vendor ?>/datatables/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="<?= $caminho_vendor ?>/datatables/responsive.bootstrap4.css">
+<link rel="stylesheet" href="<?= $caminho_vendor ?>/datatables/responsive.bootstrap.css">
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/jquery-confirm/css/jquery-confirm.min.css">
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/bootstrap-select/css/bootstrap-select.min.css">
 <link rel="stylesheet" href="<?= $caminho_vendor ?>/bootstrap-fileinput/css/fileinput.min.css">
