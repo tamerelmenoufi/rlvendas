@@ -94,7 +94,7 @@ $result = mysqli_query($con, $query);
             </h6>
         </div>
         <div class="card-body">
-            <div class="">
+            <div class="table-responsive">
 
                 <table id="datatable" class="table display nowrap" width="100%" cellspacing="0">
                     <thead>
