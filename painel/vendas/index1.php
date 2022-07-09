@@ -94,7 +94,7 @@ $result = mysqli_query($con, $query);
             </h6>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="">
 
                 <table id="datatable" class="table display nowrap" width="100%" cellspacing="0">
                     <thead>
@@ -217,7 +217,7 @@ $result = mysqli_query($con, $query);
 
 
         $("#vendas").on("click", ".lista", function () {
-            
+
             cod = $(this).attr("lista");
             $.dialog({
                 content: "url:vendas/detalhes.php?cod=" + cod,
