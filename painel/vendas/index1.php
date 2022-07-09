@@ -217,7 +217,7 @@ $result = mysqli_query($con, $query);
 
 
         $("#vendas").on("click", ".lista", function () {
-            alert('teste');
+            
             cod = $(this).attr("lista");
             $.dialog({
                 content: "url:vendas/detalhes.php?cod=" + cod,
