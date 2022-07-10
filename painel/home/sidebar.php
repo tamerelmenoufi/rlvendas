@@ -117,7 +117,7 @@
     </div>
 </ul>
 
-<script>
+<!--<script>
     $(function () {
 
         $("#sidebarToggle").click(function () {
@@ -183,4 +183,4 @@
 
 
 
-</script>
+</script>-->
