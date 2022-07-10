@@ -18,7 +18,7 @@
             <span>Dashboard</span></a>
     </li>
     <!-- Divider  -->
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider"> -->
     <!-- Nav Item - Dahboard -->
     <!-- <li class="nav-item active">
         <a AbrirVendas class="nav-link" href="#">
