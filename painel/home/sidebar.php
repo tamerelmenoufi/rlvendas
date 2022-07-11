@@ -18,13 +18,13 @@
             <span>Dashboard</span></a>
     </li>
     <!-- Divider  -->
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider"> -->
     <!-- Nav Item - Dahboard -->
-    <li class="nav-item active">
+    <!-- <li class="nav-item active">
         <a AbrirVendas class="nav-link" href="#">
             <i class="fa-solid fa-house"></i>
             <span>Vendas</span></a>
-    </li>
+    </li> -->
 
     <!-- Divider  -->
     <hr class="sidebar-divider">

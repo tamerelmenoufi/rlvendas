@@ -92,7 +92,7 @@ session_destroy();
                                                 placeholder="senha"
                                         >
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <select
                                                 id="terminal"
                                                 class="form-control form-control-user"
@@ -101,7 +101,7 @@ session_destroy();
                                             <option value="terminal1">Caixa</option>
                                             <option value="terminal2">Terminais</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <button type="submit" class="btn btn-danger btn-user btn-block">
                                         Entrar
                                     </button>
