@@ -102,7 +102,7 @@ include "./conf.php";
             janela_login = $.dialog({
                 title:false,
                 content:"url:vendas/garcom/login.php",
-                columnClass:'col-md-4'
+                columnClass:'col-md-6'
             });
 
         <?php

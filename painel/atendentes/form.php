@@ -141,7 +141,7 @@ if ($codigo) {
                     <h4>Perfil de Acesso</h4>
                     <?php
                     $perfis = [
-                        ['name' => 'ExcluirProduto', 'value' => 'Excluir Priduto em produção'],
+                        ['name' => 'ExcluirProduto', 'value' => 'Excluir PrOduto em produção'],
                     ];
                     foreach($perfis as $indice => $valor){
                     ?>
