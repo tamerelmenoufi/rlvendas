@@ -188,6 +188,7 @@ $result = mysqli_query($con, $query);
         $("span[acao]").click(function () {
             acao = $(this).attr("acao");
             cod = $(this).attr("cod");
+
             $.confirm({
                 content: "Confirma o pagamento?",
                 title: false,
@@ -205,8 +206,6 @@ $result = mysqli_query($con, $query);
                                 $("#palco").html(dados);
                             }
                         });
-
-
                     },
                     'NÃO': function () {
 
@@ -215,10 +214,10 @@ $result = mysqli_query($con, $query);
             });
         });
 
-
         $("#vendas").on("click", ".lista", function () {
 
             cod = $(this).attr("lista");
+
             $.dialog({
                 content: "url:vendas/detalhes.php?cod=" + cod,
                 title: false,
@@ -226,7 +225,7 @@ $result = mysqli_query($con, $query);
             });
         });
 
-        $("button[print]").click(function () {
+        $("#vendas").on("click", "button[print]", function () {
 
             cod = $(this).attr("print");
             $.ajax({
@@ -236,23 +235,21 @@ $result = mysqli_query($con, $query);
                     cod,
                 },
                 success: function (dados) {
-
                     // $.alert(dados);
 
                     // acao = '<iframe src="http://localhost/print/print.php?pdf='+dados+'" border="0" width="0" height="0" style="opacity:0"></iframe>';
                     window.open('http://html2img.mohatron.com/pdf/' + dados);
-
-
                 }
             });
 
         });
 
-
-        $("button[print2]").click(function () {
+        $("#vendas").on("click", "button[print2]", function (e) {
+            e.preventDefault();
 
             terminal = window.localStorage.getItem('AppTerminal');
             cod = $(this).attr("print2");
+
             $.ajax({
                 url: "vendas/print-2.php",
                 type: "POST",
@@ -267,11 +264,12 @@ $result = mysqli_query($con, $query);
 
         });
 
-
-        $("a[print2]").click(function () {
+        $("#vendas").on("click", "a[print2]", function (e) {
+            e.preventDefault();
 
             terminal = $(this).attr("local");
             cod = $(this).attr("print2");
+
             $.ajax({
                 url: "vendas/print-2.php",
                 type: "POST",
