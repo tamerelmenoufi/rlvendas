@@ -22,7 +22,7 @@
 
     $prov = file_get_contents("docs/provisorio.txt");
 
-    if($result and $prov){
+    if($result and $prov != 'false'){
 
         file_put_contents("docs/provisorio.txt",md5($result));
 
@@ -48,6 +48,6 @@
 
         $result   = file_get_contents('https://yobom.com.br/rlvendas/painel/vendas/print/remove.php', false, $contexto);
 
-        unlink("docs/provisorio.txt");
+        file_put_contents("docs/provisorio.txt",'false');
 
     }
