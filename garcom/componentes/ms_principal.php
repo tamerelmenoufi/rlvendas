@@ -115,8 +115,16 @@
 
                 categoria = $(this).attr('categoria');
 
-                local = ((categoria == '8')?'src/produtos/sorvete.php':$(this).attr('local'));
-                local = ((categoria == '9')?'src/produtos/acompanhamentos.php':$(this).attr('local'));
+                if(categoria == '8'){
+                    local = 'src/produtos/sorvete.php';
+                }else if(categoria == '9'){
+                    local = 'src/produtos/acompanhamentos.php';
+                }else{
+                    local = $(this).attr('local');
+                }
+
+                // local = ((categoria == '8')?'src/produtos/sorvete.php':$(this).attr('local'));
+                // local = ((categoria == '9')?'src/produtos/acompanhamentos.php':$(this).attr('local'));
                 janela = $(this).attr('janela');
 
                 Carregando();
