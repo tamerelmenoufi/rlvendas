@@ -49,6 +49,7 @@
     $query = "select * from categorias where deletado != '1'";
     $result = mysqli_query($con,$query);
     while($d = mysqli_fetch_object($result)){
+        if($d->codigo == 9) $opc = '0'; else $opc = '1';
 ?>
     <button
             class="btn btn-success btn-lg btn-block"
@@ -56,6 +57,7 @@
             local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
             janela="ms_popup_100"
             categoria = '<?=$d->codigo?>'
+            style="opacity:<?=$opc?>"
     >
         <?=$d->categoria?>
     </button>
@@ -116,6 +118,7 @@
                 categoria = $(this).attr('categoria');
 
                 local = ((categoria == '8')?'src/produtos/sorvete.php':$(this).attr('local'));
+                local = ((categoria == '9')?'src/produtos/acompanhamentos.php':$(this).attr('local'));
                 janela = $(this).attr('janela');
 
                 Carregando();
