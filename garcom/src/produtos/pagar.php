@@ -90,7 +90,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
         cursor:pointer;
     }
     .valor_pendente{
-        font-size:30px;
+        font-size:30px !important;
         color:green;
     }
 
@@ -112,7 +112,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Pedido</small>
-                                <div style="font-size:18px; color:blue;"><?=$_SESSION['AppPedido']?></div>
+                                <div style="font-size:18px !important; color:blue;"><?=$_SESSION['AppPedido']?></div>
                             </h5>
                         </div>
                         <div class="col-6">
