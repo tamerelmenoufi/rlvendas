@@ -197,7 +197,7 @@
                                     </div>
                                     <div class="col-12">
                                         <label for="valor">Por Valor</label>
-                                        <input type="number" class="form-control" id="valor" data-thousands="" data-decimal=".">
+                                        <input type="text" class="form-control" id="valor" data-thousands="" data-decimal=".">
                                     </div>
                                 </div>
 
@@ -241,7 +241,7 @@
             venda['produtos'].push({codigo:'149', descricao:descricao, valor:valor_unitario});
 
             //-------
-            var produto_descricao = descricao;
+            var produto_descricao = '';
 
             var produto_json = JSON.stringify(Object.assign({}, venda));
             $(".IconePedidos, .MensagemAddProduto").css("display","none");
