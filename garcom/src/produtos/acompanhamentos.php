@@ -41,7 +41,7 @@
         exit();
     }
 
-    $query = "SELECT * categorias WHERE categoria = '9' AND deletado != '1' AND situacao = '1'";
+    echo $query = "SELECT * categorias WHERE categoria = '9' AND deletado != '1' AND situacao = '1'";
 
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
