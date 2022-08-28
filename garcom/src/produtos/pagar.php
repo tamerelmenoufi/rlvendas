@@ -90,7 +90,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
         cursor:pointer;
     }
     .valor_pendente{
-        font-size:20px;
+        font-size:30px;
         color:green;
     }
 
@@ -117,7 +117,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         </div>
                         <div class="col-6">
                             <h5 class="card-title">
-                                <small>Valor</small>
+                                <small>Valor a Pagar</small>
                                 <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div> -->
                                 <div class="valor_pendente" pendente="" valor=""></div>
                             </h5>
@@ -171,7 +171,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     <div class="row">
                         <div class="col-12">
                             <h5 class="card-title">
-                                <small>Valor Pendente</small>
+                                <small>Sub Total</small>
                                 <!-- <div class="valor_pendente" pendente="" valor=""></div> -->
                                 <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div>
                             </h5>
