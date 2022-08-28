@@ -5,12 +5,12 @@ After=graphical.target
 
 [Service]
 Environment=DISPLAY=:0
-Environment=XAUTHORITY=/home/yobom2/.Xauthority
+Environment=XAUTHORITY=/home/yobom3/.Xauthority
 Type=simple
-ExecStart=/bin/bash /home/yobom2/kiosk.sh
+ExecStart=/bin/bash /home/yobom3/kiosk.sh
 Restart=on-abort
-User=yobom2
-Group=yobom2
+User=yobom3
+Group=yobom3
 
 [Install]
 WantedBy=graphical.target

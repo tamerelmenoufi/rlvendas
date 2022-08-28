@@ -14,7 +14,7 @@ sudo apt-get install xdotool unclutter sed
 
 sudo raspi-config
 
-nano /home/yobom2/kiosk.sh
+nano /home/yobom3/kiosk.sh
 
 sudo nano /lib/systemd/system/kiosk.service
 

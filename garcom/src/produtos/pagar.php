@@ -75,11 +75,25 @@ where codigo = '{$_SESSION['AppVenda']}'";
     .icone{
         font-size:70px;
     }
-    .valor_pendente{
+    /* .valor_pendente{
         color:red;
         font-size:14px;
         cursor:pointer;
     }
+    .valor{
+        font-size:20px;
+        color:green;
+    } */
+    .valor{
+        color:red;
+        font-size:14px;
+        cursor:pointer;
+    }
+    .valor_pendente{
+        font-size:20px;
+        color:green;
+    }
+
     .formas_pagamento{
         display:none;
     }
@@ -104,7 +118,8 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Valor</small>
-                                <div style="font-size:20px; color:green;" class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div>
+                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div> -->
+                                <div class="valor_pendente" pendente="" valor=""></div>
                             </h5>
                         </div>
                     </div>
@@ -157,7 +172,8 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-12">
                             <h5 class="card-title">
                                 <small>Valor Pendente</small>
-                                <div class="valor_pendente" pendente="" valor=""></div>
+                                <!-- <div class="valor_pendente" pendente="" valor=""></div> -->
+                                <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div>
                             </h5>
                         </div>
                     </div>
