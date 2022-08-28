@@ -228,11 +228,18 @@
         $("button[adicionar_produto]").click(function(){
             /////////// PRODUTOS ////////////////////////////
 
+
+
             valor_unitario = $("#valor").val();
             quantidade = 1;
             valor_total = (valor_unitario*quantidade);
 
             descricao = $("#descricao").val();
+
+            if(!valor_unitario || !descricao){
+                $.alert('Digite a descrição e o valor do produto adicional!')
+                return false;
+            }
 
             venda = [];
             venda['categoria'] = {codigo:'<?=$p->codigo?>', descricao:'<?=$p->categoria?>'};
