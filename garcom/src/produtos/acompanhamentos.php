@@ -258,10 +258,11 @@
                 },
                 success:function(dados){
                     PageClose();
-                    $(".IconePedidos, .MensagemAddProduto").css("display","block");
-                    setTimeout(function(){
-                        $(".MensagemAddProduto").css('display','none');
-                    }, 3000);
+                    // $(".IconePedidos, .MensagemAddProduto").css("display","block");
+                    // setTimeout(function(){
+                    //     $(".MensagemAddProduto").css('display','none');
+                    // }, 3000);
+                    $.alert('Adicionado com sucesso!')
                 }
             });
 
