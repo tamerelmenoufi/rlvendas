@@ -235,7 +235,7 @@
             descricao = $("#descricao").val();
 
             venda = [];
-            venda['categoria'] = {codigo:'<?=$p->categoria?>', descricao:'<?=$p->nome_categoria?>'};
+            venda['categoria'] = {codigo:'<?=$p->categoria?>', descricao:'<?=$p->descricao?>'};
             venda['medida'] = {codigo:'<?=$m->codigo?>', descricao:'<?=$m->medida?>'};
             venda['produtos'] = [];
             venda['produtos'].push({codigo:'149', descricao:descricao, valor:valor_unitario});
