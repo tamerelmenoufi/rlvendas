@@ -51,6 +51,19 @@ switch ($_SESSION['opc_status']) {
         $where = " AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
         break;
     }
+
+    case 'pagar_mesas':
+    {
+        $where = " AND m.mesa >= 1 AND m.mesa < 200 AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
+        break;
+    }
+
+    case 'pagar_viagens':
+    {
+        $where = " AND m.mesa >= 200 AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
+        break;
+    }
+
     case 'pago':
     {
         $where = " AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
