@@ -86,7 +86,7 @@ $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_no
     . "LEFT JOIN atendentes a ON a.codigo = v.atendente "
     . "WHERE 1 {$where} order by v.codigo desc limit 100";
 
-#echo $query;
+echo $query;
 
 $result = mysqli_query($con, $query);
 
