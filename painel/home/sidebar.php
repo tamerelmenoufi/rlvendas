@@ -66,6 +66,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=producao">Novos</a>
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=preparo">Preparo</a>
+                <a class="collapse-item" href="#" url="vendas/index1.php?opc=pagar">Pagar</a>
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=pagar_mesas">Pagar Mesas</a>
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=pagar_viagens">Pagar Viagens</a>
                 <a class="collapse-item" href="#" url="vendas/index1.php?opc=pago">Pago</a>
