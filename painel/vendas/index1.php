@@ -54,13 +54,13 @@ switch ($_SESSION['opc_status']) {
 
     case 'pagar_mesas':
     {
-        $where = " AND m.mesa >= 1 AND m.mesa < 200 AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
+        $where = " AND m.mesa >= 1 AND m.mesa < 200 AND v.situacao = 'pagar' AND v.deletado != '1' ";
         break;
     }
 
     case 'pagar_viagens':
     {
-        $where = " AND m.mesa >= 200 AND v.situacao = '{$_SESSION['opc_status']}' AND v.deletado != '1' ";
+        $where = " AND m.mesa >= 200 AND v.situacao = 'pagar' AND v.deletado != '1' ";
         break;
     }
 
@@ -86,7 +86,7 @@ $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_no
     . "LEFT JOIN atendentes a ON a.codigo = v.atendente "
     . "WHERE 1 {$where} order by v.codigo desc limit 100";
 
-echo $query;
+// echo $query;
 
 $result = mysqli_query($con, $query);
 
