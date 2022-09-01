@@ -340,7 +340,7 @@ include("config.php");
 
 			//////////////////////////////////////////////////////////
 
-			$pedido = json_decode($d->produto_json);
+			$pedido = json_decode($row["produto_json"]);
 			$sabores = false;
 			// print_r($pedido);
 			$ListaPedido = [];
