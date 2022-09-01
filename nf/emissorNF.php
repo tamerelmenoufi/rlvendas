@@ -175,7 +175,7 @@ include("config.php");
 		$data_nfe = array(
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
-			'serie' => 1,
+			'serie' => 3,
 			'operacao' => 1, // Tipo de Operação da Nota Fiscal
 			'metodo_envio' => 1, // Metodo de transmisão de nota 1) Modo síncrono. / 0) modo assíncrono.
 			'natureza_operacao' => 'Venda', // Natureza da Operação
