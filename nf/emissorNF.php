@@ -172,7 +172,6 @@ include("config.php");
 		$NUMERO_DA_NOTA = 1; // NUMERO DA NF QUE SERÁ EMITIDA (DEVE SER SEQUENCIAL, É IMPORTANTE GUARDAR A ORDEM NO SEU BANCO DE DADOS)
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
-		$rowVenda["forma_pagamento"] = 1;
 		$data_nfe = array(
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
@@ -199,7 +198,7 @@ include("config.php");
 				'desconto' =>  number_format($rowVenda["desconto"], 2, '.', ''), // Total do desconto
 				'total' =>  number_format($rowVenda["total"], 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format(0, 2, '.', ''), // Troco
-				'forma_pagamento' => $formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
+				'forma_pagamento' => $formasPagamentoNF[1], // 01 - dinheiro // 02-
 				'valor_pagamento' =>  number_format($rowVenda["total"], 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
