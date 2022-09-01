@@ -351,7 +351,7 @@ include("config.php");
 
 			$Prod = [];
 			foreach($pedido->produtos as $ind => $prod){
-				$Prod[] = $prod->descricao;
+				echo $Prod[] = $prod->descricao;
 			}
 			$Prod = (($Prod)?implode(' ',$Prod):false);
 
