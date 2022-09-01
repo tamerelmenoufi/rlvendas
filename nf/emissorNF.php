@@ -365,6 +365,7 @@ include("config.php");
 			$ncm=$row["ncm"]; // NCM
 			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
 			$origem = (empty($row["origem"])) ? "0" : $row["origem"];
+			$cfop = $row["cfop"];
 			$preco = $row["valor_unitario"];
 			$preco_total = $row["valor_total"];
 			$peso = '0.100';
