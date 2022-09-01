@@ -223,7 +223,7 @@ include("config.php");
 				"CSC" => "e6443ad379254f91",  // obrigatorio para NFC-e somente
 				"CSCid" => "000002", // EXEMPLO 000001 // obrigatorio para NFC-e somente
 				"certificado_nome" => "6e7d5964332962ee541b3501b22e8830.p12", // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
-				"certificado_senha" => "12345", // SENHA DO CERTIFICADO DIGITAL
+				"certificado_senha" => "123456", // SENHA DO CERTIFICADO DIGITAL
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
