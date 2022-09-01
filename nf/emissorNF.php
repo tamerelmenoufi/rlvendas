@@ -191,7 +191,7 @@ include("config.php");
 				"idcadastro" => "" // nome do intermediador:
 			),
 			'pedido' => array(
-				'pagamento' => 0, // Indicador da forma de pagamento
+				'pagamento' => 1, // Indicador da forma de pagamento
 				'presenca' => $presenca, // Indicador de presenca do comprador no estabelecimento comercial no momento da operacao
 				'modalidade_frete' => $frete, // Modalidade do frete
 				'frete' =>  number_format(0, 2, '.', ''), // Total do frete
@@ -202,7 +202,7 @@ include("config.php");
 				'valor_pagamento' =>  number_format($rowVenda["total"], 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
-				"tpAmb" => 1, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
+				"tpAmb" => 2, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
 				"razaosocial" => "FERNANDO MEIRELLES BRITO CAVALCANTE", // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
 				"cnpj" => limpardados("28856577000119"), // CNPJ DA EMPRESA (obrigatorio)
 				"fantasia" => "YOBOM SORVETES", // NOME FANTASIA (obrigatorio)
