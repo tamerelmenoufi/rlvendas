@@ -172,6 +172,7 @@ include("config.php");
 		$NUMERO_DA_NOTA = 1; // NUMERO DA NF QUE SERÁ EMITIDA (DEVE SER SEQUENCIAL, É IMPORTANTE GUARDAR A ORDEM NO SEU BANCO DE DADOS)
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
+		$rowVenda["forma_pagamento"] = 1;
 		$data_nfe = array(
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
