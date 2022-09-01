@@ -194,12 +194,12 @@ include("config.php");
 				'pagamento' => 0, // Indicador da forma de pagamento
 				'presenca' => $presenca, // Indicador de presenca do comprador no estabelecimento comercial no momento da operacao
 				'modalidade_frete' => $frete, // Modalidade do frete
-				'frete' =>  number_format($rowVenda["frete"], 2, '.', ''), // Total do frete
+				'frete' =>  number_format(0, 2, '.', ''), // Total do frete
 				'desconto' =>  number_format($rowVenda["desconto"], 2, '.', ''), // Total do desconto
 				'total' =>  number_format($rowVenda["total"], 2, '.', ''), // Valor total do pedido pago pelo cliente
-				'troco' =>  number_format($rowVenda["troco"], 2, '.', ''), // Troco
+				'troco' =>  number_format(0, 2, '.', ''), // Troco
 				'forma_pagamento' => $formasPagamentoNF[1], // 01 - dinheiro // 02-
-				'valor_pagamento' =>  number_format($rowVenda["valor_recebido"], 2, '.', '') // valor total de R$75,00
+				'valor_pagamento' =>  number_format($rowVenda["total"], 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
 				"tpAmb" => 1, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
