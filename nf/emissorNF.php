@@ -198,7 +198,7 @@ include("config.php");
 				'desconto' =>  number_format($rowVenda["desconto"], 2, '.', ''), // Total do desconto
 				'total' =>  number_format($rowVenda["total"], 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format($rowVenda["troco"], 2, '.', ''), // Troco
-				'forma_pagamento' => $formasPagamentoNF[$rowVenda["forma_pgto"]], // 01 - dinheiro // 02-
+				'forma_pagamento' => $formasPagamentoNF[1], // 01 - dinheiro // 02-
 				'valor_pagamento' =>  number_format($rowVenda["valor_recebido"], 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
