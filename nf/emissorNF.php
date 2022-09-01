@@ -361,7 +361,7 @@ include("config.php");
 
 			$codigo=$row["codigo"];
 			$quatidade = (empty($row["quantidade"])) ? "1" : $row["quantidade"];;
-			echo $nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao."(".$d->produto_descricao.")"; // NOME DO PRODUTO
+			echo $nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao." ".$d->produto_descricao; // NOME DO PRODUTO
 			$ncm=$row["ncm"]; // NCM
 			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
 			$origem = (empty($row["origem"])) ? "0" : $row["origem"];
