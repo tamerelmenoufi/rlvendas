@@ -361,7 +361,7 @@ include("config.php");
 
 			$codigo=$row["codigo"];
 			$quatidade = (empty($row["quantidade"])) ? "1" : $row["quantidade"];;
-			echo $nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao." ".$d->produto_descricao; // NOME DO PRODUTO
+			$nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao." ".$d->produto_descricao; // NOME DO PRODUTO
 			$ncm=$row["ncm"]; // NCM
 			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
 			$origem = (empty($row["origem"])) ? "0" : $row["origem"];
@@ -418,6 +418,9 @@ include("config.php");
 			// Modo de teste
 			//echo $endpoint."gerador/Emissor.php?".$fields_string;
 			//$data_nfe['teste'] = "ok"; // se desejar emitir em modo de teste, não será enviado para o sefaz
+
+			print_r($data_nfe);
+
 
 			$fields_string = http_build_query($data_nfe);
 
