@@ -1,3 +1,8 @@
 Senha Certificado: 123456
 
 última nota emitida: 776
+
+Manaus código IBGE: 1302603
+
+CSC 000002
+CSC Número e6443ad379254f91

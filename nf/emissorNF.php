@@ -3,8 +3,8 @@
 include("config.php");
 
 	/**
-	 * 
-	 * 
+	 *
+	 *
 	 * ARQUIVO DE EXEMPLO DE COMO PODE MONTAR A API
 	 */
 
@@ -21,7 +21,7 @@ include("config.php");
 	55 - NF-e
 	*/
 
-	/* 
+	/*
 	TIPO DE IMPRESSAO - $impressao
 	Para NF-e (modelo 55),  permitido utilizar os Formatos de Impresso do DANFE abaixo:
 	0 = Sem gerao de DANFE;
@@ -34,15 +34,15 @@ include("config.php");
 
 	/*
 	Tipo de Emissao da NF-e
-	1 - Normal - emisso normal; 
-	2 - Contingncia FS - emisso em contingncia com impresso do DANFE em Formulrio de Segurana; 
-	3 - Contingncia SCAN - emisso em contingncia no Sistema de Contingncia do Ambiente Nacional ? SCAN; 
-	4 - Contingncia DPEC - emisso em contingncia com envio da Declarao Prvia de Emisso em Contingncia ? DPEC; 
+	1 - Normal - emisso normal;
+	2 - Contingncia FS - emisso em contingncia com impresso do DANFE em Formulrio de Segurana;
+	3 - Contingncia SCAN - emisso em contingncia no Sistema de Contingncia do Ambiente Nacional ? SCAN;
+	4 - Contingncia DPEC - emisso em contingncia com envio da Declarao Prvia de Emisso em Contingncia ? DPEC;
 	9 - Contingncia off-line da NFC-e;
 	5 - Contingncia FS-DA - emisso em contingncia com impresso do DANFE em Formulrio de Segurana para Impresso de Documento Auxiliar de Documento Fiscal Eletrnico (FS-DA).
 	*/
 
-	/* 
+	/*
 	PRESENÇA - $presenca
 	0=No se aplica (por exemplo, Nota Fiscal complementar
 	ou de ajuste);
@@ -50,20 +50,20 @@ include("config.php");
 	2=Operao no presencial, pela Internet;
 	3=Operao no presencial, Teleatendimento;
 	4=NFC-e em operao com entrega a domiclio;
-	9=Operao no presencial, outros. 
+	9=Operao no presencial, outros.
 	*/
 
 	/**
 	 * CERTIFICADO DIGITAL::::::::::::
 	 * colocar na pasta: /api-nfe/certificado_digital/
-	 * 
+	 *
 	 */
 
 
 	 /**
 	 * LOGOTIPO PARA A NOTA (.JPG)::::::::::::
 	 * colocar na pasta: /api-nfe/logos_notas/
-	 * 
+	 *
 	 */
 
 	function limpardados($txt){
@@ -73,7 +73,7 @@ include("config.php");
 	function getCodigoEstado($uf){
 
 		if($uf=="") return;
-	
+
 		$estados = array(
 			35 => 'SP',
 			41 => 'PR',
@@ -103,7 +103,7 @@ include("config.php");
 			23 => 'CE',
 			32 => 'ES',
 			);
-	
+
 			$code = array_search(strtoupper($uf), $estados);
 			return $code;
 	   }
@@ -112,10 +112,18 @@ include("config.php");
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	$sql = 'SELECT * FROM vendas WHERE id = ?';
+	$sql = 'SELECT * FROM vendas WHERE codigo = ?';
     $stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = null;
+
+
+	// SELECIONE O NÚMERO DA NOTA
+	$sql = 'SELECT * FROM configuracao WHERE codigo = ?';
+    $stmt = $PDO->prepare($sql);
+    $stmt->execute([1]);
+    $nota = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
 
     if(empty($rowVenda)) die("Vendas nao encontrada");
@@ -127,23 +135,23 @@ include("config.php");
 	// novos campos: numero_proxima_nfc e numero_proxima_nf por exemplo
 
 	$tipoNota = 1; // 1- NFC-e / 2- NF-e
-	
-	if($tipoNota==1){ 
+
+	if($tipoNota==1){
 
 		// MODELO NFC-E
-		$modelo = 65; 
-		$presenca = 1; 
-		$frete = 9; 
+		$modelo = 65;
+		$presenca = 1;
+		$frete = 9;
 		$impressao = 4;
-		
+
 	}elseif($tipoNota==2){
-	
+
 		// MODELO NF GRANDE
-		$modelo = 55;  
-		$presenca = 2; 
-		$frete = 0; 
+		$modelo = 55;
+		$presenca = 2;
+		$frete = 0;
 		$impressao = 1;
-		
+
 	}
 
 	// operacoes não presenciais necesita usar intermediario
@@ -162,11 +170,11 @@ include("config.php");
 		);
 
 		$NUMERO_DA_NOTA = 1; // NUMERO DA NF QUE SERÁ EMITIDA (DEVE SER SEQUENCIAL, É IMPORTANTE GUARDAR A ORDEM NO SEU BANCO DE DADOS)
-		
+
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
 		$data_nfe = array(
-			'ID' => $rowVenda["id"], // ID DA VENDA NO SISTEMA
-			'NF' => 1, // Número da NF (Deve seguir uma ordem exata)
+			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
+			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
 			'serie' => 1,
 			'operacao' => 1, // Tipo de Operação da Nota Fiscal
 			'metodo_envio' => 1, // Metodo de transmisão de nota 1) Modo síncrono. / 0) modo assíncrono.
@@ -175,12 +183,12 @@ include("config.php");
 			'emissao' => 1, // Tipo de Emissao da NF-e
 			'finalidade' => 1, // Finalidade de emissao da Nota Fiscal
 			'consumidorfinal' => 1,  // Indicação do consumidor final
-			'destinatario' => 1, // 1 = Operao interna; 2 = Operao interestadual; 3 = Operao com exterior. 
+			'destinatario' => 1, // 1 = Operao interna; 2 = Operao interestadual; 3 = Operao com exterior.
 			'impressao' => $impressao, // Tipo de impressao
-			'intermediario' => $intermediario, 
+			'intermediario' => $intermediario,
 			'intermediador' => array(
 				"cnpj" => "", //CNPJ do intermediador: Mercado livre, outros marketplaces
-				"idcadastro" => "" // nome do intermediador: 
+				"idcadastro" => "" // nome do intermediador:
 			),
 			'pedido' => array(
 				'pagamento' => 0, // Indicador da forma de pagamento
@@ -190,37 +198,37 @@ include("config.php");
 				'desconto' =>  number_format($rowVenda["desconto"], 2, '.', ''), // Total do desconto
 				'total' =>  number_format($rowVenda["total"], 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format($rowVenda["troco"], 2, '.', ''), // Troco
-				'forma_pagamento' => $formasPagamentoNF[$rowVenda["forma_pgto"]], // 01 - dinheiro // 02- 
+				'forma_pagamento' => $formasPagamentoNF[$rowVenda["forma_pgto"]], // 01 - dinheiro // 02-
 				'valor_pagamento' =>  number_format($rowVenda["valor_recebido"], 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
-				"tpAmb" => 2, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
-				"razaosocial" => "EMPRESA XYZ", // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
-				"cnpj" => limpardados("123123123123"), // CNPJ DA EMPRESA (obrigatorio)
-				"fantasia" => "FANTASIA", // NOME FANTASIA (obrigatorio)
-				"ie" => limpardados(""), // INSCRICAO ESTADUAL (obrigatorio)
+				"tpAmb" => 1, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
+				"razaosocial" => "FERNANDO MEIRELLES BRITO CAVALCANTE", // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
+				"cnpj" => limpardados("28856577000119"), // CNPJ DA EMPRESA (obrigatorio)
+				"fantasia" => "YOBOM SORVETES", // NOME FANTASIA (obrigatorio)
+				"ie" => limpardados("05.397.880-3 SN"), // INSCRICAO ESTADUAL (obrigatorio)
 				"im" => limpardados(""), // INSCRICAO MUNICIPAL (não obrigatório)
-				"cnae" => limpardados(""), // CNAE EMPRESA  (obrigatorio)
+				"cnae" => limpardados("4721-1/03"), // CNAE EMPRESA  (obrigatorio)
 				"crt" => "1", // CRT
-				"rua" => "", // obrigatorio
-				"numero" => "", // obrigatorio
-				"bairro" => "", // obrigatorio
-				"cidade" => "", // NOME DA CIDADE,  obrigatorio
-				"ccidade" => limpardados(""), // CODIGO DA CIDADE IBGE, buscar no google,  obrigatorio
-				"cep" => limpardados(""),  // obrigatorio
-				"siglaUF" => "SP", // SIGLA DO ESTADO,  obrigatorio
-				"codigoUF" => getCodigoEstado("SP"), // CODIGO DO ESTADO, obrigatorio
-				"fone" => limpardados(""), // obrigatorio
-				"tokenIBPT" => "", // GERAR TOKEN NO https://deolhonoimposto.ibpt.org.br/
-				"CSC" => "",  // obrigatorio para NFC-e somente
-				"CSCid" => "000001", // EXEMPLO 000001 // obrigatorio para NFC-e somente
-				"certificado_nome" => "certificado.pfx", // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
-				"certificado_senha" => "1234", // SENHA DO CERTIFICADO DIGITAL
-				"logo" => "", // LOGO 
+				"rua" => " RUA CAMPOS BRAVOS", // obrigatorio
+				"numero" => "290", // obrigatorio
+				"bairro" => "ALVORADA", // obrigatorio
+				"cidade" => "MANAUS", // NOME DA CIDADE,  obrigatorio
+				"ccidade" => limpardados("1302603"), // CODIGO DA CIDADE IBGE, buscar no google,  obrigatorio
+				"cep" => limpardados("69047000"),  // obrigatorio
+				"siglaUF" => "AM", // SIGLA DO ESTADO,  obrigatorio
+				"codigoUF" => getCodigoEstado("AM"), // CODIGO DO ESTADO, obrigatorio
+				"fone" => limpardados("9299811327"), // obrigatorio
+				"tokenIBPT" => "MRt3jLNz2B11esr0orhG7IAQmDvzJO1-Pi34WMOVaLzgGFgxm1Dh31l98cvitbOx", // GERAR TOKEN NO https://deolhonoimposto.ibpt.org.br/
+				"CSC" => "e6443ad379254f91",  // obrigatorio para NFC-e somente
+				"CSCid" => "000002", // EXEMPLO 000001 // obrigatorio para NFC-e somente
+				"certificado_nome" => "6e7d5964332962ee541b3501b22e8830.p12", // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
+				"certificado_senha" => "12345", // SENHA DO CERTIFICADO DIGITAL
+				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
-	
-		
+
+
 		// VALIDADAR DADOS DO EMISSOR:
 		if($data_nfe["empresa"]["razaosocial"]==""){ $errValidar .= "<br>Configure a Razão Social do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["cnpj"]==""){ $errValidar .= "<br>Configure o CNPJ do emissor da nota fiscal"; }
@@ -252,11 +260,11 @@ include("config.php");
 	   // $cadastro (1 - pessoa fisica / 2 pessao juridica)
 	   		$cadastro = 1;
 			$cpfnanota = trim(limpardados($_GET["cpf"])); // CPF DO CLIENTE, ENVIAR SEM MASCARA
-			
+
 			if($cpfnanota!=""){
 					// somente cpf na soma
 					$data_nfe['cliente'] = array(
-						'cpf' => $cpfnanota, 
+						'cpf' => $cpfnanota,
 						'indIEDest' => "9",
 						'tipoPessoa' => "F"
 					);
@@ -272,7 +280,7 @@ include("config.php");
 					$d2 = 'razao_social';
 					$d3 = 'ie';
 				}
-				
+
 				// SE FOR USADO DEVERÁ TER TODOS OS CAMPOS
 
 				$data_nfe['cliente'] = array(
@@ -293,7 +301,7 @@ include("config.php");
 			}
 
 
-			
+
 
 		// PRODUTOS (FAZER DA SUA BASE DE DADOS)
 		// IMPORTANTE: NOVOS CAMPOS DE PRODUTOS:
@@ -302,7 +310,7 @@ include("config.php");
 		 * 	p.cfop
 		 * 	p.origem
 		 * p.unidade = "UN", "PC"
-		 * 
+		 *
 		 */
 		$x = 0;
 
@@ -318,26 +326,49 @@ include("config.php");
 		 * pv.valor_unitario = VALOR DE VENDA
 		 * pv.quantidade = QUANTIDADE VENDIDA
 		 * pv.valor_total = (VALOR DE VENDA * QUANTIDADE)
-		 * 
+		 *
 		 */
-		$sql = "SELECT p.id, p.codigo,  p.nome,  p.ncm, p.cfop, p.origem, p.unidade, pv.valor_unitario, pv.quantidade, pv.valor_total 
-				FROM itens_venda as pv
-				LEFT JOIN produtos as p ON pv.produto = p.id 
+		$sql = "SELECT pv.*,  p.ncm, p.cfop, p.origem, p.unit
+				FROM vendas_produtos as pv
+				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
 				WHERE venda = '$venda_id'";
+
 
 		$stmt = $PDO->query($sql);
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-			$codigo=(empty($row["codigo"])) ? $row["id"] : $row["codigo"];
+
+			//////////////////////////////////////////////////////////
+
+			$pedido = json_decode($d->produto_json);
+			$sabores = false;
+			// print_r($pedido);
+			$ListaPedido = [];
+			for($i=0; $i < count($pedido->produtos); $i++){
+				$ListaPedido[] = $pedido->produtos[$i]->descricao;
+			}
+			if($ListaPedido) $sabores = implode(', ', $ListaPedido);
+
+			$Prod = [];
+			foreach($pedido->produtos as $ind => $prod){
+				$Prod[] = $prod->descricao;
+			}
+			$Prod = (($Prod)?implode(' ',$Prod):false);
+
+			//////////////////////////////////////////////////////////
+
+
+
+			$codigo=$row["codigo"];
 			$quatidade = (empty($row["quantidade"])) ? "1" : $row["quantidade"];;
-			$nomeproduto=$row["nome"]; // NOME DO PRODUTO
+			$nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao."(".$d->produto_descricao.")"; // NOME DO PRODUTO
 			$ncm=$row["ncm"]; // NCM
 			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
 			$origem = (empty($row["origem"])) ? "0" : $row["origem"];
 			$preco = $row["valor_unitario"];
 			$preco_total = $row["valor_total"];
 			$peso = '0.100';
-			
+
 			$data_nfe['produtos'][$x] = array(
 				'item' => $codigo, // ITEM do produto
 				'nome' => $nomeproduto, // Nome do produto
@@ -375,7 +406,7 @@ include("config.php");
 				'idcsrt'=> ""
 			);
 			*/
-		
+
 			// INFORMACOES COMPLEMENTARES 0U COMENTÁRIOS
 			$data_nfe['pedido']['informacoes_complementares'] = "";
 
@@ -387,10 +418,10 @@ include("config.php");
 			// Modo de teste
 			//echo $endpoint."gerador/Emissor.php?".$fields_string;
 			//$data_nfe['teste'] = "ok"; // se desejar emitir em modo de teste, não será enviado para o sefaz
-			
+
 			$fields_string = http_build_query($data_nfe);
 
-			// Envio POST 
+			// Envio POST
 			$ch = curl_init();
 			curl_setopt($ch,CURLOPT_URL, $endpoint."gerador/Emissor.php");
 			curl_setopt($ch,CURLOPT_POST, count($data_nfe, COUNT_RECURSIVE));
@@ -404,9 +435,9 @@ include("config.php");
 				die;
 			}
 			curl_close($ch);
-		
+
 			if (isset($response->error)){
-		
+
 				echo '<h2>Erro: '.$response->error.'</h2>';
 				if (isset($response->log)){
 					echo '<h3>Log:</h3>';
@@ -420,19 +451,19 @@ include("config.php");
 				}
 
 			}elseif(!$response){
-		
+
 				echo '<h2>Erro no servidor ao emitir</h2>';
 				var_dump($response_server);
-	
+
 			} else {
 
 				if($response->teste == "ok"){
-					
+
 					$cont = "tipo=validate&";
 					header("location: ".$endpoint ."danfe/?".$cont."chave=".$response->chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
 					die;
 				}
-		
+
 				echo '<h2>NF-e enviada com sucesso.</h2>';
 
 				$status = (string) $response->status; // aprovado, reprovado, cancelado, processamento ou contingencia
@@ -451,15 +482,15 @@ include("config.php");
 					// Atualizar o numero da proxima nf no seu banco de dados
 					$proximanfc = (int) $nfe + 1;
 					$PDO->query("UPDATE configuracao SET numero_proxima_nfc='$proximanfc'");
-					
 
-					$PDO->query("UPDATE vendas SET 
-						nf_numero='$nfe', 
+
+					$PDO->query("UPDATE vendas SET
+						nf_numero='$nfe',
 						nf_status='$status'
 						nf_chave='$chave',
 						nf_xml='$xml'
-					where id='$venda_id'");
-			
+					where codigo='$venda_id'");
+
 					// Redirecionar para imprimir a Nota:
 					header("location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
 				} else {
