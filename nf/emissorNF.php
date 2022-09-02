@@ -366,6 +366,7 @@ include("config.php");
 			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
 			$origem = (empty($row["origem"])) ? "0" : $row["origem"];
 			$cfop = $row["cfop"];
+			$icms = $row["icms"];
 			$preco = $row["valor_unitario"];
 			$preco_total = $row["valor_total"];
 			$peso = '0.100';
@@ -386,7 +387,7 @@ include("config.php");
 			$data_nfe['produtos'][$x]['impostos']['icms']['codigo_cfop'] = $cfop; // CFOP do produto
 			$data_nfe['produtos'][$x]['impostos']['icms']['origem'] = $origem; // origem do produto
 
-			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = "102";
+			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = $icms;
 			$data_nfe['produtos'][$x]['impostos']['ipi']['situacao_tributaria'] = "-1";
 			$data_nfe['produtos'][$x]['impostos']['pis']['situacao_tributaria'] = "";
 			$data_nfe['produtos'][$x]['impostos']['cofins']['situacao_tributaria'] = "";
