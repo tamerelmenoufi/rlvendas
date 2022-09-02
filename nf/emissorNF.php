@@ -398,16 +398,16 @@ include("config.php");
 
 			// Tecnico resposavel - opcional e obrigatório para alguns estados
 			// Se for usar são obrigatório: cnpj, contato (nome), email e fone
-			/*
+			//*
 			$data_nfe["tecnico"] = array(
-				'cnpj' => "",
-				'contato'=> "",
-				'email'=> "",
-				'fone'=> "",
+				'cnpj' => "10158735000100",
+				'contato'=> "Tamer Mohamed Elmenoufi",
+				'email'=> "tamer@mohatron.com.br",
+				'fone'=> "5592991886570",
 				'csrt'=> "",
 				'idcsrt'=> ""
 			);
-			*/
+			//*/
 
 			// INFORMACOES COMPLEMENTARES 0U COMENTÁRIOS
 			$data_nfe['pedido']['informacoes_complementares'] = "";
