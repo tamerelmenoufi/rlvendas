@@ -354,11 +354,12 @@ include("config.php");
 			if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
 			$Prod = [];
-			foreach($pedido->produtos as $ind => $prod){
-				$Prod[] = $prod->descricao;
+			if($pedido->produtos){
+				foreach($pedido->produtos as $ind => $prod){
+					$Prod[] = $prod->descricao;
+				}
+				$Prod = (($Prod)?implode(' ',$Prod):false);
 			}
-			$Prod = (($Prod)?implode(' ',$Prod):false);
-
 			//////////////////////////////////////////////////////////
 
 
