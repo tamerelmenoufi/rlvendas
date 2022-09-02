@@ -328,7 +328,7 @@ include("config.php");
 		 * pv.valor_total = (VALOR DE VENDA * QUANTIDADE)
 		 *
 		 */
-		$sql = "SELECT pv.*,  p.ncm, p.cfop, p.origem, p.unit
+		$sql = "SELECT pv.*,  p.ncm, p.cfop, p.origem, p.unit, p.icms
 				FROM vendas_produtos as pv
 				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
 				WHERE venda = '$venda_id'";
