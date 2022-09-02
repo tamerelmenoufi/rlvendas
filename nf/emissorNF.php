@@ -200,10 +200,10 @@ include("config.php");
 				'modalidade_frete' => $frete, // Modalidade do frete
 				'frete' =>  number_format(0, 2, '.', ''), // Total do frete
 				'desconto' =>  number_format(0, 2, '.', ''), // Total do desconto
-				'total' =>  number_format(($rowVenda["valor"] - $rowVenda["desconto"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
+				'total' =>  number_format(($rowVenda["total"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format(0, 2, '.', ''), // Troco
 				'forma_pagamento' => $formasPagamentoNF[1], // 01 - dinheiro // 02-
-				'valor_pagamento' =>  number_format(($rowVenda["valor"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
+				'valor_pagamento' =>  number_format(($rowVenda["total"]), 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
 				"tpAmb" => 2, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
