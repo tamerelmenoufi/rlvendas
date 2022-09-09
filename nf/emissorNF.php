@@ -502,8 +502,16 @@ include("config.php");
 						nf_xml='$xml'
 					where codigo='$venda_id'");
 
+					echo "UPDATE vendas SET
+						nf_numero='$nfe',
+						nf_status='$status'
+						nf_chave='$chave',
+						nf_xml='$xml'
+					where codigo='$venda_id'";
+
+					echo '<script>window.open('."location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"].')</script>';
 					// Redirecionar para imprimir a Nota:
-					header("location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
+					// header("location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
 				} else {
 					echo "Não foi possível aprovar a nota nesse momento: ". $status;
 				}
