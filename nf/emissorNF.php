@@ -126,9 +126,9 @@ include("config.php");
     $nota = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
 
-	// $sql = 'UPDATE configuracao set numero_proxima_nfc = (numero_proxima_nfc+1) WHERE codigo = ?';
-	// $stmt = $PDO->prepare($sql);
-	// $stmt->execute([1]);
+	$sql = 'UPDATE configuracao set numero_proxima_nfc = (numero_proxima_nfc+1) WHERE codigo = ?';
+	$stmt = $PDO->prepare($sql);
+	$stmt->execute([1]);
 
     if(empty($rowVenda)) die("Vendas nao encontrada");
 
