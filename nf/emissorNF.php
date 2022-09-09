@@ -357,7 +357,14 @@ include("config.php");
 			$Prod = [];
 			if(count($pedido->produtos) > 0){
 				foreach($pedido->produtos as $ind => $prod){
-					$Prod[] = $prod->descricao;
+					if(is_array($prod)){
+						foreach($prod as $ind1 => $prod1){
+							$Prod[] = $prod1->descricao;
+						}
+					}else{
+						$Prod[] = $prod->descricao;
+					}
+
 				}
 				$Prod = (($Prod)?implode(' ',$Prod):false);
 			}
