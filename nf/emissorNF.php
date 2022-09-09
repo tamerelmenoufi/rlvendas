@@ -132,7 +132,7 @@ include("config.php");
 
     if(empty($rowVenda)) die("Vendas nao encontrada");
 
-	if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
+	// if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
 
     // configuracao DO EMISSOR DA NOTA E NÚMERO DA PROXIMA NOTA FISCAL
 	// pode ser montado para facilitar o uso.
