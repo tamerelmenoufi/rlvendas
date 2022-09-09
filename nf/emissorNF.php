@@ -355,7 +355,7 @@ include("config.php");
 			if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
 			$Prod = [];
-			if($pedido->produtos){
+			if(count($pedido->produtos) > 0){
 				foreach($pedido->produtos as $ind => $prod){
 					$Prod[] = $prod->descricao;
 				}
