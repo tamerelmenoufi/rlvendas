@@ -449,7 +449,7 @@ include("config.php");
 
 			if (isset($response->error)){
 
-				// echo '<h2>Erro: '.$response->error.'</h2>';
+				echo '<h2>Erro: '.$response->error.'</h2>';
 				if (isset($response->log)){
 					echo '<h3>Log:</h3>';
 					echo '<ul>';
@@ -475,7 +475,7 @@ include("config.php");
 					die;
 				}
 
-				echo '<h2>NF-e enviada com sucesso.</h2>';
+				// echo '<h2>NF-e enviada com sucesso.</h2>';
 
 				$status = (string) $response->status; // aprovado, reprovado, cancelado, processamento ou contingencia
 				$nfe = (int) $response->nfe; // numero da NF-e
