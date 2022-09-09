@@ -207,7 +207,7 @@ include("config.php");
 				'valor_pagamento' =>  number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
-				"tpAmb" => 1, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
+				"tpAmb" => 2, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
 				"razaosocial" => "FERNANDO MEIRELLES BRITO CAVALCANTE", // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
 				"cnpj" => limpardados("28856577000119"), // CNPJ DA EMPRESA (obrigatorio)
 				"fantasia" => "YOBOM SORVETES", // NOME FANTASIA (obrigatorio)
@@ -225,7 +225,7 @@ include("config.php");
 				"codigoUF" => getCodigoEstado("AM"), // CODIGO DO ESTADO, obrigatorio
 				"fone" => limpardados("9299811327"), // obrigatorio
 				"tokenIBPT" => "MRt3jLNz2B11esr0orhG7IAQmDvzJO1-Pi34WMOVaLzgGFgxm1Dh31l98cvitbOx", // GERAR TOKEN NO https://deolhonoimposto.ibpt.org.br/
-				"CSC" => "e6443ad379254f91", //"3c3419278d232aa4",  // obrigatorio para NFC-e somente
+				"CSC" => "3c3419278d232aa4", //"e6443ad379254f91",  // obrigatorio para NFC-e somente
 				"CSCid" => "000002", // EXEMPLO 000001 // obrigatorio para NFC-e somente
 				"certificado_nome" => "6e7d5964332962ee541b3501b22e8830.p12", // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
 				"certificado_senha" => "123456", // SENHA DO CERTIFICADO DIGITAL
