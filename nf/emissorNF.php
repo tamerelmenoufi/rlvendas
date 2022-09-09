@@ -409,6 +409,10 @@ include("config.php");
 
 		}
 
+
+		print_r($data_nfe);
+		exit();
+
 			// Tecnico resposavel - opcional e obrigatório para alguns estados
 			// Se for usar são obrigatório: cnpj, contato (nome), email e fone
 			//*
