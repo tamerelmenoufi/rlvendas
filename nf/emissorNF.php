@@ -199,7 +199,7 @@ include("config.php");
 				'presenca' => $presenca, // Indicador de presenca do comprador no estabelecimento comercial no momento da operacao
 				'modalidade_frete' => $frete, // Modalidade do frete
 				'frete' =>  number_format(0, 2, '.', ''), // Total do frete
-				'desconto' =>  number_format(0, 2, '.', ''),  // Total do desconto
+				'desconto' =>  number_format($rowVenda["desconto"], 2, '.', ''),  // Total do desconto
 				'outras_despesas' =>  number_format($rowVenda["taxa"], 2, '.', ''), // Outras Despesas
 				'total' =>  number_format(($rowVenda["valor"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format(0, 2, '.', ''), // Troco
