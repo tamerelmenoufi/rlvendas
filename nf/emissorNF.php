@@ -379,7 +379,7 @@ include("config.php");
 
 			$data_nfe['produtos'][$x] = array(
 				'item' => $codigo, // ITEM do produto
-				'nome' => 'Prod -'.$nomeproduto, // Nome do produto
+				'nome' => $nomeproduto, // Nome do produto
 				'ean' => '', // EAN do produto
 				'ncm' => str_replace(array(" ", ".", ","), "", $ncm), // NCM do produto
 				'cest' => str_replace(array(" ", ".", ","), "", $cest), // CEST do produto
