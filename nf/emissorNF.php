@@ -449,7 +449,7 @@ include("config.php");
 
 			if (isset($response->error)){
 
-				echo '<h2>Erro: '.$response->error.'</h2>';
+				// echo '<h2>Erro: '.$response->error.'</h2>';
 				if (isset($response->log)){
 					echo '<h3>Log:</h3>';
 					echo '<ul>';
@@ -502,9 +502,9 @@ include("config.php");
 						nf_xml='$xml'
 					where codigo='$venda_id'");
 
-					echo '<script>window.open('. $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"].')</script>';
+					// echo '<script>window.open('. $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"].')</script>';
 					// Redirecionar para imprimir a Nota:
-					// header("location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
+					header("location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
 				} else {
 					echo "Não foi possível aprovar a nota nesse momento: ". $status;
 				}
