@@ -347,8 +347,8 @@ include("config.php");
 
 			$pedido = json_decode($row["produto_json"]);
 			$sabores = false;
-			print_r($pedido);
-			exit();
+
+
 			$ListaPedido = [];
 			for($i=0; $i < count($pedido->produtos); $i++){
 				$ListaPedido[] = $pedido->produtos[$i]->descricao;
@@ -369,6 +369,9 @@ include("config.php");
 				}
 				$Prod = (($Prod)?implode(' ',$Prod):false);
 			}
+
+			print_r($Prod);
+			echo "<hr>";
 			//////////////////////////////////////////////////////////
 
 
@@ -411,7 +414,7 @@ include("config.php");
 		}
 
 
-		print_r($data_nfe);
+		// print_r($data_nfe);
 		exit();
 
 			// Tecnico resposavel - opcional e obrigatório para alguns estados
