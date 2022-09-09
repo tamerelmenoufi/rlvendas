@@ -112,7 +112,7 @@ include("config.php");
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	$sql = 'SELECT * FROM vendas WHERE codigo = ?';
+	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.codigo = ?';
     $stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -166,11 +166,11 @@ include("config.php");
 
 	// CONFIGURA AS FORMAS DE PAGAMENTO ATUAL DO SEU SISTEMA
 		$formasPagamentoNF = array(
-			1 => "01", // dinheiro
-			2 => "03", // credito
-			3 => "04", // debito
-			4 => "17", // PIX
-			0 => "99", // outros
+			'dinheiro' => "01", // dinheiro
+			'credito' => "03", // credito
+			'debito' => "04", // debito
+			'pix' => "17", // PIX
+			'outros' => "99", // outros
 		);
 
 		$NUMERO_DA_NOTA = 1; // NUMERO DA NF QUE SERÁ EMITIDA (DEVE SER SEQUENCIAL, É IMPORTANTE GUARDAR A ORDEM NO SEU BANCO DE DADOS)
@@ -203,7 +203,7 @@ include("config.php");
 				'outras_despesas' =>  number_format($rowVenda["taxa"], 2, '.', ''), // Outras Despesas
 				'total' =>  number_format(($rowVenda["valor"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format(0, 2, '.', ''), // Troco
-				'forma_pagamento' => $formasPagamentoNF[1], // 01 - dinheiro // 02-
+				'forma_pagamento' => $formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
 				'valor_pagamento' =>  number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
