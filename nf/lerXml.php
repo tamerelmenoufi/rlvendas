@@ -3,7 +3,7 @@
 
     function DataFormat($dt){
         // 2022-09-09T21:59:52-04:00
-        $dt = substr($dt, -6);
+        $dt = substr($dt, 0, -6);
         list($d, $h) = explode("T",$dt);
         list($a, $m, $d) = explode("-",$d);
         return "{$d}/{$m}/{$a} {$h}";
