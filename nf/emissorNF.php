@@ -132,7 +132,7 @@ include("config.php");
 
     if(empty($rowVenda)) die("Vendas nao encontrada");
 
-	// if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
+	if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
 
     // configuracao DO EMISSOR DA NOTA E NÚMERO DA PROXIMA NOTA FISCAL
 	// pode ser montado para facilitar o uso.
@@ -345,8 +345,6 @@ include("config.php");
 
 			//////////////////////////////////////////////////////////
 
-			echo $row["produto_json"];
-			echo "<hr>";
 			$pedido = json_decode($row["produto_json"]);
 			$sabores = false;
 
@@ -416,7 +414,6 @@ include("config.php");
 
 
 		// print_r($data_nfe);
-		exit();
 
 			// Tecnico resposavel - opcional e obrigatório para alguns estados
 			// Se for usar são obrigatório: cnpj, contato (nome), email e fone
