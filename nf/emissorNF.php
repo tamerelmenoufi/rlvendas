@@ -336,7 +336,7 @@ include("config.php");
 		$sql = "SELECT pv.*,  p.ncm, p.cfop, p.origem, p.unit, p.icms
 				FROM vendas_produtos as pv
 				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
-				WHERE venda = '$venda_id' and deletado != '1'";
+				WHERE pv.venda = '$venda_id' and pv.deletado != '1'";
 
 
 		$stmt = $PDO->query($sql);
