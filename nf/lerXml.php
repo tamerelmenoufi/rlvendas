@@ -8,4 +8,6 @@
 
     $dados = json_decode($nota['nf_json']);
 
+    echo "<pre>";
     print_r($dados);
+    echo "</pre>";
