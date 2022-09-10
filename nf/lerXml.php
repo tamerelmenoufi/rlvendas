@@ -1,6 +1,14 @@
 <?php
     include('config.php');
 
+    function DataFormat($dt){
+        // 2022-09-09T21:59:52-04:00
+        $dt = substr($dt, -6);
+        list($d, $h) = explode("T",$dt);
+        list($a, $m, $d) = explode("-",$d);
+        return "{$d}/{$m}/{$a} {$h}";
+    }
+
     $query = "select * from vendas where codigo = ?";
     $stmt = $PDO->prepare($query);
     $stmt->execute([10834]);
@@ -17,17 +25,17 @@
     echo "<br>";
 
 
-    echo "nNF: ".$dados->NFe->infNFe->ide->nNF;
+    echo "nNF: ".str_pad($dados->NFe->infNFe->ide->nNF, 9, '0', STR_PAD_LEFT);
     echo "<br>";
-    echo "serie: ".$dados->NFe->infNFe->ide->serie;
+    echo "serie: ".str_pad($dados->NFe->infNFe->ide->serie, 3, '0', STR_PAD_LEFT);
     echo "<br>";
-    echo "dhEmi: ".$dados->NFe->infNFe->ide->dhEmi;
+    echo "dhEmi: ".DataFormat($dados->NFe->infNFe->ide->dhEmi);
     echo "<br>";
 
 
     echo "nProt: ".$dados->protNFe->infProt->nProt;
     echo "<br>";
-    echo "dhRecbto: ".$dados->protNFe->infProt->dhRecbto;
+    echo "dhRecbto: ".DataFormat($dados->protNFe->infProt->dhRecbto);
     echo "<br>";
     echo "qrCode: ".$dados->NFe->infNFeSupl->qrCode;
 
