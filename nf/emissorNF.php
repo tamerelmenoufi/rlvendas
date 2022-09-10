@@ -112,7 +112,7 @@ include("config.php");
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.codigo = ?';
+	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE deletado != \'1\' a.codigo = ?';
     $stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -336,7 +336,7 @@ include("config.php");
 		$sql = "SELECT pv.*,  p.ncm, p.cfop, p.origem, p.unit, p.icms
 				FROM vendas_produtos as pv
 				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
-				WHERE venda = '$venda_id'";
+				WHERE venda = '$venda_id' and deletado != '1'";
 
 
 		$stmt = $PDO->query($sql);
@@ -413,7 +413,7 @@ include("config.php");
 		}
 
 
-		 print_r($data_nfe);
+		// print_r($data_nfe);
 
 			// Tecnico resposavel - opcional e obrigatório para alguns estados
 			// Se for usar são obrigatório: cnpj, contato (nome), email e fone
