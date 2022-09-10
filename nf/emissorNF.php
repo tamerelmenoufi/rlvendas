@@ -345,7 +345,7 @@ include("config.php");
 
 			//////////////////////////////////////////////////////////
 
-			echo $row["produto_json"]; exit();
+			echo $row["produto_json"];
 
 			$pedido = json_decode($row["produto_json"]);
 			$sabores = false;
@@ -372,8 +372,7 @@ include("config.php");
 				$Prod = (($Prod)?implode(' ',$Prod):false);
 			}
 
-			print_r($Prod);
-			echo "<hr>";
+
 			//////////////////////////////////////////////////////////
 
 
