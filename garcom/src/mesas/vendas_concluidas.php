@@ -7,7 +7,7 @@
                     v.*,
                     m.mesa
                 FROM vendas v
-                left join mesas m on v.mesa = m.mesa
+                left join mesas m on v.mesa = m.codigo
             where
                 (
                     (
