@@ -6,4 +6,6 @@
     $stmt->execute([10834]);
     $nota = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    echo $nota['nf_json'];
+    $dados = json_decode($nota['nf_json']);
+
+    print_r($dados);
