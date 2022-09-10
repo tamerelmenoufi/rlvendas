@@ -454,7 +454,6 @@ include("config.php");
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			$response_server = curl_exec($ch);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
-			$response_xml = json_encode($response);
 			if (curl_errno($ch)) {
 				var_dump(curl_error($ch));
 				die;
@@ -508,6 +507,8 @@ include("config.php");
 					$proximanfc = (int) $nfe + 1;
 					$PDO->query("UPDATE configuracao SET numero_proxima_nfc='$proximanfc'");
 
+					$response_xml = simplexml_load_file("http://nf.mohatron.com/API-NFE/api-nfe/gerador/xml/{$xml}");
+					$response_xml = json_encode($response_xml);
 
 					$PDO->query("UPDATE vendas SET
 						nf_numero='$nfe',
