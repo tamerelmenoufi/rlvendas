@@ -9,17 +9,17 @@
     $dados = json_decode($nota['nf_json']);
 
     echo "<pre>";
-     print_r($dados);
+    //  print_r($dados);
 
     echo "urlChave: ".$dados->NFe->infNFeSupl->urlChave;
     echo "<br>";
     echo "chNFe: ".$dados->protNFe->infProt->chNFe;
     echo "<br>";
-    echo "nNF: ".$dados->protNFe->ide->nNF;
+    echo "nNF: ".$dados->NFe->protNFe->ide->nNF;
     echo "<br>";
-    echo "serie: ".$dados->protNFe->ide->serie;
+    echo "serie: ".$dados->NFe->protNFe->ide->serie;
     echo "<br>";
-    echo "dhEmi: ".$dados->protNFe->ide->dhEmi;
+    echo "dhEmi: ".$dados->NFe->protNFe->ide->dhEmi;
     echo "<br>";
     echo "nProt: ".$dados->protNFe->infProt->nProt;
     echo "<br>";
