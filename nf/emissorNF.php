@@ -454,6 +454,7 @@ include("config.php");
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			$response_server = curl_exec($ch);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
+			$response_xml = json_encode($response);
 			if (curl_errno($ch)) {
 				var_dump(curl_error($ch));
 				die;
@@ -512,7 +513,8 @@ include("config.php");
 						nf_numero='$nfe',
 						nf_status='$status',
 						nf_chave='$chave',
-						nf_xml='$xml'
+						nf_xml='$xml',
+						nf_json = '$response_xml'
 					where codigo='$venda_id'");
 
 					// echo '<script>window.open('. $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"].')</script>';
