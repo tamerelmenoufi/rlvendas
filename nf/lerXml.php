@@ -9,7 +9,7 @@
     $dados = json_decode($nota['nf_json']);
 
     echo "<pre>";
-    //  print_r($dados);
+     print_r($dados);
 
     echo "urlChave: ".$dados->NFe->infNFeSupl->urlChave;
     echo "<br>";
