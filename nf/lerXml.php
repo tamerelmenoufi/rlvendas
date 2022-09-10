@@ -11,20 +11,20 @@
     echo "<pre>";
     // print_r($dados);
 
-    echo $dados->NFe->infNFeSupl->urlChave;
+    echo "urlChave: ".$dados->NFe->infNFeSupl->urlChave;
     echo "<br>";
-    echo $dados->protNFe->infProt->chNFe;
+    echo "chNFe: ".$dados->protNFe->infProt->chNFe;
     echo "<br>";
-    echo $dados->protNFe->ide->nNF;
+    echo "nNF: ".$dados->protNFe->ide->nNF;
     echo "<br>";
-    echo $dados->protNFe->ide->serie;
+    echo "serie: ".$dados->protNFe->ide->serie;
     echo "<br>";
-    echo $dados->protNFe->ide->dhEmi;
+    echo "dhEmi: ".$dados->protNFe->ide->dhEmi;
     echo "<br>";
-    echo $dados->protNFe->infProt->nProt;
+    echo "nProt: ".$dados->protNFe->infProt->nProt;
     echo "<br>";
-    echo $dados->protNFe->infProt->dhRecbto;
+    echo "dhRecbto: ".$dados->protNFe->infProt->dhRecbto;
     echo "<br>";
-    echo $dados->NFe->infNFeSupl->qrCode;
+    echo "qrCode: ".$dados->NFe->infNFeSupl->qrCode;
 
     echo "</pre>";
