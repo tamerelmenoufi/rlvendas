@@ -345,6 +345,8 @@ include("config.php");
 
 			//////////////////////////////////////////////////////////
 
+			echo $row["produto_json"]; exit();
+
 			$pedido = json_decode($row["produto_json"]);
 			$sabores = false;
 
