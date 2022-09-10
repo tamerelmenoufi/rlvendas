@@ -15,12 +15,16 @@
     echo "<br>";
     echo "chNFe: ".$dados->protNFe->infProt->chNFe;
     echo "<br>";
-    echo "nNF: ".$dados->NFe->protNFe->ide->nNF;
+
+
+    echo "nNF: ".$dados->NFe->infNFe->ide->nNF;
     echo "<br>";
-    echo "serie: ".$dados->NFe->protNFe->ide->serie;
+    echo "serie: ".$dados->NFe->infNFe->ide->serie;
     echo "<br>";
-    echo "dhEmi: ".$dados->NFe->protNFe->ide->dhEmi;
+    echo "dhEmi: ".$dados->NFe->infNFe->ide->dhEmi;
     echo "<br>";
+
+
     echo "nProt: ".$dados->protNFe->infProt->nProt;
     echo "<br>";
     echo "dhRecbto: ".$dados->protNFe->infProt->dhRecbto;
