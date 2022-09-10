@@ -1,7 +1,7 @@
 <?php
 
 // CONEXAO PDO MySQL
-$PDO = new PDO("mysql:host=yobom.com.br;dbname=app", "root", "SenhaDoBanco");
+$PDO = new PDO("mysql:host=yobom.com.br;dbname=app;charset=utf8", "root", "SenhaDoBanco");
 
 
 // ENDEREÇO DA API
