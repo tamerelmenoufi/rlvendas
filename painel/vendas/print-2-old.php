@@ -18,11 +18,6 @@
     $retorno .= "txt|1|2|left|PEDIDO: ".str_pad($p->codigo, 5, "0", STR_PAD_LEFT)."  -  Mesa: {$p->mesa}"."\n";
     $retorno .= "txt|1|1|left|Pedido em : ".$data_pedido."\n\n";
 
-    if($p->nf_status == 'aprovado'){
-        $retorno .= 'txt|1|2|center|Documento Auxiliar da Nota Fiscal de Consumidor Eletronica'."\n";
-        $retorno .= 'txt|1|2|center|Não permite aproveitamento de crédito de ICMS'."\n\n";
-    }
-
     $retorno .= "txt|1|1|left|Produtos             Vl Uni              Vl Tot"."\n";
 
 
@@ -61,28 +56,9 @@
 
     $retorno .= "\ntxt|1|2|right|Pagar R$ ".number_format( ($valor_total + $p->taxa + $p->acrescimo - $d->desconto), 2, ',', '.').""."\n\n";
 
-    if($p->nf_status == 'aprovado'){
-
-    $retorno .= "\n\ntxt|1|1|center|Consulte pela Chave de Acesso em:"."\n";
-    $retorno .= "txt|1|1|center|".$endereco_consulta."\n";
-    $retorno .= "txt|1|1|center|".$numero."\n";
-
-    $retorno .= "\n\ntxt|1|1|center|CONSUMIDOR NÃO IDENTIFICADO"."\n";
-    $retorno .= "txt|1|1|center|NFCe n. 000000800 Série 001 09/09/2022 21:59:52\n";
-    $retorno .= "txt|1|1|center|Protocolo de Autorização: 113 2221737903 66\n";
-    $retorno .= "txt|1|1|center|Data de Autorização: 09/09/2022 21:59:56\n\n";
-
-    $retorno .= "qrcode|8|8|center|conteudo_qrcode";
-    $retorno .= "\n\ntxt|1|1|center|Tributos Incidentes (Lei Federal 12.741/2012)"."\n\n";
-
-    }else{
-
     $retorno .= "qrcode|8|8|center|https://notas.yobom.com.br/?{$p->codigo}";
     $retorno .= "\n\ntxt|1|1|center|".md5($p->codigo).""."\n\n";
     $retorno .= "txt|1|1|center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
-
-    }
-
 
     //$retorno = GerarPrint($retorno);
 
