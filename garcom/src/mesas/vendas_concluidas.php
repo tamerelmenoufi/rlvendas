@@ -15,6 +15,10 @@
         background-color:#28a745 !important;
         color:#ffffff !important;
     }
+    .botaoN{
+        background-color:#28a745 !important;
+        color:#ffffff !important;
+    }
     .topo<?=$md5?>{
         position:fixed;
         top:0;
@@ -55,7 +59,7 @@
     while($d = mysqli_fetch_object($result)){
         // echo "{$d->codigo} - mesa ({$d->mesa}) valor: {$d->total}<br>";
 ?>
-<div acao="<?=$d->codigo?>" class="card mb-3 botao">
+<div acao="<?=$d->codigo?>" class="card mb-3 <?=((trim($d->nf_numero))?'botaoN':'botao')?>">
   <div class="card-body">
     <h5 class="card-title">
         <div class="d-flex justify-content-between">
