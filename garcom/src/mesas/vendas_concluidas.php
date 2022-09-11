@@ -25,12 +25,14 @@
 ?>
 <div class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title">Venda: <b><?=str_pad($d->codigo, 5, "0", STR_PAD_LEFT)?></b> - MESA: <?=$d->mesa?></h5>
+    <h5 class="card-title">Venda: <b><?=str_pad($d->codigo, 5, "0", STR_PAD_LEFT)?></b> - MESA: <b><?=$d->mesa?></b></h5>
     <h6 class="card-subtitle mb-2 text-muted">Data Fechamento: <?=$d->data_fechamento?></h6>
-    <p class="card-text"><?="valor da compra: {$d->valor}"?></p>
-    <p class="card-text"><?="Taxa de Serviço: {$d->taxa}"?></p>
-    <p class="card-text"><?="Desconto: {$d->desconto}"?></p>
-    <p class="card-text"><?="Valor Pago: ".($d->valor + $d->taxa - $d->desconto)?></p>
+    <p class="card-text">
+        <?="valor da compra: {$d->valor}"?><br>
+        <?="Taxa de Serviço: {$d->taxa}"?><br>
+        <?="Desconto: {$d->desconto}"?><br>
+        <?="Valor Pago: ".($d->valor + $d->taxa - $d->desconto)?>
+    </p>
   </div>
 </div>
 <?php
