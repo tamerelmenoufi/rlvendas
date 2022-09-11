@@ -30,10 +30,22 @@
     <h5 class="card-title">Venda: <b><?=str_pad($d->codigo, 5, "0", STR_PAD_LEFT)?></b> - MESA: <b><?=$d->mesa?></b></h5>
     <h6 class="card-subtitle mb-2 text-muted">Data Fechamento: <?=formata_datahora($d->data_finalizacao)?></h6>
     <p class="card-text">
-        <?="valor da compra: R$".number_format($d->valor, 2, ",",false)?><br>
-        <?="Taxa de Serviço: R$".number_format($d->taxa, 2, ",",false)?><br>
-        <?="Desconto: R$".number_format($d->desconto, 2, ",",false)?><br>
-        <?="Valor Pago: R$".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?>
+        <div class="d-flex justify-content-between">
+            <span>valor da compra:</span>
+            <span><?="R$ ".number_format($d->valor, 2, ",",false)?></span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Taxa de Serviço:</span>
+            <span><?=" R$ ".number_format($d->taxa, 2, ",",false)?></span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Desconto:</span>
+            <span><?=" R$ ".number_format($d->desconto, 2, ",",false)?></span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Valor Pago:</span>
+            <span><?=" R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></span>
+        </div>
     </p>
   </div>
 </div>
