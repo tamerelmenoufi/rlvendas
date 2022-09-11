@@ -191,16 +191,10 @@
 <div class="PedidoBottomFixo">
     <div class="row">
         <div class="col-5">
-            <?php
-            if($v->nf_status != 'aprovado'){
-            ?>
             <button nota_fiscal="<?=$v->codigo?>" class="btn btn-success btn-block">
                 <i class="fa-solid fa-receipt"></i>
-                <span>Nota Fiscal</span>
+                <span><?=(($v->nf_numero)?' N°'.$v->nf_numero:'Nota Fiscal')?></span>
             </button>
-            <?php
-            }
-            ?>
         </div>
         <div class="col-2">
             <button
