@@ -220,7 +220,7 @@
         $("button[nota_fiscal]").click(function(){
             venda = $(this).attr("nota_fiscal");
             opc = $(this).attr("opc");
-            if(opc){
+            if(!opc){
                 $.confirm({
                     content:"Confirma a emissão da nota fiscal?",
                     title:false,
