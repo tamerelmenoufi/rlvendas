@@ -24,7 +24,9 @@
         background:red;
         opacity:0.5;
         z-index:1;
-        padding-left:60px;
+        padding-left:80px;
+        padding-top:15px;
+        font-size:25px;
     }
 </style>
 <div class="topo<?=$md5?>">
