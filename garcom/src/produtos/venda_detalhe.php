@@ -198,7 +198,7 @@
         </div>
         <div class="col-2">
             <button
-                print_pedido
+                print_pedido="<?=$v->codigo?>"
                 class="btn btn-warning btn-block"
                 <?=((!$valor_total)?'disabled':false)?>
             >
@@ -217,8 +217,36 @@
 <script>
     $(function(){
 
+        $("button[nota_fiscal]").click(function(){
+            venda = $(this).attr("nota_fiscal");
+            $.confirm({
+                content:"Confirma a emissão da nota fiscal?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
+                        Carregando();
+                        $.ajax({
+                            url:"src/produtos/gerar_nota.php",
+                            type:"POST",
+                            data:{
+                                venda,
+                            },
+                            success:function(dados){
+                                $.alert(dados);
+                                Carregando('none');
+                            }
+                        });
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            })
+        });
+
 
         $("button[print_pedido]").click(function(){
+            venda = $(this).attr("print_pedido");
             $.confirm({
                 content:"Confirma a Impressão da comanda?",
                 title:false,
@@ -230,7 +258,8 @@
                             url:"src/produtos/print.php",
                             type:"POST",
                             data:{
-                                impressora
+                                impressora,
+                                venda,
                             },
                             success:function(dados){
                                 $.alert('Comanda enviada para impressão!');

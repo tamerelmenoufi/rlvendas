@@ -10,7 +10,7 @@ $local = [
 if($_SESSION['AppVenda']){
     $dadosParaEnviar = http_build_query(
         array(
-            'cod' => $_SESSION['AppVenda'],
+            'cod' => (($_POST['venda'])?$_POST['venda']:$_SESSION['AppVenda']),
             'terminal' => $_POST['impressora']
         )
     );

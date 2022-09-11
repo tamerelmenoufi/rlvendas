@@ -108,7 +108,7 @@ include("config.php");
 			return $code;
 	   }
 
-	$venda_id = $_GET["id"];
+	$venda_id = $_POST["id"];
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
