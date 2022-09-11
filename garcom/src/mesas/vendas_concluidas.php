@@ -1,6 +1,8 @@
 <?php
     include("../../../lib/includes.php");
-
+?>
+<div class="p3">
+<?php
     $data_limite = date( "Y-m-d H:i:s", mktime(date("H"), date("i"), date("s"), date("m"), date("d") - 1, date("Y")));
 
     $query = "SELECT
@@ -37,3 +39,5 @@
 </div>
 <?php
     }
+?>
+</div>
