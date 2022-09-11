@@ -238,7 +238,7 @@
                                 venda,
                             },
                             success:function(dados){
-                                if(dados == 'ok'){
+                                if(dados.trim() == 'ok'){
                                     $("button[nota_fiscal]").remove();
                                     $.alert('Nota gerada com sucesso!');
                                 }else{
