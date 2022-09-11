@@ -20,7 +20,7 @@
         top:0;
         left:0;
         right:0;
-        height:40px;
+        height:60px;
         background:red;
         opacity:0.5;
     }
