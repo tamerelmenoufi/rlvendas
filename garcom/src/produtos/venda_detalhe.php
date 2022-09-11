@@ -254,6 +254,8 @@
                         }
                     }
                 })
+            }else{
+                $.alert('Sua nota já foi gerada com o N°'+opc);
             }
         });
 
