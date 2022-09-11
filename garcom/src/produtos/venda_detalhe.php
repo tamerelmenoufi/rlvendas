@@ -242,7 +242,7 @@
                                 // console.log(dados)
                                 if(dados.status){
                                     $("button[nota_fiscal] span").text(" N°"+dados.nota);
-                                    $("button[nota_fiscal]").removeAttr("nota_fiscal");
+                                    // $("button[nota_fiscal]").removeAttr("nota_fiscal");
                                     $('div[nota="'+venda+'"] span').css("display","block");
                                     $("b[numero_nota"+venda+"]").html(dados.nota);
                                     $.alert('Nota gerada com sucesso!');
