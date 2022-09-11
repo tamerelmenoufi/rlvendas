@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 ?>
-<div class="p3">
+<div style="padding:10px;">
 <?php
     $data_limite = date( "Y-m-d H:i:s", mktime(date("H"), date("i"), date("s"), date("m"), date("d") - 1, date("Y")));
 
