@@ -3,10 +3,10 @@
 ?>
 <style>
     .vlrP{
-        width:100px;
+        width:80px;
     }
     .vlrN{
-        width:100px;
+        width:80px;
         color:red;
     }
 </style>
