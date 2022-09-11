@@ -23,6 +23,7 @@
         height:60px;
         background:red;
         opacity:0.5;
+        z-index:1;
     }
 </style>
 <div class="topo<?=$md5?>">
