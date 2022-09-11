@@ -241,7 +241,7 @@
                             success:function(dados){
                                 // console.log(dados)
                                 if(dados.status){
-                                    $("button[nota_fiscal] span").text(dados.nota);
+                                    $("button[nota_fiscal] span").text(" N°"+dados.nota);
                                     $("button[nota_fiscal]").removeAttr("nota_fiscal");
                                     $('div[nota="'+venda+'"] span').css("display","block");
                                     $("b[numero_nota"+venda+"]").html(dados.nota);
@@ -263,6 +263,7 @@
 
         $("button[print_pedido]").click(function(){
             venda = $(this).attr("print_pedido");
+            if(venda){
             $.confirm({
                 content:"Confirma a Impressão da comanda?",
                 title:false,
@@ -288,6 +289,7 @@
                     }
                 }
             })
+            }
         });
 
 
