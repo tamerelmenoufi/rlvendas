@@ -196,7 +196,7 @@
             ?>
             <button nota_fiscal="<?=$v->codigo?>" class="btn btn-success btn-block">
                 <i class="fa-solid fa-receipt"></i>
-                Nota Fiscal
+                <span>Nota Fiscal</span>
             </button>
             <?php
             }
@@ -241,8 +241,9 @@
                             success:function(dados){
                                 // console.log(dados)
                                 if(dados.status){
-                                    $("button[nota_fiscal]").remove();
-                                    $('div[nota="'+venda+'"]').css("display","block");
+                                    $("button[nota_fiscal] span").text(dados.nota);
+                                    $("button[nota_fiscal]").removeAttr("nota_fiscal");
+                                    $('div[nota="'+venda+'"] span').css("display","block");
                                     $("b[numero_nota"+venda+"]").html(dados.nota);
                                     $.alert('Nota gerada com sucesso!');
                                 }else{
