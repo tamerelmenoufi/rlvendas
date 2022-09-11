@@ -8,6 +8,8 @@
     .vlrN{
         width:80px;
         color:red;
+        background-color:#eee;
+        border-radius:5px;
     }
     .botao{
         background-color:#28a745 !important;
