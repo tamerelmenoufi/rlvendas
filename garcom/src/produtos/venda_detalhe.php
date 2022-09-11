@@ -206,7 +206,7 @@
             </button>
         </div>
         <div class="col-5">
-            <div style="btn btn-primary btn-block">
+            <div class="btn btn-primary btn-block">
                 R$ <?=number_format($valor_total, 2, ',', false)?>
             </div>
         </div>
