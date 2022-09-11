@@ -105,7 +105,7 @@
     }
 </style>
 <div class="PedidoTopoTitulo">
-    <h4>Pedido Mesa <?=$v->mesa?></h4>
+    <h4>Mesa <?=$v->mesa?> - Pedido #<?=str_pad($v->codigo, 5, "0", STR_PAD_LEFT)?></h4>
 </div>
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
