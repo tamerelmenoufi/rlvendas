@@ -102,7 +102,7 @@
                 url:"componentes/ms_popup_100.php",
                 type:"POST",
                 data:{
-                    local:'src/produtos/vendas_detalhes.php',
+                    local:'src/produtos/venda_detalhe.php',
                     venda,
                 },
                 success:function(dados){
