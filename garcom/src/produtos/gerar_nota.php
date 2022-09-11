@@ -23,7 +23,14 @@
     $d = mysqli_fetch_object($result);
 
     if($d->nf_status == 'aprovado'){
-        echo "ok";
+        $retorno = [
+            'status' => true,
+            'nota' => $d->nf_numero
+        ];
     }else{
-        echo "Ocorreu algum problema,".$d->nr_error;
+        $retorno = [
+            'status' => false,
+            'error' => "Ocorreu algum problema,".$d->nr_error
+        ];
+        echo json_encode($retorno);
     }

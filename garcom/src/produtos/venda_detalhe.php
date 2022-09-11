@@ -234,18 +234,18 @@
                         $.ajax({
                             url:"src/produtos/gerar_nota.php",
                             type:"POST",
+                            dataType:'JSON',
                             data:{
                                 venda,
                             },
                             success:function(dados){
-                                nota = 'xxx';
-                                if(dados.trim() == 'ok'){
+                                if(dados.status){
                                     $("button[nota_fiscal]").remove();
                                     $('div[nota="'+venda+'"]').css("display","block");
-                                    $("b[numero_nota"+venda+"]").html(nota);
+                                    $("b[numero_nota"+venda+"]").html(dados.nota);
                                     $.alert('Nota gerada com sucesso!');
                                 }else{
-                                    $.alert(dados);
+                                    $.alert(dados.error);
                                 }
                                 Carregando('none');
                             }
