@@ -24,7 +24,7 @@
         <button acao opc="definir_impressora" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-print"></i> Impressora <span impressora_padrao></span>
         </button>
-        <button acao opc="vendas_concluidas" class="btn btn-success btn-lg btn-block" style="opacity:0">
+        <button acao opc="vendas_concluidas" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-bell-concierge"></i> Vendas Concluídas
         </button>
     </div>
