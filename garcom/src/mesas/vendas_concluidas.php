@@ -41,7 +41,12 @@
 <div class="card mb-3 botao">
   <div class="card-body">
     <h5 class="card-title">Venda: <b><?=str_pad($d->codigo, 5, "0", STR_PAD_LEFT)?></b> - MESA: <b><?=$d->mesa?></b></h5>
-    <h6 class="card-subtitle mb-2 text-muted">Data Fechamento: <?=formata_datahora($d->data_finalizacao)?></h6>
+    <h6 class="card-subtitle mb-2">
+        <div class="d-flex justify-content-between">
+            <span>Data Fechamento:</span>
+            <span class="vlrP"><?=formata_datahora($d->data_finalizacao)?></span>
+        </div>
+    </h6>
     <p class="card-text">
         <div class="d-flex justify-content-between">
             <span>valor da compra:</span>
