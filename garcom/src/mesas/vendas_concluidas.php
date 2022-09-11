@@ -40,7 +40,12 @@
 ?>
 <div class="card mb-3 botao">
   <div class="card-body">
-    <h5 class="card-title">Venda: <b><?=str_pad($d->codigo, 5, "0", STR_PAD_LEFT)?></b> - MESA: <b><?=$d->mesa?></b></h5>
+    <h5 class="card-title">
+        <div class="d-flex justify-content-between">
+            <span>Venda: <b><?=str_pad($d->codigo, 5, "0", STR_PAD_LEFT)?></b></span>
+            <span>MESA: <b><?=$d->mesa?></b></span>
+        </div>
+    </h5>
     <h6 class="card-subtitle mb-2">
         <div class="d-flex justify-content-between">
             <span>Data Fechamento:</span>
