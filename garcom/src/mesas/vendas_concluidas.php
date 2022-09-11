@@ -4,12 +4,10 @@
 <style>
     .vlrP{
         width:100px;
-        border:solid 1px red;
     }
     .vlrN{
         width:100px;
         color:red;
-        border:solid 1px red;
     }
 </style>
 <div style="padding:10px;">
