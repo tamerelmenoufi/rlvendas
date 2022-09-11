@@ -55,7 +55,7 @@
         </div>
         <div class="d-flex justify-content-between">
             <span>Valor Pago:</span>
-            <span class="vlrP"><?="= R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></span>
+            <span class="vlrP"><b><?="  R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></b></span>
         </div>
     </p>
   </div>
