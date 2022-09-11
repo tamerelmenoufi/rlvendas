@@ -239,7 +239,7 @@
                                 venda,
                             },
                             success:function(dados){
-                                console.log(dados)
+                                // console.log(dados)
                                 if(dados.status){
                                     $("button[nota_fiscal]").remove();
                                     $('div[nota="'+venda+'"]').css("display","block");
