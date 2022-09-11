@@ -191,7 +191,7 @@
 <div class="PedidoBottomFixo">
     <div class="row">
         <div class="col-5">
-            <button nota_fiscal="<?=$v->codigo?>" class="btn btn-success btn-block">
+            <button nota_fiscal="<?=$v->codigo?>" opc="<?=$v->nf_numero?>" class="btn btn-success btn-block">
                 <i class="fa-solid fa-receipt"></i>
                 <span><?=(($v->nf_numero)?' N°'.$v->nf_numero:'Nota Fiscal')?></span>
             </button>
@@ -219,39 +219,42 @@
 
         $("button[nota_fiscal]").click(function(){
             venda = $(this).attr("nota_fiscal");
-            $.confirm({
-                content:"Confirma a emissão da nota fiscal?",
-                title:false,
-                buttons:{
-                    'SIM':function(){
-                        Carregando();
-                        $.ajax({
-                            url:"src/produtos/gerar_nota.php",
-                            type:"POST",
-                            dataType:'JSON',
-                            data:{
-                                venda,
-                            },
-                            success:function(dados){
-                                // console.log(dados)
-                                if(dados.status){
-                                    $("button[nota_fiscal] span").text(" N°"+dados.nota);
-                                    $("button[nota_fiscal]").removeAttr("nota_fiscal");
-                                    $('div[nota="'+venda+'"]').css("display","block");
-                                    $("b[numero_nota"+venda+"]").html(dados.nota);
-                                    $.alert('Nota gerada com sucesso!');
-                                }else{
-                                    $.alert(dados.error);
+            opc = $(this).attr("opc");
+            if(opc){
+                $.confirm({
+                    content:"Confirma a emissão da nota fiscal?",
+                    title:false,
+                    buttons:{
+                        'SIM':function(){
+                            Carregando();
+                            $.ajax({
+                                url:"src/produtos/gerar_nota.php",
+                                type:"POST",
+                                dataType:'JSON',
+                                data:{
+                                    venda,
+                                },
+                                success:function(dados){
+                                    // console.log(dados)
+                                    if(dados.status){
+                                        $("button[nota_fiscal] span").text(" N°"+dados.nota);
+                                        $("button[nota_fiscal]").attr("opc",dados.nota);
+                                        $('div[nota="'+venda+'"]').css("display","block");
+                                        $("b[numero_nota"+venda+"]").html(dados.nota);
+                                        $.alert('Nota gerada com sucesso!');
+                                    }else{
+                                        $.alert(dados.error);
+                                    }
+                                    Carregando('none');
                                 }
-                                Carregando('none');
-                            }
-                        });
-                    },
-                    'NÃO':function(){
+                            });
+                        },
+                        'NÃO':function(){
 
+                        }
                     }
-                }
-            })
+                })
+            }
         });
 
 
