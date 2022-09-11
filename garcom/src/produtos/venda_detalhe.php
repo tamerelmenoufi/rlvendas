@@ -154,12 +154,12 @@
         ?>
         <div class="card bg-light mb-3" style="padding-bottom:40px;">
             <div class="card-body">
-                <p Excluirproduto codigo="<?=$d->codigo?>" produto="<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?> <?=$sabores?>" style="position:absolute; right:-10px; top:-10px; width:auto;">
+                <!-- <p Excluirproduto codigo="<?=$d->codigo?>" produto="<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?> <?=$sabores?>" style="position:absolute; right:-10px; top:-10px; width:auto;">
                     <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blqc?>"></i>
-                <p>
-                <p Tempo>
+                <p> -->
+                <!-- <p Tempo>
                     <?=CalcTempo($d->data)?>
-                </p>
+                </p> -->
                 <p Garcom>
                     <?=$d->atendente?>
                 </p>
@@ -176,37 +176,7 @@
                 <p class="card-text" style="padding:0; margin:0; color:red; font-size:10px;">
                     <?= $d->produto_descricao?>
                 </p>
-                <div cod="<?=$d->codigo?>" style="position:absolute; bottom:0px; left:0px; width:100%;">
 
-                        <button
-                                class="btn text-danger menos"
-                                type="button"
-                                style="<?=$blq?>"
-                        >
-                            <i class="fa-solid fa-circle-minus"></i>
-                        </button>
-
-                        <div
-                                class="form-control quantidade"
-                        ><?=$d->quantidade?></div>
-
-                        <button
-                                class="btn text-success mais"
-                                type="button"
-                                style="<?=$blq?>"
-                        >
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </button>
-
-                        <span
-                                class="btn text-primary rotulo_valor"
-                        >
-                            R$ <span valor atual="<?=$d->valor_unitario?>">
-                                <?= number_format($d->valor_total, 2, ',', '.') ?>
-                            </span>
-                        </span>
-
-                </div>
 
             </div>
         </div>
@@ -214,11 +184,6 @@
             $valor_total = ($valor_total + $d->valor_total);
             }
         ?>
-
-        <div class="SemProduto" style="display:<?=(($n)?'none':'block')?>">
-            <i class="fa-solid fa-face-frown icone"></i>
-            <p>Poxa, ainda não tem produtos em seu pedido!</p>
-        </div>
 
     </div>
 </div>
@@ -241,7 +206,9 @@
             </button>
         </div>
         <div class="col-5">
-
+            <div style="btn btn-primary btn-block">
+                R$ <?=number_format($valor_total, 2, ',', false)?>
+            </div>
         </div>
     </div>
 </div>
