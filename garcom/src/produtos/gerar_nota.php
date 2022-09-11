@@ -32,5 +32,5 @@
             'status' => false,
             'error' => "Ocorreu algum problema,".$d->nr_error
         ];
-        echo json_encode($retorno);
     }
+    echo json_encode($retorno);
