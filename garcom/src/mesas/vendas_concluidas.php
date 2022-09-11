@@ -12,7 +12,7 @@
         border-radius:5px;
     }
     .botao{
-        background-color:#28a745 !important;
+        background-color:#007bff !important;
         color:#ffffff !important;
     }
     .botaoN{
