@@ -15,7 +15,19 @@
         background-color:#28a745 !important;
         color:#ffffff !important;
     }
+    .topo<?=$md5?>{
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        height:40px;
+        background:red;
+        opacity:0.5;
+    }
 </style>
+<div class="topo<?=$md5?>">
+
+</div>
 <div style="padding:10px;">
 <?php
     $data_limite = date( "Y-m-d H:i:s", mktime(date("H"), date("i"), date("s"), date("m"), date("d") - 1, date("Y")));
