@@ -44,7 +44,7 @@
     <h6 class="card-subtitle mb-2">
         <div class="d-flex justify-content-between">
             <span>Data Fechamento:</span>
-            <span class="vlrP"><?=formata_datahora($d->data_finalizacao)?></span>
+            <span><?=formata_datahora($d->data_finalizacao)?></span>
         </div>
     </h6>
     <p class="card-text">
