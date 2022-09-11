@@ -34,7 +34,7 @@
     while($d = mysqli_fetch_object($result)){
         // echo "{$d->codigo} - mesa ({$d->mesa}) valor: {$d->total}<br>";
 ?>
-<div class="card mb-3">
+<div class="btn btn-primary card mb-3">
   <div class="card-body">
     <h5 class="card-title">Venda: <b><?=str_pad($d->codigo, 5, "0", STR_PAD_LEFT)?></b> - MESA: <b><?=$d->mesa?></b></h5>
     <h6 class="card-subtitle mb-2 text-muted">Data Fechamento: <?=formata_datahora($d->data_finalizacao)?></h6>
