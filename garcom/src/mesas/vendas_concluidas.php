@@ -21,11 +21,10 @@
         left:0;
         right:0;
         height:60px;
-        background:red;
-        opacity:0.5;
+        background:#fff;
         z-index:1;
         padding-left:80px;
-        padding-top:15px;
+        padding-top:10px;
         font-size:25px;
     }
 </style>
