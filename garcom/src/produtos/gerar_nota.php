@@ -23,7 +23,7 @@
     $d = mysqli_fetch_object($result);
 
     if($d->nf_status == 'aproved'){
-        echo "Nota Fiscal Gerada com sucesso!";
+        echo "ok";
     }else{
         echo "Ocorreu algum problema,".$d->nr_error;
     }

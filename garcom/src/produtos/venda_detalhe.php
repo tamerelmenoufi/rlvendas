@@ -191,10 +191,16 @@
 <div class="PedidoBottomFixo">
     <div class="row">
         <div class="col-5">
+            <?php
+            if($v->nf_status != 'aprovado'){
+            ?>
             <button nota_fiscal="<?=$v->codigo?>" class="btn btn-success btn-block">
                 <i class="fa-solid fa-receipt"></i>
                 Nota Fiscal
             </button>
+            <?php
+            }
+            ?>
         </div>
         <div class="col-2">
             <button
@@ -232,7 +238,12 @@
                                 venda,
                             },
                             success:function(dados){
-                                $.alert(dados);
+                                if(dados == 'ok'){
+                                    $("button[nota_fiscal]").remove();
+                                    $.alert('Nota gerada com sucesso!');
+                                }else{
+                                    $.alert(dados);
+                                }
                                 Carregando('none');
                             }
                         });
