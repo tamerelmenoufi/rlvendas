@@ -86,7 +86,7 @@
             <span>Valor Pago:</span>
             <span class="vlrP"><b><?="R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></b></span>
         </div>
-        <div nota="<?=$d->codigo?>" class="d-flex justify-content-between" style="display:<?=((trim($d->nf_numero))?'block':'none')?>">
+        <div nota="<?=$d->codigo?>" class="d-flex justify-content-between" style="display:<?=((trim($d->nf_numero))?'block':'none')?> !important;">
             <span>Nota Fiscal N°:</span>
             <span class="vlrP"><b numero_nota<?=$d->codigo?>><?=$d->nf_numero?></b></span>
         </div>
