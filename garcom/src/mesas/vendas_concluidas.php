@@ -55,7 +55,7 @@
     while($d = mysqli_fetch_object($result)){
         // echo "{$d->codigo} - mesa ({$d->mesa}) valor: {$d->total}<br>";
 ?>
-<div class="card mb-3 botao">
+<div acao="<?=$d->codigo?>" class="card mb-3 botao">
   <div class="card-body">
     <h5 class="card-title">
         <div class="d-flex justify-content-between">
@@ -93,3 +93,22 @@
     }
 ?>
 </div>
+
+<script>
+    $(function(){
+        $("div[acao]").click(function(){
+            venda = $(this).attr("acao");
+            $.ajax({
+                url:"componentes/ms_popup_100.php",
+                type:"POST",
+                data:{
+                    local:'src/produtos/vendas_detalhes.php',
+                    venda,
+                },
+                success:function(dados){
+                    $(".ms_corpo").append(dados);
+                }
+            });
+        });
+    })
+</script>
