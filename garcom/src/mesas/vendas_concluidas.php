@@ -41,19 +41,19 @@
     <p class="card-text">
         <div class="d-flex justify-content-between">
             <span>valor da compra:</span>
-            <span class="vlrP"><?="+ R$ ".number_format($d->valor, 2, ",",false)?></span>
+            <span class="vlrP"><?="R$ ".number_format($d->valor, 2, ",",false)?></span>
         </div>
         <div class="d-flex justify-content-between">
             <span>Taxa de Serviço:</span>
-            <span class="vlrP"><?="+ R$ ".number_format($d->taxa, 2, ",",false)?></span>
+            <span class="vlrP"><?="R$ ".number_format($d->taxa, 2, ",",false)?></span>
         </div>
         <div class="d-flex justify-content-between">
             <span>Desconto:</span>
-            <span class="vlrN"><?="- R$ ".number_format($d->desconto, 2, ",",false)?></span>
+            <span class="vlrN"><?="R$ ".number_format($d->desconto, 2, ",",false)?></span>
         </div>
         <div class="d-flex justify-content-between">
             <span>Valor Pago:</span>
-            <span class="vlrP"><b><?="  R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></b></span>
+            <span class="vlrP"><b><?="R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></b></span>
         </div>
     </p>
   </div>
