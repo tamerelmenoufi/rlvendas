@@ -24,10 +24,11 @@
         background:red;
         opacity:0.5;
         z-index:1;
+        padding-left:60px;
     }
 </style>
 <div class="topo<?=$md5?>">
-
+    Vendas Realizadas
 </div>
 <div style="padding:10px;">
 <?php
