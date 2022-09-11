@@ -52,7 +52,7 @@
 
         $retorno .= "txt|1|1|left|{$d->quantidade} X {$pedido->categoria->descricao} {$sabores} - {$pedido->medida->descricao}"."\n";
         if($d->produto_descricao){
-        $retorno .= "txt|1|1|left|    {$d->produto_descricao}"."\n";
+        $retorno .= "txt|1|1|left|    ".strip_tags($d->produto_descricao)."\n";
         }
         $retorno .= "txt|1|1|right|R$ ".
         str_pad(number_format($d->valor_unitario, 2, ',', '.') , 6 , ' ' , STR_PAD_LEFT).
