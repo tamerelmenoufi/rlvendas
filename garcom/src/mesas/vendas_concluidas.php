@@ -1,6 +1,12 @@
 <?php
     include("../../../lib/includes.php");
 ?>
+<style>
+    .vlr{
+        width:100px;
+        border:solid 1px red;
+    }
+</style>
 <div style="padding:10px;">
 <?php
     $data_limite = date( "Y-m-d H:i:s", mktime(date("H"), date("i"), date("s"), date("m"), date("d") - 1, date("Y")));
@@ -32,19 +38,19 @@
     <p class="card-text">
         <div class="d-flex justify-content-between">
             <span>valor da compra:</span>
-            <span><?="R$ ".number_format($d->valor, 2, ",",false)?></span>
+            <span class="vlr"><?="R$ ".number_format($d->valor, 2, ",",false)?></span>
         </div>
         <div class="d-flex justify-content-between">
             <span>Taxa de Serviço:</span>
-            <span><?=" R$ ".number_format($d->taxa, 2, ",",false)?></span>
+            <span class="vlr"><?=" R$ ".number_format($d->taxa, 2, ",",false)?></span>
         </div>
         <div class="d-flex justify-content-between">
             <span>Desconto:</span>
-            <span><?=" R$ ".number_format($d->desconto, 2, ",",false)?></span>
+            <span class="vlr"><?=" R$ ".number_format($d->desconto, 2, ",",false)?></span>
         </div>
         <div class="d-flex justify-content-between">
             <span>Valor Pago:</span>
-            <span><?=" R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></span>
+            <span class="vlr"><?=" R$ ".number_format(($d->valor + $d->taxa - $d->desconto), 2, ",",false)?></span>
         </div>
     </p>
   </div>
