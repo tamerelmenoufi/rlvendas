@@ -234,7 +234,7 @@
                         $.ajax({
                             url:"src/produtos/gerar_nota.php",
                             type:"POST",
-                            typeData:'JSON',
+                            dataType:'JSON',
                             data:{
                                 venda,
                             },
