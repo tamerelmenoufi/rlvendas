@@ -29,8 +29,8 @@
     $retorno .= "txt|1|1|left|Pedido em : ".$data_pedido."\n\n";
 
     if($p->nf_status == 'aprovado'){
-        $retorno .= 'txt|1|2|center|Documento Auxiliar da Nota Fiscal de Consumidor Eletronica'."\n";
-        $retorno .= 'txt|1|2|center|Não permite aproveitamento de crédito de ICMS'."\n\n";
+        $retorno .= 'txt|1|1|center|Documento Auxiliar da Nota Fiscal de Consumidor Eletronica'."\n";
+        $retorno .= 'txt|1|1|center|Não permite aproveitamento de crédito de ICMS'."\n\n";
     }
 
     $retorno .= "txt|1|1|left|Produtos             Vl Uni              Vl Tot"."\n";
@@ -67,9 +67,9 @@
     $retorno .= "\ntxt|1|1|left|Valor Comanda R$ ".number_format($valor_total, 2, ',', '.').""."\n";
     $retorno .= "\ntxt|1|1|left|Taxa Serviço (Opcional) R$ ".number_format($p->taxa, 2, ',', '.').""."\n";
     $retorno .= "\ntxt|1|1|left|Acrescimo R$ ".number_format($p->acrescimo, 2, ',', '.').""."\n";
-    $retorno .= "\ntxt|1|1|left|Desconto R$ ".number_format($p->desconto, 2, ',', '.').""."\n\n";
+    $retorno .= "\ntxt|1|1|left|Desconto R$ ".number_format($p->desconto, 2, ',', '.').""."\n";
 
-    $retorno .= "\ntxt|1|2|right|Pagar R$ ".number_format( ($valor_total + $p->taxa + $p->acrescimo - $d->desconto), 2, ',', '.').""."\n\n";
+    $retorno .= "\ntxt|1|2|right|Pagar R$ ".number_format( ($valor_total + $p->taxa + $p->acrescimo - $d->desconto), 2, ',', '.').""."\n";
 
     if($p->nf_status == 'aprovado'){
 
