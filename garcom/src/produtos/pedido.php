@@ -61,6 +61,30 @@
         if(!$n) $_SESSION['AppCarrinho'] = false;
         exit();
     }
+
+
+// Script para definir o valor total da venda e a taxa de serviços
+        $query = "select
+        sum(a.valor_total) as total,
+        b.nome,
+        b.telefone
+        from vendas_produtos a
+        left join clientes b on a.cliente = b.codigo
+        where a.venda = '{$_SESSION['AppVenda']}' and a.deletado != '1'";
+        $result = mysqli_query($con, $query);
+        $c = mysqli_fetch_object($result);
+
+        $q = "update vendas set
+        valor='{$c->total}',
+        taxa='".($c->total/100*10)."',
+        total= (".($c->total + ($c->total/100*10))." + acrescimo - desconto)
+        where codigo = '{$_SESSION['AppVenda']}'";
+        mysqli_query($con, $q);
+// Fim do script
+
+
+
+
 ?>
 <style>
     .PedidoTopoTitulo{
