@@ -25,12 +25,12 @@
         <?php
             if($c->telefone){
         ?>
-            <div class="DadosTopo"><?=$c->telefone?><br><span ClienteNomeApp><?=$c->nome?></span></div>
+            <div class="DadosTopo"><?=$c->telefone?><br><span ClienteNomeApp><?=$c->nome?></span><br>
         <?php
             }
             if($m->mesa){
         ?>
-            <div class="DadosTopo">Mesa/Pedido <b><?=$m->mesa?></b></div>
+            Mesa/Pedido <b><?=$m->mesa?></b></div>
         <?php
             }
         ?>
