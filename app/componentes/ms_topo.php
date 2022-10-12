@@ -3,6 +3,12 @@
 
     if($_SESSION['AppCliente']) $c = mysqli_fetch_object(mysqli_query($con, "select * from clientes where codigo = '{$_SESSION['AppCliente']}'"));
     if($_SESSION['AppPedido']) $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}' AND deletado != '1'"));
+
+
+    $query = "SELECT * FROM vendas_produtos WHERE venda = '{$_SESSION['AppVenda']}' and situacao = 'n'";
+    $result = mysqli_query($con, $query);
+    $pendente = mysqli_num_rows($result);
+
 ?>
 <style>
     .topoImg{
