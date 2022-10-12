@@ -74,6 +74,9 @@
                     },
                     success:function(dados_mesa){
 
+                        alert('retorno: '+ dados_mesa)
+                        return;
+
                         window.localStorage.setItem('AppPedido', dados_mesa);
 
                         $.ajax({
