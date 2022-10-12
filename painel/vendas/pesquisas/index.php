@@ -51,7 +51,7 @@
                 <?php
                 $where = false;
                 if($_POST['data']){
-                    $where .= " and v.data_finalizacao = '{$_POST['data']}' ";
+                    $where .= " and v.data_finalizacao like '%{$_POST['data']}%' ";
                 }
                 if($_POST['mesa']){
                     $where .= " and v.mesa = '{$_POST['mesa']}' ";
