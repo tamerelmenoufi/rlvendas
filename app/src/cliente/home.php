@@ -44,7 +44,7 @@
         <button acao opc="perfil" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-user-pen"></i> Perfil pessoal
         </button>
-        <button class="btn btn-success btn-lg btn-block">
+        <!-- <button class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-bell-concierge"></i> Meus Pedidos
         </button>
         <button class="btn btn-success btn-lg btn-block">
@@ -52,7 +52,7 @@
         </button>
         <button acao opc="senha" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-key"></i> Alterar Senha
-        </button>
+        </button> -->
         <button sair class="btn btn-danger btn-lg btn-block">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             Desconectar
