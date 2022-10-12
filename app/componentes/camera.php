@@ -10,10 +10,12 @@
     }
 
     $mesas = [];
-    $query = "SELECT * FROM mesas WHERE situacao = '1' AND deletado != '1'";
+    $query = "SELECT a.*, (select count(*) from vendas where mesa = a.codigo and situacao != 'pago' and deletado != '1') as tem FROM mesas a WHERE a.situacao = '1' AND a.deletado != '1'";
     $result = mysqli_query($con, $query);
     while($m = mysqli_fetch_object($result)){
-        $mesas[] = $m->mesa;
+        if(!$m->tem){
+            $mesas[] = $m->mesa;
+        }
     }
 
     if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
