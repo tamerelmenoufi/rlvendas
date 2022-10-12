@@ -1,5 +1,6 @@
 <?php
     include("../../../lib/includes.php");
+    include("../conf.php");
 ?>
 
     <div class="row">
