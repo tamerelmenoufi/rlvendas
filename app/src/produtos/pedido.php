@@ -224,27 +224,27 @@
 
 <div class="PedidoBottomFixo">
     <div class="row">
-        <div class="col-3 PedidoBottomItens">
+        <div class="col-6 PedidoBottomItens">
             <button
                 class="btn btn-danger"
                 ExcluirPedido
                 style="<?=((!$acao_cancelar)?'display:none;':false)?>"
             >
-            <i class="fa-solid fa-trash-can"></i>
+                <i class="fa fa-times" aria-hidden="true"></i> Cancelar Pedido
             </button>
         </div>
-        <div class="col-3 PedidoBottomItens">
+        <div class="col-6 PedidoBottomItens">
             <button
                 confirmar_pedido
                 class="btn btn-primary"
                 style="<?=((!$acao_preparar)?'display:none;':false)?>"
             >
-                ok
+                <i class="fa fa-check-circle" aria-hidden="true"></i> Confirmar Pedido
             </button>
         </div>
-        <div class="col-6 PedidoBottomItens">
+        <!-- <div class="col-6 PedidoBottomItens">
             <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
-        </div>
+        </div> -->
     </div>
 </div>
 
