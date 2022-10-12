@@ -104,6 +104,7 @@ while ($m = mysqli_fetch_array($m_r)) {
         font-size:12px;
         text-align:center;
         display:<?=(($pendente)?'block':false)?>;
+        z-index:10;
     }
 
 </style>
