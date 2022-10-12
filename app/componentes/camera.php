@@ -2,7 +2,7 @@
     include("../../lib/includes.php");
 
     if($_POST['acao'] == 'Mesa'){
-        $query = "SELECT * FROM mesas WHERE mesa = '{$_POST['mesa']}'";
+        $query = "SELECT * FROM mesas WHERE mesa = '{$_POST['mesa']}' and situacao = '1' and deletado != '1'";
         $result = mysqli_query($con, $query);
         $m = mysqli_fetch_object($result);
         echo $m->codigo;
