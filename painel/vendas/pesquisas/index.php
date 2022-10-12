@@ -22,8 +22,7 @@
             <label for="data">Data</label>
             <input type="text" class="form-control" />
         </div>
-        <div class="col-md-2">
-            <label for="data"></label>
+        <div class="col-md-2 d-flex align-items-end">
             <button class="btn btn-success">Buscar</button>
         </div>
     </div>
