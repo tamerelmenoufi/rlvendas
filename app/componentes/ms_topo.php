@@ -30,7 +30,7 @@
             }
             if($m->mesa){
         ?>
-            <div class="DadosTopo">Pedido <b><?=$m->mesa?></b></div>
+            <div class="DadosTopo">Mesa/Pedido <b><?=$m->mesa?></b></div>
         <?php
             }
         ?>
