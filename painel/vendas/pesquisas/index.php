@@ -63,7 +63,7 @@
                     . "LEFT JOIN atendentes a ON a.codigo = v.atendente "
                     . "WHERE v.situacao='pago' {$where} order by v.codigo desc limit 100";
 
-                echo $query;
+                // echo $query;
 
                 $result = mysqli_query($con, $query);
 
