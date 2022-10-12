@@ -23,6 +23,7 @@
             <input type="text" class="form-control" />
         </div>
         <div class="col-md-2">
+            <label for="data"></label>
             <button class="btn btn-success">Buscar</button>
         </div>
     </div>
