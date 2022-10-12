@@ -206,6 +206,14 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <script>
 
+    <?php
+    if($pendente){
+    ?>
+    $(".PedidoPendentes_topo").css("display","block");
+    <?php
+    }
+    ?>
+
     $("button[entendi]").click(function(){
         $(".PedidoPendentes").remove();
     });

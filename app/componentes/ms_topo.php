@@ -16,6 +16,20 @@
         margin-right:10px;
         color:#fff;
     }
+    .PedidoPendentes_topo{
+        position:fixed;
+        top:80px;
+        left:10px;
+        right:10px;
+        border-radius:5px;
+        background-color:#fff666;
+        color:#333333;
+        padding:10px;
+        font-size:12px;
+        text-align:center;
+        display:<?=(($pendente)?'block':false)?>;
+        z-index:10;
+    }
 </style>
 <div class="row">
     <div class="col-4">
@@ -36,3 +50,24 @@
         ?>
     </div>
 </div>
+
+<div class="PedidoPendentes_topo">
+    <b>ATENÇÃO!</b><br>
+    Você possui pedidos que ainda não foram autorizados para o proparo.<br>Acesse sua lista de pedido pelo ícone <b>SINO <i class="fa-solid fa-bell-concierge"></i></b> localizado no rodapé desta página para Confirmar Pedido.
+        <div style="margin-top:20px;">
+            <button entendi class="btn btn-warning" style="font-size:12px;">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> ok Endendi
+            </button>
+        </div>
+</div>
+
+<script>
+    $(function(){
+
+        $("button[entendi]").click(function(){
+            $(".PedidoPendentes_topo").remove();
+        });
+
+
+    })
+</script>
