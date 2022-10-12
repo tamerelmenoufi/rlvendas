@@ -120,7 +120,7 @@
 
 </style>
 <div class="PedidoTopoTitulo">
-    <h4>Pedido <?=$_SESSION['AppPedido']?></h4>
+    <h4>Pedido <?=str_pad($_SESSION['AppPedido'] , 3 , '0' , STR_PAD_LEFT)?></h4>
 </div>
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
