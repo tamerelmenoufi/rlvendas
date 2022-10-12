@@ -30,7 +30,7 @@
             }
             if($m->mesa){
         ?>
-            Mesa/Pedido <b><?=$m->mesa?></b></div>
+            Mesa/Pedido <b><?=str_pad($m->mesa , 3 , '0' , STR_PAD_LEFT)?></b></div>
         <?php
             }
         ?>
