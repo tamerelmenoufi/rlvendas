@@ -30,7 +30,7 @@
     <?php
         if($_POST){
     ?>
-    <div class="row">
+    <div id="vendas" class="row">
         <div class="col">
 
 
