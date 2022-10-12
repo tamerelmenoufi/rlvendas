@@ -122,7 +122,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <div class="PedidoPendentes">
     <b>ATENÇÃO!</b><br>
-    Você possui pedidos que ainda não foram autorizados para o proparo.<br>Acesse sua lista de pedido pelo ícone <b>SINO <i class="fa-solid fa-bell-concierge"></i></b> localizado no topo desta página e autorize o preparo.
+    Você possui pedidos que ainda não foram autorizados para o proparo.<br>Acesse sua lista de pedido pelo ícone <b>SINO <i class="fa-solid fa-bell-concierge"></i></b> localizado no topo desta página para Confirmar Pedido.
         <div style="margin-top:20px;">
             <button class="btn btn-warning" style="font-size:12px;">
                 <i class="fa fa-thumbs-up" aria-hidden="true"></i> ok Endendi
