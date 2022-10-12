@@ -90,8 +90,8 @@
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
 
-            alert('AppPedido:' + AppPedido)
-            alert('AppCliente:' + AppCliente)
+            // alert('AppPedido:' + AppPedido)
+            // alert('AppCliente:' + AppCliente)
 
             if(
                 (AppPedido != 'undefined' && AppPedido != null) &&
