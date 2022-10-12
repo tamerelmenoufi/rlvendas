@@ -121,7 +121,10 @@
         $("#filtrarVendas").click(function(){
             mesa = $("#filtrarMesa").val();
             data = $("#filtrarData").val();
-            if(!mesa && !data) return false;
+            if(!mesa && !data){
+                $.alert('Favor preencher os dados para a busca!');
+                return false;
+            }
             $.ajax({
                 url:"vendas/pesquisas/index.php",
                 type:"POST",
