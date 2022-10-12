@@ -118,9 +118,9 @@
 
 <script>
     $(function(){
-        $(".filtrarVendas").click(function(){
-            mesa = $(".filtrarMesa").val();
-            data = $(".filtrarData").val();
+        $("#filtrarVendas").click(function(){
+            mesa = $("#filtrarMesa").val();
+            data = $("#filtrarData").val();
             if(!mesa && !data) return false;
             $.ajax({
                 url:"vendas/pesquisas/index.php",
