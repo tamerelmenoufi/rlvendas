@@ -32,7 +32,7 @@
     </div>
     <div class="row mb-3">
         <div class="col">
-            <div acao="terminal2" class="btn btn-success btn-block esquerda"><i class="fa-solid fa-print"></i> Terminal</div>
+            <div acao="terminal2" class="btn btn-success btn-block esquerda"><i class="fa-solid fa-print"></i> Terminal 1</div>
         </div>
     </div>
     <div class="row mb-3">
