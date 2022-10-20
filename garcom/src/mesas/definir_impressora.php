@@ -35,6 +35,12 @@
             <div acao="terminal2" class="btn btn-success btn-block esquerda"><i class="fa-solid fa-print"></i> Terminal</div>
         </div>
     </div>
+    <div class="row mb-3">
+        <div class="col">
+            <div acao="terminal3" class="btn btn-success btn-block esquerda"><i class="fa-solid fa-print"></i> Terminal 3</div>
+        </div>
+    </div>
+
 </div>
 
 <script>

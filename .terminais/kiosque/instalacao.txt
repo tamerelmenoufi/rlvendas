@@ -27,3 +27,7 @@ sudo systemctl start kiosk.service
 sudo systemctl stop kiosk.service
 
 sudo systemctl disable kiosk.service
+
+
+BAIXAR OS DRIVES DA IMPRESSORA ELGIN
+wget http://yobom.com.br/rlvendas/.terminais/Elgin_Linux_Driver_v1.2.3.zip
