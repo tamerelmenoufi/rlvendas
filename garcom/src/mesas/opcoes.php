@@ -42,7 +42,8 @@
 
         tipo_impressora = [];
         tipo_impressora['terminal1'] = 'Caixa';
-        tipo_impressora['terminal2'] = 'Terminais';
+        tipo_impressora['terminal2'] = 'Terminais 1';
+        tipo_impressora['terminal3'] = 'Terminais 3';
 
         $("span[impressora_padrao]").html(tipo_impressora[impressora]);
 
