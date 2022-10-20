@@ -5,6 +5,7 @@ include("../../../lib/includes.php");
 $local = [
     'terminal1' => '1',
     'terminal2' => '2',
+    'terminal3' => '3',
 ];
 
 if($_SESSION['AppVenda']){
