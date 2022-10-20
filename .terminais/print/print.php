@@ -16,7 +16,7 @@
 
  //*/
 
-    $t = 2;
+    $t = 3;
 
     $result   = file_get_contents('https://yobom.com.br/rlvendas/painel/vendas/print/terminal'.$t.'-c.txt');
 
