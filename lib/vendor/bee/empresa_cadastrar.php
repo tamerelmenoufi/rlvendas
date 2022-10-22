@@ -1,5 +1,5 @@
 <?php
-
+exit();
 $externalId = 47;
 
 $Geral = [
