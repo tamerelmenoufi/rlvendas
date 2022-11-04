@@ -127,7 +127,7 @@ $result = mysqli_query($con, $query);
                         <tr id="linha-<?= $d->codigo; ?>">
                             <td><?= $d->cliente_nome ?: $d->telefone; ?></td>
                             <td>
-                                <?= number_format($d->total, 2, ',', '.'); ?>
+                                <?= number_format(($d->valor + $d->taxa + $d->acrescimo - $d->desconto), 2, ',', '.'); ?>
                             </td>
                             <td><?= $d->mesa_descricao; ?></td>
                             <td>
