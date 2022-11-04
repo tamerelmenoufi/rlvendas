@@ -201,7 +201,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 
                                 <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle titulo_pagamento" type="button" data-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-default dropdown-toggle titulo_pagamento" type="button" data-toggle="dropdown" aria-expanded="false">
                                     pagamento ?
                                 </button>
                                 <div class="dropdown-menu">
