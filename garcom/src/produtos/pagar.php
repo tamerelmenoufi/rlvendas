@@ -183,7 +183,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col">
                             <h5 class="card-title">
                                 <small>Operação</small>
-                                <div>
+                                <div style="position:fixed; left:-1000px; top:-1000px;">
                                     <select class="operacao form-control form-control-sm">
                                         <option value="">::Selecione::</option>
                                 <?php
@@ -197,12 +197,12 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 ?>
                                     </select>
                                 </div>
-                                <div class="row" style="display:none;">
+                                <div>
 
 
                                 <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle titulo_pagamento" type="button" data-toggle="dropdown" aria-expanded="false">
-                                    Dropdown button
+                                    Escolher forma de pagamento
                                 </button>
                                 <div class="dropdown-menu">
                                 <?php
@@ -217,9 +217,6 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 ?>
                                 </div>
                                 </div>
-
-
-
                                 </div>
                             </h5>
                         </div>
