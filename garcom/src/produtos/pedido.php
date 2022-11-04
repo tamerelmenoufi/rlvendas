@@ -327,7 +327,7 @@
             </button>
         </div>
         <div class="col-5">
-            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Pagar <b><!--R$-->  <span pedido_valor_toal valor="<?=$valor_total?>"><!--<?= number_format($valor_total, 2, ',', '.') ?>--></span></b></button>
+            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
         </div>
     </div>
 </div>
