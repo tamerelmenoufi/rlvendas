@@ -201,13 +201,20 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 
                                 <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle titulo_pagamento" type="button" data-toggle="dropdown" aria-expanded="false">
                                     Dropdown button
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                <?php
+                                    $qf = "select * from pagamentos where deletado != '1'";
+                                    $rf = mysqli_query($con, $qf);
+                                    while($f = mysqli_fetch_object($rf)){
+                                ?>
+                                        <a class="dropdown-item" href="#" pagamento="<?=$f->pagamento?>" ><?=strtoupper($f->pagamento)?></a>
+                                        <!-- <option value="<?=$f->pagamento?>"><?=strtoupper($f->pagamento)?></option> -->
+                                <?php
+                                    }
+                                ?>
                                 </div>
                                 </div>
 
@@ -297,6 +304,14 @@ where codigo = '{$_SESSION['AppVenda']}'";
             success:function(dados){
                 $("div[pagar_operacoes]").html(dados);
             }
+        });
+
+
+        $("a[pagamento]").click(function(){
+            opc = $(this).attr("pagamento");
+            titulo = $(this).html();
+            $(".operacao").val(opc);
+            $(".titulo_pagamento").html(titulo);
         });
 
         $('input[calc="desconto"]').blur(function(){
