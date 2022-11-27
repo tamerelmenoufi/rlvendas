@@ -74,7 +74,11 @@
     }
 
 
+<?php
 
+/*
+
+?>
 
 
     // Socket Variable declaration
@@ -121,6 +125,11 @@
 
 
 
+<?php
+
+//*/
+
+?>
 
 
 
