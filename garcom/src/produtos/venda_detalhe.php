@@ -248,6 +248,10 @@
                                         $.alert(dados.error);
                                     }
                                     Carregando('none');
+                                },
+                                error:function(){
+                                    $.alert(dados.error);
+                                    Carregando('none');
                                 }
                             });
                         },
