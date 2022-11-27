@@ -235,7 +235,7 @@
                                     venda,
                                 },
                                 success:function(dados){
-                                     console.log(dados)
+                                    //  console.log(dados)
                                     // if(dados.status){
                                     //     $("button[nota_fiscal] span").text(" N°"+dados.nota);
                                     //     $("button[nota_fiscal]").attr("opc",dados.nota);
