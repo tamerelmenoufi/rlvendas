@@ -184,7 +184,11 @@
 
 
 
+<?php
 
+/*
+
+?>
 
 
 
@@ -274,17 +278,23 @@
     };
     socketCloseListener();
 
-    // setInterval(function () {
-    //     $.ajax({
-    //         url: "<?=$opc?>/index.php?<?=$md5?>",
-    //         success: function (dados) {
-    //             $("#body").html(dados);
-    //         },
-    //         error: function () {
-    //             $.alert('Ocorreu um erro!');
-    //         }
-    //     });
-    // }, 5000);
+    <?php
+
+//*/
+
+?>
+
+    setInterval(function () {
+        $.ajax({
+            url: "<?=$opc?>/index.php?<?=$md5?>",
+            success: function (dados) {
+                $("#body").html(dados);
+            },
+            error: function () {
+                $.alert('Ocorreu um erro!');
+            }
+        });
+    }, 5000);
 
 
 </script>
