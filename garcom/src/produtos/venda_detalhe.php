@@ -230,23 +230,23 @@
                             $.ajax({
                                 url:"src/produtos/gerar_nota.php",
                                 type:"POST",
-                                // dataType:'JSON',
+                                dataType:'JSON',
                                 data:{
                                     venda,
                                 },
                                 success:function(dados){
-                                     console.log(dados)
-                                    // if(dados.status){
-                                    //     $("button[nota_fiscal] span").text(" N°"+dados.nota);
-                                    //     $("button[nota_fiscal]").attr("opc",dados.nota);
-                                    //     $('div[nota="'+venda+'"]').css("display","block");
-                                    //     $('div[acao="'+venda+'"]').removeClass("botao");
-                                    //     $('div[acao="'+venda+'"]').addClass("botaoN");
-                                    //     $("b[numero_nota"+venda+"]").html(dados.nota);
-                                    //     $.alert('Nota gerada com sucesso!');
-                                    // }else{
-                                    //     $.alert(dados.error);
-                                    // }
+                                    //  console.log(dados)
+                                    if(dados.status){
+                                        $("button[nota_fiscal] span").text(" N°"+dados.nota);
+                                        $("button[nota_fiscal]").attr("opc",dados.nota);
+                                        $('div[nota="'+venda+'"]').css("display","block");
+                                        $('div[acao="'+venda+'"]').removeClass("botao");
+                                        $('div[acao="'+venda+'"]').addClass("botaoN");
+                                        $("b[numero_nota"+venda+"]").html(dados.nota);
+                                        $.alert('Nota gerada com sucesso!');
+                                    }else{
+                                        $.alert(dados.error);
+                                    }
                                     Carregando('none');
                                 },
                                 error:function(){
