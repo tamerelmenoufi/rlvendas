@@ -291,10 +291,14 @@
                 $("#body").html(dados);
             },
             error: function () {
-                $.alert('Ocorreu um erro!');
+                $.alert('Ocorreu um erro!<br>Favor recarregar a página<br><br><button recarregar class="btn btn-primary btn-lg">Recarregar</button>');
             }
         });
     }, 5000);
+
+    $(document).on('click',"button[recarregar]", function(){
+        window.location.href='./?<?=$opc?>';
+    })
 
 
 </script>
