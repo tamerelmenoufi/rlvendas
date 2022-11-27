@@ -230,12 +230,12 @@
                             $.ajax({
                                 url:"src/produtos/gerar_nota.php",
                                 type:"POST",
-                                dataType:'JSON',
+                                // dataType:'JSON',
                                 data:{
                                     venda,
                                 },
                                 success:function(dados){
-                                    //  console.log(dados)
+                                     console.log(dados)
                                     // if(dados.status){
                                     //     $("button[nota_fiscal] span").text(" N°"+dados.nota);
                                     //     $("button[nota_fiscal]").attr("opc",dados.nota);
