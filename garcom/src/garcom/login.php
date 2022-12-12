@@ -10,6 +10,7 @@
             $_SESSION['AppGarcom'] = $d->codigo;
             $_SESSION['AppPerfil'] = json_decode($d->perfil);
             $status = 'sucesso';
+            mysqli_query($con, "update atendentes set restart = '0' where codigo = '{$d->codigo}'");
         }else{
             $status = 'erro';
             $_SESSION['AppGarcom'] = false;
