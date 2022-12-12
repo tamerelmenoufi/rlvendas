@@ -8,7 +8,7 @@
 
     if($_SESSION['AppGarcom']){
 
-        $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}' and restart = '1' and situacao = '1' and deletado != '1'";
+        $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}' and (restart = '1' or situacao = '0' or deletado = '1')";
         $result = mysqli_query($con, $query);
         if(mysqli_num_rows($result)){
             $_SESSION = [];
