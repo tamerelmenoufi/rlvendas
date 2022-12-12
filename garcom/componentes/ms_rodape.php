@@ -24,6 +24,8 @@
             componente = $(this).attr("componente");
             local = $(this).attr("local");
 
+            if(!AppCliente || AppCliente == undefined || AppCliente == null) return false;
+
             if(AppCliente && local == 'src/mesas/home.php'){
                 Carregando();
                 $.ajax({
