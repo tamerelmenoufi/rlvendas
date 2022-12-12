@@ -24,7 +24,20 @@
             componente = $(this).attr("componente");
             local = $(this).attr("local");
 
-            if(!AppCliente || AppCliente == undefined || AppCliente == null) return false;
+            if(!AppCliente || AppCliente == undefined || AppCliente == null){
+                Carregando();
+                $.ajax({
+                    url:"componentes/ms_popup_100.php",
+                    type:"POST",
+                    data:{
+                        local:"src/garcom/login.php",
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
+                return false;
+            }
 
             if(AppCliente && local == 'src/mesas/home.php'){
                 Carregando();
