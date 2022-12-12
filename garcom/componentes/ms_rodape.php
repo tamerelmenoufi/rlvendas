@@ -23,7 +23,7 @@
             AppCliente = window.localStorage.getItem('AppCliente');
             componente = $(this).attr("componente");
             local = $(this).attr("local");
-
+            console.log(AppCliente);
             if(!AppCliente || AppCliente == undefined || AppCliente == null){
                 Carregando();
                 $.ajax({
