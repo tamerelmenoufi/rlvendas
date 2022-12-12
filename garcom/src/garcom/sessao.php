@@ -6,6 +6,19 @@
     if($_POST['AppGarcom']) $_SESSION['AppGarcom'] = $_POST['AppGarcom'];
 
 
+    if($_SESSION['AppGarcom']){
+
+        $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}' and restart = '1' and situacao = '1' and deletado != '1'";
+        $result = mysqli_query($con, $query);
+        if(!mysqli_num_rows($result)){
+            $_SESSION = [];
+            echo "<script>window.localStorage.clear(); window.location.href='./';</script>";
+            exit();
+        }
+
+    }
+
+
     // $dados =   "Cliente: ". $_SESSION['AppCliente']."\n".
     //            "Venda: ". $_SESSION['AppVenda']."\n".
     //            "Pedido: ". $_SESSION['AppPedido']."\n";
