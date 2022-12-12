@@ -21,10 +21,11 @@
 
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
+            AppGarcom = window.localStorage.getItem('AppGarcom');
             componente = $(this).attr("componente");
             local = $(this).attr("local");
-            console.log(AppCliente);
-            if(!AppCliente || AppCliente == undefined || AppCliente == null){
+            console.log(AppGarcom);
+            if(!AppGarcom || AppGarcom == undefined || AppGarcom == null){
                 Carregando();
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
