@@ -5,6 +5,7 @@
     $postdata = http_build_query(
         array(
             'id' => $_POST['venda'], // Receivers phonei
+            'cpf' => $_POST['cpf'], // Receivers phonei
         )
     );
     $opts = array('http' =>

@@ -266,7 +266,7 @@ include("config.php");
 	   // CLIENTE
 	   // $cadastro (1 - pessoa fisica / 2 pessao juridica)
 	   		$cadastro = 1;
-			$cpfnanota = trim(limpardados($_GET["cpf"])); // CPF DO CLIENTE, ENVIAR SEM MASCARA
+			$cpfnanota = trim(limpardados($_POST["cpf"])); // CPF DO CLIENTE, ENVIAR SEM MASCARA
 
 			if($cpfnanota!=""){
 					// somente cpf na soma

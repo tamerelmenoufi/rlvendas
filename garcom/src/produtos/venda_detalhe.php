@@ -222,38 +222,48 @@
             opc = $(this).attr("opc");
             if(!opc){
                 $.confirm({
-                    content:"Confirma a emissão da nota fiscal?",
+                    content:"<center><p>Confirma a emissão da nota fiscal?</p><p><div class='form-group'><label>CPF na Nota?</label><input type='text' placeholder='Seu CPF' class='nf_cpf form-control' /></div></p></center>",
                     title:false,
                     buttons:{
                         'SIM':function(){
-                            Carregando();
-                            $.ajax({
-                                url:"src/produtos/gerar_nota.php",
-                                type:"POST",
-                                dataType:'JSON',
-                                data:{
-                                    venda,
-                                },
-                                success:function(dados){
-                                    //  console.log(dados)
-                                    if(dados.status){
-                                        $("button[nota_fiscal] span").text(" N°"+dados.nota);
-                                        $("button[nota_fiscal]").attr("opc",dados.nota);
-                                        $('div[nota="'+venda+'"]').css("display","block");
-                                        $('div[acao="'+venda+'"]').removeClass("botao");
-                                        $('div[acao="'+venda+'"]').addClass("botaoN");
-                                        $("b[numero_nota"+venda+"]").html(dados.nota);
-                                        $.alert('Nota gerada com sucesso!');
-                                    }else{
+
+                            var nf_cpf = this.$content.find('.nf_cpf').val();
+
+                            if(!nf_cpf || (nf_cpf.length > 0 && nf_cpf.length == 13)){
+
+                                Carregando();
+                                $.ajax({
+                                    url:"src/produtos/gerar_nota.php",
+                                    type:"POST",
+                                    dataType:'JSON',
+                                    data:{
+                                        venda,
+                                        cpf:nf_cpf,
+                                    },
+                                    success:function(dados){
+                                        //  console.log(dados)
+                                        if(dados.status){
+                                            $("button[nota_fiscal] span").text(" N°"+dados.nota);
+                                            $("button[nota_fiscal]").attr("opc",dados.nota);
+                                            $('div[nota="'+venda+'"]').css("display","block");
+                                            $('div[acao="'+venda+'"]').removeClass("botao");
+                                            $('div[acao="'+venda+'"]').addClass("botaoN");
+                                            $("b[numero_nota"+venda+"]").html(dados.nota);
+                                            $.alert('Nota gerada com sucesso!');
+                                        }else{
+                                            $.alert(dados.error);
+                                        }
+                                        Carregando('none');
+                                    },
+                                    error:function(){
                                         $.alert(dados.error);
+                                        Carregando('none');
                                     }
-                                    Carregando('none');
-                                },
-                                error:function(){
-                                    $.alert(dados.error);
-                                    Carregando('none');
-                                }
-                            });
+                                });
+                            }else{
+                                $.alert('Favor confira o CPF. Ocorreu um erro na tentativa de emissão com o CPF!');
+                                return false;
+                            }
                         },
                         'NÃO':function(){
 
