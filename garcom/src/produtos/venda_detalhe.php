@@ -222,14 +222,14 @@
             opc = $(this).attr("opc");
             if(!opc){
                 $.confirm({
-                    content:"<center><p>Confirma a emissão da nota fiscal?</p><p><div class='form-group'><label>CPF na Nota?</label><input type='text' placeholder='Seu CPF' class='nf_cpf form-control' /></div></p></center>",
+                    content:"<center><p>Confirma a emissão da nota fiscal?</p><p><div class='form-group'><label>CPF na Nota?</label><input type='number' placeholder='Seu CPF' class='nf_cpf form-control' /></div></p></center>",
                     title:false,
                     buttons:{
                         'SIM':function(){
 
                             var nf_cpf = this.$content.find('.nf_cpf').val();
 
-                            if(!nf_cpf || (nf_cpf.length > 0 && nf_cpf.length == 14)){
+                            if(!nf_cpf || (nf_cpf.length > 0 && nf_cpf.length == 11)){
 
                                 Carregando();
                                 $.ajax({
