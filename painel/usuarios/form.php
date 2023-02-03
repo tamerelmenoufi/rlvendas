@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query_existe = "SELECT codigo FROM usuarios WHERE usuario = '{$data['usuario']}'";
 
-    if (mysqli_num_rows(mysqli_query($con, $query_existe))) {
+    if (mysqli_num_rows(mysqli_query($con, $query_existe)) and $cod) {
         echo json_encode([
             "status" => false,
             "msg" => "Nome de usuário já existe",
