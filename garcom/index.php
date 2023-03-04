@@ -4,6 +4,11 @@
         $_SESSION = [];
         header("location:./");
     }
+    $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+    if(strtolower($protocol) == 'https'){
+        header("location:http://www.yobom.com.br/rlvendas/garcom/");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
