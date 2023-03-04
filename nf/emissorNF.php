@@ -1,5 +1,5 @@
 <?php
-error_reporting (E_ALL);
+// error_reporting (E_ALL);
 include("config.php");
 
 if($_GET['id']) $_POST["id"] = $_GET['id'];
@@ -383,7 +383,7 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 			$quatidade = (empty($row["quantidade"])) ? "1" : $row["quantidade"];;
 			$nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao." ".$row["produto_descricao"]; // NOME DO PRODUTO
 			$ncm=$row["ncm"]; // NCM
-			$cest=$row["cest"]; // NCM
+			$cest=$row["cest"]; // CEST
 			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
 			$origem = (empty($row["origem"])) ? "0" : $row["origem"];
 			$cfop = $row["cfop"];
