@@ -20,8 +20,8 @@
 
 
     $query = "select * from vendas where codigo = '{$_POST['venda']}'";
-    $result = mysqli_query($con, $query);
-    $d = mysqli_fetch_object($result);
+    $result1 = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result1);
 
     if($d->nf_status == 'aprovado'){
         $retorno = [
@@ -31,7 +31,7 @@
     }else{
         $retorno = [
             'status' => false,
-            'error' => "Ocorreu algum problema,".$d->nr_error
+            'error' => "Ocorreu algum problema,".$result.$d->nr_error
         ];
     }
     echo trim(json_encode($retorno));
