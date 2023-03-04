@@ -2,6 +2,8 @@
 
 include("config.php");
 
+if($_GET['id']) $_POST["id"] = $_GET['id'];
+
 	/**
 	 *
 	 *
