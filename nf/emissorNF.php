@@ -2,7 +2,7 @@
 // error_reporting (E_ALL);
 include("config.php");
 
-if($_GET['id']) $_POST["id"] = $_GET['id'];
+// if($_GET['id']) $_POST["id"] = $_GET['id'];
 
 	/**
 	 *
@@ -114,7 +114,7 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	echo $sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.deletado != \'1\' and a.codigo = ?';
+	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.deletado != \'1\' and a.codigo = ?';
     $stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -337,7 +337,7 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 		 * pv.valor_total = (VALOR DE VENDA * QUANTIDADE)
 		 *
 		 */
-		echo $sql = "SELECT pv.*,  p.ncm,  p.cest, p.cfop, p.origem, p.unit, p.icms
+		$sql = "SELECT pv.*,  p.ncm,  p.cest, p.cfop, p.origem, p.unit, p.icms
 				FROM vendas_produtos as pv
 				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
 				WHERE pv.venda = '$venda_id' and pv.deletado != '1'";
@@ -459,7 +459,7 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			$response_server = curl_exec($ch);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
-			var_dump($response);
+			// var_dump($response);
 			if (curl_errno($ch)) {
 				$errValidar = print_r(curl_error($ch), true);
 				// var_dump(curl_error($ch));
