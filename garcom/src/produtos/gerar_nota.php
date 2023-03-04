@@ -31,7 +31,7 @@
     }else{
         $retorno = [
             'status' => false,
-            'error' => "Ocorreu algum problema,".$result.$d->nr_error
+            'error' => "Ocorreu algum problema,".$result.' - '.$query.' - '.$d->nr_error
         ];
     }
     echo trim(json_encode($retorno));
