@@ -22,36 +22,6 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
 
         <h5>Relatórios Gerais</h5>
-        <?php
-        $dOpc = mktime(0,0,0, date("m"),(date("d")-1),date("Y"));
-        $ini = date("Y-m-d H:i:s", mktime(10, 0, 0, date("m"),(date("d")-1),date("Y")));
-        $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),date("d"),date("Y")));
-
-        $q = "select sum(a.total) as total, b.forma_pagamento from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by b.forma_pagamento";
-        // $q = "select sum(a.total) as total from vendas a  where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago'";
-
-        $r = mysqli_query($con, $q);
-        ?>
-        <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
-
-        <ul class="list-group mb-3">
-        <?php
-        $total = 0;
-        while($d = mysqli_fetch_object($r)){
-        ?>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <?=$d->forma_pagamento?>
-                <span class="badge badge-primary badge-pill">R$ <?=number_format($d->total,2,',','.')?></span>
-            </li>
-        <?php
-        $total = ($total + $d->total);
-        }
-        ?>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                TOTAL
-                <span class="badge badge-primary badge-pill">R$ <?=number_format($total,2,',','.')?></span>
-            </li>
-        </ul>
 
         <div id="RelatorioCalendario">
             <div class="table-responsive">
@@ -171,6 +141,41 @@ $ano = (($_GET['ano']) ?: date("Y"));
                 ?>
             </div>
         </div>
+
+
+
+
+        <?php
+        $dOpc = mktime(0,0,0, date("m"),(date("d")-1),date("Y"));
+        $ini = date("Y-m-d H:i:s", mktime(10, 0, 0, date("m"),(date("d")-1),date("Y")));
+        $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),date("d"),date("Y")));
+
+        $q = "select sum(a.total) as total, b.forma_pagamento from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by b.forma_pagamento";
+        // $q = "select sum(a.total) as total from vendas a  where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago'";
+
+        $r = mysqli_query($con, $q);
+        ?>
+        <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
+
+        <ul class="list-group mb-3">
+        <?php
+        $total = 0;
+        while($d = mysqli_fetch_object($r)){
+        ?>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <?=$d->forma_pagamento?>
+                <span class="badge badge-primary badge-pill">R$ <?=number_format($d->total,2,',','.')?></span>
+            </li>
+        <?php
+        $total = ($total + $d->total);
+        }
+        ?>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                TOTAL
+                <span class="badge badge-primary badge-pill">R$ <?=number_format($total,2,',','.')?></span>
+            </li>
+        </ul>
+
 
 
     </div>
