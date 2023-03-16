@@ -130,6 +130,9 @@ $ano = (($_GET['ano']) ?: date("Y"));
                             $r = mysqli_query($con, $q);
                             $d = mysqli_fetch_object($r);
                             echo "$linha " . $hoje;
+                            echo "<hr>";
+
+
                             if ($d->total > 0) {
                                 echo '<div class="btn-group" role="group">
                                     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle btn-group-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
