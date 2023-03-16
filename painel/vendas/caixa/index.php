@@ -27,7 +27,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
         $dtSql = date("Y-m-d", $dOpc);
 
-        $q = "select sum(total) as total from vendas where data_finalizacao like '%$dtSql%' situacao = 'pago'";
+        $q = "select sum(total) as total from vendas where data_finalizacao like '%$dtSql%' and situacao = 'pago'";
         $r = mysqli_query($con, $q);
         $d = mysqli_fetch_object($r);
 
