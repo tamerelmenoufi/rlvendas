@@ -189,7 +189,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
                         ) as descricao,
                         count(*) as qt,
                         JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor')) as valor,
-                        (count(*)*JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor'))) as total,
+                        (count(*)*JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor'))) as total
                 from vendas a
 
                     left join vendas_produtos b on a.codigo = b.venda and b.deletado != '1'
