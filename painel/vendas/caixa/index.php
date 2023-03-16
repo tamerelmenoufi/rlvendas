@@ -197,7 +197,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
                 where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago'
                 group by JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].codigo'))
                 order by qt desc";
-    $result = mysqli_query($con, $query);
+    $result = mysqli_query($con, $q);
 ?>
 <table class="table table-hover">
     <thead>
