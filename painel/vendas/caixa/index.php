@@ -26,9 +26,9 @@ $ano = (($_GET['ano']) ?: date("Y"));
         $dOpc = mktime(0,0,0, date("m"),(date("d")-1),date("Y"));
 
         $ini = date("Y-m-d H:i:s", mktime(10, 0, 0, date("m"),(date("d")-1),date("Y")));
-        $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),(date("d")-2),date("Y")));
+        $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),date("d"),date("Y")));
 
-        echo $q = "select sum(total) as total from vendas where (data_finalizacao between '{$ini}' and '{$fim}')";
+        echo $q = "select sum(total) as total from vendas where (data_finalizacao between '{$ini}' and '{$fim}') and situacao = 'pago'";
         $r = mysqli_query($con, $q);
         $d = mysqli_fetch_object($r);
 
