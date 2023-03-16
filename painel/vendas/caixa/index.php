@@ -155,9 +155,11 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
         $r = mysqli_query($con, $q);
         ?>
-        <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
 
-        <ul class="list-group" style="margin-top:30px;">
+
+        <p style="margin-top:30px;">Venda Diária <?=date("d/m/Y",$dOpc)?></p>
+
+        <ul class="list-group">
         <?php
         $total = 0;
         while($d = mysqli_fetch_object($r)){
