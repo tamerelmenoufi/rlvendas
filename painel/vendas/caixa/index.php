@@ -174,7 +174,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
         ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <b>TOTAL</b>
-                <span class="badge badge-primary badge-pill">R$ <?=number_format($total,2,',','.')?></span>
+                <span class="badge badge-primary badge-pill" style="font-size:20px;">R$ <?=number_format($total,2,',','.')?></span>
             </li>
         </ul>
 
