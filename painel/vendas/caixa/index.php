@@ -33,6 +33,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
         ?>
         <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
         <?php
+        $total = 0;
         while($d = mysqli_fetch_object($r)){
         ?>
         R$ <?=number_format($d->total,2,',','.')?> - <?=$d->forma_pagamento?><br>
