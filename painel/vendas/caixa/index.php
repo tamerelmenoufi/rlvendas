@@ -21,7 +21,19 @@ $ano = (($_GET['ano']) ?: date("Y"));
     <div class="col">
 
 
-        <h3>Apresentação</h3>
+        <h5>Relatórios Gerais</h5>
+        <?php
+        $dOpc = mktime(0,0,0, date("m"),(date("d")-1),date("Y"));
+
+        $dtSql = date("Y-m-d", $dOpc);
+
+        $q = "select sum(total) as total from vendas where data_finalizacao like '%$dtSql%' situacao = 'pago'";
+        $r = mysqli_query($con, $q);
+        $d = mysqli_fetch_object($r);
+
+        ?>
+        <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
+        R$ <?=number_format($d->total,2,',','.')?>
 
 
         <div id="RelatorioCalendario">
