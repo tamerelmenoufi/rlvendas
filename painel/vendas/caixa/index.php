@@ -189,6 +189,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
                         ) as descricao,
                         count(*) as qt,
                         JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor')) as valor,
+                        (qt*valor) as total,
                         sum(JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor'))) from vendas a left join vendas_produtos b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].codigo')) order by sum(JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor'))) desc";
 ?>
 
