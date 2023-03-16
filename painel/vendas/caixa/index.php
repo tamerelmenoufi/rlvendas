@@ -23,9 +23,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
         <h5>Relatórios Gerais</h5>
         <?php
-
         $dOpc = mktime(0,0,0, date("m"),(date("d")-1),date("Y"));
-
         $ini = date("Y-m-d H:i:s", mktime(10, 0, 0, date("m"),(date("d")-1),date("Y")));
         $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),date("d"),date("Y")));
 
@@ -39,11 +37,10 @@ $ano = (($_GET['ano']) ?: date("Y"));
         ?>
         R$ <?=number_format($d->total,2,',','.')?> - <?=$d->forma_pagamento?><br>
         <?php
+        $total = ($total + $d->total);
         }
         ?>
-
-
-
+        Total = <?=$total?>
 
         <div id="RelatorioCalendario">
             <div class="table-responsive">
