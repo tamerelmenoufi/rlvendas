@@ -33,16 +33,25 @@ $ano = (($_GET['ano']) ?: date("Y"));
         $r = mysqli_query($con, $q);
         ?>
         <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
+
+        <ul class="list-group">
         <?php
         $total = 0;
         while($d = mysqli_fetch_object($r)){
         ?>
-        R$ <?=number_format($d->total,2,',','.')?> - <?=$d->forma_pagamento?><br>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <?=$d->forma_pagamento?>
+                <span class="badge badge-primary badge-pill">R$ <?=number_format($d->total,2,',','.')?></span>
+            </li>
         <?php
         $total = ($total + $d->total);
         }
         ?>
-        Total = <?=$total?>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                TOTAL
+                <span class="badge badge-primary badge-pill">R$ <?=number_format($total,2,',','.')?></span>
+            </li>
+        </ul>
 
         <div id="RelatorioCalendario">
             <div class="table-responsive">
