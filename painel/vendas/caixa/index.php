@@ -23,18 +23,25 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
         <h5>Relatórios Gerais</h5>
         <?php
+
         $dOpc = mktime(0,0,0, date("m"),(date("d")-1),date("Y"));
 
         $ini = date("Y-m-d H:i:s", mktime(10, 0, 0, date("m"),(date("d")-1),date("Y")));
         $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),date("d"),date("Y")));
 
-        echo $q = "select sum(total) as total from vendas where (data_finalizacao between '{$ini}' and '{$fim}') and situacao = 'pago'";
+        $q = "select sum(a.total) as total, forma_pagamento from vendas a left join vendas_pagamentos b on a.codigo = b.venda where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by b.forma_pagamento";
         $r = mysqli_query($con, $q);
-        $d = mysqli_fetch_object($r);
-
         ?>
         <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
-        R$ <?=number_format($d->total,2,',','.')?>
+        <?php
+        while($d = mysqli_fetch_object($r)){
+        ?>
+        R$ <?=number_format($d->total,2,',','.')?><br>
+        <?php
+        }
+        ?>
+
+
 
 
         <div id="RelatorioCalendario">
