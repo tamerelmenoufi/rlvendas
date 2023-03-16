@@ -28,7 +28,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
         $ini = date("Y-m-d H:i:s", mktime(10, 0, 0, date("m"),(date("d")-1),date("Y")));
         $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),(date("d")-2),date("Y")));
 
-        $q = "select sum(total) as total from vendas where (data_finalizacao between '{$ini}' and '{$fim}'";
+        echo $q = "select sum(total) as total from vendas where (data_finalizacao between '{$ini}' and '{$fim}'";
         $r = mysqli_query($con, $q);
         $d = mysqli_fetch_object($r);
 
