@@ -157,7 +157,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
         ?>
         <p>Venda Diária <?=date("d/m/Y",$dOpc)?></p>
 
-        <ul class="list-group mt-3">
+        <ul class="list-group" style="margin-top:30px;">
         <?php
         $total = 0;
         while($d = mysqli_fetch_object($r)){
