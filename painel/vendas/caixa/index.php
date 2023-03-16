@@ -218,8 +218,8 @@ $ano = (($_GET['ano']) ?: date("Y"));
         <tr>
             <td><?=$d->descricao?></td>
             <td><?=$d->qt?></td>
-            <td><?=number_format($d->valor,2,',','.')?></td>
-            <td><?=number_format($d->total,2,',','.')?></td>
+            <td>R$ <?=number_format($d->valor,2,',','.')?></td>
+            <td>R$ <?=number_format($d->total,2,',','.')?></td>
         </tr>
 <?php
     }
