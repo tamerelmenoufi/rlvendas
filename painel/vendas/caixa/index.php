@@ -181,7 +181,13 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
 
 <?php
-    echo $q = "select JSON_EXTRACT(b.produto_json, '$.produtos[0].descricao') from vendas a left join vendas_produtos b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by JSON_EXTRACT(b.produto_json, '$.produtos[0].codigo') order by sum(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor')) desc";
+    echo $q = "select
+                        concat(
+                            JSON_EXTRACT(b.produto_json, '$.categoria.descricao'),
+                            JSON_EXTRACT(b.produto_json, '$.medida.descricao'),
+                            JSON_EXTRACT(b.produto_json, '$.produtos[0].descricao')
+                        ) as descricao,
+                        sum(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor')) from vendas a left join vendas_produtos b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by JSON_EXTRACT(b.produto_json, '$.produtos[0].codigo') order by sum(JSON_EXTRACT(b.produto_json, '$.produtos[0].valor')) desc";
 ?>
 
 
