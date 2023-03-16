@@ -110,7 +110,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
                             $r = mysqli_query($con, $q);
                             $d = mysqli_fetch_object($r);
                             echo "$linha " . $hoje;
-                            echo "<hr>";
+                            // echo "<hr>";
 
 
                             if ($d->total > 0) {
