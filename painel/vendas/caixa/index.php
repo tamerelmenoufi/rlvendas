@@ -24,7 +24,8 @@ $ano = (($_GET['ano']) ?: date("Y"));
         <h5>Relatórios Gerais</h5>
 
         <div id="RelatorioCalendario">
-            <div class="table-responsive">
+
+            <!-- <div class="table-responsive"> -->
                 <table class='table' cellpadding="5" cellspacing="0" border="0" align="center">
                     <tr>
                         <td colspan="7" align="left" class="titulo">
@@ -139,7 +140,8 @@ $ano = (($_GET['ano']) ?: date("Y"));
                 <?php
                 }
                 ?>
-            </div>
+            <!-- </div> -->
+
         </div>
 
 
