@@ -122,7 +122,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
                             $ini = date("Y-m-d H:i:s", mktime(16, 1, 0, $w, $linha, $ano));
                             $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, $w, ($linha + 1), $ano));
 
-                            $q = "select
+                           echo  $q = "select
                                     (select sum(a.total) from vendas a left join vendas_pagemento b on a.codigo = b.venda where (a.data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$fim}') and a.situacao = 'pago')  as total,
                                     (select sum(a.total) from vendas a left join vendas_pagemento b on a.codigo = b.venda where (a.data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$ano}-{$w}-{$linha}  16:00:00') and a.situacao = 'pago')  as turno1,
                                     (select sum(a.total) from vendas a left join vendas_pagemento b on a.codigo = b.venda where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago')  as turno2
