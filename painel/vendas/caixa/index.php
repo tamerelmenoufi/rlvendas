@@ -181,7 +181,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
 
 <?php
-    echo $q = "select
+    $q = "select
                         concat(
                             JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.categoria.descricao')),' ',
                             JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.medida.descricao')),' ',
@@ -197,10 +197,32 @@ $ano = (($_GET['ano']) ?: date("Y"));
                 where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago'
                 group by JSON_UNQUOTE(JSON_EXTRACT(b.produto_json, '$.produtos[0].codigo'))
                 order by qt desc";
+    $result = mysqli_query($con, $query);
 ?>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor Unitário</th>
+            <th>Total Vendas</th>
+        </tr>
+    </thead>
+    <tbody>
 
-
-
+<?php
+    while($d = mysqli_fetch_object($result)){
+?>
+        <tr>
+            <td><?=$d->descricao?></td>
+            <td><?=$d->qt?></td>
+            <td><?=number_format($d->valor,2,',','.')?></td>
+            <td><?=number_format($d->total,2,',','.')?></td>
+        </tr>
+<?php
+    }
+?>
+    </tbody>
     </div>
 </div>
 
