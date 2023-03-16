@@ -199,6 +199,8 @@ $ano = (($_GET['ano']) ?: date("Y"));
                 order by qt desc";
     $result = mysqli_query($con, $q);
 ?>
+
+<h5 style="margin-top:30px;">Vendas por produtos mais vendidos em  <?=date("d/m/Y",$dOpc)?></h5>
 <table class="table table-hover">
     <thead>
         <tr>
