@@ -110,8 +110,6 @@ $ano = (($_GET['ano']) ?: date("Y"));
                             $r = mysqli_query($con, $q);
                             $d = mysqli_fetch_object($r);
                             echo "$linha " . $hoje;
-                            // echo "<hr>";
-
 
                             if ($d->total > 0) {
                                 echo '<div class="btn-group" role="group">
@@ -167,7 +165,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
         while($d = mysqli_fetch_object($r)){
         ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                <?=$d->forma_pagamento?>
+                <?=strtoupper($d->forma_pagamento)?>
                 <span class="badge badge-primary badge-pill">R$ <?=number_format($d->total,2,',','.')?></span>
             </li>
         <?php
@@ -175,7 +173,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
         }
         ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                TOTAL
+                <b>TOTAL</b>
                 <span class="badge badge-primary badge-pill">R$ <?=number_format($total,2,',','.')?></span>
             </li>
         </ul>
