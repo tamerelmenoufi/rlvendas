@@ -27,8 +27,8 @@ $ano = (($_GET['ano']) ?: date("Y"));
         $ini = date("Y-m-d H:i:s", mktime(10, 0, 0, date("m"),(date("d")-1),date("Y")));
         $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, date("m"),date("d"),date("Y")));
 
-        $q = "select sum(a.total) as total, b.forma_pagamento from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by b.forma_pagamento";
-        $q = "select sum(a.total) as total from vendas a  where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago'";
+        $q = "select sum(a.total) as total, b.forma_pagamento from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago' group by a.codigo, b.forma_pagamento";
+        // $q = "select sum(a.total) as total from vendas a  where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago'";
 
         $r = mysqli_query($con, $q);
         ?>
