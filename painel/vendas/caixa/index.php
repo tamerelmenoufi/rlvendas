@@ -103,9 +103,9 @@ $ano = (($_GET['ano']) ?: date("Y"));
                             $fim = date("Y-m-d H:i:s", mktime(9, 59, 59, $w, ($linha + 1), $ano));
 
                             $q = "select
-                                    (select sum(a.total) from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$fim}') and a.situacao = 'pago')  as total,
-                                    (select sum(a.total) from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$ano}-{$w}-{$linha}  16:00:00') and a.situacao = 'pago')  as turno1,
-                                    (select sum(a.total) from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago')  as turno2
+                                    (select sum(b.valor) from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$fim}') and a.situacao = 'pago')  as total,
+                                    (select sum(b.valor) from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ano}-{$w}-{$linha} 10:00:00' and '{$ano}-{$w}-{$linha}  16:00:00') and a.situacao = 'pago')  as turno1,
+                                    (select sum(b.valor) from vendas a left join vendas_pagamento b on a.codigo = b.venda and b.deletado != '1' where (a.data_finalizacao between '{$ini}' and '{$fim}') and a.situacao = 'pago')  as turno2
                             ";
                             $r = mysqli_query($con, $q);
                             $d = mysqli_fetch_object($r);
