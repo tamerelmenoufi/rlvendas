@@ -7,7 +7,8 @@
                                                 venda = '{$_SESSION['AppVenda']}',
                                                 atendente = '{$_SESSION['AppGarcom']}',
                                                 forma_pagamento = '{$_POST['operacao']}',
-                                                valor = '{$_POST['valor']}'";
+                                                valor = '{$_POST['valor']}',
+                                                data = NOW()";
         mysqli_query($con, $query);
 
     }
