@@ -114,7 +114,7 @@
                         b.nome as atendente
                         from vendas_produtos a
                         left join atendentes b on a.atendente = b.codigo
-                    where a.venda = '{$v->codigo}' order by a.codigo desc";
+                    where a.venda = '{$v->codigo}' and a.deletado != '1' order by a.codigo desc";
             $result = mysqli_query($con, $query);
             $valor_total = 0;
             $n = mysqli_num_rows($result);
