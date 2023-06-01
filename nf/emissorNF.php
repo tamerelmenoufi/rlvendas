@@ -271,12 +271,21 @@ include("config.php");
 			$cpfnanota = trim(limpardados($_POST["cpf"])); // CPF DO CLIENTE, ENVIAR SEM MASCARA
 
 			if($cpfnanota!=""){
-					// somente cpf na soma
-					$data_nfe['cliente'] = array(
-						'cpf' => $cpfnanota,
-						'indIEDest' => "9",
-						'tipoPessoa' => "F"
-					);
+
+					if(count(trim($cpfnanota)) == 11){
+						// somente cpf na soma
+						$data_nfe['cliente'] = array(
+							'cpf' => $cpfnanota,
+							'indIEDest' => "9",
+							'tipoPessoa' => "F"
+						);
+					}else if(count(trim($cpfnanota)) == 14){
+						$data_nfe['cliente'] = array(
+							'cnpj' => $cpfnanota,
+							'indIEDest' => "9",
+							'tipoPessoa' => "J"
+						);
+					}
 
 			}else{
 

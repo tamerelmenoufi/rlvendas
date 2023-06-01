@@ -229,7 +229,7 @@
 
                             var nf_cpf = this.$content.find('.nf_cpf').val();
 
-                            if(!nf_cpf || (nf_cpf.length > 0 && nf_cpf.length == 11)){
+                            if(!nf_cpf || (nf_cpf.length > 0 && (nf_cpf.length == 11 || nf_cpf.length == 14) )){
 
                                 Carregando();
                                 $.ajax({
