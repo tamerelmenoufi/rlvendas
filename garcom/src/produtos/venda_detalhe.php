@@ -222,7 +222,7 @@
             opc = $(this).attr("opc");
             if(!opc){
                 $.confirm({
-                    content:"<center><p>Confirma a emissão da nota fiscal?</p><p><div class='form-group'><label>CPF na Nota?</label><input type='number' placeholder='Seu CPF' class='nf_cpf form-control' /></div></p></center>",
+                    content:"<center><p>Confirma a emissão da nota fiscal?</p><p><div class='form-group'><label>CPF ou CNPJ na Nota?</label><input type='number' placeholder='Seu CPF / CNPJ' class='nf_cpf form-control' /></div></p></center>",
                     title:false,
                     buttons:{
                         'SIM':function(){
