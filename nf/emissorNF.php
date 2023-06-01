@@ -272,14 +272,14 @@ include("config.php");
 
 			if($cpfnanota!=""){
 
-					if(count(trim($cpfnanota)) == 11){
+					if(strlen($cpfnanota) == 11){
 						// somente cpf na soma
 						$data_nfe['cliente'] = array(
 							'cpf' => $cpfnanota,
 							'indIEDest' => "9",
 							'tipoPessoa' => "F"
 						);
-					}else if(count(trim($cpfnanota)) == 14){
+					}else if(strlen($cpfnanota) == 14){
 						$data_nfe['cliente'] = array(
 							'cnpj' => $cpfnanota,
 							'indIEDest' => "9",
