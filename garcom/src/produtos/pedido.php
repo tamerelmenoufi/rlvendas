@@ -245,7 +245,7 @@
                     <small class="text-muted"><?=$sabores?></small>
                 </p>
                 <p class="card-text" style="padding:0; margin:0; text-align:right">
-                    R$ <?= number_format($d->valor_unitario, 2, ',', '.') ?>
+                    R$ <?= number_format($d->valor_unitario, 2, '.', false) ?>
                 </p>
                 <p class="card-text" style="padding:0; margin:0; color:red; font-size:10px;">
                     <?= $d->produto_descricao?>
@@ -327,7 +327,7 @@
             </button>
         </div>
         <div class="col-5">
-            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, ',', '.') ?></span></b></button>
+            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, '.', false) ?></span></b></button>
         </div>
     </div>
 </div>
