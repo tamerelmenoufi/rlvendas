@@ -186,7 +186,7 @@
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
-                            <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span>
+                            <span val>R$ <?= number_format($_POST['valor'], 2, '.', false) ?></span>
 
                         </div>
                     </div>
@@ -205,7 +205,7 @@
                                     <button observacoes class="btn btn-warning btn-block"><i class="fa-solid fa-pencil"></i> Recomendações</button>
                                 </div>
                                 <div class="col-4">
-                                    <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, ',', '.') ?></small></div>
+                                    <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, '.', false) ?></small></div>
                                     <div style="font-size:10px; text-align:right;">Valor Cobrado</div>
                                 </div>
                                 </div>
@@ -256,7 +256,7 @@
                                     class="btn btn-primaryX text-primary"
                                     id="rotulo_valor">
                                 R$ <span valor atual="<?=$_POST['valor']?>">
-                                    <?= number_format($_POST['valor'], 2, ',', '.') ?>
+                                    <?= number_format($_POST['valor'], 2, '.', false) ?>
                                 </span>
                             </span>
                         </div>
@@ -285,7 +285,8 @@
             quantidade = (quantidade * 1 + 1);
             $("#quantidade").html(quantidade);
             valor = atual * quantidade;
-            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            // $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            $("span[valor]").html(valor.toFixed(2));
 
         });
 
@@ -297,7 +298,8 @@
             $("#quantidade").html(quantidade);
 
             valor = atual * quantidade;
-            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            // $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            $("span[valor]").html(valor.toFixed(2));
 
         });
 
