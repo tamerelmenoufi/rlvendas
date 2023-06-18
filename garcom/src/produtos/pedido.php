@@ -276,7 +276,7 @@
                                 class="btn text-primary rotulo_valor"
                         >
                             R$ <span valor atual="<?=$d->valor_unitario?>">
-                                <?= number_format($d->valor_total, 2, ',', '.') ?>
+                                <?= number_format($d->valor_total, 2, '.', false) ?>
                             </span>
                         </span>
 
@@ -350,8 +350,12 @@
             valor = atual * quantidade;
             valortotal = (valortotal*1 + atual*1);
             $("span[pedido_valor_toal]").attr("valor", valortotal);
-            $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            // $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            // obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
+            $("span[pedido_valor_toal]").text(valortotal.toFixed(2));
+            obj.find("span[valor]").html(valor.toFixed(2));
+
 
             $.ajax({
                 url:"src/produtos/pedido.php",
@@ -380,7 +384,8 @@
 
                 valortotal = (valortotal*1 - atual*1);
                 $("span[pedido_valor_toal]").attr("valor", valortotal);
-                $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+                // $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+                $("span[pedido_valor_toal]").text(valortotal.toFixed(2));
 
 
             }
@@ -389,7 +394,8 @@
 
             obj.find(".quantidade").html(quantidade);
             valor = atual * quantidade;
-            obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            // obj.find("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            obj.find("span[valor]").html(valor.toFixed(2));
 
             //if(quantidade > 1){
                 $.ajax({
@@ -571,7 +577,8 @@
                         }
 
                         $("span[pedido_valor_toal]").attr("valor", valortotal);
-                        $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+                        // $("span[pedido_valor_toal]").text(valortotal.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+                        $("span[pedido_valor_toal]").text(valortotal.toFixed(2));
 
                         $.ajax({
                             url:"src/produtos/pedido.php",
