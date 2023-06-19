@@ -33,7 +33,7 @@ function aasort(&$array, $key)
         top: 0;
         left: 0;
         width: 100%;
-        height: 105px;
+        height: 125px;
         background-color: #fff;
         padding: 20px;
         font-weight: bold;
@@ -93,14 +93,14 @@ function aasort(&$array, $key)
 <div class="topo<?= $md5 ?>">
     <center>Localizar Produtos</center>
 
-    <div class="row" style="margin-top:10px;">
+    <div class="row" style="margin-top:20px;">
         <input type="text" class="form-control" />
     </div>
 </div>
 
 
 
-<div class="col-md-12" style="margin-top:50px;">
+<div class="col-md-12" style="margin-top:60px;">
     <?php
 
     $query_c = "select * from categorias where situacao = '1' AND deletado != '1'";
