@@ -389,7 +389,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
             }else{
                 opc = 0;
             }
-            CalculoDesconto($(this), opc);
+            // CalculoDesconto($(this), opc);
         });
 
         $('input[calc="acrescimo"]').blur(function(){
