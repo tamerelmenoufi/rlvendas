@@ -131,8 +131,10 @@ while ($m = mysqli_fetch_array($m_r)) {
 
                             <?php
                             foreach ($detalhes as $key => $val) :
-                                $val['ordem'] = $M[$key]['ordem'];
-                                $detalhes_2[$key] = $val;
+                                if($val['valor'] > 0){
+                                    $val['ordem'] = $M[$key]['ordem'];
+                                    $detalhes_2[$key] = $val;
+                                }
                             endforeach;
 
                             aasort($detalhes_2, "ordem");
