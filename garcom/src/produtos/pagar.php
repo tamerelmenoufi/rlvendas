@@ -9,8 +9,8 @@
 
     VerificarVendaApp();
 
-    if($_SESSION['AppVenda']){
-        $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppVenda']}'"));
+    if($_SESSION['AppPedido']){
+        $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}'"));
     }
 
     $query = "select
