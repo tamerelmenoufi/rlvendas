@@ -106,7 +106,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <div class="row">
         <div class="col-12">
             <div class="card bg-light mb-3">
-                <div class="card-header">Dados da Compra</div>
+                <div class="card-header">Dados da Compra <?=print_r($m)?></div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
