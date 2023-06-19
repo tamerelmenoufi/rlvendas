@@ -338,28 +338,46 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
             $(".UmPagamento").val(valor_pendente.toFixed(2));
 
+
+
             $.ajax({
-                url:"src/produtos/pagar.php",
-                type:"POST",
+                url: "componentes/ms_popup_100.php",
+                type: "POST",
                 data:{
                     acao:"desconto",
                     valor
                 },
-                success:function(dados){
-                    //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
+                data: {
+                    local: "src/produtos/pagar.php",
+                },
+                success: function (dados) {
                     PageClose();
                     $(".ms_corpo").append(dados);
-                    // $.ajax({
-                    //     url:"src/produtos/pagar_operacoes.php",
-                    //     type:"POST",
-                    //     success:function(dados){
-                    //         $("div[pagar_operacoes]").html(dados);
-                    //     }
-                    // });
-
-
                 }
             });
+
+            // $.ajax({
+            //     url:"src/produtos/pagar.php",
+            //     type:"POST",
+            //     data:{
+            //         acao:"desconto",
+            //         valor
+            //     },
+            //     success:function(dados){
+            //         //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
+            //         PageClose();
+            //         $(".ms_corpo").append(dados);
+            //         // $.ajax({
+            //         //     url:"src/produtos/pagar_operacoes.php",
+            //         //     type:"POST",
+            //         //     success:function(dados){
+            //         //         $("div[pagar_operacoes]").html(dados);
+            //         //     }
+            //         // });
+
+
+            //     }
+            // });
         }
 
 
