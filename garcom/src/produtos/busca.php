@@ -92,6 +92,10 @@ function aasort(&$array, $key)
 
 <div class="topo<?= $md5 ?>">
     <center>Localizar Produtos</center>
+
+    <div class="row">
+        <input type="text" class="form-control" />
+    </div>
 </div>
 
 
