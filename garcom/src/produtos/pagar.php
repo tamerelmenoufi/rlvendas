@@ -323,7 +323,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
             pendente = $(".valor_pendente").attr("pendente");
             valor = ((opc == 1)? obj.val() : 0);
             valor_oposto = 0; //$('input[calc="acrescimo"]').val();
-            $.alert(valor);
+            alert(valor);
 
             // if(valor*1 > pendente*1){
             //     $.alert('Valor do desconto não pode ser superior ao valor pendente!');
