@@ -62,6 +62,20 @@
 <?php
     }
 ?>
+
+
+    <button
+            class="btn btn-success btn-lg btn-block"
+            acao<?=$md5?>
+            local="src/produtos/busca.php"
+            janela="ms_popup_100"
+            categoria = '<?=$d->codigo?>'
+            style="opacity:0.1"
+    >
+        BUSCA
+    </button>
+
+
 </div>
 <div class="rodape"></div>
 
