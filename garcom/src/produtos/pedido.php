@@ -239,7 +239,7 @@
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
-                    - <?=$pedido->medida->descricao?>
+                    <?=(($pedido->medida->descricao)?' - '.$pedido->medida->descricao:false)?>
                 </h5>
                 <p class="card-text" style="padding:0; margin:0;">
                     <small class="text-muted"><?=$sabores?></small>
