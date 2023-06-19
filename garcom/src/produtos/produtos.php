@@ -152,7 +152,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                                             style="height:auto; font-size:18px; line-height: 1.2;"
                                     >
                                         <?= $M[$key2]['descricao']; ?><br>
-                                        R$ <?= number_format($val['valor'], 2, ',', '.') ?>
+                                        R$ <?= number_format($val['valor'], 2, '.', false) ?>
                                     </button>
                                     <?php
                                 }
