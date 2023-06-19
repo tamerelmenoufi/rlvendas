@@ -2,9 +2,9 @@
     include("../../../lib/includes.php");
 
     if($_POST['acao'] == 'acrescimo' or $_POST['acao'] == 'desconto'){
-        echo $q = "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppVenda']}'";
+        $q = "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppVenda']}'";
         mysqli_query($con, $q);
-        exit();
+        // exit();
     }
 
     VerificarVendaApp();
@@ -347,14 +347,15 @@ where codigo = '{$_SESSION['AppVenda']}'";
                 },
                 success:function(dados){
                     //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
-
-                    $.ajax({
-                        url:"src/produtos/pagar_operacoes.php",
-                        type:"POST",
-                        success:function(dados){
-                            $("div[pagar_operacoes]").html(dados);
-                        }
-                    });
+                    PageClose();
+                    $(".ms_corpo").append(dados);
+                    // $.ajax({
+                    //     url:"src/produtos/pagar_operacoes.php",
+                    //     type:"POST",
+                    //     success:function(dados){
+                    //         $("div[pagar_operacoes]").html(dados);
+                    //     }
+                    // });
 
 
                 }
