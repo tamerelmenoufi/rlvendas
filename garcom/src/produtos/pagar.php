@@ -139,11 +139,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 <input type="checkbox" class="form-check-input" calc="TaxaServico" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->taxa > 0)?'checked':false)?>>
                                 <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço <b><?=number_format($d->taxa, 2,'.',false)?></b> (Opcional)</label>
                             </div> -->
-                            <h5 class="card-title" style="cursor:pointer">
+                            <!-- <h5 class="card-title" style="cursor:pointer">
                                 <small>Taxa de Serviço <?=number_format($d->taxa, 2,'.',false)?> (Opcional)</small>
                                 <input calc="TaxaServico" type="hidden" value="<?=$d->taxa?>">
-                            </h5>
-
+                            </h5> -->
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->desconto == $d->taxa)?'checked':false)?>>
                                 <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço <b><?=number_format($d->taxa, 2,'.',false)?></b> (Opcional)</label>
