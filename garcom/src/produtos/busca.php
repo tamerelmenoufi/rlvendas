@@ -91,11 +91,12 @@ function aasort(&$array, $key)
 
 
 <div class="topo<?= $md5 ?>">
-    <center><?= $d->categoria ?></center>
+    <center>Localizar Produtos</center>
 </div>
 
 
-<div class="col-md-12">
+
+<div class="col-md-12" style="margin-top:50px;">
     <?php
 
     $query_c = "select * from categorias where situacao = '1' AND deletado != '1'";
