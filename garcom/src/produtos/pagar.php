@@ -323,7 +323,8 @@ where codigo = '{$_SESSION['AppVenda']}'";
             pendente = $(".valor_pendente").attr("pendente");
             valor = ((opc == 1)? obj.val() : 0);
             valor_oposto = 0; //$('input[calc="acrescimo"]').val();
-
+            $.alert(valor);
+            return;
             if(valor*1 > pendente*1){
                 $.alert('Valor do desconto não pode ser superior ao valor pendente!');
                 $('input[calc="desconto"]').val('0.00');
@@ -389,8 +390,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
             }else{
                 opc = 0;
             }
-            $.alert($(this).val() + ' & ' + opc);
-            // CalculoDesconto($(this), opc);
+            CalculoDesconto($(this), opc);
         });
 
         $('input[calc="acrescimo"]').blur(function(){
