@@ -389,6 +389,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
             }else{
                 opc = 0;
             }
+            $.alert($(this).val() + ' & ' + opc);
             // CalculoDesconto($(this), opc);
         });
 
