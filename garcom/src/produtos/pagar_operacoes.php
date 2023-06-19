@@ -46,7 +46,7 @@
                 <span
                     class="excluir_operacao"
                     cod="<?=$p->codigo?>"
-                    content="Deja realmente excluir a operação <b><?=$p->forma_pagamento?></b> no valor de <b>R$ <?=number_format($p->valor,2,',','.')?></b>"
+                    content="Deja realmente excluir a operação <b><?=$p->forma_pagamento?></b> no valor de <b>R$ <?=number_format($p->valor,2,'.',false)?></b>"
                 >
                     <i class="fa fa-trash text-red"></i>
                 </span>
@@ -58,7 +58,7 @@
         ?>
         <tr>
             <th align="right">TOTAL</th>
-            <th><?=number_format($soma_valores,2,',','.')?></th>
+            <th><?=number_format($soma_valores,2,'.',false)?></th>
             <th></th>
         </tr>
     </tbody>
@@ -106,7 +106,8 @@
 
         $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
         $(".valor_pendente").attr("pendente", valor_pendente.toFixed(2));
-        $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        $(".valor_pendente").html('R$ ' + valor_pendente.toFixed(2));
 
         $(".UmPagamento").val(valor_pendente.toFixed(2));
 
