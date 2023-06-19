@@ -118,7 +118,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Valor a Pagar</small>
-                                <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div>
+                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div> -->
                                 <div class="valor_pendente" pendente="" valor=""></div>
                             </h5>
                         </div>
@@ -330,11 +330,11 @@ where codigo = '{$_SESSION['AppVenda']}'";
                 return false;
             }
 
-            // valor_pendente = (pendente*1 - valor*1 + valor_oposto*1);
-            // $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
-            // // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            // $(".valor_pendente").html('R$ ' + valor_pendente.toFixed(2));
-            // $(".UmPagamento").val(valor_pendente.toFixed(2));
+            valor_pendente = (pendente*1 - valor*1 + valor_oposto*1);
+            $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
+            // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            $(".valor_pendente").html('R$ ' + valor_pendente.toFixed(2));
+            $(".UmPagamento").val(valor_pendente.toFixed(2));
 
             $.ajax({
                 url: "componentes/ms_popup_100.php",
