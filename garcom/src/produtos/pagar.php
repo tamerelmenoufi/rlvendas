@@ -144,10 +144,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 <input calc="TaxaServico" type="hidden" value="<?=$d->taxa?>">
                             </h5>
 
-                            <!-- <div class="form-check">
+                            <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->desconto == $d->taxa)?'checked':false)?>>
                                 <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço <b><?=number_format($d->taxa, 2,'.',false)?></b> (Opcional)</label>
-                            </div> -->
+                            </div>
 
                         </div>
                     </div>
@@ -318,10 +318,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
         });
 
 
-        CalculoDesconto = (obj)=>{
+        CalculoDesconto = (obj, opc)=>{
             Carregando();
             pendente = $(".valor_pendente").attr("pendente");
-            valor = obj.val();
+            valor = ((opc == 1)? obj.val() : 0);
             valor_oposto = 0; //$('input[calc="acrescimo"]').val();
 
             if(valor*1 > pendente*1){
@@ -363,13 +363,17 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 
         $('input[calc="desconto"]').blur(function(){
-            CalculoDesconto($(this));
+            CalculoDesconto($(this), 1);
         });
 
         $('#MarcarTaxa').click(function(){
+            var opc;
             if($(this).prop("checked") == true){
-                CalculoDesconto($(this));
+                opc = 1;
+            }else{
+                opc = 0;
             }
+            CalculoDesconto($(this), opc);
         });
 
         $('input[calc="acrescimo"]').blur(function(){
