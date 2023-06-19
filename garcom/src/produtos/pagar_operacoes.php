@@ -81,6 +81,9 @@
         valor = $(".valor").attr("valor");
         $("input[calc]").each(function(){
             tipo = $(this).attr("calc");
+            taxa = 0;
+            acrescimo = 0;
+            desconto = 0;
             // if(tipo == 'TaxaServico'){
             //     if($(this).prop("checked") == true){
             //         taxa = $(this).val();
