@@ -319,63 +319,60 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 
         CalculoDesconto = (obj, opc)=>{
-            // Carregando();
+            Carregando();
             pendente = $(".valor_pendente").attr("pendente");
             valor = ((opc == 1)? obj.val() : 0);
             valor_oposto = 0; //$('input[calc="acrescimo"]').val();
-            alert(valor);
 
-            // if(valor*1 > pendente*1){
-            //     $.alert('Valor do desconto não pode ser superior ao valor pendente!');
-            //     $('input[calc="desconto"]').val('0.00');
-            //     Carregando('none');
-            //     return false;
-            // }
+            if(valor*1 > pendente*1){
+                $.alert('Valor do desconto não pode ser superior ao valor pendente!');
+                $('input[calc="desconto"]').val('0.00');
+                Carregando('none');
+                return false;
+            }
 
-            // // valor_pendente = (pendente*1 - valor*1 + valor_oposto*1);
-            // // $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
-            // // // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            // // $(".valor_pendente").html('R$ ' + valor_pendente.toFixed(2));
-            // // $(".UmPagamento").val(valor_pendente.toFixed(2));
+            // valor_pendente = (pendente*1 - valor*1 + valor_oposto*1);
+            // $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
+            // // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+            // $(".valor_pendente").html('R$ ' + valor_pendente.toFixed(2));
+            // $(".UmPagamento").val(valor_pendente.toFixed(2));
+
+            $.ajax({
+                url: "componentes/ms_popup_100.php",
+                type: "POST",
+                data:{
+                    acao:"desconto",
+                    valor,
+                    local: "src/produtos/pagar.php",
+                },
+                success: function (dados) {
+                    PageClose();
+                    $(".ms_corpo").append(dados);
+                }
+            });
 
             // $.ajax({
-            //     url: "componentes/ms_popup_100.php",
-            //     type: "POST",
+            //     url:"src/produtos/pagar.php",
+            //     type:"POST",
             //     data:{
             //         acao:"desconto",
             //         valor
             //     },
-            //     data: {
-            //         local: "src/produtos/pagar.php",
-            //     },
-            //     success: function (dados) {
+            //     success:function(dados){
+            //         //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
             //         PageClose();
             //         $(".ms_corpo").append(dados);
+            //         // $.ajax({
+            //         //     url:"src/produtos/pagar_operacoes.php",
+            //         //     type:"POST",
+            //         //     success:function(dados){
+            //         //         $("div[pagar_operacoes]").html(dados);
+            //         //     }
+            //         // });
+
+
             //     }
             // });
-
-            // // $.ajax({
-            // //     url:"src/produtos/pagar.php",
-            // //     type:"POST",
-            // //     data:{
-            // //         acao:"desconto",
-            // //         valor
-            // //     },
-            // //     success:function(dados){
-            // //         //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
-            // //         PageClose();
-            // //         $(".ms_corpo").append(dados);
-            // //         // $.ajax({
-            // //         //     url:"src/produtos/pagar_operacoes.php",
-            // //         //     type:"POST",
-            // //         //     success:function(dados){
-            // //         //         $("div[pagar_operacoes]").html(dados);
-            // //         //     }
-            // //         // });
-
-
-            // //     }
-            // // });
         }
 
 
