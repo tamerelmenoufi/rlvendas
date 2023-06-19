@@ -319,7 +319,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 
         CalculoDesconto = (obj, opc)=>{
-            Carregando();
+            // Carregando();
             pendente = $(".valor_pendente").attr("pendente");
             valor = ((opc == 1)? obj.val() : 0);
             valor_oposto = 0; //$('input[calc="acrescimo"]').val();
