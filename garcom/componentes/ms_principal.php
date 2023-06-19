@@ -57,7 +57,7 @@
             janela="ms_popup_100"
             categoria = '<?=$d->codigo?>'
     >
-        <?=$d->categoria?>
+    <?=$d->codigo?> - <?=$d->categoria?>
     </button>
 <?php
     }
