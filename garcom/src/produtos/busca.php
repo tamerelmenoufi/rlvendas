@@ -98,9 +98,9 @@ function aasort(&$array, $key)
 <div class="col-md-12">
     <?php
 
-    $query = "select * from categorias where situacao = '1' AND deletado != '1'";
-    $result = mysqli_query($con, $query);
-    while($d = mysqli_fetch_object($result)){
+    $query_c = "select * from categorias where situacao = '1' AND deletado != '1'";
+    $result_c = mysqli_query($con, $query_c);
+    while($d = mysqli_fetch_object($result_c)){
 
 
         $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' order by produto asc";
