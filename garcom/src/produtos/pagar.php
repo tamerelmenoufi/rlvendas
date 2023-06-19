@@ -118,7 +118,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Valor a Pagar</small>
-                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div> -->
+                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div> -->
                                 <div class="valor_pendente" pendente="" valor=""></div>
                             </h5>
                         </div>
@@ -137,10 +137,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col">
                             <!-- <div class="form-check">
                                 <input type="checkbox" class="form-check-input" calc="TaxaServico" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->taxa > 0)?'checked':false)?>>
-                                <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço <b><?=number_format($d->taxa, 2,',','.')?></b> (Opcional)</label>
+                                <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço <b><?=number_format($d->taxa, 2,'.',false)?></b> (Opcional)</label>
                             </div> -->
                             <h5 class="card-title">
-                                <small>Taxa de Serviço <?=number_format($d->taxa, 2,',','.')?> (Opcional)</small>
+                                <small>Taxa de Serviço <?=number_format($d->taxa, 2,'.',false)?> (Opcional)</small>
                                 <input calc="TaxaServico" type="hidden" value="<?=$d->taxa?>">
                             </h5>
                         </div>
@@ -173,7 +173,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <h5 class="card-title">
                                 <small>Sub Total</small>
                                 <!-- <div class="valor_pendente" pendente="" valor=""></div> -->
-                                <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',','.')?></div>
+                                <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div>
                             </h5>
                         </div>
                     </div>
