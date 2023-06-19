@@ -70,7 +70,7 @@
             local="src/produtos/busca.php"
             janela="ms_popup_100"
             categoria = '<?=$d->codigo?>'
-            style="opacity:0.1"
+            style="opacity:0"
     >
         BUSCA
     </button>
