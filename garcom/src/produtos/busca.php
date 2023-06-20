@@ -80,6 +80,7 @@ function aasort(&$array, $key)
         top:60px;
         bottom:0;
         overflow:auto;
+        border:solid 1px red;
     }
 
 </style>
