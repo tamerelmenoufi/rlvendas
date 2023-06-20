@@ -198,9 +198,9 @@ function aasort(&$array, $key)
 
 
     $(".filtro").keyup(function(){
-        var texto = $(this).val().normalize("NFD");
+        var texto = $(this).val();
 
-        blocos = texto.split(' ');
+        blocos = texto.normalize("NFD").split(' ');
 
         $(".bloco").each(function(){
            for(i = 0; i < blocos.length; i++ ){
