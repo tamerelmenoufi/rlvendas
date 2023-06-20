@@ -80,7 +80,6 @@ function aasort(&$array, $key)
         top:130px;
         bottom:0;
         overflow:auto;
-        border:solid 1px red;
     }
 
 </style>
@@ -100,7 +99,7 @@ function aasort(&$array, $key)
 
 
 <div class="topo<?= $md5 ?>">
-    <center>Localizar Produtos Teste</center>
+    <center>Localizar Produtos</center>
 
     <div class="row" style="margin-top:25px;">
         <input type="text" class="form-control" />
