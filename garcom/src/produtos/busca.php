@@ -73,6 +73,14 @@ function aasort(&$array, $key)
         top: -3px;
         color: green;
     }
+    .corpo_busca{
+        position:fixed;
+        left:0;
+        right:0;
+        top:60px;
+        bottom:0;
+        overflow:auto;
+    }
 
 </style>
 
@@ -100,7 +108,7 @@ function aasort(&$array, $key)
 
 
 
-<div class="col-md-12" style="margin-top:60px;">
+<div class="col-md-12" class="corpo_busca">
     <?php
 
     $query_c = "select * from categorias where situacao = '1' AND deletado != '1'";
