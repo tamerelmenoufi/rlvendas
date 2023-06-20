@@ -205,14 +205,17 @@ function aasort(&$array, $key)
         tem = 0;
         $(".bloco").each(function(){
            for(i = 0; i < blocos.length; i++ ){
-                var resultado = $(this).text().toUpperCase().normalize("NFD").indexOf(blocos[i].toUpperCase());
-                var bloco = $(this).attr("bloco");
-                // console.log(blocos[i])
-                if(resultado < 0) {
-                    // $(`div[bloco${bloco}]`).fadeOut();
-                }else {
-                    $(`div[bloco${bloco}]`).css("display","block");
-                    tem++;
+
+                if(blocos[i].trim()){
+                    var resultado = $(this).text().toUpperCase().normalize("NFD").indexOf(blocos[i].toUpperCase());
+                    var bloco = $(this).attr("bloco");
+                    // console.log(blocos[i])
+                    if(resultado < 0) {
+                        // $(`div[bloco${bloco}]`).fadeOut();
+                    }else {
+                        $(`div[bloco${bloco}]`).css("display","block");
+                        tem++;
+                    }
                 }
             }
         });
