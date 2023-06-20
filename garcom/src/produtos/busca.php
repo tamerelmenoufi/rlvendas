@@ -202,18 +202,22 @@ function aasort(&$array, $key)
 
         blocos = texto.normalize("NFD").split(' ');
 
+        $(".item_button<?= $md5 ?>").fadeOut();
+        tem = 0;
         $(".bloco").each(function(){
            for(i = 0; i < blocos.length; i++ ){
                 var resultado = $(this).text().toUpperCase().normalize("NFD").indexOf(blocos[i].toUpperCase());
                 var bloco = $(this).attr("bloco");
                 console.log(blocos[i])
                 if(resultado < 0) {
-                    $(`div[bloco${bloco}]`).fadeOut();
+                    // $(`div[bloco${bloco}]`).fadeOut();
                 }else {
                     $(`div[bloco${bloco}]`).fadeIn();
+                    tem++;
                 }
             }
         });
+        if(tem == 0) $(".item_button<?= $md5 ?>").fadeIn();
 
     });
 
