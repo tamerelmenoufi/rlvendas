@@ -112,7 +112,7 @@ function aasort(&$array, $key)
 <div class="col-md-12 corpo_busca" >
     <?php
 
-    $query_c = "select * from categorias where situacao = '1' AND deletado != '1'";
+    $query_c = "select * from categorias where situacao = '1' AND deletado != '1' and codigo <= 7";
     $result_c = mysqli_query($con, $query_c);
     while($d = mysqli_fetch_object($result_c)){
 
