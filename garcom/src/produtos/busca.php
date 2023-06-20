@@ -199,11 +199,10 @@ function aasort(&$array, $key)
 
     $(".filtro").keyup(function(){
         var texto = $(this).val();
-        var bloco = $(this).attr("bloco");
 
         $(".bloco").each(function(){
         var resultado = $(this).text().toUpperCase().indexOf(' '+texto.toUpperCase());
-
+        var bloco = $(this).attr("bloco");
         if(resultado < 0) {
             $(`div[bloco${bloco}]`).fadeOut();
         }else {
