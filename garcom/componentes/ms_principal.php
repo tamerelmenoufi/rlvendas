@@ -45,6 +45,20 @@
 </style>
 <div class="topo"></div>
 <div class="pagina">
+
+
+    <button
+            class="btn btn-primary btn-lg btn-block"
+            acao<?=$md5?>
+            local="src/produtos/busca.php"
+            janela="ms_popup_100"
+            categoria = '<?=$d->codigo?>'
+            style="opacity:1"
+    >
+        BUSCAR PRODUTO
+    </button>
+
+
 <?php
     $query = "select * from categorias where deletado != '1'";
     $result = mysqli_query($con,$query);
@@ -62,18 +76,6 @@
 <?php
     }
 ?>
-
-
-    <button
-            class="btn btn-success btn-lg btn-block"
-            acao<?=$md5?>
-            local="src/produtos/busca.php"
-            janela="ms_popup_100"
-            categoria = '<?=$d->codigo?>'
-            style="opacity:0"
-    >
-        BUSCA
-    </button>
 
 
 </div>
