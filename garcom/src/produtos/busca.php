@@ -103,7 +103,7 @@ function aasort(&$array, $key)
 
     <div class="row" style="position:relative; margin-top:25px;">
         <input type="text" class="form-control filtro" style="padding-right:40px;" />
-        <i class="fa-solid fa-magnifying-glass" style="position:absolute; right:10px; color:#a1a1a1;"></i>
+        <i class="fa-solid fa-magnifying-glass" style="position:absolute; right:10px; top:10px; color:#a1a1a1;"></i>
     </div>
 </div>
 
