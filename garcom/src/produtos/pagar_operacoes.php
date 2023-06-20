@@ -93,12 +93,15 @@
             // }
             if(tipo == 'TaxaServico'){
                 taxa = $(this).val();
+                console.log(taxa)
             }
             if(tipo == 'acrescimo'){
                 acrescimo = $(this).val();
+                console.log(acrescimo)
             }
             if(tipo == 'desconto'){
                 desconto = $(this).val();
+                console.log(desconto)
             }
         });
 
