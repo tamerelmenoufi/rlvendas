@@ -199,25 +199,23 @@ function aasort(&$array, $key)
 
     $(".filtro").keyup(function(){
         var texto = $(this).val();
-
         blocos = texto.normalize("NFD").split(' ');
-
-        $(".item_button<?= $md5 ?>").fadeOut();
+        $(".item_button<?= $md5 ?>").css("display","none");
         tem = 0;
         $(".bloco").each(function(){
            for(i = 0; i < blocos.length; i++ ){
                 var resultado = $(this).text().toUpperCase().normalize("NFD").indexOf(blocos[i].toUpperCase());
                 var bloco = $(this).attr("bloco");
-                console.log(blocos[i])
+                // console.log(blocos[i])
                 if(resultado < 0) {
                     // $(`div[bloco${bloco}]`).fadeOut();
                 }else {
-                    $(`div[bloco${bloco}]`).fadeIn();
+                    $(`div[bloco${bloco}]`).css("display","block");
                     tem++;
                 }
             }
         });
-        if(tem == 0) $(".item_button<?= $md5 ?>").fadeIn();
+        if(tem == 0) $(".item_button<?= $md5 ?>").css("display","block");
 
     });
 
