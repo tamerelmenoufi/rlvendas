@@ -109,7 +109,7 @@ function aasort(&$array, $key)
 
 
 
-<div class="col-md-12" class="corpo_busca">
+<div class="col-md-12 corpo_busca" >
     <?php
 
     $query_c = "select * from categorias where situacao = '1' AND deletado != '1'";
