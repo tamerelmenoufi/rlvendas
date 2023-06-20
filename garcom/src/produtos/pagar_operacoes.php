@@ -79,7 +79,7 @@
         Carregando('none');
 
         valor = $(".valor").attr("valor");
-        console.log("Valor:" + valor)
+        // console.log("Valor:" + valor)
         taxa = 0;
         acrescimo = 0;
         desconto = 0;
@@ -96,21 +96,21 @@
 
             if(tipo == 'TaxaServico'){
                 taxa = $(this).val();
-                console.log("Taxa:" + taxa)
+                // console.log("Taxa:" + taxa)
             }
             if(tipo == 'acrescimo'){
                 acrescimo = $(this).val();
-                console.log("Acrescimo:" + acrescimo)
+                // console.log("Acrescimo:" + acrescimo)
             }
             if(tipo == 'desconto'){
                 desconto = $(this).val();
-                console.log("Desconto:" + desconto)
+                // console.log("Desconto:" + desconto)
             }
 
         });
 
         valor_total = (valor*1 + taxa*1 + acrescimo*1 - desconto*1);
-        console.log("Valor Total:" + valor_total)
+        // console.log("Valor Total:" + valor_total)
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
 
