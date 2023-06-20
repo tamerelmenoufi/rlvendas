@@ -136,14 +136,14 @@ function aasort(&$array, $key)
             $detalhes = json_decode($p->detalhes, true);
             $detalhes_2 = [];
             ?>
-            <div class="card mb-3 item_button<?= $md5 ?>">
+            <div bloco<?=$p->codigo?> class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
                     <!-- <div class="col-4 foto<?= $md5 ?>"
                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
                     </div> -->
                     <div class="col-12">
                         <div class="card-body">
-                            <h5 class="card-title bloco"><?= $p->produto ?></h5>
+                            <h5 class="card-title bloco" bloco="<?=$p->codigo?>"><?= $p->produto ?></h5>
                             <p class="card-text">
                                 <p><?= $p->descricao ?></p>
                             <small class="text-muted">
@@ -199,14 +199,15 @@ function aasort(&$array, $key)
 
     $(".filtro").keyup(function(){
         var texto = $(this).val();
+        var bloco = $(this).attr("bloco");
 
         $(".bloco").each(function(){
         var resultado = $(this).text().toUpperCase().indexOf(' '+texto.toUpperCase());
 
         if(resultado < 0) {
-            $(this).fadeOut();
+            $(`div[bloco${bloco}]`).fadeOut();
         }else {
-            $(this).fadeIn();
+            $(`div[bloco${bloco}]`).fadeIn();
         }
         });
 
