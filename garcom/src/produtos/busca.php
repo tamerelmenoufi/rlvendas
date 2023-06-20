@@ -77,7 +77,7 @@ function aasort(&$array, $key)
         position:fixed;
         left:0;
         right:0;
-        top:60px;
+        top:125px;
         bottom:0;
         overflow:auto;
         border:solid 1px red;
