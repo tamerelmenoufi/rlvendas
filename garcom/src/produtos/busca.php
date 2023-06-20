@@ -102,7 +102,7 @@ function aasort(&$array, $key)
     <center>Localizar Produtos</center>
 
     <div class="row" style="margin-top:25px;">
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control filtro" />
     </div>
 </div>
 
@@ -143,7 +143,7 @@ function aasort(&$array, $key)
                     </div> -->
                     <div class="col-12">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $p->produto ?></h5>
+                            <h5 class="card-title bloco"><?= $p->produto ?></h5>
                             <p class="card-text">
                                 <p><?= $p->descricao ?></p>
                             <small class="text-muted">
@@ -195,6 +195,24 @@ function aasort(&$array, $key)
 </div>
 
 <script>
+
+
+    $(".filtro").keyup(function(){
+        var texto = $(this).val();
+
+        $(".bloco").each(function(){
+        var resultado = $(this).text().toUpperCase().indexOf(' '+texto.toUpperCase());
+
+        if(resultado < 0) {
+            $(this).fadeOut();
+        }else {
+            $(this).fadeIn();
+        }
+        });
+
+    });
+
+
 
     $("button[acao_medida]").click(function () {
         opc = $(this).attr("opc");
