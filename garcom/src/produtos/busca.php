@@ -203,7 +203,7 @@ function aasort(&$array, $key)
         blocos = texto.split(' ');
 
         $(".bloco").each(function(){
-            blocos.each(function(i, e){
+           for(i = 0; i < blocos.length; i++ ){
                 var resultado = $(this).text().toUpperCase().indexOf(blocos[i].toUpperCase());
                 var bloco = $(this).attr("bloco");
                 console.log(blocos[i])
@@ -212,7 +212,7 @@ function aasort(&$array, $key)
                 }else {
                     $(`div[bloco${bloco}]`).fadeIn();
                 }
-            })
+            }
         });
 
     });
