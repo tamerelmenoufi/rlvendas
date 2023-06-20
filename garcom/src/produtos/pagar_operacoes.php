@@ -91,6 +91,7 @@
             //         taxa = 0;
             //     }
             // }
+            console.log(valor)
             if(tipo == 'TaxaServico'){
                 taxa = $(this).val();
                 console.log(taxa)
@@ -106,7 +107,7 @@
         });
 
         valor_total = (valor*1 + taxa*1 + acrescimo*1 - desconto*1);
-
+        console.log(valor_total)
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
 
