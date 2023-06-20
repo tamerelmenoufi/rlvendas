@@ -79,11 +79,13 @@
         Carregando('none');
 
         valor = $(".valor").attr("valor");
+        console.log("Valor:" + valor)
+        taxa = 0;
+        acrescimo = 0;
+        desconto = 0;
         $("input[calc]").each(function(){
             tipo = $(this).attr("calc");
-            taxa = 0;
-            acrescimo = 0;
-            desconto = 0;
+
             // if(tipo == 'TaxaServico'){
             //     if($(this).prop("checked") == true){
             //         taxa = $(this).val();
@@ -91,7 +93,7 @@
             //         taxa = 0;
             //     }
             // }
-            console.log("Valor:" + valor)
+
             if(tipo == 'TaxaServico'){
                 taxa = $(this).val();
                 console.log("Taxa:" + taxa)
@@ -104,6 +106,7 @@
                 desconto = $(this).val();
                 console.log("Desconto:" + desconto)
             }
+
         });
 
         valor_total = (valor*1 + taxa*1 + acrescimo*1 - desconto*1);
