@@ -198,13 +198,13 @@ function aasort(&$array, $key)
 
 
     $(".filtro").keyup(function(){
-        var texto = $(this).val();
+        var texto = $(this).val().normalize("NFD");
 
         blocos = texto.split(' ');
 
         $(".bloco").each(function(){
            for(i = 0; i < blocos.length; i++ ){
-                var resultado = $(this).text().toUpperCase().indexOf(blocos[i].toUpperCase());
+                var resultado = $(this).text().toUpperCase()normalize("NFD").indexOf(blocos[i].toUpperCase());
                 var bloco = $(this).attr("bloco");
                 console.log(blocos[i])
                 if(resultado < 0) {
