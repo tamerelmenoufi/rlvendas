@@ -201,7 +201,7 @@ function aasort(&$array, $key)
         var texto = $(this).val();
 
         $(".bloco").each(function(){
-        var resultado = $(this).text().toUpperCase().indexOf(' '+texto.toUpperCase());
+        var resultado = $(this).text().toUpperCase().indexOf(texto.toUpperCase());
         var bloco = $(this).attr("bloco");
         if(resultado < 0) {
             $(`div[bloco${bloco}]`).fadeOut();
