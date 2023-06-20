@@ -200,14 +200,19 @@ function aasort(&$array, $key)
     $(".filtro").keyup(function(){
         var texto = $(this).val();
 
+        blocos = texto.split(' ');
+
         $(".bloco").each(function(){
-        var resultado = $(this).text().toUpperCase().indexOf(texto.toUpperCase());
-        var bloco = $(this).attr("bloco");
-        if(resultado < 0) {
-            $(`div[bloco${bloco}]`).fadeOut();
-        }else {
-            $(`div[bloco${bloco}]`).fadeIn();
-        }
+            blocos.each(function(i, e){
+                var resultado = $(this).text().toUpperCase().indexOf(blocos[i].toUpperCase());
+                var bloco = $(this).attr("bloco");
+                console.log(blocos[i])
+                if(resultado < 0) {
+                    $(`div[bloco${bloco}]`).fadeOut();
+                }else {
+                    $(`div[bloco${bloco}]`).fadeIn();
+                }
+            })
         });
 
     });
