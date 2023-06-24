@@ -38,7 +38,10 @@
         bottom:65px;
         width:100%;
         overflow:auto;
-        background:yellow;
+        /* background:yellow; */
+        background-image:url('img/bg.png');
+        background-size:cover;
+        background-position:center;
         padding:10px;
     }
 
