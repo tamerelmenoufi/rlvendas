@@ -49,7 +49,7 @@
 <div class="topo"></div>
 <div class="pagina">
 
-
+<div class="col-12">
     <button
             class="btn btn-primary btn-lg btn-block"
             acao<?=$md5?>
@@ -60,22 +60,26 @@
     >
         BUSCAR PRODUTO
     </button>
-
+</div>
 
 <?php
     $query = "select * from categorias where deletado != '1'";
     $result = mysqli_query($con,$query);
     while($d = mysqli_fetch_object($result)){
 ?>
-    <button
-            class="btn btn-success btn-lg btn-block"
-            acao<?=$md5?>
-            local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
-            janela="ms_popup_100"
-            categoria = '<?=$d->codigo?>'
-    >
-        <?=$d->categoria?>
-    </button>
+
+    <div class="col-6">
+        <button
+                class="btn btn-success btn-lg btn-block"
+                acao<?=$md5?>
+                local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
+                janela="ms_popup_100"
+                categoria = '<?=$d->codigo?>'
+        >
+            <?=$d->categoria?>
+        </button>
+    </div>
+
 <?php
     }
 ?>
