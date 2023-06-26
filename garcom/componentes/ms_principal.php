@@ -83,13 +83,13 @@
     <div class="col-6">
         <button
                 class="btn btn-success btn-lg btn-block m-1"
-                style="background-color:#ff0000;"
+                style="background-color:#ff0000; height:100%;"
                 acao<?=$md5?>
                 local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
                 janela="ms_popup_100"
                 categoria = '<?=$d->codigo?>'
         >
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between align-items-center">
                 <img src="img/<?=$d->icone?>" style="height:50px;">
                 <span><?=$d->categoria?></span>
             </div>
