@@ -48,19 +48,21 @@
 </style>
 <div class="topo"></div>
 <div class="pagina">
-
-<div class="col-12">
-    <button
-            class="btn btn-primary btn-lg btn-block"
-            acao<?=$md5?>
-            local="src/produtos/busca.php"
-            janela="ms_popup_100"
-            categoria = '<?=$d->codigo?>'
-            style="opacity:1"
-    >
-        BUSCAR PRODUTO
-    </button>
+<div class="row">
+    <div class="col-12">
+        <button
+                class="btn btn-primary btn-lg btn-block m-2"
+                acao<?=$md5?>
+                local="src/produtos/busca.php"
+                janela="ms_popup_100"
+                categoria = '<?=$d->codigo?>'
+                style="opacity:1"
+        >
+            BUSCAR PRODUTO
+        </button>
+    </div>
 </div>
+
 
 <?php
     $query = "select * from categorias where deletado != '1'";
