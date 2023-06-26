@@ -51,7 +51,7 @@
 <div class="row">
     <div class="col-12">
         <button
-                class="btn btn-primary btn-lg btn-block m-2"
+                class="btn btn-primary btn-lg btn-block m-1"
                 acao<?=$md5?>
                 local="src/produtos/busca.php"
                 janela="ms_popup_100"
@@ -82,7 +82,7 @@
 
     <div class="col-6">
         <button
-                class="btn btn-success btn-lg btn-block m-2"
+                class="btn btn-success btn-lg btn-block m-1"
                 acao<?=$md5?>
                 local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
                 janela="ms_popup_100"
