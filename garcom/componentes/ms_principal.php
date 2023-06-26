@@ -83,6 +83,7 @@
     <div class="col-6">
         <button
                 class="btn btn-success btn-lg btn-block m-1"
+                style="background-color:#ff0000;"
                 acao<?=$md5?>
                 local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
                 janela="ms_popup_100"
