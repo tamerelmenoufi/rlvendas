@@ -89,8 +89,11 @@
                 janela="ms_popup_100"
                 categoria = '<?=$d->codigo?>'
         >
-            <img src="img/<?=$d->icone?>" style="height:50px;">
-            <?=$d->categoria?>
+            <div class="d-flex justify-content-between">
+                <img src="img/<?=$d->icone?>" style="height:50px;">
+                <span><?=$d->categoria?></span>
+            </div>
+
         </button>
     </div>
 
