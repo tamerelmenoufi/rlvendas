@@ -74,7 +74,7 @@
 
             if($i > 0 ) echo "</div>";
 ?>
-    <div class="row" style="margin:0; padding:0;">
+    <div class="row" style="margin:0; padding:0; margin-bottom:10px;">
 <?php
         }
 
@@ -83,7 +83,7 @@
     <div class="col-6">
         <button
                 class="btn btn-success btn-lg btn-block m-1"
-                style="background-color:#ff0000; height:100%; margin-bottom:10px;"
+                style="background-color:#ff0000; height:100%;"
                 acao<?=$md5?>
                 local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
                 janela="ms_popup_100"
