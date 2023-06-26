@@ -90,7 +90,7 @@
                 categoria = '<?=$d->codigo?>'
         >
             <img src="img/<?=$d->icone?>" style="height:50px;">
-            <p><?=$d->categoria?></p>
+            <?=$d->categoria?>
         </button>
     </div>
 
