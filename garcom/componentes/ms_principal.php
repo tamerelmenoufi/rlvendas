@@ -89,8 +89,8 @@
                 janela="ms_popup_100"
                 categoria = '<?=$d->codigo?>'
         >
-            <img src="img/<?=$d->icone?>" style="height:40px;">
-            <?=$d->categoria?>
+            <img src="img/<?=$d->icone?>" style="height:80px;">
+            <p><?=$d->categoria?></p>
         </button>
     </div>
 
