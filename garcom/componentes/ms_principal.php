@@ -52,13 +52,14 @@
     <div class="col-12">
         <button
                 class="btn btn-primary btn-lg btn-block m-1"
+                style="background-color:#990002;"
                 acao<?=$md5?>
                 local="src/produtos/busca.php"
                 janela="ms_popup_100"
                 categoria = '<?=$d->codigo?>'
                 style="opacity:1"
         >
-            BUSCAR PRODUTO
+            <i class="fa-solid fa-magnifying-glass"></i> BUSCAR PRODUTO
         </button>
     </div>
 </div>
