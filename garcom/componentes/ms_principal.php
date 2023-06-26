@@ -34,7 +34,7 @@
 
     .pagina{
         position:fixed;
-        top:60px;
+        top:100px;
         bottom:65px;
         width:100%;
         overflow:auto;

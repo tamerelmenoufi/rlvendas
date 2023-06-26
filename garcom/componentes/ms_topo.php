@@ -17,6 +17,21 @@
         margin-right:10px;
         color:#fff;
     }
+
+    .DadosTopo1{
+        position:fixed;
+        right:10px;
+        top:70px;
+        color:#0a0909;
+    }
+
+    .DadosTopo2{
+        position:fixed;
+        right:10px;
+        top:90px;
+        color:#0a0909;
+    }
+
     div[sair]{
         padding:10px;
         color:#fff;
@@ -33,12 +48,12 @@
         <?php
             if($g->nome){
         ?>
-            <div class="DadosTopo"><?=$g->nome?></div>
+            <div class="DadosTopo1"><?=$g->nome?></div>
         <?php
             }
             if($m->mesa){
         ?>
-            <div class="DadosTopo">Pedido Mesa <b><?=$m->mesa?></b></div>
+            <div class="DadosTopo2">Pedido Mesa <b><?=$m->mesa?></b></div>
         <?php
             }
         ?>
