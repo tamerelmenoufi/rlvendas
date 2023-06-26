@@ -65,7 +65,17 @@
 <?php
     $query = "select * from categorias where deletado != '1'";
     $result = mysqli_query($con,$query);
+    $i=0;
     while($d = mysqli_fetch_object($result)){
+
+        if($i%2 == 0){
+
+            if($i > 0 ) echo "</div>";
+?>
+    <div class="row">
+<?php
+        }
+
 ?>
 
     <div class="col-6">
@@ -81,7 +91,9 @@
     </div>
 
 <?php
+$i++;
     }
+    if($i%2 == 0) echo "</div>";
 ?>
 
 
