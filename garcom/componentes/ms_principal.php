@@ -48,7 +48,7 @@
 </style>
 <div class="topo"></div>
 <div class="pagina">
-<div class="row g-0">
+<div>
     <div class="col-12">
         <button
                 class="btn btn-primary btn-lg btn-block m-1"
@@ -74,7 +74,7 @@
 
             if($i > 0 ) echo "</div>";
 ?>
-    <div class="row g-0">
+    <div>
 <?php
         }
 
