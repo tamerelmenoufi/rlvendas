@@ -20,14 +20,14 @@
 
     .DadosTopo1{
         position:fixed;
-        right:10px;
+        right:20px;
         top:70px;
         color:#0a0909;
     }
 
     .DadosTopo2{
         position:fixed;
-        right:10px;
+        right:20px;
         top:90px;
         color:#0a0909;
     }
