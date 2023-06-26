@@ -43,7 +43,7 @@
         background-size:cover;
         background-position:center;
         padding:10px;
-        padding-top:70px;
+        padding-top:60px;
     }
 
 </style>
