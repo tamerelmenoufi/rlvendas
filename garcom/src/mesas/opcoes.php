@@ -27,8 +27,8 @@
         <?php
         if($Perfil->caixa){
         ?>
-        <button acao opc="vendas_concluidas" class="btn btn-success btn-lg btn-block">
-            <i class="fa-solid fa-bell-concierge"></i> Caixa
+        <button acao opc="novo_caixa" class="btn btn-success btn-lg btn-block">
+            <i class="fa-solid fa-cash-register"></i> Caixa
         </button>
         <?php
         }
