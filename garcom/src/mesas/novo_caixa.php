@@ -68,12 +68,7 @@
 
         ";
         $d = mysqli_fetch_object(mysqli_query($con, $query));
-        echo "<br><br><br>";
-        echo "Físico do caixa anterior: R$ ".($caixa->fisico_declarado);
-        echo "<br>";
-        echo "Caixa Físico atual: R$ ".($d->fisico_calculado - ($caixa->fisico_declarado * 1));
-        echo "<br>";
-        echo "Caixa Vendas Geral: R$ ".$d->vendas;
+
 
     ?>
 
