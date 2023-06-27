@@ -45,7 +45,7 @@
                         (select sum(valor) from vendas_pagamento where caixa = '".($caixa->caixa * 1)."') as vendas
 
         ";
-        $d = mysqli_fetch_object(mysqli_query($query));
+        $d = mysqli_fetch_object(mysqli_query($con, $query));
         echo "<br><br><br>";
         echo "Físico do caixa anterior: R$ ".($caixa->fisico_declarado);
         echo "<br>";
