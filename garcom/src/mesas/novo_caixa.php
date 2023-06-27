@@ -13,7 +13,7 @@
                                         fisico_calculado = '{$fisico_calculado}',
                                         vendas = '{$vendas}',
                                         caixa = '{$caixa}',
-                                        date = NOW(),
+                                        data = NOW(),
                                         usuario = '{$Perfil->codigo}'
                 ";
         mysqli_query($con, $query);
