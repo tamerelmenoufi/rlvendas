@@ -74,7 +74,7 @@
 
 <script>
     $(function(){
-        $('#fisico_declarado').maskMoney();
+        $('#fisico_declarado').maskMoney({ thousands: false, decimal:'.' });
 
         if(terminal){
             $('#fisico_declarado').keyboard({type:'numpad'});;
