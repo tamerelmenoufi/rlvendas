@@ -103,8 +103,8 @@
             vendas = $("#vendas").val();
             if(fisico_declarado && fisico_calculado && vendas){
                 $.confirm({
-                    content:`Confirma o fechamento do caixa com o valor de <b>R$ ${fisico_declarado}</b>?`,
-                    title:"Fechamento de Caixa",
+                    content:`Abrir um novo caixa com o valor inciaial de <b>R$ ${fisico_declarado}</b>?`,
+                    title:"Abertura de um novo caixa",
                     buttons:{
                         'SIM':function(){
                             $.ajax({
