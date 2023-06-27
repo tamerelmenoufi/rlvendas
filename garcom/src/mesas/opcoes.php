@@ -24,6 +24,15 @@
         <button acao opc="definir_impressora" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-print"></i> Impressora <span impressora_padrao></span>
         </button>
+        <?php
+        if($Perfil->caixa){
+        ?>
+        <button acao opc="vendas_concluidas" class="btn btn-success btn-lg btn-block">
+            <i class="fa-solid fa-bell-concierge"></i> Caixa
+        </button>
+        <?php
+        }
+        ?>
         <button acao opc="vendas_concluidas" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-bell-concierge"></i> Vendas Concluídas
         </button>
