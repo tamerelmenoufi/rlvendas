@@ -8,6 +8,8 @@
         $fisico_calculado = $_POST['fisico_calculado'];
         $vendas = $_POST['vendas'];
 
+        mysqli_query($con, "update caixa set situacao = '1' where situacao = '0'");
+
         $query = "insert into caixa set
                                         fisico_declarado = '{$fisico_declarado}',
                                         fisico_calculado = '{$fisico_calculado}',
