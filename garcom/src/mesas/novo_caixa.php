@@ -74,7 +74,7 @@
 
 <script>
     $(function(){
-        // $('#fisico_declarado').maskMoney();
+        $('#fisico_declarado').maskMoney();
 
         $("button[abrirNovoCaixa]").click(function(){
             fisico_declarado = $("#fisico_declarado").val();
@@ -82,7 +82,7 @@
             vendas = $("#vendas").val();
             if(fisico_declarado && fisico_calculado && vendas){
                 $.confirm({
-                    content:´Confirma o fechamento do caixa com o valor de <b>R$ ${fisico_declarado}</b>?´,
+                    content:`Confirma o fechamento do caixa com o valor de <b>R$ ${fisico_declarado}</b>?`,
                     title:"Fechamento de Caixa",
                     buttons:{
                         'SIM':function(){
