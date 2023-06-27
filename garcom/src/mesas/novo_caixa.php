@@ -74,7 +74,7 @@
 
 <script>
     $(function(){
-        $('#fisico_declarado').maskMoney();
+        // $('#fisico_declarado').maskMoney();
 
         $("button[abrirNovoCaixa]").click(function(){
             fisico_declarado = $("#fisico_declarado").val();
