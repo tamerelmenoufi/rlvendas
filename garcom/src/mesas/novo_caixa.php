@@ -132,6 +132,8 @@
                         }
                     }
                 });
+            }else{
+                $.alert('Favor informe o valor em caixa!');
             }
         });
 
