@@ -76,6 +76,10 @@
     $(function(){
         $('#fisico_declarado').maskMoney();
 
+        if(terminal){
+            $('#fisico_declarado').keyboard({type:'numpad'});;
+        }
+
         $("button[abrirNovoCaixa]").click(function(){
             fisico_declarado = $("#fisico_declarado").val();
             fisico_calculado = $("#fisico_calculado").val();
