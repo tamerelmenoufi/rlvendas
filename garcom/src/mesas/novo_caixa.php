@@ -41,12 +41,12 @@
         $caixa = mysqli_fetch_object(mysqli_query("select * from caixa where situacao = '0'"));
 
         echo $query = "select
-                        (select sum(valor) vendas_pagamento where caixa = '{$caixa->caixa}' and forma_pagamento = 'dinheiro') as fisico_calculado,
-                        (select sum(valor) vendas_pagamento where caixa = '{$caixa->caixa}') as vendas
+                        (select sum(valor) vendas_pagamento where caixa = '".($caixa->caixa * 1)."' and forma_pagamento = 'dinheiro') as fisico_calculado,
+                        (select sum(valor) vendas_pagamento where caixa = '".($caixa->caixa * 1)."') as vendas
 
         ";
         $d = mysqli_fetch_object(mysqli_query($query));
-echo "<br><br><br>";
+        echo "<br><br><br>";
         echo "Físico do caixa anterior: R$ ".($caixa->fisico_declarado);
         echo "<br>";
         echo "Caixa Físico atual: R$ ".($d->fisico_calculado - $caixa->fisico_declarado);
