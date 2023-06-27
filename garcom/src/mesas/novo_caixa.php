@@ -36,7 +36,24 @@
     Novo Caixa
 </div>
 <div style="padding:10px;">
-    Definição do Novo caixa
+    <?php
+
+        $caixa = mysqli_fetch_object(mysqli_query("select * from caixa where situacao = '0'"));
+
+        echo $query = "select
+                        (select sum(valor) vendas_pagamento where caixa = '{$caixa->caixa}' and forma_pagamento = '{dinheiro}') as fisico_calculado,
+                        (select sum(valor) vendas_pagamento where caixa = '{$caixa->caixa}') as vendas
+
+        ";
+        $d = mysqli_fetch_object(mysqli_query($query));
+
+        echo "Físico do caixa anterior: R$ ".($caixa->fisico_declarado);
+        echo "<br>";
+        echo "Caixa Físico atual: R$ ".($d->fisico_calculado - $caixa->fisico_declarado);
+        echo "<br>";
+        echo "Caixa Vendas Geral: R$ ".$d->vendas;
+
+    ?>
 </div>
 
 <script>
