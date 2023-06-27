@@ -5,6 +5,10 @@ VerificarVendaApp();
 
 if($_POST['acao'] == 'fechar_conta'){
 
+    $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
+
+    mysqli_query($con, "update vendas_pagamento set caixa = '{$caixa->caixa}' where venda = '{$_SESSION['AppVenda']}'");
+
     $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
     . "WHERE v.situacao NOT IN ('pagar','pago') AND "
@@ -14,7 +18,6 @@ if($_POST['acao'] == 'fechar_conta'){
 
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
-
 
     mysqli_query($con, "update vendas SET
                                             situacao = 'pagar',
