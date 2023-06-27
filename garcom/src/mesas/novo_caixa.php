@@ -1,5 +1,25 @@
 <?php
     include("../../../lib/includes.php");
+
+    if($_POST['acao'] == 'novo_caixa'){
+
+        $caixa = time();
+        $fisico_declarado = $_POST['fisico_declarado'];
+        $fisico_calculado = $_POST['fisico_calculado'];
+        $vendas = $_POST['vendas'];
+
+        $query = "insert into caixa set
+                                        fisico_declarado = '{$fisico_declarado}',
+                                        fisico_calculado = '{$fisico_calculado}',
+                                        vendas = '{$vendas}',
+                                        caixa = '{$caixa}',
+                                        date = NOW(),
+                                        usuario = '{$Perfil->codigo}'
+                ";
+        mysqli_query($con, $query);
+        exit();
+
+    }
 ?>
 <style>
     .vlrP{
@@ -65,8 +85,8 @@
     </div>
     <div class="col-12 mt-4">
         <button abrirNovoCaixa class="btn btn-primary btn-block btn-lg">Abrir Novo Caixa</button>
-        <input type="text" id="fisico_calculado" value="<?=$d->fisico_calculado?>" />
-        <input type="text" id="vendas" value="<?=$d->vendas?>" />
+        <input type="hidden" id="fisico_calculado" value="<?=$d->fisico_calculado?>" />
+        <input type="hidden" id="vendas" value="<?=$d->vendas?>" />
     </div>
 </div>
 
@@ -90,7 +110,20 @@
                     title:"Fechamento de Caixa",
                     buttons:{
                         'SIM':function(){
-
+                            $.ajax({
+                                url:"src/mesas/novo_caixa.php",
+                                type:"POST",
+                                data:{
+                                    fisico_declarado,
+                                    fisico_calculado,
+                                    vendas,
+                                    acao:'novo_caixa'
+                                },
+                                success:function(dados){
+                                    $.alert('Novo caixa criado com sucesso!');
+                                    PageClose();
+                                }
+                            });
                         },
                         'NÃO':function(){
 
