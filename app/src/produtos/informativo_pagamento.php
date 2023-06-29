@@ -45,7 +45,7 @@ if($_POST['acao'] == 'fechar_conta'){
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-center flex-column">
-                    <h4 class="font-weight-bold">XXX Pagamento com <?=$_POST['opc']?></h4>
+                    <h4 class="font-weight-bold">Pagamento com <?=$_POST['opc']?></h4>
                     <p class="text-center">Por favor se direcione até o caixa para efetuar o pagamento</p>
                     <p class="text-center">OU</p>
                     <p class="text-center">Você pode Solicitar que o garçon envie comanda de pagamento em sua mesa.</p>
