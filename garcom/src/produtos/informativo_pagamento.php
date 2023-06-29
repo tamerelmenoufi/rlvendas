@@ -48,7 +48,7 @@ if($_POST['acao'] == 'fechar_conta'){
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-center flex-column">
-                    <h4 class="font-weight-bold">XX Esuqema de pagamento</h4>
+                    <h4 class="font-weight-bold">Esuqema de pagamento</h4>
                     <?php
                         $q = "select * from vendas_pagamento where venda = '{$_SESSION['AppVenda']}' and deletado != '1'";
                         $r = mysqli_query($con, $q);
