@@ -18,6 +18,7 @@ if($_POST['acao'] == 'fechar_conta'){
 
     mysqli_query($con, "update vendas SET
                                             situacao = 'pagar',
+                                            caixa = (select caixa from caixa where situacao = '0'),
                                             valor='{$d->total}',
                                             total='{$d->total}',
                                             forma_pagamento='{$_POST['forma_pagamento']}',

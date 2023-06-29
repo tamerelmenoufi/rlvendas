@@ -89,6 +89,7 @@
 
     $retorno .= "qrcode|8|8|center|https://notas.yobom.com.br/?{$p->codigo}";
     $retorno .= "\n\ntxt|1|1|center|".md5($p->codigo).""."\n\n";
+    $retorno .= "\n\ntxt|1|1|center|Lote Caixa: ".($p->caixa).""."\n\n";
     $retorno .= "txt|1|1|center|Yobom.com.br - ".date("d/m/Y H:i:s").""."\n";
 
     }
