@@ -60,7 +60,7 @@
 <div style="padding:10px;">
     <?php
 
-        $caixa = mysqli_fetch_object(mysqli_query("select * from caixa where situacao = '0'"));
+        $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
 
         $query = "select
                         (select sum(valor) from vendas_pagamento where caixa = '".($caixa->caixa * 1)."' and forma_pagamento = 'dinheiro') as fisico_calculado,
