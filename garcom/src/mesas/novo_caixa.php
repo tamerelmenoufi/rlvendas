@@ -63,8 +63,8 @@
         $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
 
         $query = "select
-                        (select sum(valor) from vendas_pagamento where caixa = '".($caixa->caixa * 1)."' and forma_pagamento = 'dinheiro') as fisico_calculado,
-                        (select sum(valor) from vendas_pagamento where caixa = '".($caixa->caixa * 1)."') as vendas
+                        (select sum(valor) from vendas_pagamento where caixa = '".($caixa->caixa)."' and forma_pagamento = 'dinheiro') as fisico_calculado,
+                        (select sum(valor) from vendas_pagamento where caixa = '".($caixa->caixa)."') as vendas
 
         ";
         $d = mysqli_fetch_object(mysqli_query($con, $query));
@@ -75,7 +75,19 @@
 <div class="col">
     <!-- <div class="col-12">Cadastro/Acesso do Cliente</div> -->
     <h4 class="col-12 mb-4">Informe os dados solicitados abaixo:</h4>
-
+    <div class="col-12 mb-3">
+        <label for="cpf">Resumo do caixa atual (Lote - <?=$caixa->caixa?>)</label>
+        <table>
+            <tr>
+                <td>Vendas em Dinheiro:</td>
+                <td>R$ <?=number_format($d->fisico_calculado,2,',','.')?></td>
+            </tr>
+            <tr>
+                <td>Total de Vendas:</td>
+                <td>R$ <?=number_format($d->vendas,2,',','.')?></td>
+            </tr>
+        </table>
+    </div>
     <div class="col-12 mb-3">
         <label for="cpf">Valor em caixa (espécie)</label>
         <input style="text-align:center" type="text" inputmode="numeric" autocomplete="off" class="form-control form-control-lg" id="fisico_declarado">
