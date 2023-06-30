@@ -76,7 +76,7 @@
     <!-- <div class="col-12">Cadastro/Acesso do Cliente</div> -->
     <h4 class="col-12 mb-4">Informe os dados solicitados abaixo:</h4>
     <div class="col-12 mb-3">
-        <label>Resumo do caixa atual (Lote - <?=$caixa->caixa?>)<br>Iniciado em <?=date("d/m/Y H:i:s", $caixa->caixa)?></label>
+        <label>Resumo do caixa atual (Lote - <?=$caixa->caixa?>)<br><small>Iniciado em <?=date("d/m/Y H:i:s", $caixa->caixa)?></small></label>
         <table>
             <tr>
                 <td>Vendas em Dinheiro:</td>
