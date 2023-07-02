@@ -8,12 +8,17 @@
         $fisico_calculado = $_POST['fisico_calculado'];
         $vendas = $_POST['vendas'];
 
+        $query = "update caixa set
+                                        fisico_calculado = '{$fisico_calculado}',
+                                        vendas = '{$vendas}'
+                        where situacao = '0'
+                ";
+        mysqli_query($con, $query);
+
         mysqli_query($con, "update caixa set situacao = '1' where situacao = '0'");
 
         $query = "insert into caixa set
                                         fisico_declarado = '{$fisico_declarado}',
-                                        fisico_calculado = '{$fisico_calculado}',
-                                        vendas = '{$vendas}',
                                         caixa = '{$caixa}',
                                         data = NOW(),
                                         usuario = '{$Perfil->codigo}'
@@ -76,7 +81,7 @@
     <!-- <div class="col-12">Cadastro/Acesso do Cliente</div> -->
     <h4 class="col-12 mb-4">Informe os dados solicitados abaixo:</h4>
     <div class="col-12 mb-3">
-        <label for="cpf">Resumo do caixa atual (Lote - <?=$caixa->caixa?>)</label>
+        <label>Resumo do caixa atual (Lote - <?=$caixa->caixa?>)<br><small>Iniciado em <?=date("d/m/Y H:i:s", $caixa->caixa)?></small></label>
         <table>
             <tr>
                 <td>Vendas em Dinheiro:</td>
