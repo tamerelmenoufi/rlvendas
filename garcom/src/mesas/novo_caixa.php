@@ -81,7 +81,7 @@
 
             <tr>
                 <td>Declarado caixa físico:</td>
-                <td>R$ <?=number_format($d->fisico_declarado,2,',','.')?></td>
+                <td>R$ <?=number_format($caixa->fisico_declarado,2,',','.')?></td>
             </tr>
             <tr>
                 <td>Vendas em Dinheiro:</td>
