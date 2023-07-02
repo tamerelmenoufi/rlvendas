@@ -80,6 +80,10 @@
         <table>
 
             <tr>
+                <td>Declarado caixa físico:</td>
+                <td>R$ <?=number_format($d->fisico_declarado,2,',','.')?></td>
+            </tr>
+            <tr>
                 <td>Vendas em Dinheiro:</td>
                 <td>R$ <?=number_format($d->fisico_calculado,2,',','.')?></td>
             </tr>
