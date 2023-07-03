@@ -59,7 +59,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
                             </div>
 
                             /
-                            <select id="OpAno">
+                            <!-- <select id="OpAno">
                                 <option value="">Ano</option>
                                 <?php
                                 for ($i = date(Y); $i > date(Y) - 4; $i--) {
@@ -68,7 +68,22 @@ $ano = (($_GET['ano']) ?: date("Y"));
                                     <?php
                                 }
                                 ?>
-                            </select>
+                            </select> -->
+
+                            <div class="btn-group">
+                                <button OpAno class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                <?= $ano ?>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <?php
+                                    for ($i = date(Y); $i > date(Y) - 4; $i--) {
+                                    ?>
+                                    <a class="dropdown-item" SelectAno="<?= $i ?>" href="#"><?= $i ?></a>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <?php
@@ -275,20 +290,30 @@ $ano = (($_GET['ano']) ?: date("Y"));
             })
         }
 
-        $('#OpMes, #OpAno, button[SelectMes]').change(function () {
+        // $('#OpMes, #OpAno, button[SelectMes]').change(function () {
 
-            var mes = $("#OpMes").val();
-            var ano = $("#OpAno").val();
+        //     var mes = $("#OpMes").val();
+        //     var ano = $("#OpAno").val();
 
-            periodoRelatorio(mes, ano);
+        //     periodoRelatorio(mes, ano);
 
-        });
+        // });
 
         $('a[SelectMes]').click(function () {
 
             var mes = $(this).attr("SelectMes");
             $("button[OpMes]").text(mes);
             var ano = $("#OpAno").val();
+
+            periodoRelatorio(mes, ano);
+
+        });
+
+        $('a[SelectAno]').click(function () {
+
+            var ano = $(this).attr("SelectAno");
+            $("button[OpAno]").text(ano);
+            var mes = $("button[OpMes]").text();
 
             periodoRelatorio(mes, ano);
 
