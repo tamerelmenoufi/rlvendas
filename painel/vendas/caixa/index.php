@@ -284,7 +284,7 @@ $ano = (($_GET['ano']) ?: date("Y"));
 
         });
 
-        $('button[SelectMes]').change(function () {
+        $('button[SelectMes]').click(function () {
 
             var mes = $(this).attr("SelectMes");
             $("button[OpMes]").text(mes);
