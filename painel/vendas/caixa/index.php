@@ -29,7 +29,9 @@ $ano = (($_GET['ano']) ?: date("Y"));
                 <table class='table' cellpadding="5" cellspacing="0" border="0" align="center">
                     <tr>
                         <td colspan="7" align="left" class="titulo">
-                            Fechamento de caixa em <select id="OpMes">
+                            Fechamento de caixa em
+
+                            <!-- <select id="OpMes">
                                 <option value="">M&eacute;s</option>
                                 <?php
                                 for ($i = 1; $i <= 12; $i++) {
@@ -38,7 +40,24 @@ $ano = (($_GET['ano']) ?: date("Y"));
                                     <?php
                                 }
                                 ?>
-                            </select>
+                            </select> -->
+
+
+                            <div class="btn-group">
+                                <button OpMes class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                <?= $mes ?>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <?php
+                                    for ($i = 1; $i <= 12; $i++) {
+                                    ?>
+                                    <a class="dropdown-item" SelectMes="<?= $i ?>" href="#"><?= $i ?></a>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
                             /
                             <select id="OpAno">
                                 <option value="">Ano</option>
@@ -231,11 +250,9 @@ $ano = (($_GET['ano']) ?: date("Y"));
 <script>
     $(function () {
 
-        $('#OpMes, #OpAno').change(function () {
 
+        periodoRelatorio = (mes, ano)=>{
             var url = 'vendas/caixa/index.php';
-            var mes = $("#OpMes").val();
-            var ano = $("#OpAno").val();
 
             $('.loading').fadeIn(200);
 
@@ -249,13 +266,32 @@ $ano = (($_GET['ano']) ?: date("Y"));
                     $('#palco').html(data);
                 }
             })
-                .done(function () {
-                    $('.loading').fadeOut(200);
-                })
-                .fail(function (error) {
-                    alert('Error');
-                    $('.loading').fadeOut(200);
-                })
+            .done(function () {
+                $('.loading').fadeOut(200);
+            })
+            .fail(function (error) {
+                alert('Error');
+                $('.loading').fadeOut(200);
+            })
+        }
+
+        $('#OpMes, #OpAno, button[SelectMes]').change(function () {
+
+            var mes = $("#OpMes").val();
+            var ano = $("#OpAno").val();
+
+            periodoRelatorio(mes, ano);
+
+        });
+
+        $('button[SelectMes]').change(function () {
+
+            var mes = $(this).attr("SelectMes");
+            $("button[OpMes]").text(mes);
+            var ano = $("#OpAno").val();
+
+            periodoRelatorio(mes, ano);
+
         });
 
 
