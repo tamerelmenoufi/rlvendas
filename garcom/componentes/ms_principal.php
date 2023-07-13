@@ -53,7 +53,7 @@
     <div class="col-12">
         <button
                 class="btn btn-primary btn-lg btn-block m-1"
-                style="background-color:#990002;"
+                style="background-color:#990002; border:0;"
                 acao<?=$md5?>
                 local="src/produtos/busca.php"
                 janela="ms_popup_100"
@@ -85,7 +85,7 @@
     <div class="col-6">
         <button
                 class="btn btn-success btn-lg btn-block m-1"
-                style="background-color:#ed8d22; height:100%;"
+                style="background-color:#ed8d22; height:100%; border:0;"
                 acao<?=$md5?>
                 local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
                 janela="ms_popup_100"
