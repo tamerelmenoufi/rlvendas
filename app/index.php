@@ -52,13 +52,6 @@
         $.ajax({
             url: "src/home/index.php",
             success: function (dados) {
-                <?php
-                if($_GET['n']){
-                ?>
-                window.localStorage.setItem('AppPedido', '<?=$_SESSION['AppPedido']?>');
-                <?php
-                }
-                ?>
                 $(".ms_corpo").html(dados);
             }
         });
