@@ -54,7 +54,7 @@
 ?>
 
 <div class="col">
-    <div class="col-12">Cadastro/Acesso do Cliente</div>
+    <div class="col-12">Informe o número de seu Telefone</div>
     <!-- <div class="col-12">Informe a Mesa</div> -->
     <div class="col-12 mb-3">
         <input
@@ -93,7 +93,7 @@
                         window.localStorage.setItem('AppCliente', retorno.AppCliente);
 
                         //Deve ser removido depois
-                        window.localStorage.setItem('AppPedido', retorno.AppPedido);
+                        // window.localStorage.setItem('AppPedido', retorno.AppPedido);
 
                         $.ajax({
                             url:"src/home/index.php",
