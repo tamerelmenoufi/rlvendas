@@ -26,7 +26,7 @@ if($_SERVER['HTTP_HOST'] == 'yobom.com.br'){
     if($d){
         $query = "select * from mesas where md5(mesa) = '{$d}' and situacao = '1' and deletado != '1'";
         $mesa = mysqli_fetch_object(mysqli_query($con, $query));  
-        $_SESSION['AppPedido'] = $mesa->codigo;      
+        $_SESSION['AppPedido'] = $mesa->codigo;
     }
     // $d = implode("&",$_GET);
     header("location:https://yobom.com.br/rlvendas/app/?n=1");
