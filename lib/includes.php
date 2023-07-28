@@ -13,7 +13,7 @@ if($_SERVER['HTTP_HOST'] == 'app.yobom.com.br'){
     foreach($_GET as $i => $v){
         $d = $i;
     }
-    if(count($d) == 32){
+    if(strlen($d) == 32){
         header("location:https://yobom.com.br/rlvendas/app/?{$d}");
         exit();
     }
