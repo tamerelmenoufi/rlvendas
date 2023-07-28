@@ -154,18 +154,23 @@
 <div class="row">
         <?php
 
+            mysqli_query($con, "UPDATE mesas set blq = '0'");
             $query = "select * from mesas where deletado != '1' and situacao != '0' /*and mesa <= 199*/ order by mesa";
             $result = mysqli_query($con, $query);
+            $BlqLista = [];
             while($d = mysqli_fetch_object($result)){
 
                 $blq = false;
                 if( $Pagar[$d->codigo]){
                     $blq = true;
                     $icone = 'Pagar';
+                    $BlqLista[] = $d->codigo;
                 }else if( $Produtos[$d->codigo]){
                     $icone = 'ComProdutos';
+                    $BlqLista[] = $d->codigo;
                 }else if(in_array($d->codigo, $Ocupadas)){
                     $icone = 'ocupada';
+                    $BlqLista[] = $d->codigo;
                 }else{
                     $icone = false;
                 }
@@ -175,6 +180,9 @@
             <div <?=(($blq)?false:' acao="'.$d->mesa.'" ')?> cod="<?=$d->codigo?>" class="btn_mesa <?=$icone?>"><?=str_pad($d->mesa , 3 , '0' , STR_PAD_LEFT)?></div>
         </div>
         <?php
+            }
+            if($BlqLista){
+                mysqli_query($con, "UPDATE mesas set blq = '1' WHERE codigo IN (".implode(",",$BlqLista).")");
             }
         ?>
 
