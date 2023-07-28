@@ -21,9 +21,11 @@ if($_SERVER['HTTP_HOST'] == 'app.yobom.com.br'){
 
 if($_SERVER['HTTP_HOST'] == 'yobom.com.br'){
 
-    // foreach($_GET as $i => $v){
-    //     $d = $i;
-    // }
+    foreach($_GET as $i => $v){
+        $d = $i;
+    }
+
+echo $d; exit();
 
     // if(strlen($d)){
     //     $query = "select * from mesas where md5(mesa) = '{$d}' and situacao = '1' and deletado != '1'";
