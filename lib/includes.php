@@ -10,7 +10,8 @@ $md5 = md5(date("YmdHis"));
 
 
 if($_SERVER['HTTP_HOST'] == 'app.yobom.com.br'){
-    header("location:https://yobom.com.br/rlvendas/app/");
+    $d = implode("&",$_GET);
+    header("location:https://yobom.com.br/rlvendas/app/?{$d}");
     exit();
 }
 
