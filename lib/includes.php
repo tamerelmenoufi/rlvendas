@@ -9,5 +9,10 @@ include "vendor/rede/classes.php";
 $md5 = md5(date("YmdHis"));
 
 
+if($_SERVER['HTTP_HOST'] == 'app.yobom.com.br'){
+    header("location:https://yobom.com.br/rlvendas/app/");
+    exit();
+}
+
 $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";
 $Perfil = mysqli_fetch_object(mysqli_query($con, $query));
