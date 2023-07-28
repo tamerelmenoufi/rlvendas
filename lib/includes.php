@@ -18,5 +18,20 @@ if($_SERVER['HTTP_HOST'] == 'app.yobom.com.br'){
     exit();
 }
 
+if($_SERVER['HTTP_HOST'] == 'yobom.com.br'){
+    foreach($_GET as $i => $v){
+        $d = $i;
+    }
+    if($d){
+        $query = "select * from mesas where md5(mesa) = '{$d}' and situacao = '1' and deletado != '1'";
+        $mesa = mysqli_fetch_object(mysqli_query($con, $query));  
+        $_SESSION['AppPedido'] = $mesa->codigo;      
+    }
+    // $d = implode("&",$_GET);
+    header("location:https://yobom.com.br/rlvendas/app/?n=1");
+    exit();
+}
+
+
 $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";
 $Perfil = mysqli_fetch_object(mysqli_query($con, $query));
