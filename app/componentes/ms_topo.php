@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div class="PedidoPendentes_topo">
+<!-- <div class="PedidoPendentes_topo">
     <b>ATENÇÃO!</b><br>
     Você possui pedidos que ainda não foram autorizados para o proparo.<br>Acesse sua lista de pedido pelo ícone <b>SINO <i class="fa-solid fa-bell-concierge"></i></b> localizado no rodapé desta página para Confirmar Pedido.
         <div style="margin-top:20px;">
@@ -65,7 +65,7 @@
                 <i class="fa fa-thumbs-up" aria-hidden="true"></i> ok Endendi
             </button>
         </div>
-</div>
+</div> -->
 
 <script>
     $(function(){
