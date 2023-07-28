@@ -29,7 +29,10 @@ if($_POST['acao'] == 'NotaPdf'){
 
 
 if($_POST['acao'] == 'pago'){
-    mysqli_query($con, "update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'");
+    $mesa = mysqli_fetch_object(mysqli_query($con, "select mesa from vendas codigo = '{$_POST['cod']}'"));
+    if(mysqli_query($con, "update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'")){
+        mysqli_query($con, "UPDATE mesas set blq = '0' WHERE codigo = '{$mesa->mesa}'");
+    }
 }
 
 
