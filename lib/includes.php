@@ -25,15 +25,15 @@ if($_SERVER['HTTP_HOST'] == 'yobom.com.br'){
         $d = $i;
     }
 
-echo $d; exit();
+// echo $d; exit();
 
-    // if(strlen($d)){
-    //     $query = "select * from mesas where md5(mesa) = '{$d}' and situacao = '1' and deletado != '1'";
-    //     $mesa = mysqli_fetch_object(mysqli_query($con, $query));  
-    //     $_SESSION['AppPedido'] = $mesa->codigo;
-    //     header("location:https://yobom.com.br/rlvendas/app/?n=1");
-    //     exit();
-    // }
+    if(strlen($d) ==32){
+        $query = "select * from mesas where md5(mesa) = '{$d}' and situacao = '1' and deletado != '1'";
+        $mesa = mysqli_fetch_object(mysqli_query($con, $query));  
+        $_SESSION['AppPedido'] = $mesa->codigo;
+        header("location:https://yobom.com.br/rlvendas/app/?n=1");
+        exit();
+    }
 
 }
 
