@@ -58,6 +58,8 @@
             /////////////////////////////////////////////////////////////////
         }
 
+        VerificarVendaApp();
+
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
             "AppPedido" => $_SESSION['AppPedido'], //REMOVER DEPOIS
