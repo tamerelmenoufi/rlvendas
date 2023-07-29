@@ -1,6 +1,8 @@
 <?php
     include("../../../lib/includes.php");
 
+
+
     if($_POST['mesa']){
 
 
@@ -58,8 +60,6 @@
             /////////////////////////////////////////////////////////////////
         }
 
-        VerificarVendaApp();
-
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
             "AppPedido" => $_SESSION['AppPedido'], //REMOVER DEPOIS
@@ -68,6 +68,10 @@
 
         exit();
     }
+
+
+    VerificarVendaApp();
+
 
 
     $query = "select a.*, (select count(*) from vendas_produtos where venda = a.codigo and deletado != '1') as produtos from vendas a where a.situacao not in ('pago') and a.deletado != '1'";
