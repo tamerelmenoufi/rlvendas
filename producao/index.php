@@ -32,7 +32,7 @@
         ?>
 
         $.ajax({
-            url: "<?=$opc?>/index.php?<?=$md5?>",
+            url: "<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>",
             success: function (dados) {
                 $("#body").html(dados);
             },
@@ -75,7 +75,7 @@
             }
 
             $.ajax({
-                url:"<?=$opc?>/index.php?<?=$md5?>",
+                url:"<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>"",
                 type:"POST",
                 data:{
                     cod,
@@ -137,7 +137,7 @@
                 buttons:{
                     'SIM':function(){
                         $.ajax({
-                            url:"<?=$opc?>/index.php?<?=$md5?>",
+                            url:"<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>"",
                             type:"POST",
                             data:{
                                 cod,
@@ -286,7 +286,7 @@
 
     setInterval(function () {
         $.ajax({
-            url: "<?=$opc?>/index.php?<?=$md5?>",
+            url: "<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>"",
             success: function (dados) {
                 $("#body").html(dados);
             },
