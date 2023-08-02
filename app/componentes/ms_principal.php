@@ -1,5 +1,7 @@
 <?php
     include("../../lib/includes.php");
+
+    VerificarVendaApp();
 ?>
 <style>
     .topo{
