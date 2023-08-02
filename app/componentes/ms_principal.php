@@ -6,7 +6,7 @@
         position:fixed;
         width:100%;
         height:60px;
-        background:red;
+        background:'#990002';
         left:0;
         top:0;
     }
@@ -15,7 +15,7 @@
         position:fixed;
         width:100%;
         height:65px;
-        background:red;
+        background:'#990002';
         left:0;
         bottom:0;
     }
