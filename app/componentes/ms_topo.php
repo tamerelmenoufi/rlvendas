@@ -42,18 +42,20 @@
         <img class="topoImg" src="img/logo.png" />
     </div>
     <div class="col-8">
+        <div class="DadosTopo">
         <?php
             if($c->telefone){
         ?>
-            <div class="DadosTopo"><?=$c->telefone?><br><span ClienteNomeApp><?=$c->nome?></span><br>
+            <?=$c->telefone?><br><span ClienteNomeApp><?=$c->nome?></span><br>
         <?php
             }
             if($m->mesa){
         ?>
-            Mesa/Pedido <b><?=str_pad($m->mesa , 3 , '0' , STR_PAD_LEFT)?></b></div>
+            Mesa/Pedido <b><?=str_pad($m->mesa , 3 , '0' , STR_PAD_LEFT)?></b>
         <?php
             }
         ?>
+        </div>
     </div>
 </div>
 
