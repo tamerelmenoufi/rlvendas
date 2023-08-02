@@ -6,6 +6,7 @@
         $result = mysqli_query($con, $query);
         $m = mysqli_fetch_object($result);
         echo $m->codigo;
+        mysqli_query("UPDATE mesas SET blq = '1' WHERE codigo = '{$d->codigo}'");
         exit();
     }
 
