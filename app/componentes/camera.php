@@ -10,12 +10,10 @@
     }
 
     $mesas = [];
-    $query = "SELECT a.*, (select count(*) from vendas where mesa = a.codigo and situacao != 'pago' and deletado != '1') as tem FROM mesas a WHERE a.situacao = '1' AND a.deletado != '1'";
+    $query = "SELECT * FROM mesas a WHERE a.situacao = '1' AND a.deletado != '1' and blq != '1'";
     $result = mysqli_query($con, $query);
     while($m = mysqli_fetch_object($result)){
-        if(!$m->tem){
-            $mesas[] = $m->mesa;
-        }
+            $mesas[] = "https://app.yobom.com.br/?".md5($m->mesa);
     }
 
     if($_SESSION['AppCliente'] && $_SESSION['AppPedido']){
@@ -99,7 +97,7 @@
                 });
 //*/
             }else{
-                $.alert('CÓDIGO <b>'+content+'</b> BLOQUEADO, EM USO OU NÃO REGISTRADO NO SISTEMA!');
+                $.alert('MESA BLOQUEADO, EM USO!');
                 PageClose();
             }
 
