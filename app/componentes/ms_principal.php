@@ -42,7 +42,7 @@
         background-image:url('img/bg.png');
         background-size:cover;
         background-position:center;
-        padding:10px;
+        padding:20px;
         padding-top:10px;
     }
 

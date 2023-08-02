@@ -16,6 +16,9 @@ if($_SERVER['HTTP_HOST'] == 'app.yobom.com.br'){
     if(strlen($d) == 32){
         header("location:https://yobom.com.br/rlvendas/app/?{$d}");
         exit();
+    }else{
+        header("location:https://yobom.com.br/rlvendas/app/");
+        exit();        
     }
 }
 
