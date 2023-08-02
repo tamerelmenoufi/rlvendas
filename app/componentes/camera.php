@@ -2,7 +2,7 @@
     include("../../lib/includes.php");
 
     if($_POST['acao'] == 'Mesa'){
-        $query = "SELECT * FROM mesas WHERE mesa = '{$_POST['mesa']}' and situacao = '1' and deletado != '1'";
+        $query = "SELECT * FROM mesas WHERE md5(mesa) = '{$_POST['mesa']}' and situacao = '1' and deletado != '1'";
         $result = mysqli_query($con, $query);
         $m = mysqli_fetch_object($result);
         echo $m->codigo;
@@ -63,12 +63,14 @@
 
             if(content && $.inArray( content, m ) != -1){
 
+                codMesa = content.split('?');
+
                 $.ajax({
                     url:"componentes/camera.php",
                     type:"POST",
                     data:{
                         acao: 'Mesa',
-                        mesa: content
+                        mesa: codMesa[1]
                     },
                     success:function(dados_mesa){
 
