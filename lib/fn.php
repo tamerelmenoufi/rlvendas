@@ -82,7 +82,7 @@ function VerificarVendaApp(){
 
     if(!$n){
 
-        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(),  situacao not in ('pago','pagar')");
+        mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(),  situacao = 'novo'");
         $_SESSION['AppVenda'] = mysqli_insert_id($con);
 
         //$_SESSION = [];
