@@ -46,6 +46,8 @@
         if(!$n) $_SESSION['AppCarrinho'] = false;
         exit();
     }
+
+    $mesa = mysqli_fetch_object(mysqli_query($con, "select mesa from mesas where codigo = '{$_SESSION['AppPedido']}'"));
 ?>
 <style>
     .PedidoTopoTitulo{
@@ -124,7 +126,7 @@
 
 </style>
 <div class="PedidoTopoTitulo">
-    <h4>Pedido <?=str_pad($_SESSION['AppPedido'] , 3 , '0' , STR_PAD_LEFT)?></h4>
+    <h4>Pedido <?=str_pad($mesa , 3 , '0' , STR_PAD_LEFT)?></h4>
 </div>
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
