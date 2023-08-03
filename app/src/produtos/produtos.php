@@ -52,9 +52,10 @@ while ($m = mysqli_fetch_array($m_r)) {
         left: 0;
         width: 100%;
         height: 55px;
-        background-color: #fff;
+        background-color: #990002;
         padding: 20px;
         font-weight: bold;
+        color:#fff;
         z-index: 1;
     }
 
