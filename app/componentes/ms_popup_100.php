@@ -10,7 +10,7 @@
         right:0px;
         bottom:0px;
         padding-top:65px;
-        background:#fff;
+        background-image:url('img/bg.png');
         z-index: 100;
         overflow:auto;
     }
