@@ -20,8 +20,8 @@
         left:0px;
         top:0px;
         width:50px;
-        border:solid 1px #777;
-        color:#777;
+        border:solid 1px #fff;
+        color:#fff;
         border-radius:15px;
         padding:10px;
         margin:10px;
