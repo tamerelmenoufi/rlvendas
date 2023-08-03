@@ -139,7 +139,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         </div>
                     </div>
 
-                    
+                    <div class="row">
+                        <div class="col">Escolha a forma de pagamento</div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <button
