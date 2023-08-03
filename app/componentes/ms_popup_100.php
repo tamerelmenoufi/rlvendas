@@ -10,7 +10,7 @@
         right:0px;
         bottom:0px;
         padding-top:65px;
-        background-image:url('img/bg.png');
+        background:#fff;
         z-index: 100;
         overflow:auto;
     }
@@ -20,8 +20,8 @@
         left:0px;
         top:0px;
         width:50px;
-        border:solid 1px #fff;
-        color:#fff;
+        border:solid 1px #777;
+        color:#777;
         border-radius:15px;
         padding:10px;
         margin:10px;
