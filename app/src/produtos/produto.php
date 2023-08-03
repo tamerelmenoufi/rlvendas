@@ -46,7 +46,7 @@
 
     $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
-        . "WHERE a.codigo = '{$produto}' AND a.deletado != '1' AND b.deletado != '1'";
+        . "WHERE a.codigo = '{$produto}' AND a.deletado != '1' AND b.deletado != '1' AND situacao = '1'";
 
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
