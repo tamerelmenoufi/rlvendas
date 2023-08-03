@@ -107,6 +107,9 @@ while ($m = mysqli_fetch_array($m_r)) {
         display:<?=(($pendente)?'block':false)?>;
         z-index:10;
     }
+    .item_button<?= $md5 ?>{
+        backgroud-color:#eee;
+    }
 
 </style>
 
