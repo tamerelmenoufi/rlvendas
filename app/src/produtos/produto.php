@@ -151,7 +151,7 @@
     }
 </style>
 <div class="col">
-    <div class="row" style="position:fixed; top:0px; bottom:70px; left:0; right:0; border:solid 1px red; background-color:#fff;">
+    <div class="row" style="position:fixed; top:0px; bottom:0; left:0; right:0; border:solid 1px red; background-color:#fff;">
         <div class="col">
 
                 <div class="card mb-3">
