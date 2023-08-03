@@ -10,19 +10,16 @@
             $_SESSION['AppVenda'] = mysqli_insert_id($con);
         }
 
-        $quantidade = (($_POST['quantidade']*1 >= 1)?$_POST['quantidade']:1);
-        $total = $_POST['valor_unitario'] * $quantidade;
-
         $arrayInsert = [
             'venda' => $_SESSION['AppVenda'],
             'cliente' => $_SESSION['AppCliente'],
             'atendente' => $_SESSION['AppGarcom'],
             'mesa' => $_SESSION['AppPedido'],
             'produto_descricao' => $_POST['produto_descricao'],
-            'quantidade' => $quantidade,
+            'quantidade' => $_POST['quantidade'],
             'valor_unitario' => $_POST['valor_unitario'],
             'produto_json' => $_POST['produto_json'],
-            'valor_total' => $total,
+            'valor_total' => $_POST['valor_total'],
             'data' => date('Y-m-d H:i:s'),
         ];
 
@@ -44,16 +41,20 @@
         exit();
     }
 
-    $produto = $_POST['produto'];
-    $medida = $_POST['medida'];
-    $valor = $_POST['valor'];
-
     $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
-        . "WHERE a.codigo = '{$produto}' AND a.deletado != '1' AND b.deletado != '1'";
+        . "WHERE a.categoria = '8' AND a.deletado != '1' AND b.deletado != '1'";
 
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
+
+    $detalhes = json_decode($p->detalhes);
+
+    foreach($detalhes as $ind => $val){
+        $valor = $val->valor;
+        $medida = $val->quantidade;
+    }
+
 
     $m = mysqli_fetch_object(mysqli_query($con, "SELECT * FROM categoria_medidas WHERE codigo = '{$medida}' AND deletado != '1'"));
 
@@ -168,8 +169,9 @@
     }
 </style>
 
+
 <div class="topo<?= $md5 ?>">
-    <center><?= $p->produto ?> <?= $m->medida ?></center>
+    <center>Sorvete</center>
 </div>
 
 
@@ -186,7 +188,7 @@
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
-                            <span val>R$ <?= number_format($_POST['valor'], 2, '.', false) ?></span>
+                            <span val>R$ <?= number_format($p->nome_categoria, 2, ',', '.') ?></span>
 
                         </div>
                     </div>
@@ -201,66 +203,26 @@
                                 <p class="card-text"><?= $p->descricao ?></p>
                                 <p class="observacoes"></p>
                                 <div class="row">
-                                <div class="col-8">
-                                    <button observacoes class="btn btn-warning btn-block"><i class="fa-solid fa-pencil"></i> Recomendações</button>
-                                </div>
-                                <div class="col-4">
-                                    <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, '.', false) ?></small></div>
-                                    <div style="font-size:10px; text-align:right;">Valor Cobrado</div>
-                                </div>
+                                    <div class="col-12">
+                                        <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($valor, 2, ',', '.') ?></small></div>
+                                        <div style="font-size:10px; text-align:right;">Valor por Kg</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="peso">Peso (em gramas)</label>
+                                        <input type="number" class="form-control" id="peso">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="peso">Por Valor</label>
+                                        <input type="text" class="form-control" id="custo" data-thousands="" data-decimal=".">
+                                    </div>
                                 </div>
 
-
-                                <div class="col-md-12" style="margin-bottom:20px;">
-                                    <p class="card-text texto_detalhes"></p>
-                                </div>
-                                <?php if ($m->qt_produtos > 1) { ?>
-                                <button class="btn btn-primary btn-block mais_sabores" style="margin-bottom:5px;">
-                                    Pode adicionar até mais
-                                    <?= ($m->qt_produtos - 1) . ' ' . (($m->qt_produtos == 2) ? 'sabor' : 'sabores') ?>
-                                </button>
-                                <div class="ListaSabores"></div>
-                                <?php } ?>
                             </div>
                         </div>
 
                     </div>
 
                 <div style="position:fixed; bottom:0; left:0; width:100%; z-index:1; background-color:#fff;">
-                    <div class="input-group input-group-lg">
-                        <div class="input-group-prepend">
-                            <button
-                                    class="btn btn-dangerX text-danger"
-                                    type="button"
-                                    id="menos">
-                                <i class="fa-solid fa-circle-minus"></i>
-                            </button>
-                        </div>
-
-                        <div
-                                class="form-control"
-                                id="quantidade"
-                                style="border:0;"
-                        >1</div>
-
-                        <div class="input-group-append">
-                            <button
-                                    class="btn btn-successX text-success"
-                                    type="button"
-                                    id="mais">
-                                <i class="fa-solid fa-circle-plus"></i>
-                            </button>
-                        </div>
-                        <div class="input-group-append">
-                            <span
-                                    class="btn btn-primaryX text-primary"
-                                    id="rotulo_valor">
-                                R$ <span valor atual="<?=$_POST['valor']?>">
-                                    <?= number_format($_POST['valor'], 2, '.', false) ?>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
                     <div class="input-group input-group-lg">
                         <button adicionar_produto class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
                     </div>
@@ -276,89 +238,36 @@
     $(function(){
         Carregando('none');
 
-        var qt = 0;
-        var v_produto_com_sabores = 0;
+        $('#custo').maskMoney();
 
-        $("#mais").click(function () {
-            quantidade = $("#quantidade").html();
-            atual = $("span[valor]").attr("atual");
-            quantidade = (quantidade * 1 + 1);
-            $("#quantidade").html(quantidade);
-            valor = atual * quantidade;
-            // $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            $("span[valor]").html(valor.toFixed(2));
-
+        $("#peso").keyup(function(){
+            peso = $(this).val();
+            valor = peso*<?=$valor?>/1000;
+            $("#custo").val(valor.toFixed(2));
         });
 
-        $("#menos").click(function () {
-            quantidade = $("#quantidade").html();
-            atual = $("span[valor]").attr("atual");
-            quantidade = ((quantidade * 1 > 1) ? (quantidade * 1 - 1) : 1);
-
-            $("#quantidade").html(quantidade);
-
-            valor = atual * quantidade;
-            // $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            $("span[valor]").html(valor.toFixed(2));
-
-        });
-
-        $(".mais_sabores").click(function () {
-            produto = '<?=$_POST['produto']?>';
-            medida = '<?=$_POST['medida']?>';
-            valor = '<?=$_POST['valor']?>';
-
-            Carregando();
-            $.ajax({
-                url:"componentes/ms_popup.php",
-                type:"POST",
-                data:{
-                    local:"src/produtos/adicionais.php",
-                    produto,
-                    medida,
-                    valor,
-                },
-                success:function(dados){
-                    $(".ms_corpo").append(dados);
-                }
-            });
-        });
-
-        $("button[observacoes]").click(function(){
-            Carregando();
-            $.ajax({
-                url:"componentes/ms_popup_100.php",
-                type:"POST",
-                data:{
-                    local:"src/produtos/observacoes.php",
-                },
-                success:function(dados){
-                    $(".ms_corpo").append(dados);
-                }
-            });
+        $("#custo").keyup(function(){
+            custo = $(this).val();
+            peso = custo*1000/<?=$valor?>;
+            $("#peso").val(peso.toFixed(0));
         });
 
 
         $("button[adicionar_produto]").click(function(){
             /////////// PRODUTOS ////////////////////////////
+
+            valor_unitario = $("#custo").val();
+            quantidade = 1;
+            valor_total = (valor_unitario*quantidade);
+
             venda = [];
             venda['categoria'] = {codigo:'<?=$p->categoria?>', descricao:'<?=$p->nome_categoria?>'};
             venda['medida'] = {codigo:'<?=$m->codigo?>', descricao:'<?=$m->medida?>'};
             venda['produtos'] = [];
-            venda['produtos'].push({codigo:'<?= $p->codigo ?>', descricao:'<?= $p->produto ?>', valor:'<?= $_POST['valor'] ?>'});
-            $('.grupo').each(function(){
-                venda['produtos'].push({codigo:$(this).attr("cod"), descricao:$(this).attr("nome"), valor:$(this).attr("valor")});
-            })
+            venda['produtos'].push({codigo:'<?= $p->codigo ?>', descricao:'<?= $p->produto ?>', valor:valor_unitario});
 
             //-------
-            valor_unitario = $("span[valor]").attr("atual");
-            //-------
-            quantidade = $("#quantidade").html();
-            //-------
-            valor_total = (valor_unitario*quantidade);
-
-            //-------
-            var produto_descricao = $(".observacoes").html();
+            var produto_descricao = $("#peso").val() + 'g (<?= $p->descricao ?>)';
 
             var produto_json = JSON.stringify(Object.assign({}, venda));
             $(".IconePedidos, .MensagemAddProduto").css("display","none");

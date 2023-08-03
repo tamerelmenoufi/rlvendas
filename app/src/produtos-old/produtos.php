@@ -3,6 +3,10 @@ include("../../../lib/includes.php");
 
 VerificarVendaApp();
 
+$query = "SELECT * FROM vendas_produtos WHERE venda = '{$_SESSION['AppVenda']}' and situacao = 'n'";
+$result = mysqli_query($con, $query);
+$pendente = mysqli_num_rows($result);
+
 function aasort(&$array, $key)
 {
     $sorter = array();
@@ -48,9 +52,10 @@ while ($m = mysqli_fetch_array($m_r)) {
         left: 0;
         width: 100%;
         height: 55px;
-        background-color: #fff;
+        background-color: #990002;
         padding: 20px;
         font-weight: bold;
+        color:#fff;
         z-index: 1;
     }
 
@@ -88,6 +93,26 @@ while ($m = mysqli_fetch_array($m_r)) {
         color: green;
     }
 
+    .PedidoPendentes{
+        position:fixed;
+        top:80px;
+        left:10px;
+        right:10px;
+        border-radius:5px;
+        background-color:#fff666;
+        color:#333333;
+        padding:10px;
+        font-size:12px;
+        text-align:center;
+        display:<?=(($pendente)?'block':false)?>;
+        z-index:10;
+    }
+    .item_button<?= $md5 ?>{
+        background:#fff;
+        border:solid 5px #000;
+        border-radius:20px;
+    }
+
 </style>
 
 <!-- Informativo de pedidos ativos -->
@@ -101,6 +126,16 @@ while ($m = mysqli_fetch_array($m_r)) {
     <span><i class="fa-solid fa-caret-right"></i></span>
 </div>
 
+<!-- <div class="PedidoPendentes">
+    <b>ATENÇÃO!</b><br>
+    Você possui pedidos que ainda não foram autorizados para o proparo.<br>Acesse sua lista de pedido pelo ícone <b>SINO <i class="fa-solid fa-bell-concierge"></i></b> localizado no topo desta página para Confirmar Pedido.
+        <div style="margin-top:20px;">
+            <button entendi class="btn btn-warning" style="font-size:12px;">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> ok Endendi
+            </button>
+        </div>
+</div> -->
+
 <!-- Informativo de pedidos ativos -->
 
 
@@ -111,7 +146,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <div class="col-md-12">
     <?php
-    $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' order by produto asc";
+    $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' and situacao = '1'";
     $result = mysqli_query($con, $query);
     while ($p = mysqli_fetch_object($result)) {
         $detalhes = json_decode($p->detalhes, true);
@@ -125,16 +160,17 @@ while ($m = mysqli_fetch_array($m_r)) {
                 <div class="col-12">
                     <div class="card-body">
                         <h5 class="card-title"><?= $p->produto ?></h5>
-                        <p class="card-text">
-                            <p><?= $p->descricao ?></p>
+                        <p class="card-text"><?= $p->descricao ?></p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
                         <small class="text-muted">
 
                             <?php
                             foreach ($detalhes as $key => $val) :
-                                if($val['valor'] > 0){
-                                    $val['ordem'] = $M[$key]['ordem'];
-                                    $detalhes_2[$key] = $val;
-                                }
+                                $val['ordem'] = $M[$key]['ordem'];
+                                $detalhes_2[$key] = $val;
                             endforeach;
 
                             aasort($detalhes_2, "ordem");
@@ -150,11 +186,11 @@ while ($m = mysqli_fetch_array($m_r)) {
                                             categoria='<?= $d->codigo ?>'
                                             medida='<?= $val["quantidade"]; ?>'
                                             valor='<?= $val['valor']; ?>'
-                                            class="btn btn-outline-success btn-lg"
-                                            style="height:auto; font-size:18px; line-height: 1.2;"
+                                            class="btn btn-outline-success btn-xs"
+                                            style="height:40px; font-size:11px; line-height: 1.2;"
                                     >
                                         <?= $M[$key2]['descricao']; ?><br>
-                                        R$ <?= number_format($val['valor'], 2, '.', false) ?>
+                                        R$ <?= number_format($val['valor'], 2, ',', '.') ?>
                                     </button>
                                     <?php
                                 }
@@ -162,8 +198,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                             ?>
 
                         </small>
-                        </p>
-                    </div>
+                    </p>
                 </div>
             </div>
         </div>
@@ -176,6 +211,18 @@ while ($m = mysqli_fetch_array($m_r)) {
 </div>
 
 <script>
+
+    <?php
+    if($pendente){
+    ?>
+    $(".PedidoPendentes_topo").css("display","block");
+    <?php
+    }
+    ?>
+
+    $("button[entendi]").click(function(){
+        $(".PedidoPendentes").remove();
+    });
 
     $("button[acao_medida]").click(function () {
         opc = $(this).attr("opc");

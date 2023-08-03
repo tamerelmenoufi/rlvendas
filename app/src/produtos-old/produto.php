@@ -6,23 +6,19 @@
     if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
         if(!$_SESSION['AppVenda']){
-            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
+            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
             $_SESSION['AppVenda'] = mysqli_insert_id($con);
         }
-
-        $quantidade = (($_POST['quantidade']*1 >= 1)?$_POST['quantidade']:1);
-        $total = $_POST['valor_unitario'] * $quantidade;
 
         $arrayInsert = [
             'venda' => $_SESSION['AppVenda'],
             'cliente' => $_SESSION['AppCliente'],
-            'atendente' => $_SESSION['AppGarcom'],
             'mesa' => $_SESSION['AppPedido'],
             'produto_descricao' => $_POST['produto_descricao'],
-            'quantidade' => $quantidade,
+            'quantidade' => $_POST['quantidade'],
             'valor_unitario' => $_POST['valor_unitario'],
             'produto_json' => $_POST['produto_json'],
-            'valor_total' => $total,
+            'valor_total' => $_POST['valor_total'],
             'data' => date('Y-m-d H:i:s'),
         ];
 
@@ -50,7 +46,7 @@
 
     $query = "SELECT a.*, b.categoria AS nome_categoria FROM produtos a "
         . "LEFT JOIN categorias b ON a.categoria = b.codigo "
-        . "WHERE a.codigo = '{$produto}' AND a.deletado != '1' AND b.deletado != '1'";
+        . "WHERE a.codigo = '{$produto}' AND a.deletado != '1' AND b.deletado != '1' AND situacao = '1'";
 
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
@@ -60,19 +56,6 @@
 
 ?>
 <style>
-
-    .topo<?=$md5?> {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 55px;
-        background-color: #fff;
-        padding: 20px;
-        font-weight: bold;
-        z-index: 1;
-    }
-
     span[valor] {
         margin-left: 10px;
     }
@@ -167,30 +150,24 @@
         /* text-align:justify; */
     }
 </style>
-
-<div class="topo<?= $md5 ?>">
-    <center><?= $p->produto ?> <?= $m->medida ?></center>
-</div>
-
-
 <div class="col">
-    <div class="row" style="margin-top:10px;">
+    <div class="row" style="position:fixed; top:0px; bottom:0; left:0; right:0; border:solid 1px red; background-color:#fff;">
         <div class="col">
 
-                <!-- <div class="card mb-3">
+                <div class="card mb-3">
                     <div class="row">
                         <div
                             class="col foto<?= $md5 ?>"
-                            style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)"
+                            style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>); background-color:#ccc;"
                         >
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
                             <span medida><?= $m->medida ?></span>
-                            <span val>R$ <?= number_format($_POST['valor'], 2, '.', false) ?></span>
+                            <!-- <span val>R$ <?= number_format($_POST['valor'], 2, ',', '.') ?></span> -->
 
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="row">
                         <div class="col">
@@ -205,7 +182,7 @@
                                     <button observacoes class="btn btn-warning btn-block"><i class="fa-solid fa-pencil"></i> Recomendações</button>
                                 </div>
                                 <div class="col-4">
-                                    <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, '.', false) ?></small></div>
+                                    <div style="text-align:right;"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, ',', '.') ?></small></div>
                                     <div style="font-size:10px; text-align:right;">Valor Cobrado</div>
                                 </div>
                                 </div>
@@ -256,7 +233,7 @@
                                     class="btn btn-primaryX text-primary"
                                     id="rotulo_valor">
                                 R$ <span valor atual="<?=$_POST['valor']?>">
-                                    <?= number_format($_POST['valor'], 2, '.', false) ?>
+                                    <?= number_format($_POST['valor'], 2, ',', '.') ?>
                                 </span>
                             </span>
                         </div>
@@ -285,8 +262,7 @@
             quantidade = (quantidade * 1 + 1);
             $("#quantidade").html(quantidade);
             valor = atual * quantidade;
-            // $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            $("span[valor]").html(valor.toFixed(2));
+            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         });
 
@@ -298,8 +274,7 @@
             $("#quantidade").html(quantidade);
 
             valor = atual * quantidade;
-            // $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            $("span[valor]").html(valor.toFixed(2));
+            $("span[valor]").html(valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         });
 
