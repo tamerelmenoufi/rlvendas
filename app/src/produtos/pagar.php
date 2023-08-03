@@ -139,115 +139,19 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col">
-                            <!-- <div class="form-check">
-                                <input type="checkbox" class="form-check-input" calc="TaxaServico" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->taxa > 0)?'checked':false)?>>
-                                <label class="form-check-label" for="MarcarTaxa">Taxa de Serviço <b><?=number_format($d->taxa, 2,'.',false)?></b> (Opcional)</label>
-                            </div> -->
-                            <!-- <h5 class="card-title" style="cursor:pointer">
-                                <small>Taxa de Serviço <?=number_format($d->taxa, 2,'.',false)?> (Opcional)</small>
-                                <input calc="TaxaServico" type="hidden" value="<?=$d->taxa?>">
-                            </h5> -->
-                            <div class="form-check">
-                                <input calc="TaxaServico" type="checkbox" class="form-check-input" id="MarcarTaxa" value="<?=$d->taxa?>" <?=(($d->desconto == $d->taxa)?'checked':false)?>>
-                                <label class="form-check-label" for="MarcarTaxa">Descontar taxa de Serviço <b><?=number_format($d->taxa, 2,'.',false)?></b> (Opcional)</label>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <h5 class="card-title">
-                                <small>Acréscimo</small>
-                                <div>
-                                    <input calc="acrescimo" class="form-control form-control-sm money" type="text" value="<?=$d->acrescimo?>" data-thousands="" data-decimal=".">
-                                </div>
-                            </h5>
-                        </div>
-
-                        <div class="col">
-                            <h5 class="card-title">
-                                <small>Desconto</small>
-                                <div>
-                                    <input calc="desconto" class="form-control form-control-sm money" type="text" value="<?=$d->desconto?>" data-thousands="" data-decimal=".">
-                                </div>
-                            </h5>
-                        </div>
-                    </div>
-
-
-
-                    <div class="row">
-                        <div class="col-12">
-                            <h5 class="card-title">
-                                <small>Sub Total</small>
-                                <!-- <div class="valor_pendente" pendente="" valor=""></div> -->
-                                <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div>
-                            </h5>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col">
-                            <h5 class="card-title">
-                                <small>Operação</small>
-                                <div style="position:fixed; left:-1000px; top:-1000px;">
-                                    <select class="operacao form-control form-control-sm">
-                                        <option value="">::Selecione::</option>
-                                <?php
-                                    $qf = "select * from pagamentos where deletado != '1'";
-                                    $rf = mysqli_query($con, $qf);
-                                    while($f = mysqli_fetch_object($rf)){
-                                ?>
-                                        <option value="<?=$f->pagamento?>"><?=strtoupper($f->pagamento)?></option>
-                                <?php
-                                    }
-                                ?>
-                                    </select>
-                                </div>
-                                <div>
-
-
-                                <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle titulo_pagamento" type="button" data-toggle="dropdown" aria-expanded="false">
-                                    pagamento ?
-                                </button>
-                                <div class="dropdown-menu">
-                                <?php
-                                    $qf = "select * from pagamentos where deletado != '1'";
-                                    $rf = mysqli_query($con, $qf);
-                                    while($f = mysqli_fetch_object($rf)){
-                                ?>
-                                        <a class="dropdown-item" href="#" pagamento="<?=$f->pagamento?>" ><?=strtoupper($f->pagamento)?></a>
-                                        <!-- <option value="<?=$f->pagamento?>"><?=strtoupper($f->pagamento)?></option> -->
-                                <?php
-                                    }
-                                ?>
-                                </div>
-                                </div>
-                                </div>
-                            </h5>
-                        </div>
-
-                        <div class="col">
-                            <h5 class="card-title">
-                                <small>Valor</small>
-                                <div>
-                                <input class="form-control form-control-sm UmPagamento money" type="text" value="<?=$d->total?>">
-                                </div>
-                            </h5>
-                        </div>
-
-                    </div>
+                    
                     <div class="row">
                         <div class="col">
                             <button
                                 type="button"
-                                class="adicionarPagamento btn btn-primary btn-sm btn-block"
-                            >Adicionar</button>
+                                class="adicionarPagamento btn btn-primary btn-lg btn-block"
+                            >PIX</button>
+                        </div>
+                        <div class="col">
+                            <button
+                                type="button"
+                                class="adicionarPagamento btn btn-primary btn-lg btn-block"
+                            >CRÉDITO</button>
                         </div>
                     </div>
 
