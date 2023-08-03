@@ -495,7 +495,7 @@
 
         $("button[pagar]").click(function(){
             $.ajax({
-                url:"componentes/ms_popup_100.php",
+                url:"componentes/ms_popup.php",
                 type:"POST",
                 data:{
                     local:'src/produtos/pagar.php',
