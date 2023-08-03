@@ -109,7 +109,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     }
     .item_button<?= $md5 ?>{
         background:#fff;
-        border:solid 2px #ccc;
+        border:solid 5px #000;
     }
 
 </style>
