@@ -12,7 +12,6 @@
 
 
 
-
     if($_SESSION['AppPedido']){
         $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}'"));
     }
@@ -417,85 +416,9 @@
 
 
 
-
-
-
-
-
-        $("button[confirmar_pedido]").click(function () {
-
-            $.alert({
-                icon: "fa-solid fa-question",
-                title: "Seu pedido será enviado para o preparo após a sua confirmação.<br><br>Deseja confirmar o envio?",
-                content: false,
-                columnClass: "medium",
-                type: "green",
-                buttons: {
-                    nao: {
-                        text: "Não",
-                        btnClass: "btn-red",
-                        action: function () {
-                        }
-                    },
-                    sim: {
-                        text: "Sim, Pode Preparar",
-                        btnClass: "btn-success",
-                        action: function () {
-
-
-                            $.ajax({
-                                url: "src/produtos/pedido.php",
-                                method: "POST",
-                                dataType: "JSON",
-                                data: {
-                                    acao: "confirmar_pedido"
-                                },
-                                success: function (dados) {
-                                    if (dados.status === "sucesso") {
-                                        atualiza = dados.venda;
-
-
-                                        $.ajax({
-                                            url:"componentes/ms_popup_100.php",
-                                            type:"POST",
-                                            data:{
-                                                local:'src/produtos/pedido.php',
-                                            },
-                                            success:function(dados){
-                                                PageClose();
-                                                $(".ms_corpo").append(dados);
-                                                mySocket.send(atualiza);
-                                                console.log(atualiza);
-                                            }
-                                        });
-
-
-
-                                    }
-                                }
-                            })
-
-
-
-
-
-
-                        }
-                    },
-                }
-            });
-
-        });
-
-
-
-
-
-
-
         $("button[pagar]").click(function(){
             $.ajax({
-                url:"componentes/ms_popup_100.php",
+                url:"componentes/ms_popup.php",
                 type:"POST",
                 data:{
                     local:'src/produtos/pagar.php',
@@ -511,7 +434,7 @@
         $("button[ExcluirPedido]").click(function(){
 
             $.confirm({
-                content:"Deseja realmente cancelar o pedido <b><?=$m->mesa?></b>?",
+                content:"Deseja realmente cancelar o pedido da mesa <b><?=$m->mesa?></b>?",
                 title:false,
                 buttons:{
                     'SIM':function(){
@@ -603,36 +526,6 @@
             });
 
         });
-
-
-
-        $("button[print_pedido]").click(function(){
-            $.confirm({
-                content:"Confirma a Impressão da comanda?",
-                title:false,
-                buttons:{
-                    'SIM':function(){
-                        Carregando();
-                        impressora = window.localStorage.getItem('AppImpressora');
-                        $.ajax({
-                            url:"src/produtos/print.php",
-                            type:"POST",
-                            data:{
-                                impressora
-                            },
-                            success:function(dados){
-                                $.alert('Comanda enviada para impressão!');
-                                Carregando('none');
-                            }
-                        });
-                    },
-                    'NÃO':function(){
-
-                    }
-                }
-            })
-        });
-
 
 
     })
