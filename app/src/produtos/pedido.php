@@ -314,7 +314,7 @@
                 class="btn btn-primary btn-block"
                 style="<?=((!$acao_preparar)?'display:none;':false)?>"
             >
-                ok
+                Confirmar
             </button>
         </div>
         <!-- <div class="col-2">
