@@ -59,6 +59,9 @@
         padding-top:15px;
         z-index:1;
     }
+    .PedidoTopoTitulo h4{
+        color:#ffffff;
+    }
     .PedidoBottomFixo{
         position:fixed;
         bottom:0;
