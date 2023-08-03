@@ -30,6 +30,7 @@
     if($_POST['acao'] == 'ExcluirPedido'){
         mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
         mysqli_query($con, "update vendas_produtos set deletado = '1' where venda = '{$_SESSION['AppVenda']}'");
+        mysqli_query($con, "update mesas set blq = '0' where codigo = '{$_SESSION['AppPedido']}'");
         $_SESSION = [];
         exit();
     }
