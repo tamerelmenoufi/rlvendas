@@ -158,7 +158,7 @@
                     <div class="row">
                         <div
                             class="col foto<?= $md5 ?>"
-                            style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)"
+                            style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>); background-color:#ccc;"
                         >
                             <span sabor><?= $p->produto ?></span>
                             <span categoria><?= $p->nome_categoria ?></span>
