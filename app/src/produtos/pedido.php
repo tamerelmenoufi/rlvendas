@@ -54,7 +54,7 @@
         top:0px;
         width:100%;
         height:60px;
-        background:#fff;
+        background:#990002;
         padding-left:70px;
         padding-top:15px;
         z-index:1;
