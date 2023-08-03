@@ -98,9 +98,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
         display:none;
     }
 </style>
-<div class="PedidoTopoTitulo">
+<!-- <div class="PedidoTopoTitulo">
     <h4>Pagar Mesa <?=$m->mesa?></h4>
-</div>
+</div> -->
 
 <div class="col" style="margin-bottom:60px; display:<?=(($d->total)?'block':'none')?>">
     <div class="row">
