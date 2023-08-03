@@ -111,24 +111,31 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     <div class="row">
                         <div class="col-6">
                             <h5 class="card-title">
-                                <small>Pedido</small>
-                                <div style="font-size:18px !important; color:blue;"><?=$_SESSION['AppPedido']?></div>
+                                <small>Mesa</small>
+                                <div style="font-size:18px !important; color:blue;"><?=$m->mesa?></div>
                             </h5>
                         </div>
                         <div class="col-6">
                             <h5 class="card-title">
-                                <small>Valor a Pagar</small>
+                                <small>Valor da compra</small>
                                 <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div> -->
-                                <div class="valor_pendente" pendente="" valor=""><?=$d->total?></div>
+                                <div class="valor_pendente" pendente="" valor=""><?=$d->valor?></div>
                             </h5>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-6">
                             <h5 class="card-title">
-                                <small>Mesa</small>
-                                <div><?="{$m->mesa}"?></div>
+                                <small>Taxa de Serviços</small>
+                                <div><?="{$d->taxa}"?></div>
+                            </h5>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="card-title">
+                                <small>Valor da compra</small>
+                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div> -->
+                                <div class="valor_pendente" pendente="" valor=""><?=$d->total?></div>
                             </h5>
                         </div>
                     </div>
