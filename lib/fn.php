@@ -79,7 +79,7 @@ function VerificarVendaApp(){
 
     $r = mysqli_query($con, "SELECT * FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
     $n = mysqli_num_rows($r);
-    /*
+
     if(!$n){
 
         mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
@@ -91,9 +91,7 @@ function VerificarVendaApp(){
         echo "<script>window.localStorage.setItem('AppVenda','{$_SESSION['AppVenda']}');</script>";
         //echo "<h1>TESTE 1</h1>";
         //exit();
-    }else 
-    //*/
-    if(!$_SESSION['AppVenda'] and $n){
+    }else if(!$_SESSION['AppVenda']){
         $_SESSION['AppVenda'] = mysqli_fetch_object($r)->codigo;
         echo "<script>window.localStorage.setItem('AppVenda','{$_SESSION['AppVenda']}');</script>";
         //echo "<h1>TESTE 2</h1>";
