@@ -196,6 +196,7 @@
 
     <!-- <div class="row">
         <?php
+        /*
 
             $query = "select * from mesas where deletado != '1' and situacao != '0' order by mesa";
             $result = mysqli_query($con, $query);
@@ -219,6 +220,7 @@
         </div>
         <?php
             }
+            //*/
         ?>
 
     </div> -->

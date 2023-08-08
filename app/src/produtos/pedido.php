@@ -314,7 +314,7 @@
                 class="btn btn-primary btn-block"
                 style="<?=((!$acao_preparar)?'display:none;':false)?>"
             >
-                Confirmar
+                <i class="fa-solid fa-check"></i> Confirmar
             </button>
         </div>
         <!-- <div class="col-2">
@@ -414,12 +414,6 @@
             //}
 
         });
-
-
-
-
-
-
 
 
         $("button[confirmar_pedido]").click(function () {
