@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
-include "connection.php";
+include "connect.php";
+include "confYobom.php";
 include "config.php";
 include "utils.php";
 include "fn.php";
