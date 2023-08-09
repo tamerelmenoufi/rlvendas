@@ -23,7 +23,7 @@
                         where operadora_id = '{$_POST['id']}'
                     ");
 
-        $_SESSION['CodVenda'] = false;
+        // $_SESSION['CodVenda'] = false;
     }
 
 ?>
