@@ -105,7 +105,12 @@
                                         "transaction_amount": '.$d->total.',
                                         "payment_method_id": "pix",
                                         "payer": {
-                                            "email": "tamer@mohatron.com.br"
+                                            "first_name": "Tamer",
+                                            "last_name": "Elmenoufi",
+                                            "identification": {
+                                                "type": "CPF",
+                                                "number": "60110970225"
+                                            }
                                         }
                                     }';
 
