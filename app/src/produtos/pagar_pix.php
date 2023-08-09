@@ -1,6 +1,6 @@
 <?php
     include("../../../lib/includes.php");
-    error_reporting(E_ALL);
+    // error_reporting(E_ALL);
     $query = "select
                     *
                 from vendas
