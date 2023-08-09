@@ -34,7 +34,7 @@
             $response = curl_exec($ch);
             curl_close($ch);
 
-            return $response;
+            return $response. " - ". $this->Autenticacao();
 
         }
 
@@ -55,7 +55,7 @@
             $response = curl_exec($ch);
             curl_close($ch);
 
-            return $response. " - ". $this->Autenticacao();
+            return $response;
 
         }
 
