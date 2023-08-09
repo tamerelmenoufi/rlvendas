@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
-    $query = "select
+    echo $query = "select
                     *
                 from vendas
                 where codigo = '{$_SESSION['codVenda']}'";
@@ -9,7 +9,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $pos =  strripos($d->nome, " ");
+    // $pos =  strripos($d->nome, " ");
 
 ?>
 <style>
