@@ -100,7 +100,7 @@
                                     //     }
                                     // }
 
-                                    $retorno = $PIX->Transacao('{
+                                    echo $retorno = $PIX->Transacao('{
                                         "transaction_amount": '.$d->total.',
                                         "description": "Venda '.$pedido.' - Yobom",
                                         "payment_method_id": "pix",
@@ -114,10 +114,7 @@
                                         }
                                     }');
 
-                                    echo $retorno;
                                     $dados = json_decode($retorno);
-
-                                    var_dump($dados);
 
                                     $operadora_id = $dados->id;
                                     $forma_pagamento = $dados->payment_method_id;
