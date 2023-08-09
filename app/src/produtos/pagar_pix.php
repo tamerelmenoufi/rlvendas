@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
-    echo $query = "select
+    $query = "select
                     *
                 from vendas
                 where codigo = '{$_SESSION['AppVenda']}'";
@@ -116,6 +116,8 @@
 
                                     // echo $retorno;
                                     $dados = json_decode($retorno);
+
+                                    var_dump($dados);
 
                                     $operadora_id = $dados->id;
                                     $forma_pagamento = $dados->payment_method_id;
