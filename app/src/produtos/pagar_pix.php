@@ -100,11 +100,11 @@
                                         }
                                     }';
 
-                                    $retorno = $PIX->Transacao($json);
+                                    echo $retorno = $PIX->Transacao($json);
 
                                     $dados = json_decode($retorno);
 
-                                    var_dump($dados);
+                                    // var_dump($dados);
 
                                     $operadora_id = $dados->id;
                                     $forma_pagamento = $dados->payment_method_id;
