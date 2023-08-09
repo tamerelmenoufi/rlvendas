@@ -110,6 +110,14 @@
                                             "identification": {
                                                 "type": "CPF",
                                                 "number": "60110970225"
+                                            },
+                                            "address": {
+                                                "zip_code": "69010110",
+                                                "street_name": "Monsenhor Coutinho",
+                                                "street_number": "600",
+                                                "neighborhood": "Centro",
+                                                "city": "Manaus",
+                                                "federal_unit": "AM"
                                             }
                                         }
                                     }');
