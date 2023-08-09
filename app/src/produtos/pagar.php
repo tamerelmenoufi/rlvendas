@@ -207,9 +207,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 
 
-        $("a[pagamento]").click(function(){
+        $("button[pagamento]").click(function(){
 
-            
+            opc = $(this).attr("pagamento");
             $.ajax({
                 url:"componentes/ms_popup_100.php",
                 type:"POST",
