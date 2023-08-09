@@ -1,5 +1,6 @@
 <?php
     include("../../../lib/includes.php");
+    ini_set('display_errors', 1);
 
     $query = "select
                     *
@@ -73,9 +74,7 @@
 
                                     //AQUI É A GERAÇÃO DA COBRANÇA PIX
 
-                                    echo "Passou aqui";
-
-                                    $PIX = new MercadoPago;
+                                        $PIX = new MercadoPago;
                                     // "transaction_amount": '.$d->total.',
                                     // "transaction_amount": 2.11,
 
