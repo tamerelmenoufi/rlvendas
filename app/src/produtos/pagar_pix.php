@@ -114,7 +114,7 @@
                                         }
                                     }');
 
-                                    // echo $retorno;
+                                    echo $retorno;
                                     $dados = json_decode($retorno);
 
                                     var_dump($dados);
