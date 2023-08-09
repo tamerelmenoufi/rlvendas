@@ -77,7 +77,7 @@
                                     // "transaction_amount": '.$d->total.',
                                     // "transaction_amount": 2.11,
 
-                                    echo $json = '{
+                                    $json = '{
                                         "transaction_amount": '.$d->total.',
                                         "description": "Venda '.$pedido.' - YOBOM",
                                         "payment_method_id": "pix",
