@@ -105,11 +105,20 @@
                                         "transaction_amount": '.$d->total.',
                                         "payment_method_id": "pix",
                                         "payer": {
+                                            "email": "tamer@mohatron.com.br",
                                             "first_name": "Tamer",
                                             "last_name": "Elmenoufi",
                                             "identification": {
                                                 "type": "CPF",
                                                 "number": "60110970225"
+                                            },
+                                            "address": {
+                                                "zip_code": "69010110",
+                                                "street_name": "Monsenhor Coutinho",
+                                                "street_number": "600",
+                                                "neighborhood": "Centro",
+                                                "city": "Manaus",
+                                                "federal_unit": "AM"
                                             }
                                         }
                                     }';
