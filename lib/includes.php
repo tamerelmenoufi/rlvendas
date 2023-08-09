@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 include "connect.php";
+$con = AppConnect();
 include "confYobom.php";
 include "config.php";
 include "utils.php";
