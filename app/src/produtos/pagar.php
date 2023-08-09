@@ -145,12 +145,14 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     <div class="row">
                         <div class="col">
                             <button
+                                pagamento="pix"
                                 type="button"
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >PIX</button>
                         </div>
                         <div class="col">
                             <button
+                                pagamento="cartao"
                                 type="button"
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >CRÉDITO</button>
@@ -203,184 +205,27 @@ where codigo = '{$_SESSION['AppVenda']}'";
 <script>
     $(function(){
 
-        $('.money').maskMoney();
-        $('.money').click(function(){
-            $(this).val('0.00');
-        });
-
-        if(terminal){
-            $('.money').keyboard({type:'numpad'});;
-        }
-
-
-        $.ajax({
-            url:"src/produtos/pagar_operacoes.php",
-            success:function(dados){
-                $("div[pagar_operacoes]").html(dados);
-            }
-        });
 
 
         $("a[pagamento]").click(function(){
-            opc = $(this).attr("pagamento");
-            titulo = $(this).html();
-            $(".operacao").val(opc);
-            $(".titulo_pagamento").html(titulo);
-        });
 
-
-        CalculoDesconto = (obj, opc)=>{
-            Carregando();
-            pendente = $(".valor_pendente").attr("pendente");
-            valor = ((opc == 1)? obj.val() : 0);
-            valor_oposto = 0; //$('input[calc="acrescimo"]').val();
-
-            if(valor*1 > pendente*1){
-                $.alert('Valor do desconto não pode ser superior ao valor pendente!');
-                $('input[calc="desconto"]').val('0.00');
-                Carregando('none');
-                return false;
-            }
-
-            // valor_pendente = (pendente*1 - valor*1 + valor_oposto*1);
-            // $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
-            // // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            // $(".valor_pendente").html('R$ ' + valor_pendente.toFixed(2));
-            // $(".UmPagamento").val(valor_pendente.toFixed(2));
-
+            
             $.ajax({
-                url: "componentes/ms_popup_100.php",
-                type: "POST",
+                url:"componentes/ms_popup_100.php",
+                type:"POST",
                 data:{
-                    acao:"desconto",
-                    valor,
-                    local: "src/produtos/pagar.php",
+                    local:`src/produtos/pagar_${opc}.php`,
                 },
-                success: function (dados) {
+                success:function(dados){
                     PageClose();
                     $(".ms_corpo").append(dados);
                 }
             });
 
-            // $.ajax({
-            //     url:"src/produtos/pagar.php",
-            //     type:"POST",
-            //     data:{
-            //         acao:"desconto",
-            //         valor
-            //     },
-            //     success:function(dados){
-            //         //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
-            //         PageClose();
-            //         $(".ms_corpo").append(dados);
-            //         // $.ajax({
-            //         //     url:"src/produtos/pagar_operacoes.php",
-            //         //     type:"POST",
-            //         //     success:function(dados){
-            //         //         $("div[pagar_operacoes]").html(dados);
-            //         //     }
-            //         // });
-
-
-            //     }
-            // });
-        }
-
-
-        $('input[calc="desconto"]').blur(function(){
-            CalculoDesconto($(this), 1);
-        });
-
-        $('#MarcarTaxa').click(function(){
-            var opc;
-            if($(this).prop("checked") == true){
-                opc = 1;
-            }else{
-                opc = 0;
-            }
-            CalculoDesconto($(this), opc);
-        });
-
-        $('input[calc="acrescimo"]').blur(function(){
-            Carregando();
-            pendente = $(".valor_pendente").attr("pendente");
-            valor = $(this).val();
-            valor_oposto = 0; //$('input[calc="desconto"]').val();
-
-            if(valor*1 < 0){
-                $.alert('Valor do acrescimo não pode ser negativo!');
-                $('input[calc="acrescimo"]').val('0.00');
-                Carregando('none');
-                return false;
-            }
-            valor_pendente = (pendente*1 + valor*1 - valor_oposto*1);
-
-            $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
-            // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            $(".valor_pendente").html('R$ ' + valor_pendente.toFixed(2));
-
-            $(".UmPagamento").val(valor_pendente.toFixed(2));
-
-            $.ajax({
-                url:"src/produtos/pagar.php",
-                type:"POST",
-                data:{
-                    acao:"acrescimo",
-                    valor
-                },
-                success:function(dados){
-                    //$(".valor_pendente").attr("pendente", '<?=number_format($d->total,2,'.',false)?>');
-                    $.ajax({
-                        url:"src/produtos/pagar_operacoes.php",
-                        type:"POST",
-                        success:function(dados){
-                            $("div[pagar_operacoes]").html(dados);
-                        },
-                        error:function(){
-                            $.alert('Erro');
-                            Carregando('none');
-                        }
-                    });
-                }
-            });
-
 
         });
 
 
-        $(".valor_pendente").click(function(){
-            valor = $(this).attr("valor");
-            $(".UmPagamento").val(valor);
-        });
-
-        $(".adicionarPagamento").click(function(){
-
-            valor_pendente = $(".valor_pendente").attr('valor');
-            operacao = $(".operacao").val();
-            valor = $(".UmPagamento").val();
-
-            if(!operacao || !valor){
-                $.alert('Favor definir a operação do pagamento!');
-            }else if(valor_pendente == 0){
-                $.alert('Não existe valor pendente para pagamento!');
-            }else if(valor*1 > valor_pendente*1){
-                $.alert('O valor informado não pode ser maior que o valor pendente!');
-            }else{
-                $.ajax({
-                    url:"src/produtos/pagar_operacoes.php",
-                    type:"POST",
-                    data:{
-                        operacao,
-                        valor,
-                        acao:'nova_operacao'
-                    },
-                    success:function(dados){
-                        $("div[pagar_operacoes]").html(dados);
-                    }
-                });
-            }
-
-        });
 
     })
 </script>

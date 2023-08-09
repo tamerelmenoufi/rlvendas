@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/cegonha/painel/lib/includes.php");
+    include("../../../lib/includes.php");
 
     $Status = [
         'pending' => '<span style="color:red">Pendente</span>',
@@ -19,7 +19,7 @@
         mysqli_query($con, "update vendas set
                             operadora_situacao = '{$retorno->status}',
                             operadora_retorno = '{$operadora_retorno}',
-                            situacao = 'c'
+                            situacao = 'pago'
                         where operadora_id = '{$_POST['id']}'
                     ");
 
@@ -40,7 +40,7 @@
         ?>
         setTimeout(() => {
             $.ajax({
-                url:"src/pagar_pix_verificar.php?convidado=<?=$_SESSION['convidado']?>",
+                url:"src/produtos/pagar_pix_verificar.php?convidado=<?=$_SESSION['convidado']?>",
                 type:"POST",
                 data:{
                     id:'<?=$_POST['id']?>'
@@ -54,7 +54,6 @@
         }else{
         ?>
             $.alert('Pagamento Confirmado.<br>Seu pedido está em preparo!')
-            window.location.href='https://cegonha.project.tec.br/index.php?c=<?=md5($_SESSION['convidado'])?>';
         <?php
         }
         ?>

@@ -102,24 +102,15 @@
 
                                     $retorno = $PIX->Transacao('{
                                         "transaction_amount": '.$d->total.',
-                                        "description": "Venda '.$pedido.' - Chá Revelação",
+                                        "description": "Venda '.$pedido.' - Yobom",
                                         "payment_method_id": "pix",
                                         "payer": {
-                                        "email": "a.carlavasc@gmail.com",
-                                        "first_name": "Ana",
-                                        "last_name": "Carla",
-                                        "identification": {
-                                            "type": "CPF",
-                                            "number": "83352848220"
-                                        },
-                                        "address": {
-                                            "zip_code": "69058780",
-                                            "street_name": "Rua Marquês de Maranhão",
-                                            "street_number": "721",
-                                            "neighborhood": "Flores",
-                                            "city": "Manaus",
-                                            "federal_unit": "AM"
-                                        }
+                                            "first_name": "Tamer",
+                                            "last_name": "Mohamed Elmenoufi",
+                                            "identification": {
+                                                "type": "CPF",
+                                                "number": "60110970225"
+                                            }
                                         }
                                     }');
 
@@ -138,7 +129,7 @@
                                         $q = "insert into status_venda set
                                         venda = '{$d->codigo}',
                                         operadora = 'mercado_pago',
-                                        tipo = 'pix',
+                                        forma_pagamento = 'pix',
                                         data = NOW(),
                                         retorno = '{$retorno}'";
                                         mysqli_query($con, $q);
@@ -212,7 +203,7 @@
         if($operadora_id){
         ?>
         $.ajax({
-            url:"src/pagar_pix_verificar.php?convidado=<?=$_SESSION['convidado']?>",
+            url:"src/produtos/pagar_pix_verificar.php?convidado=<?=$_SESSION['convidado']?>",
             type:"POST",
             data:{
                 id:'<?=$operadora_id?>'
