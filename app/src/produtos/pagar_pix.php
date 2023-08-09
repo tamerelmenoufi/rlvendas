@@ -73,6 +73,8 @@
 
                                     //AQUI É A GERAÇÃO DA COBRANÇA PIX
 
+                                    echo "Passou aqui";
+
                                     $PIX = new MercadoPago;
                                     // "transaction_amount": '.$d->total.',
                                     // "transaction_amount": 2.11,
@@ -100,7 +102,7 @@
                                     //     }
                                     // }
 
-                                    echo $retorno = $PIX->Transacao('{
+                                    $retorno = $PIX->Transacao('{
                                         "transaction_amount": '.$d->total.',
                                         "description": "Venda '.$pedido.' - Yobom",
                                         "payment_method_id": "pix",
