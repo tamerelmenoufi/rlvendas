@@ -189,7 +189,8 @@ $n = mysqli_num_rows($result);
                 ?>
                     <p>
                         Forma de Pagamento: <?=$p->forma_pagamento?><br>
-                        Situação: <?=$op->status?>
+                        Situação: <?=$op->status?><br>
+                        Valor: <?=number_format($op->transaction_amount,2,',','.')?>
                     </p>
                 <?php
 
