@@ -19,7 +19,7 @@
 
 
         $codigos = [];
-        $query = "SELECT * FROM vendas_produtos WHERE venda = '$v->codigo' and situacao = 'n'";
+        $query = "SELECT * FROM vendas_produtos WHERE venda = '$v->codigo' and situacao = 'b'";
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
             $codigos[] = $d->codigo;
