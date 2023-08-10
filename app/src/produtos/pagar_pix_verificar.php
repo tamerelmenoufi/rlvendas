@@ -17,7 +17,6 @@
 
         $v = mysqli_fetch_object(mysqli_query($con, "select codigo from vendas where operadora_id = '{$_POST['id']}'"));
 
-
         $codigos = [];
         $query = "SELECT * FROM vendas_produtos WHERE venda = '$v->codigo' and situacao = 'b'";
         $result = mysqli_query($con, $query);
@@ -47,6 +46,12 @@
                             valor = '($v->total - $valorPago)',
                             operadora = 'mercado_pago',
                             operadora_situacao = 'approved'
+                    ");
+
+        mysqli_query($con, "UPDATE status_venda set
+                            retorno = '{$operadora_retorno}',
+                            data = NOW()
+                            where retorno->>'$.id' = '{$v->operadora_id}'
                     ");
         
     }

@@ -9,6 +9,9 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    $valor_pago = "select sum(retorno->>'$.transaction_amount') from status_venda where venda = '{$d->codigo}' and retorno->>'$.status' = 'approved'";
+    list($valor_pago) = mysqli_fetch_row(mysqli_query($con, $valor_pago));
+
     // $pos =  strripos($d->nome, " ");
 
 ?>
@@ -69,10 +72,6 @@
                                     $d->total == $dados->transaction_amount
                                     ){
 
-                                    // echo "<pre>";
-                                    // print_r($dados);
-                                    // echo "</pre>";
-
                                     $operadora_id = $dados->id;
                                     $forma_pagamento = $dados->payment_method_id;
                                     $operadora_situacao = $dados->status;
@@ -80,18 +79,12 @@
                                     $qrcode_img = $dados->point_of_interaction->transaction_data->qr_code_base64;
 
                                 }else{
-                                    //ESSAS DUAS LINHAS SÃO PARA A SOLICITAÇÃO DA ENTREGA BEE
-                                    // $BEE = new Bee;
-                                    // echo $retorno = $BEE->NovaEntrega($d->codigo);
-                                    //////////////////////////////////////////////////////////
-
-                                    //AQUI É A GERAÇÃO DA COBRANÇA PIX
 
                                     $PIX = new MercadoPago;
 
 
                                     $json = '{
-                                        "transaction_amount": '.$d->total.',
+                                        "transaction_amount": '.($d->total - $valor_pago).',
                                         "payment_method_id": "pix",
                                         "payer": {
                                             "email": "tamer@mohatron.com.br",
@@ -116,7 +109,6 @@
 
                                     $dados = json_decode($retorno);
 
-                                    // var_dump($dados);
 
                                     $operadora_id = $dados->id;
                                     $forma_pagamento = $dados->payment_method_id;

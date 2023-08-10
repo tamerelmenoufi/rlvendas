@@ -106,36 +106,51 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <div class="row">
         <div class="col-12">
             <div class="card bg-light mb-3">
-                <div class="card-header">Dados da Compra</div>
+                <div class="card-header">Dados da Compra - <?=$_SESSION['AppVenda']?></div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">
-                                <small>Mesa</small>
-                                <div style="font-size:18px !important; color:blue;"><?=$m->mesa?></div>
-                            </h5>
-                        </div>
-                        <div class="col-6">
+
+                        <div class="col-4">
                             <h5 class="card-title">
                                 <small>Valor da compra</small>
                                 <div style="font-size:18px !important; color:blue;"><?=$d->valor?></div>
                             </h5>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
+                        </div>    
+                        <div class="col-4">
                             <h5 class="card-title">
                                 <small>Taxa de Serviços</small>
                                 <div><?="{$d->taxa}"?></div>
                             </h5>
-                        </div>
-                        <div class="col-6">
+                        </div>                        
+                        <div class="col-4">
                             <h5 class="card-title">
-                                <small>Valor da compra</small>
+                                <small>Valor a pagar</small>
                                 <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div> -->
                                 <div class="valor_pendente" pendente="" valor=""><?=$d->total?></div>
                             </h5>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                        <?php
+                            $valor_pago = 0;
+                            $query = "select * from status_venda where venda = '{$d->codigo}' where retorno->>'$.status' = 'approved';";
+                            $result = mysqli_query($con, $query);
+                            while($p = mysqli_fetch_object($result)){
+                            $op = json_decode($p->retorno);
+                            $valor_pago = ($valor_pago + $op->transaction_amount);
+                        ?>
+                        <p>
+                            Forma de Pagamento: <?=$p->forma_pagamento?><br>
+                            Situação: <?=$op->status?><br>
+                            Valor: <?=number_format($op->transaction_amount,2,',','.')?>
+                        </p>
+                        <?php
+
+                        }
+                        ?>
                         </div>
                     </div>
 
@@ -148,14 +163,14 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 pagamento="pix"
                                 type="button"
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
-                            >PIX</button>
+                            >R$ <?=number_format(($d->total - $valor_pago),2,',','.')?> PIX</button>
                         </div>
                         <div class="col">
                             <button
                                 pagamento="cartao"
                                 type="button"
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
-                            >CRÉDITO</button>
+                            >R$ <?=number_format(($d->total - $valor_pago),2,',','.')?> CRÉDITO</button>
                         </div>
                     </div>
 
@@ -181,7 +196,7 @@ $n = mysqli_num_rows($result);
 
                 <?php
 
-                    $query = "select * from status_venda where venda = '{$d->codigo}'";
+                    $query = "select * from status_venda where venda = '{$d->codigo}' where retorno->>'$.status' = 'approved';";
                     $result = mysqli_query($con, $query);
                     while($p = mysqli_fetch_object($result)){
 
