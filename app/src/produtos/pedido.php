@@ -179,7 +179,7 @@
         display:<?=(($_SESSION['AppGarcom'] == 3 or $_SESSION['AppGarcom'] == 10)?'block':'none')?>;
     }
     button[pagar]{
-        font-size:30px;
+        font-size:20px;
         height:100%;
     }
 </style>
@@ -332,7 +332,7 @@
             </button>
         </div> -->
         <div class="col-9">
-            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Prosseguir <b><br>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, '.', false) ?></span></b></button>
+            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Prosseguir <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, '.', false) ?></span></b></button>
         </div>
     </div>
 </div>
