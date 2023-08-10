@@ -169,8 +169,8 @@
             $txt.select();
 
             if(document.execCommand('copy')){
-                //  $.alert($txt.val())
-                // $txt.remove();
+                // $.alert($txt.val())
+                $txt.remove();
             }else{
                 $.alert('nada');
             }
