@@ -47,7 +47,7 @@
 <div class="PedidoTopoTitulo">
     <h4>Pagamento PIX</h4>
 </div>
-<div style="margin-top:2px;">
+<div style="margin-top:0px;">
     <div class="col">
         <div class="row">
                 <div class="col-12">
