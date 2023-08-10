@@ -306,7 +306,7 @@
                 ExcluirPedido
                 style="<?=((!$acao_cancelar)?'display:none;':false)?>"
             >
-            <i class="fa-solid fa-trash-can"></i>
+            <i class="fa-solid fa-trash-can"></i> Cancelar Pedido
             </button>
         </div>
         <div class="col-4">
