@@ -130,7 +130,10 @@
                                                             where codigo = '{$d->codigo}'
                                                     ");
 
-                                    }
+                                        mysqli_query($con, "update vendas_produtos set
+                                                                    situacao = 'b'
+                                                            where venda = '{$d->codigo}' and situacao = 'n'
+                                                    ");}
                                 }
 
                             ?>
