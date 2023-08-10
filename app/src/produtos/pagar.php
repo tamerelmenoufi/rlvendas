@@ -136,7 +136,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col">
                         <?php
                             $valor_pago = 0;
-                            $query = "select * from status_venda where venda = '{$d->codigo}' where retorno->>'$.status' = 'approved';";
+                            $query = "select * from status_venda where venda = '{$d->codigo}' where retorno->>'$.status' = 'approved'";
                             $result = mysqli_query($con, $query);
                             while($p = mysqli_fetch_object($result)){
                             $op = json_decode($p->retorno);
