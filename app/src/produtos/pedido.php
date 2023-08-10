@@ -310,13 +310,13 @@
             </button>
         </div>
         <div class="col-4">
-            <button
+            <!-- <button
                 confirmar_pedido
                 class="btn btn-primary btn-block"
                 style="<?=((!$acao_preparar)?'display:none;':false)?>"
             >
                 <i class="fa-solid fa-check"></i> Confirmar
-            </button>
+            </button> -->
         </div>
         <!-- <div class="col-2">
             <button
