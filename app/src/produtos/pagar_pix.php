@@ -45,12 +45,13 @@
     }
 </style>
 <div class="PedidoTopoTitulo">
-    <h4>PPagamento PIX</h4>
+    <h4>Pagamento PIX</h4>
 </div>
-<div style="margin-top:30px;">
+<div style="margin-top:2px;">
     <div class="col">
         <div class="row">
                 <div class="col-12">
+                    <p style="font-size:10px; color:red">ATENÇÃO: O seu pedido será preparado apenas com a confirmação do pagamento! </p>
                     <div class="card mb-3" style="background-color:#fafcff; padding:20px;">
                         <p style="text-align:center">
                             <?php
