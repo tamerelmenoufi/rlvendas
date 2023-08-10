@@ -180,6 +180,7 @@
     }
     button[pagar]{
         font-size:30px;
+        height:100%;
     }
 </style>
 <div class="PedidoTopoTitulo">
