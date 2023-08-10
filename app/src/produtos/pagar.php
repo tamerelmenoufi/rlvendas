@@ -189,7 +189,7 @@ $n = mysqli_num_rows($result);
                 ?>
                     <p>
                         Forma de Pagamento: <?=$p->forma_pagamento?><br>
-                        Forma de Pagamento: <?=$op['status']?>
+                        Forma de Pagamento: <?=$op->status?>
                     </p>
                 <?php
 
