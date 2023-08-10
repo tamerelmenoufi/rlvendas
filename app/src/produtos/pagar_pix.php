@@ -73,33 +73,8 @@
 
                                     //AQUI É A GERAÇÃO DA COBRANÇA PIX
 
-                                        $PIX = new MercadoPago;
-                                    // "transaction_amount": '.$d->total.',
-                                    // "transaction_amount": 2.11,
+                                    $PIX = new MercadoPago;
 
-
-                                    // {
-                                    //     "transaction_amount": '.$d->total.',
-                                    //     "description": "Venda '.$pedido.' - YOBOM",
-                                    //     "payment_method_id": "pix",
-                                    //     "payer": {
-                                    //     "email": "tamer@mohatron.com.br",
-                                    //     "first_name": "Tamer",
-                                    //     "last_name": "Elmenoufi",
-                                    //     "identification": {
-                                    //         "type": "CPF",
-                                    //         "number": "60110970225"
-                                    //     },
-                                    //     "address": {
-                                    //         "zip_code": "69010110",
-                                    //         "street_name": "Monsenhor Coutinho",
-                                    //         "street_number": "600",
-                                    //         "neighborhood": "Centro",
-                                    //         "city": "Manaus",
-                                    //         "federal_unit": "AM"
-                                    //     }
-                                    //     }
-                                    // }
 
                                     $json = '{
                                         "transaction_amount": '.$d->total.',
@@ -123,7 +98,7 @@
                                         }
                                     }';
 
-                                    echo $retorno = $PIX->Transacao($json);
+                                    $retorno = $PIX->Transacao($json);
 
                                     $dados = json_decode($retorno);
 
@@ -158,9 +133,6 @@
                                     }
                                 }
 
-                                // $qrcode = '12e44a26-e3b4-445f-a799-1199df32fa1e';
-                                // $operadora_id = 23997683882;
-
                             ?>
                             Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
                         </p>
@@ -188,7 +160,7 @@
 
         CopyMemory = function (text) {
 
-             var $txt = $('<textarea />');
+            var $txt = $('<textarea />');
             $txt.val(text).css({ width: "500px", height: "500px", position:'fixed', left:10, top: 10}).appendTo(".status_pagamento");
 
             $txt.select();
@@ -215,7 +187,7 @@
         if($operadora_id){
         ?>
         $.ajax({
-            url:"src/produtos/pagar_pix_verificar.php?convidado=<?=$_SESSION['convidado']?>",
+            url:"src/produtos/pagar_pix_verificar.php",
             type:"POST",
             data:{
                 id:'<?=$operadora_id?>'
