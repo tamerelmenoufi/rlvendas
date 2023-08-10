@@ -178,6 +178,9 @@
         font-weight:normal;
         display:<?=(($_SESSION['AppGarcom'] == 3 or $_SESSION['AppGarcom'] == 10)?'block':'none')?>;
     }
+    button[pagar]{
+        font-size:30px;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Pedido Mesa <?=$m->mesa?></h4>
@@ -309,15 +312,15 @@
             <i class="fa-solid fa-trash-can"></i> Cancelar Pedido
             </button>
         </div>
-        <div class="col-4">
-            <!-- <button
+        <!-- <div class="col-4">
+            <button
                 confirmar_pedido
                 class="btn btn-primary btn-block"
                 style="<?=((!$acao_preparar)?'display:none;':false)?>"
             >
                 <i class="fa-solid fa-check"></i> Confirmar
-            </button> -->
-        </div>
+            </button>
+        </div> -->
         <!-- <div class="col-2">
             <button
                 print_pedido
@@ -327,7 +330,7 @@
                 <i class="fa-solid fa-print"></i>
             </button>
         </div> -->
-        <div class="col-5">
+        <div class="col-9">
             <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Pagar <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, '.', false) ?></span></b></button>
         </div>
     </div>
