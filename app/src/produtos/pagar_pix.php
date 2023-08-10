@@ -51,7 +51,7 @@
     <div class="col">
         <div class="row">
                 <div class="col-12">
-                    <p style="font-size:13px; color:red; text-align:center;">ATENÇÃO: O seu pedido será preparado apenas com a confirmação do pagamento! </p>
+                    <p style="font-size:13px; color:red; text-align:center;">ATENÇÃO: O seu pedido será preparado após <br>a confirmação do pagamento! </p>
                     <div class="card mb-3" style="background-color:#fafcff; padding:20px;">
                         <p style="text-align:center">
                             <?php
