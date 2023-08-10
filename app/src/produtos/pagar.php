@@ -166,11 +166,35 @@ where codigo = '{$_SESSION['AppVenda']}'";
     </div>
 
 
-    <div class="formas_pagamento row">
+    <?php
+
+$query = "select * from status_venda where venda = '{$d->codigo}'";
+$result = mysqli_query($con, $query);
+$n = mysqli_num_rows($result);
+?>
+
+    <div style="display:<?=(($n)?'flex':'none')?>;">
         <div class="col-12">
             <div class="card bg-light mb-3">
                 <div class="card-header">Formas de Pagamento</div>
                 <div pagar_operacoes class="card-body">
+
+                <?php
+
+                    $query = "select * from status_venda where venda = '{$d->codigo}'";
+                    $result = mysqli_query($con, $query);
+                    while($p = mysqli_fetch_object($result)){
+
+                        $op = json_decode($p->retorno);
+                ?>
+                    <p>
+                        Forma de Pagamento: <?=$p->forma_pagamento?><br>
+                        Forma de Pagamento: <?=$op['status']?>
+                    </p>
+                <?php
+
+                    }
+                ?>
 
 
                     <!-- <h5 class="card-title">
