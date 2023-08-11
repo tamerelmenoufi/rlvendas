@@ -156,6 +156,17 @@ $i++;
                         $(".ms_corpo").append(dados);
                     }
                 });
+            }else if(!AppCliente || AppCliente === 'undefined' || AppCliente === null){
+                $.ajax({
+                    url:"componentes/ms_popup_100.php",
+                    type:"POST",
+                    data:{
+                        local:"src/cliente/cadastro.php",
+                    },
+                    success:function(dados){
+                        $(".ms_corpo").append(dados);
+                    }
+                });
             }else if(!AppPedido || AppPedido === 'undefined' || AppPedido === null){
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
@@ -163,17 +174,6 @@ $i++;
                     data:{
                         local:"componentes/camera.php",
                         // local:"src/cliente/cadastro.php",
-                    },
-                    success:function(dados){
-                        $(".ms_corpo").append(dados);
-                    }
-                });
-            }else if(!AppCliente || AppCliente === 'undefined' || AppCliente === null){
-                $.ajax({
-                    url:"componentes/ms_popup_100.php",
-                    type:"POST",
-                    data:{
-                        local:"src/cliente/cadastro.php",
                     },
                     success:function(dados){
                         $(".ms_corpo").append(dados);
