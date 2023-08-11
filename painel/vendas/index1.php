@@ -83,9 +83,9 @@ switch ($_SESSION['opc_status']) {
     }
 }
 
-echo $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_nome FROM vendas v "
-    . "INNER JOIN clientes c ON c.codigo = v.cliente "
-    . "INNER JOIN mesas m ON m.codigo = v.mesa "
+$query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_nome FROM vendas v "
+    . "LEFT JOIN clientes c ON c.codigo = v.cliente "
+    . "LEFT JOIN mesas m ON m.codigo = v.mesa "
     . "LEFT JOIN atendentes a ON a.codigo = v.atendente "
     . "WHERE 1 {$where} order by v.codigo desc limit 100";
 
