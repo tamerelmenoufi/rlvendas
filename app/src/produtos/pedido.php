@@ -184,7 +184,7 @@
     }
 </style>
 <div class="PedidoTopoTitulo">
-    <h4>Pedido Mesa <?=$m->mesa?></h4>
+    <h4>Pedido Mesa <?=$m->mesa. " - ".$_SESSION['AppVenda']?></h4>
 </div>
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
