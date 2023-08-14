@@ -39,7 +39,7 @@
 <?php
     $data_limite = date( "Y-m-d H:i:s", mktime(date("H"), date("i"), date("s"), date("m"), date("d") - 1, date("Y")));
 
-    echo $query = "SELECT
+    $query = "SELECT
                     v.*,
                     m.mesa
                 FROM vendas v
@@ -51,7 +51,7 @@
                         v.situacao = 'pago'
                     ) or
                         v.situacao = 'pagar'
-                ) and v.deletado != '1'
+                ) and v.deletado != '1' and v.valor > 0
 
             order by v.situacao asc, m.mesa asc, v.data_finalizacao desc
                 ";
