@@ -50,7 +50,10 @@
                         v.data_finalizacao >= '{$data_limite}' and
                         v.situacao = 'pago'
                     ) or
+                    (
+                        v.data_finalizacao >= '{$data_limite}' and
                         v.situacao = 'pagar'
+                    )
                 ) and v.deletado != '1' and v.valor > 0
 
             order by v.situacao asc, m.mesa asc, v.data_finalizacao desc
