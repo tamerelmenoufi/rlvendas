@@ -189,8 +189,6 @@ function aasort(&$array, $key)
                     </div>
                 </div>
             </div>
-
-
             <?php
             }
         }
