@@ -175,7 +175,8 @@
         font-size:11px;
         color:blue;
         font-weight:normal;
-        display:<?=(($_SESSION['AppGarcom'] == 3 or $_SESSION['AppGarcom'] == 10)?'block':'none')?>;
+        /* display:<?=(($_SESSION['AppGarcom'] == 3 or $_SESSION['AppGarcom'] == 10)?'block':'none')?>; */
+        display:block;
     }
 </style>
 <div class="PedidoTopoTitulo">
@@ -235,7 +236,7 @@
                     <?=CalcTempo($d->data)?>
                 </p>
                 <p Garcom>
-                    <?=(($d->atendente)?:'Pedido pelo Aplicativo')?>
+                    <?=((!$d->atendente)?:'Pedido pelo Aplicativo')?>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
