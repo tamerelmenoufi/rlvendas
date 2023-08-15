@@ -69,7 +69,7 @@
 
 
 <?php
-    $query = "select * from categorias where deletado != '1'";
+    $query = "select * from categorias where deletado != '1' and codigo <= 7";
     $result = mysqli_query($con,$query);
     $i=0;
     while($d = mysqli_fetch_object($result)){
