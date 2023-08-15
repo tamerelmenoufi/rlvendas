@@ -167,7 +167,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         </div>
                         <!-- <div class="col">
                             <button
-                                pagamento="cartao"
+                                pagamento="credito"
                                 type="button"
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >R$ <?=number_format(($d->total - $valor_pago),2,',','.')?> CRÉDITO</button>
