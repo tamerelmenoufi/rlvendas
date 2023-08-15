@@ -5,6 +5,11 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    $valor_pago = "select sum(retorno->>'$.transaction_amount') from status_venda where venda = '{$d->codigo}' and retorno->>'$.status' = 'approved'";
+    list($valor_pago) = mysqli_fetch_row(mysqli_query($con, $valor_pago));
+
+    $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
+
 
 
 ?><!DOCTYPE html>
@@ -113,7 +118,7 @@
 <script>
 
     const cardForm = mp.cardForm({
-      amount: "<?=(($_GET['v'])?:$d->total)?>",
+      amount: "<?=($d->total - $valor_pago)?>",
       iframe: true,
       form: {
         id: "form-checkout",
@@ -184,7 +189,7 @@
               payment_method_id,
               transaction_amount: Number(amount),
               installments: Number(installments),
-              description: "Chá Revelação",
+              description: "Venda <?=$pedido?> - APP Yobom",
               payer: {
                 email,
                 identification: {

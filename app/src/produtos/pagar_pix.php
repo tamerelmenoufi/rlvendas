@@ -85,6 +85,7 @@
 
                                     $json = '{
                                         "transaction_amount": '.($d->total - $valor_pago).',
+                                        "description": "Venda '.$pedido.' - APP Yobom",
                                         "payment_method_id": "pix",
                                         "payer": {
                                             "email": "tamer@mohatron.com.br",
