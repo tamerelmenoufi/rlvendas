@@ -116,6 +116,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     while ($p = mysqli_fetch_object($result)) {
         $detalhes = json_decode($p->detalhes, true);
         $detalhes_2 = [];
+        print_r($detalhes);
         if($detalhes){
         ?>
         <div class="card mb-3 item_button<?= $md5 ?>">
