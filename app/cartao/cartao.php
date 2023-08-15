@@ -1,7 +1,7 @@
 <?php
     include("../../lib/includes.php");
 
-    echo $query = "select * from vendas where codigo = '{$_SESSION['codVenda']}'";
+    echo $query = "select * from vendas where codigo = '{$_SESSION['appVenda']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
