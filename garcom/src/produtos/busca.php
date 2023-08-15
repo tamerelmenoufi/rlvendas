@@ -136,6 +136,13 @@ function aasort(&$array, $key)
         while ($p = mysqli_fetch_object($result)) {
             $detalhes = json_decode($p->detalhes, true);
             $detalhes_2 = [];
+            foreach ($detalhes as $key => $val) :
+                if($val['valor'] > 0 and $val['quantidade'] > 0){
+                    $val['ordem'] = $M[$key]['ordem'];
+                    $detalhes_2[$key] = $val;
+                }
+            endforeach;
+            if($detalhes_2){
             ?>
             <div bloco<?=$p->codigo?> class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
@@ -150,12 +157,7 @@ function aasort(&$array, $key)
                             <small class="text-muted">
 
                                 <?php
-                                foreach ($detalhes as $key => $val) :
-                                    if($val['valor'] > 0){
-                                        $val['ordem'] = $M[$key]['ordem'];
-                                        $detalhes_2[$key] = $val;
-                                    }
-                                endforeach;
+
 
                                 aasort($detalhes_2, "ordem");
 
@@ -190,6 +192,7 @@ function aasort(&$array, $key)
 
 
             <?php
+            }
         }
     }
     ?>
