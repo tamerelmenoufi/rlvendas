@@ -124,7 +124,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                 $detalhes_2[$key] = $val;
             }
         endforeach;
-        print_r($detalhes);
+        print_r($detalhes_2);
         if($detalhes_2){
         ?>
         <div class="card mb-3 item_button<?= $md5 ?>">
