@@ -116,6 +116,13 @@ while ($m = mysqli_fetch_array($m_r)) {
     while ($p = mysqli_fetch_object($result)) {
         $detalhes = json_decode($p->detalhes, true);
         $detalhes_2 = [];
+        foreach ($detalhes as $key => $val) :
+            if($val['valor'] > 0 and $val['quantidade'] > 0){
+                $val['ordem'] = $M[$key]['ordem'];
+                $detalhes_2[$key] = $val;
+            }
+        endforeach;
+        if($detalhes_2){
         ?>
         <div class="card mb-3 item_button<?= $md5 ?>">
             <div class="row no-gutters">
@@ -130,12 +137,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                         <small class="text-muted">
 
                             <?php
-                            foreach ($detalhes as $key => $val) :
-                                if($val['valor'] > 0){
-                                    $val['ordem'] = $M[$key]['ordem'];
-                                    $detalhes_2[$key] = $val;
-                                }
-                            endforeach;
+
 
                             aasort($detalhes_2, "ordem");
 
@@ -170,6 +172,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 
         <?php
+        }
     }
     ?>
 </div>
