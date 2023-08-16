@@ -49,16 +49,16 @@
 
       <div class="row mb-2">
         <div class="col">
-          <div id="form-checkout__cardNumber" class="form-control form-control-lg"></div>
+          <div id="form-checkout__cardNumber" class="form-control form-control-lg container"></div>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <div id="form-checkout__expirationDate" class="form-control form-control-lg"></div>
+          <div id="form-checkout__expirationDate" class="form-control form-control-lg container"></div>
         </div>
         <div class="col">
-          <div id="form-checkout__securityCode" class="form-control form-control-lg"></div>
+          <div id="form-checkout__securityCode" class="form-control form-control-lg container"></div>
         </div>
       </div>
 
