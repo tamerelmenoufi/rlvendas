@@ -234,7 +234,7 @@
           } = cardForm.getCardFormData();
 
 
-            await fetch("/app/cartao/pagar.php", {
+            fetch("/app/cartao/pagar.php", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
