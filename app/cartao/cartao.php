@@ -145,10 +145,13 @@
       </tr>
 
       <tr>
-        <td>
+        <td colspan="2">
           <input type="text" id="form-checkout__identificationNumber" class="form-control mb-2" />
         </td>
-        <td>
+      </tr>
+
+      <tr>      
+        <td colspan="2">
           <input type="email" id="form-checkout__cardholderEmail" class="form-control mb-2" />
         </td>
       </tr>
