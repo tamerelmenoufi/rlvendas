@@ -112,49 +112,49 @@
       </tr>
       <tr>
         <td colspan="2">
-          <div id="form-checkout__cardNumber" class="container"></div>
+          <div id="form-checkout__cardNumber" class="form-control container"></div>
         </td>
       </tr>
       <tr>
         <td>
-          <div id="form-checkout__expirationDate" class="container"></div>
+          <div id="form-checkout__expirationDate" class="form-control container"></div>
         </td>
         <td>
-          <div id="form-checkout__securityCode" class="container"></div>
+          <div id="form-checkout__securityCode" class="form-control container"></div>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <input type="text" id="form-checkout__cardholderName" />
+          <input type="text" id="form-checkout__cardholderName" class="form-control" />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__issuer"></select>
+          <select id="form-checkout__issuer" class="form-control"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__installments"></select>
+          <select id="form-checkout__installments" class="form-control"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__identificationType"></select>
+          <select id="form-checkout__identificationType" class="form-control"></select>
         </td>
       </tr>
 
       <tr>
         <td>
-          <input type="text" id="form-checkout__identificationNumber" />
+          <input type="text" id="form-checkout__identificationNumber" class="form-control" />
         </td>
         <td>
-          <input type="email" id="form-checkout__cardholderEmail" />
+          <input type="email" id="form-checkout__cardholderEmail" class="form-control" />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <button type="submit" id="form-checkout__submit">Pagar</button>
+          <button type="submit" id="form-checkout__submit" class="btn btn-success w-100">Pagar</button>
         </td>
       </tr>
 
