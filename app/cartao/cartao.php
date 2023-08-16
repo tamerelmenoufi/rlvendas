@@ -216,7 +216,7 @@
             alert(error)
             return console.log("Form Mounted handling error: ", error);
           }
-          alert("pagamento")
+          // alert("pagamento")
           console.log("Form mounted");
         },
         onSubmit: event => {
