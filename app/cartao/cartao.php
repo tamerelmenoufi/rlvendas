@@ -107,7 +107,7 @@
       <table>
       <tr>
         <td colspan="2">
-          <progress value="0" class="progress-bar w-100">Carregando...</progress>
+          <progress value="0" class="progress-bar mb-2 w-100">Carregando...</progress>
         </td>
       </tr>
       <tr>
