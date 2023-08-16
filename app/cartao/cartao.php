@@ -49,50 +49,52 @@
 
       <div class="row mb-2">
         <div class="col">
-          <div id="form-checkout__cardNumber" class="form-control"></div>
+          <div id="form-checkout__cardNumber" class="form-control form-control-lg"></div>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <div id="form-checkout__expirationDate" class="form-control"></div>
+          <div id="form-checkout__expirationDate" class="form-control form-control-lg"></div>
         </div>
         <div class="col">
-          <div id="form-checkout__securityCode" class="form-control"></div>
+          <div id="form-checkout__securityCode" class="form-control form-control-lg"></div>
         </div>
       </div>
 
 
       <div class="row mb-2">
         <div class="col">
-          <input type="text" id="form-checkout__cardholderName" class="form-control" />
+          <input type="text" id="form-checkout__cardholderName" class="form-control form-control-lg" />
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__issuer" class="form-control"></select>
+          <select id="form-checkout__issuer" class="form-control form-control-lg"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__installments" class="form-control"></select>
+          <select id="form-checkout__installments" class="form-control form-control-lg"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__identificationType" class="form-control"></select>
+          <select id="form-checkout__identificationType" class="form-control form-control-lg"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <input type="text" id="form-checkout__identificationNumber" class="form-control" />
+          <input type="text" id="form-checkout__identificationNumber" class="form-control form-control-lg" />
         </div>
+      </div>
+      <div class="row mb-2">  
         <div class="col">
-          <input type="email" id="form-checkout__cardholderEmail" class="form-control" />
+          <input type="email" id="form-checkout__cardholderEmail" class="form-control form-control-lg" />
         </div>
       </div>
       <div class="row">
