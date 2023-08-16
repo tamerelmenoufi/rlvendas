@@ -234,7 +234,7 @@
           } = cardForm.getCardFormData();
 
 
-            response = await fetch("/app/cartao/pagar.php", {
+            await fetch("/app/cartao/pagar.php", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -255,8 +255,7 @@
                 },
               }),
             });
-            result = await response.json();
-            alert("Success:"+ result);
+            
 
           parent.payConfirm();
 
