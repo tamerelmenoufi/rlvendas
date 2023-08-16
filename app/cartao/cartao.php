@@ -38,28 +38,6 @@
 
 
 <style>
-    #form-checkout {
-      display: flex;
-      flex-direction: column;
-      max-width: 600px;
-    }
-
-    .container {
-      height: 18px;
-      display: inline-block;
-      border: 1px solid rgb(118, 118, 118);
-      border-radius: 2px;
-      padding: 1px 2px;
-    }
-
-    td{
-      padding:5px;
-    }
-
-    td div, td input, td select, td progress{
-      width:100%;
-    }
-
   </style>
   <form id="form-checkout">
     <h5>Dados do Cartão</h5>
@@ -71,49 +49,49 @@
       </tr>
       <tr>
         <td colspan="2">
-          <div id="form-checkout__cardNumber" class="container"></div>
+          <div id="form-checkout__cardNumber" class="form-control"></div>
         </td>
       </tr>
       <tr>
         <td>
-          <div id="form-checkout__expirationDate" class="container"></div>
+          <div id="form-checkout__expirationDate" class="form-control"></div>
         </td>
         <td>
-          <div id="form-checkout__securityCode" class="container"></div>
+          <div id="form-checkout__securityCode" class="form-control"></div>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <input type="text" id="form-checkout__cardholderName" />
+          <input type="text" id="form-checkout__cardholderName" class="form-control" />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__issuer"></select>
+          <select id="form-checkout__issuer" class="form-select"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__installments"></select>
+          <select id="form-checkout__installments" class="form-select"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__identificationType"></select>
+          <select id="form-checkout__identificationType" class="form-select"></select>
         </td>
       </tr>
 
       <tr>
         <td>
-          <input type="text" id="form-checkout__identificationNumber" />
+          <input type="text" id="form-checkout__identificationNumber" class="form-control" />
         </td>
         <td>
-          <input type="email" id="form-checkout__cardholderEmail" />
+          <input type="email" id="form-checkout__cardholderEmail" class="form-control" />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <button type="submit" id="form-checkout__submit">Pagar</button>
+          <button type="submit" id="form-checkout__submit" class="btn btn-success w-100">Pagar</button>
         </td>
       </tr>
 
