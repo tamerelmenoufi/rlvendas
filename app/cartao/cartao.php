@@ -38,72 +38,25 @@
 
 
 <style>
-  </style>
+      .PedidoTopoTitulo{
+        position:fixed;
+        left:0px;
+        top:0px;
+        width:100%;
+        height:60px;
+        background:#fff;
+        padding-left:70px;
+        padding-top:15px;
+        z-index:1;
+    }
+</style>
+
+  <div class="PedidoTopoTitulo">
+      <h4>Dados do Cartão</h4>
+  </div>
+
   <form id="form-checkout" class="p-3">
-    <h5>Dados do Cartão</h5>
-      <!-- <div class="row mb-2">
-        <div class="col">
-          <progress value="0" class="w-100">Carregando...</progress>
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col">
-          <div id="form-checkout__cardNumber" class="form-control form-control-lg form-control form-control-lg-lg container"></div>
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col">
-          <div id="form-checkout__expirationDate" class="form-control form-control-lg form-control form-control-lg-lg container"></div>
-        </div>
-        <div class="col">
-          <div id="form-checkout__securityCode" class="form-control form-control-lg form-control form-control-lg-lg container"></div>
-        </div>
-      </div>
-
-
-      <div class="row mb-2">
-        <div class="col">
-          <input type="text" id="form-checkout__cardholderName" class="form-control form-control-lg form-control form-control-lg-lg" />
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col">
-          <select id="form-checkout__issuer" class="form-control form-control-lg form-control form-control-lg-lg"></select>
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col">
-          <select id="form-checkout__installments" class="form-control form-control-lg form-control form-control-lg-lg"></select>
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col">
-          <select id="form-checkout__identificationType" class="form-control form-control-lg form-control form-control-lg-lg"></select>
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col">
-          <input type="text" id="form-checkout__identificationNumber" class="form-control form-control-lg form-control form-control-lg-lg" />
-        </div>
-      </div>
-      <div class="row mb-2">  
-        <div class="col">
-          <input type="email" id="form-checkout__cardholderEmail" class="form-control form-control-lg form-control form-control-lg-lg" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <button type="submit" id="form-checkout__submit" class="btn btn-success w-100">Pagar</button>
-        </div>
-      </div> -->
-
-
+    <p>Preencha o formulário abaixo</p>
       <table>
       <tr>
         <td colspan="2">
