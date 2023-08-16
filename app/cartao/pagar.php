@@ -54,7 +54,7 @@ $query = "update vendas set
                             operadora_situacao='{$resposta->status}',
                             operadora_retorno='{$response}',
                             situacao = '".(($resposta->status == 'approved')?'c':'n')."'
-            where codigo = '{$_SESSION['codVenda']}'";
+            where codigo = '{$_SESSION['AppVenda']}'";
 
 mysqli_query($con, $query);
 
