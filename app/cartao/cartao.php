@@ -212,7 +212,11 @@
       },
       callbacks: {
         onFormMounted: error => {
-          if (error) return console.log("Form Mounted handling error: ", error);
+          if (error) {
+            alert(error)
+            return console.log("Form Mounted handling error: ", error);
+          }
+          alert("pagamento")
           console.log("Form mounted");
         },
         onSubmit: event => {
