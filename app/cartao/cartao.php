@@ -71,19 +71,19 @@
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__issuer" class="form-select"></select>
+          <select id="form-checkout__issuer" class="form-control"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__installments" class="form-select"></select>
+          <select id="form-checkout__installments" class="form-control"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__identificationType" class="form-select"></select>
+          <select id="form-checkout__identificationType" class="form-control"></select>
         </div>
       </div>
 
