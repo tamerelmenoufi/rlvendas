@@ -26,7 +26,7 @@
 
 
 <script>
-  const mp = new MercadoPago($cYb['mercado_pago']['producao']['PUBLIC-KEY']);
+  const mp = new MercadoPago('<?=$cYb['mercado_pago']['producao']['PUBLIC-KEY']?>');
 </script>
 
 
