@@ -41,7 +41,7 @@
   <form id="form-checkout" class="p-3">
     <p>Preencha o formulário abaixo</p>
       <table>
-      <tr>
+      <tr style="display:none">
         <td colspan="2">
           <progress value="0" class="progress-bar mb-2 w-100">Carregando...</progress>
         </td>
@@ -93,7 +93,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <button type="submit" id="form-checkout__submit" class="btn btn-success w-100">Pagar</button>
+          <button type="submit" id="form-checkout__submit" class="btn btn-success btn-lg w-100">Pagar R$ <?=number_format(($d->total - $valor_pago), 2, ',', '.')?></button>
         </td>
       </tr>
 
