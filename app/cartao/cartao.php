@@ -49,52 +49,52 @@
 
       <div class="row mb-2">
         <div class="col">
-          <div id="form-checkout__cardNumber" class="form-control form-control-lg container"></div>
+          <div id="form-checkout__cardNumber" class="form-control form-control-lg form-control form-control-lg-lg container"></div>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <div id="form-checkout__expirationDate" class="form-control form-control-lg container"></div>
+          <div id="form-checkout__expirationDate" class="form-control form-control-lg form-control form-control-lg-lg container"></div>
         </div>
         <div class="col">
-          <div id="form-checkout__securityCode" class="form-control form-control-lg container"></div>
+          <div id="form-checkout__securityCode" class="form-control form-control-lg form-control form-control-lg-lg container"></div>
         </div>
       </div>
 
 
       <div class="row mb-2">
         <div class="col">
-          <input type="text" id="form-checkout__cardholderName" class="form-control form-control-lg" />
+          <input type="text" id="form-checkout__cardholderName" class="form-control form-control-lg form-control form-control-lg-lg" />
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__issuer" class="form-control form-control-lg"></select>
+          <select id="form-checkout__issuer" class="form-control form-control-lg form-control form-control-lg-lg"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__installments" class="form-control form-control-lg"></select>
+          <select id="form-checkout__installments" class="form-control form-control-lg form-control form-control-lg-lg"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <select id="form-checkout__identificationType" class="form-control form-control-lg"></select>
+          <select id="form-checkout__identificationType" class="form-control form-control-lg form-control form-control-lg-lg"></select>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col">
-          <input type="text" id="form-checkout__identificationNumber" class="form-control form-control-lg" />
+          <input type="text" id="form-checkout__identificationNumber" class="form-control form-control-lg form-control form-control-lg-lg" />
         </div>
       </div>
       <div class="row mb-2">  
         <div class="col">
-          <input type="email" id="form-checkout__cardholderEmail" class="form-control form-control-lg" />
+          <input type="email" id="form-checkout__cardholderEmail" class="form-control form-control-lg form-control form-control-lg-lg" />
         </div>
       </div>
       <div class="row">
@@ -112,47 +112,47 @@
       </tr>
       <tr>
         <td colspan="2">
-          <div id="form-checkout__cardNumber" class="form-control container mb-2"></div>
+          <div id="form-checkout__cardNumber" class="form-control form-control-lg container mb-2"></div>
         </td>
       </tr>
       <tr>
         <td>
-          <div id="form-checkout__expirationDate" class="form-control container mb-2"></div>
+          <div id="form-checkout__expirationDate" class="form-control form-control-lg container mb-2"></div>
         </td>
         <td>
-          <div id="form-checkout__securityCode" class="form-control container mb-2"></div>
+          <div id="form-checkout__securityCode" class="form-control form-control-lg container mb-2"></div>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <input type="text" id="form-checkout__cardholderName" class="form-control mb-2" />
+          <input type="text" id="form-checkout__cardholderName" class="form-control form-control-lg mb-2" />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__issuer" class="form-control mb-2"></select>
+          <select id="form-checkout__issuer" class="form-control form-control-lg mb-2"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__installments" class="form-control mb-2"></select>
+          <select id="form-checkout__installments" class="form-control form-control-lg mb-2"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__identificationType" class="form-control mb-2"></select>
+          <select id="form-checkout__identificationType" class="form-control form-control-lg mb-2"></select>
         </td>
       </tr>
 
       <tr>
         <td colspan="2">
-          <input type="text" id="form-checkout__identificationNumber" class="form-control mb-2" />
+          <input type="text" id="form-checkout__identificationNumber" class="form-control form-control-lg mb-2" />
         </td>
       </tr>
 
       <tr>      
         <td colspan="2">
-          <input type="email" id="form-checkout__cardholderEmail" class="form-control mb-2" />
+          <input type="email" id="form-checkout__cardholderEmail" class="form-control form-control-lg mb-2" />
         </td>
       </tr>
       <tr>
