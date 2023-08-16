@@ -37,23 +37,6 @@
 
 
 
-<style>
-      .PedidoTopoTitulo{
-        position:fixed;
-        left:0px;
-        top:0px;
-        width:100%;
-        height:60px;
-        background:#fff;
-        padding-left:70px;
-        padding-top:15px;
-        z-index:1;
-    }
-</style>
-
-  <div class="PedidoTopoTitulo">
-      <h4>Dados do Cartão</h4>
-  </div>
 
   <form id="form-checkout" class="p-3">
     <p>Preencha o formulário abaixo</p>
