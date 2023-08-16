@@ -26,7 +26,7 @@
 
 
 <script>
-  const mp = new MercadoPago("APP_USR-f2f4a913-e224-4023-a358-278f57af5020");
+  const mp = new MercadoPago($cYb['mercado_pago']['producao']['PUBLIC-KEY']);
 </script>
 
 
