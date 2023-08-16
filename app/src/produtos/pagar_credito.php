@@ -6,7 +6,7 @@
 // exit();
 ?>
 
-<iframe src="cartao/cartao.php" frameborder="0" style="border:0; padding:0; margin:0; width:100%; height:380px;"></iframe>
+<iframe src="cartao/cartao.php" frameborder="0" style="position:fixed; top:50px; bottom:0; left:0; right:0; margin:0; padding:0; border:0;"></iframe>
 
 <script>
     $(function(){
