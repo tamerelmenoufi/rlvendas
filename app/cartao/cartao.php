@@ -41,7 +41,7 @@
   </style>
   <form id="form-checkout" class="p-3">
     <h5>Dados do Cartão</h5>
-      <div class="row mb-2">
+      <!-- <div class="row mb-2">
         <div class="col">
           <progress value="0" class="w-100">Carregando...</progress>
         </div>
@@ -101,7 +101,65 @@
         <div class="col">
           <button type="submit" id="form-checkout__submit" class="btn btn-success w-100">Pagar</button>
         </div>
-      </div>
+      </div> -->
+
+
+      <table>
+      <tr>
+        <td colspan="2">
+          <progress value="0" class="progress-bar">Carregando...</progress>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div id="form-checkout__cardNumber" class="container"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="form-checkout__expirationDate" class="container"></div>
+        </td>
+        <td>
+          <div id="form-checkout__securityCode" class="container"></div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="text" id="form-checkout__cardholderName" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <select id="form-checkout__issuer"></select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <select id="form-checkout__installments"></select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <select id="form-checkout__identificationType"></select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="text" id="form-checkout__identificationNumber" />
+        </td>
+        <td>
+          <input type="email" id="form-checkout__cardholderEmail" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="submit" id="form-checkout__submit">Pagar</button>
+        </td>
+      </tr>
+
+    </table>
+
   </form>
 
 
