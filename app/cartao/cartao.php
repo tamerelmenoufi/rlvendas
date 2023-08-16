@@ -107,49 +107,49 @@
       <table>
       <tr>
         <td colspan="2">
-          <progress value="0" class="progress-bar">Carregando...</progress>
+          <progress value="0" class="progress-bar w-100">Carregando...</progress>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <div id="form-checkout__cardNumber" class="form-control container"></div>
+          <div id="form-checkout__cardNumber" class="form-control container mb-2"></div>
         </td>
       </tr>
       <tr>
         <td>
-          <div id="form-checkout__expirationDate" class="form-control container"></div>
+          <div id="form-checkout__expirationDate" class="form-control container mb-2"></div>
         </td>
         <td>
-          <div id="form-checkout__securityCode" class="form-control container"></div>
+          <div id="form-checkout__securityCode" class="form-control container mb-2"></div>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <input type="text" id="form-checkout__cardholderName" class="form-control" />
+          <input type="text" id="form-checkout__cardholderName" class="form-control mb-2" />
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__issuer" class="form-control"></select>
+          <select id="form-checkout__issuer" class="form-control mb-2"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__installments" class="form-control"></select>
+          <select id="form-checkout__installments" class="form-control mb-2"></select>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select id="form-checkout__identificationType" class="form-control"></select>
+          <select id="form-checkout__identificationType" class="form-control mb-2"></select>
         </td>
       </tr>
 
       <tr>
         <td>
-          <input type="text" id="form-checkout__identificationNumber" class="form-control" />
+          <input type="text" id="form-checkout__identificationNumber" class="form-control mb-2" />
         </td>
         <td>
-          <input type="email" id="form-checkout__cardholderEmail" class="form-control" />
+          <input type="email" id="form-checkout__cardholderEmail" class="form-control mb-2" />
         </td>
       </tr>
       <tr>
