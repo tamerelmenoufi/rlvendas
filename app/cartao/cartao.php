@@ -57,10 +57,6 @@
   </style>
   <form id="form-checkout">
     <h5>Dados do Cartão</h5>
-    <p><?php
-    print_r($cYb);
-    echo "TOKEN: ".$cYb['mercado_pago']['producao']['PUBLIC-KEY'];
-    ?></p>
     <table>
       <tr>
         <td colspan="2">
