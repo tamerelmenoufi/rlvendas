@@ -233,7 +233,7 @@
             identificationType,
           } = cardForm.getCardFormData();
 
-          fetch("./pagar.php", {
+          fetch("/app/cartao/pagar.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
