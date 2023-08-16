@@ -234,27 +234,27 @@
           } = cardForm.getCardFormData();
 
 
-            fetch("/app/cartao/pagar.php", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                token,
-                issuer_id,
-                payment_method_id,
-                transaction_amount: Number(amount),
-                installments: Number(installments),
-                description: "Venda <?=$pedido?> - APP Yobom",
-                payer: {
-                  email,
-                  identification: {
-                    type: identificationType,
-                    number: identificationNumber,
-                  },
+          fetch("pagar.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              token,
+              issuer_id,
+              payment_method_id,
+              transaction_amount: Number(amount),
+              installments: Number(installments),
+              description: "Venda <?=$pedido?> - APP Yobom",
+              payer: {
+                email,
+                identification: {
+                  type: identificationType,
+                  number: identificationNumber,
                 },
-              }),
-            });
+              },
+            }),
+          });
             
 
           parent.payConfirm();
