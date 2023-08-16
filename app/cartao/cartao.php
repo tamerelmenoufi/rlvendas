@@ -233,7 +233,7 @@
             identificationType,
           } = cardForm.getCardFormData();
 
-          try {
+
             const response = await fetch("/app/cartao/pagar.php", {
               method: "POST",
               headers: {
@@ -257,9 +257,7 @@
             });
             const result = await response.json();
             alert("Success:"+ result);
-          } catch (error) {
-            alert("Error:"+ error);
-          }
+
           parent.payConfirm();
 
         },
