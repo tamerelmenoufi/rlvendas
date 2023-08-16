@@ -41,19 +41,19 @@
   </style>
   <form id="form-checkout" class="p-3">
     <h5>Dados do Cartão</h5>
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <progress value="0" class="w-100">Carregando...</progress>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <div id="form-checkout__cardNumber" class="form-control"></div>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <div id="form-checkout__expirationDate" class="form-control"></div>
         </div>
@@ -63,31 +63,31 @@
       </div>
 
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <input type="text" id="form-checkout__cardholderName" class="form-control" />
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <select id="form-checkout__issuer" class="form-select"></select>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <select id="form-checkout__installments" class="form-select"></select>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <select id="form-checkout__identificationType" class="form-select"></select>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-2">
         <div class="col">
           <input type="text" id="form-checkout__identificationNumber" class="form-control" />
         </div>
