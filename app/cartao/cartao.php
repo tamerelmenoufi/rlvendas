@@ -233,27 +233,33 @@
             identificationType,
           } = cardForm.getCardFormData();
 
-          fetch("/app/cartao/pagar.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              token,
-              issuer_id,
-              payment_method_id,
-              transaction_amount: Number(amount),
-              installments: Number(installments),
-              description: "Venda <?=$pedido?> - APP Yobom",
-              payer: {
-                email,
-                identification: {
-                  type: identificationType,
-                  number: identificationNumber,
-                },
+          try {
+            const response = await fetch("/app/cartao/pagar.php", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
               },
-            }),
-          });
+              body: JSON.stringify({
+                token,
+                issuer_id,
+                payment_method_id,
+                transaction_amount: Number(amount),
+                installments: Number(installments),
+                description: "Venda <?=$pedido?> - APP Yobom",
+                payer: {
+                  email,
+                  identification: {
+                    type: identificationType,
+                    number: identificationNumber,
+                  },
+                },
+              }),
+            });
+            const result = await response.json();
+            alert("Success:"+ result);
+          } catch (error) {
+            alert("Error:"+ error);
+          }
           parent.payConfirm();
 
         },
