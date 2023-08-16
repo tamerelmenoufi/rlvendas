@@ -39,63 +39,67 @@
 
 <style>
   </style>
-  <form id="form-checkout">
+  <form id="form-checkout" class="p-3">
     <h5>Dados do Cartão</h5>
-    <table>
-      <tr>
-        <td colspan="2">
-          <progress value="0" class="progress-bar">Carregando...</progress>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
+      <div class="row">
+        <div class="col">
+          <progress value="0" class="w-100">Carregando...</progress>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
           <div id="form-checkout__cardNumber" class="form-control"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
           <div id="form-checkout__expirationDate" class="form-control"></div>
-        </td>
-        <td>
+        </div>
+        <div class="col">
           <div id="form-checkout__securityCode" class="form-control"></div>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
           <input type="text" id="form-checkout__cardholderName" class="form-control" />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
           <select id="form-checkout__issuer" class="form-select"></select>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
           <select id="form-checkout__installments" class="form-select"></select>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
           <select id="form-checkout__identificationType" class="form-select"></select>
-        </td>
-      </tr>
+        </div>
+      </div>
 
-      <tr>
-        <td>
+      <div class="row">
+        <div class="col">
           <input type="text" id="form-checkout__identificationNumber" class="form-control" />
-        </td>
-        <td>
+        </div>
+        <div class="col">
           <input type="email" id="form-checkout__cardholderEmail" class="form-control" />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <button type="submit" id="form-checkout__submit" class="btn btn-success w-100">Pagar</button>
-        </td>
-      </tr>
-
-    </table>
+        </div>
+      </div>
   </form>
 
 
