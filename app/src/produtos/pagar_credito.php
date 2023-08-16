@@ -22,7 +22,7 @@
 <script>
     $(function(){
         payConfirm = () => {
-            $.alert('Obrigado pelo seu pagamento!');
+            $.alert('Solicitação processada, aguarde a confirmação!');
             // window.location.href="https://cegonha.project.tec.br/index.php?c=<?=md5($_SESSION['convidado'])?>"
         }
     })
