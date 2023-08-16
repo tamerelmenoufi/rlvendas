@@ -234,7 +234,7 @@
           } = cardForm.getCardFormData();
 
 
-            const response = await fetch("/app/cartao/pagar.php", {
+            response = await fetch("/app/cartao/pagar.php", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -255,7 +255,7 @@
                 },
               }),
             });
-            const result = await response.json();
+            result = await response.json();
             alert("Success:"+ result);
 
           parent.payConfirm();
