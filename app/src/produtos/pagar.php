@@ -164,7 +164,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 type="button"
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >
-                                <i class="fa fa-credit-card fa-5x"></i><br>
+                                <i class="fa fa-credit-card fa-3x"></i><br>
                                 R$ <?=number_format(($d->total - $valor_pago),2,',','.')?><br>PIX
                             </button>
                         </div>
@@ -174,7 +174,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 type="button"
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >
-                                <i class="fa fa-qrcode fa-5x"></i><br>
+                                <i class="fa fa-qrcode fa-3x"></i><br>
                                 R$ <?=number_format(($d->total - $valor_pago),2,',','.')?><br>CRÉDITO
                             </button>
                         </div>
