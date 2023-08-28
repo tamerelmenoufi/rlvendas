@@ -7,7 +7,7 @@
         // exit();
     }
 
-    VerificarVendaApp();
+    // VerificarVendaApp();
 
     if($_SESSION['AppPedido']){
         $m = mysqli_fetch_object(mysqli_query($con, "select * from mesas where codigo = '{$_SESSION['AppPedido']}'"));
