@@ -1,11 +1,9 @@
 <?php
     include("../../../lib/includes.php");
 
-    // VerificarVendaApp();
+    VerificarVendaApp();
 
     if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
-
-        VerificarVendaApp();
 
         if(!$_SESSION['AppVenda']){
             mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");

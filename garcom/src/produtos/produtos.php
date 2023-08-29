@@ -1,7 +1,7 @@
 <?php
 include("../../../lib/includes.php");
 
-// VerificarVendaApp();
+VerificarVendaApp();
 
 function aasort(&$array, $key)
 {
