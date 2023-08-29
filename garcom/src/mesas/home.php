@@ -136,7 +136,8 @@
         text-align:center;
         background:#eee;
     }
-    .ocupada-removido_identificacao_ocupado_na_mesa{
+    .ocupada{
+        /* -removido_identificacao_ocupado_na_mesa */
         background:green;
         color:#fff;
     }
