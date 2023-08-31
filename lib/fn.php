@@ -73,7 +73,7 @@ function UpdateQuery($query){
 }
 
 
-function VerificarVendaApp(){
+function VerificarVendaApp($app = 'garcom'){
     global $SESSION;
     global $con;
 

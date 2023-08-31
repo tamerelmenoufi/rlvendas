@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
-    VerificarVendaApp();
+    VerificarVendaApp('mesa');
 
     if($_SESSION['AppGarcom']){
         $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";

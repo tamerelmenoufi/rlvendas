@@ -1,7 +1,7 @@
 <?php
 include("../../../lib/includes.php");
 
-VerificarVendaApp();
+VerificarVendaApp('mesa');
 
 $query = "SELECT * FROM vendas_produtos WHERE venda = '{$_SESSION['AppVenda']}' and situacao = 'n'";
 $result = mysqli_query($con, $query);

@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
-    VerificarVendaApp();
+    VerificarVendaApp('mesa');
 
 
     if (!empty($_POST) and $_POST["acao"] === "confirmar_pedido") {

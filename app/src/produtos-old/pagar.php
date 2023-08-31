@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
-    VerificarVendaApp();
+    VerificarVendaApp('mesa');
 
     $query = "select
                     sum(a.valor_total) as total,
