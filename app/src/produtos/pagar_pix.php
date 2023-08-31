@@ -133,7 +133,8 @@
                                                                     forma_pagamento = '{$forma_pagamento}',
                                                                     operadora = 'mercadopago',
                                                                     operadora_situacao = '{$operadora_situacao}',
-                                                                    operadora_retorno = '{$retorno}'
+                                                                    operadora_retorno = '{$retorno}',
+                                                                    situacao = 'preparo'
                                                             where codigo = '{$d->codigo}'
                                                     ");
 

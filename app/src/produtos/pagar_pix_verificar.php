@@ -53,7 +53,6 @@
                             data = NOW()
                             where retorno->>'$.id' = '{$v->operadora_id}'
                     ");
-        
     }
 
 ?>
