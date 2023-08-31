@@ -13,15 +13,16 @@
                 "status" => "erro",
             ]);
         }else if($_POST['confirm']){
-
-            mysqli_query("update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
+            echo json_encode([
+                "status" => "sucesso",
+            ]);
+            mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
             $_SESSION = [];
-
         }else{
             echo json_encode([
                 "status" => "sucesso",
             ]);
-            mysqli_query("update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
+            mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
             $_SESSION = [];
         }
         exit();
