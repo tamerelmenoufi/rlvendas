@@ -80,6 +80,7 @@
     while($d = mysqli_fetch_object($result)){
         $Ocupadas[] = $d->mesa;
         $Produtos[$d->mesa] = $d->produtos;
+        $App[$d->mesa] = $d->app;
 
         if($d->situacao == 'pagar'){
             $Pagar[$d->mesa] = true;
@@ -141,6 +142,11 @@
         background:green;
         color:#fff;
     }
+    .ocupadaApp{
+        /* -removido_identificacao_ocupado_na_mesa */
+        background:brown;
+        color:#fff;
+    }
     .ComProdutos{
         background:blue;
         color:#fff;
@@ -175,8 +181,11 @@
                 }else if( $Produtos[$d->codigo]){
                     $icone = 'ComProdutos';
                     $BlqLista[] = $d->codigo;
-                }else if(in_array($d->codigo, $Ocupadas)){
+                }else if(in_array($d->codigo, $Ocupadas) and $App[$d->codigo] != 'mesa'){
                     $icone = 'ocupada';
+                    $BlqLista[] = $d->codigo;
+                }else if(in_array($d->codigo, $Ocupadas) and $App[$d->codigo] == 'mesa'){
+                    $icone = 'ocupadaApp';
                     $BlqLista[] = $d->codigo;
                 }else{
                     $icone = false;
