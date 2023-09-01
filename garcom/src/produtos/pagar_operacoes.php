@@ -56,8 +56,8 @@
                 <?php
                 }else{
                 ?>
-                 <span>
-                    <i class="fa fa-check text-success"></i>
+                 <span class="text-success">
+                    <i class="fa fa-check text-success"></i> Pago
                 </span>               
                 <?php
                 }
