@@ -141,19 +141,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             while($p = mysqli_fetch_object($result)){
                             $op = json_decode($p->retorno);
                             $valor_pago = ($valor_pago + $op->transaction_amount);
-                        ?>
-                        <p>
-                            Forma de Pagamento: <?=$p->forma_pagamento?><br>
-                            Situação: <?=$op->status?><br>
-                            Valor: <?=number_format($op->transaction_amount,2,',','.')?>
-                        </p>
-                        <?php
-
                         }
                         ?>
                         </div>
                     </div>
-
+                    <?php
+                    if(($d->total - $valor_pago) > 0){
+                    ?>
                     <div class="row">
                         <div class="col">Escolha a forma de pagamento</div>
                     </div>
@@ -179,8 +173,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             </button>
                         </div> -->
                     </div>
-
-
+                    <?php
+                    }else{
+                    ?>
+                    <center><h3>NÃO EXISTE PAGAMENTO PENDENTE</h3></center>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
