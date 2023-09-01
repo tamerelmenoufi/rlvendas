@@ -128,6 +128,7 @@
 
         if(valor_pendente*1 <= 0){
             $("a[pagar]").attr("disabled","disabled");
+            console.log('Apareceu no bloqueio');
         } 
 
         $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
