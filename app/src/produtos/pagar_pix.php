@@ -9,7 +9,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    echo $valor_pago = "select sum(retorno->>'$.transaction_amount') from status_venda where venda = '{$d->codigo}' and retorno->>'$.status' = 'approved'";
+    $valor_pago = "select sum(retorno->>'$.transaction_amount') from status_venda where venda = '{$d->codigo}' and retorno->>'$.status' = 'approved'";
     list($valor_pago) = mysqli_fetch_row(mysqli_query($con, $valor_pago));
 
     // $pos =  strripos($d->nome, " ");
@@ -69,7 +69,7 @@
 
                                 if( $d->operadora_id and
                                     $d->operadora == 'mercadopago' and
-                                    $d->total == $dados->transaction_amount
+                                    $dados->status == 'pending'
                                     ){
 
                                     $operadora_id = $dados->id;
@@ -81,7 +81,6 @@
                                 }else{
 
                                     $PIX = new MercadoPago;
-
 
                                     $json = '{
                                         "transaction_amount": '.($d->total - $valor_pago).',
@@ -154,7 +153,7 @@
                             <div class="status_pagamento"></div>
                         </div>
                         Total a Pagar:
-                        <h1>R$ <?=number_format($d->total,2,',','.')?></h1>
+                        <h1>R$ <?=number_format(($d->total - $valor_pago),2,',','.')?></h1>
                         <p style="text-align:center; font-size:12px;">Clique no botão abaixo para copiar o Código PIX de sua compra.</p>
                         <!-- <p style="text-align:center; font-size:16px;"><?=$qrcode?></p> -->
                         <button copiar="<?=$qrcode?>" class="btn btn-secondary btn-lg btn-block"><i class="fa-solid fa-copy"></i> <span>Copiar Código PIX</span></button>
