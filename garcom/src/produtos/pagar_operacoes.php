@@ -43,6 +43,9 @@
             <td><?=$p->forma_pagamento?></td>
             <td><?=$p->valor?></td>
             <td>
+                <?php
+                if($p->operacao_situacao != 'approved'){
+                ?>
                 <span
                     class="excluir_operacao"
                     cod="<?=$p->codigo?>"
@@ -50,6 +53,9 @@
                 >
                     <i class="fa fa-trash text-red"></i>
                 </span>
+                <?php
+                }
+                ?>
             </td>
         </tr>
         <?php

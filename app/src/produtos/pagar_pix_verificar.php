@@ -43,9 +43,10 @@
                             venda = '{$v->codigo}',
                             data = NOW(),
                             forma_pagamento = 'pix',
-                            valor = '($v->total - $valorPago)',
+                            valor = '".($v->total - $valorPago)."',
                             operadora = 'mercado_pago',
-                            operadora_situacao = 'approved'
+                            operadora_situacao = 'approved',
+                            operadora_retorno = '{$operadora_retorno}'
                     ");
 
         mysqli_query($con, "UPDATE status_venda set
