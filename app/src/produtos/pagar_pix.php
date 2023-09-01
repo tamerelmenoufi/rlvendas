@@ -69,7 +69,7 @@
 
                                 if( $d->operadora_id and
                                     $d->operadora == 'mercadopago' and
-                                    $dados->status == 'pending'
+                                    $d->status == 'pending'
                                     ){
 
                                     $operadora_id = $dados->id;
@@ -195,7 +195,7 @@
         });
 
         <?php
-        if($operadora_id and $operadora_situacao == 'pending'){
+        if($operadora_id){
         ?>
         $.ajax({
             url:"src/produtos/pagar_pix_verificar.php",
