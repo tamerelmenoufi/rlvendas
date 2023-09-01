@@ -175,7 +175,7 @@
 
 
 
-        $("a[pagar]").click(function(){
+        $("button[pagar]").click(function(){
             opc = $(this).attr("opc");
             $.ajax({
                 url:"componentes/ms_popup_100.php",
