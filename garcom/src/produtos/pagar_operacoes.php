@@ -126,6 +126,10 @@
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
 
+        if(valor_pendente*1 <= 0){
+            $("a[pagar]").attr("disabled","disabled");
+        } 
+
         $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
         $(".valor_pendente").attr("pendente", valor_pendente.toFixed(2));
         // $(".valor_pendente").html('R$ ' + valor_pendente.toLocaleString('pt-br', {minimumFractionDigits: 2}));
