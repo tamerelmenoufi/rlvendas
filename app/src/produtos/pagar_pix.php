@@ -195,7 +195,7 @@
         });
 
         <?php
-        if($operadora_id and $operadora_situacao == 'panding'){
+        if($operadora_id and $operadora_situacao == 'pending'){
         ?>
         $.ajax({
             url:"src/produtos/pagar_pix_verificar.php",
