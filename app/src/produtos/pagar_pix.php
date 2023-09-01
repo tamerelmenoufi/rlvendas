@@ -9,7 +9,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $valor_pago = "select sum(retorno->>'$.transaction_amount') from status_venda where venda = '{$d->codigo}' and retorno->>'$.status' = 'approved'";
+    echo $valor_pago = "select sum(retorno->>'$.transaction_amount') from status_venda where venda = '{$d->codigo}' and retorno->>'$.status' = 'approved'";
     list($valor_pago) = mysqli_fetch_row(mysqli_query($con, $valor_pago));
 
     // $pos =  strripos($d->nome, " ");
