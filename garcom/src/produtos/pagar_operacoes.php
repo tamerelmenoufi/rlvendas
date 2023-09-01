@@ -51,8 +51,14 @@
                     cod="<?=$p->codigo?>"
                     content="Deja realmente excluir a operação <b><?=$p->forma_pagamento?></b> no valor de <b>R$ <?=number_format($p->valor,2,'.',false)?></b>"
                 >
-                    <i class="fa fa-trash text-red"></i>
+                    <i class="fa fa-trash text-danger"></i>
                 </span>
+                <?php
+                }else{
+                ?>
+                 <span>
+                    <i class="fa fa-checked text-success"></i>
+                </span>               
                 <?php
                 }
                 ?>
