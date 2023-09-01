@@ -44,7 +44,7 @@
             <td><?=$p->valor?></td>
             <td>
                 <?php
-                if($p->operacao_situacao != 'approved'){
+                if($p->operadora_situacao != 'approved'){
                 ?>
                 <span
                     class="excluir_operacao"
