@@ -69,7 +69,7 @@
 
                                 if( $d->operadora_id and
                                     $d->operadora == 'mercadopago' and
-                                    $d->status == 'pending'
+                                    $d->operadora_situacao == 'pending'
                                     ){
 
                                     $operadora_id = $dados->id;
