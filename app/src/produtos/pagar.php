@@ -13,13 +13,7 @@
 
         mysqli_query($con, "update vendas_produtos set situacao = 'c' where venda = '{$_SESSION['AppVenda']}'");
 
-        echo "<script>
-                window.localStorage.removeItem('AppPedido');
-                window.localStorage.removeItem('AppCliente');
-                window.localStorage.removeItem('AppVenda');
-
-                window.location.href='./?s=1';
-        </script>";
+        echo "success";
 
         exit();
     }
@@ -200,6 +194,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     }else{
                     ?>
                     <center><h3>NÃO EXISTE PAGAMENTO PENDENTE</h3></center>
+                    <button
+                        fechar_conta
+                        type="button"
+                        class="btn btn-warning btn-lg btn-block"
+                    >
+                        Fechar a Conta
+                    </button>                    
                     <?php
                     }
                     ?>
@@ -210,11 +211,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 
     <?php
-
-$query = "select * from status_venda where venda = '{$d->codigo}'";
-$result = mysqli_query($con, $query);
-$n = mysqli_num_rows($result);
-?>
+    $query = "select * from status_venda where venda = '{$d->codigo}'";
+    $result = mysqli_query($con, $query);
+    $n = mysqli_num_rows($result);
+    ?>
 
     <div style="display:<?=(($n)?'flex':'none')?>;">
         <div class="col-12">
@@ -293,6 +293,27 @@ $n = mysqli_num_rows($result);
 
         });
 
+        
+        $("button[fechar_conta]").click(function(){
+
+            $.ajax({
+                url:"src/produtos/pagar.php",
+                type:"POST",
+                data:{
+                    acao:`fechar_conta`,
+                },
+                success:function(dados){
+                    if(dados == 'success'){
+                        window.localStorage.removeItem('AppPedido');
+                        window.localStorage.removeItem('AppCliente');
+                        window.localStorage.removeItem('AppVenda');
+                        window.location.href='./?s=1';
+                    }
+                }
+            });
+
+
+        });
 
 
     })
