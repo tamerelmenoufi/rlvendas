@@ -77,7 +77,7 @@
 </table>
 
 <h5 class="card-title">
-    <button pagar opc="dinheiro" class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Confirmar Pagamento</button>
+    <button pagar opc="dinheiro" class="btn btn-success btn-block btn-lg"><i class="fa-solid fa-money-bill-1"></i> Confirmar Pagamento</button>
 </h5>
 
 
