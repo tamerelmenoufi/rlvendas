@@ -9,8 +9,8 @@ while($v = mysqli_fetch_object($resultL)){
 
     $PIX = new MercadoPago;
     $retorno = $PIX->ObterPagamento($v->operadora_id);
-    $operadora_retorno = $retorno;
-    echo $retorno = json_decode($retorno);
+    echo $operadora_retorno = $retorno;
+    $retorno = json_decode($retorno);
 
     echo "<hr>";
     if($retorno->status == 'approved'){
