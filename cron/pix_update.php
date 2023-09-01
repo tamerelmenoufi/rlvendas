@@ -55,6 +55,15 @@ while($v = mysqli_fetch_object($resultL)){
                             data = NOW()
                             where retorno->>'$.id' = '{$v->operadora_id}'
                     ");
+    }else{
+
+
+        mysqli_query($con, "update vendas set
+                            operadora_situacao = '{$retorno->status}',
+                            operadora_retorno = '{$operadora_retorno}'
+                        where codigo = '{$v->codigo}'
+                    ");
+
     }
 
 }
