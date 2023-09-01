@@ -15,7 +15,7 @@
 
     if($retorno->status == 'approved'){
 
-        $v = mysqli_fetch_object(mysqli_query($con, "select codigo from vendas where operadora_id = '{$_POST['id']}'"));
+        $v = mysqli_fetch_object(mysqli_query($con, "select * from vendas where operadora_id = '{$_POST['id']}'"));
 
         $codigos = [];
         $query = "SELECT * FROM vendas_produtos WHERE venda = '$v->codigo' and situacao = 'b'";
