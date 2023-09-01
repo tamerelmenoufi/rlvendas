@@ -129,7 +129,7 @@
         console.log(valor_pendente);
 
 
-        if(valor_pendente*1 <= 0){
+        if(valor_pendente*1 > 0){
             $("a[pagar]").attr("disabled","disabled");
         } 
 
