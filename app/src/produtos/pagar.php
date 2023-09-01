@@ -202,7 +202,7 @@ $n = mysqli_num_rows($result);
 
                 <?php
 
-                    $query = "select * from status_venda where venda = '{$d->codigo}' where retorno->>'$.status' = 'approved';";
+                    echo $query = "select * from status_venda where venda = '{$d->codigo}' where retorno->>'$.status' = 'approved';";
                     $result = mysqli_query($con, $query);
                     while($p = mysqli_fetch_object($result)){
 
