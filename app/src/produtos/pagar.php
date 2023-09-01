@@ -305,7 +305,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                 success:function(dados){
                     if(dados == 'success'){
                         window.localStorage.removeItem('AppPedido');
-                        window.localStorage.removeItem('AppCliente');
+                        // window.localStorage.removeItem('AppCliente');
                         window.localStorage.removeItem('AppVenda');
                         window.location.href='./?s=1';
                     }
