@@ -140,7 +140,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             $result = mysqli_query($con, $query);
                             while($p = mysqli_fetch_object($result)){
                             $op = json_decode($p->retorno);
-                            $valor_pago = ($valor_pago + $op['transaction_amount'];
+                            $valor_pago = ($valor_pago + $op['transaction_amount']);
                         ?>
                         <p>
                             Forma de Pagamento: <?=$p->forma_pagamento?><br>
