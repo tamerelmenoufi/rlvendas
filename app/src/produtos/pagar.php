@@ -1,6 +1,29 @@
 <?php
     include("../../../lib/includes.php");
 
+
+    if($_POST['acao'] == 'fechar_conta'){
+
+        mysqli_query($con, "update vendas SET
+        situacao = 'pago',
+        caixa = (select caixa from caixa where situacao = '0'),
+        data_finalizacao = NOW()
+        where codigo = '{$_SESSION['AppVenda']}'
+        ");
+
+        mysqli_query($con, "update vendas_produtos set situacao = 'c' where venda = '{$_SESSION['AppVenda']}'");
+
+        echo "<script>
+                window.localStorage.removeItem('AppPedido');
+                window.localStorage.removeItem('AppCliente');
+                window.localStorage.removeItem('AppVenda');
+
+                window.location.href='./?s=1';
+        </script>";
+
+        exit();
+    }
+
     if($_POST['acao'] == 'acrescimo' or $_POST['acao'] == 'desconto'){
         $q = "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppVenda']}'";
         mysqli_query($con, $q);

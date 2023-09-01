@@ -39,7 +39,10 @@
 
         list($valorPago) = mysqli_fetch_row(mysqli_query($con, "select sum(valor) from vendas_pagamento where venda = '{$v->codigo}' and operadora_situacao = 'approved'"));
 
+        $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
+
         mysqli_query($con, "INSERT INTO vendas_pagamento set
+                            caixa = '{$caixa->caixa}',
                             venda = '{$v->codigo}',
                             data = NOW(),
                             forma_pagamento = 'pix',
