@@ -197,7 +197,7 @@ $n = mysqli_num_rows($result);
     <div style="display:<?=(($n)?'flex':'none')?>;">
         <div class="col-12">
             <div class="card bg-light mb-3">
-                <div class="card-header">Formas de Pagamento</div>
+                <div class="card-header">Pagamentos Confirmados</div>
                 <div pagar_operacoes class="card-body">
 
                 <?php
