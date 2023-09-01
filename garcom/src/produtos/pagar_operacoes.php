@@ -57,7 +57,7 @@
                 }else{
                 ?>
                  <span>
-                    <i class="fa fa-checked text-success"></i>
+                    <i class="fa fa-check text-success"></i>
                 </span>               
                 <?php
                 }
