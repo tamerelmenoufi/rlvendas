@@ -77,7 +77,7 @@
 </table>
 
 <h5 class="card-title">
-    <a pagar opc="dinheiro" class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Confirmar Pagamento</a>
+    <button pagar opc="dinheiro" class="btn btn-success btn-lg"><i class="fa-solid fa-money-bill-1"></i> Confirmar Pagamento</button>
 </h5>
 
 
@@ -130,7 +130,7 @@
 
 
         if(valor_pendente*1 > 0){
-            $("a[pagar]").attr("disabled","disabled");
+            $("button[pagar]").attr("disabled","disabled");
         } 
 
         $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
