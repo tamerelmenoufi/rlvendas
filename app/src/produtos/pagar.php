@@ -25,7 +25,7 @@
 
     $q = "update vendas set
     valor='{$c->total}',
-    taxa='".($c->total/100*10)."',
+    taxa='".($c->total*0/100*10)."',
     total= (".($c->total + ($c->total/100*10))." + acrescimo - desconto)
 where codigo = '{$_SESSION['AppVenda']}'";
     mysqli_query($con, $q);
