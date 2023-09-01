@@ -213,7 +213,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <?php
     $query = "select * from status_venda where venda = '{$d->codigo}'";
     $result = mysqli_query($con, $query);
-    $n = mysqli_num_rows($result);
+    if(mysqli_num_rows($result)){
     ?>
 
     <div style="display:<?=(($n)?'flex':'none')?>;">
@@ -259,7 +259,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
         </div>
     </div>
 
-
+    <?php
+    }
+    ?>
 
 </div>
 
