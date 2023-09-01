@@ -126,9 +126,11 @@
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
 
+        console.log(valor_pendente);
+
+
         if(valor_pendente*1 <= 0){
             $("a[pagar]").attr("disabled","disabled");
-            console.log('Apareceu no bloqueio');
         } 
 
         $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
