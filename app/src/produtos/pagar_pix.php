@@ -83,7 +83,7 @@
                                     $PIX = new MercadoPago;
 
                                     $json = '{
-                                        "transaction_amount": '.($d->total - $valor_pago).',
+                                        "transaction_amount": '.($d->total - $d->desconto - $valor_pago).',
                                         "description": "Venda '.$pedido.' - APP Yobom",
                                         "payment_method_id": "pix",
                                         "payer": {
