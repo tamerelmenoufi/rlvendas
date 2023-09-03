@@ -5,9 +5,9 @@
 
     if($_POST['mesa']){
 
-        $_SESSION['AppVenda'] = '';
-        $_SESSION['AppCliente'] = '';
-        $_SESSION['AppPedido'] = '';
+        $_SESSION['AppVenda'] = false;
+        $_SESSION['AppCliente'] = false;
+        $_SESSION['AppPedido'] = false;
 
 
         $query = "SELECT codigo, cliente, mesa FROM vendas WHERE mesa = '{$_POST['cod_mesa']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
@@ -67,7 +67,7 @@
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
             "AppPedido" => $_SESSION['AppPedido'], //REMOVER DEPOIS
-            "AppVenda" => $_SESSION['AppVenda'] //REMOVER DEPOIS
+            // "AppVenda" => $_SESSION['AppVenda'] //REMOVER DEPOIS
         ]);
 
         exit();
@@ -259,7 +259,7 @@
                     let retorno = JSON.parse(dados);
                     window.localStorage.setItem('AppCliente', retorno.AppCliente);
                     window.localStorage.setItem('AppPedido', retorno.AppPedido);
-                    window.localStorage.setItem('AppVenda', retorno.AppVenda);
+                    // window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
                     // window.location.href="./";
 
