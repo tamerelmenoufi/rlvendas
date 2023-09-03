@@ -127,6 +127,7 @@
         valor_pendente = (valor_total - soma_valores);
 
         console.log(valor_pendente);
+        console.log(soma_valores);
 
         if(valor_pendente*1 > 0){
             // $("button[pagar]").attr("disabled","disabled");
