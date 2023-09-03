@@ -259,6 +259,7 @@
                     let retorno = JSON.parse(dados);
                     window.localStorage.setItem('AppCliente', retorno.AppCliente);
                     window.localStorage.setItem('AppPedido', retorno.AppPedido);
+                    window.localStorage.removeItem('AppVenda');
                     // window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
                     // window.location.href="./";
