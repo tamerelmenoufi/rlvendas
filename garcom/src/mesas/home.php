@@ -5,9 +5,9 @@
 
     if($_POST['mesa']){
 
-        $_SESSION['AppVenda'] = false;
-        $_SESSION['AppCliente'] = false;
-        $_SESSION['AppPedido'] = false;
+        $_SESSION['AppVenda'] = '';
+        $_SESSION['AppCliente'] = '';
+        $_SESSION['AppPedido'] = '';
 
 
         $query = "SELECT codigo, cliente, mesa FROM vendas WHERE mesa = '{$_POST['cod_mesa']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
