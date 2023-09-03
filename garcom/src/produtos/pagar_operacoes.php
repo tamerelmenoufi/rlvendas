@@ -129,7 +129,7 @@
         console.log(valor_pendente);
 
         if(valor_pendente*1 > 0){
-            $("button[pagar]").attr("disabled","disabled");
+            // $("button[pagar]").attr("disabled","disabled");
         } 
 
         $(".valor_pendente").attr("valor", valor_pendente.toFixed(2));
