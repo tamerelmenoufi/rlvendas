@@ -63,7 +63,7 @@
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
             "AppPedido" => $_SESSION['AppPedido'], //REMOVER DEPOIS
-            "AppVenda" => $_SESSION['AppVenda'] //REMOVER DEPOIS
+            // "AppVenda" => $_SESSION['AppVenda'] //REMOVER DEPOIS
         ]);
 
         exit();
@@ -255,7 +255,7 @@
                     let retorno = JSON.parse(dados);
                     window.localStorage.setItem('AppCliente', retorno.AppCliente);
                     window.localStorage.setItem('AppPedido', retorno.AppPedido);
-                    window.localStorage.setItem('AppVenda', retorno.AppVenda);
+                    // window.localStorage.setItem('AppVenda', retorno.AppVenda);
 
                     // window.location.href="./";
 
