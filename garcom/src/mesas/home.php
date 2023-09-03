@@ -5,6 +5,10 @@
 
     if($_POST['mesa']){
 
+        $_SESSION['AppVenda'] = false;
+        $_SESSION['AppCliente'] = false;
+        $_SESSION['AppPedido'] = false;
+
 
         $query = "SELECT codigo, cliente, mesa FROM vendas WHERE mesa = '{$_POST['cod_mesa']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
         $result = mysqli_query($con, $query);
