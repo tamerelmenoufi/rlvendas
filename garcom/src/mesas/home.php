@@ -44,21 +44,21 @@
 
 
 
-        if($_SESSION['AppCliente'] && $_SESSION['AppPedido'] && !$_SESSION['AppVenda']){
-            /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
-            $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
-            $result = mysqli_query($con, $query);
+        // if($_SESSION['AppCliente'] && $_SESSION['AppPedido'] && !$_SESSION['AppVenda']){
+        //     /////////////////INCLUIR O REGISTRO DO PEDIDO//////////////////////
+        //     $query = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' AND situacao in ('producao','preparo') LIMIT 1";
+        //     $result = mysqli_query($con, $query);
 
-            if (mysqli_num_rows($result)) {
-                //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
-                list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
-                $_SESSION['AppVenda'] = $codigo;
-            } else {
-                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
-                $_SESSION['AppVenda'] = mysqli_insert_id($con);
-            }
-            /////////////////////////////////////////////////////////////////
-        }
+        //     if (mysqli_num_rows($result)) {
+        //         //$queryInsert = "SELECT codigo FROM vendas WHERE cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND deletado != '1' LIMIT 1";
+        //         list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
+        //         $_SESSION['AppVenda'] = $codigo;
+        //     } else {
+        //         mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
+        //         $_SESSION['AppVenda'] = mysqli_insert_id($con);
+        //     }
+        //     /////////////////////////////////////////////////////////////////
+        // }
 
         echo json_encode([
             "AppCliente" => $_SESSION['AppCliente'],
