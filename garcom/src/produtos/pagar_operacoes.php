@@ -126,7 +126,7 @@
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
 
-        console.log(valor_pendente);
+        console.log(valor_total);
         console.log(soma_valores);
 
         if(valor_pendente*1 > 0){
