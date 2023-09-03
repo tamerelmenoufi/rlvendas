@@ -121,7 +121,7 @@
 
         });
 
-        valor_total = (valor*1 + taxa*1 + acrescimo*1 - desconto*1);
+        valor_total = (valor*1 + taxa*1 + acrescimo*1 - desconto*1).toFixed(2);
         // console.log("Valor Total:" + valor_total)
         soma_valores = '<?=$soma_valores?>';
         valor_pendente = (valor_total - soma_valores);
