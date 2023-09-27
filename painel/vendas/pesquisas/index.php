@@ -4,6 +4,10 @@
 ?>
 
     <div class="row mb-3">
+        <div class="col-md-3">
+            <label for="data">N. Venda</label>
+            <input id="filtrarVenda" value='<?=$_POST['venda']?>' type="number" class="form-control" />
+        </div>
         <div class="col-md-4">
             <label for="mesa">Mesa</label>
             <select id="filtrarMesa" class="form-control">
@@ -19,7 +23,7 @@
                 ?>
             </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
             <label for="data">Data do Pedido</label>
             <input id="filtrarData" value='<?=$_POST['data']?>' type="date" class="form-control" />
         </div>
@@ -39,6 +43,7 @@
             <table id="datatable" class="table display nowrap" width="100%" cellspacing="0">
                 <thead>
                 <tr>
+                    <th>Venda</th>
                     <th>Cliente</th>
                     <th>Valor</th>
                     <th>Mesa</th>
@@ -56,6 +61,9 @@
                 if($_POST['mesa']){
                     $where .= " and v.mesa = '{$_POST['mesa']}' ";
                 }
+                if($_POST['venda']){
+                    $where .= " and v.codigo = '{$_POST['venda']}' ";
+                }
 
                 $query = "SELECT v.*, c.telefone, m.mesa AS mesa_descricao, c.nome AS cliente_nome FROM vendas v "
                     . "INNER JOIN clientes c ON c.codigo = v.cliente "
@@ -71,6 +79,7 @@
                 while ($d = mysqli_fetch_object($result)):
                     ?>
                     <tr id="linha-<?= $d->codigo; ?>">
+                        <td><?= str_pad($d->codigo, 6, "0", STR_PAD_LEFT) ?></td>
                         <td><?= $d->cliente_nome ?: $d->telefone; ?></td>
                         <td>
                             <?= number_format($d->total, 2, ',', '.'); ?>
@@ -122,6 +131,7 @@
         $("#filtrarVendas").click(function(){
             mesa = $("#filtrarMesa").val();
             data = $("#filtrarData").val();
+            venda = $("#filtrarVenda").val();
             if(!mesa && !data){
                 $.alert('Favor preencher os dados para a busca!');
                 return false;
@@ -131,7 +141,8 @@
                 type:"POST",
                 data:{
                     mesa,
-                    data
+                    data,
+                    venda
                 },
                 success:function(dados){
                     $('#palco').html(dados);
