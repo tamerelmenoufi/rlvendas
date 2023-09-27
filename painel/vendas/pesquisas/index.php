@@ -165,7 +165,7 @@
             $.dialog({
                 content: "url:vendas/detalhes.php?cod=" + cod,
                 title: false,
-                columnClass: 'col-md-8 col-xs-12'
+                columnClass: 'col-md-12 col-xs-12'
             });
         });
 
