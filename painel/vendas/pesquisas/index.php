@@ -132,7 +132,7 @@
             mesa = $("#filtrarMesa").val();
             data = $("#filtrarData").val();
             venda = $("#filtrarVenda").val();
-            if(!mesa && !data){
+            if(!mesa && !data && !venda){
                 $.alert('Favor preencher os dados para a busca!');
                 return false;
             }
