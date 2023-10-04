@@ -21,7 +21,7 @@
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
             componente = $(this).attr("componente");
-            $("span[cli]").html(AppCliente)
+            $("span[cli]").html("CLI: " + AppCliente)
             local = $(this).attr("local");
             if(AppCliente && local == 'src/cliente/home.php'){
                 Carregando();
