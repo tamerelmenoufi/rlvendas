@@ -15,7 +15,7 @@
                 'query' => $q,
                 'file' => $_SERVER["PHP_SELF"],
                 'sessao' => $_SESSION,
-                'registro' => 
+                'registro' => ''
             ]
         );
 
