@@ -1,5 +1,5 @@
 <?php
-error_reporting(9);
+error_reporting(0);
 include "connect.php";
 $con = AppConnect();
 include "confYobom.php";
