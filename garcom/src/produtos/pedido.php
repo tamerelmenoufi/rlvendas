@@ -101,7 +101,7 @@
     }
 
     if($_POST['acao'] == 'Excluirproduto'){
-        $q = "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'"
+        $q = "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'";
         mysqli_query($con, $q);
         sisLog(
             [
