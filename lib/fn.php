@@ -179,7 +179,7 @@ function sisLog($d){
     $sessao = json_encode($d['sessao']);
     $registro = $d['registro'];
     $p = explode(" ",$query);
-    $operacao = strtoupper(trim($p[0]))
+    $operacao = strtoupper(trim($p[0]));
     if(strtolower(trim($p[0])) == 'insert'){
         $tabela =  strtolower(trim($p[2]));
     }
