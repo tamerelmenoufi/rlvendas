@@ -179,7 +179,7 @@ function sisLog($d){
     $sessao = json_encode($d['sessao']);
     $registro = $d['registro'];
     $p = explode(" ",$query);
-    if(strtolower(trim($p[0])) == 'insert'){150
+    if(strtolower(trim($p[0])) == 'insert'){
         $operacao =  strtoupper(trim($p[2]));
     }
     if(strtolower(trim($p[0])) == 'update'){
@@ -196,7 +196,5 @@ function sisLog($d){
                                 data = NOW()
     ");
     
-
-
 
 }
