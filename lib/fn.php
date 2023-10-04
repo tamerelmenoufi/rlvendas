@@ -179,16 +179,18 @@ function sisLog($d){
     $sessao = json_encode($d['sessao']);
     $registro = $d['registro'];
     $p = explode(" ",$query);
+    $operacao = strtoupper(trim($p[0]))
     if(strtolower(trim($p[0])) == 'insert'){
-        $operacao =  strtoupper(trim($p[2]));
+        $tabela =  strtolower(trim($p[2]));
     }
     if(strtolower(trim($p[0])) == 'update'){
-        $operacao =  strtoupper(trim($p[1]));
+        $tabela =  strtolower(trim($p[1]));
     }
 
     mysqli_query($con, "
         INSERT INTO sisLog set 
                                 file = '{$file}',
+                                tabela = '{$tabela}',
                                 operacao = '{$operacao}',
                                 registro = '{$registro}',
                                 sessao = '{$sessao}',
