@@ -21,9 +21,9 @@
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
             componente = $(this).attr("componente");
-            $("span[cli]").html("CLI: " + AppCliente)
+            $("span[cli]").html("CLI: " + AppCliente*1)
             local = $(this).attr("local");
-            if(AppCliente*1 && local == 'src/cliente/home.php'){
+            if(AppCliente && local == 'src/cliente/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
