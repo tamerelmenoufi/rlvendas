@@ -196,7 +196,7 @@
                     'query' => $q,
                     'file' => $_SERVER["PHP_SELF"],
                     'sessao' => $_SESSION,
-                    'registro' => 
+                    'registro' => ''
                 ]
             );
             $query = "select * from mesas where deletado != '1' and situacao != '0' /*and mesa <= 199*/ order by mesa";
