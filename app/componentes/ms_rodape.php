@@ -23,7 +23,7 @@
             componente = $(this).attr("componente");
             $("span[cli]").html("CLI: " + AppCliente)
             local = $(this).attr("local");
-            if(AppCliente > 0 && local == 'src/cliente/home.php'){
+            if(AppCliente*1 && local == 'src/cliente/home.php'){
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
