@@ -130,6 +130,22 @@ function VerificarVendaApp($app = 'garcom'){
         //echo "<h1>TESTE 2</h1>";
     }else{
         //echo "<h1>TESTE 3</h1>";
+
+        $q = "UPDATE vendas SET 
+                cliente = '{$_SESSION['AppCliente']}', 
+                atendente = '{$_SESSION['AppGarcom']}',
+                mesa = '{$_SESSION['AppPedido']}', 
+                data_pedido = NOW() where codigo = '{$_SESSION['AppVenda']}'";
+        mysqli_query($con, $q);
+        // sisLog(
+        //     [
+        //         'query' => $q,
+        //         'file' => $_SERVER["PHP_SELF"],
+        //         'sessao' => $_SESSION,
+        //         'registro' => $_SESSION['AppVenda']
+        //     ]
+        // );
+
     }
 
 
