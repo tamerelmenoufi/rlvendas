@@ -7,7 +7,16 @@ if($_POST['acao'] == 'fechar_conta'){
 
     $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
 
-    mysqli_query($con, "update vendas_pagamento set caixa = '{$caixa->caixa}' where venda = '{$_SESSION['AppVenda']}'");
+    $q = "update vendas_pagamento set caixa = '{$caixa->caixa}' where venda = '{$_SESSION['AppVenda']}'";
+    mysqli_query($con, $q);
+    sisLog(
+        [
+            'query' => $query,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $q
+        ]
+    );
 
     $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
@@ -19,7 +28,7 @@ if($_POST['acao'] == 'fechar_conta'){
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    mysqli_query($con, "update vendas SET
+    $q = "update vendas SET
                                             situacao = 'pagar',
                                             caixa = (select caixa from caixa where situacao = '0'),
                                             valor='{$d->total}',
@@ -27,10 +36,28 @@ if($_POST['acao'] == 'fechar_conta'){
                                             forma_pagamento='{$_POST['forma_pagamento']}',
                                             data_finalizacao = NOW()
                         where codigo = '{$_SESSION['AppVenda']}'
-                ");
+                ";
 
-    mysqli_query($con, "update vendas_produtos set situacao = 'c' where venda = '{$_SESSION['AppVenda']}'");
+    mysqli_query($con, $q);
+    sisLog(
+        [
+            'query' => $q,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $_SESSION['AppVenda']
+        ]
+    );
 
+    $q = "update vendas_produtos set situacao = 'c' where venda = '{$_SESSION['AppVenda']}'";
+    mysqli_query($con, $q);
+    sisLog(
+        [
+            'query' => $q,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $_SESSION['AppVenda']
+        ]
+    );
     $_SESSION = [];
 
     echo json_encode([

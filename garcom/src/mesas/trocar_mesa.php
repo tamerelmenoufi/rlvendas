@@ -5,9 +5,25 @@
 
         $query = "update vendas set mesa = '{$_POST['cod_mesa']}', alertas='Ocorreu alteração de mesa' where codigo = '{$_SESSION['AppVenda']}'";
         $result = mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
 
         $query = "update vendas_produtos set mesa = '{$_POST['cod_mesa']}' where venda = '{$_SESSION['AppVenda']}'";
         $result = mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
 
         $_SESSION['AppPedido'] = $_POST['cod_mesa'];
         echo json_encode([

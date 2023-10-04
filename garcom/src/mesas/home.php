@@ -28,8 +28,17 @@
                 $d = mysqli_fetch_object($result);
                 $_SESSION['AppCliente'] = $d->codigo;
             }else{
-                mysqli_query($con, "insert into clientes set telefone = '{$_POST['mesa']}'");
+                $q = "insert into clientes set telefone = '{$_POST['mesa']}'";
+                mysqli_query($con, $q);
                 $_SESSION['AppCliente'] = mysqli_insert_id($con);
+                sisLog(
+                    [
+                        'query' => $q,
+                        'file' => $_SERVER["PHP_SELF"],
+                        'sessao' => $_SESSION,
+                        'registro' => $_SESSION['AppCliente']
+                    ]
+                );
             }
 
             ////////////REMOVER DEPOIS//////////////////////////////////
@@ -39,8 +48,17 @@
                 $d = mysqli_fetch_object($result);
                 $_SESSION['AppPedido'] = $d->codigo;
             }else{
-                mysqli_query($con, "insert into mesas set mesa = '{$_POST['mesa']}'");
+                $q = "insert into mesas set mesa = '{$_POST['mesa']}'";
+                mysqli_query($con, $q);
                 $_SESSION['AppPedido'] = mysqli_insert_id($con);
+                sisLog(
+                    [
+                        'query' => $q,
+                        'file' => $_SERVER["PHP_SELF"],
+                        'sessao' => $_SESSION,
+                        'registro' => $_SESSION['AppPedido']
+                    ]
+                );
             }
             ////////////REMOVER DEPOIS//////////////////////////////////
 
@@ -171,7 +189,16 @@
 <div class="row">
         <?php
 
-            mysqli_query($con, "UPDATE mesas set blq = '0'");
+            $q = "UPDATE mesas set blq = '0'";
+            mysqli_query($con, $q);
+            sisLog(
+                [
+                    'query' => $q,
+                    'file' => $_SERVER["PHP_SELF"],
+                    'sessao' => $_SESSION,
+                    'registro' => 
+                ]
+            );
             $query = "select * from mesas where deletado != '1' and situacao != '0' /*and mesa <= 199*/ order by mesa";
             $result = mysqli_query($con, $query);
             $BlqLista = [];

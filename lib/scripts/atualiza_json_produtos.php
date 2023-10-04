@@ -35,6 +35,14 @@ $query = "INSERT INTO produtos (codigo, detalhes) "
 
 if (mysqli_query($con, $query)) {
     echo "OK";
+    sisLog(
+        [
+            'query' => $query,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => mysqli_insert_id($con)
+        ]
+    );
 } else {
     var_dump(mysqli_error($con));
 }

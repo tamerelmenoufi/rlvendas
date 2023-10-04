@@ -6,8 +6,17 @@
     if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
         if(!$_SESSION['AppVenda']){
-            mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'");
+            $q = "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'";
+            mysqli_query($con, $q);
             $_SESSION['AppVenda'] = mysqli_insert_id($con);
+            sisLog(
+                [
+                    'query' => $q,
+                    'file' => $_SERVER["PHP_SELF"],
+                    'sessao' => $_SESSION,
+                    'registro' => $_SESSION['AppVenda']
+                ]
+            );
         }
 
         $quantidade = (($_POST['quantidade']*1 >= 1)?$_POST['quantidade']:1);
@@ -39,6 +48,14 @@
                 "status" => "sucesso",
             ]);
             $_SESSION['AppCarrinho'] = true;
+            sisLog(
+                [
+                    'query' => $query,
+                    'file' => $_SERVER["PHP_SELF"],
+                    'sessao' => $_SESSION,
+                    'registro' => mysqli_insert_id($con)
+                ]
+            );
         }
 
         exit();

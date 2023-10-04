@@ -13,6 +13,7 @@ function sis_logs($tabela, $codigo, $query, $operacao = null)
         . "tabela = '{$tabela}', data = '{$data}'";
 
     mysqli_query($con, $query_log);
+    
 }
 
 function exclusao($tabela, $codigo, $fisica = false)
@@ -82,15 +83,25 @@ function VerificarVendaApp($app = 'garcom'){
 
     if(!$n){
 
-        mysqli_query($con, "INSERT INTO vendas SET 
+        $q = "INSERT INTO vendas SET 
                                         app = '{$app}', 
                                         cliente = '{$_SESSION['AppCliente']}', 
                                         atendente = '{$_SESSION['AppGarcom']}',
                                         mesa = '{$_SESSION['AppPedido']}', 
                                         data_pedido = NOW(), 
-                                        situacao = 'producao'");
+                                        situacao = 'producao'";
+
+        mysqli_query($con, $q);
         // mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(),  situacao not in ('pago','pagar')");
         $_SESSION['AppVenda'] = mysqli_insert_id($con);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
 
         //$_SESSION = [];
         // header("location:./?s=1");
@@ -99,6 +110,22 @@ function VerificarVendaApp($app = 'garcom'){
         //exit();
     }else if(!$_SESSION['AppVenda']){
         $_SESSION['AppVenda'] = mysqli_fetch_object($r)->codigo;
+        $q = "UPDATE vendas SET 
+                                        app = '{$app}', 
+                                        cliente = '{$_SESSION['AppCliente']}', 
+                                        atendente = '{$_SESSION['AppGarcom']}',
+                                        mesa = '{$_SESSION['AppPedido']}', 
+                                        data_pedido = NOW() where codigo = '{$_SESSION['AppVenda']}'";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
+                                        
         echo "<script>window.localStorage.setItem('AppVenda','{$_SESSION['AppVenda']}');</script>";
         //echo "<h1>TESTE 2</h1>";
     }else{
@@ -139,5 +166,37 @@ function CalcTempo($ini, $fim = false){
     }
 
     // printf( '%d:%d', $diferenca/3600, $diferenca/60%60 );
+
+}
+
+
+function sisLog($d){
+
+    global $con;
+
+    $query = addslashes($d['query']);
+    $file = $d['file'];
+    $sessao = json_encode($d['sessao']);
+    $registro = $d['registro'];
+    $p = explode(" ",$query);
+    if(strtolower(trim($p[0])) == 'insert'){150
+        $operacao =  strtoupper(trim($p[2]));
+    }
+    if(strtolower(trim($p[0])) == 'update'){
+        $operacao =  strtoupper(trim($p[1]));
+    }
+
+    mysqli_query($con, "
+        INSERT INTO sisLog set 
+                                file = '{$file}',
+                                operacao = '{$operacao}',
+                                registro = '{$registro}',
+                                sessao = '{$sessao}',
+                                query = '{$query}',
+                                data = NOW()
+    ");
+    
+
+
 
 }

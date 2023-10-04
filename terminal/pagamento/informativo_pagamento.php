@@ -15,14 +15,23 @@ if($_POST['acao'] == 'fechar_conta'){
     $d = mysqli_fetch_object($result);
 
 
-    mysqli_query($con, "update vendas SET
+    $q = "update vendas SET
                                             situacao = 'pagar',
                                             valor='{$d->total}',
                                             total='{$d->total}',
                                             forma_pagamento='{$_POST['forma_pagamento']}',
                                             data_finalizacao = NOW()
                         where codigo = '{$_SESSION['ConfVenda']}'
-                ");
+                ";
+    mysqli_query($con, $q);
+    sisLog(
+        [
+            'query' => $query,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $_SESSION['ConfVenda']
+        ]
+    );
 
     $_SESSION = [];
 }

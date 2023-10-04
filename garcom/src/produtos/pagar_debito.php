@@ -8,6 +8,14 @@
 
         $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => mysqli_insert_id($con)
+            ]
+        );
 
         require "../../../lib/vendor/rede/Consulta.php";
         $r = json_decode($retorno);
@@ -29,6 +37,14 @@
 
                 where codigo = '{$_POST['reference']}'";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_POST['reference']
+            ]
+        );
 
         if($r->authorization->status == 'Approved'){
             //mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}'");

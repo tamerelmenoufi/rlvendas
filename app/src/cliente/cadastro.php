@@ -9,8 +9,17 @@
             $d = mysqli_fetch_object($result);
             $_SESSION['AppCliente'] = $d->codigo;
         }else{
-            mysqli_query($con, "insert into clientes set telefone = '{$_POST['telefone']}'");
+            $q = "insert into clientes set telefone = '{$_POST['telefone']}'";
+            mysqli_query($con, $q);
             $_SESSION['AppCliente'] = mysqli_insert_id($con);
+            sisLog(
+                [
+                    'query' => $q,
+                    'file' => $_SERVER["PHP_SELF"],
+                    'sessao' => $_SESSION,
+                    'registro' => $_SESSION['AppCliente']
+                ]
+            );
         }
 
         ////////////REMOVER DEPOIS//////////////////////////////////
@@ -38,8 +47,17 @@
                 list($codigo) = mysqli_fetch_row(mysqli_query($con, $query));
                 $_SESSION['AppVenda'] = $codigo;
             } else {
-                mysqli_query($con, "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'");
+                $q = "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', data_pedido = NOW(), situacao = 'producao'";
+                mysqli_query($con, $q);
                 $_SESSION['AppVenda'] = mysqli_insert_id($con);
+                sisLog(
+                    [
+                        'query' => $q,
+                        'file' => $_SERVER["PHP_SELF"],
+                        'sessao' => $_SESSION,
+                        'registro' => $_SESSION['AppVenda']
+                    ]
+                );
             }
             /////////////////////////////////////////////////////////////////
         }

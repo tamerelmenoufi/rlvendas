@@ -126,8 +126,16 @@
                                         data = NOW(),
                                         retorno = '{$retorno}'";
                                         mysqli_query($con, $q);
+                                        sisLog(
+                                            [
+                                                'query' => $q,
+                                                'file' => $_SERVER["PHP_SELF"],
+                                                'sessao' => $_SESSION,
+                                                'registro' => mysqli_insert_id($con)
+                                            ]
+                                        );
 
-                                        mysqli_query($con, "update vendas set
+                                        $q = "update vendas set
                                                                     operadora_id = '{$operadora_id}',
                                                                     forma_pagamento = '{$forma_pagamento}',
                                                                     operadora = 'mercadopago',
@@ -135,12 +143,30 @@
                                                                     operadora_retorno = '{$retorno}',
                                                                     situacao = 'preparo'
                                                             where codigo = '{$d->codigo}'
-                                                    ");
+                                                    ";
+                                        mysqli_query($con, $q);
+                                        sisLog(
+                                            [
+                                                'query' => $q,
+                                                'file' => $_SERVER["PHP_SELF"],
+                                                'sessao' => $_SESSION,
+                                                'registro' => $d->codigo
+                                            ]
+                                        );
 
-                                        mysqli_query($con, "update vendas_produtos set
-                                                                    situacao = 'b'
-                                                            where venda = '{$d->codigo}' and situacao = 'n'
-                                                    ");
+                                        $q = "update vendas_produtos set
+                                                        situacao = 'b'
+                                                where venda = '{$d->codigo}' and situacao = 'n'
+                                        ";
+                                        mysqli_query($con, $q);
+                                        sisLog(
+                                            [
+                                                'query' => $q,
+                                                'file' => $_SERVER["PHP_SELF"],
+                                                'sessao' => $_SESSION,
+                                                'registro' => $d->codigo
+                                            ]
+                                        );
                                     }
                                 }
 

@@ -29,6 +29,14 @@
       data = NOW(),
       retorno = '{$retorno}'";
       mysqli_query($con, $q);
+      sisLog(
+        [
+            'query' => $q,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => mysqli_insert_id($con)
+        ]
+    );
 
       $q = "update vendas set
                     forma_pagamento = '{$forma_pagamento}',
@@ -38,5 +46,13 @@
               where operadora_id = '{$operadora_id}'
               ";
       mysqli_query($con, $q);
+      sisLog(
+        [
+            'query' => $q,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $operadora_id
+        ]
+    );
 
     }

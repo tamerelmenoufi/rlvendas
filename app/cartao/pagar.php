@@ -58,6 +58,15 @@ $query = "update vendas set
 
 mysqli_query($con, $query);
 
+sisLog(
+    [
+        'query' => $query,
+        'file' => $_SERVER["PHP_SELF"],
+        'sessao' => $_SESSION,
+        'registro' => $_SESSION['AppVenda']
+    ]
+);
+
 
 file_put_contents(
                     'x.txt',

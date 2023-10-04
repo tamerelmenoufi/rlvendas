@@ -33,6 +33,14 @@
 
         $query = "UPDATE vendas_produtos SET situacao = 'p', ordem = '{$ordem}' WHERE codigo in ({$codigos})";
         if (mysqli_query($con, $query)) {
+            sisLog(
+                [
+                    'query' => $query,
+                    'file' => $_SERVER["PHP_SELF"],
+                    'sessao' => $_SESSION,
+                    'registro' => $codigos
+                ]
+            );
             echo json_encode([
                 "status" => "sucesso",
                 "venda" => base64_encode($codigos),
@@ -44,20 +52,65 @@
 
 
     if($_POST['acao'] == 'ExcluirPedido'){
-        mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
-        mysqli_query($con, "update vendas_produtos set deletado = '1' where venda = '{$_SESSION['AppVenda']}'");
-        mysqli_query($con, "update mesas set blq = '0' where codigo = (select mesa from vendas where codigo = '{$_SESSION['AppVenda']}')");
+        $q = "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
+        $q = "update vendas_produtos set deletado = '1' where venda = '{$_SESSION['AppVenda']}'";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
+        $q = "update mesas set blq = '0' where codigo = (select mesa from vendas where codigo = '{$_SESSION['AppVenda']}')";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
         $_SESSION = [];
         exit();
     }
 
     if($_POST['acao'] == 'atualiza'){
-        mysqli_query($con, "update vendas_produtos set quantidade='{$_POST['quantidade']}', valor_total='{$_POST['valor_total']}' where codigo = '{$_POST['codigo']}'");
+        $q = "update vendas_produtos set quantidade='{$_POST['quantidade']}', valor_total='{$_POST['valor_total']}' where codigo = '{$_POST['codigo']}'";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_POST['codigo']
+            ]
+        );
         exit();
     }
 
     if($_POST['acao'] == 'Excluirproduto'){
-        mysqli_query($con, "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'");
+        $q = "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_POST['codigo']
+            ]
+        );
         $n = mysqli_num_rows("select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'");
         if(!$n) $_SESSION['AppCarrinho'] = false;
         exit();
@@ -81,6 +134,14 @@
         total= (".($c->total + ($c->total/100*10))." + acrescimo - desconto)
         where codigo = '{$_SESSION['AppVenda']}'";
         mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
 // Fim do script
 
 

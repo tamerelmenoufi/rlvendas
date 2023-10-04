@@ -4,6 +4,14 @@
     if($_POST['acao'] == 'acrescimo' or $_POST['acao'] == 'desconto'){
         $q = "update vendas set {$_POST['acao']} = '{$_POST['valor']}' where codigo = '{$_SESSION['AppVenda']}'";
         mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
         // exit();
     }
 
@@ -29,6 +37,14 @@
     total= (".($c->total + ($c->total/100*10))." + acrescimo - desconto)
 where codigo = '{$_SESSION['AppVenda']}'";
     mysqli_query($con, $q);
+    sisLog(
+        [
+            'query' => $q,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $_SESSION['AppVenda']
+        ]
+    );
 
     $query = "select * from vendas where codigo = '{$_SESSION['AppVenda']}' and deletado != '1'";
     $result = mysqli_query($con, $query);

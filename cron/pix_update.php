@@ -27,19 +27,36 @@ while($v = mysqli_fetch_object($resultL)){
 
         $query = "UPDATE vendas_produtos SET situacao = 'p', ordem = '{$ordem}', pago = '1' WHERE codigo in ({$codigos})";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $codigos
+            ]
+        );
 
-        mysqli_query($con, "update vendas set
+        $q = "update vendas set
                             operadora_situacao = '{$retorno->status}',
                             operadora_retorno = '{$operadora_retorno}',
                             situacao = 'preparo'
                         where codigo = '{$v->codigo}'
-                    ");
+                    ";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $v->codigo
+            ]
+        );
 
         list($valorPago) = mysqli_fetch_row(mysqli_query($con, "select sum(valor) from vendas_pagamento where venda = '{$v->codigo}' and operadora_situacao = 'approved'"));
 
         $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
 
-        mysqli_query($con, "INSERT INTO vendas_pagamento set
+        $q = "INSERT INTO vendas_pagamento set
                             caixa = '{$caixa->caixa}',
                             venda = '{$v->codigo}',
                             data = NOW(),
@@ -48,22 +65,48 @@ while($v = mysqli_fetch_object($resultL)){
                             operadora = 'mercado_pago',
                             operadora_situacao = 'approved',
                             operadora_retorno = '{$operadora_retorno}'
-                    ");
+                    ";
+        mysqli_query($con, $q);
+                    sisLog(
+                        [
+                            'query' => $q,
+                            'file' => $_SERVER["PHP_SELF"],
+                            'sessao' => $_SESSION,
+                            'registro' => mysqli_insert_id($con)
+                        ]
+                    );
 
-        mysqli_query($con, "UPDATE status_venda set
+        $q = "UPDATE status_venda set
                             retorno = '{$operadora_retorno}',
                             data = NOW()
                             where retorno->>'$.id' = '{$v->operadora_id}'
-                    ");
+                    ";
+
+        mysqli_query($con, $q);
+                    sisLog(
+                        [
+                            'query' => $q,
+                            'file' => $_SERVER["PHP_SELF"],
+                            'sessao' => $_SESSION,
+                            'registro' => $v->operadora_id
+                        ]
+                    );
     }else{
 
-
-        mysqli_query($con, "update vendas set
+        $q = "update vendas set
                             operadora_situacao = '{$retorno->status}',
                             operadora_retorno = '{$operadora_retorno}'
                         where codigo = '{$v->codigo}'
-                    ");
-
+                    ";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $v->codigo
+            ]
+        );
     }
 
 }

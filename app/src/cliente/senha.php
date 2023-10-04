@@ -5,6 +5,14 @@
         $senha = md5($_POST['senha']);
         $query = "update clientes set senha = '{$senha}' where codigo = '{$_SESSION['AppCliente']}'";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppCliente']
+            ]
+        );
 
         echo json_encode([
             'status' => true,

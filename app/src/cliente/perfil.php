@@ -4,6 +4,14 @@
     if($_POST['acao'] == 'salvar'){
         $query = "update clientes set nome = '{$_POST['nome']}', email = '{$_POST['email']}' where codigo = '{$_SESSION['AppCliente']}'";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppCliente']
+            ]
+        );
 
         echo json_encode([
             'status' => true,

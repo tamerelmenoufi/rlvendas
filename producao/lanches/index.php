@@ -7,6 +7,14 @@
 
         $query = "update vendas_produtos set situacao = '{$_POST['opc']}' ".(($_POST['opc'] == 'c')?", data_concluido = NOW() ":false)." where codigo = '{$_POST['cod']}'";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_POST['cod']
+            ]
+        );
         exit();
     }
 

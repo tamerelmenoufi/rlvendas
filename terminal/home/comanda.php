@@ -19,6 +19,14 @@ if (!empty($_POST) and $_POST["acao"] === "remover") {
             "status" => "sucesso",
             "valor_total" => getValorTotal(),
         ]);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $codigo
+            ]
+        );
     }
     exit();
 }
@@ -27,7 +35,16 @@ if (!empty($_POST) and $_POST["acao"] === "cancelar") {
     $codigo = $_SESSION['ConfVenda'];
     $_SESSION['ConfMesa'] = $_SESSION['ConfVenda'] = $_SESSION['ConfCliente'] = false;
 
-    mysqli_query($con, "UPDATE vendas_produtos SET deletado = '1' WHERE venda = '{$codigo}'");
+    $q = "UPDATE vendas_produtos SET deletado = '1' WHERE venda = '{$codigo}'"
+    mysqli_query($con, $q);
+    sisLog(
+        [
+            'query' => $q,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $codigo
+        ]
+    );
 
     $query = "UPDATE vendas SET deletado = '1' WHERE codigo = '{$codigo}'";
 
@@ -35,6 +52,14 @@ if (!empty($_POST) and $_POST["acao"] === "cancelar") {
         echo json_encode([
             "status" => "sucesso",
         ]);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $codigo
+            ]
+        );
     }
 
     exit();
@@ -56,10 +81,26 @@ if (!empty($_POST) and $_POST["acao"] === "preparar") {
             "status" => "sucesso",
             "venda" => base64_encode($codigos),
         ]);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $codigos
+            ]
+        );
     }
 
-    mysqli_query($con, "update vendas set situacao = 'preparo' where codigo = '{$codigo}'");
-
+    $q = "update vendas set situacao = 'preparo' where codigo = '{$codigo}'";
+    mysqli_query($con, $q);
+    sisLog(
+        [
+            'query' => $q,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $codigo
+        ]
+    );
     exit();
 }
 
@@ -78,6 +119,14 @@ if (!empty($_GET) and $_GET['acao'] === "atualiza_quantidade") {
             "status" => "sucesso",
             "valor_total" => getValorTotal(),
         ]);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $codigo
+            ]
+        );
     }
     exit();
 }

@@ -10,6 +10,14 @@
                                                 valor = '{$_POST['valor']}',
                                                 data = NOW()";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => mysqli_insert_id($con)
+            ]
+        );
 
     }
 
@@ -17,6 +25,14 @@
 
         $query = "update vendas_pagamento set deletado = '1' where codigo = '{$_POST['cod']}'";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_POST['cod']
+            ]
+        );
 
     }
 

@@ -8,7 +8,16 @@
         $fisico_calculado = $_POST['fisico_calculado'];
         $vendas = $_POST['vendas'];
 
-        mysqli_query($con, "update caixa set situacao = '1' where situacao = '0'");
+        $q = "update caixa set situacao = '1' where situacao = '0'";
+        mysqli_query($con, $q);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => 
+            ]
+        );
 
         $query = "insert into caixa set
                                         fisico_declarado = '{$fisico_declarado}',
@@ -19,6 +28,14 @@
                                         usuario = '{$Perfil->codigo}'
                 ";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => mysqli_insert_id($con)
+            ]
+        );
         exit();
 
     }

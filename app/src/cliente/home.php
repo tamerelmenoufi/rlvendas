@@ -16,13 +16,31 @@
             echo json_encode([
                 "status" => "sucesso",
             ]);
-            mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
+            $q = "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'";
+            mysqli_query($con, $q);
+            sisLog(
+                [
+                    'query' => $q,
+                    'file' => $_SERVER["PHP_SELF"],
+                    'sessao' => $_SESSION,
+                    'registro' => $_SESSION['AppVenda']
+                ]
+            );
             $_SESSION = [];
         }else{
             echo json_encode([
                 "status" => "sucesso",
             ]);
-            mysqli_query($con, "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'");
+            $q = "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'";
+            mysqli_query($con, $q);
+            sisLog(
+                [
+                    'query' => $q,
+                    'file' => $_SERVER["PHP_SELF"],
+                    'sessao' => $_SESSION,
+                    'registro' => $_SESSION['AppVenda']
+                ]
+            );
             $_SESSION = [];
         }
         exit();

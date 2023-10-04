@@ -8,6 +8,14 @@
 
         $query = "insert into status_rede set venda = '{$_POST['reference']}', data = NOW(), retorno = '{$retorno}'";
         mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => mysqli_insert_id($con)
+            ]
+        );
 
         require "../../../lib/vendor/rede/Consulta.php";
         $r = json_decode($retorno);
