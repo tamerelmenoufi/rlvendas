@@ -130,13 +130,15 @@ function VerificarVendaApp($app = 'garcom'){
         //echo "<h1>TESTE 2</h1>";
     }else{
         //echo "<h1>TESTE 3</h1>";
-
+        $_SESSION['AppVenda'] = mysqli_fetch_object($r)->codigo;
         $q = "UPDATE vendas SET 
                 cliente = '{$_SESSION['AppCliente']}', 
                 atendente = '{$_SESSION['AppGarcom']}',
                 mesa = '{$_SESSION['AppPedido']}', 
                 data_pedido = NOW() where codigo = '{$_SESSION['AppVenda']}'";
         mysqli_query($con, $q);
+        echo "<script>window.localStorage.setItem('AppVenda','{$_SESSION['AppVenda']}');</script>";
+
         // sisLog(
         //     [
         //         'query' => $q,
