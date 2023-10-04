@@ -24,7 +24,7 @@
             $("span[cli]").html("CLI: " + AppCliente*1)
             local = $(this).attr("local");
             if(AppCliente*1 > 0 && local == 'src/cliente/home.php'){
-                alert(1)
+                // alert(1)
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
@@ -38,7 +38,7 @@
                 });
             }else if(AppCliente*1 == 0 && local == 'src/cliente/home.php'){
                 Carregando();
-                alert(2)
+                // alert(2)
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
                     type:"POST",
@@ -51,7 +51,7 @@
                 });
             }else if(AppPedido && local){
                 Carregando();
-                alert(3)
+                // alert(3)
                 $.ajax({
                     url:"componentes/"+componente+".php",
                     type:"POST",
