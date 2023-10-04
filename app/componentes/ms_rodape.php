@@ -24,6 +24,7 @@
             $("span[cli]").html("CLI: " + AppCliente*1)
             local = $(this).attr("local");
             if(AppCliente && local == 'src/cliente/home.php'){
+                alert(1)
                 Carregando();
                 $.ajax({
                     url:"componentes/"+componente+".php",
@@ -37,6 +38,7 @@
                 });
             }else if(!AppCliente && local == 'src/cliente/home.php'){
                 Carregando();
+                alert(2)
                 $.ajax({
                     url:"componentes/ms_popup_100.php",
                     type:"POST",
@@ -49,6 +51,7 @@
                 });
             }else if(AppPedido && local){
                 Carregando();
+                alert(3)
                 $.ajax({
                     url:"componentes/"+componente+".php",
                     type:"POST",
