@@ -172,29 +172,29 @@ function CalcTempo($ini, $fim = false){
 
 function sisLog($d){
 
-    global $con;
+    // global $con;
 
-    $query = addslashes($d['query']);
-    $file = $d['file'];
-    $sessao = json_encode($d['sessao']);
-    $registro = $d['registro'];
-    $p = explode(" ",$query);
-    if(strtolower(trim($p[0])) == 'insert'){150
-        $operacao =  strtoupper(trim($p[2]));
-    }
-    if(strtolower(trim($p[0])) == 'update'){
-        $operacao =  strtoupper(trim($p[1]));
-    }
+    // $query = addslashes($d['query']);
+    // $file = $d['file'];
+    // $sessao = json_encode($d['sessao']);
+    // $registro = $d['registro'];
+    // $p = explode(" ",$query);
+    // if(strtolower(trim($p[0])) == 'insert'){150
+    //     $operacao =  strtoupper(trim($p[2]));
+    // }
+    // if(strtolower(trim($p[0])) == 'update'){
+    //     $operacao =  strtoupper(trim($p[1]));
+    // }
 
-    mysqli_query($con, "
-        INSERT INTO sisLog set 
-                                file = '{$file}',
-                                operacao = '{$operacao}',
-                                registro = '{$registro}',
-                                sessao = '{$sessao}',
-                                query = '{$query}',
-                                data = NOW()
-    ");
+    // mysqli_query($con, "
+    //     INSERT INTO sisLog set 
+    //                             file = '{$file}',
+    //                             operacao = '{$operacao}',
+    //                             registro = '{$registro}',
+    //                             sessao = '{$sessao}',
+    //                             query = '{$query}',
+    //                             data = NOW()
+    // ");
     
 
 
