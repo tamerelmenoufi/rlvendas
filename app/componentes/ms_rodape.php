@@ -49,7 +49,7 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else if(AppPedido && local){
+            }else if(AppPedido*1 > 0 && local){
                 Carregando();
                 // alert(3)
                 $.ajax({
