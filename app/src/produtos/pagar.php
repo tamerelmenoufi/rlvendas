@@ -183,6 +183,22 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col">
+                        <?php
+                            if($d->cupom){
+                        ?>
+                        Dados do CUPOM
+                        <?php
+                            }else{
+                        ?>
+                        Tem Cupom Promocional? Digite aqui!
+                        <input type="text" id="cupom" class="form-control" placeholder="Digite o códido do cupom" />
+                        <?php
+                            }
+                        ?>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col">
