@@ -5,7 +5,7 @@ $x = '{"1":{"valor":"30","quantidade":"3"},"2":{"valor":"25","quantidade":"0"},"
 $json_decode = json_decode($x);
 
 print_r($json_decode->{'1'});
-die;
+// die;
 
 foreach ($json_decode as $key => $item) {
     print_r($item->medida);
