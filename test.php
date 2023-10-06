@@ -10,6 +10,6 @@ print_r($json_decode->{'1'});
 foreach ($json_decode as $key => $item) {
     print_r($item->medida);
 }
-#var_dump($json_decode);
+var_dump($json_decode);
 
 /////////////////////////////////////////////////
