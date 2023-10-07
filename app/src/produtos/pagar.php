@@ -249,7 +249,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         </div>
                     </div>
                     <?php
-                    if(($d->total - $valor_pago) > 0){
+                    if((($d->total-$d->cupom_valor) - $valor_pago) > 0){
                     ?>
                     <div class="row">
                         <div class="col">Escolha a forma de pagamento</div>
@@ -262,7 +262,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >
                                 <i class="fa fa-qrcode fa-3x"></i><br>
-                                R$ <?=number_format(($d->total - $valor_pago),2,',','.')?><br>PIX
+                                R$ <?=number_format((($d->total-$d->cupom_valor) - $valor_pago),2,',','.')?><br>PIX
                             </button>
                         </div>
                         <!-- <div class="col">
@@ -272,7 +272,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >
                                 <i class="fa fa-credit-card fa-3x"></i><br>
-                                R$ <?=number_format(($d->total - $valor_pago),2,',','.')?><br>CRÉDITO
+                                R$ <?=number_format((($d->total-$d->cupom_valor) - $valor_pago),2,',','.')?><br>CRÉDITO
                             </button>
                         </div> -->
                     </div>
