@@ -100,7 +100,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
         ]
     );
 
-    $query = "select * from vendas where codigo = '{$_SESSION['AppVenda']}' and deletado != '1'";
+    $query = "select a.*, b.descricao as cupom_descricao from vendas a left join a.cupom = b.codigo where a.codigo = '{$_SESSION['AppVenda']}' and a.deletado != '1'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
@@ -205,10 +205,8 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col">
                         <?php
                             if($d->cupom){
-                                $c = mysqli_fetch_object(mysqli_query($con, "select * from cupom where codigo = '{$d->cupom}'"));
-                                $c_desconto = ()
                         ?>
-                        Dados do CUPOM
+                        <?=$d->cupom_descricao?>
                         <?php
                             }else{
                         ?>
