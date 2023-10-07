@@ -218,7 +218,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <?php
                             if($d->cupom){
                         ?>
+                        <div class="alert alert-success m-3" role="alert">
                         <?=$d->cupom_descricao?>
+                        </div>
                         <?php
                             }else{
                         ?>
