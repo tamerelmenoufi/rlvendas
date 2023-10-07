@@ -100,7 +100,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
         ]
     );
 
-    $query = "select a.*, b.descricao as cupom_descricao from vendas a left join a.cupom = b.codigo where a.codigo = '{$_SESSION['AppVenda']}' and a.deletado != '1'";
+    $query = "select a.*, b.descricao as cupom_descricao from vendas a left join cupom b on a.cupom = b.codigo where a.codigo = '{$_SESSION['AppVenda']}' and a.deletado != '1'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
