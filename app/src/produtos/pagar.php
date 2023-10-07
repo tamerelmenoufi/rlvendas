@@ -354,7 +354,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
             cupom = $("#cupom").val();
             valor = $("#cupom").attr("valor");
             $.ajax({
-                url:"componentes/ms_popup_100.php",
+                url:"componentes/ms_popup.php",
                 type:"POST",
                 data:{
                     local:`src/produtos/pagar.php`,
