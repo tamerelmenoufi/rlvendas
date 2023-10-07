@@ -183,7 +183,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-4">
                             <h5 class="card-title">
                                 <small>Valor da compra</small>
-                                <div style="font-size:18px !important; color:blue;"><?=number_format($d->valor,2,'.',false)?></div>
+                                <div style="font-size:18px !important; color:blue;">R$ <?=number_format($d->valor,2,',',false)?></div>
                             </h5>
                         </div>    
                         <div class="col-4">
@@ -198,7 +198,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             ?>
                             <h5 class="card-title">
                                 <small>Desconto Cupom</small>
-                                <div><?=number_format($d->cupom_valor,2,'.',false)?></div>
+                                <div>R$ <?=number_format($d->cupom_valor,2,',',false)?></div>
                             </h5>
                             <?php
                             }
@@ -207,8 +207,8 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col-4">
                             <h5 class="card-title">
                                 <small>Valor a pagar</small>
-                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div> -->
-                                <div class="valor_pendente" pendente="" valor=""><?=number_format(($d->total-$d->cupom_valor),2,'.',false)?></div>
+                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',',false)?></div> -->
+                                <div class="valor_pendente" pendente="" valor="">R$ <?=number_format(($d->total-$d->cupom_valor),2,',',false)?></div>
                             </h5>
                         </div>
                     </div>
