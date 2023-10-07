@@ -193,7 +193,10 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             }else{
                         ?>
                         Tem Cupom Promocional? Digite aqui!
-                        <input type="text" id="cupom" class="form-control mb-3" placeholder="Digite o códido do cupom" />
+                        <div class="input-group mb-3">
+                            <input type="text" id="cupom" class="form-control" placeholder="Digite o códido do cupom" aria-label="Digite o códido do cupom" aria-describedby="inserir_cupom">
+                            <button class="btn btn-outline-secondary" type="button" id="inserir_cupom">Validar</button>
+                        </div>                        
                         <?php
                             }
                         ?>
