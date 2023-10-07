@@ -196,7 +196,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="input-group mb-3">
                             <input type="text" id="cupom" class="form-control" placeholder="Digite o códido do cupom" aria-label="Digite o códido do cupom" aria-describedby="inserir_cupom">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-danger" type="button" id="inserir_cupom">Button</button>
+                                <button class="btn btn-outline-primary" type="button" id="inserir_cupom">Validar</button>
                             </div>
                         </div>                     
                         <?php
