@@ -192,6 +192,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 <small>Taxa de Serviços</small>
                                 <div><?="{$d->taxa}"?></div>
                             </h5> -->
+
                             <?php
                             if($d->cupom){
                             ?>
@@ -207,7 +208,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <h5 class="card-title">
                                 <small>Valor a pagar</small>
                                 <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,'.',false)?></div> -->
-                                <div class="valor_pendente" pendente="" valor=""><?=$d->total?></div>
+                                <div class="valor_pendente" pendente="" valor=""><?=($d->total-$d->cupom_valor)?></div>
                             </h5>
                         </div>
                     </div>
