@@ -12,7 +12,7 @@
                 $valor = ($_POST['valor']/100*(($c->valor)?:1));
             }
             if($valor < $_POST['valor']){
-                mysqli_query($con, "update `vendas` set cupom = '{$c->codigo}', cupom_tipo = '{$c->tipo}', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
+                mysqli_query($con, "update `vendas` set cupom = '{$c->codigo}', cupom_tipo = '{$c->tipo_desconto}', cupom_desconto = '{$c->valor}', cupom_valor = '{$valor}' where codigo = '{$_SESSION['AppVenda']}'");
             }    
         }
 
@@ -205,6 +205,8 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="col">
                         <?php
                             if($d->cupom){
+                                $c = mysqli_fetch_object(mysqli_query($con, "select * from cupom where codigo = '{$d->cupom}'"));
+                                $c_desconto = ()
                         ?>
                         Dados do CUPOM
                         <?php
