@@ -187,10 +187,21 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             </h5>
                         </div>    
                         <div class="col-4">
-                            <h5 class="card-title">
+
+                            <!-- <h5 class="card-title">
                                 <small>Taxa de Serviços</small>
                                 <div><?="{$d->taxa}"?></div>
+                            </h5> -->
+                            <?php
+                            if($d->cupom){
+                            ?>
+                            <h5 class="card-title">
+                                <small>Desconto Cupom</small>
+                                <div><?="{$d->cupom_valor}"?></div>
                             </h5>
+                            <?php
+                            }
+                            ?>
                         </div>                        
                         <div class="col-4">
                             <h5 class="card-title">
