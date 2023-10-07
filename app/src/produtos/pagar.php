@@ -9,7 +9,7 @@
             if($c->tipo == 'v'){
                 $valor = ($_POST['valor'] - $c->valor);
             }else{
-                $valor = ($_POST['valor']/100*$c->valor);
+                $valor = ($_POST['valor']/100*(($c->valor)?:1));
             }
             if($valor < $_POST['valor']){
                 mysqli_query($con, "update `vendas` set cupom = '{$c->codigo}', cupom_tipo = '{$c->tipo}', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
