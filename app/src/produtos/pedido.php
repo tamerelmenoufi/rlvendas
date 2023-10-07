@@ -2,9 +2,7 @@
     include("../../../lib/includes.php");
 
     VerificarVendaApp('mesa');
-
-    mysqli_query($con, "update `vendas` set cupom = 0, cupom_tipo = '', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
-
+    
     if($_SESSION['AppGarcom']){
         $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";
         $result = mysqli_query($con, $query);
@@ -89,6 +87,7 @@
     }
 
     if($_POST['acao'] == 'atualiza'){
+        
         $q = "update vendas_produtos set quantidade='{$_POST['quantidade']}', valor_total='{$_POST['valor_total']}' where codigo = '{$_POST['codigo']}'";
         mysqli_query($con, $q);
         sisLog(
@@ -99,6 +98,7 @@
                 'registro' => $_POST['codigo']
             ]
         );
+        mysqli_query($con, "update `vendas` set cupom = 0, cupom_tipo = '', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
         exit();
     }
 
@@ -115,6 +115,7 @@
         );
         $n = mysqli_num_rows("select * from vendas_produtos where venda = '{$_SESSION['AppVenda']}' and deletado != '1'");
         if(!$n) $_SESSION['AppCarrinho'] = false;
+        mysqli_query($con, "update `vendas` set cupom = 0, cupom_tipo = '', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
         exit();
     }
 

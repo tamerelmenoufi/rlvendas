@@ -58,6 +58,8 @@
             );
         }
 
+        mysqli_query($con, "update `vendas` set cupom = 0, cupom_tipo = '', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
+
         exit();
     }
 
