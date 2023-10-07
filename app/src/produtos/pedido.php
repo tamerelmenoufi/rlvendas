@@ -3,7 +3,7 @@
 
     VerificarVendaApp('mesa');
 
-    mysqli_query($con, "update `vendas` set cupom_tipo = '', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
+    mysqli_query($con, "update `vendas` set cupom = 0, cupom_tipo = '', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'");
 
     if($_SESSION['AppGarcom']){
         $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";

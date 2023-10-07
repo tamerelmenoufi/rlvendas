@@ -1,6 +1,24 @@
 <?php
     include("../../../lib/includes.php");
 
+    if($_POST['cupom']){
+
+        $c = mysqli_fetch_object(mysqli_query($con, "select * from cupom where chave = '{$_POST['cupom']}' and situacao = '1'"));
+
+        if($c->codigo){
+            if($c->tipo == 'v'){
+                $valor = ($_POST['valor'] - $c->valor);
+            }else{
+                $valor = ($c->valor*100/$_POST['valor']);
+            }
+            if($valor < $_POST['valor']){
+                mysqli_query($con, "update `vendas` set cupom = '{$c->codigo}', cupom_tipo = '{$c->tipo}', cupom_valor = 0 where codigo = '{$_SESSION['AppVenda']}'")
+            }           
+        }
+
+
+    }
+
 
     if($_POST['acao'] == 'fechar_conta'){
 
@@ -194,7 +212,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         ?>
                         Tem Cupom Promocional? Digite aqui!
                         <div class="input-group mb-3">
-                            <input type="text" id="cupom" class="form-control" placeholder="Digite o códido do cupom" aria-label="Digite o códido do cupom" aria-describedby="inserir_cupom">
+                            <input type="text" id="cupom" <?=(($_POST['cupom'] and !$d->cupom)?' style="border:solid 1px red" ':false)?> valor="<?=$d->valor?>" class="form-control" placeholder="Digite o códido do cupom" aria-label="Digite o códido do cupom" aria-describedby="inserir_cupom">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-primary" type="button" id="inserir_cupom">Validar</button>
                             </div>
@@ -331,6 +349,24 @@ where codigo = '{$_SESSION['AppVenda']}'";
 <script>
     $(function(){
 
+
+        $("#inserir_cupom").click(function(){
+            cupom = $("#cupom").val();
+            valor = $("#cupom").attr("valor");
+            $.ajax({
+                url:"componentes/ms_popup_100.php",
+                type:"POST",
+                data:{
+                    local:`src/produtos/pagar.php`,
+                    cupom,
+                    valor
+                },
+                success:function(dados){
+                    PageClose();
+                    $(".ms_corpo").append(dados);
+                }
+            });         
+        });
 
 
         $("button[pagamento]").click(function(){
