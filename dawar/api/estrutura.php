@@ -2,6 +2,7 @@
 
     include("../../lib/includes.php");
     $con = AppConnect('dawar');
+    $conApi = AppConnect('information_schema');
     
     $query = "SELECT * FROM `COLUMNS` where TABLE_SCHEMA = 'dawar' and COLUMN_NAME != 'codigo' order by TABLE_NAME";
     $result = mysqli_query($conApi, $query);
