@@ -6,7 +6,9 @@
         "descricao":"Oraimo OTW-330 FreePods Lite Havy Bass TWS Earphone with APP Control,IPX4 Bluetooth 5.3, 40h Play Time, Anifast Fast Charging, Pure Bass Performance- Black + 12 Months Local Warranty",
         "categoria":"Eletronic",
         "valor":"599",
-        "desconto":"555"
+        "desconto":"555",
+        "like":10,
+        "dislike":6
     },
     {
         "codigo":2,
@@ -15,7 +17,9 @@
         "descricao":"P9 Wireless Bluetooth Headset Compatible with All Phones Earphones (Black)",
         "categoria":"Eletronic",
         "valor":"250",
-        "desconto":"225"
+        "desconto":"225",
+        "like":10,
+        "dislike":6
     },
     {
         "codigo":3,
@@ -24,7 +28,9 @@
         "descricao":"realme C53 Dual SIM 6GB RAM 128GB Mighty Black 4G LTE",
         "categoria":"Eletronic",
         "valor":"6140",
-        "desconto":"5754"
+        "desconto":"5754",
+        "like":10,
+        "dislike":6
     },
     {
         "codigo":4,
@@ -33,7 +39,9 @@
         "descricao":"Oraimo OTW-330 FreePods Lite Havy Bass TWS Earphone with APP Control,IPX4 Bluetooth 5.3, 40h Play Time, Anifast Fast Charging, Pure Bass Performance- Black + 12 Months Local Warranty",
         "categoria":"Eletronic",
         "valor":"599",
-        "desconto":"555"
+        "desconto":"555",
+        "like":10,
+        "dislike":6
     },
     {
         "codigo":5,
@@ -42,7 +50,9 @@
         "descricao":"P9 Wireless Bluetooth Headset Compatible with All Phones Earphones (Black)",
         "categoria":"Eletronic",
         "valor":"250",
-        "desconto":"225"
+        "desconto":"225",
+        "like":10,
+        "dislike":6
     },
     {
         "codigo":6,
@@ -51,6 +61,8 @@
         "descricao":"realme C53 Dual SIM 6GB RAM 128GB Mighty Black 4G LTE",
         "categoria":"Eletronic",
         "valor":"6140",
-        "desconto":"5754"
+        "desconto":"5754",
+        "like":10,
+        "dislike":6
     }
 ]
