@@ -1,5 +1,6 @@
 [
     {
+        "codigo":1,
         "foto":"https://images-eu.ssl-images-amazon.com/images/I/416LEteuq0L._AC_SX184_.jpg",
         "titulo":"Oraimo OTW-330",
         "descricao":"Oraimo OTW-330 FreePods Lite Havy Bass TWS Earphone with APP Control,IPX4 Bluetooth 5.3, 40h Play Time, Anifast Fast Charging, Pure Bass Performance- Black + 12 Months Local Warranty",
@@ -8,6 +9,7 @@
         "desconto":"555"
     },
     {
+        "codigo":2,
         "foto":"https://m.media-amazon.com/images/I/51n7ueYYS7L._AC_SX679_.jpg",
         "titulo":"P9 Wireless Bluetooth Headset Compatible with All Phones Earphones (Black)",
         "descricao":"P9 Wireless Bluetooth Headset Compatible with All Phones Earphones (Black)",
@@ -16,6 +18,7 @@
         "desconto":"225"
     },
     {
+        "codigo":3,
         "foto":"https://images-eu.ssl-images-amazon.com/images/I/41484quCHBL._AC_SX184_.jpg",
         "titulo":"realme C53 Dual SIM 6GB RAM 128GB Mighty Black 4G LTE",
         "descricao":"realme C53 Dual SIM 6GB RAM 128GB Mighty Black 4G LTE",
@@ -24,6 +27,7 @@
         "desconto":"5754"
     },
     {
+        "codigo":4,
         "foto":"https://images-eu.ssl-images-amazon.com/images/I/51SxqUTE5DL._AC_SX184_.jpg",
         "titulo":"Oraimo OTW-330",
         "descricao":"Oraimo OTW-330 FreePods Lite Havy Bass TWS Earphone with APP Control,IPX4 Bluetooth 5.3, 40h Play Time, Anifast Fast Charging, Pure Bass Performance- Black + 12 Months Local Warranty",
@@ -32,6 +36,7 @@
         "desconto":"555"
     },
     {
+        "codigo":5,
         "foto":"https://m.media-amazon.com/images/I/517T+qc6dXL._AC_UL320_.jpg",
         "titulo":"P9 Wireless Bluetooth Headset Compatible with All Phones Earphones (Black)",
         "descricao":"P9 Wireless Bluetooth Headset Compatible with All Phones Earphones (Black)",
@@ -40,6 +45,7 @@
         "desconto":"225"
     },
     {
+        "codigo":6,
         "foto":"https://m.media-amazon.com/images/I/716FwKy9FlL._AC_UL320_.jpg",
         "titulo":"realme C53 Dual SIM 6GB RAM 128GB Mighty Black 4G LTE",
         "descricao":"realme C53 Dual SIM 6GB RAM 128GB Mighty Black 4G LTE",
