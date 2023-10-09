@@ -1,6 +1,6 @@
 <?php
 
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
+    include("./lib/includes.php");
     $con = AppConnect('dawar');
     
     $query = "SELECT * FROM `COLUMNS` where TABLE_SCHEMA = 'dawar' and COLUMN_NAME != 'codigo' order by TABLE_NAME";
