@@ -136,6 +136,9 @@
             fisico_calculado = $("#fisico_calculado").val();
             vendas = $("#vendas").val();
             if(fisico_declarado /* && fisico_calculado && vendas*/){
+                alert('passou')
+                return false;
+
                 $.confirm({
                     content:`Abrir um novo caixa com o valor inciaial de <br><b>R$ ${fisico_declarado}</b>?`,
                     title:"Abertura de um novo caixa",
