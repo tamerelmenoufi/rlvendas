@@ -41,4 +41,3 @@
     }
 
     echo json_encode($Cmd);
-    //TESTE
