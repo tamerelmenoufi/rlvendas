@@ -235,7 +235,7 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 			),
 		);
 
-		print_r($data_nfe);
+		// print_r($data_nfe);
 
 
 		// VALIDADAR DADOS DO EMISSOR:
