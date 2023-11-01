@@ -145,7 +145,8 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 	if($tipoNota==1){
 
 		// MODELO NFC-E
-		$modelo = 65;
+		// $modelo = 65;
+		$modelo = 55;
 		$presenca = 1;
 		$frete = 9;
 		$impressao = 4;
