@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
-    VerificarVendaApp('mesa');
+    VerificarVendaApp('delivery');
 ?>
 <div class="col">
     <div class="col">
