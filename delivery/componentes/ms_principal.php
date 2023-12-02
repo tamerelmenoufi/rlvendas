@@ -140,7 +140,7 @@ $i++;
             // alert('AppCliente:' + AppCliente)
 
             if(
-                (AppPedido != 'undefined' && AppPedido != null) &&
+                // (AppPedido != 'undefined' && AppPedido != null) &&
                 (AppCliente != 'undefined' && AppCliente != null)
             ){
                 local = $(this).attr('local');
