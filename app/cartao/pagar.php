@@ -41,7 +41,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 $response = curl_exec($ch);
 curl_close($ch);
-$operadora_retorno = $response;
 $resposta = json_decode($response);
 
 
