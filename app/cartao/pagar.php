@@ -23,7 +23,6 @@ $Json = '{
     }
 }';
 
-
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, "https://api.mercadopago.com/v1/payments");
@@ -42,30 +41,127 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 $response = curl_exec($ch);
 curl_close($ch);
-
+$operadora_retorno = $response;
 $resposta = json_decode($response);
 
 
+if($resposta->status == 'approved'){
 
-$query = "update vendas set
-                            forma_pagamento = 'credito',
-                            operadora = 'mercadopago',
-                            operadora_id='{$resposta->id}',
-                            operadora_situacao='{$resposta->status}',
-                            operadora_retorno='{$response}',
-                            situacao = '".(($resposta->status == 'approved')?'c':'n')."'
+
+    $queryL = "select * from vendas where codigo = '{$_SESSION['AppVenda']}'";
+    $resultL = mysqli_query($con, $queryL);
+    $v = mysqli_fetch_object($resultL);
+
+    $codigos = [];
+        $query = "SELECT * FROM vendas_produtos WHERE venda = '{$_SESSION['AppVenda']}' and situacao = 'b'";
+        $result = mysqli_query($con, $query);
+        while($d = mysqli_fetch_object($result)){
+            $codigos[] = $d->codigo;
+        }
+        $codigos = implode(",", $codigos);
+
+        $ordem = strtotime("now");
+
+        $query = "UPDATE vendas_produtos SET situacao = 'p', ordem = '{$ordem}', pago = '1' WHERE codigo in ({$codigos})";
+        mysqli_query($con, $query);
+        sisLog(
+            [
+                'query' => $query,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $codigos
+            ]
+        );
+
+        $q = "update vendas set
+                forma_pagamento = 'credito',
+                operadora = 'mercadopago',
+                operadora_id='{$resposta->id}',
+                operadora_situacao='{$resposta->status}',
+                operadora_retorno='{$response}',
+                situacao = '".(($resposta->status == 'approved')?'c':'n')."'
             where codigo = '{$_SESSION['AppVenda']}'";
 
-mysqli_query($con, $query);
+        mysqli_query($con, $q);
 
-sisLog(
-    [
-        'query' => $query,
-        'file' => $_SERVER["PHP_SELF"],
-        'sessao' => $_SESSION,
-        'registro' => $_SESSION['AppVenda']
-    ]
-);
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => $_SESSION['AppVenda']
+            ]
+        );
+
+        list($valorPago) = mysqli_fetch_row(mysqli_query($con, "select sum(valor) from vendas_pagamento where venda = '{$_SESSION['AppVenda']}' and operadora_situacao = 'approved'"));
+
+        $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
+
+        $q = "INSERT INTO vendas_pagamento set
+                            caixa = '{$caixa->caixa}',
+                            venda = '{$_SESSION['AppVenda']}',
+                            data = NOW(),
+                            forma_pagamento = 'credito',
+                            valor = '".($v->total - $valorPago)."',
+                            operadora = 'mercado_pago',
+                            operadora_situacao = 'approved',
+                            operadora_retorno = '{$response}'
+                    ";
+
+        mysqli_query($con, $q);
+
+        sisLog(
+            [
+                'query' => $q,
+                'file' => $_SERVER["PHP_SELF"],
+                'sessao' => $_SESSION,
+                'registro' => mysqli_insert_id($con)
+            ]
+        );
+
+        $q = "INSERT INTO status_venda set
+                            retorno = '{$response}',
+                            data = NOW(),
+                            forma_pagamento = 'credito',
+                            operadora = 'mercado_pago',
+                            venda = '{$_SESSION['AppVenda']}'
+                    ";
+
+        mysqli_query($con, $q);
+                    sisLog(
+                        [
+                            'query' => $q,
+                            'file' => $_SERVER["PHP_SELF"],
+                            'sessao' => $_SESSION,
+                            'registro' => $_SESSION['AppVenda']
+                        ]
+                    );
+}else{
+
+    $query = "update vendas set
+                                forma_pagamento = 'credito',
+                                operadora = 'mercadopago',
+                                operadora_id='{$resposta->id}',
+                                operadora_situacao='{$resposta->status}',
+                                operadora_retorno='{$response}',
+                                situacao = '".$resposta->status."'
+                where codigo = '{$_SESSION['AppVenda']}'";
+
+    mysqli_query($con, $query);
+
+    sisLog(
+        [
+            'query' => $query,
+            'file' => $_SERVER["PHP_SELF"],
+            'sessao' => $_SESSION,
+            'registro' => $_SESSION['AppVenda']
+        ]
+    );
+
+}
+
+
+
 
 
 file_put_contents(
