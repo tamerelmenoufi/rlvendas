@@ -267,7 +267,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 R$ <?=number_format((($d->total-$d->cupom_valor) - $valor_pago),2,',','.')?><br>PIX
                             </button>
                         </div>
-                        <!-- <div class="col">
+                        <div class="col">
                             <button
                                 pagamento="credito"
                                 type="button"
@@ -276,7 +276,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                                 <i class="fa fa-credit-card fa-3x"></i><br>
                                 R$ <?=number_format((($d->total-$d->cupom_valor) - $valor_pago),2,',','.')?><br>CRÉDITO
                             </button>
-                        </div> -->
+                        </div>
                     </div>
                     <?php
                     }else{
