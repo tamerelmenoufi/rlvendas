@@ -193,7 +193,7 @@
           });
             
 
-          parent.payConfirm();
+          parent.payConfirm('<?=$d->codigo?>');
 
         },
         onFetching: (resource) => {
