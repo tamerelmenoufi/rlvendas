@@ -280,7 +280,7 @@
                     $acao_preparar = true;
                 }
 
-                if((!$_SESSION['AppPerfil'][0]->value and $d->situacao != 'n') or $d->pago == '1'){
+                if((!$_SESSION['AppPerfil'][0]->value and ($d->situacao != 'n' and $d->situacao != 'b')) or $d->pago == '1'){
                     $blqc = 'display:none;';
 
                 }else{
