@@ -78,7 +78,7 @@ if($resposta->status == 'approved'){
                 operadora_id='{$resposta->id}',
                 operadora_situacao='{$resposta->status}',
                 operadora_retorno='{$response}',
-                situacao = '".(($resposta->status == 'approved')?'c':'n')."'
+                situacao = 'preparo'
             where codigo = '{$_SESSION['AppVenda']}'";
 
         mysqli_query($con, $q);
