@@ -281,7 +281,15 @@
                     $blq = 'display:none;';
                     $acao_cancelar = false;
 
-                }else if(!$_SESSION['AppPerfil'][0]->value and $d->situacao != 'n'){
+                }else{
+                    $blq = false;
+                    $acao_preparar = true;
+                }
+
+                if($d->situacao != 'n'){
+                    $blqc = 'display:none;';
+
+                }else if(!$_SESSION['AppPerfil'][0]->value){
                     $blqc = 'display:none;';
 
                 }else{
