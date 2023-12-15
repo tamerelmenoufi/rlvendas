@@ -230,7 +230,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <div class="input-group-append">
                                 <button class="btn btn-outline-primary" type="button" id="inserir_cupom">Validar</button>
                             </div>
-                        </div>                     
+                        </div> 
+                        
+                        <div class="alert alert-success" role="alert">
+                            Você tem um CUPOM de presenta da yobom com 5% de desconto no valor de sua compra!<br>
+                            Clique no botão validar e aproveite o prosente :)
+                        </div>
+                        
                         <?php
                             }
                         ?>
