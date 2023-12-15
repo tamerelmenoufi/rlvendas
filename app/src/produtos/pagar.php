@@ -232,7 +232,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             </div>
                         </div> 
                         
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-info" role="alert">
                             Você tem um CUPOM de presenta da yobom com 5% de desconto no valor de sua compra!<br>
                             Clique no botão validar e aproveite o prosente :)
                         </div>
