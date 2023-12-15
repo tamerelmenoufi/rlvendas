@@ -158,6 +158,8 @@
         onSubmit: event => {
           event.preventDefault();
 
+          parent.Carregando();
+
           const {
             paymentMethodId: payment_method_id,
             issuerId: issuer_id,

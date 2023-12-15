@@ -32,6 +32,7 @@
                 success:function(dados){
                     $.alert(dados);
                     PageClose();
+                    Carregando('none');
                 }
             })
 
