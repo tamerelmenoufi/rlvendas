@@ -281,16 +281,19 @@
                     $blq = 'display:none;';
                     $acao_cancelar = false;
 
-                }else{
-                    $blq = false;
-                    $acao_preparar = true;
-                }
+                }else
+                
+                // {
+                //     $blq = false;
+                //     $acao_preparar = true;
+                // }
 
                 if(!$_SESSION['AppPerfil'][0]->value and $d->situacao != 'n'){
                     $blqc = 'display:none;';
 
                 }else{
                     $blqc = false;
+                    $acao_preparar = true;
                 }
 
 
