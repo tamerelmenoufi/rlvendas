@@ -208,7 +208,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <h5 class="card-title">
                                 <small>Valor a pagar</small>
                                 <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',',false)?></div> -->
-                                <div class="valor_pendente" pendente="" valor="#Yobom2024">R$ <?=number_format(($d->total-$d->cupom_valor),2,',',false)?></div>
+                                <div class="valor_pendente" pendente="" valor="">R$ <?=number_format(($d->total-$d->cupom_valor),2,',',false)?></div>
                             </h5>
                         </div>
                     </div>
@@ -226,7 +226,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         ?>
                         Tem Cupom Promocional? Digite aqui!
                         <div class="input-group mb-3">
-                            <input type="text" id="cupom" <?=(($_POST['cupom'] and !$d->cupom)?' style="border:solid 1px red" ':false)?> valor="<?=$d->valor?>" class="form-control" placeholder="Digite o códido do cupom" aria-label="Digite o códido do cupom" aria-describedby="inserir_cupom">
+                            <input type="text" id="cupom" value="#Yobom2024" <?=(($_POST['cupom'] and !$d->cupom)?' style="border:solid 1px red" ':false)?> valor="<?=$d->valor?>" class="form-control" placeholder="Digite o códido do cupom" aria-label="Digite o códido do cupom" aria-describedby="inserir_cupom">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-primary" type="button" id="inserir_cupom">Validar</button>
                             </div>
