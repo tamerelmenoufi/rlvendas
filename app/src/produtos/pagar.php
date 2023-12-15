@@ -208,7 +208,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <h5 class="card-title">
                                 <small>Valor a pagar</small>
                                 <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',',false)?></div> -->
-                                <div class="valor_pendente" pendente="" valor="">R$ <?=number_format(($d->total-$d->cupom_valor),2,',',false)?></div>
+                                <div class="valor_pendente" pendente="" valor="#Yobom2024">R$ <?=number_format(($d->total-$d->cupom_valor),2,',',false)?></div>
                             </h5>
                         </div>
                     </div>
