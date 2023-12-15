@@ -52,7 +52,7 @@ if($resposta->status == 'approved'){
     $v = mysqli_fetch_object($resultL);
 
     $codigos = [];
-        $query = "SELECT * FROM vendas_produtos WHERE venda = '{$_SESSION['AppVenda']}' and situacao = 'b'";
+        $query = "SELECT * FROM vendas_produtos WHERE venda = '{$_SESSION['AppVenda']}' and situacao = 'n'";
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
             $codigos[] = $d->codigo;
