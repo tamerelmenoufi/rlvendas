@@ -105,7 +105,7 @@
 <script>
 
     const cardForm = mp.cardForm({
-      amount: "<?=($d->total - $d->cupom_valor - $valor_pago)?>",
+      amount: <?=($d->total - $d->cupom_valor - $valor_pago)?>,
       iframe: true,
       form: {
         id: "form-checkout",
