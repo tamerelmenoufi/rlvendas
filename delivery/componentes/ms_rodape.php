@@ -12,6 +12,12 @@
     <div class="col acao" componente="ms_popup_100" local="src/produtos/pedido.php"><i class="fa-solid fa-bell-concierge"></i><p>Pedido <?=str_pad($m->mesa , 3 , '0' , STR_PAD_LEFT)?></p></div>
     <!-- <div class="col acao" componente="ms_popup_100" local="src/produtos/pagar.php"><i class="fa-solid fa-circle-dollar-to-slot"></i><p>Pagar</p></div> -->
 </div>
+<div class="row">
+    <div class="col-12" style="font-size:12px;">Yobom - Sorveteria, pizzaria e restaurante - CNPJ 28.856.577/0001-19</div>
+    <div class="col-12" style="font-size:12px;">R. Bruxelas, 15 - Planalto, Manaus - AM, 69045-260, Brasil - +55 (92) 99321-6300</div>
+    <!-- <div class="col acao" componente="ms_popup_100" local="src/produtos/pagar.php"><i class="fa-solid fa-circle-dollar-to-slot"></i><p>Pagar</p></div> -->
+</div>
+
 <script>
     ///////////////
     $(function(){
