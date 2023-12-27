@@ -1,10 +1,10 @@
 <?php
     include("../lib/includes.php");
 
-    if($_POST['chave'] == '112233'){
+    if($_POST['chave'] == $chave_producao){
         $retorno = [
             'status'=>'success',
-            'logado'=>'112233'
+            'logado'=>$chave_producao
         ];
         echo json_encode($retorno);
         exit();
