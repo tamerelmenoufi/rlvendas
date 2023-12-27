@@ -46,6 +46,8 @@
                     console.log(dados);
                     if(dados.status == 'success'){
                         $.alert('Chave ok!');
+                        window.localStorage.setItem('logado',dados.logado);
+                        window.location.href='./index.php?<?=$_GET['opc']?>'
                     }else{
                         $.alert('Chave inválida!');
                     }

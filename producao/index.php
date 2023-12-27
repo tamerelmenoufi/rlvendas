@@ -24,12 +24,17 @@
 
 <script>
     $(function () {
+        <?php
+            foreach($_GET as $ind => $val){
+                $opc = $ind;
+            }
+        ?>
 
-        logado = window.localStorage.getItem('Logado');
+        logado = window.localStorage.getItem('logado');
 
         if(!logado){
             $.dialog({
-                content:"url:login.php",
+                content:"url:login.php?opc=<?=$opc?>",
                 title:"Chave de acesso",
                 columnClass:"col-md-4",
                 type:"blue"
@@ -38,11 +43,7 @@
             return false;
         }
 
-        <?php
-            foreach($_GET as $ind => $val){
-                $opc = $ind;
-            }
-        ?>
+
 
         $.ajax({
             url: "<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>",
