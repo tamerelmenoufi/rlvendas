@@ -1,5 +1,6 @@
 <?php
     include("../lib/includes.php");
+    $chave = '112233';
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@
 
         logado = window.localStorage.getItem('logado');
 
-        if(!logado){
+        if(!logado || logado != '<?=$chave?>'){
             $.dialog({
                 content:"url:login.php?opc=<?=$opc?>",
                 title:"Chave de acesso",
