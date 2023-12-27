@@ -302,6 +302,7 @@
             url: "<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>",
             success: function (dados) {
                 $("#body").html(dados);
+                console.log('Entrou em contato')
             },
             error: function () {
                 $.alert('Ocorreu um erro!<br>Favor recarregar a página<br><br><button recarregar class="btn btn-primary btn-lg">Recarregar</button>');
