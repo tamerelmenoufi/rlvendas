@@ -309,7 +309,7 @@
             }
         });
     }, 5000);
-
+    console.log(logado)
     if(!logado){
         clearInterval(renovacao);
         console.log('Sair')
