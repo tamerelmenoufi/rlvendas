@@ -32,7 +32,7 @@
                 content:"url:login.php",
                 title:"Chave de acesso",
                 columnClass:"col-md-4",
-                type:"red"
+                type:"blue"
             })
 
             return false;
