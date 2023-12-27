@@ -297,7 +297,7 @@
 
 ?>
 
-    setInterval(function () {
+    renovacao = setInterval(function () {
         $.ajax({
             url: "<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>",
             success: function (dados) {
@@ -309,6 +309,11 @@
             }
         });
     }, 5000);
+
+    if(!logado){
+        clearInterval(renovacao);
+        console.log('Sair')
+    }
 
     $(document).on('click',"button[recarregar]", function(){
         window.location.href='./?<?=$opc?>';
