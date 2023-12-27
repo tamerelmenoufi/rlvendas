@@ -184,8 +184,6 @@
 
         });
 
-
-
         renovacao = setInterval(function () {
             $.ajax({
                 url: "<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>",
@@ -210,117 +208,6 @@
         })
 
     });
-
-
-
-
-
-
-
-
-
-<?php
-
-/*
-
-?>
-
-
-
-    // Socket Variable declaration
-    var mySocket;
-    const socketMessageListener = (event) => {
-
-        const dados = JSON.parse(event.data);
-        if(dados.type === 'chat'){
-            //output.append('Outro: ' + dados.text, document.createElement('br'));
-            console.log('Entrou na função');
-            console.log(dados.text);
-
-            $.ajax({
-                url: "<?=$opc?>/index.php?<?=$md5?>",
-                success: function (dados) {
-                    $("#body").html(dados);
-                },
-                error: function () {
-                    $.alert('Ocorreu um erro!');
-                }
-            });
-
-
-            // $.ajax({
-            //     url:"<?=$opc?>/add.php?<?=$md5?>",
-            //     type:"POST",
-            //     data:{
-            //         cod:dados.text,
-            //     },
-            //     success:function(dados){
-            //         console.log(dados);
-            //         $("table[painel]").append(dados);
-            //     },
-            //     error:function(){
-            //         console.log('algo deu errado!');
-            //     }
-            // });
-
-            // nova_linha = '<tr>'+
-            //                 '<td>'+
-            //                 '    <div class="form-group form-check">'+
-            //                 '        <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">'+
-            //                 '    </div>'+
-            //                 '</td>'+
-            //                 '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">XXX <?=$d->mesa?></label></td>'+
-            //                 '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>'+
-            //                 '<td><label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">'+
-            //                 '    <?=$pedido->categoria->descricao?>'+
-            //                 '    - <?=$pedido->medida->descricao?> (<?=$sabores?>)'+
-            //                 '    <p class="card-text" style="color:red;">'+
-            //                 '    <?= $d->produto_descricao?></p>'+
-            //                 '</label></td>'+
-            //                 '<td><button concluir cod="<?=$d->codigo?>" class="btn btn-primary btn-sm">Concluir</button></td>'+
-            //                 '</tr>';
-
-        }
-
-
-    };
-
-    // Open
-    const socketOpenListener = (event) => {
-        console.log('Connected');
-
-        $.ajax({
-            url: "<?=$opc?>/index.php?<?=$md5?>",
-            success: function (dados) {
-                $("#body").html(dados);
-            },
-            error: function () {
-                $.alert('Ocorreu um erro!');
-            }
-        });
-
-    };
-
-    // Closed
-    const socketCloseListener = (event) => {
-    if (mySocket) {
-        console.error('Disconnected.');
-    }
-    mySocket = new WebSocket('wss://websocket.yobom.com.br');
-    mySocket.addEventListener('open', socketOpenListener);
-    mySocket.addEventListener('message', socketMessageListener);
-    mySocket.addEventListener('close', socketCloseListener);
-    };
-    socketCloseListener();
-
-    <?php
-
-//*/
-
-?>
-
- 
-
 
 </script>
 </body>
