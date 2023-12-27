@@ -25,6 +25,19 @@
 <script>
     $(function () {
 
+        logado = window.localStorage.getItem('Logado');
+
+        if(!logado){
+            $.dialog({
+                content:"url:login.php",
+                title:"Chave de acesso",
+                columnClass:"col-md-4",
+                type:"red"
+            })
+
+            return false;
+        }
+
         <?php
             foreach($_GET as $ind => $val){
                 $opc = $ind;
