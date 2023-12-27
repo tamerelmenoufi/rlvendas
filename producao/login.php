@@ -43,6 +43,7 @@
                     chave,
                 },
                 success:function(dados){
+                    console.log(dados);
                     if(dados.status == 'success'){
                         $.alert('Chave ok!');
                     }else{
