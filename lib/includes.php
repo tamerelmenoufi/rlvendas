@@ -46,4 +46,4 @@ if($_SERVER['HTTP_HOST'] == 'yobom.com.br'){
 $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";
 $Perfil = mysqli_fetch_object(mysqli_query($con, $query));
 
-$chave_producao = '112233X';
+$chave_producao = '112233';
