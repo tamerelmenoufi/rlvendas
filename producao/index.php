@@ -1,6 +1,6 @@
 <?php
     include("../lib/includes.php");
-    $chave = '112233';
+    $chave = '112233X';
 ?>
 
 <!DOCTYPE html>
