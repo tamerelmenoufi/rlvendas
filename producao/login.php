@@ -38,7 +38,7 @@
             $.ajax({
                 url:"login.php",
                 type:"POST",
-                typeData:"JSON",
+                dataType:"JSON",
                 data:{
                     chave,
                 },
