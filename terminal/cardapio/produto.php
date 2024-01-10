@@ -35,6 +35,7 @@ if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
     foreach ([
                  'venda'             => $_SESSION['ConfVenda'],
+                 'app'               => $localApp,
                  'cliente'           => $_SESSION['ConfCliente'],
                  'mesa'              => $_SESSION['ConfMesa'],
                  'quantidade'        => $_POST['quantidade'],

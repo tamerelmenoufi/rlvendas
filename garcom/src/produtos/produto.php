@@ -26,6 +26,7 @@
 
         $arrayInsert = [
             'venda' => $_SESSION['AppVenda'],
+            'app' => $localApp,
             'cliente' => $_SESSION['AppCliente'],
             'atendente' => $_SESSION['AppGarcom'],
             'mesa' => $_SESSION['AppPedido'],

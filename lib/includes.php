@@ -53,4 +53,5 @@ $appOpc = [
     'app' => 'mesa',
     'delivery' => 'delivery',
 ];
+
 $localApp = $appOpc[explode("/",str_replace("/rlvendas/",false,$_SERVER["PHP_SELF"]))[0]];
