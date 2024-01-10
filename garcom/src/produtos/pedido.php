@@ -259,6 +259,7 @@
 
             $acao_preparar = false;
             $acao_cancelar = true;
+            $semAtendente = false;
 
             while($d = mysqli_fetch_object($result)){
 
@@ -299,7 +300,13 @@
                     <?=CalcTempo($d->data)?>
                 </p>
                 <p Garcom>
-                    <?=(($d->atendente)?:false)?>
+                    <?php
+                        if($d->atendente){
+                            echo $d->atendente;
+                        }else{
+                            $semAtendente = true;
+                        }
+                    ?>
                     <?=(($d->app == 'app' )?'<br><span style="color:#333">Pedido pelo Aplicativo</span>':false)?>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
@@ -489,66 +496,96 @@
 
         $("button[confirmar_pedido]").click(function () {
 
-            $.alert({
-                icon: "fa-solid fa-question",
-                title: "Seu pedido será enviado para o preparo após a sua confirmação.<br><br>Deseja confirmar o envio?",
-                content: false,
-                columnClass: "medium",
-                type: "green",
-                buttons: {
-                    nao: {
-                        text: "Não",
-                        btnClass: "btn-red",
-                        action: function () {
-                        }
-                    },
-                    sim: {
-                        text: "Sim, Pode Preparar",
-                        btnClass: "btn-success",
-                        action: function () {
+
+            AcaoValida = ()=>{
+                $.alert({
+                    icon: "fa-solid fa-question",
+                    title: "Seu pedido será enviado para o preparo após a sua confirmação.<br><br>Deseja confirmar o envio?",
+                    content: false,
+                    columnClass: "medium",
+                    type: "green",
+                    buttons: {
+                        nao: {
+                            text: "Não",
+                            btnClass: "btn-red",
+                            action: function () {
+                            }
+                        },
+                        sim: {
+                            text: "Sim, Pode Preparar",
+                            btnClass: "btn-success",
+                            action: function () {
 
 
-                            $.ajax({
-                                url: "src/produtos/pedido.php",
-                                method: "POST",
-                                dataType: "JSON",
-                                data: {
-                                    acao: "confirmar_pedido"
-                                },
-                                success: function (dados) {
-                                    if (dados.status === "sucesso") {
-                                        atualiza = dados.venda;
+                                $.ajax({
+                                    url: "src/produtos/pedido.php",
+                                    method: "POST",
+                                    dataType: "JSON",
+                                    data: {
+                                        acao: "confirmar_pedido"
+                                    },
+                                    success: function (dados) {
+                                        if (dados.status === "sucesso") {
+                                            atualiza = dados.venda;
 
 
-                                        $.ajax({
-                                            url:"componentes/ms_popup_100.php",
-                                            type:"POST",
-                                            data:{
-                                                local:'src/produtos/pedido.php',
-                                            },
-                                            success:function(dados){
-                                                PageClose();
-                                                $(".ms_corpo").append(dados);
-                                                mySocket.send(atualiza);
-                                                console.log(atualiza);
-                                            }
-                                        });
+                                            $.ajax({
+                                                url:"componentes/ms_popup_100.php",
+                                                type:"POST",
+                                                data:{
+                                                    local:'src/produtos/pedido.php',
+                                                },
+                                                success:function(dados){
+                                                    PageClose();
+                                                    $(".ms_corpo").append(dados);
+                                                    mySocket.send(atualiza);
+                                                    console.log(atualiza);
+                                                }
+                                            });
 
-
-
+                                        }
                                     }
-                                }
-                            })
+                                })
+
+                            }
+                        },
+                    }
+                });
+            }
 
 
-
-
-
-
+            <?php
+            if($semAtendente){
+            ?>
+            $.confirm({
+                title:"Conferir Pedido",
+                content:"Confira a lista de itens com o cliente antes de prosseguir. Alum(ns) item(ns) da lista precisam de confirmação.",
+                type:"red",
+                buttons:{
+                    'volta':{
+                        text:"Voltar e Conferir",
+                        btnClass:'btn btn-danger',
+                        action:{
+                            
                         }
                     },
+                    'avanca':{
+                        text:"Itens Conferidos",
+                        btnClass:'btn btn-success',
+                        action:{
+                            AcaoValida()
+                        }
+                    },                    
                 }
-            });
+            })
+            <?php
+            }else{
+            ?>
+            AcaoValida()
+            <?php
+            }
+            ?>
+
 
         });
 
