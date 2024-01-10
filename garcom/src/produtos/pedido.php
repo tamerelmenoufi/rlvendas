@@ -273,7 +273,7 @@
                 if($ListaPedido) $sabores = implode(', ', $ListaPedido);
 
 
-                if($d->situacao != 'n'){
+                if($d->situacao != 'n' and $d->situacao != 'b'){
                     $blq = 'display:none;';
                     $acao_cancelar = false;
 
