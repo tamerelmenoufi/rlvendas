@@ -299,8 +299,8 @@
                     <?=CalcTempo($d->data)?>
                 </p>
                 <p Garcom>
-                    <?=(($d->app == 'app' )?'Pedido pelo Aplicativo':false)?>
-                    <?=(($d->atendente)?'<br>'.$atendente:false)?>
+                    <?=(($d->atendente)?:false)?>
+                    <?=(($d->app == 'app' )?'<br>Pedido pelo Aplicativo':false)?>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
