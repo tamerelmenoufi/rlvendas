@@ -49,8 +49,8 @@ $Perfil = mysqli_fetch_object(mysqli_query($con, $query));
 $chave_producao = '112233';
 
 $appOpc = [ 
-    'garcom' = 'garcom',
-    'app' = 'mesa',
-    'delivery' = 'delivery',
+    'garcom' => 'garcom',
+    'app' => 'mesa',
+    'delivery' => 'delivery',
 ];
 $localApp = $appOpc[explode("/",str_replace("/rlvendas/",false,$_SERVER["PHP_SELF"]))[0]];
