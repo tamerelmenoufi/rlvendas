@@ -300,7 +300,7 @@
                 </p>
                 <p Garcom>
                     <?=(($d->atendente)?:false)?>
-                    <?=(($d->app == 'app' )?'<br>Pedido pelo Aplicativo':false)?>
+                    <?=(($d->app == 'app' )?'<br><span style="color:#333">Pedido pelo Aplicativo</span>':false)?>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
