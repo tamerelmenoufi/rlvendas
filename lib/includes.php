@@ -47,3 +47,6 @@ $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";
 $Perfil = mysqli_fetch_object(mysqli_query($con, $query));
 
 $chave_producao = '112233';
+
+
+$localApp = $_SERVER["PHP_SELF"];
