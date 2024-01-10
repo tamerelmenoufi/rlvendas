@@ -49,4 +49,4 @@ $Perfil = mysqli_fetch_object(mysqli_query($con, $query));
 $chave_producao = '112233';
 
 
-$localApp = $_SERVER["PHP_SELF"];
+$localApp = explode("/",str_replace("/rlvendas/",false,$_SERVER["PHP_SELF"]))[0];
