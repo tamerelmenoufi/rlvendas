@@ -564,14 +564,14 @@
                     'volta':{
                         text:"Voltar e Conferir",
                         btnClass:'btn btn-danger',
-                        action:{
+                        action:function(){
                             
                         }
                     },
                     'avanca':{
                         text:"Itens Conferidos",
                         btnClass:'btn btn-success',
-                        action:{
+                        action:function(){
                             AcaoValida()
                         }
                     },                    
