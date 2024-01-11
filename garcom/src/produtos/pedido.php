@@ -247,7 +247,6 @@
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
         <?php
-            echo $localApp;
             $query = "select a.*,
                         b.nome as atendente
                         from vendas_produtos a
