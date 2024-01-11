@@ -306,7 +306,7 @@
                             $semAtendente = true;
                         }
                     ?>
-                    <?=(($d->app == 'mesa' )?'<br><span style="color:#333; font-weight:bold">Pedido pelo Aplicativo</span>':false)?>
+                    <?=(($d->app == 'mesa' )?'<div><span style="color:#333; font-weight:bold">Pedido pelo Aplicativo</span></div>':false)?>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
