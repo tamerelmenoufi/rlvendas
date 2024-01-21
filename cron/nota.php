@@ -30,12 +30,18 @@ echo $d->codigo;
 // $result1 = mysqli_query($con, $query1);
 // $d1 = mysqli_fetch_object($result1);
 
-// if($d->nf_status == 'aprovado'){
+if($d->nf_status != 'aprovado'){
 //     $retorno = [
 //         'status' => true,
 //         'nota' => $d->nf_numero
 //     ];
-// }else{
+
+$query = "UPDATE `vendas` set nf_status = 'erro', nf_error = '{$result}' where codigo  = '{$d->codigo}'";
+$result = mysqli_query($con, $query);
+
+}
+
+// else{
 //     $retorno = [
 //         'status' => false,
 //         'error' => "Ocorreu algum problema,".$result.' - '.$query.' - '.$d->nr_error
