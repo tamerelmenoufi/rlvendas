@@ -1,0 +1,43 @@
+<?php
+
+include("../lib/includes_off.php");
+
+# SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido like '%2024-01-20%' and forma_pagamento = 'credito') and deletado != '1' and situacao = 'pago';
+
+$query = "SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido >= '2024-01-21 00:00:00' and forma_pagamento = 'credito') and deletado != '1' and situacao = 'pago' and nf_status != 'aprovado' limit 1";
+$result = mysqli_query($con, $query);
+$d = mysqli_fetch_object($result);
+
+$postdata = http_build_query(
+    array(
+        'id' => $d->codigo, // Receivers phonei
+        'cpf' => $d->cpf, // Receivers phonei
+    )
+);
+$opts = array('http' =>
+    array(
+        'method' => 'POST',
+        'header' => 'Content-type: application/x-www-form-urlencoded',
+        'content' => $postdata
+    )
+);
+$context = stream_context_create($opts);
+echo $result = file_get_contents('https://yobom.com.br/rlvendas/nf/emissorNF.php', false, $context);
+
+
+// $query1 = "select * from vendas where codigo = '$d->codigo'";
+// $result1 = mysqli_query($con, $query1);
+// $d1 = mysqli_fetch_object($result1);
+
+// if($d->nf_status == 'aprovado'){
+//     $retorno = [
+//         'status' => true,
+//         'nota' => $d->nf_numero
+//     ];
+// }else{
+//     $retorno = [
+//         'status' => false,
+//         'error' => "Ocorreu algum problema,".$result.' - '.$query.' - '.$d->nr_error
+//     ];
+// }
+// echo trim(json_encode($retorno));
