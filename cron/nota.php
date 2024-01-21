@@ -36,7 +36,7 @@ if($d->nf_status != 'aprovado'){
 //         'nota' => $d->nf_numero
 //     ];
 
-$query = "UPDATE `vendas` set nf_status = 'erro', nf_error = '{$result}' where codigo  = '{$d->codigo}'";
+echo $query = "UPDATE `vendas` set nf_status = 'erro', nf_error = '{$result}' where codigo  = '{$d->codigo}'";
 $result = mysqli_query($con, $query);
 
 }
