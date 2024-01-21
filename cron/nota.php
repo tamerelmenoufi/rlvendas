@@ -4,7 +4,7 @@ include("../lib/includes_off.php");
 
 # SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido like '%2024-01-20%' and forma_pagamento = 'credito') and deletado != '1' and situacao = 'pago';
 
-echo $query = "SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido >= '2024-01-21 00:00:00' and forma_pagamento = 'credito') and deletado != '1' and situacao = 'pago' and nf_status != 'aprovado' limit 1";
+$query = "SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido >= '2024-01-21 00:00:00' and forma_pagamento = 'credito') and deletado != '1' and situacao = 'pago' and nf_status != 'aprovado' limit 1";
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
 
@@ -23,7 +23,8 @@ $opts = array('http' =>
 );
 $context = stream_context_create($opts);
 echo $result = file_get_contents('https://yobom.com.br/rlvendas/nf/emissorNF.php', false, $context);
-
+echo "<br><br>";
+echo $d->codigo;
 
 // $query1 = "select * from vendas where codigo = '$d->codigo'";
 // $result1 = mysqli_query($con, $query1);
