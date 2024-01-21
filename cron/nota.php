@@ -8,6 +8,8 @@ $query = "SELECT * FROM `vendas` where codigo in (select codigo from vendas_paga
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
 
+if(!$d->codigo) exit();
+
 $postdata = http_build_query(
     array(
         'id' => $d->codigo, // Receivers phonei
