@@ -69,7 +69,7 @@
 
     $cielo = new Cielo;
     $retorno = $cielo->Transacao($json);
-    $retorno = json_decode($retorno);
+    // $retorno = json_decode($retorno);
 
     var_dump($retorno);
 
