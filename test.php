@@ -1,15 +1,76 @@
 <?php
+    include("./lib/includes.php");
 
-$x = '{"1":{"valor":"30","quantidade":"3"},"2":{"valor":"25","quantidade":"0"},"3":{"valor":"37","quantidade":"2"},"4":{"valor":"57","quantidade":"0"}}';
-//echo $x;
-$json_decode = json_decode($x);
+    $json = '{
+        "MerchantOrderId":"2014111701",
+        "Customer":{
+           "Name":"Comprador crédito completo",
+           "Identity":"11225468954",
+           "IdentityType":"CPF",
+           "Email":"compradorteste@teste.com",
+           "Birthdate":"1991-01-02",
+           "Address":{
+              "Street":"Rua Teste",
+              "Number":"123",
+              "Complement":"AP 123",
+              "ZipCode":"12345987",
+              "City":"Rio de Janeiro",
+              "State":"RJ",
+              "Country":"BRA"
+           },
+             "DeliveryAddress": {
+                 "Street": "Rua Teste",
+                 "Number": "123",
+                 "Complement": "AP 123",
+                 "ZipCode": "12345987",
+                 "City": "Rio de Janeiro",
+                 "State": "RJ",
+                 "Country": "BRA"
+             },
+             "Billing": {
+                 "Street": "Rua Neturno",
+                 "Number": "12345",
+                 "Complement": "Sala 123",
+                 "Neighborhood": "Centro",
+                 "City": "Rio de Janeiro",
+                 "State": "RJ",
+                 "Country": "BR",
+                 "ZipCode": "20080123"
+       },
+        },
+        "Payment":{
+          "ServiceTaxAmount":0,
+          "Installments":1,
+          "Interest":"ByMerchant",
+          "Capture":true,
+          "Authenticate":false,
+          "Recurrent":"false",
+          "SoftDescriptor":"123456789ABCD",
+          "CreditCard":{
+              "CardNumber":"4551870000000183",
+              "Holder":"Teste Holder",
+              "ExpirationDate":"12/2030",
+              "SecurityCode":"123",
+              "SaveCard":"false",
+              "Brand":"Visa",
+              "CardOnFile":{
+                 "Usage": "Used",
+                 "Reason":"Unscheduled"
+              }
+          },     
+          "IsCryptoCurrencyNegotiation": true,
+          "Type":"CreditCard",
+          "Amount":15700,
+          "AirlineData":{
+              "TicketNumber":"AR988983"
+          }
+        }
+     }';
 
-print_r($json_decode->{'1'});
-// die;
+    $cielo = new Cielo;
+    $retorno = $cielo->Transacao($json);
+    $retorno = json_decode($retorno);
 
-foreach ($json_decode as $key => $item) {
-    print_r($item->medida);
-}
-var_dump($json_decode);
+    var_dump($retorno);
 
 /////////////////////////////////////////////////
