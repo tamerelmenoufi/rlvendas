@@ -129,7 +129,7 @@
                 !ponto_referencia ||
                 !bairro ||
                 !localidade ||
-                !uf ||
+                !uf
             ){
                 $.alert({
                     content:'Preencha os campos obrigatórios(*) do formulário!',
