@@ -122,7 +122,9 @@
                 console.log(data.results[0].address_components);
                 retorno = data.results[0].address_components;
                 retorno.map((retorno) => {
-                    console.log(retorno.types)
+                    retorno.types.map((tipo)=>{
+                        console.log(tipo)
+                    })
                 })
             })
             .catch(error => {
