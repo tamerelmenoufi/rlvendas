@@ -106,7 +106,7 @@
     $(function(){
 
 
-        $("#cep").blur(fucntion(){
+        $("#cep").blur(function(){
             cep = $(this).val();
             const apiUrl = `https://maps.google.com/maps/api/geocode/json?address=${cep}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w`;
             // Make a GET request
