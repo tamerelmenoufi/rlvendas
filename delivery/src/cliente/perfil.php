@@ -120,7 +120,7 @@
             .then(data => {
                 console.log(data);
                 console.log(data.results[0].address_components);
-                data.results[0].address_components.each(function(d){
+                data.results[0].address_components.foreach(function(d){
                     console.log(d.types)
                 })
             })
