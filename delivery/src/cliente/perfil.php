@@ -168,6 +168,7 @@
                     cep,
                     logradouro,
                     numero,
+                    complemento,
                     ponto_referencia,
                     bairro,
                     localidade,
