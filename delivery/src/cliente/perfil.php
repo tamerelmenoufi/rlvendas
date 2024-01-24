@@ -121,9 +121,9 @@
                 console.log(data);
                 console.log(data.results[0].address_components);
                 retorno = data.results[0].address_components;
-                // while(retorno){
-                //     console.log(retorno.types)
-                // }
+                retorno.map((retorno) => {
+                    console.log(retorno.types)
+                })
             })
             .catch(error => {
                 console.error('Error:', error);
