@@ -4,38 +4,38 @@
     $json = '{
         "MerchantOrderId":"2014111701",
         "Customer":{
-           "Name":"Comprador crédito completo",
-           "Identity":"11225468954",
+           "Name":"Tamer Mohamed Elmenoufi",
+           "Identity":"60110970225",
            "IdentityType":"CPF",
-           "Email":"compradorteste@teste.com",
-           "Birthdate":"1991-01-02",
+           "Email":"tamer@mohatron.com.br",
+           "Birthdate":"1976-08-28",
            "Address":{
-              "Street":"Rua Teste",
-              "Number":"123",
-              "Complement":"AP 123",
-              "ZipCode":"12345987",
-              "City":"Rio de Janeiro",
-              "State":"RJ",
-              "Country":"BRA"
+                "Street": "Rua Monsenhor Coutinho",
+                "Number": "600",
+                "Complement": "Edifício Maximino Correia",
+                "City": "Manaus",
+                "State": "AM",
+                "Country": "BR",
+                "ZipCode": "69010110"
            },
              "DeliveryAddress": {
-                 "Street": "Rua Teste",
-                 "Number": "123",
-                 "Complement": "AP 123",
-                 "ZipCode": "12345987",
-                 "City": "Rio de Janeiro",
-                 "State": "RJ",
-                 "Country": "BRA"
+                "Street": "Rua Monsenhor Coutinho",
+                "Number": "600",
+                "Complement": "Edifício Maximino Correia",
+                "City": "Manaus",
+                "State": "AM",
+                "Country": "BR",
+                "ZipCode": "69010110"
              },
              "Billing": {
-                 "Street": "Rua Neturno",
-                 "Number": "12345",
-                 "Complement": "Sala 123",
+                 "Street": "Rua Monsenhor Coutinho",
+                 "Number": "600",
+                 "Complement": "Edifício Maximino Correia",
                  "Neighborhood": "Centro",
-                 "City": "Rio de Janeiro",
-                 "State": "RJ",
+                 "City": "Manaus",
+                 "State": "AM",
                  "Country": "BR",
-                 "ZipCode": "20080123"
+                 "ZipCode": "69010110"
        },
         },
         "Payment":{
@@ -47,10 +47,10 @@
           "Recurrent":"false",
           "SoftDescriptor":"123456789ABCD",
           "CreditCard":{
-              "CardNumber":"4551870000000183",
-              "Holder":"Teste Holder",
-              "ExpirationDate":"12/2030",
-              "SecurityCode":"123",
+              "CardNumber":"4078430099953653",
+              "Holder":"tamer mohamed elmenoufi",
+              "ExpirationDate":"03/2028",
+              "SecurityCode":"977",
               "SaveCard":"false",
               "Brand":"Visa",
               "CardOnFile":{
@@ -60,7 +60,7 @@
           },     
           "IsCryptoCurrencyNegotiation": true,
           "Type":"CreditCard",
-          "Amount":15700,
+          "Amount":100,
           "AirlineData":{
               "TicketNumber":"AR988983"
           }
