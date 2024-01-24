@@ -105,6 +105,29 @@
 <script>
     $(function(){
 
+
+        $("#cep").blur(fucntion(){
+            cep = $(this).val();
+            const apiUrl = `https://maps.google.com/maps/api/geocode/json?address=${cep}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w`;
+            // Make a GET request
+            fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Aqui a descricao');
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        })
+
+
         $("button[SalvarDados]").click(function(){
             nome = $("#nome").val();
             email = $("#email").val();
@@ -135,22 +158,7 @@
             // Define the API URL
 
 
-            const apiUrl = `https://maps.google.com/maps/api/geocode/json?address=${cep}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w`;
 
-            // Make a GET request
-            fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
 
 
 
