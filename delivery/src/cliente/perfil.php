@@ -120,6 +120,9 @@
             .then(data => {
                 console.log(data);
                 console.log(data.results[0].address_components);
+                data.results[0].address_components.each(function(d){
+                    console.log(d.types)
+                })
             })
             .catch(error => {
                 console.error('Error:', error);
