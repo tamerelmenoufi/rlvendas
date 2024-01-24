@@ -93,7 +93,7 @@
       </tr>
       <tr>
         <td colspan="2">
-          <button type="submit" id="form-checkout__submit" class="btn btn-success btn-lg w-100">Pagar R$ <?=number_format(($d->total - $valor_pago), 2, ',', '.')?></button>
+          <button type="submit" id="form-checkout__submit" class="btn btn-success btn-lg w-100">Pagar R$ <?=number_format((($d->total-$d->cupom_valor) - $valor_pago), 2, ',', '.')?></button>
         </td>
       </tr>
 
@@ -105,7 +105,7 @@
 <script>
 
     const cardForm = mp.cardForm({
-      amount: "<?=($d->total - $valor_pago)?>",
+      amount: "<?=(($d->total-$d->cupom_valor) - $valor_pago)?>",
       iframe: true,
       form: {
         id: "form-checkout",
