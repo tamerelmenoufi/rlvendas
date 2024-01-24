@@ -93,8 +93,8 @@
                 <div class="form-group">
                     <label for="bairro">Bairro*</label>
                     <input type="text" class="form-control form-control-lg" id="bairro" value="<?=$c->bairro?>">
-                    <inpu type="hidden" id="localidade" value="Manaus" />
-                    <inpu type="hidden" id="uf" value="AM" />
+                    <input type="hidden" id="localidade" value="Manaus" />
+                    <input type="hidden" id="uf" value="AM" />
                 </div>
 
                 <button SalvarDados type="buttom" class="btn btn-primary btn-lg">Salvar dados</button>
