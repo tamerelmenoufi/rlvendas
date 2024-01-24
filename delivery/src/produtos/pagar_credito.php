@@ -21,9 +21,21 @@
 
 <script>
     $(function(){
-        payConfirm = () => {
-            $.alert('Solicitação processada, aguarde a confirmação!');
-            // window.location.href="https://cegonha.project.tec.br/index.php?c=<?=md5($_SESSION['convidado'])?>"
+        payConfirm = (cod) => {
+
+            $.ajax({
+                url:"cartao/status.php",
+                type:"POST",
+                data:{
+                    venda:cod
+                },
+                success:function(dados){
+                    $.alert(dados);
+                    PageClose();
+                    Carregando('none');
+                }
+            })
+
         }
     })
 </script>
