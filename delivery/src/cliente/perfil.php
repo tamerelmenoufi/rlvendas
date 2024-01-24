@@ -118,26 +118,19 @@
             localidade = $("#localidade").val();
             uf = $("#uf").val();
 
-            dados = [];
-            dados.push(nome)
-            dados.push(email)
-            dados.push(cep)
-            dados.push(logradouro)
-            dados.push(numero)
-            dados.push(complemento)
-            dados.push(ponto_referencia)
-            dados.push(bairro)
-            dados.push(localidade)
-            dados.push(uf)
+            // dados = [];
+            // dados.push(nome)
+            // dados.push(email)
+            // dados.push(cep)
+            // dados.push(logradouro)
+            // dados.push(numero)
+            // dados.push(complemento)
+            // dados.push(ponto_referencia)
+            // dados.push(bairro)
+            // dados.push(localidade)
+            // dados.push(uf)
 
-            console.log(dados)
-
-
-
-
-
-
-
+            // console.log(dados)
 
 
             if(
