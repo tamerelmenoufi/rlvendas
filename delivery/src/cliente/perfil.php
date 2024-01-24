@@ -118,7 +118,7 @@
                 return response.json();
             })
             .then(data => {
-                console.log('Aqui a descricao');
+                console.log(data);
                 console.log(data.results[0].address_components);
             })
             .catch(error => {
