@@ -2,7 +2,19 @@
     include("../../../lib/includes.php");
 
     if($_POST['acao'] == 'salvar'){
-        $query = "update clientes set nome = '{$_POST['nome']}', email = '{$_POST['email']}' where codigo = '{$_SESSION['AppCliente']}'";
+        $query = "update clientes set 
+                                    nome = '{$_POST['nome']}', 
+                                    email = '{$_POST['email']}',
+                                    cep = '{$_POST['cep']}',
+                                    logradouro = '{$_POST['logradouro']}',
+                                    numero = '{$_POST['numero']}',
+                                    complemento = '{$_POST['complemento']}',
+                                    ponto_referencia = '{$_POST['ponto_referencia']}',
+                                    bairro = '{$_POST['bairro']}',
+                                    localidade = '{$_POST['localidade']}',
+                                    uf = '{$_POST['uf']}'
+                                    
+                where codigo = '{$_SESSION['AppCliente']}'";
         mysqli_query($con, $query);
         sisLog(
             [
@@ -50,13 +62,41 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nome">Nome Completo</label>
+                    <label for="nome">Nome Completo*</label>
                     <input type="text" class="form-control form-control-lg" id="nome" placeholder="Seu Nome Completo" value="<?=$c->nome?>">
                 </div>
                 <div class="form-group">
-                    <label for="email">E-mail</label>
+                    <label for="email">E-mail*</label>
                     <input type="email" class="form-control form-control-lg" id="email" placeholder="seuemail@seudominio.com" value="<?=$c->email?>">
                 </div>
+
+                <div class="form-group">
+                    <label for="cep">CEP*</label>
+                    <input type="text" class="form-control form-control-lg" id="cep" value="<?=$c->cep?>">
+                </div>
+                <div class="form-group">
+                    <label for="logradouro">Logradouro*</label>
+                    <input type="text" class="form-control form-control-lg" id="logradouro" value="<?=$c->logradouro?>">
+                </div>
+                <div class="form-group">
+                    <label for="numero">Número*</label>
+                    <input type="text" class="form-control form-control-lg" id="numero" value="<?=$c->numero?>">
+                </div>
+                <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control form-control-lg" id="complemento" value="<?=$c->complemento?>">
+                </div>
+                <div class="form-group">
+                    <label for="ponto_referencia">Ponto de Referência*</label>
+                    <input type="text" class="form-control form-control-lg" id="ponto_referencia" value="<?=$c->ponto_referencia?>">
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro*</label>
+                    <input type="text" class="form-control form-control-lg" id="bairro" value="<?=$c->bairro?>">
+                    <inpu type="hidden" id="localidade" value="Manaus" />
+                    <inpu type="hidden" id="uf" value="AM" />
+                </div>
+
                 <button SalvarDados type="buttom" class="btn btn-primary btn-lg">Salvar dados</button>
             </div>
         </div>
@@ -69,9 +109,30 @@
             nome = $("#nome").val();
             email = $("#email").val();
 
-            if(!nome || !email){
+            cep = $("#cep").val();
+            logradouro = $("#logradouro").val();
+            numero = $("#numero").val();
+            complemento = $("#complemento").val();
+            ponto_referencia = $("#ponto_referencia").val();
+            bairro = $("#bairro").val();
+            localidade = $("#localidade").val();
+            uf = $("#uf").val();
+
+
+
+            if(
+                !nome ||
+                !email ||
+                !cep ||
+                !logradouro ||
+                !numero ||
+                !ponto_referencia ||
+                !bairro ||
+                !localidade ||
+                !uf ||
+            ){
                 $.alert({
-                    content:'Preencha os campos do formulário!',
+                    content:'Preencha os campos obrigatórios(*) do formulário!',
                     title:false,
                     type: "red",
                 });
@@ -84,6 +145,13 @@
                 data:{
                     nome,
                     email,
+                    cep,
+                    logradouro,
+                    numero,
+                    ponto_referencia,
+                    bairro,
+                    localidade,
+                    uf,
                     acao:'salvar'
                 },
                 success:function(dados){
