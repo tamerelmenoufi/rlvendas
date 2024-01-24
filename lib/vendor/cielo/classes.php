@@ -15,7 +15,7 @@ class Cielo {
 
     public function Ambiente($opc){
         if($opc == 'homologacao'){
-            return 'https://apisandbox.cieloecommerce.cielo.com.br/1/sales/';
+            return 'https://api.cieloecommerce.cielo.com.br';
         }else{
             return '';
         }
@@ -24,7 +24,7 @@ class Cielo {
     public function Transacao($d){
         global $cYb;
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->Ambiente($this->Ambiente));
+        curl_setopt($ch, CURLOPT_URL, $this->Ambiente($this->Ambiente)."/1/cardBin/411011");
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "MerchantId: {$cYb['cielo']['merchantId']}",
