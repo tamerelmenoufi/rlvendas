@@ -24,7 +24,7 @@ class Cielo {
     public function Transacao($d){
         global $cYb;
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->Ambiente($this->Ambiente)."/1/cardBin/455187");
+        curl_setopt($ch, CURLOPT_URL, $this->Ambiente($this->Ambiente)."/1/cardBin/407843");
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "MerchantId: {$cYb['cielo']['merchantId']}",
