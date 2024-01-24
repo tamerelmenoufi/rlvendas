@@ -52,18 +52,10 @@
               "ExpirationDate":"03/2028",
               "SecurityCode":"977",
               "SaveCard":"false",
-              "Brand":"Visa",
-              "CardOnFile":{
-                 "Usage": "Used",
-                 "Reason":"Unscheduled"
-              }
+              "Brand":"Visa"
           },     
-          "IsCryptoCurrencyNegotiation": true,
           "Type":"CreditCard",
-          "Amount":100,
-          "AirlineData":{
-              "TicketNumber":"AR988983"
-          }
+          "Amount":100
         }
      }';
 
