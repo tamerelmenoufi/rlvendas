@@ -18,25 +18,25 @@
                 "Country": "BR",
                 "ZipCode": "69010110"
            },
-             "DeliveryAddress": {
+            "DeliveryAddress": {
+            "Street": "Rua Monsenhor Coutinho",
+            "Number": "600",
+            "Complement": "Edifício Maximino Correia",
+            "City": "Manaus",
+            "State": "AM",
+            "Country": "BR",
+            "ZipCode": "69010110"
+            },
+            "Billing": {
                 "Street": "Rua Monsenhor Coutinho",
                 "Number": "600",
                 "Complement": "Edifício Maximino Correia",
+                "Neighborhood": "Centro",
                 "City": "Manaus",
                 "State": "AM",
                 "Country": "BR",
                 "ZipCode": "69010110"
-             },
-             "Billing": {
-                 "Street": "Rua Monsenhor Coutinho",
-                 "Number": "600",
-                 "Complement": "Edifício Maximino Correia",
-                 "Neighborhood": "Centro",
-                 "City": "Manaus",
-                 "State": "AM",
-                 "Country": "BR",
-                 "ZipCode": "69010110"
-       },
+            },
         },
         "Payment":{
           "ServiceTaxAmount":0,
