@@ -83,47 +83,47 @@
 
 
 
-    // Socket Variable declaration
-    var mySocket;
-    // const socketMessageListener = (event) => {
-    //     const dados = JSON.parse(event.data);
-    //     if(dados.type === 'chat'){
-    //         output.append('Outro: ' + dados.text, document.createElement('br'));
-    //     }
+    // // Socket Variable declaration
+    // var mySocket;
+    // // const socketMessageListener = (event) => {
+    // //     const dados = JSON.parse(event.data);
+    // //     if(dados.type === 'chat'){
+    // //         output.append('Outro: ' + dados.text, document.createElement('br'));
+    // //     }
+    // // };
+
+    // // Open
+    // const socketOpenListener = (event) => {
+    // console.log('Connected');
+
     // };
 
-    // Open
-    const socketOpenListener = (event) => {
-    console.log('Connected');
+    // // Closed
+    // const socketCloseListener = (event) => {
+    // if (mySocket) {
+    //     console.error('Disconnected.');
+    // }
+    // mySocket = new WebSocket('wss://websocket.yobom.com.br');
 
-    };
+    // input = document.querySelector('input');
+    // output = document.querySelector('output');
 
-    // Closed
-    const socketCloseListener = (event) => {
-    if (mySocket) {
-        console.error('Disconnected.');
-    }
-    mySocket = new WebSocket('wss://websocket.yobom.com.br');
+    // mySocket.addEventListener('open', socketOpenListener);
+    // //  mySocket.addEventListener('message', socketMessageListener);
+    // mySocket.addEventListener('close', socketCloseListener);
 
-    input = document.querySelector('input');
-    output = document.querySelector('output');
+    // };
+    // socketCloseListener();
 
-    mySocket.addEventListener('open', socketOpenListener);
-    //  mySocket.addEventListener('message', socketMessageListener);
-    mySocket.addEventListener('close', socketCloseListener);
+    // // input.addEventListener('keypress', e => {
+    // //         if(e.code === 'Enter'){
+    // //             const valor = input.value;
+    // //             //output.append('Eu: ' + valor, document.createElement('br'));
+    // //             mySocket.send(valor);
 
-    };
-    socketCloseListener();
-
-    // input.addEventListener('keypress', e => {
-    //         if(e.code === 'Enter'){
-    //             const valor = input.value;
-    //             //output.append('Eu: ' + valor, document.createElement('br'));
-    //             mySocket.send(valor);
-
-    //             input.value = '';
-    //         }
-    //     });
+    // //             input.value = '';
+    // //         }
+    // //     });
 
 
 
