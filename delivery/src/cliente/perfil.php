@@ -95,6 +95,7 @@
                     <input type="text" class="form-control form-control-lg" id="bairro" value="<?=$c->bairro?>">
                     <input type="hidden" id="localidade" value="Manaus" />
                     <input type="hidden" id="uf" value="AM" />
+                    <input type="hidden" id="coordenadas" value="" />
                 </div>
 
                 <button SalvarDados type="buttom" class="btn btn-primary btn-lg">Salvar dados</button>
@@ -105,6 +106,7 @@
 <script>
     $(function(){
 
+        $("#cep").mask("99999-999");
 
         $("#cep").blur(function(){
             cep = $(this).val();
@@ -125,18 +127,18 @@
                 lng = data.results[0].geometry.location.lng;
                 coordenadas = `${lat},${lng}`;
                 console.log(coordenadas);
+                $("#coordenadas").val(coordenadas);
                 retorno.map((r) => {
                     r.types.map((tipo)=>{
                         // console.log(tipo)
                         if(tipo == 'route'){
                             //logradouro
                             console.log(r.long_name)
+                            $("#logradouro").val(r.long_name);
                         }else if(tipo == 'sublocality_level_1'){
                             //bairro
                             console.log(r.long_name)
-                        }else if(tipo == 'sublocality_level_1'){
-                            //bairro
-                            console.log(r.long_name)
+                            $("#bairro").val(r.long_name);
                         }
                         
                     })
