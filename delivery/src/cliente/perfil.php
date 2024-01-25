@@ -121,6 +121,10 @@
                 console.log(data);
                 console.log(data.results[0].address_components);
                 retorno = data.results[0].address_components;
+                lat = data.results[0].geometry.location.lat;
+                lng = data.results[0].geometry.location.lng;
+                coordenadas = `${lat},${lng}`;
+                console.log(coordenadas);
                 retorno.map((r) => {
                     r.types.map((tipo)=>{
                         // console.log(tipo)
