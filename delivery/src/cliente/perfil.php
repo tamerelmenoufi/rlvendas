@@ -111,6 +111,11 @@
 
         $("#cep").blur(function(){
             cep = $(this).val();
+
+            if(cep.length > 0 && (cep.length != 9 || cep.substring(0,2) != 69)){
+                return false;
+            }
+
             const apiUrl = `https://maps.google.com/maps/api/geocode/json?address=${cep}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w`;
             // Make a GET request
             fetch(apiUrl)
@@ -204,6 +209,15 @@
                     title:false,
                     type: "red",
                 });
+                return false;
+            }
+
+            if(cep.length > 0 && (cep.length != 9 || cep.substring(0,2) != 69)){
+                $.alert({
+                    title:"Erro",
+                    content:"CEP inválido ou fora da área de atendimento",
+                    type:"red"
+                })
                 return false;
             }
 
