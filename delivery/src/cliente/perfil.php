@@ -242,6 +242,15 @@
                 return false;
             }
 
+            if(cpf.length > 0 && cpf.length != 14){
+                $.alert({
+                    title:"Erro",
+                    content:"CPF incorreto ou inválido favor conferir os dados!",
+                    type:"red"
+                })
+                return false;
+            }
+
             $.ajax({
                 url:"src/cliente/perfil.php",
                 type:"POST",
