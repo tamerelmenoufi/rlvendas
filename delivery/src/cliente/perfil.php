@@ -242,7 +242,7 @@
                 return false;
             }
 
-            if(cpf.length > 0 && cpf.length != 14 && !validarCPF(cpf)){
+            if((cpf.length > 0 && cpf.length != 14) || !validarCPF(cpf)){
                 $.alert({
                     title:"Erro",
                     content:"CPF incorreto ou inválido favor conferir os dados!",
