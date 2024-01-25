@@ -117,7 +117,6 @@
             complemento = $("#complemento").val('');
             ponto_referencia = $("#ponto_referencia").val('');
             bairro = $("#bairro").val('');
-            localidade = $("#localidade").val('');
 
             if(cep.length > 0 && (cep.length != 9 || cep.substring(0,2) != 69)){
                 return false;
@@ -203,11 +202,6 @@
             // console.log(dados)
 
             // Define the API URL
-
-
-
-
-
 
 
             if(
