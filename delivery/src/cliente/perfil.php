@@ -126,13 +126,13 @@
                         // console.log(tipo)
                         if(tipo == 'route'){
                             //logradouro
-                            console.log(retorno.long_name)
+                            console.log(r.long_name)
                         }else if(tipo == 'sublocality_level_1'){
                             //bairro
-                            console.log(retorno.long_name)
+                            console.log(r.long_name)
                         }else if(tipo == 'sublocality_level_1'){
                             //bairro
-                            console.log(retorno.long_name)
+                            console.log(r.long_name)
                         }
                         
                     })
