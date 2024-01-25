@@ -116,6 +116,15 @@
                 return false;
             }
 
+            logradouro = $("#logradouro").val('');
+            numero = $("#numero").val('');
+            complemento = $("#complemento").val('');
+            ponto_referencia = $("#ponto_referencia").val('');
+            bairro = $("#bairro").val('');
+            localidade = $("#localidade").val('');
+            uf = $("#uf").val('');
+            coordenadas = $("#coordenadas").val('');
+
             const apiUrl = `https://maps.google.com/maps/api/geocode/json?address=${cep}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w`;
             // Make a GET request
             fetch(apiUrl)
