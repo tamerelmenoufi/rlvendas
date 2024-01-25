@@ -130,7 +130,7 @@
                 if (response.status != 'ok') {
                 throw new Error('Network response was not ok');
                 $.alert('CEP não localizado, favor confira e tente novamente!');
-                $(#cep).val('');
+                $("#cep").val('');
                 }
                 return response.json();
             })
