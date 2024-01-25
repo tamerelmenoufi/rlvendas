@@ -123,7 +123,7 @@
                 retorno = data.results[0].address_components;
                 retorno.map((r) => {
                     r.types.map((tipo)=>{
-                        console.log(tipo)
+                        // console.log(tipo)
                         if(tipo == 'route'){
                             //logradouro
                             console.log(retorno.long_name)
