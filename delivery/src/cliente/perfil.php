@@ -137,7 +137,7 @@
 
                 console.log(data.status)
 
-                if(data.status != 'ok'){
+                if(data.status != 'OK'){
                     $.alert('CEP não localizado, favor confira e tente novamente!');
                     $("#cep").val('');
                     return
