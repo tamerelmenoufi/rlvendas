@@ -4,6 +4,7 @@
     if($_POST['acao'] == 'salvar'){
         $query = "update clientes set 
                                     nome = '{$_POST['nome']}', 
+                                    cpf = '{$_POST['cpf']}', 
                                     email = '{$_POST['email']}',
                                     cep = '{$_POST['cep']}',
                                     logradouro = '{$_POST['logradouro']}',
@@ -66,6 +67,12 @@
                     <label for="nome">Nome Completo*</label>
                     <input type="text" class="form-control form-control-lg" id="nome" placeholder="Seu Nome Completo" value="<?=$c->nome?>">
                 </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF*</label>
+                    <input type="text" class="form-control form-control-lg" id="cpf" placeholder="Informe seu CPF" value="<?=$c->cpf?>">
+                </div>
+
                 <div class="form-group">
                     <label for="email">E-mail*</label>
                     <input type="email" class="form-control form-control-lg" id="email" placeholder="seuemail@seudominio.com" value="<?=$c->email?>">
@@ -175,6 +182,7 @@
 
         $("button[SalvarDados]").click(function(){
             nome = $("#nome").val();
+            cpf = $("#cpf").val();
             email = $("#email").val();
 
             cep = $("#cep").val();
@@ -206,6 +214,7 @@
 
             if(
                 !nome ||
+                !cpf ||
                 !email ||
                 !cep ||
                 !logradouro ||
@@ -237,6 +246,7 @@
                 type:"POST",
                 data:{
                     nome,
+                    cpf,
                     email,
                     cep,
                     logradouro,
