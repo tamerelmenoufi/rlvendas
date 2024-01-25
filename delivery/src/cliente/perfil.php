@@ -121,9 +121,20 @@
                 console.log(data);
                 console.log(data.results[0].address_components);
                 retorno = data.results[0].address_components;
-                retorno.map((retorno) => {
-                    retorno.types.map((tipo)=>{
+                retorno.map((r) => {
+                    r.types.map((tipo)=>{
                         console.log(tipo)
+                        if(tipo == 'route'){
+                            //logradouro
+                            console.log(retorno.long_name)
+                        }else if(tipo == 'sublocality_level_1'){
+                            //bairro
+                            console.log(retorno.long_name)
+                        }else if(tipo == 'sublocality_level_1'){
+                            //bairro
+                            console.log(retorno.long_name)
+                        }
+                        
                     })
                 })
             })
