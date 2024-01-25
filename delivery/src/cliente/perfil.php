@@ -12,7 +12,8 @@
                                     ponto_referencia = '{$_POST['ponto_referencia']}',
                                     bairro = '{$_POST['bairro']}',
                                     localidade = '{$_POST['localidade']}',
-                                    uf = '{$_POST['uf']}'
+                                    uf = '{$_POST['uf']}',
+                                    coordenadas = '{$_POST['coordenadas']}'
                                     
                 where codigo = '{$_SESSION['AppCliente']}'";
         mysqli_query($con, $query);
@@ -163,6 +164,7 @@
             bairro = $("#bairro").val();
             localidade = $("#localidade").val();
             uf = $("#uf").val();
+            coordenadas = $("#coordenadas").val();
 
             // dados = [];
             // dados.push(nome)
@@ -219,6 +221,7 @@
                     bairro,
                     localidade,
                     uf,
+                    coordenadas,
                     acao:'salvar'
                 },
                 success:function(dados){
