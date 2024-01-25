@@ -127,7 +127,7 @@
             // Make a GET request
             fetch(apiUrl)
             .then(response => {
-                if (!response.ok) {
+                if (response.status != 'ok') {
                 throw new Error('Network response was not ok');
                 }
                 return response.json();
