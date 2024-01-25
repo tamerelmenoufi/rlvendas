@@ -127,7 +127,7 @@
             // Make a GET request
             fetch(apiUrl)
             .then(response => {
-                if (response.status != 'ok') {
+                if (!response.ok) {
                     // throw new Error('Network response was not ok');
                     $.alert('CEP não localizado, favor confira e tente novamente!');
                     $("#cep").val('');
