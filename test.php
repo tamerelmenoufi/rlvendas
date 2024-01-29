@@ -45,12 +45,12 @@
           "Capture":true,
           "Authenticate":false,
           "Recurrent":"false",
-          "SoftDescriptor":"123456789ABCD",
+          "SoftDescriptor":"999999999999",
           "CreditCard":{
-              "CardNumber":"000000000000",
-              "Holder":"aaaaaaaaaaaaaaaaaa",
-              "ExpirationDate":"00/0000",
-              "SecurityCode":"000",
+              "CardNumber":"4078430099953653",
+              "Holder":"tamer mohamed elmenoufi",
+              "ExpirationDate":"02/2028",
+              "SecurityCode":"977",
               "SaveCard":"false",
               "Brand":"Visa"
           },     
