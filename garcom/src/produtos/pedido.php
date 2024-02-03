@@ -3,6 +3,15 @@
 
     // VerificarVendaApp();
 
+    $dicionario_status = [
+        'n' => 'Novo Pedido',
+        'b' => 'Aguardando pagamento',
+        'p' => 'Em produção',
+        'i' => 'Produção iniciada',
+        'c' => 'Produção concluida',
+        'e' => 'Entregue ao Cliente'
+    ];
+
     if($_SESSION['AppGarcom']){
         $query = "select * from atendentes where codigo = '{$_SESSION['AppGarcom']}'";
         $result = mysqli_query($con, $query);
@@ -307,6 +316,7 @@
                         }
                     ?>
                     <?=(($d->app == 'mesa' )?'<br><span style="color:#333; font-weight:bold">Pedido pelo Aplicativo</span>':false)?>
+                    <br><span style="color:#a1a1a1; font-weight:bold"><?=$dicionario_status[$d->situacao]?></span>
                 </p>
                 <h5 class="card-title" style="paddig:0; margin:0; font-size:14px; font-weight:bold;">
                     <?=$pedido->categoria->descricao?>
