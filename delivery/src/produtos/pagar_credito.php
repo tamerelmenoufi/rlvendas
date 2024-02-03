@@ -1,6 +1,6 @@
 <?php
     include("../../../lib/includes.php");
-    
+
 ?>
 <style>
       .PedidoTopoTitulo{
@@ -116,7 +116,7 @@
 
         $("#Pagar").click(function(){
 
-            reference = '<?="{$_POST['codVenda']}-".date("His")?>';
+            reference = '<?="{$_POST['AppVenda']}-".date("His")?>';
             amount = '<?=number_format($_POST['valor_total'],2,".",false)?>';
             cardholderName = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
