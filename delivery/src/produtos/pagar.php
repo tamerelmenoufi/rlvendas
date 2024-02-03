@@ -387,12 +387,14 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
             opc = $(this).attr("pagamento");
             valor_total = '<?=(($d->total-$d->cupom_valor) - $valor_pago)?>';
+            AppVenda = '<?=$_SESSION['AppVenda']?>';
             $.ajax({
                 url:"componentes/ms_popup_100.php",
                 type:"POST",
                 data:{
                     local:`src/produtos/pagar_${opc}.php`,
                     valor_total,
+                    AppVenda,
                 },
                 success:function(dados){
                     PageClose();
