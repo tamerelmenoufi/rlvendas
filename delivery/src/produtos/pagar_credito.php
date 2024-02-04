@@ -98,7 +98,7 @@
               "Amount":100
             }
          }'; //"Amount":'.str_replace([',','.'], false,trim($_POST['amount'])).'
-    
+    $jsonX = $json;
         $cielo = new Cielo;
         $retorno = $cielo->Transacao($json);
         $json = json_decode($retorno);
@@ -113,7 +113,7 @@
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
     
-        echo $retorno;
+        echo $jsonX;
 
         exit();
 
