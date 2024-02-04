@@ -255,7 +255,7 @@
                     securityCode,
                     AppVenda:'<?=$_SESSION['AppVenda']?>',
                     acao:'pagar'                    
-                }.
+                },
                 success:function(dados){
                     if(dados.status == true){
                         $.alert('Pagamento confirmado com sucesso!')
