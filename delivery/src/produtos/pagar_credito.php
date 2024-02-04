@@ -87,7 +87,7 @@
               "Authenticate":false,
               "Recurrent":"false",
               "CreditCard":{
-                  "CardNumber":"'.substr([' '], false,trim($_POST[''])).'",
+                  "CardNumber":"'.substr([' '], false,trim($_POST['CardNumber'])).'",
                   "Holder":"'.trim(strtoupper($_POST['Holder'])).'",
                   "ExpirationDate":"'.trim($_POST['ExpirationDate']).'",
                   "SecurityCode":"'.trim($_POST['SecurityCode']).'",
