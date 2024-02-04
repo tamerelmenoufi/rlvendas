@@ -114,6 +114,10 @@
                     where codigo = '{$_POST['AppVenda']}'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
+
+        if($json->Payment->ReturnCode == '00'){
+            mysqli_query($con, "UPDATE `vendas_produtos` set situacao = 'p' where venda = '54198'");
+        }
     
         echo $retorno;
 
