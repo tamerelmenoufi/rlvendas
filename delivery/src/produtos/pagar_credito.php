@@ -242,6 +242,17 @@
             ExpirationDate = $("#cartao_validade_mes").val()+'/'+$("#cartao_validade_ano").val();
             securityCode = $("#cartao_ccv").val();
 
+
+            lista = [];
+            lista.push(MerchantOrderId);
+            lista.push(amount);
+            lista.push(Holder);
+            lista.push(cardNumber);
+            lista.push(ExpirationDate);
+            lista.push(securityCode);
+            console.log(lista)
+
+
             $.ajax({
                 url:"src/produtos/pagar_credito.php",
                 type:"POST",
@@ -257,6 +268,7 @@
                     acao:'pagar'                    
                 },
                 success:function(dados){
+                    console.log(dados)
                     if(dados.status == true){
                         $.alert('Pagamento confirmado com sucesso!')
                     }else{
