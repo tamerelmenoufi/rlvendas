@@ -107,8 +107,8 @@
         $query = "update vendas set 
                                     forma_pagamento = 'credito',
                                     operadora = 'CIELO',
-                                    operadora_id = '{$json->Tid}',
-                                    operadora_situacao = '".cartao_status($json->ReturnCode)."',
+                                    operadora_id = '{$json->Payment->Tid}',
+                                    operadora_situacao = '".cartao_status($json->Payment->ReturnCode)."',
                                     operadora_retorno = '{$retorno}'
                     where codigo = '{$_POST['AppVenda']}'";
         $result = mysqli_query($con, $query);
