@@ -275,10 +275,11 @@
                 },
                 success:function(dados){
                     console.log(dados)
-                    if(dados.Payment.Status == '00'){
-                        $.alert('Pagamento confirmado com sucesso!')
+                    if(dados.Payment.ReturnCode == '00'){
+                        $.alert('Pagamento confirmado com sucesso!');
+                        window.location.href='./';
                     }else{
-                        $.alert('Erro na confirmação do pagamento!')
+                        $.alert('Erro na confirmação do pagamento!');
                     }
                 }
             })
