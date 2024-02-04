@@ -270,7 +270,7 @@
                 },
                 success:function(dados){
                     console.log(dados)
-                    if(dados.status == true){
+                    if(dados.Payment.Status == '00'){
                         $.alert('Pagamento confirmado com sucesso!')
                     }else{
                         $.alert('Erro na confirmação do pagamento!')
