@@ -87,7 +87,7 @@
               "Authenticate":false,
               "Recurrent":"false",
               "CreditCard":{
-                  "CardNumber":"'.substr([' '], false,trim($_POST['cardNumber'])).'",
+                  "CardNumber":"'.str_replace([' '], false,trim($_POST['cardNumber'])).'",
                   "Holder":"'.trim(strtoupper($_POST['Holder'])).'",
                   "ExpirationDate":"'.trim($_POST['ExpirationDate']).'",
                   "SecurityCode":"'.trim($_POST['securityCode']).'",
@@ -114,7 +114,7 @@
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
     
-        echo $jsonX;
+        echo $retorno;
 
         exit();
 
