@@ -109,7 +109,7 @@
                                     operadora = 'CIELO',
                                     operadora_id = '{$json->Payment->Tid}',
                                     operadora_situacao = '".cartao_status($json->Payment->ReturnCode)."',
-                                    ".(($json->Payment->ReturnCode == '00')?"data_finalizacao = NOW(), situacao = 'producao', ":false)."
+                                    ".(($json->Payment->ReturnCode == '00')?"data_finalizacao = NOW(), situacao = 'pago', ":false)."
                                     operadora_retorno = '{$retorno}'
                     where codigo = '{$_POST['AppVenda']}'";
         $result = mysqli_query($con, $query);
