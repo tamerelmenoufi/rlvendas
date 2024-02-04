@@ -95,9 +95,9 @@
                   "Brand":"'.bandeira(trim(substr($_POST['CardNumber'],0,1))).'"
               },     
               "Type":"CreditCard",
-              "Amount":'./*str_replace([',','.'], false,trim($_POST['amount']))*/100.'
+              "Amount":100
             }
-         }';
+         }'; //"Amount":'.str_replace([',','.'], false,trim($_POST['amount'])).'
     
         $cielo = new Cielo;
         $retorno = $cielo->Transacao($json);
