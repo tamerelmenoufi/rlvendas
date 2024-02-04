@@ -1,6 +1,125 @@
 <?php
     include("../../../lib/includes.php");
 
+    function bandeira($cod){
+        $banderia = [
+            3 => 'AMEX',
+            5 => 'MASTERCARD',
+            6 => 'DISCOVER'
+        ];
+        return (($banderia[$cod])?:'VISA');
+    }
+
+    function cartao_status($cod){
+        $cartao = [
+            '00' => 'approved'
+        ];
+        return (($cartao[$cod])?:'negado');
+    }
+
+    if($_POST['acao'] == 'pagar'){
+
+        /*
+        {
+            "MerchantOrderId":"2014111701",
+            "Customer":{
+               "Name":"Tamer Mohamed Elmenoufi",
+               "Identity":"60110970225",
+               "IdentityType":"CPF",
+               "Email":"tamer@mohatron.com.br",
+               "Birthdate":"1976-08-28",
+               "Address":{
+                    "Street": "Rua Monsenhor Coutinho",
+                    "Number": "600",
+                    "Complement": "Edifício Maximino Correia",
+                    "City": "Manaus",
+                    "State": "AM",
+                    "Country": "BR",
+                    "ZipCode": "69010110"
+               },
+                "DeliveryAddress": {
+                "Street": "Rua Monsenhor Coutinho",
+                "Number": "600",
+                "Complement": "Edifício Maximino Correia",
+                "City": "Manaus",
+                "State": "AM",
+                "Country": "BR",
+                "ZipCode": "69010110"
+                },
+                "Billing": {
+                    "Street": "Rua Monsenhor Coutinho",
+                    "Number": "600",
+                    "Complement": "Edifício Maximino Correia",
+                    "Neighborhood": "Centro",
+                    "City": "Manaus",
+                    "State": "AM",
+                    "Country": "BR",
+                    "ZipCode": "69010110"
+                },
+            },
+            "Payment":{
+              "ServiceTaxAmount":0,
+              "Installments":1,
+              "Interest":"ByMerchant",
+              "Capture":true,
+              "Authenticate":false,
+              "Recurrent":"false",
+              "SoftDescriptor":"999999999999",
+              "CreditCard":{
+                  "CardNumber":"**************",
+                  "Holder":"*****************",
+                  "ExpirationDate":"******",
+                  "SecurityCode":"***",
+                  "SaveCard":"false",
+                  "Brand":"Visa"
+              },     
+              "Type":"CreditCard",
+              "Amount":100
+            }
+         }
+         //*/
+
+        $json = '{
+            "MerchantOrderId":"'.trim($_POST['MerchantOrderId']).'",
+            "Payment":{
+              "Installments":1,
+              "Capture":true,
+              "Authenticate":false,
+              "Recurrent":"false",
+              "CreditCard":{
+                  "CardNumber":"'.substr([' '], false,trim($_POST[''])).'",
+                  "Holder":"'.trim(strtoupper($_POST['Holder'])).'",
+                  "ExpirationDate":"'.trim($_POST['ExpirationDate']).'",
+                  "SecurityCode":"'.trim($_POST['SecurityCode']).'",
+                  "SaveCard":"false",
+                  "Brand":"'.bandeira(trim(substr($_POST['CardNumber'],0,1))).'"
+              },     
+              "Type":"CreditCard",
+              "Amount":'.str_replace([',','.'], false,trim($_POST['amount'])).'
+            }
+         }';
+    
+        $cielo = new Cielo;
+        $retorno = $cielo->Transacao($json);
+        $json = json_decode($retorno);
+
+        $query = "update vendas set 
+                                    forma_pagamento = 'credito',
+                                    operadora = 'CIELO',
+                                    operadora_id = '{$json->Tid}',
+                                    operadora_situacao = '".cartao_status($json->ReturnCode)."',
+                                    operadora_retorno = '{$retorno}'
+                    where codigo = '{$_POST['AppVenda']}'";
+        $result = mysqli_query($con, $query);
+        $d = mysqli_fetch_object($result);
+    
+        echo $retorno;
+
+        exit();
+
+
+    }
+
 ?>
 <style>
       .PedidoTopoTitulo{
@@ -116,15 +235,35 @@
 
         $("#Pagar").click(function(){
 
-            reference = '<?="{$_POST['AppVenda']}-".date("His")?>';
+            MerchantOrderId = '<?="{$_POST['AppVenda']}-".date("His")?>';
             amount = '<?=number_format($_POST['valor_total'],2,".",false)?>';
-            cardholderName = $("#cartao_nome").val();
+            Holder = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
-            expirationMonth = $("#cartao_validade_mes").val();
-            expirationYear = $("#cartao_validade_ano").val();
+            ExpirationDate = $("#cartao_validade_mes").val()+'/'+$("#cartao_validade_ano").val();
             securityCode = $("#cartao_ccv").val();
 
-            $.alert(`Realização de pagamentos ${reference}`)
+            $.ajax({
+                url:"src/produtos/pagar_credito.php",
+                type:"POST",
+                dataType:"JSON",
+                data:{
+                    MerchantOrderId,
+                    amount,
+                    Holder,
+                    cardNumber,
+                    ExpirationDate,
+                    securityCode,
+                    AppVenda:'<?=$_SESSION['AppVenda']?>',
+                    acao:'pagar'                    
+                }.
+                success:function(dados){
+                    if(dados.status == true){
+                        $.alert('Pagamento confirmado com sucesso!')
+                    }else{
+                        $.alert('Erro na confirmação do pagamento!')
+                    }
+                }
+            })
         })
 
     })

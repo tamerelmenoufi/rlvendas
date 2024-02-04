@@ -6,18 +6,13 @@
 
 class Cielo {
 
-    public $Ambiente = 'homologacao'; //homologacao ou producao
-
-    public function Autenticacao(){
-        global $cYb;
-        return $cYb['mercado_pago'][$this->Ambiente]['TOKEN'];
-    }
+    public $Ambiente = 'producao'; //homologacao ou producao
 
     public function Ambiente($opc){
         if($opc == 'homologacao'){
             return 'https://api.cieloecommerce.cielo.com.br';
         }else{
-            return '';
+            return 'https://api.cieloecommerce.cielo.com.br';
         }
     }
 
