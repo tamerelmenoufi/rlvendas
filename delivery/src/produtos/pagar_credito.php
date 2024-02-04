@@ -87,18 +87,17 @@
               "Authenticate":false,
               "Recurrent":"false",
               "CreditCard":{
-                  "CardNumber":"'.substr([' '], false,trim($_POST['CardNumber'])).'",
+                  "CardNumber":"'.substr([' '], false,trim($_POST['cardNumber'])).'",
                   "Holder":"'.trim(strtoupper($_POST['Holder'])).'",
                   "ExpirationDate":"'.trim($_POST['ExpirationDate']).'",
-                  "SecurityCode":"'.trim($_POST['SecurityCode']).'",
+                  "SecurityCode":"'.trim($_POST['securityCode']).'",
                   "SaveCard":"false",
-                  "Brand":"'.bandeira(trim(substr($_POST['CardNumber'],0,1))).'"
+                  "Brand":"'.bandeira(trim(substr($_POST['cardNumber'],0,1))).'"
               },     
               "Type":"CreditCard",
               "Amount":100
             }
          }'; //"Amount":'.str_replace([',','.'], false,trim($_POST['amount'])).'
-    $jsonX = $json;
         $cielo = new Cielo;
         $retorno = $cielo->Transacao($json);
         $json = json_decode($retorno);
@@ -113,7 +112,7 @@
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
     
-        echo $jsonX;
+        echo $retorno;
 
         exit();
 
