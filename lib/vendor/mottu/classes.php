@@ -146,7 +146,7 @@ class mottu {
 
         $response = curl_exec($curl);
         curl_close($curl);
-        return $response."\n".$this->Ambiente($this->ambiente)."/orders/preview"."\n".$this->apiKey($this->ambiente)."\n";
+        return $response; //."\n".$this->Ambiente($this->ambiente)."/orders/preview"."\n".$this->apiKey($this->ambiente)."\n";
 
     }
 
