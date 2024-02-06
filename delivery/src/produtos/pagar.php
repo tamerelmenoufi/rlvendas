@@ -191,7 +191,7 @@ if(
     !$logradouro or
     !$numero or
     !$complemento or
-    !$bairro or
+    !$bairro
 ){
     $blq = true;
 }
