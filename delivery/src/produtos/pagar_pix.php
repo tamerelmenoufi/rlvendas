@@ -82,9 +82,9 @@
                                 }else{
 
                                     $PIX = new MercadoPago;
-                                    // "transaction_amount": '.(($d->total-$d->cupom_valor) - $valor_pago).',
+                                    // "transaction_amount": 1.00,
                                     $json = '{
-                                        "transaction_amount": 1.00,
+                                        "transaction_amount": '.(($d->total-$d->cupom_valor) - $valor_pago).',
                                         "description": "Venda '.$pedido.' - APP Yobom",
                                         "payment_method_id": "pix",
                                         "payer": {
