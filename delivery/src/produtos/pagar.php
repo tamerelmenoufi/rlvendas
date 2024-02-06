@@ -168,7 +168,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <h4>Pagar pedido - <?=$_SESSION['AppVenda']?></h4>
 </div>
 <?php
-$query = "select * from clientes where cliente = '{$_SESSION['AppCliente']}'";
+$query = "select * from clientes where codigo = '{$_SESSION['AppCliente']}'";
 $result = mysqli_query($con, $query);
 $c = mysqli_fetch_object($result);
 
