@@ -172,6 +172,41 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <div class="row">
         <div class="col-12">
             <div class="card bg-light mb-3">
+                <div class="card-header">Cliente</div>
+                <div class="card-body">
+                    <div class="col-8">
+                        <h5 class="card-title">
+                            <small>Nome</small>
+                            <div style="font-size:18px !important; color:blue;">Tamer Mohamed Elmenoufi</div>
+                        </h5>
+                    </div>
+                    <div class="col-4">
+                        <h5 class="card-title">
+                            <small>Telefone</small>
+                            <div style="font-size:18px !important; color:blue;">(92) 99188-6570</div>
+                        </h5>
+                    </div>
+                    <div class="col-12">
+                        <h5 class="card-title">
+                            <small>Endereço</small>
+                            <div style="font-size:18px !important; color:blue;">
+                                Rua Monsenhor Coutinho, 600, Edifício Maximino Correia, apto 1302, Centro, CEP 69010-110
+                            </div>
+                        </h5>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-light mb-3">
                 <div class="card-header">Dados da Compra - <?=$_SESSION['AppVenda']?></div>
                 <div class="card-body">
                     <div class="row">
