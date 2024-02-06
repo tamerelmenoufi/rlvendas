@@ -167,7 +167,47 @@ where codigo = '{$_SESSION['AppVenda']}'";
 <div class="PedidoTopoTitulo">
     <h4>Pagar pedido - <?=$_SESSION['AppVenda']?></h4>
 </div>
+<?php
+$query = "select * from clientes where cliente = '{$_SESSION['AppCliente']}'";
+$result = mysqli_query($con, $query);
+$c = mysqli_fetch_object($result);
 
+$cep = $c->cep;
+$logradouro = $c->logradouro;
+$numero = $c->numero;
+$complemento = $complemento;
+$ponto_referencia = $c->ponto_referencia;
+$bairro = $c->bairro;
+$localidade = $c->localidade;
+$uf = $c->uf;
+$coo = $c->coordenadas;
+
+$endereco = "{$logradouro}, {$numero}".(($complemento)?", {$complemento}":false).(($ponto_referencia)?", {$ponto_referencia}":false).", {$bairro} - {$cep}";
+
+$mottu = new mottu;
+$json = "{
+    \"previewDeliveryTime\": true,
+    \"sortByBestRoute\": false,
+    \"deliveries\": [
+        {
+        \"orderRoute\": {$_SESSION['AppVenda']},
+        \"address\": {
+            \"street\": \"{$logradouro}\",
+            \"number\": \"{$numero}\",
+            \"complement\": \"{$complemento}\",
+            \"neighborhood\": \"{$bairro}\",
+            \"city\": \"Manaus\",
+            \"state\": \"AM\",
+            \"zipCode\": \"".str_replace(array(' ','-'), false, $cep)."\"
+        },
+        \"onlinePayment\": true
+        }
+    ]
+    }";
+$valores = json_decode($mottu->calculaFrete($json, $v->mottu));
+$taxa_entrega = $valores->deliveryFee;
+
+?>
 <div class="col" style="margin-bottom:60px; display:<?=(($d->total)?'block':'none')?>">
     <div class="row">
         <div class="col-12">
@@ -179,7 +219,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="card-title">
                             <small>Nome</small>
                             <div style="font-size:12px !important; color:#333; font-weight:normal">
-                                Tamer Mohamed Elmenoufi
+                                <?=$c->nome?>
                             </div>
                         </div>
                     </div>
@@ -188,13 +228,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     <div class="col-6">
                         <div class="card-title">
                             <small>CPF</small>
-                            <div style="font-size:12px !important; color:#333; font-weight:normal">601.109.702-25</div>
+                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=$c->cpf?></div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="card-title">
                             <small>Telefone</small>
-                            <div style="font-size:12px !important; color:#333; font-weight:normal">(92) 99188-6570</div>
+                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=$c->telefone?></div>
                         </div>
                     </div>
                 </div>
@@ -203,7 +243,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                         <div class="card-title">
                             <small>Endereço</small>
                             <div style="font-size:12px !important; color:#333; font-weight:normal">
-                                Rua Monsenhor Coutinho, 600, Edifício Maximino Correia, apto 1302, Centro, CEP 69010-110
+                                <?=$endereco?>
                             </div>
                         </div>
                     </div>
