@@ -204,8 +204,11 @@ $json = "{
         }
     ]
     }";
-$valores = json_decode($mottu->calculaFrete($json));
-print_r($valores);
+
+echo $mt = $mottu->calculaFrete($json);
+
+$valores = json_decode($mt);
+
 $taxa_entrega = $valores->deliveryFee;
 
 ?>
