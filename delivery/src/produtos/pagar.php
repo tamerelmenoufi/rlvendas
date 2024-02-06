@@ -179,7 +179,7 @@ echo "Blq: ".$blq."<br>";
 $cep = $c->cep;
 $logradouro = $c->logradouro;
 $numero = $c->numero;
-$complemento = $complemento;
+$complemento = $c->complemento;
 $ponto_referencia = $c->ponto_referencia;
 $bairro = $c->bairro;
 $localidade = $c->localidade;
