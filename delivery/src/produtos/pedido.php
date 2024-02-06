@@ -52,6 +52,15 @@
 
 
     if($_POST['acao'] == 'ExcluirPedido'){
+
+        $q1 = "SELECT *, retorno->>'$.id' as id FROM `status_venda` where venda = '{$_SESSION['AppVenda']}' and retorno->>'$.status' = 'pending'";
+        $r1 = mysqli_query($con, $q1);
+        while($d1 = mysqli_fetch_object($r1)){
+            $PIX = new MercadoPago;
+            $rt = $PIX->CancelarPagamento($d1->id);
+            mysqli_query($con, "update status_venda set retorno = '{$rt}' where venda = '{$_SESSION['AppVenda']}' and retorno->>'$.id' = '{$d1->id}'");
+        }
+
         $q = "update vendas set deletado = '1' where codigo = '{$_SESSION['AppVenda']}'";
         mysqli_query($con, $q);
         sisLog(
