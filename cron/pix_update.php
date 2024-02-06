@@ -24,6 +24,7 @@ while($v = mysqli_fetch_object($resultL)){
         $codigos = implode(",", $codigos);
 
         $ordem = strtotime("now");
+        $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
 
         $query = "UPDATE vendas_produtos SET situacao = 'p', ordem = '{$ordem}', pago = '1' WHERE codigo in ({$codigos})";
         mysqli_query($con, $query);
@@ -37,6 +38,7 @@ while($v = mysqli_fetch_object($resultL)){
         );
 
         $q = "update vendas set
+                            caixa = '{$caixa->caixa}',
                             operadora_situacao = '{$retorno->status}',
                             operadora_retorno = '{$operadora_retorno}',
                             situacao = 'preparo'
@@ -54,7 +56,7 @@ while($v = mysqli_fetch_object($resultL)){
 
         list($valorPago) = mysqli_fetch_row(mysqli_query($con, "select sum(valor) from vendas_pagamento where venda = '{$v->codigo}' and operadora_situacao = 'approved'"));
 
-        $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
+        
 
         $q = "INSERT INTO vendas_pagamento set
                             caixa = '{$caixa->caixa}',
