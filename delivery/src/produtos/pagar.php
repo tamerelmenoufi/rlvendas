@@ -269,7 +269,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         <div class="card-title">
                             <small>Endereço</small>
                             <div style="font-size:12px !important; color:#333; font-weight:normal">
-                                <?=$endereco?>
+                                <?=(($endereco)?:'Não Registrado')?>
                             </div>
                         </div>
                     </div>
