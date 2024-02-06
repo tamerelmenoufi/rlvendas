@@ -70,7 +70,7 @@
 
                 <div class="form-group">
                     <label for="cpf">CPF*</label>
-                    <input type="text" class="form-control form-control-lg" id="cpf" placeholder="Informe seu CPF" value="<?=$c->cpf?>">
+                    <input type="text" inputmode="numeric" class="form-control form-control-lg" id="cpf" placeholder="Informe seu CPF" value="<?=$c->cpf?>">
                 </div>
 
                 <div class="form-group">
@@ -80,7 +80,7 @@
 
                 <div class="form-group">
                     <label for="cep">CEP*</label>
-                    <input type="text" class="form-control form-control-lg" id="cep" value="<?=$c->cep?>">
+                    <input type="text" inputmode="numeric" class="form-control form-control-lg" id="cep" value="<?=$c->cep?>">
                 </div>
                 <div class="form-group">
                     <label for="logradouro">Logradouro*</label>
