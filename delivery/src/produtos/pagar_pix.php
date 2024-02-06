@@ -81,6 +81,12 @@
 
                                 }else{
 
+                                    $q1 = "SELECT *, retorno->>'$.id' as id FROM `status_venda` where venda = '{$d->codigo}'";
+                                    $r1 = mysqli_query($con, $q1);
+                                    while($d1 = mysqli_fetch_object($r1)){
+                                        $PIX->CancelarPagamento($d1->id);
+                                    }
+
                                     $PIX = new MercadoPago;
                                     // "transaction_amount": 1.00,
                                     $json = '{
