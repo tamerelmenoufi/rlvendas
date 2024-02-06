@@ -41,7 +41,7 @@ while($v = mysqli_fetch_object($resultL)){
                             caixa = '{$caixa->caixa}',
                             operadora_situacao = '{$retorno->status}',
                             operadora_retorno = '{$operadora_retorno}',
-                            situacao = 'preparo'
+                            situacao = 'pago'
                         where codigo = '{$v->codigo}'
                     ";
         mysqli_query($con, $q);
