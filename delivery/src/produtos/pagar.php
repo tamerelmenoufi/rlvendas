@@ -194,7 +194,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             ?>
                             <h5 class="card-title">
                                 <small>Desconto Cupom</small>
-                                <div>R$ <?=number_format($d->cupom_valor,2,',',false)?></div>
+                                <div style="font-size:18px !important; color:red;">- R$ <?=number_format($d->cupom_valor,2,',',false)?></div>
                             </h5>
                             <?php
                             }
