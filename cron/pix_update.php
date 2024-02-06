@@ -16,7 +16,7 @@ while($v = mysqli_fetch_object($resultL)){
     if($retorno->status == 'approved'){
 
         $codigos = [];
-        $query = "SELECT * FROM vendas_produtos WHERE venda = '$v->codigo' and situacao = 'b'";
+        $query = "SELECT * FROM vendas_produtos WHERE venda = '$v->codigo'";
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
             $codigos[] = $d->codigo;
