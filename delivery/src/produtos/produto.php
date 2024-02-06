@@ -5,6 +5,8 @@
 
     if (isset($_POST) and $_POST['acao'] === 'adicionar_pedido') {
 
+
+
         if(!$_SESSION['AppVenda']){
             $q = "INSERT INTO vendas SET cliente = '{$_SESSION['AppCliente']}', mesa = '{$_SESSION['AppPedido']}', atendente = '{$_SESSION['AppGarcom']}', data_pedido = NOW(), situacao = 'producao'";
             mysqli_query($con, $q);
@@ -17,6 +19,15 @@
                     'registro' => $_SESSION['AppVenda']
                 ]
             );
+        }
+
+
+        $q1 = "SELECT *, retorno->>'$.id' as id FROM `status_venda` where venda = '{$_SESSION['AppVenda']}' and retorno->>'$.status' = 'pending'";
+        $r1 = mysqli_query($con, $q1);
+        while($d1 = mysqli_fetch_object($r1)){
+            $PIX = new MercadoPago;
+            $rt = $PIX->CancelarPagamento($d1->id);
+            mysqli_query($con, "update status_venda set retorno = '{$rt}' where venda = '{$_SESSION['AppVenda']}' and retorno->>'$.id' = '{$d1->id}'");
         }
 
         $quantidade = (($_POST['quantidade']*1 >= 1)?$_POST['quantidade']:1);
