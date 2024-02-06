@@ -12,6 +12,7 @@
     $retorno = json_decode($retorno);
 
     echo "<p>".date("d/m/Y H:i:s")."<br>Pagamento: ".$Status[$retorno->status]."</p>";
+    echo "<p>ID: ".$retorno->id."</p>";
 
     if($retorno->status == 'approved'){
 
