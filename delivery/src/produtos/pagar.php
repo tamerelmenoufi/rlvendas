@@ -273,7 +273,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                     <div class="col-6">
                         <div class="card-title">
                             <small>CPF</small>
-                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=(($c->cep)?:'Não Registrado')?></div>
+                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=(($c->cpf)?:'Não Registrado')?></div>
                         </div>
                     </div>
                     <div class="col-6">
