@@ -501,7 +501,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
             cupom = $("#cupom").val();
             valor = $("#cupom").attr("valor");
             $.ajax({
-                url:"componentes/ms_popup.php",
+                url:"componentes/ms_popup_100.php",
                 type:"POST",
                 data:{
                     local:`src/produtos/pagar.php`,
