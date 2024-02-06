@@ -4,6 +4,7 @@
     $Status = [
         'pending' => '<span style="color:red">Pendente</span>',
         'approved' => '<span style="color:green">Aprovado</span>',
+        'cancelled' => '<span style="color:red">Cancelado</span>',
     ];
 
     $PIX = new MercadoPago;
@@ -98,20 +99,25 @@
 <script>
     $(function(){
         <?php
-        if($retorno->status != 'approved'){
+        if($retorno->status == 'cancelled'){
         ?>
-        setTimeout(() => {
-            $.ajax({
-                url:"src/produtos/pagar_pix_verificar.php",
-                type:"POST",
-                data:{
-                    id:'<?=$_POST['id']?>'
-                },
-                success:function(dados){
-                    $(".status_pagamento").html(dados)
-                }
-            });
-        }, 5000);
+            $.alert('Este código PIX está cancelado, clique em pagamento PIX para gerar um novo código de pagamento para o seu pedido!')
+            PageClose();
+        <?php
+        }else if($retorno->status != 'approved'){
+            ?>
+            setTimeout(() => {
+                $.ajax({
+                    url:"src/produtos/pagar_pix_verificar.php",
+                    type:"POST",
+                    data:{
+                        id:'<?=$_POST['id']?>'
+                    },
+                    success:function(dados){
+                        $(".status_pagamento").html(dados)
+                    }
+                });
+            }, 5000);
         <?php
         }else{
         ?>
