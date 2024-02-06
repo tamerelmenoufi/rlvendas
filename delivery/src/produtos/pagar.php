@@ -267,7 +267,7 @@ $taxa_entrega = $valores->deliveryFee;
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Taxa de Entrega</small>
-                                <div style="font-size:18px !important; color:blue;">R$ <?=number_format(12.4,2,',',false)?></div>
+                                <div style="font-size:18px !important; color:blue;">R$ <?=number_format($taxa_entrega,2,',',false)?></div>
                             </h5>
                         </div> 
                         <div class="col-6">
