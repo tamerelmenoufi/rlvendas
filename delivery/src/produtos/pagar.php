@@ -177,19 +177,19 @@ where codigo = '{$_SESSION['AppVenda']}'";
                     <div class="col-8">
                         <h5 class="card-title">
                             <small>Nome</small>
-                            <div style="font-size:18px !important; color:blue;">Tamer Mohamed Elmenoufi</div>
+                            <div style="font-size:12px !important; color:#333;">Tamer Mohamed Elmenoufi</div>
                         </h5>
                     </div>
                     <div class="col-4">
                         <h5 class="card-title">
                             <small>Telefone</small>
-                            <div style="font-size:18px !important; color:blue;">(92) 99188-6570</div>
+                            <div style="font-size:12px !important; color:#333;">(92) 99188-6570</div>
                         </h5>
                     </div>
                     <div class="col-12">
                         <h5 class="card-title">
                             <small>Endereço</small>
-                            <div style="font-size:18px !important; color:blue;">
+                            <div style="font-size:12px !important; color:#333;">
                                 Rua Monsenhor Coutinho, 600, Edifício Maximino Correia, apto 1302, Centro, CEP 69010-110
                             </div>
                         </h5>
