@@ -168,9 +168,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <h4>Pagar pedido - <?=$_SESSION['AppVenda']?></h4>
 </div>
 <?php
+
+$blq = false;
 $query = "select * from clientes where codigo = '{$_SESSION['AppCliente']}'";
 $result = mysqli_query($con, $query);
 $c = mysqli_fetch_object($result);
+
+
 
 $cep = $c->cep;
 $logradouro = $c->logradouro;
@@ -181,6 +185,17 @@ $bairro = $c->bairro;
 $localidade = $c->localidade;
 $uf = $c->uf;
 $coo = $c->coordenadas;
+
+if(
+    !$cep or
+    !$logradouro or
+    !$numero or
+    !$complemento or
+    !$bairro or
+){
+    $blq = true;
+}
+
 
 $end = [
     $cep,
@@ -231,6 +246,10 @@ $valores = json_decode($mt);
 
 $taxa_entrega = $valores->deliveryFee;
 
+if($taxa_entrega * 1 == 0){
+    $blq = true;
+}
+
 mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{$_SESSION['AppVenda']}'");
 
 ?>
@@ -245,7 +264,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         <div class="card-title">
                             <small>Nome</small>
                             <div style="font-size:12px !important; color:#333; font-weight:normal">
-                                <?=$c->nome?>
+                                <?=(($c->nome)?:'Não Registrado')?>
                             </div>
                         </div>
                     </div>
@@ -254,13 +273,13 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                     <div class="col-6">
                         <div class="card-title">
                             <small>CPF</small>
-                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=$c->cpf?></div>
+                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=(($c->cep)?:'Não Registrado')?></div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="card-title">
                             <small>Telefone</small>
-                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=$c->telefone?></div>
+                            <div style="font-size:12px !important; color:#333; font-weight:normal"><?=(($c->telefone)?:'Não Registrado')?></div>
                         </div>
                     </div>
                 </div>
@@ -362,7 +381,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
-                    if((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0){
+                    if((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0 !$blq){
                     ?>
                     <div class="row">
                         <div class="col">Escolha a forma de pagamento</div>
@@ -392,13 +411,16 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                     <?php
                     }else{
                     ?>
-                    <center><h3>NÃO EXISTE PAGAMENTO PENDENTE</h3></center>
+                    <center>
+                        <h3>Pagamento não pode ser finalizado</h3>
+                        <p>Favor atualize seus dados de cadastro e retorno para efetuar o pagamento!</p>
+                    </center>
                     <button
-                        fechar_conta
+                        atualizar_cadastro
                         type="button"
                         class="btn btn-warning btn-lg btn-block"
                     >
-                        Fechar a Conta
+                        Ataulizar Cadastro
                     </button>                    
                     <?php
                     }
@@ -536,6 +558,21 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
             });
 
 
+        });
+
+        $("button[atualizar_cadastro]").click(function(){
+            Carregando();
+            $.ajax({
+                url:"componentes/ms_popup_100.php",
+                type:"POST",
+                data:{
+                    local:`src/cliente/perfil.php`,
+                },
+                success:function(dados){
+                    PageClose();
+                    $(".ms_corpo").append(dados);
+                }
+            });
         });
 
 
