@@ -84,7 +84,8 @@
                                     $q1 = "SELECT *, retorno->>'$.id' as id FROM `status_venda` where venda = '{$d->codigo}'";
                                     $r1 = mysqli_query($con, $q1);
                                     while($d1 = mysqli_fetch_object($r1)){
-                                        $PIX->CancelarPagamento($d1->id);
+                                        $rt = $PIX->CancelarPagamento($d1->id);
+                                        mysqli_query($con, "update status_venda set retorno = '{$rt}' where venda = '{$d->codigo}' and retorno->>'$.id' == '{$d1->id}'");
                                     }
 
                                     $PIX = new MercadoPago;
