@@ -164,9 +164,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
         display:none;
     }
 </style>
-<!-- <div class="PedidoTopoTitulo">
-    <h4>Pagar Mesa <?=$m->mesa?></h4>
-</div> -->
+<div class="PedidoTopoTitulo">
+    <h4>Pagar pedido - <?=$_SESSION['AppVenda']?></h4>
+</div>
 
 <div class="col" style="margin-bottom:60px; display:<?=(($d->total)?'block':'none')?>">
     <div class="row">
