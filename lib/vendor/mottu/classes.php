@@ -48,7 +48,7 @@ class mottu {
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
             'x-api-token: '.$this->apiKey($this->ambiente, $loja),
-            'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
+            // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
         ));
@@ -78,7 +78,7 @@ class mottu {
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
             'x-api-token: '.$this->apiKey($this->ambiente, $loja),
-            'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
+            // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
         ));
@@ -109,7 +109,7 @@ class mottu {
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
             'x-api-token: '.$this->apiKey($this->ambiente, $loja),
-            'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
+            // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
         ));
@@ -139,7 +139,7 @@ class mottu {
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
             'x-api-token: '.$this->apiKey($this->ambiente, $loja),
-            'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
+            // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
         ));
@@ -168,7 +168,7 @@ class mottu {
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
             'x-api-token: '.$this->apiKey($this->ambiente, $loja),
-            'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
+            // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
         ));
