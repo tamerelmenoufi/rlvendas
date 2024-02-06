@@ -381,7 +381,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
-                    if((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0 !$blq){
+                    if((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0 or !$blq){
                     ?>
                     <div class="row">
                         <div class="col">Escolha a forma de pagamento</div>
