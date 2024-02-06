@@ -182,7 +182,26 @@ $localidade = $c->localidade;
 $uf = $c->uf;
 $coo = $c->coordenadas;
 
-$endereco = "{$logradouro}, {$numero}".(($complemento)?", {$complemento}":false).(($ponto_referencia)?", {$ponto_referencia}":false).", {$bairro} - {$cep}";
+$end = [
+    $cep,
+    $logradouro,
+    $numero,
+    $complemento,
+    $ponto_referencia,
+    $bairro
+];
+
+$endereco = [];
+foreach($end as $i => $val){
+    if($val){
+        $endereco[] = $val;
+    }
+    
+}
+if($endereco){
+    $endereco = implode(", ", $endereco);
+}
+
 
 $mottu = new mottu;
 $json = "{
