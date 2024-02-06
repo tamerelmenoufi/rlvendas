@@ -251,7 +251,7 @@ if($taxa_entrega * 1 == 0){
 }
 
 mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{$_SESSION['AppVenda']}'");
-
+echo "Blq: ".$blq;
 ?>
 <div class="col" style="margin-bottom:60px; display:<?=(($d->total)?'block':'none')?>">
     <div class="row">
