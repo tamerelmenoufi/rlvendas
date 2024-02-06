@@ -12,7 +12,7 @@ class mottu {
         }
     }
 
-    public function apiKey($opc, $loja){
+    public function apiKey($opc){
         global $cYb;
         if($opc == 'homologacao'){
             return $cYb['mottu']['homologacao']['TOKEN-API'];
@@ -21,7 +21,7 @@ class mottu {
         }
     }
 
-    public function integradora($opc, $loja){
+    public function integradora($opc){
         global $cYb;
         if($opc == 'homologacao'){
             return $cYb['mottu']['homologacao']['TOKEN-INTEGRATOR'];
@@ -30,7 +30,7 @@ class mottu {
         }
     }
 
-    public function NovoPedido($json, $loja = false){
+    public function NovoPedido($json){
 
         $curl = curl_init();
 
@@ -47,7 +47,7 @@ class mottu {
         CURLOPT_POSTFIELDS =>$json,
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
-            'x-api-token: '.$this->apiKey($this->ambiente, $loja),
+            'x-api-token: '.$this->apiKey($this->ambiente),
             // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
@@ -61,7 +61,7 @@ class mottu {
     }
 
 
-    public function ConsultarPedido($pedido, $loja = false){
+    public function ConsultarPedido($pedido){
 
         $curl = curl_init();
 
@@ -77,7 +77,7 @@ class mottu {
         CURLOPT_CUSTOMREQUEST => 'GET',
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
-            'x-api-token: '.$this->apiKey($this->ambiente, $loja),
+            'x-api-token: '.$this->apiKey($this->ambiente),
             // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
@@ -91,7 +91,7 @@ class mottu {
     }
 
 
-    public function cancelarPedido($json, $loja = false){
+    public function cancelarPedido($json){
 
         $curl = curl_init();
 
@@ -108,7 +108,7 @@ class mottu {
         CURLOPT_POSTFIELDS =>$json,
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
-            'x-api-token: '.$this->apiKey($this->ambiente, $loja),
+            'x-api-token: '.$this->apiKey($this->ambiente),
             // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
@@ -121,7 +121,7 @@ class mottu {
         return $response; //."\n".$this->Ambiente($this->ambiente)."\n".$this->apiKey($this->ambiente, $loja)."\n";
     }
 
-    public function calculaFrete($json, $loja = false){
+    public function calculaFrete($json){
 
         $curl = curl_init();
 
@@ -138,7 +138,7 @@ class mottu {
         CURLOPT_POSTFIELDS => $json,
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
-            'x-api-token: '.$this->apiKey($this->ambiente, $loja),
+            'x-api-token: '.$this->apiKey($this->ambiente),
             // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
@@ -146,11 +146,11 @@ class mottu {
 
         $response = curl_exec($curl);
         curl_close($curl);
-        return $response; //."\n".$this->Ambiente($this->ambiente, $a)."/orders/preview"."\n".$this->apiKey($this->ambiente, $loja, $a)."\n";
+        return $response."\n".$this->Ambiente($this->ambiente)."/orders/preview"."\n".$this->apiKey($this->ambiente)."\n";
 
     }
 
-    public function webhook($json, $loja = false){
+    public function webhook($json){
 
         $curl = curl_init();
 
@@ -167,7 +167,7 @@ class mottu {
         CURLOPT_POSTFIELDS =>$json,
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
-            'x-api-token: '.$this->apiKey($this->ambiente, $loja),
+            'x-api-token: '.$this->apiKey($this->ambiente),
             // 'x-integrator-token: '.$this->integradora($this->ambiente, $loja),
             'accept: application/json'
         ),
