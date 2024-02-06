@@ -104,9 +104,12 @@
         $retorno = $cielo->Transacao($json);
         $json = json_decode($retorno);
 
+        $caixa = mysqli_fetch_object(mysqli_query($con, "select * from caixa where situacao = '0'"));
+
         $query = "update vendas set 
                                     forma_pagamento = 'credito',
                                     operadora = 'CIELO',
+                                    caixa = '{$caixa->caixa}',
                                     operadora_id = '{$json->Payment->Tid}',
                                     operadora_situacao = '".cartao_status($json->Payment->ReturnCode)."',
                                     ".(($json->Payment->ReturnCode == '00')?"data_finalizacao = NOW(), situacao = 'pago', ":false)."
@@ -117,6 +120,16 @@
 
         if($json->Payment->ReturnCode == '00'){
             mysqli_query($con, "UPDATE `vendas_produtos` set situacao = 'p', pago = '1' where venda = '{$_POST['AppVenda']}'");
+            mysqli_query($con, "INSERT INTO `vendas_pagamento` set 
+                                                                    venda = '{$_POST['AppVenda']}',
+                                                                    caixa = '{$caixa->caixa}',
+                                                                    data = NOW(),
+                                                                    forma_pagamento = 'credito',
+                                                                    valor = '{$_POST['amount']}',
+                                                                    operadora = 'cielo',
+                                                                    operadora_situacao = '".cartao_status($json->Payment->ReturnCode)."',
+                                                                    operadora_retorno = '{$retorno}'
+                        ");
         }
     
         echo $retorno;
