@@ -103,6 +103,16 @@
     }
 
     if($_POST['acao'] == 'Excluirproduto'){
+
+
+        $q1 = "SELECT *, retorno->>'$.id' as id FROM `status_venda` where venda = '{$_SESSION['AppVenda']}' and retorno->>'$.status' = 'pending'";
+        $r1 = mysqli_query($con, $q1);
+        while($d1 = mysqli_fetch_object($r1)){
+            $PIX = new MercadoPago;
+            $rt = $PIX->CancelarPagamento($d1->id);
+            mysqli_query($con, "update status_venda set retorno = '{$rt}' where venda = '{$_SESSION['AppVenda']}' and retorno->>'$.id' = '{$d1->id}'");
+        }
+
         $q = "update vendas_produtos set deletado = '1' where codigo = '{$_POST['codigo']}'";
         mysqli_query($con, $q);
         sisLog(
@@ -298,7 +308,7 @@
         <div class="card bg-light mb-3" style="padding-bottom:40px;">
             <div class="card-body">
                 <p Excluirproduto codigo="<?=$d->codigo?>" produto="<?=$pedido->categoria->descricao?> - <?=$pedido->medida->descricao?> <?=$sabores?>" style="position:absolute; right:-10px; top:-10px; width:auto;">
-                    <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blqc?>"></i>
+                    <i class="fa-solid fa-circle-xmark" style="color:orange; font-size:30px; <?=$blqcXXX?>"></i>
                 <p>
                 <p Tempo>
                     <?=CalcTempo($d->data)?>
@@ -372,7 +382,7 @@
             <button
                 class="btn btn-danger btn-block"
                 ExcluirPedido
-                style="<?=((!$acao_cancelar)?'display:none;':false)?>"
+                styleXXX="<?=((!$acao_cancelar)?'display:none;':false)?>"
             >
             <i class="fa-solid fa-trash-can"></i> Cancelar Pedido
             </button>
