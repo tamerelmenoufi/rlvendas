@@ -200,6 +200,8 @@ foreach($end as $i => $val){
 }
 if($endereco){
     $endereco = implode(", ", $endereco);
+}else{
+    $endereco = false;
 }
 
 
