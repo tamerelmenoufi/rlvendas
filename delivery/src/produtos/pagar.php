@@ -174,6 +174,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
             <div class="card bg-light mb-3">
                 <div class="card-header">Cliente</div>
                 <div class="card-body">
+                <div class="row">
                     <div class="col-8">
                         <h5 class="card-title">
                             <small>Nome</small>
@@ -186,6 +187,8 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             <div style="font-size:12px !important; color:#333;">(92) 99188-6570</div>
                         </h5>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-12">
                         <h5 class="card-title">
                             <small>Endereço</small>
@@ -194,7 +197,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
                             </div>
                         </h5>
                     </div>
-
+                </div>
                     
                 </div>
             </div>
