@@ -86,8 +86,9 @@
                                     while($d1 = mysqli_fetch_object($r1)){
                                         $PIX = new MercadoPago;
                                         $rt = $PIX->CancelarPagamento($d1->id);
-                                        mysqli_query($con, "update status_venda set retorno = '{$rt}' where venda = '{$d->codigo}' and retorno->>'$.id' == '{$d1->id}'");
-                                        file_put_contents('pix.txt', $rt."\n\n"."update status_venda set retorno = '{$rt}' where venda = '{$d->codigo}' and retorno->>'$.id' == '{$d1->id}'");
+                                        mysqli_query($con, "update status_venda set retorno = '{$rt}' where venda = '{$d->codigo}' and retorno->>'$.id' = '{$d1->id}'");
+                                        @unlink('pix.txt');
+                                        // file_put_contents('pix.txt', $rt."\n\n"."update status_venda set retorno = '{$rt}' where venda = '{$d->codigo}' and retorno->>'$.id' = '{$d1->id}'");
                                     }
 
                                     $PIX = new MercadoPago;
