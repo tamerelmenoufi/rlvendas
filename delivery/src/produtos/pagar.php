@@ -220,7 +220,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <div class="row">
         <div class="col-12">
             <div class="card bg-light mb-3">
-                <div class="card-header">Dados da Compra - <?=$_SESSION['AppVenda']?></div>
+                <div class="card-header">Dados da Compra</div>
                 <div class="card-body">
                     <div class="row">
 
