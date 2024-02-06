@@ -15,18 +15,18 @@ class mottu {
     public function apiKey($opc, $loja){
         global $cYb;
         if($opc == 'homologacao'){
-            return $cYb['homologacao']['TOKEN-API'];
+            return $cYb['mottu']['homologacao']['TOKEN-API'];
         }else{
-            return $cYb['producao']['TOKEN-API'];
+            return $cYb['mottu']['producao']['TOKEN-API'];
         }
     }
 
     public function integradora($opc, $loja){
         global $cYb;
         if($opc == 'homologacao'){
-            return $cYb['homologacao']['TOKEN-INTEGRATOR'];
+            return $cYb['mottu']['homologacao']['TOKEN-INTEGRATOR'];
         }else{
-            return $cYb['producao']['TOKEN-INTEGRATOR'];
+            return $cYb['mottu']['producao']['TOKEN-INTEGRATOR'];
         }
     }
 
