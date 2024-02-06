@@ -260,8 +260,6 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
     </div>
 
 
-
-
     <div class="row">
         <div class="col-12">
             <div class="card bg-light mb-3">
@@ -298,7 +296,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         <div class="col-6">
                             <h5 class="card-title">
                                 <small>Valor a pagar</small>
-                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',',false)?></div> -->
+                                <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor + $taxa_entrega,2,',',false)?></div> -->
                                 <div class="valor_pendente" style="font-size:18px !important; color:green;" pendente="" valor="">R$ <?=number_format(($d->total-$d->cupom_valor),2,',',false)?></div>
                             </h5>
                         </div>
