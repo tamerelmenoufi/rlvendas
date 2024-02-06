@@ -174,7 +174,7 @@ $query = "select * from clientes where codigo = '{$_SESSION['AppCliente']}'";
 $result = mysqli_query($con, $query);
 $c = mysqli_fetch_object($result);
 
-
+echo "Blq: ".$blq."<br>";
 
 $cep = $c->cep;
 $logradouro = $c->logradouro;
@@ -186,6 +186,7 @@ $localidade = $c->localidade;
 $uf = $c->uf;
 $coo = $c->coordenadas;
 
+
 if(
     !$cep or
     !$logradouro or
@@ -194,6 +195,8 @@ if(
     !$bairro
 ){
     $blq = true;
+    echo "<p>endereço</p>";
+
 }
 
 
@@ -248,6 +251,7 @@ $taxa_entrega = $valores->deliveryFee;
 
 if($taxa_entrega * 1 == 0){
     $blq = true;
+    echo "<p>taxa entrega</p>";
 }
 
 mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{$_SESSION['AppVenda']}'");
