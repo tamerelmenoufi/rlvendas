@@ -108,7 +108,7 @@
 
         $query = "update vendas set 
                                     forma_pagamento = 'credito',
-                                    operadora = 'CIELO',
+                                    operadora = 'cielo',
                                     caixa = '{$caixa->caixa}',
                                     operadora_id = '{$json->Payment->Tid}',
                                     operadora_situacao = '".cartao_status($json->Payment->ReturnCode)."',
@@ -119,7 +119,8 @@
         $d = mysqli_fetch_object($result);
 
         if($json->Payment->ReturnCode == '00'){
-            mysqli_query($con, "UPDATE `vendas_produtos` set situacao = 'p', pago = '1' where venda = '{$_POST['AppVenda']}'");
+            $ordem = strtotime("now");
+            mysqli_query($con, "UPDATE `vendas_produtos` set situacao = 'p', pago = '1', ordem = {$ordem} where venda = '{$_POST['AppVenda']}'");
             mysqli_query($con, "INSERT INTO `vendas_pagamento` set 
                                                                     venda = '{$_POST['AppVenda']}',
                                                                     caixa = '{$caixa->caixa}',
