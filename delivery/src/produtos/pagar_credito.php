@@ -221,9 +221,9 @@
                     PAGAR R$ <?=number_format($_POST['valor_total'], 2, ',','.')?>
                 </button>
 
-                <div class="alertas animate__animated animate__fadeIn animate__infinite animate__slower">
+                <!-- <div class="alertas animate__animated animate__fadeIn animate__infinite animate__slower">
                     Atenção, você possui <span tentativa><?=$d->tentativas_pagamento?></span> tentativa(s)!
-                </div>
+                </div> -->
 
 
             </div>
