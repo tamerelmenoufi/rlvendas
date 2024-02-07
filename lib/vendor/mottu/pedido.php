@@ -1,7 +1,7 @@
 <?php
     include("../../../lib/includes.php");
 
-    $query1 = "select 
+    $query = "select 
                         a.*,
                         b.nome as Cnome,
                         b.telefone as Ctelefone,
@@ -11,9 +11,8 @@
                         b.bairro as Cbairro,
                         b.cep as Ccep 
                 from vendas a left join clientes b on a.cliente = b.codigo where a.codigo = '61023'";
-    $result1 = mysqli_query($con, $query1);
-    $d1 = mysqli_fetch_object($result1);
-
+    $result = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result);
 
     echo $json = '{
         "code": "'.$d->codigo.'",
