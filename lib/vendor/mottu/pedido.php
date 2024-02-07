@@ -15,7 +15,7 @@
     $d1 = mysqli_fetch_object($result1);
 
 
-    $json = '{
+    echo $json = '{
         "code": "'.$d->codigo.'",
         "fullCode": "bk-'.$d->codigo.'",
         "preparationTime": 0,
@@ -44,7 +44,7 @@
             }
         ]
         }';
-
+    echo "<hr>";
     $mottu = new mottu;
     $retorno1 = $mottu->NovoPedido($json);
     $retorno = json_decode($retorno1);
