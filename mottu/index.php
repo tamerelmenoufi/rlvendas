@@ -6,7 +6,7 @@
 
     if($_GET and !$_POST) $_POST = $_GET;
 
-    if($_POST){
+    // if($_POST){
         $dadosLog = print_r($_POST,true);
         file_put_contents("log-".date("YmdHis").".txt", $dadosLog);        
-    }
+    // }
