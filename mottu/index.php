@@ -1,7 +1,7 @@
 <?php
     include("../lib/includes.php");
 
-    $q = "select * from clientes limit 10";
+    $q = "select * from clientes where nome != '' limit 10";
     $result = mysqli_query($con, $q);
     while($d = mysqli_fetch_object($result)){
         echo $d->nome."<br>";
