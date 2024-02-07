@@ -28,7 +28,7 @@
                 "mottu": true
             },
             "name": "'.$d->Cnome.'",
-            "phone": "'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
+            "phone": "+55'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
             "observation": "'.$d->observacoes.'",
             "address": {
                 "street": "'.$d->Clogradouro.'",
