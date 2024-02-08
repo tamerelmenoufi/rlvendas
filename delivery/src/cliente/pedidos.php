@@ -28,7 +28,7 @@
                 $r = mysqli_query($con, $q);
                 if($d = mysqli_fetch_object($r)){
             ?>
-                
+                <?=$d->codigo?><br>
             <?php
                 }
             ?>
