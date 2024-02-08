@@ -117,13 +117,20 @@
     
     // exit();
 
-    // echo $json = '{
-    //     "orderId": "9832530",
-    //     "reason": "Pedido cancelado, realização de testes na plataforma"
-    //   }';
+    echo $json = '{
+        "orderId": "9848170",
+        "reason": "Pedido cancelado, cliente desistiu"
+      }';
         
     echo "<hr>";
     $mottu = new mottu;
-    $retorno1 = $mottu->ConsultarPedido(9848170);
+    $retorno1 = $mottu->ConsultarPedido($json);
     $retorno = json_decode($retorno1);
     print_r($retorno);
+
+
+    echo "<hr>";
+    // $mottu = new mottu;
+    // $retorno1 = $mottu->ConsultarPedido(9848170);
+    // $retorno = json_decode($retorno1);
+    // print_r($retorno);
