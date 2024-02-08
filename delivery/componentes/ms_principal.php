@@ -52,6 +52,11 @@
 <div class="topo"></div>
 <div class="pagina">
 <div class="row" style="margin:0; padding:0;">
+
+    <div class="alert alert-danger" role="alert">
+    A simple danger alert—check it out!
+    </div>
+
     <div class="col-12">
         <button
                 class="btn btn-primary btn-lg btn-block m-1"
