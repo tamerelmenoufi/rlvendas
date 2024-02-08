@@ -1,34 +1,38 @@
 <?php
     include("../../../lib/includes.php");
 
-    $mottu = new mottu;
-    $json = "{
-        \"previewDeliveryTime\": true,
-        \"sortByBestRoute\": false,
-        \"deliveries\": [
-            {
-            \"orderRoute\": 112233,
-            \"address\": {
-                \"street\": \"Bruxelas\",
-                \"number\": \"15\",
-                \"complement\": \"\",
-                \"neighborhood\": \"Planalto\",
-                \"city\": \"Manaus\",
-                \"state\": \"AM\",
-                \"zipCode\": \"69045260\"
-            },
-            \"onlinePayment\": true
-            }
-        ]
-        }";
+
+    ////////////////CONSULTAR FRETE////////////////////////////////
+    // $mottu = new mottu;
+    // $json = "{
+    //     \"previewDeliveryTime\": true,
+    //     \"sortByBestRoute\": false,
+    //     \"deliveries\": [
+    //         {
+    //         \"orderRoute\": 112233,
+    //         \"address\": {
+    //             \"street\": \"Bruxelas\",
+    //             \"number\": \"15\",
+    //             \"complement\": \"\",
+    //             \"neighborhood\": \"Planalto\",
+    //             \"city\": \"Manaus\",
+    //             \"state\": \"AM\",
+    //             \"zipCode\": \"69045260\"
+    //         },
+    //         \"onlinePayment\": true
+    //         }
+    //     ]
+    //     }";
     
-    echo $mt = $mottu->calculaFrete($json);
-    $valores = json_decode($mt);
-    echo "<hr>";
-    echo $taxa_entrega = $valores->deliveryFee;
+    // echo $mt = $mottu->calculaFrete($json);
+    // $valores = json_decode($mt);
+    // echo "<hr>";
+    // echo $taxa_entrega = $valores->deliveryFee;
 
 
-exit();
+//exit();
+
+    //////////////////////SOLICITAR ENTREGA//////////////////////////////////
     $query = "select 
                         a.*,
                         b.nome as Cnome,
@@ -41,6 +45,37 @@ exit();
                 from vendas a left join clientes b on a.cliente = b.codigo where a.codigo = '61023'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
+    // echo $json = '{
+    //     "code": "'.$d->codigo.'",
+    //     "fullCode": "bk-'.$d->codigo.'",
+    //     "preparationTime": 0,
+    //     "previewDeliveryTime": false,
+    //     "sortByBestRoute": false,
+    //     "deliveries": [
+    //         {
+    //         "code": "'.$d->codigo.'",
+    //         "confirmation": {
+    //             "mottu": true
+    //         },
+    //         "name": "'.$d->Cnome.'",
+    //         "phone": "+55'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
+    //         "observation": "'.$d->observacoes.'",
+    //         "address": {
+    //             "street": "'.$d->Clogradouro.'",
+    //             "number": "'.$d->Cnumero.'",
+    //             "complement": "'.$d->Cponto_referencia.'",
+    //             "neighborhood": "'.$d->Cbairro.'",
+    //             "city": "Manaus",
+    //             "state": "AM",
+    //             "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"
+    //         },
+    //         "onlinePayment": true,
+    //         "productValue": '.($d->valor+$d->taxa-$d->desconto+$d->acrescimo).'
+    //         }
+    //     ]
+    //     }';
+
 
     echo $json = '{
         "code": "'.$d->codigo.'",
@@ -57,22 +92,38 @@ exit();
             "name": "'.$d->Cnome.'",
             "phone": "+55'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
             "observation": "'.$d->observacoes.'",
-            "address": {
-                "street": "'.$d->Clogradouro.'",
-                "number": "'.$d->Cnumero.'",
-                "complement": "'.$d->Cponto_referencia.'",
-                "neighborhood": "'.$d->Cbairro.'",
-                "city": "Manaus",
-                "state": "AM",
-                "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"
+            \"address\": {
+                \"street\": \"Bruxelas\",
+                \"number\": \"15\",
+                \"complement\": \"\",
+                \"neighborhood\": \"Planalto\",
+                \"city\": \"Manaus\",
+                \"state\": \"AM\",
+                \"zipCode\": \"69045260\"
             },
             "onlinePayment": true,
             "productValue": '.($d->valor+$d->taxa-$d->desconto+$d->acrescimo).'
             }
         ]
         }';
+        
     echo "<hr>";
     $mottu = new mottu;
     $retorno1 = $mottu->NovoPedido($json);
+    $retorno = json_decode($retorno1);
+    print_r($retorno);
+
+    /////////////////////////// CANCELAR ENTREGA/////////////////////////////////////
+    
+    exit();
+
+    echo $json = '{
+        "orderId": "124",
+        "reason": "Pedido cancelado, realização de testes na plataforma"
+      }';
+        
+    echo "<hr>";
+    $mottu = new mottu;
+    $retorno1 = $mottu->cancelarPedido($json);
     $retorno = json_decode($retorno1);
     print_r($retorno);
