@@ -33,14 +33,14 @@
                 <h5 class="card-header">Pedido <?=$d->codigo?></h5>
                 <div class="card-body">
                     <!-- <h5 class="card-title">Special title treatment</h5> -->
-                    <p class="card-text">Valor: <?=number_format($d->valor, 2,',', false)?></p>
-                    <p class="card-text">Taxa Entrega: <?=number_format($d->taxa, 2,',', false)?></p>
-                    <p class="card-text">Desconto: <?=number_format($d->desconto, 2,',', false)?></p>
-                    <p class="card-text">Acrescimo: <?=number_format($d->acrescimo, 2,',', false)?></p>
-                    <p class="card-text">Valor: <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></p>
+                    Valor: <?=number_format($d->valor, 2,',', false)?><br>
+                    Taxa Entrega: <?=number_format($d->taxa, 2,',', false)?><br>
+                    Desconto: <?=number_format($d->desconto, 2,',', false)?><br>
+                    Acrescimo: <?=number_format($d->acrescimo, 2,',', false)?><br>
+                    Valor: <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?>
                     <h6 class="card-subtitle mb-2 text-muted">Entrega</h6>
-                    <p class="card-text">Entregador: <?=$delivery->Entregador->Nome?></p>
-                    <p class="card-text">Situação: <?=(($d->situacao_entrega)?:'Em Produção')?></p>
+                    Entregador: <?=$delivery->Entregador->Nome?><br>
+                    Situação: <?=(($d->situacao_entrega)?:'Em Produção')?><br>
 
                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                 </div>
