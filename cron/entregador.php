@@ -16,8 +16,8 @@ $query = "select
                 left join clientes b on a.cliente = b.codigo 
                 where a.app = 'delivery' and 
                       a.situacao = 'pago' and 
-                      a.deletado != '1'/* and 
-                      a.delivery->>'$.Id' is NULL limit 10*/";
+                      a.deletado != '1' and 
+                      a.delivery->>'$.Id' is NULL limit 10";
 
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
