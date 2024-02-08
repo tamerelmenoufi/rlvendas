@@ -32,17 +32,41 @@
             <div class="card">
                 <h5 class="card-header">Pedido <?=$d->codigo?></h5>
                 <div class="card-body">
-                    <!-- <h5 class="card-title">Special title treatment</h5> -->
-                    Valor: <?=number_format($d->valor, 2,',', false)?><br>
-                    Taxa Entrega: <?=number_format($d->taxa, 2,',', false)?><br>
-                    Desconto: <?=number_format($d->desconto, 2,',', false)?><br>
-                    Acrescimo: <?=number_format($d->acrescimo, 2,',', false)?><br>
-                    Valor: <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?>
-                    <h6 class="card-subtitle mb-2 text-muted">Entrega</h6>
-                    Entregador: <?=$delivery->Entregador->Nome?><br>
-                    Situação: <?=(($d->situacao_entrega)?:'Em Produção')?><br>
+                    <div class="d-flex justify-content-between">
+                        <div>Valor</div>
+                        <span><?=number_format($d->valor, 2,',', false)?></span>
+                    </div>
 
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    <div class="d-flex justify-content-between">
+                        <div>Taxa Entrega</div>
+                        <span><?=number_format($d->taxa, 2,',', false)?></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>Desconto</div>
+                        <span><?=number_format($d->desconto, 2,',', false)?></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>Acrescimo</div>
+                        <span><?=number_format($d->acrescimo, 2,',', false)?></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>Valor</div>
+                        <span><?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>Entregador</div>
+                        <span><?=$delivery->Entregador->Nome?></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>Situação</div>
+                        <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
+                    </div>
+
                 </div>
             </div>
             <?php
