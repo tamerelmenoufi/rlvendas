@@ -58,7 +58,7 @@
     if(mysqli_num_rows($r)){
     ?>
     <div class="col-12">
-        <div class="alert alert-danger" role="alert">
+        <div pedidos class="alert alert-danger" role="alert">
             <div class="d-flex justify-content-between">
                 <i class="fa-solid fa-bag-shopping" style="font-size:70px; margin-right:10px;"></i>
                 <div class="w-100">Você possui um pedido em andamento, <b>clique aqui</b> para acompanhar os detalhes.</div>
@@ -199,6 +199,19 @@ $i++;
             }
         })
 
+        $("div[pedidos]").off('click').on('click',function(){
+            $.ajax({
+                url:"componentes/ms_popup_100.php",
+                type:"POST",
+                data:{
+                    local:"src/cliente/pedidos.php",
+                    // local:"src/cliente/cadastro.php",
+                },
+                success:function(dados){
+                    $(".ms_corpo").append(dados);
+                }
+            });        
+        });
 
     })
 
