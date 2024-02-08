@@ -96,7 +96,7 @@
                                         "description": "Venda '.$pedido.' - APP Yobom",
                                         "payment_method_id": "pix",
                                         "payer": {
-                                            "email": "tamer@mohatron.com.br",
+                                            "email": "cliente@yobom.com.br",
                                             "first_name": "Tamer",
                                             "last_name": "Elmenoufi",
                                             "identification": {

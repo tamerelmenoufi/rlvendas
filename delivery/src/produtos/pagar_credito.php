@@ -95,7 +95,7 @@
                   "Brand":"'.bandeira(trim(substr($_POST['cardNumber'],0,1))).'"
               },     
               "Type":"CreditCard",
-              "Amount":100
+              "Amount":'.str_replace([',','.'], false,trim($_POST['amount'])).'
             }
          }'; //"Amount":'.str_replace([',','.'], false,trim($_POST['amount'])).'
 
