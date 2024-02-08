@@ -1,8 +1,33 @@
 <?php
     include("../../../lib/includes.php");
 
-
+    $mottu = new mottu;
+    $json = "{
+        \"previewDeliveryTime\": true,
+        \"sortByBestRoute\": false,
+        \"deliveries\": [
+            {
+            \"orderRoute\": 112233,
+            \"address\": {
+                \"street\": \"Av. Amsterdã\",
+                \"number\": \"6\",
+                \"complement\": \"\",
+                \"neighborhood\": \"Planalto\",
+                \"city\": \"Manaus\",
+                \"state\": \"AM\",
+                \"zipCode\": \"69045010\"
+            },
+            \"onlinePayment\": true
+            }
+        ]
+        }";
     
+    $mt = $mottu->calculaFrete($json);
+    $valores = json_decode($mt);
+    
+    $taxa_entrega = $valores->deliveryFee;
+
+
 exit();
     $query = "select 
                         a.*,
