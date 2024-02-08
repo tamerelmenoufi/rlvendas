@@ -20,6 +20,18 @@
 <div class="col" style="margin-bottom:60px;">
     <div class="row">
             <div class="col-12">
+            <?php
+                $q = "select * from vendas where 
+                                                app = 'delivery' and 
+                                                cliente = '{$_SESSION['AppCliente']}' and 
+                                                situacao = 'pago' and deletado != '1'";
+                $r = mysqli_query($con, $q);
+                if($d = mysqli_fetch_object($r)){
+            ?>
+                
+            <?php
+                }
+            ?>
                 Aqui a lista dos pedidos do cliente
             </div>
     </div>
