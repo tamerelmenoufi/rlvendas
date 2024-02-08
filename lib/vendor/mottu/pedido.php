@@ -1,6 +1,9 @@
 <?php
     include("../../../lib/includes.php");
 
+
+    
+exit();
     $query = "select 
                         a.*,
                         b.nome as Cnome,
