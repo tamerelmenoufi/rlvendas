@@ -66,7 +66,7 @@
         <button acao opc="perfil" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-user-pen"></i> Perfil pessoal
         </button>
-        <button opc="pedidos" class="btn btn-success btn-lg btn-block">
+        <button acao opc="pedidos" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-bell-concierge"></i> Meus Pedidos
         </button>
         <!-- <button class="btn btn-success btn-lg btn-block">
