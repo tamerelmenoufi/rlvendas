@@ -9,13 +9,13 @@
             {
             \"orderRoute\": 112233,
             \"address\": {
-                \"street\": \"Av. Amsterdã\",
-                \"number\": \"6\",
+                \"street\": \"Bruxelas\",
+                \"number\": \"15\",
                 \"complement\": \"\",
                 \"neighborhood\": \"Planalto\",
                 \"city\": \"Manaus\",
                 \"state\": \"AM\",
-                \"zipCode\": \"69045010\"
+                \"zipCode\": \"69045260\"
             },
             \"onlinePayment\": true
             }
