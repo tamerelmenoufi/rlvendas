@@ -108,10 +108,10 @@
         }';
         
     echo "<hr>";
-    $mottu = new mottu;
-    $retorno1 = $mottu->NovoPedido($json);
-    $retorno = json_decode($retorno1);
-    print_r($retorno);
+    // $mottu = new mottu;
+    // $retorno1 = $mottu->NovoPedido($json);
+    // $retorno = json_decode($retorno1);
+    // print_r($retorno);
 
     /////////////////////////// CANCELAR ENTREGA/////////////////////////////////////
     
