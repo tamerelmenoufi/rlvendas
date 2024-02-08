@@ -52,15 +52,21 @@
 <div class="topo"></div>
 <div class="pagina">
 <div class="row" style="margin:0; padding:0;">
+    <?php
+    if($teste){
+    ?>
     <div class="col-12">
         <div class="alert alert-danger" role="alert">
             <div class="d-flex justify-content-between">
                 <i class="fa-solid fa-bag-shopping" style="font-size:70px; margin-right:10px;"></i>
-                <div class="w-100">Você possui um pedido em andamento, clique aqui para acompanhar os detalhes.</div>
+                <div class="w-100">Você possui um pedido em andamento, <b>clique aqui</b> para acompanhar os detalhes.</div>
             </div>
-        
         </div>
     </div>
+    <?php
+    }
+    ?>
+
     <div class="col-12">
         <button
                 class="btn btn-primary btn-lg btn-block m-1"
