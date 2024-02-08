@@ -30,7 +30,7 @@
                     $delivery = json_decode($d->delivery);
             ?>
             <div class="card">
-                <h5 class="card-header">Pedido <?=$d->codigo?></h5>
+                <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>Valor</div>
