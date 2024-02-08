@@ -21,14 +21,30 @@
     <div class="row">
             <div class="col-12">
             <?php
-                $q = "select * from vendas where 
-                                                app = 'delivery' and 
-                                                cliente = '{$_SESSION['AppCliente']}' and 
-                                                situacao = 'pago' and deletado != '1'";
+                $q = "select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.Situacao' = b.cod where 
+                                                a.app = 'delivery' and 
+                                                a.cliente = '{$_SESSION['AppCliente']}' and 
+                                                a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc";
                 $r = mysqli_query($con, $q);
                 if($d = mysqli_fetch_object($r)){
+                    $delivery = json_decode($d->delivery);
             ?>
-                <?=$d->codigo?><br>
+            <div class="card">
+                <h5 class="card-header">Pedido <?=$d->codigo?></h5>
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Special title treatment</h5> -->
+                    <p class="card-text">Valor: <?=number_format($d->valor, 2,',', false)?></p>
+                    <p class="card-text">Taxa Entrega: <?=number_format($d->taxa, 2,',', false)?></p>
+                    <p class="card-text">Desconto: <?=number_format($d->desconto, 2,',', false)?></p>
+                    <p class="card-text">Acrescimo: <?=number_format($d->acrescimo, 2,',', false)?></p>
+                    <p class="card-text">Valor: <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></p>
+                    <h6 class="card-subtitle mb-2 text-muted">Entrega</h6>
+                    <p class="card-text">Entregador: <?=$delivery->Entregador->Nome?></p>
+                    <p class="card-text">Situação: <?=(($d->situacao_entrega)?:'Em Produção')?></p>
+
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
             <?php
                 }
             ?>
