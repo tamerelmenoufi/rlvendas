@@ -66,10 +66,10 @@
         <button acao opc="perfil" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-user-pen"></i> Perfil pessoal
         </button>
-        <!-- <button class="btn btn-success btn-lg btn-block">
+        <button opc="pedidos" class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-bell-concierge"></i> Meus Pedidos
         </button>
-        <button class="btn btn-success btn-lg btn-block">
+        <!-- <button class="btn btn-success btn-lg btn-block">
             <i class="fa-solid fa-envelope"></i> Fale Conosco
         </button>
         <button acao opc="senha" class="btn btn-success btn-lg btn-block">
