@@ -54,7 +54,11 @@
 <div class="row" style="margin:0; padding:0;">
     <div class="col-12">
         <div class="alert alert-danger" role="alert">
-        A simple danger alert—check it out!
+            <div class="d-flex justify-content-between">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <div class="w-100">Você possui um pedido em andamento, clique aqui para acompanhar os detalhes.</div>
+            </div>
+        
         </div>
     </div>
     <div class="col-12">
