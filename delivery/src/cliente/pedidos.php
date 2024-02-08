@@ -34,27 +34,27 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>Valor</div>
-                        <span><?=number_format($d->valor, 2,',', false)?></span>
+                        <span>R$ <?=number_format($d->valor, 2,',', false)?></span>
                     </div>
 
                     <div class="d-flex justify-content-between">
                         <div>Taxa Entrega</div>
-                        <span><?=number_format($d->taxa, 2,',', false)?></span>
+                        <span>R$ <?=number_format($d->taxa, 2,',', false)?></span>
                     </div>
 
                     <div class="d-flex justify-content-between">
                         <div>Desconto</div>
-                        <span><?=number_format($d->desconto, 2,',', false)?></span>
+                        <span>R$ <?=number_format($d->desconto, 2,',', false)?></span>
                     </div>
 
                     <div class="d-flex justify-content-between">
                         <div>Acrescimo</div>
-                        <span><?=number_format($d->acrescimo, 2,',', false)?></span>
+                        <span>R$ <?=number_format($d->acrescimo, 2,',', false)?></span>
                     </div>
 
                     <div class="d-flex justify-content-between">
                         <div>Valor</div>
-                        <span><?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></span>
+                        <span>R$ <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></span>
                     </div>
 
                     <div class="d-flex justify-content-between">
