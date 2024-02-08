@@ -124,6 +124,6 @@
         
     echo "<hr>";
     $mottu = new mottu;
-    $retorno1 = $mottu->ConsultarPedido(1707434032425);
+    $retorno1 = $mottu->ConsultarPedido(9848170);
     $retorno = json_decode($retorno1);
     print_r($retorno);
