@@ -32,7 +32,6 @@
             <?php
                 }
             ?>
-                Aqui a lista dos pedidos do cliente
             </div>
     </div>
 </div>
