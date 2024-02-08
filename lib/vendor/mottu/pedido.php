@@ -77,35 +77,35 @@
     //     }';
 
 
-    echo $json = '{
-        "code": "'.$d->codigo.'",
-        "fullCode": "bk-'.$d->codigo.'",
-        "preparationTime": 0,
-        "previewDeliveryTime": false,
-        "sortByBestRoute": false,
-        "deliveries": [
-            {
-            "code": "'.$d->codigo.'",
-            "confirmation": {
-                "mottu": true
-            },
-            "name": "'.$d->Cnome.'",
-            "phone": "+55'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
-            "observation": "'.$d->observacoes.'",
-            "address": {
-                "street": "Bruxelas",
-                "number": "15",
-                "complement": "",
-                "neighborhood": "Planalto",
-                "city": "Manaus",
-                "state": "AM",
-                "zipCode": "69045260"
-            },
-            "onlinePayment": true,
-            "productValue": '.($d->valor+$d->taxa-$d->desconto+$d->acrescimo).'
-            }
-        ]
-        }';
+    // echo $json = '{
+    //     "code": "'.$d->codigo.'",
+    //     "fullCode": "bk-'.$d->codigo.'",
+    //     "preparationTime": 0,
+    //     "previewDeliveryTime": false,
+    //     "sortByBestRoute": false,
+    //     "deliveries": [
+    //         {
+    //         "code": "'.$d->codigo.'",
+    //         "confirmation": {
+    //             "mottu": true
+    //         },
+    //         "name": "'.$d->Cnome.'",
+    //         "phone": "+55'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
+    //         "observation": "'.$d->observacoes.'",
+    //         "address": {
+    //             "street": "Bruxelas",
+    //             "number": "15",
+    //             "complement": "",
+    //             "neighborhood": "Planalto",
+    //             "city": "Manaus",
+    //             "state": "AM",
+    //             "zipCode": "69045260"
+    //         },
+    //         "onlinePayment": true,
+    //         "productValue": '.($d->valor+$d->taxa-$d->desconto+$d->acrescimo).'
+    //         }
+    //     ]
+    //     }';
         
     echo "<hr>";
     // $mottu = new mottu;
@@ -117,13 +117,13 @@
     
     // exit();
 
-    echo $json = '{
-        "orderId": "9832530",
-        "reason": "Pedido cancelado, realização de testes na plataforma"
-      }';
+    // echo $json = '{
+    //     "orderId": "9832530",
+    //     "reason": "Pedido cancelado, realização de testes na plataforma"
+    //   }';
         
     echo "<hr>";
     $mottu = new mottu;
-    $retorno1 = $mottu->cancelarPedido($json);
+    $retorno1 = $mottu->ConsultarPedido('1707434032425');
     $retorno = json_decode($retorno1);
     print_r($retorno);
