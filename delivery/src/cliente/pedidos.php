@@ -56,12 +56,16 @@
                         <div>Valor</div>
                         <span>R$ <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></span>
                     </div>
-
+                    <?php
+                    if($delivery->Entregador->Id){
+                    ?>
                     <div class="d-flex justify-content-between">
                         <div>Entregador</div>
                         <span><?=$delivery->Entregador->Nome?></span>
                     </div>
-
+                    <?php
+                    }
+                    ?>
                     <div class="d-flex justify-content-between">
                         <div>Situação</div>
                         <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
