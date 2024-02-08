@@ -53,7 +53,7 @@
 <div class="pagina">
 <div class="row" style="margin:0; padding:0;">
     <?php
-    $q = "select * from vendas where app = 'delivery' and cliente = '{$_SESSION['AppCliente']}' and situacao = 'pago' and (delivery->>'$.Situacao' not in ('50', '70', '90', '200') or delivery->>'$.Situacao' is NULL)";
+    $q = "select * from vendas where app = 'delivery' and cliente = '{$_SESSION['AppCliente']}' and situacao = 'pago' and deletado != '1' and (delivery->>'$.Situacao' not in ('50', '70', '90', '200') or delivery->>'$.Situacao' is NULL)";
     $r = mysqli_query($con, $q);
     if(mysqli_num_rows($r)){
     ?>
