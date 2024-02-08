@@ -16,7 +16,7 @@
                 ";
         mysqli_query($con, $query);
 
-        $query = "UPDATE vendas set delivery = {$json} where codigo = '{$_POST['CodigoExterno']}'";
+        $query = "UPDATE vendas set delivery = '{$json}' where codigo = '{$_POST['CodigoExterno']}'";
         mysqli_query($con, $query);
 
         $dadosLog = print_r($_POST,true);
