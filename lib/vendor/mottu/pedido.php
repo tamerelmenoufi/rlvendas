@@ -92,14 +92,14 @@
             "name": "'.$d->Cnome.'",
             "phone": "+55'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
             "observation": "'.$d->observacoes.'",
-            \"address\": {
-                \"street\": \"Bruxelas\",
-                \"number\": \"15\",
-                \"complement\": \"\",
-                \"neighborhood\": \"Planalto\",
-                \"city\": \"Manaus\",
-                \"state\": \"AM\",
-                \"zipCode\": \"69045260\"
+            "address": {
+                "street": "Bruxelas",
+                "number": "15",
+                "complement": "",
+                "neighborhood": "Planalto",
+                "city": "Manaus",
+                "state": "AM",
+                "zipCode": "69045260"
             },
             "onlinePayment": true,
             "productValue": '.($d->valor+$d->taxa-$d->desconto+$d->acrescimo).'
