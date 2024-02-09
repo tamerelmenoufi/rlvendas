@@ -2,10 +2,10 @@
     include("../../lib/includes.php");
 
     $status = [ 
-        'p' => 'Aguardando' , 
-        'i' => 'Produção' , 
-        'c' => 'Concluído', 
-        'e' => 'Entregue'	
+        'p' => {'Aguardando','#a1a1a1'} , 
+        'i' => {'Produção','orange'} , 
+        'c' => {'Concluído','blue'}, 
+        'e' => {'Entregue','green'}	
     ];
     
 
@@ -18,6 +18,7 @@
     $query = "select 
                     a.*,
                     b.descricao as situacao_entrega,
+                    b.tema,
                     c.nome as Cnome,
                     c.telefone as Ctelefone,
                     c.logradouro as Clogradouro,
@@ -63,7 +64,7 @@
 
 
 ?>
-<div class="card">
+<div class="card border-<?=$d->tema?>">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
 
@@ -103,7 +104,7 @@
         ?>
         <div class="d-flex justify-content-between mt-3 mb-3">
             <div><?=$produto?></div>
-            <span><?=(($status[$p->situacao])?:'Aguardando')?></span>
+            <span style="color:<?=$status[$p->situacao][1]?>; font-weight:bold;"><?=(($status[$p->situacao][0])?:'Aguardando')?></span>
         </div>        
         <?php
         }
