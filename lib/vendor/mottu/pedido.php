@@ -117,14 +117,14 @@
     
     // exit();
 
-    echo $json = '{
-        "orderId": "9848170",
+    $json = '{
+        "orderId": 9848170,
         "reason": "Pedido cancelado, cliente desistiu"
       }';
         
     echo "<hr>";
     $mottu = new mottu;
-    $retorno1 = $mottu->ConsultarPedido($json);
+    $retorno1 = $mottu->cancelarPedido($json);
     $retorno = json_decode($retorno1);
     print_r($retorno);
 
