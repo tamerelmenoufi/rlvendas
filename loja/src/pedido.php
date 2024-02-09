@@ -93,14 +93,14 @@
             $produto = "{$produto->categoria->descricao} {$produto->medida->descricao} {$produtos}<br>";
 
         ?>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mt-3 mb-3">
             <div><?=$produto?></div>
             <span>Em produção</span>
         </div>        
         <?php
         }
         ?>
-
+        <hr>
 
         <div class="d-flex justify-content-between">
             <div>Valor</div>
