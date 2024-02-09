@@ -58,7 +58,7 @@
 
 
 ?>
-<div class="card m-3">
+<div class="card border-danger m-3">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
 
