@@ -2,10 +2,10 @@
     include("../../lib/includes.php");
 
     $status = [ 
-        'p' = 'Aguardando' , 
-        'i' = 'Produção' , 
-        'c' = 'Concluído', 
-        'e' = 'Entregue'	
+        'p' => 'Aguardando' , 
+        'i' => 'Produção' , 
+        'c' => 'Concluído', 
+        'e' => 'Entregue'	
     ];
     
 
