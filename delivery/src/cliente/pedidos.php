@@ -71,7 +71,7 @@
                     }
                     ?>
                     <div class="d-flex justify-content-start">
-                        <div style="padding-right:10px;">Situação</div>
+                        <div style="padding-right:7px;">Situação</div>
                         <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
                     </div>
 
