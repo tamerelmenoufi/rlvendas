@@ -40,11 +40,11 @@
         $delivery = json_decode($d->delivery);
 
         $end = [
-            $d->Ccep,
             $d->Clogradouro,
             $d->Cnumero,
             $d->Ccomplemento,
             $d->Cponto_referencia,
+            $d->Ccep,
             $d->Cbairro
         ];
 
