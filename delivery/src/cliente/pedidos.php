@@ -74,7 +74,6 @@
                         <div style="padding-right:7px;">Situação</div>
                         <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
                     </div>
-
                 </div>
             </div>
             <?php
