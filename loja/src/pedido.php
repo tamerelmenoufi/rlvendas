@@ -79,7 +79,7 @@
         $r = mysqli_query($con, $q);
         while($p = mysqli_fetch_object($r)){
 
-            print_r(json_decode($p->produt_json));
+            print_r(json_decode($p->produto_json));
         ?>
         
         <?php
