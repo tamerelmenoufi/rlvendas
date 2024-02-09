@@ -54,12 +54,12 @@
 
                     <div class="d-flex justify-content-between">
                         <div>Total</div>
-                        <span>R$ <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></span>
+                        <span><b>R$ <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></b></span>
                     </div>
                     <?php
                     if($delivery->deliveryMan->id){
                     ?>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mt-3">
                         <div>Entregador</div>
                         <span><?=$delivery->deliveryMan->name?></span>
                     </div>
