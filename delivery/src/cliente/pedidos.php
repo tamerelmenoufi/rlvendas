@@ -61,7 +61,11 @@
                     ?>
                     <div class="d-flex justify-content-between">
                         <div>Entregador</div>
-                        <span><?=$delivery->Entregador->Nome?></span>
+                        <span><?=$delivery->deliveryMan->name?></span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Telefone (Entregador)</div>
+                        <span><?='('.$delivery->deliveryMan->ddd.') '.$delivery->deliveryMan->phone?></span>
                     </div>
                     <?php
                     }
