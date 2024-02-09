@@ -1,7 +1,15 @@
 <?php
     include("../../lib/includes.php");
 
-    $query = "select * from vendas where app = 'delivery' order by codigo desc";
+    /*
+    select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod where 
+                                                a.app = 'delivery' and 
+                                                a.cliente = '{$_SESSION['AppCliente']}' and 
+                                                a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc
+    //*/
+    $query = "select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod where 
+    a.app = 'delivery' and 
+    a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
         $delivery = json_decode($d->delivery);
