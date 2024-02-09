@@ -25,11 +25,8 @@
                             left join clientes c on a.cliente = c.codigo 
             
             where 
-                            a.app = 'delivery' and 
-                            a.situacao = 'pago' and 
-                            a.deletado != '1' 
-
-            order by a.codigo desc";
+                            a.codigo = '{$_POST['pedido']}'
+    ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
         $delivery = json_decode($d->delivery);
@@ -139,23 +136,7 @@
 
 <script>
     $(function(){
-        $("button[pedido]").click(function(){
-            pedido = $(this).attr("pedido");
-            $.ajax({
-                url:"src/pedido.php",
-                type:"POST",
-                data:{
-                    pedido
-                },
-                success:function(dados){
-                    $.dialog({
-                        content:dados,
-                        type:'green',
-                        columnClass:'col-12'
-                    })
-                }
-            })
-            $.alert('')
-        })
+        
+
     })
 </script>
