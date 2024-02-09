@@ -6,7 +6,7 @@
     while($d = mysqli_fetch_object($result)){
         $delivery = json_decode($d->delivery);
 ?>
-<div class="card">
+<div class="card m-3">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
         <div class="d-flex justify-content-between">
