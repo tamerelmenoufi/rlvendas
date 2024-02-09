@@ -113,7 +113,11 @@
             <span><?='('.$delivery->deliveryMan->ddd.') '.$delivery->deliveryMan->phone?></span>
         </div>
         <div class="d-flex justify-content-between">
-            <div>Código Recebimento</div>
+            <div>Código Retirada</div>
+            <span><b><?=$delivery->pickupCode?></b></span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div>Código Retorno</div>
             <span><b><?=$delivery->returnCode?></b></span>
         </div>
         <?php
