@@ -79,9 +79,24 @@
         $r = mysqli_query($con, $q);
         while($p = mysqli_fetch_object($r)){
 
-            print_r(json_decode($p->produto_json));
+            $produto = json_decode($p->produto_json);
+            $produtos = [];
+
+            if($produto->produtos){
+                foreach($produto->produtos as $i => $v){
+                    $produtos[] = $v->descricao;
+                }
+                $produtos = implode(" e ", $produtos);
+            }
+            
+
+            $produto = "{$produto->categoria->descricao} {$produto->medida->descricao} {$produtos}<br>";
+
         ?>
-        
+        <div class="d-flex justify-content-between">
+            <div><?=$produto?></div>
+            <span>Em produção</span>
+        </div>        
         <?php
         }
         ?>
