@@ -125,7 +125,7 @@
                     <?php
                         }
                     ?>
-                    <?=(($d->mesa)?:'DELIVERY')?>
+                    <?=(($d->mesa)?:'DELIVERY #'.$d->coidigo)?>
                 </label>
             </td>
             <td><label class="form-check-label <?=(($d->quantidade > 1)?'text-danger':false)?>" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
