@@ -7,16 +7,76 @@
                                                 a.cliente = '{$_SESSION['AppCliente']}' and 
                                                 a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc
     //*/
-    $query = "select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod where 
-    a.app = 'delivery' and 
-    a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc";
+    $query = "select 
+                    a.*,
+                    b.descricao as situacao_entrega,
+                    c.nome as Cnome,
+                    c.telefone as Ctelefone,
+                    c.logradouro as Clogradouro,
+                    c.numero as Cnumero,
+                    c.cep as Ccep,
+                    c.complemento as Ccomplemento,
+                    c.ponto_referencia as Cponto_referencia,
+                    c.bairro as Cbairro 
+                    
+            from vendas a 
+                                
+                            left join delivery_status b on a.delivery->>'$.situation' = b.cod 
+                            left join clientes c on a.cliente = c.codigo 
+            
+            where 
+                            a.app = 'delivery' and 
+                            a.situacao = 'pago' and 
+                            a.deletado != '1' 
+
+            order by a.codigo desc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
         $delivery = json_decode($d->delivery);
+
+        $end = [
+            $d->Ccep,
+            $d->Clogradouro,
+            $d->Cnumero,
+            $d->Ccomplemento,
+            $d->Cponto_referencia,
+            $d->Cbairro
+        ];
+
+        $endereco = [];
+        foreach($end as $i => $val){
+            if($val){
+                $endereco[] = $val;
+            }
+            
+        }
+        if($endereco){
+            $endereco = implode(", ", $endereco);
+        }else{
+            $endereco = false;
+        }
+
+
 ?>
 <div class="card m-3">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
+
+        <div class="d-flex justify-content-between">
+            <div>Cliente</div>
+            <span><?=$d->Cnome?></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div>Cliente (Telefone)</div>
+            <span><?=$d->Ctelefone?></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div><?=$endereco?></div>
+        </div>
+        <hr>
+
         <div class="d-flex justify-content-between">
             <div>Valor</div>
             <span>R$ <?=number_format($d->valor, 2,',', false)?></span>
