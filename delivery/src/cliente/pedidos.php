@@ -57,7 +57,7 @@
                         <span>R$ <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></span>
                     </div>
                     <?php
-                    if($delivery->Entregador->Id){
+                    if($delivery->deliveryMan->id){
                     ?>
                     <div class="d-flex justify-content-between">
                         <div>Entregador</div>
