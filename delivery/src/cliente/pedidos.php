@@ -68,7 +68,7 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <div>Código Recebimento</div>
-                        <span><b><?=$delivery->deliveryMan->returnCode?></b></span>
+                        <span><b><?=$delivery->returnCode?></b></span>
                     </div>
                     <?php
                     }
