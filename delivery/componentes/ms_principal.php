@@ -57,7 +57,7 @@
                                     app = 'delivery' and 
                                     cliente = '{$_SESSION['AppCliente']}' and 
                                     situacao = 'pago' and deletado != '1' and 
-                                    (delivery->>'$.Situacao' not in ('50', '70', '90', '200') or delivery->>'$.Situacao' is NULL)";
+                                    (delivery->'$.situation' not in ('50', '70', '90', '200') or delivery->>'$.situation' is NULL)";
     $r = mysqli_query($con, $q);
     if(mysqli_num_rows($r)){
     ?>
