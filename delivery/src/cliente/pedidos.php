@@ -21,7 +21,7 @@
     <div class="row">
             <div class="col-12">
             <?php
-                $q = "select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.Situacao' = b.cod where 
+                $q = "select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod where 
                                                 a.app = 'delivery' and 
                                                 a.cliente = '{$_SESSION['AppCliente']}' and 
                                                 a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc";
