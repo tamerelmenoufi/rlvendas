@@ -29,15 +29,16 @@
 
 <script>
     $(function () {
+        setInterval(() => {
+            $.ajax({
+                url: "src/index.php",
+                success: function (dados) {
+                    $(".ms_corpo").html(dados);
+                }
+            });            
+        }, 5000);
 
-        $.ajax({
-            url: "src/index.php",
-            success: function (dados) {
-                $(".ms_corpo").html(dados);
-            }
-        });
     })
-
 
     //Configurações globais
 
