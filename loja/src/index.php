@@ -4,6 +4,7 @@
     $query = "select * from vendas where app = 'delivery' order by codigo desc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
+        $delivery = json_decode($d->delivery);
 ?>
 <div class="card">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
