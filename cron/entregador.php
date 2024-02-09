@@ -4,20 +4,21 @@ include("../lib/includes_off.php");
 
 
 $query = "select 
-                        a.*,
-                        b.nome as Cnome,
-                        b.telefone as Ctelefone,
-                        b.logradouro as Clogradouro,
-                        b.numero as Cnumero,
-                        b.ponto_referencia as Cponto_referencia,
-                        b.bairro as Cbairro,
-                        b.cep as Ccep 
+                a.*,
+                b.nome as Cnome,
+                b.telefone as Ctelefone,
+                b.logradouro as Clogradouro,
+                b.numero as Cnumero,
+                b.ponto_referencia as Cponto_referencia,
+                b.bairro as Cbairro,
+                b.cep as Ccep,
+                a.delivery->'$.id'
                 from vendas a 
                 left join clientes b on a.cliente = b.codigo 
                 where a.app = 'delivery' and 
-                      a.situacao = 'pago' and 
-                      a.deletado != '1' and 
-                      a.delivery->>'$.Id' is NULL limit 10";
+                a.situacao = 'pago' and 
+                a.deletado != '1' and 
+                a.delivery->'$.id' is NULL  limit 10";
 
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
