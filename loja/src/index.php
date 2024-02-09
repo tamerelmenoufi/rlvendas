@@ -10,6 +10,7 @@
     $query = "select 
                     a.*,
                     b.descricao as situacao_entrega,
+                    b.tema,
                     c.nome as Cnome,
                     c.telefone as Ctelefone,
                     c.logradouro as Clogradouro,
@@ -58,7 +59,7 @@
 
 
 ?>
-<div class="card border-danger m-3">
+<div class="card border-<?=$d->tema?> m-3">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
 
