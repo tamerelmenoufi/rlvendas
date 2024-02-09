@@ -66,6 +66,10 @@
                         <div>Telefone (Entregador)</div>
                         <span><?='('.$delivery->deliveryMan->ddd.') '.$delivery->deliveryMan->phone?></span>
                     </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Código Recebimento</div>
+                        <span><b><?=$delivery->deliveryMan->returnCode?></b></span>
+                    </div>
                     <?php
                     }
                     ?>
