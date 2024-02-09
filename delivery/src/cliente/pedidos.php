@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <div>Total</div>
+                        <div><b>Total</b></div>
                         <span><b>R$ <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></b></span>
                     </div>
                     <?php
