@@ -148,12 +148,8 @@
                     pedido
                 },
                 success:function(dados){
-                    $.dialog({
-                        content:dados,
-                        title:false,
-                        type:'green',
-                        columnClass:'col-12'
-                    })
+                    $(".popupPalco").html(dados);
+                    $(".popupArea").css("display","fixed");
                 }
             })
         })

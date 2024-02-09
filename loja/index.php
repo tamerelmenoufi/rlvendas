@@ -78,6 +78,11 @@
             });            
         }, 5000);
 
+        $(".popupFecha").click(function(){
+            $(".popupPalco").html('');
+            $(".popupArea").css("display","none");
+        })
+
     })
 
     //Configurações globais
