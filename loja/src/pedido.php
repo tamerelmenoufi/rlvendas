@@ -63,7 +63,7 @@
 
 
 ?>
-<div class="card">
+<div class="card border-secondary">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
 
