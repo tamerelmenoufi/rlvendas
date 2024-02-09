@@ -1,6 +1,14 @@
 <?php
     include("../../lib/includes.php");
 
+    $status = [ 
+        'p' = 'Aguardando' , 
+        'i' = 'Produção' , 
+        'c' = 'Concluído', 
+        'e' = 'Entregue'	
+    ];
+    
+
     /*
     select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod where 
                                                 a.app = 'delivery' and 
@@ -95,7 +103,7 @@
         ?>
         <div class="d-flex justify-content-between mt-3 mb-3">
             <div><?=$produto?></div>
-            <span>Em produção</span>
+            <span><?=(($status[$p->situacao])?:'Aguardando')?></span>
         </div>        
         <?php
         }
