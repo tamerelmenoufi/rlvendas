@@ -17,7 +17,9 @@ $query = "select
                 left join clientes b on a.cliente = b.codigo 
                 where a.app = 'delivery' and 
                 a.situacao = 'pago' and 
-                a.deletado != '1' and 
+                a.deletado != '1' and
+                a.data_finalizacao > 0 and
+                DATE_ADD(a.data_finalizacao, INTERVAL +15 minute) < NOW() and
                 a.delivery->'$.id' is NULL  limit 10";
 
 $result = mysqli_query($con, $query);
