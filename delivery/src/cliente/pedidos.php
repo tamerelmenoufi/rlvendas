@@ -12,7 +12,6 @@
         padding-top:15px;
         z-index:1;
     }
-
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Seus Pedidos</h4>
