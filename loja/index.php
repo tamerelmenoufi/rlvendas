@@ -12,6 +12,43 @@
     <?php include("../lib/header.php"); ?>
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/app.css">
+    <style>
+        .popupArea{
+            position:absolute;
+            left:0;
+            bottom:0;
+            right:0;
+            top:0;
+            background-color:rgb(0,0,0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display:none;
+            z-index: 9988;
+        }
+        .popupFecha{
+            position:absolute;
+            right:30px;
+            top:20px;
+            font-size:25px;
+            color:#000;
+            cursor:pointer;
+            z-index:2
+        }        
+        .popupPalco{
+            position:absolute;
+            padding:10px;
+            padding-top:40px;
+            right:8px;
+            left:8px;
+            top:10px;
+            bottom:10px;
+            background:#fff;
+            border-radius:10px;
+            overflow:auto;
+            z-index:1
+        }
+    </style>
 </head>
 <body>
 <div class="Carregando">
@@ -19,7 +56,10 @@
         <i class="fa-solid fa-spinner"></i>
     </span>
 </div>
-
+<div class="popupArea">
+    <i class="fa-solid fa-xmark popupFecha"></i>
+    <div class="popupPalco"></div>
+</div>
 <div class="ms_corpo"></div>
 
 <?php include("../lib/footer.php"); ?>
