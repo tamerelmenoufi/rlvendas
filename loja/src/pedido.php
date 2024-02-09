@@ -74,6 +74,19 @@
         </div>
         <hr>
 
+        <?php
+        $q = "select * from vendas_produtos where venda = '{$d->codigo}' and deletado != '1' order by codigo asc";
+        $r = mysqli_query($con, $q);
+        while($p = mysqli_fetch_object($r)){
+
+            print_r(json_decode($p->produt_json));
+        ?>
+        
+        <?php
+        }
+        ?>
+
+
         <div class="d-flex justify-content-between">
             <div>Valor</div>
             <span>R$ <?=number_format($d->valor, 2,',', false)?></span>
