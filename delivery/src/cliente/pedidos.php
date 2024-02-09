@@ -70,7 +70,7 @@
                     <?php
                     }
                     ?>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-start">
                         <div>Situação</div>
                         <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
                     </div>
