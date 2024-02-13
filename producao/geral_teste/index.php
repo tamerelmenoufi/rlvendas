@@ -101,7 +101,7 @@
 
             <div pedido="<?=$d->codigo?>" venda="<?=$d->venda?>" class="card text-white bg-dark mb-3">
                 <i class="fa-solid fa-paperclip clipe"></i>
-                <div class="card-header bg-dark"><b>MESA:</b> <?=(($d->mesa)?:'DELIVERY #'.$d->codigo)?></div>
+                <div class="card-header bg-dark"><b>MESA:</b> <?=(($d->mesa)?:'DELIVERY #'.$d->venda)?></div>
                 <div class="card-body">
                     <p class="card-text">
 
