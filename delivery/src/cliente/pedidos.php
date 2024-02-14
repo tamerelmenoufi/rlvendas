@@ -20,7 +20,7 @@
     <div class="row">
             <div class="col-12">
             <?php
-                $q = "select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod where 
+                $q = "select a.*, c.telefone as Ctelefone, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod left join clientes c on a.cliente = c.codigo where 
                                                 a.app = 'delivery' and 
                                                 a.cliente = '{$_SESSION['AppCliente']}' and 
                                                 a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc";
@@ -31,6 +31,10 @@
             <div class="card">
                 <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
                 <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div><b>Atenção</b>, Informe ao entregador os últimos 4 números do seu telefone (<?=substr($d->Ctelefone,-4)?>) cadastrado para receber o seu pedido!</div>
+                    </div>
+                
                     <div class="d-flex justify-content-between">
                         <div>Valor</div>
                         <span>R$ <?=number_format($d->valor, 2,',', false)?></span>
