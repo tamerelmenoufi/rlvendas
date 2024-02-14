@@ -32,7 +32,9 @@
                 <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <div><b>Atenção</b>, Informe ao entregador os últimos 4 números do seu telefone (<?=substr($d->Ctelefone,-4)?>) cadastrado para receber o seu pedido!</div>
+                        <div class="alert alert-warning w-100" role="alert">
+                            <b>Atenção</b>, Informe ao entregador os últimos 4 números do seu telefone (<?=substr($d->Ctelefone,-4)?>) cadastrado para receber o seu pedido!
+                        </div>
                     </div>
                 
                     <div class="d-flex justify-content-between">
