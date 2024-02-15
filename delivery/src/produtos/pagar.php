@@ -171,7 +171,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
 
 $blq = false;
 
-$ini = mktime(11, 0, 0, date("m"), date("d"), date("Y"));
+$ini = mktime(21, 0, 0, date("m"), date("d"), date("Y"));
 $fim = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
 $agora = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
 
