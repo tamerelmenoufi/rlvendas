@@ -169,7 +169,7 @@ where codigo = '{$_SESSION['AppVenda']}'";
 </div>
 <?php
 $blq = $fechado = false;
-$ini = mktime(21, 0, 0, date("m"), date("d"), date("Y"));
+$ini = mktime(11, 0, 0, date("m"), date("d"), date("Y"));
 $fim = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
 $agora = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
 
