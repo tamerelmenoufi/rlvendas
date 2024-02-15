@@ -170,6 +170,9 @@ where codigo = '{$_SESSION['AppVenda']}'";
 <?php
 
 $blq = false;
+
+
+
 $query = "select * from clientes where codigo = '{$_SESSION['AppCliente']}'";
 $result = mysqli_query($con, $query);
 $c = mysqli_fetch_object($result);
@@ -260,6 +263,15 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                 <div class="card-header">Cliente</div>
                 <div class="card-body">
                 <div class="row">
+                    <?php
+                    $ini = mktime(11, 0, 0, date("m"), date("d"), date("Y"));
+                    $fim = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
+
+                    echo date("d/m/Y H:i:s", $ini);
+                    echo " ate ";
+                    echo date("d/m/Y H:i:s", $fim);
+
+                    ?>
                     <div class="col-12">
                         <div class="card-title">
                             <small>Nome</small>
