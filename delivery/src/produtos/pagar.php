@@ -169,13 +169,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
 </div>
 <?php
 
-$blq = false;
-
 $ini = mktime(21, 0, 0, date("m"), date("d"), date("Y"));
 $fim = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
 $agora = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
 
-if(!($agora >= $ini and $agora <= $fim)){
+if($agora >= $ini and $agora <= $fim){
+    $blq = false;
+}else{
     $blq = true;
 }
 
