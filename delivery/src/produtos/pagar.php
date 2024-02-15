@@ -168,15 +168,13 @@ where codigo = '{$_SESSION['AppVenda']}'";
     <h4>Pagar pedido - <?=$_SESSION['AppVenda']?></h4>
 </div>
 <?php
-
+$blq = $fechado = false;
 $ini = mktime(21, 0, 0, date("m"), date("d"), date("Y"));
 $fim = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
 $agora = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
 
-if($agora >= $ini and $agora <= $fim){
-    $blq = false;
-}else{
-    $blq = true;
+if(!($agora >= $ini and $agora <= $fim)){
+    $fechado = true;
 }
 
 $query = "select * from clientes where codigo = '{$_SESSION['AppCliente']}'";
@@ -390,7 +388,14 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
-                    if((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0 and !$blq){
+                    if($fechado){
+                    ?>
+                    <center>
+                        <h3>Pedido não pode ser finalizado</h3>
+                        <p>Horário de atendimento no delivery das <?=date("H:i", $ini)?> as <?=date("H:i", $fim)?></p>
+                    </center>
+                    <?php
+                    }else if((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0 and !$blq){
                     ?>
                     <div class="row">
                         <div class="col">Escolha a forma de pagamento</div>
