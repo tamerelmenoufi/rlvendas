@@ -60,7 +60,7 @@
 
 ?>
 <div class="card border-<?=$d->tema?> m-3">
-    <h5 class="card-header">Pedido #<?=$d->codigo?> (<?=dataBr($d->data_finalizacao)?>)</h5>
+    <h5 class="card-header">Pedido #<?=$d->codigo?> (<?=($d->data_finalizacao)?>)</h5>
     <div class="card-body">
 
         <div class="d-flex justify-content-between">
