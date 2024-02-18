@@ -79,6 +79,7 @@
         }, 5000);
 
         $(".popupFecha").click(function(){
+            console.log('Ação Fecha!')
             $(".popupPalco").html('');
             $(".popupArea").css("display","none");
         })
