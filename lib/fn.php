@@ -5,7 +5,7 @@ function dataBr($dt){
     list($y,$m,$d) = explode("-",$d);
     $data = false;
     if($y && $m && $d){
-        $data = "{$d}/{$m}/$y"; //.(($h)?" {$h}":false);
+        $data = "{$d}/{$m}/$y".(($h)?" {$h}":false);
     }
     return $data;
 }
@@ -15,7 +15,7 @@ function dataMysql($dt){
     list($d,$m,$y) = explode("/",$d);
     $data = false;
     if($y && $m && $d){
-        $data = "{$y}-{$m}-$d"; //.(($h)?" {$h}":false);
+        $data = "{$y}-{$m}-$d".(($h)?" {$h}":false);
     }
     return $data;
 }
