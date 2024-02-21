@@ -38,10 +38,10 @@
                   <button
                       novoCadastro
                       class="btn btn-success btn-sm"
-                      data-bs-toggle="offcanvas"
-                      href="#offcanvasDireita"
-                      role="button"
-                      aria-controls="offcanvasDireita"
+                      Xdata-bs-toggle="offcanvas"
+                      Xhref="#offcanvasDireita"
+                      Xrole="button"
+                      Xaria-controls="offcanvasDireita"
                       style="margin-left:20px;"
                   >Novo</button>
               </div>
