@@ -1,0 +1,175 @@
+.Carregando{
+    position:fixed;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    background-color:#333;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display:none;
+    z-index: 9999;
+}
+.Carregando div{
+    color:#fff;
+    font-size: 70px;
+}
+
+
+@font-face {
+    font-family: 'FlameBold';
+    src: url('../fonts/fonts/FlameBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Insanibc';
+    src: url('../fonts/fonts/Insanibc.ttf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Insanibu';
+    src: url('../fonts/fonts/Insanibu.ttf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformBlack';
+    src: url('../fonts/fonts/UniformBlack.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformBold';
+    src: url('../fonts/fonts/UniformBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedBlack';
+    src: url('../fonts/fonts/UniformCondensedBlack.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedBold';
+    src: url('../fonts/fonts/UniformCondensedBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedLight';
+    src: url('../fonts/fonts/UniformCondensedLight.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedMedium';
+    src: url('../fonts/fonts/UniformCondensedMedium.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensed';
+    src: url('../fonts/fonts/UniformCondensed.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedUltra';
+    src: url('../fonts/fonts/UniformCondensedUltra.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedBlack';
+    src: url('../fonts/fonts/UniformExtraCondensedBlack.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedBold';
+    src: url('../fonts/fonts/UniformExtraCondensedBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedLight';
+    src: url('../fonts/fonts/UniformExtraCondensedLight.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedMedium';
+    src: url('../fonts/fonts/UniformExtraCondensedMedium.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensed';
+    src: url('../fonts/fonts/UniformExtraCondensed.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedUltra';
+    src: url('../fonts/fonts/UniformExtraCondensedUltra.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformLight';
+    src: url('../fonts/fonts/UniformLight.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformMedium';
+    src: url('../fonts/fonts/UniformMedium.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Uniform';
+    src: url('../fonts/fonts/Uniform.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformUltra';
+    src: url('../fonts/fonts/UniformUltra.otf') format('opentype');
+}
+
+
+
+.FonteBk_1{
+    font-family: FlameBold;
+    color:#d62300;
+    font-weight: bold;
+}
+
+.FonteBk_2{
+    font-family: FlameBold;
+    color:#d62300;
+}
+
+
+.btn-bk {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #ff8732;
+    --bs-btn-border-color: #ff8732;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #ff8732c5;
+    --bs-btn-hover-border-color: #ff8732c5;
+    --bs-btn-focus-shadow-rgb: 217, 164, 6;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #ff8732c5;
+    --bs-btn-active-border-color: #ff8732c5;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #ff8732;
+    --bs-btn-disabled-border-color: #ff8732;
+  }
