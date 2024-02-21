@@ -102,7 +102,12 @@
                         <div class="mb-3">
                             <label for="unidade" class="form-label">Uni.</label>
                             <div class="input-group mb-3">
-                                <input type="text" id="unidade" class="form-control" placeholder="Unidade">
+                                <select class="form-select" id="unidade">
+                                    <option selected>Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
                         </div>
                     </div>
