@@ -155,11 +155,12 @@
 
             }else if(acao == 'adicionar'){
                 $.ajax({
-                    url:"src/estoque/fornecedores.php",
+                    url:"src/estoque/lancamentos_form.php",
                     type:"POST",
                     data:{
                         acao,
-                        codigo
+                        codigo,
+                        cod:'<?=$_SESSION['cod_lancamento']?>'
                     },
                     success:function(dados){
                         $(".LateralDireita").html('');
