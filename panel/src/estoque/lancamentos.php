@@ -4,7 +4,7 @@
     if($_POST['acao'] == 'novo'){
 
       $query = "INSERT INTO FROM lancamentos set numero = '{$_POST['numero']}'";
-      $result = mysqli_query($con, $query);
+      $result = sisLog($query);
       if(!$result){
         $erro = 'Cadastro não registrado, existe um lançamento com o mesmo número!';
       }
@@ -256,6 +256,7 @@
                 title:'Alerta',
                 type:'orange'
               })
+              return false;
             }
             $.ajax({
                 url:"src/estoque/lancamentos.php",
