@@ -151,7 +151,7 @@
                     //console.log(dados)
                         // if(dados.status){
                             $.ajax({
-                                url:"src/usuarios/fornecedores.php",
+                                url:"src/estoque/fornecedores.php",
                                 type:"POST",
                                 success:function(dados){
                                     $(".LateralDireita").html(dados);
