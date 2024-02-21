@@ -107,20 +107,38 @@
                         </div>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <div class="mb-3">
-                            <label for="valor" class="form-label">Valor</label>
+                            <label for="valor_unitario" class="form-label">Valor</label>
                             <div class="input-group mb-3">
-                                <input type="text" id="valor" class="form-control" placeholder="000.00">
+                                <input type="text" id="valor_unitario" class="form-control" placeholder="000.00">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <div class="mb-3">
                             <label for="quantidade" class="form-label">Quant.</label>
                             <div class="input-group mb-3">
                                 <input type="text" id="quantidade" class="form-control" placeholder="000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="mb-3">
+                            <label for="valor_desconto" class="form-label">Desconto</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="valor_desconto" class="form-control" placeholder="000.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <div class="mb-3">
+                            <label for="valor_total" class="form-label">Total</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="valor_total" class="form-control" placeholder="000">
                             </div>
                         </div>
                     </div>
