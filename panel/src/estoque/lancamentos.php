@@ -112,8 +112,8 @@
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
-                    <td class="w-100"><?=$d->numero?></td>
-                    <td><?=$d->fornecedor?></td>
+                    <td><?=$d->numero?></td>
+                    <td class="w-100"><?=$d->fornecedor?></td>
                     <td><?=$d->data?></td>
                     <td><?=$d->valor?></td>
                     <td>
