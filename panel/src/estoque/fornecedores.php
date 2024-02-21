@@ -36,7 +36,7 @@
     <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
     <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
 </div>
-<table>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Nome/Razão Social</th>
