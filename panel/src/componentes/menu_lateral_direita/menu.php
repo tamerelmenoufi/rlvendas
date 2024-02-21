@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 ?>
 <div
     class="offcanvas offcanvas-end"

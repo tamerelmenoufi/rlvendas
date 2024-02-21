@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
     if($_POST['situacao']){
       $query = "update categorias_itens set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
