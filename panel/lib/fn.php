@@ -40,7 +40,7 @@
         $d = str_replace($remove, " ", $d);
 
         global $con;
-        global $conEstqoue;
+        global $conEstoque;
         global $_POST;
         global $_SESSION;
         global $_SERVER;
@@ -49,7 +49,7 @@
         $file = $_SERVER["PHP_SELF"];
 
         $estoque = strpos($file, '/estoque/');
-        echo $con = (($estoque)?$conEstqoue:$con);
+        $con = (($estoque)?$conEstoque:$con);
 
         $result = mysqli_query($con, $d);
     
