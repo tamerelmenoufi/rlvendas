@@ -114,6 +114,7 @@
 
             $("#tipo_documento").change(function(){
                 tipo = $(this).val();
+                $("#cpf_cnpj").val('');
                 if(tipo == 'cpf'){
                     $("#cpf_cnpj").mask("999.999.999-99");
                 }else{
