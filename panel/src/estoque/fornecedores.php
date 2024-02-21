@@ -55,9 +55,9 @@
             <td><?=$d->nome_razao_social?></td>
             <td><?=$d->cpf_cnpj?></td>
             <td>
-                <i class="fa-regular fa-square-plus text-success me-3" style="cursor:pointer"></i>
-                <i class="fa-solid fa-pen-to-square me-3 text-primary" style="cursor:pointer"></i>
-                <i class="fa-solid fa-trash-can text-danger" style="cursor:pointer"></i>
+                <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <i class="fa-solid fa-pen-to-square me-3 text-primary" acao="editar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <i class="fa-solid fa-trash-can text-danger" acao="excluir" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
             </td>
         </tr>
 <?php
@@ -99,6 +99,78 @@
                 $(".LateralDireita").html(dados);
               }
           })
+        })
+
+        $("i[acao]").click(function(){
+            acao = $(this).attr("acao");
+            codigo = $(this).attr("codigo");
+            if(acao == 'editar'){
+
+                $.ajax({
+                    url:"src/estoque/fornecedores_form.php",
+                    type:"POST",
+                    data:{
+                        codigo
+                    },
+                    success:function(dados){
+                        $(".LateralDireita").html(dados);
+                    }
+                })
+
+            }else if(acao == 'excluir'){
+
+                $.confirm({
+                    content:"Deseja realmente excluir o registro do fornecedor?",
+                    title:"Excluir Registro",
+                    type:'red',
+                    buttons:{
+                        'sim':{
+                            text:'Sim',
+                            btnClass:'btn btn-danger',
+                            action:function(){
+
+                                $.ajax({
+                                    url:"src/estoque/fornecedores.php",
+                                    type:"POST",
+                                    data:{
+                                        acao,
+                                        codigo
+                                    },
+                                    success:function(dados){
+                                        $(".LateralDireita").html(dados);
+                                    }
+                                })
+
+                            }
+                        },
+                        'nao':{
+                            text:'Não',
+                            btnClass:'btn btn-success',
+                            action:function(){
+
+                            }
+                        }
+                    }
+                })
+
+            }else if(acao == 'adicionar'){
+                $.ajax({
+                    url:"src/estoque/fornecedores.php",
+                    type:"POST",
+                    data:{
+                        acao,
+                        codigo
+                    },
+                    success:function(dados){
+                        $(".LateralDireita").html('');
+                        $("#paginaHome").html(dados);
+                        let myOffCanvas = document.getElementById('offcanvasDireita');
+                        let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
+                        openedCanvas.hide();
+                    }
+                })
+            }
+
         })
 
     })
