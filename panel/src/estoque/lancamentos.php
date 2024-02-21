@@ -38,7 +38,7 @@
           <div class="card-body">
             <div class="d-none d-md-block">
               <div class="d-flex justify-content-between mb-3">
-                  <div class="input-group">
+                  <div class="input-group me-2">
                     <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
                     <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                     <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
