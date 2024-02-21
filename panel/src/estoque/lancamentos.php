@@ -112,10 +112,10 @@
                       <button
                         class="btn btn-primary"
                         edit="<?=$d->codigo?>"
-                        data-bs-toggle="offcanvas"
-                        href="#offcanvasDireita"
-                        role="button"
-                        aria-controls="offcanvasDireita"
+                        Xdata-bs-toggle="offcanvas"
+                        Xhref="#offcanvasDireita"
+                        Xrole="button"
+                        Xaria-controls="offcanvasDireita"
                       >
                         Editar
                       </button>
@@ -188,10 +188,10 @@
                         <button
                           class="btn btn-primary w-100"
                           edit="<?=$d->codigo?>"
-                          data-bs-toggle="offcanvas"
-                          href="#offcanvasDireita"
-                          role="button"
-                          aria-controls="offcanvasDireita"
+                          Xdata-bs-toggle="offcanvas"
+                          Xhref="#offcanvasDireita"
+                          Xrole="button"
+                          Xaria-controls="offcanvasDireita"
                         >
                           Editar
                         </button>
@@ -226,7 +226,7 @@
             $.ajax({
                 url:"src/estoque/lancamentos_form.php",
                 success:function(dados){
-                    $(".LateralDireita").html(dados);
+                  $("#paginaHome").html(dados);
                 }
             })
         })
@@ -259,7 +259,7 @@
                   cod
                 },
                 success:function(dados){
-                    $(".LateralDireita").html(dados);
+                  $("#paginaHome").html(dados);
                 }
             })
         })
