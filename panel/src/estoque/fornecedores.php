@@ -54,6 +54,7 @@
             <td><?=$d->nome_razao_social?></td>
             <td><?=$d->cpf_cnpj?></td>
             <td>
+                <i class="fa-solid fa-pen-to-square me-3"></i>
                 <i class="fa-regular fa-square-plus" style="cursor:pointer"></i>
             </td>
         </tr>
