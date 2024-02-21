@@ -1,5 +1,13 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
+
+    if($_POST['cod']){
+        $_SESSION['cod_lancamento'] = $_POST['lancamento'];
+    }
+
+    $query = "select * from lancamentos where codigo = '{$_SESSION['cod_lancamento']}'";
+    $result = sisLog($query);
+    $d = mysqli_fetch_object($result);
 ?>
 <style>
     .Titulo<?=$md5?>{
@@ -9,7 +17,7 @@
         z-index:0;
     }
 </style>
-<h4 class="Titulo<?=$md5?>">Lançamento <?=$_POST['lancamento']?></h4>
+<h4 class="Titulo<?=$md5?>">Lançamento <?=$d->numero?></h4>
 <h6>Selecione um Fornecedor</h6>
 <div class="input-group">
 <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
