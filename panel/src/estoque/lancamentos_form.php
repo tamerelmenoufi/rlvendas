@@ -88,7 +88,7 @@
 
                 <div class="row">
                     
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
                             <div class="input-group mb-3">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <div class="mb-3">
                             <label for="valor_unitario" class="form-label">Valor</label>
                             <div class="input-group mb-3">
@@ -116,7 +116,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <div class="mb-3">
                             <label for="quantidade" class="form-label">Quant.</label>
                             <div class="input-group mb-3">
@@ -125,16 +125,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-1">
-                        <div class="mb-3">
-                            <label for="valor_desconto" class="form-label">Desconto</label>
-                            <div class="input-group mb-3">
-                                <input type="text" id="valor_desconto" class="form-control" placeholder="000.00">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <div class="mb-3">
                             <label for="valor_total" class="form-label">Total</label>
                             <div class="input-group mb-3">
