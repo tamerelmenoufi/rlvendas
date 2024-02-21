@@ -26,7 +26,7 @@
             <h5 class="card-header">
                 <div class="d-flex justify-content-between">
                     <span>Lançamento XXXX</span>
-                    <button class="btn btn-warning btn-sm">Volta</button>
+                    <button class="btn btn-warning btn-sm voltar">Volta</button>
                 </div>
                 
             </h5>
@@ -226,6 +226,21 @@
 <script>
     $(function(){
         Carregando('none');
+
+        $(".voltar").click(function(){
+          $.ajax({
+              url:"src/estoque/lancamentos.php",
+              type:"POST",
+              data:{
+
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
+
+
 
         $("button[novoCadastro]").click(function(){
             $.ajax({
