@@ -81,7 +81,7 @@
                     </div>
 
                 </div>
-                <div class="col-12 d-flex justify-content-between">
+                <div class="col-12 d-flex justify-content-between mt-3">
                     <h5>Produtos/Serviços</h5>
                     <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor"><i class="fa-solid fa-plus"></i></button>
                 </div>
