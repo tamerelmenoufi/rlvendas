@@ -83,5 +83,18 @@
           })
         })
 
+        $("button[novo]").click(function(){
+          $.ajax({
+              url:"src/estoque/fornecedores_form.php",
+              type:"POST",
+              data:{
+
+              },
+              success:function(dados){
+                $(".LateralDireita").html(dados);
+              }
+          })
+        })
+
     })
 </script>
