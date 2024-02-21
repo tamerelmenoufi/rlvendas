@@ -88,7 +88,7 @@
 
                 <div class="row">
                     
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
                             <div class="input-group mb-3">
