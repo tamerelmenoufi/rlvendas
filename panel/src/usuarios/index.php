@@ -8,7 +8,7 @@
     }
 
     if($_POST['situacao']){
-      $query = "update usuarios set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
+      $query = "update usuarios set status = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
       sisLog($query);
       exit();
     }
@@ -127,7 +127,7 @@
                     <td>
 
                     <div class="form-check form-switch">
-                      <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> usuario="<?=$d->codigo?>">
+                      <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->status)?'checked':false)?> usuario="<?=$d->codigo?>">
                     </div>
 
                     </td>
