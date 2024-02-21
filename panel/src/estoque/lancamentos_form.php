@@ -4,6 +4,10 @@
     if($_POST['cod']){
         $_SESSION['cod_lancamento'] = $_POST['cod'];
     }
+
+    $query = "select * from lancamentos where codigo = '{$_SESSION['cod_lancamento']}'";
+    $result = sisLog($query);
+    $d = mysqli_fetch_object($result);
 ?>
 <style>
   .btn-perfil{
@@ -29,7 +33,7 @@
         <div class="card">
             <h5 class="card-header">
                 <div class="d-flex justify-content-between">
-                    <span>Lançamento <?=$_SESSION['cod_lancamento']?></span>
+                    <span>Lançamento <?=$d->numero?></span>
                     <button class="btn btn-warning btn-sm voltar">Volta</button>
                 </div>
                 
