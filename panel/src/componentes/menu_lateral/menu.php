@@ -12,7 +12,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <h5>Burger King - Manaus</h5>
+    <h5>Yobom - Painel</h5>
   
     <div class="row mb-1">
       <div class="col">
@@ -30,46 +30,19 @@
       </div>
     </div>
 
+    <hr>
+
+    <h5>Controle de Estoque</h5>
+
     <div class="row mb-1">
       <div class="col">
-        <a url="src/entregadores/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Entregadores</span>
+        <a url="src/estoque/notas_lista.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Lancamento</span>
         </a>
       </div>
     </div>
 
-    <div class="row mb-1">
-      <div class="col">
-        <a url="src/lojas/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Lojas</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="row mb-1">
-      <div class="col">
-        <a url="src/categorias/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Categorias de Produtos</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="row mb-1">
-      <div class="col">
-        <a url="src/categorias_itens/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Categorias de Itens</span>
-        </a>
-      </div>
-    </div>
-
-
-    <div class="row mb-1">
-      <div class="col">
-        <a url="src/combos/index.php?categoria=8" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Combos</span>
-        </a>
-      </div>
-    </div>
+    
 
   </div>
 </div>
