@@ -22,7 +22,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/lib/includes.php");
                 'sucesso' => false,
                 'appLogin' => false,
                 'ManterConnectado' => false,
-                'msg' => 'Ocorreu um erro no seu login',
+                'msg' => $query.'Ocorreu um erro no seu login',
             ];
         }
         echo json_encode($retorno);
