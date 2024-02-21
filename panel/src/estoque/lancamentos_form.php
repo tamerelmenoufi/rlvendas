@@ -94,7 +94,7 @@
                     
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <?=(($i==0)?'<label for="nome" class="form-label d-block d-md-none d-lg-none d-xl-none d-xxl-none">Nome</label>':false)?>
+                            <?=(($i==0)?'<label for="nome" class="form-label d-none d-md-block">Nome</label>':false)?>
                             <div class="input-group mb-3">
                                 <span class="input-group-text text-danger" style="cursor:pointer"><i class="fa-solid fa-trash-can"></i></span>
                                 <input type="text" id="nome" class="form-control" placeholder="Nome do Produto ou Serviço">
@@ -104,7 +104,7 @@
 
                     <div class="col-md-2">
                         <div class="mb-3">
-                            <?=(($i==0)?'<label for="unidade" class="form-label d-block d-md-none d-lg-none d-xl-none d-xxl-none">Uni.</label>':false)?>
+                            <?=(($i==0)?'<label for="unidade" class="form-label d-none d-md-block">Uni.</label>':false)?>
                             <div class="input-group mb-3">
                                 <select class="form-select" id="unidade">
                                     <option selected>Choose...</option>
@@ -118,7 +118,7 @@
 
                     <div class="col-md-2">
                         <div class="mb-3">
-                            <?=(($i==0)?'<label for="valor_unitario" class="form-label d-block d-md-none d-lg-none d-xl-none d-xxl-none">Valor</label>':false)?>
+                            <?=(($i==0)?'<label for="valor_unitario" class="form-label d-none d-md-block">Valor</label>':false)?>
                             <div class="input-group mb-3">
                                 <input type="text" id="valor_unitario" class="form-control" placeholder="000.00">
                             </div>
@@ -127,7 +127,7 @@
 
                     <div class="col-md-2">
                         <div class="mb-3">
-                            <?=(($i==0)?'<label for="quantidade" class="form-label d-block d-md-none d-lg-none d-xl-none d-xxl-none">Quant.</label>':false)?>
+                            <?=(($i==0)?'<label for="quantidade" class="form-label d-none d-md-block">Quant.</label>':false)?>
                             <div class="input-group mb-3">
                                 <input type="text" id="quantidade" class="form-control" placeholder="000">
                             </div>
@@ -136,7 +136,7 @@
 
                     <div class="col-md-2">
                         <div class="mb-3">
-                            <?=(($i==0)?'<label for="valor_total" class="form-label d-block d-md-none d-lg-none d-xl-none d-xxl-none">Total</label>':false)?>
+                            <?=(($i==0)?'<label for="valor_total" class="form-label d-none d-md-block">Total</label>':false)?>
                             <div class="input-group mb-3">
                                 <input type="text" id="valor_total" class="form-control" placeholder="000">
                             </div>
