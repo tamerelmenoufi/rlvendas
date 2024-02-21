@@ -62,7 +62,7 @@
                     <label for="apelido_fantasia">Apelido / Nome Fantazia*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select name="tipo_documento" class="form-select" id="tipo_documento">
+                    <select  <?=(($d->codigo)?'readonly':'name="tipo_documento" id="tipo_documento"')?> class="form-select">
                         <option value="cnpj" <?=(($d->tipo_documento == 'cnpj')?'selected':false)?>>CNPJ</option>
                         <option value="cpf" <?=(($d->tipo_documento == 'cpf')?'selected':false)?>>CPF</option>
                     </select>
