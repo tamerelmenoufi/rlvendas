@@ -67,6 +67,8 @@
 <script>
     $(function(){
 
+        Carregando('none');
+
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
           campo = $("input[textoBusca]").val();
