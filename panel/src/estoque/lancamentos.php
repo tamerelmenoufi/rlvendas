@@ -1,5 +1,16 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
+
+    if($_POST['acao'] == 'novo'){
+
+      $query = "INSERT INTO FROM lancamentos set numero = '{$_POST['numero']}'";
+      $result = mysqli_query($con, $query);
+      if(!$result){
+        $erro = 'Cadastro não registrado, existe um lançamento com o mesmo número!';
+      }
+
+    }
+
 ?>
 <style>
   .btn-perfil{
@@ -64,14 +75,17 @@
                       <button filtro="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
                     </div>
                     <div class="col-12 mb-2">
-                      <button
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
+                        <button
                           novoCadastro
                           class="btn btn-success btn-sm w-100"
                           Xdata-bs-toggle="offcanvas"
                           Xhref="#offcanvasDireita"
                           Xrole="button"
                           Xaria-controls="offcanvasDireita"
-                      >Novo</button>                      
+                      >Novo</button> 
+                      </div>                     
                     </div>
                   </div>
               </div>
@@ -222,9 +236,34 @@
     $(function(){
         Carregando('none');
 
+        <?php
+        if($erro){
+        ?>
+        $.alert({
+          content:'<?=$erro?>',
+          title:'Erro',
+          type:'red'
+        })
+        <?php
+        }
+        ?>
+
         $("button[novoCadastro]").click(function(){
+            numero = $("#numero").val();
+            if(!numero.trim()){
+              $.alert({
+                content:'Favor Informe o número do registro de entrada!',
+                title:'Alerta',
+                type:'orange'
+              })
+            }
             $.ajax({
-                url:"src/estoque/lancamentos_form.php",
+                url:"src/estoque/lancamentos.php",
+                type:"POST",
+                data:{
+                  numero,
+                  acao:'novo'
+                },
                 success:function(dados){
                   $("#paginaHome").html(dados);
                 }
