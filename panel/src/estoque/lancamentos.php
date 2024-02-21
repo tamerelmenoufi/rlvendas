@@ -45,16 +45,17 @@
                     <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
                   </div>
 
-
-                  <button
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
+                    <button
                       novoCadastro
                       class="btn btn-success btn-sm"
                       Xdata-bs-toggle="offcanvas"
                       Xhref="#offcanvasDireita"
                       Xrole="button"
                       Xaria-controls="offcanvasDireita"
-                      style="margin-left:20px;"
-                  >Novo</button>
+                    >Novo</button> 
+                  </div>  
               </div>
             </div>
 
@@ -75,16 +76,16 @@
                       <button filtro="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
                     </div>
                     <div class="col-12 mb-2">
-                      <div class="input-group mb-3">
+                      <div class="input-group">
                         <input type="text" class="form-control" id="numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
                         <button
                           novoCadastro
-                          class="btn btn-success btn-sm w-100"
+                          class="btn btn-success btn-sm"
                           Xdata-bs-toggle="offcanvas"
                           Xhref="#offcanvasDireita"
                           Xrole="button"
                           Xaria-controls="offcanvasDireita"
-                      >Novo</button> 
+                        >Novo</button> 
                       </div>                     
                     </div>
                   </div>
