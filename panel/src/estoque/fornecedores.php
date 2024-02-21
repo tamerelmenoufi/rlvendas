@@ -46,7 +46,7 @@
     </thead>
     <tbody>
 <?php
-    echo $query = "select * from fornecedores {$where} order by nome_razao_social limit 100";
+    echo $query = "select * from fornecedores where 1 {$where} order by nome_razao_social limit 100";
     $result = sisLog($query);
     while($d = mysqli_fetch_object($result)){
 ?> 
