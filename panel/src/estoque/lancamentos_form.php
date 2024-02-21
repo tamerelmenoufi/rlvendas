@@ -36,193 +36,20 @@
                     <span>Lançamento <?=$d->numero?></span>
                     <button class="btn btn-warning btn-sm voltar">Volta</button>
                 </div>
-                
             </h5>
-          <div class="card-body">
-            <div class="d-none d-md-block">
-              <div class="d-flex justify-content-between mb-3">
-                  <div class="input-group">
-                    <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                    <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
-                    <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
-                    <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
-                  </div>
-
-                  <button
-                      novoCadastro
-                      class="btn btn-success btn-sm"
-                      Xdata-bs-toggle="offcanvas"
-                      Xhref="#offcanvasDireita"
-                      Xrole="button"
-                      Xaria-controls="offcanvasDireita"
-                      style="margin-left:20px;"
-                  >Novo</button>
-              </div>
-            </div>
-
-            <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
-              <div class="d-flex justify-content-between mb-3">
-
-                  <div class="row">
-                    <div class="col-12 mb-2">
-                      <div class="input-group">
-                        <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                        <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
-                      </div>
-                    </div>
-                    <div class="col-12 mb-2">
-                      <button filtro="filtrar" class="btn btn-outline-secondary w-100" type="button">Buscar</button>
-                    </div>
-                    <div class="col-12 mb-2">
-                      <button filtro="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
-                    </div>
-                    <div class="col-12 mb-2">
-                      <button
-                          novoCadastro
-                          class="btn btn-success btn-sm w-100"
-                          data-bs-toggle="offcanvas"
-                          href="#offcanvasDireita"
-                          role="button"
-                          aria-controls="offcanvasDireita"
-                      >Novo</button>                      
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-            <div class="table-responsive d-none d-md-block">
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Número</th>
-                    <th scope="col">Fornecedor</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col">Situação</th>
-                    <th scope="col">Ações</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                    $query = "select * from lancamentos where deletado != '1' {$where} order by data desc";
-                    $result = sisLog($query);
-                    
-                    while($d = mysqli_fetch_object($result)){
-                  ?>
-                  <tr>
-                    <td class="w-100"><?=$d->numero?></td>
-                    <td><?=$d->fornecedor?></td>
-                    <td><?=$d->data?></td>
-                    <td><?=$d->valor?></td>
-                    <td>
-
-                    <div class="form-check form-switch">
-                      <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
-                    </div>
-
-                    </td>
-                    <td>
-                      <button
-                        class="btn btn-primary"
-                        edit="<?=$d->codigo?>"
-                        Xdata-bs-toggle="offcanvas"
-                        Xhref="#offcanvasDireita"
-                        Xrole="button"
-                        Xaria-controls="offcanvasDireita"
-                      >
-                        Editar
-                      </button>
-                      <?php
-                      if($d->codigo != 1){
-                      ?>
-                      <button class="btn btn-danger" delete="<?=$d->codigo?>">
-                        Excluir
-                      </button>
-                      <?php
-                      }
-                      ?>
-                    </td>
-                  </tr>
-                  <?php
-                    }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-
-
-            <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
-            <?php
-                  $query = "select * from lancamentos where deletado != '1' {$where} order by data desc";
-                  $result = sisLog($query);
-                  
-                  while($d = mysqli_fetch_object($result)){
-                ?>
-                <div class="card mb-3 p-3">
-                    <div class="row">
-                      <div class="col-12 d-flex justify-content-end">
-                        <div class="form-check form-switch">
-                          <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
-                          Situação
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Fornecedor</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="fornecedor" class="form-control" placeholder="Nome completo do Fornecedor">
+                                <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
-                      </div>
                     </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                        <label class="label">Número</label>
-                        <div><?=$d->numero?></div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                      <label class="label">Fornecedor</label>
-                       <div><?=$d->fornecedor?></div>
-                      </div>
-                    </div>
-                    
-                    <div class="row">
-                      <div class="col-12">
-                      <label class="label">Data</label>
-                       <div><?=$d->data?></div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                      <label class="label">Valor</label>
-                       <div><?=$d->valor?></div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6 p-2">
-                        <button
-                          class="btn btn-primary w-100"
-                          edit="<?=$d->codigo?>"
-                          Xdata-bs-toggle="offcanvas"
-                          Xhref="#offcanvasDireita"
-                          Xrole="button"
-                          Xaria-controls="offcanvasDireita"
-                        >
-                          Editar
-                        </button>
-                      </div>
-                      <div class="col-6 p-2">
-                        <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
-                          Excluir
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                <?php
-                  }
-                ?>
+                </div>
             </div>
-
-
-          </div>
         </div>
       </div>
     </div>
