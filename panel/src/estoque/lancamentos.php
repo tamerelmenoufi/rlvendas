@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col">
         <div class="card">
-          <h5 class="card-header">Notas Lançadas</h5>
+          <h5 class="card-header">Lançamentos</h5>
           <div class="card-body">
             <div class="d-none d-md-block">
               <div class="d-flex justify-content-between mb-3">
@@ -85,26 +85,30 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">CPF</th>
+                    <th scope="col">Número</th>
+                    <th scope="col">Fornecedor</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Valor</th>
                     <th scope="col">Situação</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
+                    $query = "select * from lancamentos where deletado != '1' {$where} order by data desc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
-                    <td class="w-100"><?=$d->nome?></td>
-                    <td><?=$d->cpf?></td>
+                    <td class="w-100"><?=$d->numero?></td>
+                    <td><?=$d->fornecedor?></td>
+                    <td><?=$d->data?></td>
+                    <td><?=$d->valor?></td>
                     <td>
 
                     <div class="form-check form-switch">
-                      <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->status)?'checked':false)?> situacao="<?=$d->codigo?>">
+                      <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
                     </div>
 
                     </td>
@@ -140,7 +144,7 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-                  $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
+                  $query = "select * from lancamentos where deletado != '1' {$where} order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
@@ -149,7 +153,7 @@
                     <div class="row">
                       <div class="col-12 d-flex justify-content-end">
                         <div class="form-check form-switch">
-                          <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->status)?'checked':false)?> situacao="<?=$d->codigo?>">
+                          <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
                           Situação
                         </div>
                       </div>
@@ -157,15 +161,29 @@
 
                     <div class="row">
                       <div class="col-12">
-                        <label class="label">Nome</label>
-                        <div><?=$d->nome?></div>
+                        <label class="label">Número</label>
+                        <div><?=$d->numero?></div>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-12">
-                      <label class="label">CPF</label>
-                       <div><?=$d->cpf?></div>
+                      <label class="label">Fornecedor</label>
+                       <div><?=$d->fornecedor?></div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-12">
+                      <label class="label">Data</label>
+                       <div><?=$d->data?></div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                      <label class="label">Valor</label>
+                       <div><?=$d->valor?></div>
                       </div>
                     </div>
 
@@ -210,7 +228,7 @@
 
         $("button[novoCadastro]").click(function(){
             $.ajax({
-                url:"src/usuarios/form.php",
+                url:"src/estoque/lancamentos_form.php",
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 }
@@ -223,7 +241,7 @@
           filtro = $(this).attr("filtro");
           campo = $("input[campoBusca]").val();
           $.ajax({
-              url:"src/usuarios/index.php",
+              url:"src/estoque/lancamentos.php",
               type:"POST",
               data:{
                   filtro,
@@ -239,7 +257,7 @@
         $("button[edit]").click(function(){
             cod = $(this).attr("edit");
             $.ajax({
-                url:"src/usuarios/form.php",
+                url:"src/estoque/lancamentos_form.php",
                 type:"POST",
                 data:{
                   cod
@@ -255,12 +273,12 @@
         $("button[delete]").click(function(){
             deletar = $(this).attr("delete");
             $.confirm({
-                content:"Deseja realmente excluir o cadastro ?",
+                content:"Deseja realmente excluir o lançamento ?",
                 title:false,
                 buttons:{
                     'SIM':function(){
                         $.ajax({
-                            url:"src/usuarios/index.php",
+                            url:"src/estoque/lancamentos.php",
                             type:"POST",
                             data:{
                                 delete:deletar
@@ -285,14 +303,14 @@
             opc = false;
 
             if($(this).prop("checked") == true){
-              opc = '1';
+              opc = 'f';
             }else{
-              opc = '0';
+              opc = 'a';
             }
 
 
             $.ajax({
-                url:"src/usuarios/index.php",
+                url:"src/estoque/lancamentos.php",
                 type:"POST",
                 data:{
                     situacao,
