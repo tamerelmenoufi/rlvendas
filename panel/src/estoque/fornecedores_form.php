@@ -28,7 +28,7 @@
 
         $retorno = [
             'status' => true,
-            'codigo' => $cod
+            'codigo' => $query
         ];
 
         echo json_encode($retorno);
@@ -148,7 +148,7 @@
                     mimeType: 'multipart/form-data',
                     data: campos,
                     success:function(dados){
-                    //console.log(dados)
+                    console.log(dados)
                         // if(dados.status){
                             $.ajax({
                                 url:"src/estoque/fornecedores.php",
