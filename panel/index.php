@@ -24,7 +24,7 @@
     <link rel="icon" type="image/x-icon" href="img/icone.png">
     <title>YOBOM - Painel de Controle</title>
     <?php
-    include("lib/header.php");
+    include("../lib/header.php");
     ?>
   </head>
   <body translate="no">
@@ -36,7 +36,7 @@
     <div class="CorpoApp"></div>
 
     <?php
-    include("lib/footer.php");
+    include("../lib/footer.php");
     ?>
 
     <script>
