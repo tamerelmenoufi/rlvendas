@@ -5,6 +5,11 @@
         $_SESSION['cod_lancamento'] = $_POST['lancamento'];
     }
 
+    if($_POST['acao'] == 'excluir'){
+        $query = "delete from lancamentos where codigo = '{$_POST['codigo']}'";
+        $result = sisLog($query);
+    }
+
     if($_POST['filtro'] == 'filtrar'){
         $_SESSION['textoBusca'] = $_POST['campo'];
       }elseif($_POST['filtro']){
