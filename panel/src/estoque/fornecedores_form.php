@@ -63,8 +63,8 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select name="tipo_documento" class="form-select" id="tipo_documento">
-                        <option value="cnpj">CNPJ</option>
-                        <option value="cpf">CPF</option>
+                        <option value="cnpj" <?=(($d->tipo_documento == 'cpf')?'selected':false)?>>CNPJ</option>
+                        <option value="cpf" <?=(($d->tipo_documento == 'cnpj')?'selected':false)?>>CPF</option>
                     </select>
                     <label for="cpf_cnpj">CPF/CNPJ*</label>
                 </div>
@@ -107,7 +107,8 @@
         $(function(){
             Carregando('none');
 
-            $("#cpf_cnpj").mask("99.999.999/9999-99");
+            $("#cpf_cnpj").mask("<?=(($d->tipo_documento == 'cpf')?'999.999.999-99':'99.999.999/9999-99')?>");
+
             $("#telefone").mask("(99) 9999-9999");
             $("#celular").mask("(99) 99999-9999");
 
