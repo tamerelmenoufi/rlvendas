@@ -9,6 +9,7 @@
     include "vendor/mottu/classes.php";
     $con = AppConnect('app');
     $conApi = AppConnect('information_schema');
+    $conEstoque = AppConnect('app_estoque');
     $md5 = md5(date("YmdHis"));
 
     $urlPainel = 'https://yobom.com.br/rlvendas/panel/';

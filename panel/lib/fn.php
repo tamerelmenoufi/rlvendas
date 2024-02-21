@@ -40,16 +40,20 @@
         $d = str_replace($remove, " ", $d);
 
         global $con;
+        global $conEstqoue;
         global $_POST;
         global $_SESSION;
         global $_SERVER;
         $r = [];
         $tabela = false;
+        $file = $_SERVER["PHP_SELF"];
+
+        $estoque = strpos($file, '/estoque/');
+        $con = (($estoque)?$conEstqoue:$con);
 
         $result = mysqli_query($con, $d);
     
         $query = addslashes($d);
-        $file = $_SERVER["PHP_SELF"];
         $sessao = addslashes(json_encode($_SESSION));
         $dados = addslashes(json_encode($_POST));
         $p = explode(" ",trim($query));
