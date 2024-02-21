@@ -92,6 +92,7 @@
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
                             <div class="input-group mb-3">
+                                <span class="input-group-text text-warning"><i class="fa-solid fa-trash-can"></i></span>
                                 <input type="text" id="nome" class="form-control" placeholder="Nome do Produto">
                             </div>
                         </div>
