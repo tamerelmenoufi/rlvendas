@@ -66,8 +66,8 @@
                     <label for="cpf">CPF*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" name="login" id="login" class="form-control" placeholder="Login" value="<?=$d->login?>">
-                    <label for="login">Login</label>
+                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuário" value="<?=$d->usuario?>">
+                    <label for="usuario">Usuário</label>
                 </div>
 
                 <div class="form-floating mb-3">
