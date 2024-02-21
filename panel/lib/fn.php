@@ -49,7 +49,7 @@
         $file = $_SERVER["PHP_SELF"];
 
         $estoque = strpos($file, '/estoque/');
-        $con = (($estoque)?$conEstqoue:$con);
+        echo $con = (($estoque)?$conEstqoue:$con);
 
         $result = mysqli_query($con, $d);
     
