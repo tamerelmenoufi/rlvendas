@@ -145,7 +145,7 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-                  $query = "select * from lancamentos where deletado != '1' {$where} order by nome asc";
+                  $query = "select * from lancamentos where deletado != '1' {$where} order by data desc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
