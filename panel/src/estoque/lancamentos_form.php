@@ -208,7 +208,19 @@
             })
         })
 
-        
+        $("#busca-produtos").click(function(){
+            lancamento = $(this).attr("lancamento");
+            $.ajax({
+                url:"src/estoque/produtos_servicos.php",
+                type:"POST",
+                data:{
+                    lancamento,
+                },
+                success:function(dados){
+                    $(".LateralDireita").html(dados);
+                }
+            })
+        })
 
         
 
