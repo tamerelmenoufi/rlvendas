@@ -1,5 +1,9 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
+
+    if($_POST['cod']){
+        $_SESSION['cod_lancamento'] = $_POST['cod'];
+    }
 ?>
 <style>
   .btn-perfil{
@@ -25,7 +29,7 @@
         <div class="card">
             <h5 class="card-header">
                 <div class="d-flex justify-content-between">
-                    <span>Lançamento XXXX</span>
+                    <span>Lançamento <?=$_SESSION['cod_lancamento']?></span>
                     <button class="btn btn-warning btn-sm voltar">Volta</button>
                 </div>
                 
