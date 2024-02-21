@@ -42,6 +42,7 @@
         <tr>
             <th>Nome/Razão Social</th>
             <th>CPF</th>
+            <th>Ação</th>
         </tr>
     </thead>
     <tbody>
