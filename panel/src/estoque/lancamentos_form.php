@@ -26,7 +26,7 @@
             <h5 class="card-header">
                 <div class="d-flex justify-content-between">
                     <span>Lançamento XXXX</span>
-                    <button class="btn btn-warning">Volta</button>
+                    <button class="btn btn-warning btn-sm">Volta</button>
                 </div>
                 
             </h5>
