@@ -73,7 +73,7 @@
                             <label for="anexo" class="form-label">Anexo</label>
                             <div class="input-group mb-3">
                                 <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor">
-                                    <input type="file" style="position:absolute; left:0; right:0; bottom:0; top:0; cursor:pointer; z-index:1, opacity:0" />
+                                    <input type="file" style="position:absolute; left:0; right:0; bottom:0; top:0; cursor:pointer; z-index:1; opacity:0" />
                                     <i class="fa-solid fa-paperclip"></i>
                                 </button>
                             </div>
