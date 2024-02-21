@@ -33,9 +33,9 @@
 <div class="input-group">
 <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
     <input textoBusca type="text" class="form-control" value="<?=$_SESSION['textoBusca']?>" aria-label="Digite a informação para a busca">
-    <button filtro="filtrar" class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-file-circle-plus"></i></button>
+    <button filtro="filtrar" class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
     <button filtro="limpar" class="btn btn-outline-danger" type="button"><i class="fa-solid fa-eraser"></i></button>
-    <button novo class="btn btn-outline-primary" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
+    <button novo class="btn btn-outline-primary" type="button"><i class="fa-solid fa-file-circle-plus"></i></button>
 </div>
 <table class="table table-hover">
     <thead>
