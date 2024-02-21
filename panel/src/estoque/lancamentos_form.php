@@ -72,7 +72,16 @@
                         <div class="mb-3">
                             <label for="anexo" class="form-label">Anexo</label>
                             <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary w-100" type="button" id="busca-fornecedor">
+                                <button
+                                    class="btn btn-outline-secondary w-100"
+                                    type="button"
+                                    id="busca-fornecedor"
+                                    lancamento="<?=$_SESSION['cod_lancamento']?>"
+                                    data-bs-toggle="offcanvas"
+                                    href="#offcanvasDireita"
+                                    role="button"
+                                    aria-controls="offcanvasDireita"
+                                >
                                     <input type="file" style="position:absolute; left:0; right:0; bottom:0; top:0; cursor:pointer; z-index:1; opacity:0" />
                                     <i class="fa-solid fa-paperclip"></i>
                                 </button>
@@ -83,7 +92,7 @@
                 </div>
                 <div class="col-12 d-flex justify-content-between mt-3 mb-2">
                     <h5>Produtos/Serviços</h5>
-                    <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor"><i class="fa-solid fa-plus"></i></button>
+                    <button class="btn btn-outline-secondary" type="button" id="busca-produtos"><i class="fa-solid fa-plus"></i></button>
                 </div>
 
                 <?php
@@ -176,104 +185,24 @@
           })
         })
 
-
-
-        $("button[novoCadastro]").click(function(){
+        
+        $("#busca-fornecedor").click(function(){
+            lancamento = $(this).attr("lancamento");
             $.ajax({
-                url:"src/estoque/lancamentos_form.php",
+                url:"src/estoque/fornecedores.php",
+                type:"POST",
+                data:{
+                    lancamento,
+                },
                 success:function(dados){
-                  $("#paginaHome").html(dados);
+                    $(".LateralDireita").html(dados);
                 }
             })
         })
 
         
 
-        $("button[filtro]").click(function(){
-          filtro = $(this).attr("filtro");
-          campo = $("input[campoBusca]").val();
-          $.ajax({
-              url:"src/estoque/lancamentos.php",
-              type:"POST",
-              data:{
-                  filtro,
-                  campo
-              },
-              success:function(dados){
-                  $("#paginaHome").html(dados);
-              }
-          })
-        })
-
-
-        $("button[edit]").click(function(){
-            cod = $(this).attr("edit");
-            $.ajax({
-                url:"src/estoque/lancamentos_form.php",
-                type:"POST",
-                data:{
-                  cod
-                },
-                success:function(dados){
-                  $("#paginaHome").html(dados);
-                }
-            })
-        })
-
         
-
-        $("button[delete]").click(function(){
-            deletar = $(this).attr("delete");
-            $.confirm({
-                content:"Deseja realmente excluir o lançamento ?",
-                title:false,
-                buttons:{
-                    'SIM':function(){
-                        $.ajax({
-                            url:"src/estoque/lancamentos.php",
-                            type:"POST",
-                            data:{
-                                delete:deletar
-                            },
-                            success:function(dados){
-                                $("#paginaHome").html(dados);
-                            }
-                        })
-                    },
-                    'NÃO':function(){
-
-                    }
-                }
-            });
-
-        })
-
-
-        $(".situacao").change(function(){
-
-            situacao = $(this).attr("situacao");
-            opc = false;
-
-            if($(this).prop("checked") == true){
-              opc = 'f';
-            }else{
-              opc = 'a';
-            }
-
-
-            $.ajax({
-                url:"src/estoque/lancamentos.php",
-                type:"POST",
-                data:{
-                    situacao,
-                    opc
-                },
-                success:function(dados){
-                    // $("#paginaHome").html(dados);
-                }
-            })
-
-        });
 
     })
 </script>
