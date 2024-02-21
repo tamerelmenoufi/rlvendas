@@ -78,7 +78,7 @@
                 if($d->codigo != 1){
                 ?>
                 <div class="form-floating mb-3">
-                    <select name="situacao" class="form-control" id="situacao">
+                    <select name="status" class="form-control" id="status">
                         <option value="1" <?=(($d->status == '1')?'selected':false)?>>Liberado</option>
                         <option value="0" <?=(($d->status == '0')?'selected':false)?>>Bloqueado</option>
                     </select>
