@@ -5,6 +5,11 @@
         $_SESSION['cod_lancamento'] = $_POST['cod'];
     }
 
+    if($_POST['acao'] == 'adicionar'){
+        $query = "update lancamentos set fornecedor = '{$_POST['codigo']}' where codigo = '{$_SESSION['cod_lancamento']}'";
+        $result = sisLog($query);
+    }
+
     $query = "select * from lancamentos where codigo = '{$_SESSION['cod_lancamento']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
