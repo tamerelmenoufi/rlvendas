@@ -63,8 +63,8 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select name="tipo_documento" class="form-select" id="tipo_documento">
-                        <option value="cnpj" <?=(($d->tipo_documento == 'cpf')?'selected':false)?>>CNPJ</option>
-                        <option value="cpf" <?=(($d->tipo_documento == 'cnpj')?'selected':false)?>>CPF</option>
+                        <option value="cnpj" <?=(($d->tipo_documento == 'cnpj')?'selected':false)?>>CNPJ</option>
+                        <option value="cpf" <?=(($d->tipo_documento == 'cpf')?'selected':false)?>>CPF</option>
                     </select>
                     <label for="cpf_cnpj">CPF/CNPJ*</label>
                 </div>
