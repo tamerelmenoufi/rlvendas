@@ -6,7 +6,7 @@
     }
 
     if($_POST['acao'] == 'excluir'){
-        $query = "delete from lancamentos where codigo = '{$_POST['codigo']}'";
+        $query = "delete from fornecedores where codigo = '{$_POST['codigo']}'";
         $result = sisLog($query);
     }
 
