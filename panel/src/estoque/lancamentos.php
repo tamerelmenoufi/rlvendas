@@ -46,7 +46,7 @@
                   </div>
 
                   <div class="input-group">
-                    <input type="text" class="form-control" id="numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
+                    <input type="text" class="form-control numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
                     <button
                       novoCadastro
                       class="btn btn-success btn-sm"
@@ -77,7 +77,7 @@
                     </div>
                     <div class="col-12 mb-2">
                       <div class="input-group">
-                        <input type="text" class="form-control" id="numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
+                        <input type="text" class="form-control numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
                         <button
                           novoCadastro
                           class="btn btn-success btn-sm"
@@ -250,7 +250,7 @@
         ?>
 
         $("button[novoCadastro]").click(function(){
-            numero = $("#numero").val();
+            numero = $(".numero").val();
             if(!numero.trim()){
               $.alert({
                 content:'Favor Informe o número do registro de entrada!',
