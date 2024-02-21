@@ -93,7 +93,7 @@
                             <label for="nome" class="form-label">Nome</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text text-danger" style="cursor:pointer"><i class="fa-solid fa-trash-can"></i></span>
-                                <input type="text" id="nome" class="form-control" placeholder="Nome do Produto">
+                                <input type="text" id="nome" class="form-control" placeholder="Nome do Produto ou Serviço">
                             </div>
                         </div>
                     </div>
