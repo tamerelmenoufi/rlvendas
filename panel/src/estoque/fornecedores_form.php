@@ -107,9 +107,18 @@
         $(function(){
             Carregando('none');
 
-            $("#cpf_cnpj").mask("99.999.999/999-99");
+            $("#cpf_cnpj").mask("99.999.999/9999-99");
             $("#telefone").mask("(99) 9999-9999");
             $("#celular").mask("(99) 99999-9999");
+
+            $("#tipo_documento").change(function(){
+                tipo = $(this).val();
+                if(tipo == 'cpf'){
+                    $("#cpf_cnpj").mask("999.999.999-99");
+                }else{
+                    $("#cpf_cnpj").mask("99.999.999/9999-99");
+                }
+            })
 
             $('#form-<?=$md5?>').submit(function (e) {
 
