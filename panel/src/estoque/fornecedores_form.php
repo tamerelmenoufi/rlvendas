@@ -54,7 +54,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="nome_razao_social" name="nome" placeholder="Nome ou Razão Social" value="<?=$d->nome_razao_social?>">
+                    <input type="text" class="form-control" id="nome_razao_social" name="nome_razao_social" placeholder="Nome ou Razão Social" value="<?=$d->nome_razao_social?>">
                     <label for="nome_razao_social">Nome / Razão Social*</label>
                 </div>
                 <div class="form-floating mb-3">
