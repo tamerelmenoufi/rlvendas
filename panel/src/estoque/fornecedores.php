@@ -13,7 +13,7 @@
   
       if($_SESSION['textoBusca']){
         $cpf = str_replace( ['.','-','/'], false, $_SESSION['textoBusca']);
-        $where = " and nome_razao_social like '%{$_SESSION['textoBusca']}%' or REPLACE( REPLACE( REPLACE( cpf_cnpj, '/', '' ), '.', '' ), '-', '' ) = '{$cpf}' ";
+        $where = " and a.nome_razao_social like '%{$_SESSION['textoBusca']}%' or REPLACE( REPLACE( REPLACE( a.cpf_cnpj, '/', '' ), '.', '' ), '-', '' ) = '{$cpf}' ";
       }
 
     $query = "select * from lancamentos where codigo = '{$_SESSION['cod_lancamento']}'";
@@ -47,7 +47,7 @@
     </thead>
     <tbody>
 <?php
-    $query = "select * from fornecedores where 1 {$where} order by nome_razao_social limit 100";
+    $query = "select a.*, (select count(*) from lancamentos where fornecedor = a.codigo) as qt from fornecedores a where 1 {$where} order by a.nome_razao_social limit 100";
     $result = sisLog($query);
     while($d = mysqli_fetch_object($result)){
 ?> 
@@ -57,7 +57,13 @@
             <td>
                 <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
                 <i class="fa-solid fa-pen-to-square me-3 text-primary" acao="editar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <?php
+                if(!$d->qt){
+                ?>
                 <i class="fa-solid fa-trash-can text-danger" acao="excluir" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <?php
+                }
+                ?>
             </td>
         </tr>
 <?php
