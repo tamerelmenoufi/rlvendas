@@ -69,7 +69,7 @@
                     <label for="cpf_cnpj">CPF/CNPJ*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" name="cpf_cnpj" id="cpf_cnpj" class="form-control" placeholder="CPF/CNPJ" value="<?=$d->cpf_cnpj?>">
+                    <input type="text" <?=(($d->codigo)?'readonly':'name="cpf_cnpj" id="cpf_cnpj"')?> class="form-control" placeholder="CPF/CNPJ" value="<?=$d->cpf_cnpj?>">
                     <label for="cpf_cnpj">CPF/CNPJ*</label>
                 </div>
                 <div class="form-floating mb-3">
