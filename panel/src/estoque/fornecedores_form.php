@@ -95,6 +95,7 @@
         <div class="row">
             <div class="col">
                 <div style="display:flex; justify-content:end">
+                    <button voltar type="submit" class="btn btn-warning btn-ms">Voltar</button>
                     <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                     <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
                 </div>
@@ -166,6 +167,20 @@
                 });
 
             });
+
+
+            $("button[voltar<?=$md5?>]").click(function(){
+                $.ajax({
+                    url:"src/estoque/fornecedores.php",
+                    type:"POST",
+                    data:{
+
+                    },
+                    success:function(dados){
+                        $(".LateralDireita").html(dados);
+                    }
+                })
+            })
 
         })
     </script>
