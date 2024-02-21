@@ -39,15 +39,27 @@
             </h5>
             <div class="card-body">
                 <div class="row">
+                    
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Fornecedor</label>
+                            <label for="fornecedor" class="form-label">Fornecedor</label>
                             <div class="input-group mb-3">
                                 <input type="text" id="fornecedor" class="form-control" placeholder="Nome completo do Fornecedor">
                                 <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="data" class="form-label">Data</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="data" class="form-control" placeholder="00/00/0000">
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
