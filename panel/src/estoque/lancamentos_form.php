@@ -45,7 +45,16 @@
                             <label for="fornecedor" class="form-label">Fornecedor</label>
                             <div class="input-group mb-3">
                                 <input type="text" id="fornecedor" class="form-control" placeholder="Nome completo do Fornecedor">
-                                <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor"><i class="fa-solid fa-plus"></i></button>
+                                <button 
+                                    class="btn btn-outline-secondary" 
+                                    type="button" 
+                                    id="busca-fornecedor"
+                                    lancamento="<?=$_SESSION['cod_lancamento']?>"
+                                    data-bs-toggle="offcanvas"
+                                    href="#offcanvasDireita"
+                                    role="button"
+                                    aria-controls="offcanvasDireita"                                        
+                                ><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -75,12 +84,6 @@
                                 <button
                                     class="btn btn-outline-secondary w-100"
                                     type="button"
-                                    id="busca-fornecedor"
-                                    lancamento="<?=$_SESSION['cod_lancamento']?>"
-                                    data-bs-toggle="offcanvas"
-                                    href="#offcanvasDireita"
-                                    role="button"
-                                    aria-controls="offcanvasDireita"
                                 >
                                     <input type="file" style="position:absolute; left:0; right:0; bottom:0; top:0; cursor:pointer; z-index:1; opacity:0" />
                                     <i class="fa-solid fa-paperclip"></i>
@@ -185,7 +188,7 @@
           })
         })
 
-        
+
         $("#busca-fornecedor").click(function(){
             lancamento = $(this).attr("lancamento");
             $.ajax({
