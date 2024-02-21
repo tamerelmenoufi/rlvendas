@@ -304,7 +304,7 @@
 
         $(".situacao").change(function(){
 
-            situacao = $(this).attr("usuario");
+            situacao = $(this).attr("situacao");
             opc = false;
 
             if($(this).prop("checked") == true){
