@@ -206,7 +206,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/lib/includes.php");
                 success:function(dados){
                     // let retorno = JSON.parse(dados);
                     // $.alert(dados.sucesso);
-                    console.log(dados.appLogin);
+                    console.log(dados);
                     if(dados.appLogin > 0){
                         window.location.href='./';
                     }else{
