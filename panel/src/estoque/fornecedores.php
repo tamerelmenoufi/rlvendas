@@ -56,8 +56,8 @@
             <td><?=$d->cpf_cnpj?></td>
             <td>
                 <i class="fa-solid fa-pen-to-square me-3 text-primary" style="cursor:pointer"></i>
-                <i class="fa-regular fa-square-plus text-success" style="cursor:pointer"></i>
-                <i class="fa-solid fa-trash-can text-warning" style="cursor:pointer"></i>
+                <i class="fa-regular fa-square-plus text-success me-3" style="cursor:pointer"></i>
+                <i class="fa-solid fa-trash-can text-danger" style="cursor:pointer"></i>
             </td>
         </tr>
 <?php
