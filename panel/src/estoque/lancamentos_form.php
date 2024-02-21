@@ -80,8 +80,53 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="col-12 d-flex justify-content-between">
+                    <h5>Produtos/Serviços</h5>
+                    <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor"><i class="fa-solid fa-plus"></i></button>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-5">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="nome" class="form-control" placeholder="Nome do Produto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label for="unidade" class="form-label">Uni.</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="unidade" class="form-control" placeholder="Unidade">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label for="valor" class="form-label">Valor</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="valor" class="form-control" placeholder="000.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label for="quantidade" class="form-label">Quant.</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="quantidade" class="form-control" placeholder="000">
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+
+
             </div>
         </div>
       </div>
