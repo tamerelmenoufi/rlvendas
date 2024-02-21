@@ -40,7 +40,7 @@
             <div class="card-body">
                 <div class="row">
                     
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="mb-3">
                             <label for="fornecedor" class="form-label">Fornecedor</label>
                             <div class="input-group mb-3">
@@ -50,11 +50,32 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="mb-3">
                             <label for="data" class="form-label">Data</label>
                             <div class="input-group mb-3">
                                 <input type="text" id="data" class="form-control" placeholder="00/00/0000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="valor" class="form-label">Valor</label>
+                            <div class="input-group mb-3">
+                                <input type="text" id="valor" class="form-control" placeholder="000.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="anexo" class="form-label">Anexo</label>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-secondary" type="button" id="busca-fornecedor">
+                                    <input type="file" style="position:absolute; left:0; right:0; bottom:0; top:0; cursor:pointer; z-index:1, opacity:0.5" />
+                                    <i class="fa-solid fa-paperclip"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
