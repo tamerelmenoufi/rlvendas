@@ -37,7 +37,7 @@
     }
 
 
-    $query = "select * from fornecedores where codigo = '{$_POST['cod']}'";
+    $query = "select * from fornecedores where codigo = '{$_POST['codigo']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
 ?>
@@ -97,7 +97,7 @@
                 <div style="display:flex; justify-content:end">
                     <button voltar<?=$md5?> type="button" class="btn btn-warning btn-ms me-2">Voltar</button>
                     <button type="submit" class="btn btn-success btn-ms">Salvar</button>
-                    <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
+                    <input type="hidden" id="codigo" value="<?=$_POST['codigo']?>" />
                 </div>
             </div>
         </div>
