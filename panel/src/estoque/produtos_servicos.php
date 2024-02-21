@@ -34,7 +34,7 @@
     }
 </style>
 <h4 class="Titulo<?=$md5?>">Lançamento <?=$d->numero?></h4>
-<h6>Selecione um Fornecedor</h6>
+<h6>Produtos / Serviços</h6>
 <div class="input-group">
 <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
     <input textoBusca type="text" class="form-control" value="<?=$_SESSION['textoBusca']?>" aria-label="Digite a informação para a busca">
@@ -45,20 +45,22 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Nome/Razão Social</th>
-            <th>CPF</th>
+            <th>Nome</th>
+            <th>Unidade</th>
+            <th>Valor</th>
             <th>Ação</th>
         </tr>
     </thead>
     <tbody>
 <?php
-    $query = "select a.*, (select count(*) from lancamentos where fornecedor = a.codigo) as qt from produtos_servicos a where 1 {$where} order by a.nome_razao_social limit 100";
+    $query = "select a.*, (select count(*) from movimentacao where produto = a.codigo) as qt from produtos_servicos a where 1 {$where} order by a.nome limit 100";
     $result = sisLog($query);
     while($d = mysqli_fetch_object($result)){
 ?> 
         <tr>
-            <td><?=$d->nome_razao_social?></td>
-            <td><?=$d->cpf_cnpj?></td>
+            <td><?=$d->nome?></td>
+            <td><?=$d->unidade?></td>
+            <td><?=$d->valor?></td>
             <td>
                 <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
                 <i class="fa-solid fa-pen-to-square me-3 text-primary" acao="editar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
@@ -131,7 +133,7 @@
             }else if(acao == 'excluir'){
 
                 $.confirm({
-                    content:"Deseja realmente excluir o registro do fornecedor?",
+                    content:"Deseja realmente excluir o registro do produto/serviço?",
                     title:"Excluir Registro",
                     type:'red',
                     buttons:{
