@@ -25,9 +25,10 @@
         <div class="card">
             <h5 class="card-header">
                 <div class="d-flex justify-content-between">
-                    Lançamento XXXX
+                    <span>Lançamento XXXX</span>
+                    <button class="btn btn-warning">Volta</button>
                 </div>
-                <button class="btn btn-warning">Volta</button>
+                
             </h5>
           <div class="card-body">
             <div class="d-none d-md-block">
@@ -39,14 +40,13 @@
                     <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
                   </div>
 
-
                   <button
                       novoCadastro
                       class="btn btn-success btn-sm"
-                      data-bs-toggle="offcanvas"
-                      href="#offcanvasDireita"
-                      role="button"
-                      aria-controls="offcanvasDireita"
+                      Xdata-bs-toggle="offcanvas"
+                      Xhref="#offcanvasDireita"
+                      Xrole="button"
+                      Xaria-controls="offcanvasDireita"
                       style="margin-left:20px;"
                   >Novo</button>
               </div>
