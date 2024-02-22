@@ -64,7 +64,7 @@
       <div class="col">
         <div class="card">
             <h5 class="card-header">
-                <div class="alert alert-success" role="alert" style="position:absolute; right:100px; top:5px;">
+                <div class="alert alert-success salvando" role="alert" style="position:absolute; right:80px; top:15px; padding:1px; font-size:14px; opacity:0;">
                     <i class="fa-solid fa-gear fa-spin"></i> Salvando 
                 </div>
                 <div class="d-flex justify-content-between">
@@ -319,6 +319,7 @@
             campo = $(this).attr("campo");
             cod_lancamento = $(this).attr("lancamento");
             valor = $(this).val();
+            $(".salvando").css("opacity","1");
             $.ajax({
                 url:"src/estoque/lancamentos_form.php",
                 type:"POST",
@@ -330,6 +331,9 @@
                 },
                 success:function(dados){
                     //$("#paginaHome").html(dados);
+                    setTimeout(() => {
+                        $(".salvando").css("opacity","0");
+                    }, 2000);
                 }
             })
 
