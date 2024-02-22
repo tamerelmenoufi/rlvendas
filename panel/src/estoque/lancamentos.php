@@ -90,20 +90,20 @@
                     <div class="col-12 mb-2">
                       <div class="input-group">
                         <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                        <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
+                        <input campoBusca1 type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                       </div>
                     </div>
                     <div class="col-12 mb-2">
-                      <button filtro="filtrar" class="btn btn-outline-secondary w-100" type="button">Buscar</button>
+                      <button filtro1="filtrar" class="btn btn-outline-secondary w-100" type="button">Buscar</button>
                     </div>
                     <div class="col-12 mb-2">
-                      <button filtro="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
+                      <button filtro1="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
                     </div>
                     <div class="col-12 mb-2">
                       <div class="input-group">
-                        <input type="text" class="form-control numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
+                        <input type="text" class="form-control numero1" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
                         <button
-                          novoCadastro
+                          novoCadastro1
                           class="btn btn-success btn-sm"
                           Xdata-bs-toggle="offcanvas"
                           Xhref="#offcanvasDireita"
@@ -290,11 +290,50 @@
             })
         })
 
+        $("button[novoCadastro1]").click(function(){
+            numero = $(".numero1").val();
+            if(!numero.trim()){
+              $.alert({
+                content:'Favor Informe o número do registro de entrada!',
+                title:'Alerta',
+                type:'orange'
+              })
+              return false;
+            }
+            $.ajax({
+                url:"src/estoque/lancamentos.php",
+                type:"POST",
+                data:{
+                  numero,
+                  acao:'novo'
+                },
+                success:function(dados){
+                  $("#paginaHome").html(dados);
+                }
+            })
+        })
+
         
 
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
           campo = $("input[campoBusca]").val();
+          $.ajax({
+              url:"src/estoque/lancamentos.php",
+              type:"POST",
+              data:{
+                  filtro,
+                  campo
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
+
+        $("button[filtro1]").click(function(){
+          filtro = $(this).attr("filtro1");
+          campo = $("input[campoBusca1]").val();
           $.ajax({
               url:"src/estoque/lancamentos.php",
               type:"POST",
