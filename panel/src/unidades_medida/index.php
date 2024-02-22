@@ -57,7 +57,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select a.*, (select * from produtos_servicos where unidade = a.codigo) as qt from unidades_medida a order by a.unidade asc";
+                    $query = "select a.*, (select count(*) from produtos_servicos where unidade = a.codigo) as qt from unidades_medida a order by a.unidade asc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
