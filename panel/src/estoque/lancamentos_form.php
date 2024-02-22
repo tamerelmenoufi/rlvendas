@@ -39,10 +39,10 @@
 
     if($_POST['acao'] == 'update_movimentacao'){
 
-        echo $query = "update movimentacao set {$_POST['campo']} = '{$valor}' where codigo = '{$_POST['movimentacao']}'";
+        $query = "update movimentacao set {$_POST['campo']} = '{$_POST['valor']}' where codigo = '{$_POST['movimentacao']}'";
         $result = sisLog($query);
 
-        // exit();
+        exit();
     }   
 
     $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.codigo = '{$_SESSION['cod_lancamento']}'";
@@ -366,7 +366,7 @@
                     acao:'update_movimentacao'
                 },
                 success:function(dados){
-                    $("#paginaHome").html(dados);
+                    // $("#paginaHome").html(dados);
                     setTimeout(() => {
                         $(".salvando").css("opacity","0");
                     }, 2000);
