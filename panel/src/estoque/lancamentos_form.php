@@ -39,7 +39,7 @@
 
     if($_POST['acao'] == 'update_movimentacao'){
 
-        $query = "update movimentacao set {$_POST['campo']} = '{$_POST['valor']}' where codigo = '{$_POST['movimentacao']}'";
+        $query = "update movimentacao set {$_POST['campo']} = '{$_POST['valor']}', valor_total = '{$_POST['total']}' where codigo = '{$_POST['movimentacao']}'";
         $result = sisLog($query);
 
         exit();
@@ -354,6 +354,9 @@
             movimentacao = $(this).attr("movimentacao");
             valor = $(this).val();
             // if(!valor) return false;
+
+            total = $(`input[movimentacao="${movimentacao}"][campo="valor_total"]`).val();
+
             $(".salvando").css("opacity","1");
             $.ajax({
                 url:"src/estoque/lancamentos_form.php",
@@ -361,6 +364,7 @@
                 data:{
                     campo,
                     valor,
+                    total,
                     cod_lancamento,
                     movimentacao,
                     acao:'update_movimentacao'
@@ -375,32 +379,6 @@
 
         })
 
-        $("input[movimentacao]").change(function(){
-            campo = $(this).attr("campo");
-            cod_lancamento = '<?=$_SESSION['cod_lancamento']?>';
-            movimentacao = $(this).attr("movimentacao");
-            valor = $(this).val();
-            // if(!valor) return false;
-            $(".salvando").css("opacity","1");
-            $.ajax({
-                url:"src/estoque/lancamentos_form.php",
-                type:"POST",
-                data:{
-                    campo,
-                    valor,
-                    cod_lancamento,
-                    movimentacao,
-                    acao:'update_movimentacao'
-                },
-                success:function(dados){
-                    // $("#paginaHome").html(dados);
-                    setTimeout(() => {
-                        $(".salvando").css("opacity","0");
-                    }, 2000);
-                }
-            })
-
-        })
 
         $(`input[movimentacao][campo="quantidade"]`).keyup(function(){
             quantidade = $(this).val();
