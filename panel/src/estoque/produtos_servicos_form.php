@@ -63,8 +63,15 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select  name="unidade" id="unidade" class="form-select">
-                        <option value="KG" <?=(($d->unidade == 'KG')?'selected':false)?>>KG</option>
-                        <option value="UN" <?=(($d->unidade == 'UN')?'selected':false)?>>UN</option>
+                        <?php
+                            $q = "select * from unidades_medida order by unidade";
+                            $r = mysqli_query($conEstoque,$q);
+                            while($u = mysqli_fetch_object($r)){
+                        ?>
+                        <option value="<?=$u->codigo?>" <?=(($d->unidade == $u->codigo)?'selected':false)?>><?=$u->unidade?></option>
+                        <?php
+                            }
+                        ?>
                     </select>
                     <label for="unidade">Unidade*</label>
                 </div>
