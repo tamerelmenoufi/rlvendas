@@ -375,6 +375,33 @@
 
         })
 
+        $("input[movimentacao]").change(function(){
+            campo = $(this).attr("campo");
+            cod_lancamento = '<?=$_SESSION['cod_lancamento']?>';
+            movimentacao = $(this).attr("movimentacao");
+            valor = $(this).val();
+            // if(!valor) return false;
+            $(".salvando").css("opacity","1");
+            $.ajax({
+                url:"src/estoque/lancamentos_form.php",
+                type:"POST",
+                data:{
+                    campo,
+                    valor,
+                    cod_lancamento,
+                    movimentacao,
+                    acao:'update_movimentacao'
+                },
+                success:function(dados){
+                    // $("#paginaHome").html(dados);
+                    setTimeout(() => {
+                        $(".salvando").css("opacity","0");
+                    }, 2000);
+                }
+            })
+
+        })
+
         $(`input[movimentacao][campo="quantidade"]`).keyup(function(){
             quantidade = $(this).val();
             cod = $(this).attr("movimentacao");
