@@ -42,6 +42,9 @@
         $query = "update movimentacao set {$_POST['campo']} = '{$_POST['valor']}', valor_total = '{$_POST['total']}' where codigo = '{$_POST['movimentacao']}'";
         $result = sisLog($query);
 
+        $query = "update lancamentos set valor = '{$_POST['total_geral']}' where codigo = '{$_SESSION['cod_lancamento']}'";
+        $result = sisLog($query);        
+
         exit();
     }   
 
@@ -356,6 +359,7 @@
             // if(!valor) return false;
 
             total = $(`input[movimentacao="${movimentacao}"][campo="valor_total"]`).val();
+            total_geral = $(`input[lancamento="${cod_lancamento}"][campo="valor"]`).val();
 
             $(".salvando").css("opacity","1");
             $.ajax({
@@ -365,34 +369,13 @@
                     campo,
                     valor,
                     total,
+                    total_geral,
                     cod_lancamento,
                     movimentacao,
                     acao:'update_movimentacao'
                 },
                 success:function(dados){
                     // $("#paginaHome").html(dados);
-                    setTimeout(() => {
-                        $(".salvando").css("opacity","0");
-                    }, 2000);
-                }
-            })
-
-            tot = 0;
-            $(`input[movimentacao][campo="valor_total"]`).each(function(){
-                tot = tot + $(this).val();
-            })
-
-            $.ajax({
-                url:"src/estoque/lancamentos_form.php",
-                type:"POST",
-                data:{
-                    campo:'valor',
-                    valor:tot,
-                    cod_lancamento,
-                    acao:'update_lancamento'
-                },
-                success:function(dados){
-                    //$("#paginaHome").html(dados);
                     setTimeout(() => {
                         $(".salvando").css("opacity","0");
                     }, 2000);
@@ -408,6 +391,13 @@
             valor = $(`input[movimentacao="${cod}"][campo="valor_unitario"]`).val();
             total = (quantidade * valor);
             $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total);
+
+            tot = 0;
+            $(`input[movimentacao][campo="valor_total"]`).each(function(){
+                tot = tot + $(this).val();
+            })
+            $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot);
+
         })
 
         $(`input[movimentacao][campo="valor_unitario"]`).keyup(function(){
@@ -416,6 +406,13 @@
             quantidade = $(`input[movimentacao="${cod}"][campo="quantidade"]`).val();
             total = (quantidade * valor);
             $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total);
+
+            tot = 0;
+            $(`input[movimentacao][campo="valor_total"]`).each(function(){
+                tot = tot + $(this).val();
+            })
+            $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot);
+
         })
 
     })
