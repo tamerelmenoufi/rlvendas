@@ -377,6 +377,28 @@
                 }
             })
 
+            tot = 0;
+            $(`input[movimentacao][campo="valor_total"]`).each(function(){
+                tot = tot + $(this).val();
+            })
+
+            $.ajax({
+                url:"src/estoque/lancamentos_form.php",
+                type:"POST",
+                data:{
+                    campo:'valor',
+                    valor:tot,
+                    cod_lancamento,
+                    acao:'update_lancamento'
+                },
+                success:function(dados){
+                    //$("#paginaHome").html(dados);
+                    setTimeout(() => {
+                        $(".salvando").css("opacity","0");
+                    }, 2000);
+                }
+            })
+
         })
 
 
