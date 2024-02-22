@@ -53,13 +53,19 @@
     </thead>
     <tbody>
 <?php
-    $query = "select a.*, (select count(*) from movimentacao where produto = a.codigo) as qt from produtos_servicos a where 1 {$where} order by a.nome limit 100";
+    $query = "select 
+                    a.*, 
+                    (select count(*) from movimentacao where produto = a.codigo) as qt,
+                    b.unidade as unidade_nome
+                from produtos_servicos a
+                    left join unidades_medida b on a.unidade = b.codigo    
+                where 1 {$where} order by a.nome limit 100";
     $result = sisLog($query);
     while($d = mysqli_fetch_object($result)){
 ?> 
         <tr>
             <td><?=$d->nome?></td>
-            <td><?=$d->unidade?></td>
+            <td><?=$d->unidade_nome?></td>
             <td><?=$d->valor?></td>
             <td>
                 <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
