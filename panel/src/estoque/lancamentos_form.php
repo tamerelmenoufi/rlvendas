@@ -39,7 +39,7 @@
 
     if($_POST['acao'] == 'update_movimentacao'){
 
-        $query = "update movimentacao set {$_POST['campo']} = '{$valor}' where codigo = '{$_POST['movimentacao']}'";
+        echo $query = "update movimentacao set {$_POST['campo']} = '{$valor}' where codigo = '{$_POST['movimentacao']}'";
         $result = sisLog($query);
 
         exit();
