@@ -8,6 +8,16 @@
       if(!$result){
         $erro = 'Cadastro não registrado, existe um lançamento com o mesmo número!';
       }
+    }
+
+    if($_POST['delete']){
+
+      $query = "DELETE FROM lancamentos Where codigo = '{$_POST['delete']}'";
+      $result = sisLog($query);
+      
+      $query = "DELETE FROM movimentacao Where lancamento = '{$_POST['delete']}'";
+      $result = sisLog($query);
+      
 
     }
 
