@@ -11,7 +11,7 @@
     }
 
     if($_POST['acao'] == 'adicionar_produto'){
-        $query = "insert into movimentacao set 
+        echo $query = "insert into movimentacao set 
                             lancamento = '{$_SESSION['cod_lancamento']}'
                             fornecedor = '{$_POST['fornecedor']}', 
                             produto = '{$_POST['codigo']}'";
