@@ -64,6 +64,9 @@
       <div class="col">
         <div class="card">
             <h5 class="card-header">
+                <div class="alert alert-success" role="alert" style="position:absolute; right:100px; top:5px;">
+                    <i class="fa-solid fa-gear fa-spin"></i> Salvando 
+                </div>
                 <div class="d-flex justify-content-between">
                     <span>Lançamento <?=$d->numero?></span>
                     <button class="btn btn-warning btn-sm voltar">Volta</button>
