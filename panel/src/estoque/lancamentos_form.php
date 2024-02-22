@@ -21,6 +21,9 @@
     if($_POST['acao'] == 'excluir_produto_servico'){
         $query = "delete from movimentacao where codigo = '{$_POST['item']}'";
         $result = sisLog($query);
+
+        $query = "UPDATE lancamentos set valor = (select sum(valor_total) from movimentacao where lancamento = '{$_SESSION['cod_lancamento']}') where codigo = '{$_SESSION['cod_lancamento']}'";
+        $result = sisLog($query);
     }    
 
     if($_POST['acao'] == 'update_lancamento'){
