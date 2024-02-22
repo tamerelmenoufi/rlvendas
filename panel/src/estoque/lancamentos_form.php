@@ -11,8 +11,8 @@
     }
 
     if($_POST['acao'] == 'adicionar_produto'){
-        echo $query = "insert into movimentacao set 
-                            lancamento = '{$_SESSION['cod_lancamento']}'
+        $query = "insert into movimentacao set 
+                            lancamento = '{$_SESSION['cod_lancamento']}',
                             fornecedor = '{$_POST['fornecedor']}', 
                             produto = '{$_POST['codigo']}'";
         $result = sisLog($query);
