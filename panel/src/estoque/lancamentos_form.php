@@ -18,7 +18,7 @@
         $result = sisLog($query);
     }
 
-    $query = "select * from lancamentos where codigo = '{$_SESSION['cod_lancamento']}'";
+    $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.codigo = '{$_SESSION['cod_lancamento']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
 ?>
@@ -57,7 +57,7 @@
                         <div class="mb-3">
                             <label for="fornecedor" class="form-label">Fornecedor</label>
                             <div class="input-group mb-3">
-                                <input type="text" id="fornecedor" class="form-control" placeholder="Nome completo do Fornecedor">
+                                <div class="form-control"><?=$d->nome_razao_social?></div>
                                 <button 
                                     class="btn btn-outline-secondary" 
                                     type="button" 
