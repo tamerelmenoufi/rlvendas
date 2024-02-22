@@ -375,7 +375,7 @@
 
         })
 
-        $(`input[movimentacao][campo="quantidade"]`).keydown(function(){
+        $(`input[movimentacao][campo="quantidade"]`).keyup(function(){
             quantidade = $(this).val();
             cod = $(this).attr("movimentacao");
             valor = $(`input[movimentacao="${cod}"][campo="valor_unitario"]`).val();
