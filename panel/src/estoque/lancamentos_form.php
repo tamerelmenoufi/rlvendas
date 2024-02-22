@@ -319,6 +319,7 @@
             campo = $(this).attr("campo");
             cod_lancamento = $(this).attr("lancamento");
             valor = $(this).val();
+            // if(!valor) return false;
             $(".salvando").css("opacity","1");
             $.ajax({
                 url:"src/estoque/lancamentos_form.php",
