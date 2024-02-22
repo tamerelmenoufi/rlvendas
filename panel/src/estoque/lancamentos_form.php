@@ -98,7 +98,7 @@
                         <div class="mb-3">
                             <label for="data" class="form-label">Data</label>
                             <div class="input-group mb-3">
-                                <input lancamento="<?=$d->codigo?>" type="text" campo="data" class="form-control datas" placeholder="00/00/0000" value="<?=dataBr($d->data)?>">
+                                <input lancamento="<?=$d->codigo?>" type="text" campo="data" inputmode="numeric" class="form-control datas" placeholder="00/00/0000" value="<?=dataBr($d->data)?>">
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                         <div class="mb-3">
                             <label for="valor" class="form-label">Valor</label>
                             <div class="input-group mb-3">
-                                <input lancamento="<?=$d->codigo?>" type="text" campo="valor" class="form-control" placeholder="000.00" value="<?=$d->valor?>">
+                                <input lancamento="<?=$d->codigo?>" type="text" campo="valor" inputmode="numeric" class="form-control" placeholder="000.00" value="<?=$d->valor?>">
                             </div>
                         </div>
                     </div>
