@@ -33,6 +33,8 @@
 
         $query = "update lancamentos set {$_POST['campo']} = '{$valor}' where codigo = '{$_SESSION['cod_lancamento']}'";
         $result = sisLog($query);
+
+        exit();
     }   
 
     $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.codigo = '{$_SESSION['cod_lancamento']}'";
@@ -322,7 +324,7 @@
                     acao:'update_lancamento'
                 },
                 success:function(dados){
-                    $("#paginaHome").html(dados);
+                    //$("#paginaHome").html(dados);
                 }
             })
 
