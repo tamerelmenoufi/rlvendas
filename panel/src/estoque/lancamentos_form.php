@@ -23,6 +23,18 @@
         $result = sisLog($query);
     }    
 
+    if($_POST['acao'] == 'update_lancamento'){
+
+        if($_POST['campo'] == 'data'){
+            $valor = dataMysql($_POST['valor']);
+        }else{
+            $valor = $_POST['valor'];
+        }
+
+        $query = "update lancamentos set {$_POST['campo']} = '{$valor}' where codigo = '{$_SESSION['cod_lancamento']}'";
+        $result = sisLog($query);
+    }   
+
     $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.codigo = '{$_SESSION['cod_lancamento']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
@@ -81,7 +93,7 @@
                         <div class="mb-3">
                             <label for="data" class="form-label">Data</label>
                             <div class="input-group mb-3">
-                                <input lancamento="<?=$d->codigo?>" type="text" campo="data" class="form-control" placeholder="00/00/0000">
+                                <input lancamento="<?=$d->codigo?>" type="text" campo="data" class="form-control" placeholder="00/00/0000" value="<?=dataBr($d->data)?>">
                             </div>
                         </div>
                     </div>
@@ -90,7 +102,7 @@
                         <div class="mb-3">
                             <label for="valor" class="form-label">Valor</label>
                             <div class="input-group mb-3">
-                                <input lancamento="<?=$d->codigo?>" type="text" campo="valor" class="form-control" placeholder="000.00">
+                                <input lancamento="<?=$d->codigo?>" type="text" campo="valor" class="form-control" placeholder="000.00" value="<?=$d->valor?>">
                             </div>
                         </div>
                     </div>
@@ -294,6 +306,26 @@
                     },
                 }
             })
+        })
+
+        $("input[lancamento]").blur(function(){
+            campo = $(this).attr("campo");
+            cod_lancamento = $(this).attr("lancamento");
+            valor = $(this).val();
+            $.ajax({
+                url:"src/estoque/lancamentos_form.php",
+                type:"POST",
+                data:{
+                    campo,
+                    valor,
+                    cod_lancamento,
+                    acao:'update_lancamento'
+                },
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                }
+            })
+
         })
 
         
