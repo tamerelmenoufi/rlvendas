@@ -49,7 +49,8 @@
         $file = $_SERVER["PHP_SELF"];
 
         $estoque = strpos($file, '/estoque/');
-        $con = (($estoque)?$conEstoque:$con);
+        $unidade = strpos($file, '/unidades_medida/');
+        $con = (($estoque or $unidade)?$conEstoque:$con);
 
         $result = mysqli_query($con, $d);
     
