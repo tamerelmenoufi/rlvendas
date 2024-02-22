@@ -393,13 +393,13 @@
             cod = $(this).attr("movimentacao");
             valor = $(`input[movimentacao="${cod}"][campo="valor_unitario"]`).val();
             total = (quantidade * valor);
-            $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total);
+            $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total.toFixed(2));
 
             tot = 0;
             $(`input[movimentacao][campo="valor_total"]`).each(function(){
                 tot = (tot*1 + ($(this).val())*1);
             })
-            $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot);
+            $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot.toFixed(2));
 
         })
 
@@ -408,13 +408,13 @@
             cod = $(this).attr("movimentacao");
             quantidade = $(`input[movimentacao="${cod}"][campo="quantidade"]`).val();
             total = (quantidade * valor);
-            $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total);
+            $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total.toFixed(2));
 
             tot = 0;
             $(`input[movimentacao][campo="valor_total"]`).each(function(){
                 tot = (tot*1 + ($(this).val())*1);
             })
-            $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot);
+            $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot.toFixed(2));
 
         })
 
