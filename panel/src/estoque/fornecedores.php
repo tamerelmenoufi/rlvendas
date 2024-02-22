@@ -169,7 +169,7 @@
                     url:"src/estoque/lancamentos_form.php",
                     type:"POST",
                     data:{
-                        acao,
+                        acao:'adicionar_fornecedor',
                         codigo,
                         cod:'<?=$_SESSION['cod_lancamento']?>'
                     },

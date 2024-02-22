@@ -5,6 +5,7 @@
         $_SESSION['cod_lancamento'] = $_POST['lancamento'];
     }
 
+
     if($_POST['acao'] == 'excluir'){
         $query = "delete from produtos_servicos where codigo = '{$_POST['codigo']}'";
         $result = sisLog($query);
@@ -34,7 +35,7 @@
     }
 </style>
 <h4 class="Titulo<?=$md5?>">Lançamento <?=$d->numero?></h4>
-<h6>Produtos / Serviços</h6>
+<h6>Produtos / Serviços (Frcdr: <?=$_POST['fornecedor']?>)</h6>
 <div class="input-group">
 <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
     <input textoBusca type="text" class="form-control" value="<?=$_SESSION['textoBusca']?>" aria-label="Digite a informação para a busca">
@@ -100,7 +101,8 @@
               type:"POST",
               data:{
                   filtro,
-                  campo
+                  campo,
+                  fornecedor:'<?=$_POST['fornecedor']?>'
               },
               success:function(dados){
                 $(".LateralDireita").html(dados);
@@ -113,7 +115,7 @@
               url:"src/estoque/produtos_servicos_form.php",
               type:"POST",
               data:{
-
+                fornecedor:'<?=$_POST['fornecedor']?>'
               },
               success:function(dados){
                 $(".LateralDireita").html(dados);
@@ -130,7 +132,8 @@
                     url:"src/estoque/produtos_servicos_form.php",
                     type:"POST",
                     data:{
-                        codigo
+                        codigo,
+                        fornecedor:'<?=$_POST['fornecedor']?>'
                     },
                     success:function(dados){
                         $(".LateralDireita").html(dados);
@@ -154,7 +157,8 @@
                                     type:"POST",
                                     data:{
                                         acao,
-                                        codigo
+                                        codigo,
+                                        fornecedor:'<?=$_POST['fornecedor']?>'
                                     },
                                     success:function(dados){
                                         $(".LateralDireita").html(dados);
@@ -178,9 +182,10 @@
                     url:"src/estoque/lancamentos_form.php",
                     type:"POST",
                     data:{
-                        acao,
+                        acao:'adicionar_produto',
                         codigo,
-                        cod:'<?=$_SESSION['cod_lancamento']?>'
+                        cod:'<?=$_SESSION['cod_lancamento']?>',
+                        fornecedor:'<?=$_POST['fornecedor']?>'
                     },
                     success:function(dados){
                         $(".LateralDireita").html('');

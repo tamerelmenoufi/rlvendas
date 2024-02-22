@@ -5,8 +5,16 @@
         $_SESSION['cod_lancamento'] = $_POST['cod'];
     }
 
-    if($_POST['acao'] == 'adicionar'){
+    if($_POST['acao'] == 'adicionar_fornecedor'){
         $query = "update lancamentos set fornecedor = '{$_POST['codigo']}' where codigo = '{$_SESSION['cod_lancamento']}'";
+        $result = sisLog($query);
+    }
+
+    if($_POST['acao'] == 'adicionar_produto'){
+        $query = "insert into movimentacao set 
+                            lancamento = '{$_SESSION['cod_lancamento']}'
+                            fornecedor = '{$_POST['fornecedor']}', 
+                            produto = '{$_POST['codigo']}'";
         $result = sisLog($query);
     }
 
@@ -100,16 +108,23 @@
                 </div>
                 <div class="col-12 d-flex justify-content-between mt-3 mb-2">
                     <h5>Produtos/Serviços</h5>
+                    <?php
+                    if($d->fornecedor){
+                    ?>
                     <button 
                         class="btn btn-outline-secondary" 
                         type="button" 
                         id="busca-produtos"
                         lancamento="<?=$_SESSION['cod_lancamento']?>"
+                        fornecedor="<?=$d->fornecedor?>"
                         data-bs-toggle="offcanvas"
                         href="#offcanvasDireita"
                         role="button"
                         aria-controls="offcanvasDireita"       
                     ><i class="fa-solid fa-plus"></i></button>
+                    <?php
+                    }
+                    ?>
                 </div>
 
                 <?php
@@ -219,11 +234,13 @@
 
         $("#busca-produtos").click(function(){
             lancamento = $(this).attr("lancamento");
+            fornecedor = $(this).attr("fornecedor");
             $.ajax({
                 url:"src/estoque/produtos_servicos.php",
                 type:"POST",
                 data:{
                     lancamento,
+                    fornecedor,
                 },
                 success:function(dados){
                     $(".LateralDireita").html(dados);

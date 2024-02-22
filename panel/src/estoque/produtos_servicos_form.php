@@ -137,6 +137,9 @@
                             $.ajax({
                                 url:"src/estoque/produtos_servicos.php",
                                 type:"POST",
+                                data:{
+                                    fornecedor:'<?=$_POST['fornecedor']?>'
+                                },
                                 success:function(dados){
                                     $(".LateralDireita").html(dados);
                                 }
@@ -158,7 +161,7 @@
                     url:"src/estoque/produtos_servicos.php",
                     type:"POST",
                     data:{
-
+                        fornecedor:'<?=$_POST['fornecedor']?>'
                     },
                     success:function(dados){
                         $(".LateralDireita").html(dados);
