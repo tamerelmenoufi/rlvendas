@@ -21,6 +21,20 @@
 
     }
 
+
+    if($_POST['filtro'] == 'filtrar'){
+      $_SESSION['usuarioBusca'] = $_POST['campo'];
+    }elseif($_POST['filtro']){
+      $_SESSION['usuarioBusca'] = false;
+    }
+
+    if($_SESSION['usuarioBusca']){
+      $data = dataMysql($_SESSION['usuarioBusca']);
+      $where = " and a.numero = '{$_SESSION['usuarioBusca']}' or a.data = '{$data}' or b.nome_razao_social like '%$_SESSION['usuarioBusca']%' ";
+    }
+
+
+
 ?>
 <style>
   .btn-perfil{
