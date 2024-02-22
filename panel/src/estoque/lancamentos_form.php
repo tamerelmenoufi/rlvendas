@@ -131,7 +131,8 @@
                 $q = "select 
                             a.*,
                             b.nome as produto_nome,
-                            c.unidade as unidade_sigla
+                            c.unidade as unidade_sigla,
+                            c.descricao as unidade_descricao
                         from movimentacao a
                             left join produtos_servicos b on a.produto = b.codigo
                             left join unidades_medida c on b.unidade = c.codigo
@@ -157,7 +158,7 @@
                         <div class="mb-3">
                             <?=(($i==0)?'<label for="unidade" class="form-label d-none d-md-block">Uni.</label>':false)?>
                             <div class="input-group mb-3">
-                                <div class="form-control"><?=$p->unidade_sigla?></div>
+                                <div class="form-control"><?="{$p->unidade_sigla} ({$p->unidade_descricao})"?></div>
                             </div>
                         </div>
                     </div>
