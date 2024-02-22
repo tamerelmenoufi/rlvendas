@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from unidades_medida where deletado != '1' {$where} order by nome asc";
+                    $query = "select * from unidades_medida where 1 {$where} order by unidade asc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
