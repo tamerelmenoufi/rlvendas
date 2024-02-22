@@ -197,7 +197,7 @@
                         <div class="mb-3">
                             <?=(($i==0)?'<label for="valor_unitario" class="form-label d-none d-md-block">Valor</label>':false)?>
                             <div class="input-group mb-3">
-                                <input type="text" movimentacao="<?=$p->codigo?>" campo="valor_unitario" class="form-control" placeholder="000.00">
+                                <input type="text" movimentacao="<?=$p->codigo?>" campo="valor_unitario" class="form-control" placeholder="000.00" value="<?=$p->valor_unitario?>">
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                         <div class="mb-3">
                             <?=(($i==0)?'<label for="quantidade" class="form-label d-none d-md-block">Quant.</label>':false)?>
                             <div class="input-group mb-3">
-                                <input type="text" movimentacao="<?=$p->codigo?>" campo="quantidade" class="form-control" placeholder="000">
+                                <input type="text" movimentacao="<?=$p->codigo?>" campo="quantidade" class="form-control" placeholder="000" value="<?=$p->quantidade?>">
                             </div>
                         </div>
                     </div>
@@ -215,7 +215,7 @@
                         <div class="mb-3">
                             <?=(($i==0)?'<label for="valor_total" class="form-label d-none d-md-block">Total</label>':false)?>
                             <div class="input-group mb-3">
-                                <input type="text" readonly movimentacao="<?=$p->codigo?>" campo="valor_total" class="form-control" placeholder="000">
+                                <input type="text" readonly movimentacao="<?=$p->codigo?>" campo="valor_total" class="form-control" placeholder="000" value="<?=$p->valor_total?>">
                             </div>
                         </div>
                     </div>
