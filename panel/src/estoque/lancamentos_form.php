@@ -18,6 +18,11 @@
         $result = sisLog($query);
     }
 
+    if($_POST['acao'] == 'excluir_produto_servico'){
+        $query = "delete from movimentacao set codigo = '{$_POST['item']}'";
+        $result = sisLog($query);
+    }    
+
     $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.codigo = '{$_SESSION['cod_lancamento']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
@@ -76,7 +81,7 @@
                         <div class="mb-3">
                             <label for="data" class="form-label">Data</label>
                             <div class="input-group mb-3">
-                                <input type="text" id="data" class="form-control" placeholder="00/00/0000">
+                                <input lancamento="<?=$d->codigo?>" type="text" campo="data" class="form-control" placeholder="00/00/0000">
                             </div>
                         </div>
                     </div>
@@ -85,7 +90,7 @@
                         <div class="mb-3">
                             <label for="valor" class="form-label">Valor</label>
                             <div class="input-group mb-3">
-                                <input type="text" id="valor" class="form-control" placeholder="000.00">
+                                <input lancamento="<?=$d->codigo?>" type="text" campo="valor" class="form-control" placeholder="000.00">
                             </div>
                         </div>
                     </div>
@@ -148,7 +153,7 @@
                         <div class="mb-3">
                             <?=(($i==0)?'<label for="nome" class="form-label d-none d-md-block">Nome</label>':false)?>
                             <div class="input-group mb-3">
-                                <span class="input-group-text text-danger" style="cursor:pointer"><i class="fa-solid fa-trash-can"></i></span>
+                                <span delItem="<?=$p->codigo?>" class="input-group-text text-danger" style="cursor:pointer"><i class="fa-solid fa-trash-can"></i></span>
                                 <div class="form-control"><?=$p->produto_nome?></div>
                             </div>
                         </div>
@@ -251,6 +256,42 @@
                 },
                 success:function(dados){
                     $(".LateralDireita").html(dados);
+                }
+            })
+        })
+
+        $("span[delItem]").click(function(){
+            codigo = $(this).attr("delItem");
+            $.confirm({
+                content:"Deseja realmente excluir o Item da lista de lançamentos?",
+                type:"red",
+                title:"Aviso de Exclusão",
+                buttons:{
+                    'sim':{
+                        text:"Sim",
+                        btnClass:"btn btn-danger",
+                        action:function(){
+                            $.ajax({
+                                url:"src/estoque/lancamentos_form.php",
+                                type:"POST",
+                                data:{
+                                    item:codigo,
+                                    cod_lancamento:'<?=$_SESSION['cod_lancamento']?>',
+                                    acao:'excluir_produto_servico'
+                                },
+                                success:function(dados){
+                                    $("#paginaHome").html(dados);
+                                }
+                            })
+                        }
+                    },
+                    'nao':{
+                        text:"Não",
+                        btnClass:"btn btn-success",
+                        action:function(){
+
+                        }
+                    },
                 }
             })
         })
