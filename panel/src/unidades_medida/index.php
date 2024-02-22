@@ -50,19 +50,21 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Unidade</th>
+                    <th scope="col">Sigla</th>
+                    <th scope="col">Descrição</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from unidades_medida where 1 {$where} order by unidade asc";
+                    $query = "select a.*, (select * from produtos_servicos where unidade = a.codigo) as qt from unidades_medida a order by a.unidade asc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
                     <td class="w-100"><?=$d->unidade?></td>
+                    <td class="w-100"><?=$d->descricao?></td>
                     <td>
                       <button
                         class="btn btn-primary"
@@ -74,7 +76,7 @@
                       >
                         Editar
                       </button>
-                      <button class="btn btn-danger" delete="<?=$d->codigo?>">
+                      <button <?=(($d->qt)?'disabled':false)?> class="btn btn-danger" delete="<?=$d->codigo?>">
                         Excluir
                       </button>
                     </td>
