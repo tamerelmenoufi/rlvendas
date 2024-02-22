@@ -394,7 +394,7 @@
 
             tot = 0;
             $(`input[movimentacao][campo="valor_total"]`).each(function(){
-                tot = tot + $(this).val();
+                tot = (tot*1 + ($(this).val())*1);
             })
             $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot);
 
@@ -409,7 +409,7 @@
 
             tot = 0;
             $(`input[movimentacao][campo="valor_total"]`).each(function(){
-                tot = tot + $(this).val();
+                tot = (tot*1 + ($(this).val())*1);
             })
             $(`input[lancamento="<?=$_SESSION['cod_lancamento']?>"][campo="valor"]`).val(tot);
 
