@@ -19,7 +19,7 @@
     }
 
     if($_POST['acao'] == 'excluir_produto_servico'){
-        $query = "delete from movimentacao set codigo = '{$_POST['item']}'";
+        $query = "delete from movimentacao where codigo = '{$_POST['item']}'";
         $result = sisLog($query);
     }    
 
