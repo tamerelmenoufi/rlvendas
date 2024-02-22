@@ -18,8 +18,7 @@
       }
   
       if($_SESSION['textoBusca']){
-        $cpf = str_replace( ['.','-','/'], false, $_SESSION['textoBusca']);
-        $where = " and a.nome_razao_social like '%{$_SESSION['textoBusca']}%' or REPLACE( REPLACE( REPLACE( a.cpf_cnpj, '/', '' ), '.', '' ), '-', '' ) = '{$cpf}' ";
+        $where = " and a.nome like '%{$_SESSION['textoBusca']}%' or a.descricao like '%{$_SESSION['textoBusca']}%'";
       }
 
     $query = "select * from lancamentos where codigo = '{$_SESSION['cod_lancamento']}'";
