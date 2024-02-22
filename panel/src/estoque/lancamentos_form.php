@@ -95,7 +95,7 @@
                         <div class="mb-3">
                             <label for="data" class="form-label">Data</label>
                             <div class="input-group mb-3">
-                                <input lancamento="<?=$d->codigo?>" type="text" campo="data" class="form-control" placeholder="00/00/0000" value="<?=dataBr($d->data)?>">
+                                <input lancamento="<?=$d->codigo?>" type="text" campo="data" class="form-control datas" placeholder="00/00/0000" value="<?=dataBr($d->data)?>">
                             </div>
                         </div>
                     </div>
@@ -229,6 +229,8 @@
 <script>
     $(function(){
         Carregando('none');
+
+        $(".datas").mask("99/99/9999");
 
         $(".voltar").click(function(){
           $.ajax({
