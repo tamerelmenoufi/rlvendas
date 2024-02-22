@@ -56,7 +56,8 @@
     $query = "select 
                     a.*, 
                     (select count(*) from movimentacao where produto = a.codigo) as qt,
-                    b.unidade as unidade_nome
+                    b.unidade as unidade_nome,
+                    b.descricao as unidade_descricao
                 from produtos_servicos a
                     left join unidades_medida b on a.unidade = b.codigo    
                 where 1 {$where} order by a.nome limit 100";
@@ -65,7 +66,7 @@
 ?> 
         <tr>
             <td><?=$d->nome?></td>
-            <td><?=$d->unidade_nome?></td>
+            <td><?="{$d->unidade_nome} ({$d->unidade_descricao})"?></td>
             <td><?=$d->valor?></td>
             <td>
                 <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
