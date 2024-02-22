@@ -118,7 +118,7 @@
                         <div class="mb-3">
                             <label for="valor" class="form-label">Valor</label>
                             <div class="input-group mb-3">
-                                <input lancamento="<?=$d->codigo?>" type="text" campo="valor" inputmode="numeric" class="form-control" placeholder="000.00" value="<?=$d->valor?>">
+                                <input readonly lancamento="<?=$d->codigo?>" type="text" campo="valor" inputmode="numeric" class="form-control" placeholder="000.00" value="<?=$d->valor?>">
                             </div>
                         </div>
                     </div>
