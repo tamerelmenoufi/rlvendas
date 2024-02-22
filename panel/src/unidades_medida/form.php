@@ -25,7 +25,7 @@
             sisLog($query);
             $cod = $_POST['codigo'];
         }else{
-            $query = "insert into unidades_medida set data_cadastro = NOW(), {$attr}";
+            $query = "insert into unidades_medida set {$attr}";
             sisLog($query);
             $cod = mysqli_insert_id($con);
         }
@@ -53,40 +53,18 @@
         z-index:0;
     }
 </style>
-<h4 class="Titulo<?=$md5?>">Cadastro do Usuário</h4>
+<h4 class="Titulo<?=$md5?>">Cadastro das Unidades</h4>
     <form id="form-<?= $md5 ?>">
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo" value="<?=$d->nome?>">
-                    <label for="nome">Nome*</label>
+                    <input type="text" class="form-control" id="unidade" name="unidade" placeholder="Sigla da Unidade" value="<?=$d->unidade?>">
+                    <label for="unidade">Sigla*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" value="<?=$d->cpf?>">
-                    <label for="cpf">CPF*</label>
+                    <textarea type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição da Unidade de Medida"><?=$d->descricao?></textarea>
+                    <label for="descricao">Descrição da Unidade de Medida*</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuário" value="<?=$d->usuario?>">
-                    <label for="usuario">Usuário</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="text" name="senha" id="senha" class="form-control" placeholder="E-mail" value="">
-                    <label for="senha">Senha</label>
-                </div>
-                <?php
-                if($d->codigo != 1){
-                ?>
-                <div class="form-floating mb-3">
-                    <select name="status" class="form-control" id="status">
-                        <option value="1" <?=(($d->status == '1')?'selected':false)?>>Liberado</option>
-                        <option value="0" <?=(($d->status == '0')?'selected':false)?>>Bloqueado</option>
-                    </select>
-                    <label for="email">Situação</label>
-                </div>
-                <?php
-                }
-                ?>
             </div>
         </div>
 
@@ -104,9 +82,6 @@
         $(function(){
             Carregando('none');
 
-            $("#cpf").mask("999.999.999-99");
-
-
             $('#form-<?=$md5?>').submit(function (e) {
 
                 e.preventDefault();
@@ -119,14 +94,6 @@
                 }
 
                 campos.push({name: 'acao', value: 'salvar'})
-
-                cpf = $("#cpf").val();
-                if(cpf){
-                    if(!validarCPF(cpf)){
-                        $.alert('Confira o CPF, o informado é inválido!');
-                        return;
-                    }
-                }
 
                 Carregando();
 
