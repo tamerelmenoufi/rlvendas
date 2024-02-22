@@ -116,14 +116,14 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from lancamentos where deletado != '1' {$where} order by data desc";
+                    $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.deletado != '1' {$where} order by a.data desc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
                     <td><?=$d->numero?></td>
-                    <td class="w-100"><?=$d->fornecedor?></td>
+                    <td class="w-100"><?=$d->nome_razao_social?></td>
                     <td><?=dataBr($d->data)?></td>
                     <td><?=$d->valor?></td>
                     <td>
@@ -159,7 +159,7 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-                  $query = "select * from lancamentos where deletado != '1' {$where} order by data desc";
+                  $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.deletado != '1' {$where} order by a.data desc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
@@ -184,7 +184,7 @@
                     <div class="row">
                       <div class="col-12">
                       <label class="label">Fornecedor</label>
-                       <div><?=$d->fornecedor?></div>
+                       <div><?=$d->nome_razao_social?></div>
                       </div>
                     </div>
                     
