@@ -128,7 +128,17 @@
                 </div>
 
                 <?php
-                for($i=0;$i<10; $i++){
+                $q = "select 
+                            a.*,
+                            b.nome as produto_nome,
+                            c.unidade as unidade_sigla
+                        from movimentacao a
+                            left join produtos_servicos b on a.produto = b.codigo
+                            left join unidades_medida c on b.unidade = c.codigo
+                        where a.lancamento = '{$d->codigo}' order by a.codigo asc";
+                $r = mysqli_query($conEstoque, $q);
+                $i = 0;
+                while($p = mysqli_fetch_object($r)){
                 ?>
                 
                 <div class="row">
@@ -138,7 +148,7 @@
                             <?=(($i==0)?'<label for="nome" class="form-label d-none d-md-block">Nome</label>':false)?>
                             <div class="input-group mb-3">
                                 <span class="input-group-text text-danger" style="cursor:pointer"><i class="fa-solid fa-trash-can"></i></span>
-                                <input type="text" id="nome" class="form-control" placeholder="Nome do Produto ou Serviço">
+                                <div class="form-control"><?=$p->produto_nome?></div>
                             </div>
                         </div>
                     </div>
@@ -147,12 +157,7 @@
                         <div class="mb-3">
                             <?=(($i==0)?'<label for="unidade" class="form-label d-none d-md-block">Uni.</label>':false)?>
                             <div class="input-group mb-3">
-                                <select class="form-select" id="unidade">
-                                    <option selected>Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                <div class="form-control"><?=$p->unidade_sigla?></div>
                             </div>
                         </div>
                     </div>
@@ -187,6 +192,7 @@
                 </div>
 
                 <?php
+                $i++;
                 }
                 ?>
 
