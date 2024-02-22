@@ -383,5 +383,13 @@
             $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total);
         })
 
+        $(`input[movimentacao][campo="valor_unitario"]`).keyup(function(){
+            valor = $(this).val();
+            cod = $(this).attr("movimentacao");
+            quantidade = $(`input[movimentacao="${cod}"][campo="quantidade"]`).val();
+            total = (quantidade * valor);
+            $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total);
+        })
+
     })
 </script>
