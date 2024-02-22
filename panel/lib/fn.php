@@ -21,17 +21,17 @@
     }
 
     function sisLogRegistro($q){
-        global $con;
-        $q = strtolower($q);
-        list($p1, $p2) = explode("set", $q);
-        list($p3, $p4) = explode("where", $q);
-        $query = str_replace("update", "select codigo from", $p1)." where ".$p4;
-        $result = mysqli_query($con, $query);
-        $r = [];
-        while($d = mysqli_fetch_object($result)){
-            $r[] = (int)($d->codigo);
-        }
-        return json_encode($r);
+        // global $con;
+        // $q = strtolower($q);
+        // $p2 = explode("set", $q);
+        // $p4 = explode("where", $q);
+        // $query = str_replace("update", "select codigo from", $p1[0])." where ".$p4;
+        // $result = mysqli_query($con, $query);
+        // $r = [];
+        // while($d = mysqli_fetch_object($result)){
+        //     $r[] = (int)($d->codigo);
+        // }
+        // return json_encode($r);
     }
 
     function sisLog($d){
