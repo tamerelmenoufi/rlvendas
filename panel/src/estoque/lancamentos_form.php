@@ -366,7 +366,7 @@
                     acao:'update_movimentacao'
                 },
                 success:function(dados){
-                    //$("#paginaHome").html(dados);
+                    $("#paginaHome").html(dados);
                     setTimeout(() => {
                         $(".salvando").css("opacity","0");
                     }, 2000);
