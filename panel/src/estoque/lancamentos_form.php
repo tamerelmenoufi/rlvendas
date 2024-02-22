@@ -377,9 +377,10 @@
 
         $(`input[movimentacao][campo="quantidade"]`).keydown(function(){
             quantidade = $(this).val();
-            valor = $(`input[movimentacao][campo="valor_unitario"]`).val();
+            cod = $(this).attr("movimentacao");
+            valor = $(`input[movimentacao="${cod}"][campo="valor_unitario"]`).val();
             total = (quantidade * valor);
-            $(`input[movimentacao][campo="valor_total"]`).val(total);
+            $(`input[movimentacao="${cod}"][campo="valor_total"]`).val(total);
         })
 
     })
