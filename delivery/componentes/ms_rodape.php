@@ -42,7 +42,7 @@
                         $(".ms_corpo").append(dados);
                     }
                 });
-            }else if(AppCliente*1 == 0 && local == 'src/cliente/home.php'){
+            }else if(AppCliente*1 == 0 && local){
                 Carregando();
                 // alert(2)
                 $.ajax({
