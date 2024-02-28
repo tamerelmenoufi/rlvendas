@@ -60,7 +60,7 @@
     <div class="row">
       <div class="col">
         <div class="card">
-          <h5 class="card-header">Lançamentos</h5>
+          <h5 class="card-header">Saídas</h5>
           <div class="card-body">
             <div class="d-none d-md-block">
               <div class="d-flex justify-content-between mb-3">
@@ -317,7 +317,7 @@
         $("button[edit]").click(function(){
             cod = $(this).attr("edit");
             $.ajax({
-                url:"src/estoque/lancamentos_form.php",
+                url:"src/estoque/saidas_form.php",
                 type:"POST",
                 data:{
                   cod
