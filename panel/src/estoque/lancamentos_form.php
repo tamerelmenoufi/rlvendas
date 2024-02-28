@@ -50,7 +50,11 @@
                 where codigo = '{$_POST['movimentacao']}'";
         $result = sisLog($query);
 
-        $query = "update lancamentos set valor = '{$_POST['total_geral']}' where codigo = '{$_SESSION['cod_lancamento']}'";
+        $query = "update lancamentos set 
+                                        valor = '{$_POST['total_geral']}',
+                                        usuario = '{$_SESSION['appLogin']->codigo}',
+                                        data_atualizacao = NOW()                                        
+                where codigo = '{$_SESSION['cod_lancamento']}'";
         $result = sisLog($query);        
 
         exit();
