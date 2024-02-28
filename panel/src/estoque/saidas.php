@@ -119,7 +119,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Número</th>
-                    <th scope="col">Fornecedor</th>
+                    <!--<th scope="col">Fornecedor</th>-->
                     <th scope="col">Data</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Situação</th>
