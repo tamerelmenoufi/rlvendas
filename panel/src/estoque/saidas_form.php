@@ -146,9 +146,6 @@
                 </div>
                 <div class="col-12 d-flex justify-content-between mt-3 mb-2">
                     <h5>Produtos/Serviços</h5>
-                    <?php
-                    if($d->fornecedor){
-                    ?>
                     <button 
                         class="btn btn-outline-secondary" 
                         type="button" 
@@ -160,9 +157,6 @@
                         role="button"
                         aria-controls="offcanvasDireita"       
                     ><i class="fa-solid fa-plus"></i></button>
-                    <?php
-                    }
-                    ?>
                 </div>
 
                 <?php
