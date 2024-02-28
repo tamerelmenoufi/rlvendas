@@ -6,7 +6,7 @@
     }
 
     if($_POST['acao'] == 'adicionar_fornecedor'){
-        $query = "update lancamentos set fornecedor = '{$_POST['codigo']}' where codigo = '{$_SESSION['cod_lancamento']}'";
+        $query = "update lancamentos set fornecedor = '{$_POST['codigo']}', usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW() where codigo = '{$_SESSION['cod_lancamento']}'";
         $result = sisLog($query);
     }
 
@@ -14,7 +14,10 @@
         $query = "insert into movimentacao set 
                             lancamento = '{$_SESSION['cod_lancamento']}',
                             fornecedor = '{$_POST['fornecedor']}', 
-                            produto = '{$_POST['codigo']}'";
+                            produto = '{$_POST['codigo']}',
+                            usuario = '{$_SESSION['appLogin']->codigo}',
+                            data = NOW()
+                            ";
         $result = sisLog($query);
     }
 
@@ -22,7 +25,7 @@
         $query = "delete from movimentacao where codigo = '{$_POST['item']}'";
         $result = sisLog($query);
 
-        $query = "UPDATE lancamentos set valor = (select sum(valor_total) from movimentacao where lancamento = '{$_SESSION['cod_lancamento']}') where codigo = '{$_SESSION['cod_lancamento']}'";
+        $query = "UPDATE lancamentos set valor = (select sum(valor_total) from movimentacao where lancamento = '{$_SESSION['cod_lancamento']}'), usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW() where codigo = '{$_SESSION['cod_lancamento']}'";
         $result = sisLog($query);
     }    
 
@@ -34,7 +37,7 @@
             $valor = $_POST['valor'];
         }
 
-        $query = "update lancamentos set {$_POST['campo']} = '{$valor}' where codigo = '{$_SESSION['cod_lancamento']}'";
+        $query = "update lancamentos set {$_POST['campo']} = '{$valor}', usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW() where codigo = '{$_SESSION['cod_lancamento']}'";
         $result = sisLog($query);
 
         exit();
