@@ -3,7 +3,7 @@
 
     if($_POST['acao'] == 'novo'){
 
-      $query = "INSERT INTO lancamentos set numero = '{$_POST['numero']}'";
+      $query = "INSERT INTO lancamentos set numero = '{$_POST['numero']}', usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW()";
       $result = sisLog($query);
       if(!$result){
         $erro = 'Cadastro não registrado, existe um lançamento com o mesmo número!';
