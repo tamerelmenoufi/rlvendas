@@ -3,7 +3,9 @@
 
     if($_POST['acao'] == 'novo'){
 
-      $query = "INSERT INTO lancamentos set numero = '{$_POST['numero']}', usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW()";
+      $numero = uniqid();
+
+      $query = "INSERT INTO lancamentos set numero = '{$numero}', tipo = 's', usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW()";
       $result = sisLog($query);
       if(!$result){
         $erro = 'Cadastro não registrado, existe um lançamento com o mesmo número!';
@@ -67,10 +69,6 @@
                     <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                     <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
                     <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
-                  </div>
-
-                  <div class="input-group">
-                    <input type="text" class="form-control numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
                     <button
                       novoCadastro
                       class="btn btn-success btn-sm"
@@ -78,8 +76,8 @@
                       Xhref="#offcanvasDireita"
                       Xrole="button"
                       Xaria-controls="offcanvasDireita"
-                    >Novo</button> 
-                  </div>  
+                    >Saída</button>                     
+                  </div>
               </div>
             </div>
 
@@ -255,33 +253,11 @@
     $(function(){
         Carregando('none');
 
-        <?php
-        if($erro){
-        ?>
-        $.alert({
-          content:'<?=$erro?>',
-          title:'Erro',
-          type:'red'
-        })
-        <?php
-        }
-        ?>
-
         $("button[novoCadastro]").click(function(){
-            numero = $(".numero").val();
-            if(!numero.trim()){
-              $.alert({
-                content:'Favor Informe o número do registro de entrada!',
-                title:'Alerta',
-                type:'orange'
-              })
-              return false;
-            }
             $.ajax({
-                url:"src/estoque/lancamentos.php",
+                url:"src/estoque/saidas.php",
                 type:"POST",
                 data:{
-                  numero,
                   acao:'novo'
                 },
                 success:function(dados){
@@ -291,20 +267,10 @@
         })
 
         $("button[novoCadastro1]").click(function(){
-            numero = $(".numero1").val();
-            if(!numero.trim()){
-              $.alert({
-                content:'Favor Informe o número do registro de entrada!',
-                title:'Alerta',
-                type:'orange'
-              })
-              return false;
-            }
             $.ajax({
-                url:"src/estoque/lancamentos.php",
+                url:"src/estoque/saidas.php",
                 type:"POST",
                 data:{
-                  numero,
                   acao:'novo'
                 },
                 success:function(dados){
@@ -319,7 +285,7 @@
           filtro = $(this).attr("filtro");
           campo = $("input[campoBusca]").val();
           $.ajax({
-              url:"src/estoque/lancamentos.php",
+              url:"src/estoque/saidas.php",
               type:"POST",
               data:{
                   filtro,
@@ -335,7 +301,7 @@
           filtro = $(this).attr("filtro1");
           campo = $("input[campoBusca1]").val();
           $.ajax({
-              url:"src/estoque/lancamentos.php",
+              url:"src/estoque/saidas.php",
               type:"POST",
               data:{
                   filtro,
@@ -372,7 +338,7 @@
                 buttons:{
                     'SIM':function(){
                         $.ajax({
-                            url:"src/estoque/lancamentos.php",
+                            url:"src/estoque/saidas.php",
                             type:"POST",
                             data:{
                                 delete:deletar
@@ -404,7 +370,7 @@
 
 
             $.ajax({
-                url:"src/estoque/lancamentos.php",
+                url:"src/estoque/saidas.php",
                 type:"POST",
                 data:{
                     situacao,
