@@ -75,15 +75,15 @@
             <td><?="{$d->unidade_nome} ({$d->unidade_descricao})"?></td>
             <td><?=$d->valor?></td>
             <td>
-                <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" valor='<?=$d->valor?>' style="cursor:pointer"></i>
                 <?php
                 if($_POST['fornecedor']){
                 ?>
-                <i class="fa-solid fa-pen-to-square me-3 text-primary" acao="editar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <i class="fa-solid fa-pen-to-square me-3 text-primary" acao="editar" codigo="<?=$d->codigo?>" valor='<?=$d->valor?>' style="cursor:pointer"></i>
                 <?php
                 if(!$d->qt){
                 ?>
-                <i class="fa-solid fa-trash-can text-danger" acao="excluir" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <i class="fa-solid fa-trash-can text-danger" acao="excluir" codigo="<?=$d->codigo?>" valor='<?=$d->valor?>' style="cursor:pointer"></i>
                 <?php
                 }
                 }
@@ -135,6 +135,8 @@
         $("i[acao]").click(function(){
             acao = $(this).attr("acao");
             codigo = $(this).attr("codigo");
+            valor = $(this).attr("valor");
+
             if(acao == 'editar'){
 
                 $.ajax({
@@ -194,6 +196,7 @@
                         acao:'adicionar_produto',
                         codigo,
                         cod:'<?=$_SESSION['cod_lancamento']?>',
+                        valor,
                         fornecedor:'<?=$_POST['fornecedor']?>'
                     },
                     success:function(dados){
