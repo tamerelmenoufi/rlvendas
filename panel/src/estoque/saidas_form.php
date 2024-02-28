@@ -263,7 +263,7 @@
 
         $(".voltar").click(function(){
           $.ajax({
-              url:"src/estoque/lancamentos.php",
+              url:"src/estoque/saidas.php",
               type:"POST",
               data:{
 
@@ -317,7 +317,7 @@
                         btnClass:"btn btn-danger",
                         action:function(){
                             $.ajax({
-                                url:"src/estoque/lancamentos_form.php",
+                                url:"src/estoque/saidas_form.php",
                                 type:"POST",
                                 data:{
                                     item:codigo,
@@ -348,7 +348,7 @@
             // if(!valor) return false;
             $(".salvando").css("opacity","1");
             $.ajax({
-                url:"src/estoque/lancamentos_form.php",
+                url:"src/estoque/saidas_form.php",
                 type:"POST",
                 data:{
                     campo,
@@ -378,7 +378,7 @@
 
             $(".salvando").css("opacity","1");
             $.ajax({
-                url:"src/estoque/lancamentos_form.php",
+                url:"src/estoque/saidas_form.php",
                 type:"POST",
                 data:{
                     campo,
