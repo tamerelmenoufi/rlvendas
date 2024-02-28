@@ -42,7 +42,12 @@
 
     if($_POST['acao'] == 'update_movimentacao'){
 
-        $query = "update movimentacao set {$_POST['campo']} = '{$_POST['valor']}', valor_total = '{$_POST['total']}' where codigo = '{$_POST['movimentacao']}'";
+        $query = "update movimentacao set 
+                                        {$_POST['campo']} = '{$_POST['valor']}', 
+                                        valor_total = '{$_POST['total']}',
+                                        usuario = '{$_SESSION['appLogin']->codigo}',
+                                        data = NOW()
+                where codigo = '{$_POST['movimentacao']}'";
         $result = sisLog($query);
 
         $query = "update lancamentos set valor = '{$_POST['total_geral']}' where codigo = '{$_SESSION['cod_lancamento']}'";
