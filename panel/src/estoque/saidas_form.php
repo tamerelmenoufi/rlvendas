@@ -17,6 +17,7 @@
                             produto = '{$_POST['codigo']}',
                             valor_unitario = '{$_POST['valor']}',
                             usuario = '{$_SESSION['appLogin']->codigo}',
+                            tipo = 's',
                             data = NOW()
                             ";
         $result = sisLog($query);
