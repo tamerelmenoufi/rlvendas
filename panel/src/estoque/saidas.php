@@ -128,7 +128,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.deletado != '1' {$where} order by a.data desc";
+                    $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo and a.tipo = 's' where a.deletado != '1' {$where} order by a.data desc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
