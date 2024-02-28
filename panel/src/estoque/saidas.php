@@ -134,8 +134,8 @@
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
-                    <td><?=$d->numero?></td>
-                    <td class="w-100"><?=$d->nome_razao_social?></td>
+                    <td class="w-100"><?=$d->numero?></td>
+                    <!--<td><?=$d->nome_razao_social?></td>-->
                     <td><?=dataBr($d->data)?></td>
                     <td><?=$d->valor?></td>
                     <td>
@@ -193,12 +193,12 @@
                       </div>
                     </div>
 
-                    <div class="row">
+                    <!--<div class="row">
                       <div class="col-12">
                       <label class="label">Fornecedor</label>
                        <div><?=$d->nome_razao_social?></div>
                       </div>
-                    </div>
+                    </div>-->
                     
                     <div class="row">
                       <div class="col-12">
