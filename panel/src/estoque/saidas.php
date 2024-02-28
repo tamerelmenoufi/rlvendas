@@ -101,7 +101,7 @@
                     <div class="col-12 mb-2">
                       <button
                         novoCadastro1
-                        class="btn btn-success btn-sm"
+                        class="btn btn-success w-100"
                         Xdata-bs-toggle="offcanvas"
                         Xhref="#offcanvasDireita"
                         Xrole="button"
