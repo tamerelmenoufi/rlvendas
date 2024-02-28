@@ -103,19 +103,9 @@
                     
                     <div class="col-md-5">
                         <div class="mb-3">
-                            <label for="fornecedor" class="form-label">Fornecedor</label>
+                            <label for="fornecedor" class="form-label">Saída registrada por</label>
                             <div class="input-group mb-3">
-                                <div class="form-control"><?=$d->nome_razao_social?></div>
-                                <button 
-                                    class="btn btn-outline-secondary" 
-                                    type="button" 
-                                    id="busca-fornecedor"
-                                    lancamento="<?=$_SESSION['cod_lancamento']?>"
-                                    data-bs-toggle="offcanvas"
-                                    href="#offcanvasDireita"
-                                    role="button"
-                                    aria-controls="offcanvasDireita"                                        
-                                ><i class="fa-solid fa-plus"></i></button>
+                                <div class="form-control">Yobom Sorveteria e Restaurante</div>
                             </div>
                         </div>
                     </div>
