@@ -97,19 +97,18 @@
                     <div class="col-12 mb-2">
                       <button filtro1="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
                     </div>
+
                     <div class="col-12 mb-2">
-                      <div class="input-group">
-                        <input type="text" class="form-control numero1" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
-                        <button
-                          novoCadastro1
-                          class="btn btn-success btn-sm"
-                          Xdata-bs-toggle="offcanvas"
-                          Xhref="#offcanvasDireita"
-                          Xrole="button"
-                          Xaria-controls="offcanvasDireita"
-                        >Novo</button> 
-                      </div>                     
+                      <button
+                        novoCadastro1
+                        class="btn btn-success btn-sm"
+                        Xdata-bs-toggle="offcanvas"
+                        Xhref="#offcanvasDireita"
+                        Xrole="button"
+                        Xaria-controls="offcanvasDireita"
+                      >Novo</button> 
                     </div>
+                    
                   </div>
               </div>
             </div>
