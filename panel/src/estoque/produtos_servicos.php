@@ -188,7 +188,7 @@
 
             }else if(acao == 'adicionar'){
                 $.ajax({
-                    url:"src/estoque/<?=(($d->fornecedor)?'lancamentos_form.php':'saida_form.php')?>",
+                    url:"src/estoque/<?=(($_POST['fornecedor'])?'lancamentos_form.php':'saidas_form.php')?>",
                     type:"POST",
                     data:{
                         acao:'adicionar_produto',
