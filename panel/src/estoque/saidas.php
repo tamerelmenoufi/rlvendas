@@ -3,7 +3,9 @@
 
     if($_POST['acao'] == 'novo'){
 
-      $query = "INSERT INTO lancamentos set numero = '{$numero}', usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW()";
+      $numero = uniqid();
+
+      $query = "INSERT INTO lancamentos set numero = '{$numero}', tipo = 's', usuario = '{$_SESSION['appLogin']->codigo}', data_atualizacao = NOW()";
       $result = sisLog($query);
       if(!$result){
         $erro = 'Cadastro não registrado, existe um lançamento com o mesmo número!';
@@ -58,7 +60,7 @@
     <div class="row">
       <div class="col">
         <div class="card">
-          <h5 class="card-header">Lançamentos</h5>
+          <h5 class="card-header">Saídas</h5>
           <div class="card-body">
             <div class="d-none d-md-block">
               <div class="d-flex justify-content-between mb-3">
@@ -67,10 +69,6 @@
                     <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                     <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
                     <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
-                  </div>
-
-                  <div class="input-group">
-                    <input type="text" class="form-control numero" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
                     <button
                       novoCadastro
                       class="btn btn-success btn-sm"
@@ -78,8 +76,8 @@
                       Xhref="#offcanvasDireita"
                       Xrole="button"
                       Xaria-controls="offcanvasDireita"
-                    >Novo</button> 
-                  </div>  
+                    >Saída</button>                     
+                  </div>
               </div>
             </div>
 
@@ -99,19 +97,18 @@
                     <div class="col-12 mb-2">
                       <button filtro1="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
                     </div>
+
                     <div class="col-12 mb-2">
-                      <div class="input-group">
-                        <input type="text" class="form-control numero1" placeholder="Número do Cadastro" aria-label="Número do Cadastro" />
-                        <button
-                          novoCadastro1
-                          class="btn btn-success btn-sm"
-                          Xdata-bs-toggle="offcanvas"
-                          Xhref="#offcanvasDireita"
-                          Xrole="button"
-                          Xaria-controls="offcanvasDireita"
-                        >Novo</button> 
-                      </div>                     
+                      <button
+                        novoCadastro1
+                        class="btn btn-success w-100"
+                        Xdata-bs-toggle="offcanvas"
+                        Xhref="#offcanvasDireita"
+                        Xrole="button"
+                        Xaria-controls="offcanvasDireita"
+                      >Novo</button> 
                     </div>
+                    
                   </div>
               </div>
             </div>
@@ -121,7 +118,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Número</th>
-                    <th scope="col">Fornecedor</th>
+                    <!--<th scope="col">Fornecedor</th>-->
                     <th scope="col">Data</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Situação</th>
@@ -130,14 +127,14 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.deletado != '1' {$where} order by a.data desc";
+                    $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.deletado != '1' and a.tipo = 's' {$where} order by a.data desc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
-                    <td><?=$d->numero?></td>
-                    <td class="w-100"><?=$d->nome_razao_social?></td>
+                    <td class="w-100"><?=$d->numero?></td>
+                    <!--<td><?=$d->nome_razao_social?></td>-->
                     <td><?=dataBr($d->data)?></td>
                     <td><?=$d->valor?></td>
                     <td>
@@ -173,7 +170,7 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-                  $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.deletado != '1' {$where} order by a.data desc";
+                  $query = "select a.*, b.nome_razao_social from lancamentos a left join fornecedores b on a.fornecedor = b.codigo where a.deletado != '1' and a.tipo = 's' {$where} order by a.data desc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
@@ -195,12 +192,12 @@
                       </div>
                     </div>
 
-                    <div class="row">
+                    <!--<div class="row">
                       <div class="col-12">
                       <label class="label">Fornecedor</label>
                        <div><?=$d->nome_razao_social?></div>
                       </div>
-                    </div>
+                    </div>-->
                     
                     <div class="row">
                       <div class="col-12">
@@ -255,33 +252,11 @@
     $(function(){
         Carregando('none');
 
-        <?php
-        if($erro){
-        ?>
-        $.alert({
-          content:'<?=$erro?>',
-          title:'Erro',
-          type:'red'
-        })
-        <?php
-        }
-        ?>
-
         $("button[novoCadastro]").click(function(){
-            numero = $(".numero").val();
-            if(!numero.trim()){
-              $.alert({
-                content:'Favor Informe o número do registro de entrada!',
-                title:'Alerta',
-                type:'orange'
-              })
-              return false;
-            }
             $.ajax({
-                url:"src/estoque/lancamentos.php",
+                url:"src/estoque/saidas.php",
                 type:"POST",
                 data:{
-                  numero,
                   acao:'novo'
                 },
                 success:function(dados){
@@ -291,20 +266,10 @@
         })
 
         $("button[novoCadastro1]").click(function(){
-            numero = $(".numero1").val();
-            if(!numero.trim()){
-              $.alert({
-                content:'Favor Informe o número do registro de entrada!',
-                title:'Alerta',
-                type:'orange'
-              })
-              return false;
-            }
             $.ajax({
-                url:"src/estoque/lancamentos.php",
+                url:"src/estoque/saidas.php",
                 type:"POST",
                 data:{
-                  numero,
                   acao:'novo'
                 },
                 success:function(dados){
@@ -319,7 +284,7 @@
           filtro = $(this).attr("filtro");
           campo = $("input[campoBusca]").val();
           $.ajax({
-              url:"src/estoque/lancamentos.php",
+              url:"src/estoque/saidas.php",
               type:"POST",
               data:{
                   filtro,
@@ -335,7 +300,7 @@
           filtro = $(this).attr("filtro1");
           campo = $("input[campoBusca1]").val();
           $.ajax({
-              url:"src/estoque/lancamentos.php",
+              url:"src/estoque/saidas.php",
               type:"POST",
               data:{
                   filtro,
@@ -351,7 +316,7 @@
         $("button[edit]").click(function(){
             cod = $(this).attr("edit");
             $.ajax({
-                url:"src/estoque/lancamentos_form.php",
+                url:"src/estoque/saidas_form.php",
                 type:"POST",
                 data:{
                   cod
@@ -372,7 +337,7 @@
                 buttons:{
                     'SIM':function(){
                         $.ajax({
-                            url:"src/estoque/lancamentos.php",
+                            url:"src/estoque/saidas.php",
                             type:"POST",
                             data:{
                                 delete:deletar
@@ -404,7 +369,7 @@
 
 
             $.ajax({
-                url:"src/estoque/lancamentos.php",
+                url:"src/estoque/saidas.php",
                 type:"POST",
                 data:{
                     situacao,

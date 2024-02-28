@@ -33,14 +33,20 @@
         z-index:0;
     }
 </style>
-<h4 class="Titulo<?=$md5?>">Lançamento <?=$d->numero?></h4>
+<h4 class="Titulo<?=$md5?>"><?=(($d->fornecedor)?'Lançcamento':'Saída')?> <?=$d->numero?></h4>
 <h6>Produtos / Serviços (Frcdr: <?=$_POST['fornecedor']?>)</h6>
 <div class="input-group">
 <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
     <input textoBusca type="text" class="form-control" value="<?=$_SESSION['textoBusca']?>" aria-label="Digite a informação para a busca">
     <button filtro="filtrar" class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
     <button filtro="limpar" class="btn btn-outline-danger" type="button"><i class="fa-solid fa-eraser"></i></button>
+    <?php
+    if($_POST['fornecedor']){
+    ?>
     <button novo class="btn btn-outline-primary" type="button"><i class="fa-solid fa-file-circle-plus"></i></button>
+    <?php
+    }
+    ?>
 </div>
 <table class="table table-hover">
     <thead>
@@ -69,13 +75,17 @@
             <td><?="{$d->unidade_nome} ({$d->unidade_descricao})"?></td>
             <td><?=$d->valor?></td>
             <td>
-                <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
-                <i class="fa-solid fa-pen-to-square me-3 text-primary" acao="editar" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <i class="fa-regular fa-square-plus text-success me-3" acao="adicionar" codigo="<?=$d->codigo?>" valor='<?=$d->valor?>' style="cursor:pointer"></i>
+                <?php
+                if($_POST['fornecedor']){
+                ?>
+                <i class="fa-solid fa-pen-to-square me-3 text-primary" acao="editar" codigo="<?=$d->codigo?>" valor='<?=$d->valor?>' style="cursor:pointer"></i>
                 <?php
                 if(!$d->qt){
                 ?>
-                <i class="fa-solid fa-trash-can text-danger" acao="excluir" codigo="<?=$d->codigo?>" style="cursor:pointer"></i>
+                <i class="fa-solid fa-trash-can text-danger" acao="excluir" codigo="<?=$d->codigo?>" valor='<?=$d->valor?>' style="cursor:pointer"></i>
                 <?php
+                }
                 }
                 ?>
             </td>
@@ -125,6 +135,8 @@
         $("i[acao]").click(function(){
             acao = $(this).attr("acao");
             codigo = $(this).attr("codigo");
+            valor = $(this).attr("valor");
+
             if(acao == 'editar'){
 
                 $.ajax({
@@ -178,12 +190,13 @@
 
             }else if(acao == 'adicionar'){
                 $.ajax({
-                    url:"src/estoque/lancamentos_form.php",
+                    url:"src/estoque/<?=(($_POST['fornecedor'])?'lancamentos_form.php':'saidas_form.php')?>",
                     type:"POST",
                     data:{
                         acao:'adicionar_produto',
                         codigo,
                         cod:'<?=$_SESSION['cod_lancamento']?>',
+                        valor,
                         fornecedor:'<?=$_POST['fornecedor']?>'
                     },
                     success:function(dados){
