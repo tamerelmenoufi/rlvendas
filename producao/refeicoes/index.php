@@ -102,10 +102,10 @@
         <?php
             if($_SESSION['concluidos']){
                 $in = "'c'";
-                $limit = false;
+                $limit = "limit 30"; 
             }else{
                 $in = "'p','i'";
-                $limit = "limit 30";                
+                $limit = false;          
             }
             $query = "select a.*, b.mesa as mesa, c.alertas from vendas_produtos a left join mesas b on a.mesa = b.codigo left join vendas c on a.venda = c.codigo where a.situacao in({$in}) and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria}) order by a.ordem asc {$limit}";
             $result = mysqli_query($con, $query);
