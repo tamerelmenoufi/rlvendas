@@ -186,6 +186,7 @@
 
         $(document).on("click", "button[concluidos]", function(){
             opc = $(this).attr("concluidos");
+            console.log('opc:'+ opc);
             $.ajax({
                 url:"<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>",
                 type:"POST",
@@ -195,6 +196,8 @@
                 },
                 success:function(dados){
                     $("#body").html(dados);
+                    console.log('chegou');
+
                 },
                 error:function(){
                     alert('erro');
