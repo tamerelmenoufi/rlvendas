@@ -68,6 +68,19 @@
 
         <div class="painel">
             <h4 style="position:fixed; top:0; height:40px; z-index:10; width:100%; padding-left:15px; padding-top:5px; background-color:#fff">Dados da cozinha (Produção de REFEIÇÕES/BEBIDAS)</h4>
+            <div style="position:fixed; top:10; z-index:10; padding-right:15px;">
+                <?php
+                if($_SESSION['concluidos']){
+                ?>
+                <button concluidos="1" class="btn btn-primary btn-sm">Exibir Concluídos</button>
+                <?php
+                }else{
+                ?>
+                <button  concluidos="0" class="btn btn-warning btn-sm">Exibir Produção</button>
+                <?php
+                }
+                ?>
+            </div>
         <table painel class="table table-striped table-hover" style="margin-top:40px;">
             <thead>
                 <tr>

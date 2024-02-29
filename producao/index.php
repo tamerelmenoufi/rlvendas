@@ -1,5 +1,9 @@
 <?php
     include("../lib/includes.php");
+
+    if($_POST['acao'] == 'filtro'){
+        $_SESSION['concluidos'] = $_POST['opc'];
+    }
     
 ?>
 
@@ -174,6 +178,33 @@
 
 
         });
+
+
+
+
+
+
+        $(document).on("click", "button[concluidos]", function(){
+            opc = $(this).attr("concluidos");
+            $.ajax({
+                url:"<?=$opc?>/index.php?<?=substr($md5, 0, 12)?>",
+                type:"POST",
+                data:{
+                    acao:'filtro',
+                    opc
+                },
+                success:function(dados){
+                    $("#body").html(dados);
+                },
+                error:function(){
+                    alert('erro');
+                }
+            });
+
+        });
+
+
+
 
 
         $(document).on('click', "div[pedido]", function(){
