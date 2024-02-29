@@ -1,10 +1,5 @@
 <?php
     include("../lib/includes.php");
-
-    if($_POST['acao'] == 'filtro'){
-        echo $_SESSION['concluidos'] = $_POST['opc'];
-    }
-    
 ?>
 
 <!DOCTYPE html>
