@@ -113,9 +113,15 @@
         <tr>
 
             <td>
+                <?php
+                if($d->situacao == 'p'){
+                ?>
                 <div class="form-group form-check">
                     <input status cod="<?=$d->codigo?>" <?=(($d->situacao == 'i')?'checked':false)?> type="checkbox" class="form-check-input" id="<?="{$opc}{$d->codigo}"?>">
                 </div>
+                <?php
+                }
+                ?>
             </td>
             <td>
                 <label class="form-check-label" for="<?="{$opc}{$d->codigo}"?>">
