@@ -119,7 +119,7 @@
         </div>
         <div class="d-flex justify-content-between">
             <div>Código Retorno</div>
-            <span><b><?=$delivery->returnCode?></b></span>
+            <span><b><?=($delivery->returnCode)."****"?></b></span>
         </div>
         <?php
         }
