@@ -77,11 +77,11 @@
                 <?php
                 if(!$_SESSION['concluidos']){
                 ?>
-                <button concluidos="1" class="btn btn-primary btn-sm">Exibir Concluídos</button>
+                <button type="button" concluidos="1" class="btn btn-primary btn-sm">Exibir Concluídos</button>
                 <?php
                 }else{
                 ?>
-                <button concluidos="0" class="btn btn-warning btn-sm">Exibir Produção</button>
+                <button type="button" concluidos="0" class="btn btn-warning btn-sm">Exibir Produção</button>
                 <?php
                 }
                 ?>
@@ -100,7 +100,14 @@
             <tbody>
 
         <?php
-            $query = "select a.*, b.mesa as mesa, c.alertas from vendas_produtos a left join mesas b on a.mesa = b.codigo left join vendas c on a.venda = c.codigo where a.situacao in('p','i') and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria}) order by a.ordem asc";
+            if($_SESSION['concluidos']){
+                $in = "'c'";
+                $limit = false;
+            }else{
+                $in = "'p','i'";
+                $limit = "limit 30";                
+            }
+            $query = "select a.*, b.mesa as mesa, c.alertas from vendas_produtos a left join mesas b on a.mesa = b.codigo left join vendas c on a.venda = c.codigo where a.situacao in({$in}) and a.deletado != '1' and JSON_EXTRACT(produto_json, '$.categoria.codigo') in ({$Categoria}) order by a.ordem asc {$limit}";
             $result = mysqli_query($con, $query);
 
             while($d = mysqli_fetch_object($result)){
