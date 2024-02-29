@@ -1,6 +1,10 @@
 <?php
     include("../../lib/includes.php");
 
+    if($_POST['acao'] == 'filtro'){
+        $_SESSION['concluidos'] = $_POST['opc'];
+    }
+
     include("prod_conf.php");
 
     if($_POST['opc']){
