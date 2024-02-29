@@ -126,7 +126,7 @@
         ?>
         <div class="d-flex justify-content-start">
             <div style="padding-right:7px;">Situação</div>
-            <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
+            <span><?=(($d->situacao_entregaX)?:'Em Produção')?></span>
         </div>
         <div class="d-flex justify-content-start">
             <button pedido="<?=$d->codigo?>" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Pedido</button>
