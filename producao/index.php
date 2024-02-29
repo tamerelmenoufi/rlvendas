@@ -2,7 +2,7 @@
     include("../lib/includes.php");
 
     if($_POST['acao'] == 'filtro'){
-        $_SESSION['concluidos'] = $_POST['opc'];
+        echo $_SESSION['concluidos'] = $_POST['opc'];
     }
     
 ?>
