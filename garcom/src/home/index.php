@@ -18,7 +18,7 @@
         position:absolute;
         width:100%;
         height:100%;
-        background-image:url("svg/fundo_home.svg");
+        /* background-image:url("svg/fundo_home.svg"); */
         background-size:cover;
         background-color:#EAF3F0;
         opacity:0.05;
