@@ -21,5 +21,4 @@ $caminho_vendor = getUrl() . "lib/vendor";
     .jqbtk-container .btn {
         border: 1px solid #999999;
     }
-
 </style>
