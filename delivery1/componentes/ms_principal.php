@@ -16,7 +16,9 @@
     .rodape .row .col, .rodape .row .col-6 {
         color:#fff;
         text-align:center;
-        font-size:35px;
+        font-size:30px;
+        padding:0;
+        margin:0;
     }
     .rodape .row .col p{
         font-size:10px;
