@@ -9,7 +9,7 @@
 
 <div class="row">
 
-    <div class="col-6 acao" componente="ms_popup" local="src/cliente/home.php">
+    <div class="col-8 acao" componente="ms_popup" local="src/cliente/home.php">
         <div class="d-flex justify-content-start user">
             <i class="fa-solid fa-circle-user"></i><p>Tamer Mohamed Elmenoufi<br>(92) 99188-6570<span cli></span></p>
         </div>

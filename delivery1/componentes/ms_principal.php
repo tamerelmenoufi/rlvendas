@@ -36,7 +36,7 @@
         margin:0;
     }
     .user p{
-        font-size:14px;
+        font-size:12px;
         text-align:center;
         color:#fff;
         padding:10px;
