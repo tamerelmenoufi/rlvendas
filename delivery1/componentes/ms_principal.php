@@ -20,7 +20,7 @@
         padding:0;
         margin:0;
     }
-    .rodape .row .col p{
+    .rodape .row .col p, .rodape .row .col p{
         font-size:10px;
         text-align:center;
         color:#fff;
