@@ -138,7 +138,7 @@ $i++;
         Carregando('none');
 
         $.ajax({
-            url:"componentes/ms_topo.php",
+            url:"src/produtos/banners.php",
             success:function(dados){
                 $(".topo").html(dados);
             }
