@@ -40,12 +40,12 @@
         padding-top:20px;
     }
     .banner{
-        height:100%;
-        width:auto;
+        height:auto;
+        width:100%;
     }
     .banner img{
-        height:100%;
-        width:auto;
+        height:auto;
+        width:100%;
     }
 </style>
 
