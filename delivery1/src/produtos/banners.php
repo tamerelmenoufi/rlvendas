@@ -9,5 +9,5 @@ include("../../../lib/includes.php");
     }
 </style>
 <div class="banner">
-
+    Imagem do banner
 </div>
