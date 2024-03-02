@@ -36,8 +36,6 @@
         background-image:url('img/bg.png');
         background-size:cover;
         background-position:center;
-        padding:10px;
-        padding-top:20px;
     }
     .banner{
         height:auto;
@@ -49,11 +47,14 @@
     }
 </style>
 
+
+<div class="pagina">
+
 <div class="banner">
     <img src="img/banner.jpg" />
 </div>
-<div class="pagina">
-<div class="row" style="margin:0; padding:0;">
+
+<div class="row" style="margin:0; padding:10px; padding-top:20px;">
     <?php
     $q = "select * from vendas where 
                                     app = 'delivery' and 
