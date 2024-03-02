@@ -32,8 +32,8 @@
         bottom:110px;
         width:100%;
         overflow:auto;
-        /* background:yellow; */
-        background-image:url('img/bg.png');
+        background:#fff;
+        /* background-image:url('img/bg.png'); */
         background-size:cover;
         background-position:center;
     }
