@@ -293,8 +293,8 @@
                         $.alert('Pagamento confirmado com sucesso!');
                         window.location.href='./';
                     }else{
-                        erroCode = dados?.Code;
-                        erroMessage = dados?.Message;
+                        erroCode = dados?.Payment?.ReturnCode;
+                        erroMessage = dados?.Payment?.ReturnMessage;
                         $.alert(`Erro na confirmação do pagamento!<br>${erroCode}: ${erroMessage}`);
                     }
                 }
