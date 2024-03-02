@@ -1,0 +1,50 @@
+/*  COMPONENTES CSS */
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/*  Corpo do app */
+.ms_corpo{
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:0;
+    padding:0;
+    overflow: auto;
+    z-index: 0;
+}
+.Carregando{
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:0;
+    padding:0;
+    z-index: 9999999999;
+    background-color:#333;
+    opacity: 0.9;
+    display: none;
+}
+
+.Carregando span {
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-30px;
+    margin-top:-30px;
+    color:rgb(0, 0, 0);
+    font-size:70px;
+    color:#eee;
+    animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
