@@ -23,9 +23,10 @@
     .user{
         color:#fff;
         text-align:center;
-        font-size:30px;
+        font-size:35px;
         padding:10px;
         margin:0px;
+        margin-right:10px;
     }
     .rodape .row .col p{
         font-size:10px;
