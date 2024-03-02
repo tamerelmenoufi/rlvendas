@@ -20,12 +20,12 @@
         padding:0;
         margin:0;
     }
-    .user i {
+    .user{
         color:#fff;
         text-align:center;
         font-size:30px;
-        padding:0;
-        margin:10px;
+        padding:10px;
+        margin:0px;
     }
     .rodape .row .col p{
         font-size:10px;
