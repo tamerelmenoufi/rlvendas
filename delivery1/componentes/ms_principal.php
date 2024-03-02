@@ -111,7 +111,7 @@
     <div class="col-6">
         <button
                 class="btn btn-success btn-lg btn-block m-1"
-                style="background-color:#fff; height:100%; border:0; padding:0"
+                style="background-color:#fff; height:100%; border:0; padding:5px;"
                 acao<?=$md5?>
                 local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
                 janela="ms_popup_100"
@@ -119,7 +119,7 @@
         >
             <div class="d-flex flex-column bd-highlight align-items-center">
                 <img src="img/<?=substr($d->icone,0,-3)?>jpg" style="width:100%; border-radius:20px;">
-                <span><?=$d->categoria?></span>
+                <span style="color:#c0941f"><?=$d->categoria?></span>
             </div>
 
         </button>
