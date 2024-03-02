@@ -110,7 +110,7 @@
 
     <div class="col-4">
         <button
-                class="btn btn-success btn-lg btn-block m-1"
+                class="btn btn-success btn-lg btn-block"
                 style="background-color:#fff; height:100%; border:0; padding:5px;"
                 acao<?=$md5?>
                 local="src/produtos/produtos.php?categoria=<?=$d->codigo?>"
