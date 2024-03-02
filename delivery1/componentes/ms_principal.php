@@ -39,7 +39,8 @@
         font-size:12px;
         text-align:center;
         color:#fff;
-        padding:10px;
+        padding-left:10px;
+        padding-top:5px;
         margin:0;
     }
 
