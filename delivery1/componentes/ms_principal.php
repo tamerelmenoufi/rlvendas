@@ -39,17 +39,20 @@
         padding:10px;
         padding-top:20px;
     }
+    .banner{
+        height:100%;
+        width:auto;
+    }
     .banner img{
         height:100%;
         width:auto;
     }
 </style>
-<div class="pagina">
 
 <div class="banner">
     <img src="img/banner.jpg" />
 </div>
-
+<div class="pagina">
 <div class="row" style="margin:0; padding:0;">
     <?php
     $q = "select * from vendas where 
