@@ -7,7 +7,7 @@
     .topo{
         position:fixed;
         width:100%;
-        height:60px;
+        height:400px;
         background-color:#990002;
         left:0;
         top:0;
@@ -36,7 +36,7 @@
 
     .pagina{
         position:fixed;
-        top:60px;
+        top:400px;
         bottom:110px;
         width:100%;
         overflow:auto;
