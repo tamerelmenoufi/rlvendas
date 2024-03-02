@@ -4,14 +4,6 @@
     VerificarVendaApp('delivery');
 ?>
 <style>
-    .topo{
-        position:fixed;
-        width:100%;
-        height:400px;
-        background-color:#990002;
-        left:0;
-        top:0;
-    }
 
     .rodape{
         position:fixed;
@@ -36,7 +28,7 @@
 
     .pagina{
         position:fixed;
-        top:400px;
+        top:0px;
         bottom:110px;
         width:100%;
         overflow:auto;
@@ -47,10 +39,17 @@
         padding:10px;
         padding-top:20px;
     }
-
+    .banner img{
+        height:100%;
+        width:auto;
+    }
 </style>
-<div class="topo"></div>
 <div class="pagina">
+
+<div class="banner">
+    <img src="img/banner.jpg" />
+</div>
+
 <div class="row" style="margin:0; padding:0;">
     <?php
     $q = "select * from vendas where 
