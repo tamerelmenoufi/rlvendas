@@ -120,7 +120,7 @@
 
 
             <div class="d-flex flex-column bd-highlight align-items-center">
-                <img src="img/<?=substr($d->icone,-3)?>jpg" style="height:50px;">
+                <img src="img/<?=substr($d->icone,0,-3)?>jpg" style="height:50px;">
                 <span><?=$d->categoria?></span>
             </div>
 
