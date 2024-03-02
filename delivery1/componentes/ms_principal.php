@@ -8,7 +8,7 @@
     .rodape{
         position:fixed;
         width:100%;
-        height:110px;
+        height:60px;
         background-color:#990002;
         left:0;
         bottom:0;
@@ -29,7 +29,7 @@
     .pagina{
         position:fixed;
         top:0px;
-        bottom:110px;
+        bottom:60px;
         width:100%;
         overflow:auto;
         background:#fff;
