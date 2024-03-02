@@ -119,7 +119,7 @@
         >
             <div class="d-flex flex-column bd-highlight align-items-center">
                 <img src="img/<?=substr($d->icone,0,-3)?>jpg" style="width:100%; border-radius:20px;">
-                <span style="color:#c0941f; font-size:12px;"><?=$d->categoria?></span>
+                <span style="color:#c0941f; font-size:13px; font-weight:bold;"><?=$d->categoria?></span>
             </div>
 
         </button>
