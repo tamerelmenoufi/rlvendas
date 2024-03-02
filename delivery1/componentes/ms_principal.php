@@ -37,7 +37,7 @@
     }
     .user p{
         font-size:12px;
-        text-align:center;
+        text-align:left;
         color:#fff;
         padding-left:10px;
         padding-top:5px;
