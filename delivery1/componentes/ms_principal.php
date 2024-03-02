@@ -98,7 +98,7 @@
     $i=0;
     while($d = mysqli_fetch_object($result)){
 
-        if($i%2 == 0){
+        if($i%3 == 0){
 
             if($i > 0 ) echo "</div>";
 ?>
@@ -108,7 +108,7 @@
 
 ?>
 
-    <div class="col-6">
+    <div class="col-4">
         <button
                 class="btn btn-success btn-lg btn-block m-1"
                 style="background-color:#fff; height:100%; border:0; padding:5px;"
@@ -128,7 +128,7 @@
 <?php
 $i++;
     }
-    if($i%2 == 0) echo "</div>";
+    if($i%3 == 0) echo "</div>";
 ?>
 
 </div>
