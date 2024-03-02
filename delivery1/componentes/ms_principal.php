@@ -36,10 +36,10 @@
         margin:0;
     }
     .user p{
-        font-size:10px;
+        font-size:14px;
         text-align:center;
         color:#fff;
-        padding:0;
+        padding:10px;
         margin:0;
     }
 
