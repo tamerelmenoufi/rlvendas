@@ -13,14 +13,28 @@
         left:0;
         bottom:0;
     }
-    .rodape .row .col, .user i {
+    .rodape .row .col {
         color:#fff;
         text-align:center;
         font-size:30px;
         padding:0;
         margin:0;
     }
-    .rodape .row .col p, .user p{
+    .user i {
+        color:#fff;
+        text-align:center;
+        font-size:30px;
+        padding:0;
+        margin:10px;
+    }
+    .rodape .row .col p{
+        font-size:10px;
+        text-align:center;
+        color:#fff;
+        padding:0;
+        margin:0;
+    }
+    .user p{
         font-size:10px;
         text-align:center;
         color:#fff;
