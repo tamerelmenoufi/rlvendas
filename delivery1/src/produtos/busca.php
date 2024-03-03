@@ -173,7 +173,7 @@ function aasort(&$array, $key)
                                                 medida='<?= $val["quantidade"]; ?>'
                                                 valor='<?= $val['valor']; ?>'
                                                 class="btn btn-outline-success btn-lg"
-                                                style="height:auto; font-size:18px; line-height: 1.2;"
+                                                style="height:auto; font-size:12px; line-height: 1.2;"
                                         >
                                             <?= $M[$key2]['descricao']; ?><br>
                                             R$ <?= number_format($val['valor'], 2, '.', false) ?>
