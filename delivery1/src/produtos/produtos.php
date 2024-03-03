@@ -180,6 +180,18 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <script>
 
+
+    $.ajax({
+        url:"componentes/ms_topo_interno.php",
+        type:"POST",
+        data:{
+            titulo:$(".topo_interno<?=$md5?>").text(),
+        },
+        success:function(dados){
+            $(".topo_interno<?=$md5?>").html(dados);
+        }
+    });
+
     $("button[acao_medida]").click(function () {
         opc = $(this).attr("opc");
         produto = $(this).attr("produto");
