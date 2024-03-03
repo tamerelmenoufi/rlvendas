@@ -211,7 +211,7 @@
 
 
 <div class="col">
-    <div class="row" style="margin-top:10px;">
+    <div class="row">
         <div class="col">
 
             <!-- <?= $p->produto ?> <?= $m->medida ?> -->
