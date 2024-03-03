@@ -44,7 +44,7 @@ function aasort(&$array, $key)
         position: absolute;
         top: 10px;
         right: 0;
-        height:25px;
+        height:35px;
         width: auto;
         background-color: #a80e13;
         padding: 5px;
