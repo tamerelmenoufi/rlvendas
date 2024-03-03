@@ -151,11 +151,9 @@ function aasort(&$array, $key)
                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
                     </div>
                     <div class="col-8">
-                        <div class="card-body">
+                        <div class="card-body" style="font-size:12px;">
                             <div class="card-title bloco" style="font-size:14px; color:#a80e13; font-weight:bold;" bloco="<?=$p->codigo?>"><?= $p->produto ?></div>
-                            <p class="card-text" style="font-size:12px;">
-                                <?= $p->descricao ?>
-                            </p>
+                            <?= $p->descricao ?>
                         </div>
                     </div>
                 </div>
