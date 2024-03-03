@@ -145,7 +145,7 @@ function aasort(&$array, $key)
             endforeach;
             if($detalhes_2){
             ?>
-            <div bloco<?=$p->codigo?> class="card mb-2 item_button<?= $md5 ?>">
+            <div bloco<?=$p->codigo?> class="card mb-2 item_button<?= $md5 ?>" style="border:0;">
                 <div class="row no-gutters">
                     <div class="col-4 foto<?= $md5 ?>"
                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
@@ -159,7 +159,7 @@ function aasort(&$array, $key)
                         </div>
                     </div>
                 </div>
-                <div class="d-flex flex-row-reverse bd-highlight">
+                <div class="d-flex flex-row-reverse bd-highlight mt-1">
 
                 <?php
 
