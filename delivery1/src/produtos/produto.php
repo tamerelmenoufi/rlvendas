@@ -200,7 +200,7 @@
 </style>
 
 <div class="topo<?= $md5 ?>">
-    <center><?= $p->produto ?> <?= $m->medida ?></center>
+    <div class="topo_interno<?=$md5?>">Localizar Produtos</div>
 </div>
 
 
@@ -306,6 +306,18 @@
 <script>
     $(function(){
         Carregando('none');
+
+
+        $.ajax({
+            url:"componentes/ms_topo_interno.php",
+            type:"POST",
+            data:{
+                titulo:$(".topo_interno<?=$md5?>").text(),
+            },
+            success:function(dados){
+                $(".topo_interno<?=$md5?>").html(dados);
+            }
+        });
 
         var qt = 0;
         var v_produto_com_sabores = 0;
