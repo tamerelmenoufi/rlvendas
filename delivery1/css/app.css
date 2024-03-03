@@ -52,17 +52,17 @@ body{
 
 @font-face {
     font-family: 'BungeeRegular';
-    src: url('../fonts/fonts/BungeeRegular.ttf') format('opentype');
+    src: url('../fonts/BungeeRegular.ttf') format('opentype');
 }
 
 
 @font-face {
     font-family: 'UniformCondensedBold';
-    src: url('../fonts/fonts/UniformCondensedBold.otf') format('opentype');
+    src: url('../fonts/UniformCondensedBold.otf') format('opentype');
 }
 
 
 @font-face {
     font-family: 'UniformCondensedMedium';
-    src: url('../fonts/fonts/UniformCondensedMedium.otf') format('opentype');
+    src: url('../fonts/UniformCondensedMedium.otf') format('opentype');
 }
