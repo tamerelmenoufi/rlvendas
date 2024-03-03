@@ -142,7 +142,7 @@
                -1px 1px 0px #FFF,
                 1px -1px 0px #FFF,
                 1px 0px 0px #FFF;
-        display:'none';
+        display:none;
     }
     .foto<?=$md5?> span[categoria]{
         position:absolute;
@@ -156,7 +156,7 @@
                -1px 1px 0px #FFF,
                 1px -1px 0px #FFF,
                 1px 0px 0px #FFF;
-        display:'none';
+        display:none;
         
     }
     .foto<?=$md5?> span[medida]{
@@ -171,7 +171,7 @@
                -1px 1px 0px #FFF,
                 1px -1px 0px #FFF,
                 1px 0px 0px #FFF;
-        display:'none';
+        display:none;
     }
     .foto<?=$md5?> span[val]{
         position:absolute;
@@ -185,7 +185,7 @@
                -1px 1px 0px #FFF,
                 1px -1px 0px #FFF,
                 1px 0px 0px #FFF;
-        display:'none';
+        display:none;
     }
 
     small[valor_novo] {
