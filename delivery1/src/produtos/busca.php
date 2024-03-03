@@ -156,35 +156,33 @@ function aasort(&$array, $key)
                             <p class="card-text">
                                 <p><?= $p->descricao ?></p>
                                 <div class="d-flex flex-row-reverse bd-highlight">
-                                    <small class="text-muted">
 
-                                        <?php
+                                <?php
 
-                                        aasort($detalhes_2, "ordem");
+                                aasort($detalhes_2, "ordem");
 
-                                        foreach ($detalhes_2 as $key2 => $val) {
-                                            if ($val["quantidade"] > 0) {
-                                                ?>
-                                                <button
-                                                        acao_medida
-                                                        opc="<?= $val["quantidade"]; ?>"
-                                                        produto="<?= $p->codigo ?>"
-                                                        titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]["descricao"]})" ?>'
-                                                        categoria='<?= $d->codigo ?>'
-                                                        medida='<?= $val["quantidade"]; ?>'
-                                                        valor='<?= $val['valor']; ?>'
-                                                        class="btn btn-lg"
-                                                        style="height:auto; background-color:#a80e13; border:0; font-size:12px; color:#fff; font-weight:bold; line-height: 1.2;"
-                                                >
-                                                    <?= $M[$key2]['descricao']; ?><br>
-                                                    R$ <?= number_format($val['valor'], 2, '.', false) ?>
-                                                </button>
-                                                <?php
-                                            }
-                                        }
+                                foreach ($detalhes_2 as $key2 => $val) {
+                                    if ($val["quantidade"] > 0) {
                                         ?>
+                                        <button
+                                                acao_medida
+                                                opc="<?= $val["quantidade"]; ?>"
+                                                produto="<?= $p->codigo ?>"
+                                                titulo='<?= "{$d->categoria} - {$p->produto} ({$M[$key2]["descricao"]})" ?>'
+                                                categoria='<?= $d->codigo ?>'
+                                                medida='<?= $val["quantidade"]; ?>'
+                                                valor='<?= $val['valor']; ?>'
+                                                class="btn btn-lg"
+                                                style="height:auto; background-color:#a80e13; border:0; font-size:12px; color:#fff; font-weight:bold; line-height: 1.2;"
+                                        >
+                                            <?= $M[$key2]['descricao']; ?><br>
+                                            R$ <?= number_format($val['valor'], 2, '.', false) ?>
+                                        </button>
+                                        <?php
+                                    }
+                                }
+                                ?>
 
-                                    </small>
                                 </div>
                             </p>
                         </div>
