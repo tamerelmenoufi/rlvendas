@@ -30,7 +30,7 @@
         background-color: #a80e13;
         padding: 5px;
         font-weight: bold;
-        color:#fff;
+        color:#ffea79;
         text-align:right;
         z-index: 1;
     }
