@@ -109,7 +109,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     <div class="topo_interno<?=$md5?>"><?= $d->categoria ?></div>
 </div>
 
-<div style="position:fixed; width:100%; top:60px; bottom:60px; overfolw:auto;" >
+<div style="position:fixed; width:100%; top:60px; bottom:60px; overflow:auto;" >
 <div class="col-md-12">
     <?php
     $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' order by produto asc";
