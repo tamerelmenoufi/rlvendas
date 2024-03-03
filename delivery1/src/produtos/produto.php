@@ -238,10 +238,10 @@
                                 <p class="observacoes"></p>
                                 <div class="row">
                                 <div class="col-8">
-                                    <button observacoes class="btn btn-warning btn-block" style="color:#333"><i class="fa-regular fa-pen-to-square"></i> Recomendações</button>
+                                    <button observacoes class="btn btn-warningX btn-block" style="color:#333"><i class="fa-regular fa-pen-to-square"></i> Recomendações</button>
                                 </div>
                                 <div class="col-4">
-                                    <div style="text-align:right; font-weight:bold"><small>R$</small> <small valor_atual><?= number_format($_POST['valor'], 2, '.', false) ?></small></div>
+                                    <div style="text-align:right;"><small>R$</small> <small valor_atual style="font-weight:bold"><?= number_format($_POST['valor'], 2, '.', false) ?></small></div>
                                     <div style="font-size:10px; text-align:right; font-weight:bold">Valor Cobrado</div>
                                 </div>
                                 </div>
