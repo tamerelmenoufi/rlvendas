@@ -26,6 +26,7 @@ function aasort(&$array, $key)
         background-position: center;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
+        background-color:#ccc;
     }
 
     .topo<?=$md5?> {
