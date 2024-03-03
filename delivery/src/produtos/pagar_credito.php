@@ -295,7 +295,7 @@
                     }else{
                         erroCode = dados?.Payment?.ReturnCode;
                         erroMessage = dados?.Payment?.ReturnMessage;
-                        if(erroCode != '' and erroCode != undefined ){
+                        if(erroCode != '' && erroCode != undefined ){
                             mensagem = `<br>${erroCode}: ${erroMessage}`;
                         }
                         $.alert(`Erro na confirmação do pagamento!${mensagem}`);
