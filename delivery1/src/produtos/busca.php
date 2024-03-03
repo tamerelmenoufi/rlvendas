@@ -159,7 +159,7 @@ function aasort(&$array, $key)
                         </div>
                     </div>
                 </div>
-                <div class="row no-gutters">
+                <div class="d-flex flex-row-reverse bd-highlight mt-1">
                     <small class="text-muted">
                     <?php
 
