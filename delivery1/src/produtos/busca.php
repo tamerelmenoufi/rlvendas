@@ -32,7 +32,7 @@ function aasort(&$array, $key)
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 110%;
         height: 100px;
         background-color: #fff;
         padding: 20px;
@@ -100,7 +100,7 @@ function aasort(&$array, $key)
         position:fixed;
         left:0;
         right:0;
-        top:100px;
+        top:110px;
         bottom:0;
         overflow:auto;
     }
