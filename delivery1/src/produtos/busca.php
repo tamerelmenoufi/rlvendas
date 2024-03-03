@@ -145,8 +145,8 @@ function aasort(&$array, $key)
             endforeach;
             if($detalhes_2){
             ?>
-            <div bloco<?=$p->codigo?> class="card mb-3 mt-3 item_button<?= $md5 ?>" style="border:1; height:100px;">
-                <div class="row no-gutters">
+            <div bloco<?=$p->codigo?> class="card mb-3 mt-3 item_button<?= $md5 ?>">
+                <div class="row no-gutters" style="border:1; height:100px;">
                     <div class="col-4 foto<?= $md5 ?>"
                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
                     </div>
