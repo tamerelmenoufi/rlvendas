@@ -151,10 +151,10 @@ function aasort(&$array, $key)
                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
                     </div>
                     <div class="col-8">
-                        <div style="font-size:12px; margin-left:5px;">
+                        <div style="font-size:12px; margin-left:10px;">
                             <span class="bloco" style="font-size:14px; color:#a80e13; font-weight:bold;" bloco="<?=$p->codigo?>"><?= $p->produto ?></span>
                             <br><?= $p->descricao ?>
-                            <div class="d-flex flex-row-reverse bd-highlight">
+                            <div class="d-flex flex-row-reverse bd-highlight" style="margin-top:3px;">
                             <?php
 
                             aasort($detalhes_2, "ordem");
