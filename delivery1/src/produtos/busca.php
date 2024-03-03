@@ -66,8 +66,8 @@ function aasort(&$array, $key)
     .logo<?=$md5?> {
         position: absolute;
         top: 10px;
-        left: 50px;
-        height:40px;
+        left: 65px;
+        height:35px;
         z-index: 1;
     }
 
