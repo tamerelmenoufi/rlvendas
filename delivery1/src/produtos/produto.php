@@ -264,8 +264,8 @@
 
                 <div style="position:fixed; bottom:70px; left:0; width:100%; z-index:1; background-color:#fff;">
                 <div class="row">
-                    <div class="col-6">
-                    <div class="input-group input-group-lg">
+                    <div class="col-4">
+                    <div class="input-group">
                         <div class="input-group-prepend">
                             <button
                                     class="btn btn-dangerX"
@@ -291,13 +291,10 @@
                                 <i class="fa-solid fa-circle-plus"></i>
                             </button>
                         </div>
-                        <div class="input-group-append">
-
-                        </div>
                     </div>
                     </div>
-                    <div class="col-6">
-                    <button adicionar_produto class="btn btn-danger" style="width:200px; background-color:#a80e13; border:0;">
+                    <div class="col-8">
+                    <button adicionar_produto class="btn btn-danger" style="background-color:#a80e13; border:0;">
                         <i class="fa-solid fa-bag-shopping"></i>
                         <span
                                 classX="btn btn-primaryX text-primary"
