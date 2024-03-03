@@ -11,7 +11,7 @@
 
     <div class="col-7 acao" componente="ms_popup" local="src/cliente/home.php">
         <div class="d-flex justify-content-start user">
-            <i class="fa-solid fa-circle-user"></i><p>Tamer<br>(92) 99188-6570<span cli></span></p>
+            <i class="fa-solid fa-circle-user"></i><p><span ClienteNomeApp><?=explode(" ",trim($c->nome))[0]?></span><br><?=$c->telefone?></p>
         </div>
     </div>
     <div class="col acao" componente="ms_popup" local="src/cliente/home.php"><i class="fa-solid fa-circle-user"></i><p>Cliente<span cli></span></p></div>
