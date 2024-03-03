@@ -40,6 +40,20 @@ function aasort(&$array, $key)
         z-index: 1;
     }
 
+    .topo<?=$md5?> span.titulo {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        height:25px;
+        width: auto;
+        background-color: #a80e13;
+        padding: 5px;
+        font-weight: bold;
+        color:#fff;
+        text-align:right;
+        z-index: 1;
+    }
+
     .IconePedidos {
         position: fixed;
         top: 10px;
@@ -99,7 +113,7 @@ function aasort(&$array, $key)
 
 
 <div class="topo<?= $md5 ?>">
-    <center>Localizar Produtos</center>
+    <span>Localizar Produtos</span>
 
     <div class="row" style="position:relative; margin-top:25px;">
         <input type="text" class="form-control filtro" style="padding-right:40px;" />
