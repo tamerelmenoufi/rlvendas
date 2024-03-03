@@ -131,7 +131,7 @@ function aasort(&$array, $key)
 
 <div class="topo<?= $md5 ?>">
     <span><i class="fa-solid fa-caret-left seta<?=$md5?>"></i> Localizar Produtos</span>
-
+    <img src="img/logo_interno.png" class="logo<?=$md5?>">
     <div class="row" style="position:relative; margin-top:40px;">
         <input type="text" class="form-control filtro" style="padding-right:40px;" />
         <i class="fa-solid fa-magnifying-glass" style="position:absolute; right:10px; top:10px; color:#a1a1a1;"></i>
