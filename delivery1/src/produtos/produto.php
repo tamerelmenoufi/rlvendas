@@ -288,13 +288,16 @@
                             </button>
                         </div>
                         <div class="input-group-append">
+                        <button adicionar_produto class="btn btn-danger btn-lg btn-block">
+                            <i class="fa-solid fa-bag-shopping"></i>
                             <span
-                                    class="btn btn-primaryX text-primary"
+                                    classX="btn btn-primaryX text-primary"
                                     id="rotulo_valor">
                                 R$ <span valor atual="<?=$_POST['valor']?>">
                                     <?= number_format($_POST['valor'], 2, '.', false) ?>
                                 </span>
                             </span>
+                        </button>
                         </div>
                     </div>
                     <div class="input-group input-group-lg">
