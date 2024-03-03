@@ -40,7 +40,7 @@ function aasort(&$array, $key)
         z-index: 1;
     }
 
-    .topo<?=$md5?> span.titulo {
+    .topo<?=$md5?> span {
         position: absolute;
         top: 10px;
         right: 0;
