@@ -252,6 +252,7 @@
                                 </div>
                                 <?php if ($m->qt_produtos > 1) { ?>
                                 <button class="btn btn-primaryX btn-block mais_sabores" style="margin-bottom:5px; color:#333;">
+                                    <i class="fa-solid fa-plus"></i>
                                     <i class="fa-solid fa-pizza-slice"></i>
                                     Pode adicionar até mais
                                     <?= ($m->qt_produtos - 1) . ' ' . (($m->qt_produtos == 2) ? 'sabor' : 'sabores') ?>
