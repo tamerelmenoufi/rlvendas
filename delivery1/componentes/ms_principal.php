@@ -23,7 +23,7 @@
     .user{
         color:#fff;
         text-align:center;
-        font-size:35px;
+        font-size:40px;
         padding:10px;
         margin:0px;
         margin-right:10px;
