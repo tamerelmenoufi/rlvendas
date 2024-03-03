@@ -288,7 +288,7 @@
                             </button>
                         </div>
                         <div class="input-group-append">
-                        <button adicionar_produto class="btn btn-danger" style="width:200px;">
+                        <button adicionar_produto class="btn btn-danger" style="width:200px; background-color:#a80e13; border:0;">
                             <i class="fa-solid fa-bag-shopping"></i>
                             <span
                                     classX="btn btn-primaryX text-primary"
