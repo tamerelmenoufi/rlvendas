@@ -262,7 +262,7 @@
 
                     </div>
 
-                <div style="position:fixed; bottom:60px; left:0; width:100%; z-index:1; background-color:#fff;">
+                <div style="position:fixed; bottom:70px; left:0; width:100%; z-index:1; background-color:#fff;">
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
                             <button
@@ -321,7 +321,7 @@
                 $(".rodape<?=$md5?>").html(dados);
             }
         });
-        
+
         $.ajax({
             url:"componentes/ms_topo_interno.php",
             type:"POST",
