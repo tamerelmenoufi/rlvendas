@@ -35,7 +35,7 @@ function aasort(&$array, $key)
         width: 100%;
         height: 105px;
         background-color: #fff;
-        /* padding: 20px; */
+        padding: 20px;
         font-weight: bold;
         z-index: 1;
     }
