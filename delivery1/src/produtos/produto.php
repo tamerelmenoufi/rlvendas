@@ -262,7 +262,7 @@
 
                     </div>
 
-                <div style="position:fixed; bottom:0; left:0; width:100%; z-index:1; background-color:#fff;">
+                <div style="position:fixed; bottom:60px; left:0; width:100%; z-index:1; background-color:#fff;">
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
                             <button
@@ -310,12 +310,18 @@
         </div>
     </div>
 </div>
-
+<div class="rodape<?= $md5 ?>"></div>
 <script>
     $(function(){
         Carregando('none');
 
-
+        $.ajax({
+            url:"componentes/ms_rodape.php",
+            success:function(dados){
+                $(".rodape<?=$md5?>").html(dados);
+            }
+        });
+        
         $.ajax({
             url:"componentes/ms_topo_interno.php",
             type:"POST",
