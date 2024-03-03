@@ -23,7 +23,7 @@
     .user{
         color:#fff;
         text-align:center;
-        font-size:40px;
+        font-size:35px;
         padding:10px;
         margin:0px;
         margin-right:10px;
@@ -40,7 +40,7 @@
         text-align:left;
         color:#fff;
         padding-left:10px;
-        padding-top:5px;
+        padding-top:0px;
         margin:0;
     }
 
