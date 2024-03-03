@@ -227,7 +227,7 @@ function aasort(&$array, $key)
         url:"componentes/ms_topo_interno.php",
         type:"POST",
         data:{
-            titulo:$(".topo_interno<?=$md5?>").text();
+            titulo:$(".topo_interno<?=$md5?>").text(),
         },
         success:function(dados){
             $(".topo_interno<?=$md5?>").html(dados);
