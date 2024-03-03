@@ -147,10 +147,10 @@ function aasort(&$array, $key)
             ?>
             <div bloco<?=$p->codigo?> class="card mb-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
-                    <!-- <div class="col-4 foto<?= $md5 ?>"
+                    <div class="col-4 foto<?= $md5 ?>"
                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
-                    </div> -->
-                    <div class="col-12">
+                    </div>
+                    <div class="col-8">
                         <div class="card-body">
                             <h5 class="card-title bloco" bloco="<?=$p->codigo?>"><?= $p->produto ?></h5>
                             <p class="card-text">
