@@ -294,7 +294,7 @@
                     </div>
                     </div>
                     <div class="col-8" style="text-align:right;">
-                    <button adicionar_produto class="btn btn-danger" style="background-color:#a80e13; border:0;">
+                    <button adicionar_produto class="btn btn-danger" style="background-color:#a80e13; border:0; margin-right:10px;">
                         <i class="fa-solid fa-bag-shopping"></i>
                         <span
                                 classX="btn btn-primaryX text-primary"
