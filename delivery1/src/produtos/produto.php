@@ -210,7 +210,7 @@
 
             <?= $p->produto ?> <?= $m->medida ?>
 
-                <!-- <div class="card mb-3">
+                <div class="card mb-3">
                     <div class="row">
                         <div
                             class="col foto<?= $md5 ?>"
@@ -223,7 +223,7 @@
 
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="row">
                         <div class="col">
