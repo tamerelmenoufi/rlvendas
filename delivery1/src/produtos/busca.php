@@ -146,12 +146,12 @@ function aasort(&$array, $key)
             if($detalhes_2){
             ?>
             <div bloco<?=$p->codigo?> class="card mb-3 mt-3 item_button<?= $md5 ?>">
-                <div class="row no-gutters" style="border:1; height:100px;">
+                <div class="row no-gutters">
                     <div class="col-4 foto<?= $md5 ?>"
                         style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
                     </div>
                     <div class="col-8">
-                        <div style="font-size:12px; margin-left:10px;">
+                        <div style="font-size:12px; margin-left:10px; height:100px;">
                             <div class="bloco" style="font-size:14px; color:#a80e13; font-weight:bold; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; text-overflow: ellipsis; direction: ltr;" bloco="<?=$p->codigo?>"><?= $p->produto ?></div>
                             <div style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; text-overflow: ellipsis; direction: ltr;"><?= $p->descricao ?></div>
                             <div class="d-flex flex-row-reverse bd-highlight" style="margin-top:3px;">
