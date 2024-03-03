@@ -25,7 +25,7 @@
     <p class="card-text">Utilize um dos meios abaixo para falar conosco.</p>
     <ul class="list-group list-group-flush">
         <li class="list-group-item"><i class="fa-solid fa-square-phone"></i> <a href="tel:(92) 99321-6300">(92) 99321-6300</a></li>
-        <li class="list-group-item"><i class="fa-brands fa-square-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=5592993216300"></a></li>
+        <li class="list-group-item"><i class="fa-brands fa-square-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=5592993216300">Contato chat WhatsApp</a></li>
         <li class="list-group-item"><i class="fa-solid fa-square-envelope"></i> <a href="mailto:atendimento@yobom.com.br">atendimento@yobom.com.br</a></li>
   </ul>
   </div>
