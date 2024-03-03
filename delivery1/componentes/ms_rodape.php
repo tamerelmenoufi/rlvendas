@@ -74,7 +74,7 @@
     ///////////////
     $(function(){
 
-        $(".acao").click(function(){
+        $(".acao").off('click').on('click',function(){
 
             AppPedido = window.localStorage.getItem('AppPedido');
             AppCliente = window.localStorage.getItem('AppCliente');
