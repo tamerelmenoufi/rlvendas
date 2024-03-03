@@ -154,7 +154,7 @@ function aasort(&$array, $key)
                         <div style="font-size:12px; margin-left:10px; height:100px; position:relative;">
                             <div class="bloco" style="font-size:14px; color:#a80e13; font-weight:bold; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; text-overflow: ellipsis; direction: ltr;" bloco="<?=$p->codigo?>"><?= $p->produto ?></div>
                             <div style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; text-overflow: ellipsis; direction: ltr;"><?= $p->descricao ?></div>
-                            <div class="d-flex flex-row-reverse bd-highlight" style="margin-top:3px; position:absolute; bottom:0">
+                            <div class="d-flex flex-row bd-highlight" style="margin-top:3px; position:absolute; bottom:3px;">
                             <?php
 
                             aasort($detalhes_2, "ordem");
