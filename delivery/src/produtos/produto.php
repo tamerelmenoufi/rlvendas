@@ -312,7 +312,7 @@
             type:"POST",
             data:{
                 titulo:$(".topo_interno<?=$md5?>").text();
-            }
+            },
             success:function(dados){
                 $(".topo_interno<?=$md5?>").html(dados);
             }

@@ -224,15 +224,15 @@ function aasort(&$array, $key)
     });
 
     $.ajax({
-            url:"componentes/ms_topo_interno.php",
-            type:"POST",
-            data:{
-                titulo:$(".topo_interno<?=$md5?>").text();
-            }
-            success:function(dados){
-                $(".topo_interno<?=$md5?>").html(dados);
-            }
-        });
+        url:"componentes/ms_topo_interno.php",
+        type:"POST",
+        data:{
+            titulo:$(".topo_interno<?=$md5?>").text();
+        },
+        success:function(dados){
+            $(".topo_interno<?=$md5?>").html(dados);
+        }
+    });
     
 
     $(".filtro").keyup(function(){
