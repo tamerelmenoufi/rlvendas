@@ -214,7 +214,7 @@
     <div class="row" style="margin-top:10px;">
         <div class="col">
 
-            <?= $p->produto ?> <?= $m->medida ?>
+            <!-- <?= $p->produto ?> <?= $m->medida ?> -->
 
                 <div class="card mb-3">
                     <div class="row">
@@ -234,9 +234,9 @@
                 <div class="row">
                         <div class="col">
                             <div class="card-body">
-                                <!-- <h5 class="card-title">
+                                <h5 class="card-title">
                                     <?= $p->nome_categoria ?> - <?= $p->produto ?> (<?= $m->medida ?>)
-                                </h5> -->
+                                </h5>
                                 <p class="card-text"><?= $p->descricao ?></p>
                                 <p class="observacoes"></p>
                                 <div class="row">
