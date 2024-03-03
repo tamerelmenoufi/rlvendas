@@ -105,7 +105,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 
 <div class="topo<?= $md5 ?>">
-    <center><?= $d->categoria ?></center>
+    <div class="topo_interno<?=$md5?>"><?= $d->categoria ?></div>
 </div>
 
 
