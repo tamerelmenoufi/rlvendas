@@ -295,7 +295,10 @@
                     }else{
                         erroCode = dados?.Payment?.ReturnCode;
                         erroMessage = dados?.Payment?.ReturnMessage;
-                        $.alert(`Erro na confirmação do pagamento!<br>${erroCode}: ${erroMessage}`);
+                        if(erroCode != '' and erroCode != undefined ){
+                            mensagem = `<br>${erroCode}: ${erroMessage}`;
+                        }
+                        $.alert(`Erro na confirmação do pagamento!${mensagem}`);
                     }
                 }
             })
