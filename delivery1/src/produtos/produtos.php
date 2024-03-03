@@ -40,6 +40,7 @@ while ($m = mysqli_fetch_array($m_r)) {
         background-position: center;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
+        background-color:#ccc;
     }
 
     .topo<?=$md5?> {
@@ -108,7 +109,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     <div class="topo_interno<?=$md5?>"><?= $d->categoria ?></div>
 </div>
 
-
+<div style="position:fixed; width:100%; top:60px; bottom:60px; overflow:auto;" >
 <div class="col-md-12">
     <?php
     $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' order by produto asc";
@@ -132,12 +133,11 @@ while ($m = mysqli_fetch_array($m_r)) {
                 <div class="col-4 foto<?= $md5 ?>"
                      style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
                 </div>
-                <div class="col-12">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $p->produto ?></h5>
-                        <p class="card-text">
-                            <p><?= $p->descricao ?></p>
-                        <small class="text-muted">
+                <div class="col-8">
+                        <div style="font-size:12px; margin-left:10px; height:100px; position:relative;">
+                            <div class="bloco" style="font-size:14px; color:#a80e13; font-weight:bold; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; text-overflow: ellipsis; direction: ltr;" bloco="<?=$p->codigo?>"><?= $p->produto ?></div>
+                            <div style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; text-overflow: ellipsis; direction: ltr;"><?= (($p->descricao)?:$descricao_padrao) ?></div>
+                            <div class="d-flex flex-row bd-highlight" style="margin-top:3px; position:absolute; bottom:3px;">
 
                             <?php
 
@@ -164,9 +164,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                                 }
                             }
                             ?>
-
-                        </small>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,7 +175,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     ?>
 </div>
 </div>
-
+<div class="rodape<?= $md5 ?>"></div>
 <script>
 
 
@@ -189,6 +187,13 @@ while ($m = mysqli_fetch_array($m_r)) {
         },
         success:function(dados){
             $(".topo_interno<?=$md5?>").html(dados);
+        }
+    });
+
+    $.ajax({
+        url:"componentes/ms_rodape.php",
+        success:function(dados){
+            $(".rodape<?=$md5?>").html(dados);
         }
     });
 
