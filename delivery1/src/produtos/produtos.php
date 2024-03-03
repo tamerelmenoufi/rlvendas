@@ -127,11 +127,11 @@ while ($m = mysqli_fetch_array($m_r)) {
         // print_r($detalhes_2);
         if($detalhes_2){
         ?>
-        <div class="card mb-3 item_button<?= $md5 ?>">
+        <div bloco<?=$p->codigo?> class="card mb-3 mt-3 item_button<?= $md5 ?>">
             <div class="row no-gutters">
-                <!-- <div class="col-4 foto<?= $md5 ?>"
+                <div class="col-4 foto<?= $md5 ?>"
                      style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
-                </div> -->
+                </div>
                 <div class="col-12">
                     <div class="card-body">
                         <h5 class="card-title"><?= $p->produto ?></h5>
@@ -155,7 +155,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                                             medida='<?= $val["quantidade"]; ?>'
                                             valor='<?= $val['valor']; ?>'
                                             class="btn btn-outline-success btn-lg"
-                                            style="height:auto; font-size:18px; line-height: 1.2;"
+                                            style="height:auto; background-color:#a80e13; border:0; padding:5px; margin-left:2px; font-size:12px; color:#fff; font-weight:bold; line-height: 1.2;"
                                     >
                                         <?= $M[$key2]['descricao']; ?><br>
                                         R$ <?= number_format($val['valor'], 2, '.', false) ?>
