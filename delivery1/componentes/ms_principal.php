@@ -51,7 +51,7 @@
         width:100%;
         overflow:auto;
         background:#fff;
-        background-image:url('img/bg.png');
+        /* background-image:url('img/bg.png'); */
         background-size:cover;
         background-position:center;
     }
