@@ -176,7 +176,7 @@ function aasort(&$array, $key)
                                                 style="height:auto; background-color:#a80e13; border:0; font-size:12px; color:#fff; font-weight:bold; line-height: 1.2;"
                                         >
                                             <?= $M[$key2]['descricao']; ?><br>
-                                            R$ <?= number_format($val['valor'], 2, '.', false) ?>
+                                            <?= number_format($val['valor'], 2, '.', false) ?>
                                         </button>
                                         <?php
                                     }
