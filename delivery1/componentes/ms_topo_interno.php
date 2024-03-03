@@ -30,6 +30,7 @@
         background-color: #a80e13;
         padding: 5px;
         font-weight: bold;
+        font-family:BungeeRegular;
         color:#ffea79;
         text-align:right;
         z-index: 1;
