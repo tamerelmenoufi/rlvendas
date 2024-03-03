@@ -289,11 +289,16 @@
                 },
                 success:function(dados){
                     console.log(dados)
-                    if(dados.Payment.ReturnCode == '00'){
+                    if(dados.Payment?.ReturnCode == '00'){
                         $.alert('Pagamento confirmado com sucesso!');
                         window.location.href='./';
                     }else{
-                        $.alert('Erro na confirmação do pagamento!');
+                        erroCode = dados?.Payment?.ReturnCode;
+                        erroMessage = dados?.Payment?.ReturnMessage;
+                        if(erroCode != '' && erroCode != undefined ){
+                            mensagem = `<br>${erroCode}: ${erroMessage}`;
+                        }
+                        $.alert(`Erro na confirmação do pagamento!${mensagem}`);
                     }
                 }
             })
