@@ -231,10 +231,10 @@
                 <div class="row">
                         <div class="col">
                             <div class="card-body">
-                                <h5 class="card-title" style="color:#a80e13">
+                                <h5 class="card-title" style="color:#a80e13; font-size:14px;">
                                     <?= $p->nome_categoria ?> - <?= $p->produto ?> (<?= $m->medida ?>)
                                 </h5>
-                                <p class="card-text"><?= $p->descricao ?></p>
+                                <p class="card-text" style="font-size:12px;"><?= $p->descricao ?></p>
                                 <p class="observacoes"></p>
                                 <div class="row">
                                 <div class="col-8">
