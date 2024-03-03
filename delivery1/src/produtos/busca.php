@@ -63,6 +63,14 @@ function aasort(&$array, $key)
         z-index: 1;
     }
 
+    .logo<?=$md5?> {
+        position: absolute;
+        top: 10px;
+        left: 50px;
+        height:40px;
+        z-index: 1;
+    }
+
     .IconePedidos {
         position: fixed;
         top: 10px;
