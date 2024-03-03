@@ -54,7 +54,7 @@ function aasort(&$array, $key)
         z-index: 1;
     }
 
-    .topo<?=$md5?> span i {
+    .seta<?=$md5?> {
         position: absolute;
         top: 0px;
         left: -20;
@@ -121,7 +121,7 @@ function aasort(&$array, $key)
 
 
 <div class="topo<?= $md5 ?>">
-    <span><i class="fa-solid fa-caret-left"></i> Localizar Produtos</span>
+    <span><i class="fa-solid fa-caret-left seta"></i> Localizar Produtos</span>
 
     <div class="row" style="position:relative; margin-top:40px;">
         <input type="text" class="form-control filtro" style="padding-right:40px;" />
