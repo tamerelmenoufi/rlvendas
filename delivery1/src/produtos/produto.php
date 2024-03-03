@@ -263,6 +263,8 @@
                     </div>
 
                 <div style="position:fixed; bottom:70px; left:0; width:100%; z-index:1; background-color:#fff;">
+                <div class="row">
+                    <div class="col-6">
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
                             <button
@@ -290,21 +292,26 @@
                             </button>
                         </div>
                         <div class="input-group-append">
-                        <button adicionar_produto class="btn btn-danger" style="width:200px; background-color:#a80e13; border:0;">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <span
-                                    classX="btn btn-primaryX text-primary"
-                                    id="rotulo_valor">
-                                R$ <span valor atual="<?=$_POST['valor']?>">
-                                    <?= number_format($_POST['valor'], 2, '.', false) ?>
-                                </span>
-                            </span>
-                        </button>
+
                         </div>
+                    </div>
+                    </div>
+                    <div class="col-6">
+                    <button adicionar_produto class="btn btn-danger" style="width:200px; background-color:#a80e13; border:0;">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span
+                                classX="btn btn-primaryX text-primary"
+                                id="rotulo_valor">
+                            R$ <span valor atual="<?=$_POST['valor']?>">
+                                <?= number_format($_POST['valor'], 2, '.', false) ?>
+                            </span>
+                        </span>
+                    </button>
                     </div>
                     <!-- <div class="input-group input-group-lg">
                         <button adicionar_produto class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
                     </div> -->
+                </div>
                 </div>
 
 
