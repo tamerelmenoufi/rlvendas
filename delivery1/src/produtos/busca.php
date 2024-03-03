@@ -109,7 +109,7 @@ function aasort(&$array, $key)
         left:0;
         right:0;
         top:110px;
-        bottom:0;
+        bottom:60px;
         overflow:auto;
     }
 
