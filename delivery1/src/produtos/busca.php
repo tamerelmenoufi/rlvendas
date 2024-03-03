@@ -153,7 +153,7 @@ function aasort(&$array, $key)
                     <div class="col-8">
                         <div style="font-size:12px; margin-left:10px;">
                             <div class="bloco" style="font-size:14px; color:#a80e13; font-weight:bold; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; text-overflow: ellipsis; direction: ltr;" bloco="<?=$p->codigo?>"><?= $p->produto ?></div>
-                            <div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; text-overflow: ellipsis; direction: ltr;"><?= $p->descricao ?></div>
+                            <div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; text-overflow: ellipsis; direction: ltr;"><?= $p->descricao ?></div>
                             <div class="d-flex flex-row-reverse bd-highlight" style="margin-top:3px;">
                             <?php
 
