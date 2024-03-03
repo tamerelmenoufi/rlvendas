@@ -56,9 +56,10 @@ function aasort(&$array, $key)
 
     .seta<?=$md5?> {
         position: absolute;
-        top: 0px;
-        left: -20;
-        color:green;
+        top: -10px;
+        left: -17;
+        color:#a80e13;
+        font-size:55px;
         z-index: 1;
     }
 
