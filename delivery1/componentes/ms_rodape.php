@@ -6,7 +6,47 @@
 
 
 ?>
-
+<style>
+    .rodape{
+        position:fixed;
+        width:100%;
+        height:60px;
+        background-color:#c0941f;
+        left:0;
+        bottom:0;
+    }
+    .rodape .row .col {
+        color:#fff;
+        text-align:center;
+        font-size:30px;
+        padding:0;
+        margin:0;
+    }
+    .user{
+        color:#fff;
+        text-align:center;
+        font-size:35px;
+        padding:10px;
+        margin:0px;
+        margin-right:10px;
+    }
+    .rodape .row .col p{
+        font-size:10px;
+        text-align:center;
+        color:#fff;
+        padding:0;
+        margin:0;
+    }
+    .user div{
+        font-size:12px;
+        text-align:left;
+        color:#fff;
+        padding-left:10px;
+        padding-top:0px;
+        margin:0;
+    }
+</style>
+<div class="rodape">
 <div class="row">
 
     <div class="col-7 acao" componente="ms_popup" local="src/cliente/home.php">
@@ -29,6 +69,7 @@
 <?php
 //*/
 ?>
+</div>
 <script>
     ///////////////
     $(function(){

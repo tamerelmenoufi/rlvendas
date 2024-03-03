@@ -139,6 +139,8 @@ function aasort(&$array, $key)
 </div>
 
 
+<div class="rodape<?= $md5 ?>"></div>
+
 
 <div class="col-md-12 corpo_busca" >
     <?php
@@ -231,6 +233,13 @@ function aasort(&$array, $key)
 
 <script>
 
+
+    $.ajax({
+        url:"componentes/ms_rodape.php",
+        success:function(dados){
+            $(".rodape<?=$md5?>").html(dados);
+        }
+    });
 
     $(".filtro").keyup(function(){
         var texto = $(this).val();

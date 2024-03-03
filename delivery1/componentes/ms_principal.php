@@ -150,7 +150,7 @@ $i++;
 ?>
 
 </div>
-<div class="rodape"></div>
+<div class="rodape<?=$md5?>"></div>
 
 
 <script>
@@ -168,7 +168,7 @@ $i++;
         $.ajax({
             url:"componentes/ms_rodape.php",
             success:function(dados){
-                $(".rodape").html(dados);
+                $(".rodape<?=$md5?>").html(dados);
             }
         });
 
