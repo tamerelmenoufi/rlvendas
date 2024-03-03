@@ -288,7 +288,7 @@
                             </button>
                         </div>
                         <div class="input-group-append">
-                        <button adicionar_produto class="btn btn-danger btn-lg btn-block">
+                        <button adicionar_produto class="btn btn-danger">
                             <i class="fa-solid fa-bag-shopping"></i>
                             <span
                                     classX="btn btn-primaryX text-primary"
@@ -300,9 +300,9 @@
                         </button>
                         </div>
                     </div>
-                    <div class="input-group input-group-lg">
+                    <!-- <div class="input-group input-group-lg">
                         <button adicionar_produto class="btn btn-danger btn-lg btn-block">ADICIONAR</button>
-                    </div>
+                    </div> -->
                 </div>
 
 
