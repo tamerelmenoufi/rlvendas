@@ -128,6 +128,7 @@
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
         height:250px;
+        background-color:#ccc;
     }
     .foto<?=$md5?> span[sabor]{
         position:absolute;
