@@ -208,6 +208,8 @@
     <div class="row" style="margin-top:10px;">
         <div class="col">
 
+            <?= $p->produto ?> <?= $m->medida ?>
+
                 <!-- <div class="card mb-3">
                     <div class="row">
                         <div
