@@ -200,7 +200,7 @@
 </style>
 
 <div class="topo<?= $md5 ?>">
-    <div class="topo_interno<?=$md5?>">Localizar Produtos</div>
+    <div class="topo_interno<?=$md5?>">Detalhes Produto</div>
 </div>
 
 
