@@ -35,7 +35,7 @@
         padding:0;
         margin:0;
     }
-    .user p{
+    .user div{
         font-size:12px;
         text-align:left;
         color:#fff;
