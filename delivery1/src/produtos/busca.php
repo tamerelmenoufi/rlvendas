@@ -152,7 +152,7 @@ function aasort(&$array, $key)
                     </div>
                     <div class="col-8">
                         <div class="card-body" style="font-size:12px;">
-                            <span class="card-title bloco" style="font-size:14px; color:#a80e13; font-weight:bold;" bloco="<?=$p->codigo?>"><?= $p->produto ?></span>
+                            <span class="bloco" style="font-size:14px; color:#a80e13; font-weight:bold;" bloco="<?=$p->codigo?>"><?= $p->produto ?></span>
                             <br><?= $p->descricao ?>
                             <div class="d-flex flex-row-reverse bd-highlight">
                             <?php
