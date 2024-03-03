@@ -266,7 +266,8 @@
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
                             <button
-                                    class="btn btn-dangerX text-danger"
+                                    class="btn btn-dangerX"
+                                    style="color:#70191c"
                                     type="button"
                                     id="menos">
                                 <i class="fa-solid fa-circle-minus"></i>
@@ -281,7 +282,7 @@
 
                         <div class="input-group-append">
                             <button
-                                    class="btn btn-successX text-success"
+                                    class="btn btn-successX"
                                     style="color:#70191c"
                                     type="button"
                                     id="mais">
@@ -293,7 +294,6 @@
                             <i class="fa-solid fa-bag-shopping"></i>
                             <span
                                     classX="btn btn-primaryX text-primary"
-                                    style="color:#70191c"
                                     id="rotulo_valor">
                                 R$ <span valor atual="<?=$_POST['valor']?>">
                                     <?= number_format($_POST['valor'], 2, '.', false) ?>
