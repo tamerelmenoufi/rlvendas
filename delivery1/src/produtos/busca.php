@@ -40,20 +40,6 @@ function aasort(&$array, $key)
         z-index: 1;
     }
 
-    .topo<?=$md5?> span {
-        position: absolute;
-        top: 10px;
-        right: 0;
-        height:35px;
-        width: auto;
-        background-color: #a80e13;
-        padding: 5px;
-        font-weight: bold;
-        color:#fff;
-        text-align:right;
-        z-index: 1;
-    }
-
     .IconePedidos {
         position: fixed;
         top: 10px;

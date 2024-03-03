@@ -21,8 +21,21 @@
         z-index: 1;
     }
 
+    .rotulo<?=$md5?> {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        height:35px;
+        width: auto;
+        background-color: #a80e13;
+        padding: 5px;
+        font-weight: bold;
+        color:#fff;
+        text-align:right;
+        z-index: 1;
+    }
 </style>
-<span><i class="fa-solid fa-caret-left seta<?=$md5?>"></i> <?=$_POST['titulo']?></span>
+<span class="rotulo<?=$md5?>"><i class="fa-solid fa-caret-left seta<?=$md5?>"></i> <?=$_POST['titulo']?></span>
     <img src="img/logo_interno.png" class="logo<?=$md5?>">
 
 <script>
