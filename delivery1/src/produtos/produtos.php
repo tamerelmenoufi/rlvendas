@@ -109,7 +109,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     <div class="topo_interno<?=$md5?>"><?= $d->categoria ?></div>
 </div>
 
-
+<div style="position:fixed; width:100%; top:60px; bottom:60px;" >
 <div class="col-md-12">
     <?php
     $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' order by produto asc";
@@ -175,7 +175,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     ?>
 </div>
 </div>
-
+<div class="rodape<?= $md5 ?>"></div>
 <script>
 
 
@@ -187,6 +187,13 @@ while ($m = mysqli_fetch_array($m_r)) {
         },
         success:function(dados){
             $(".topo_interno<?=$md5?>").html(dados);
+        }
+    });
+
+    $.ajax({
+        url:"componentes/ms_rodape.php",
+        success:function(dados){
+            $(".rodape<?=$md5?>").html(dados);
         }
     });
 
