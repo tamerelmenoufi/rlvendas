@@ -103,10 +103,10 @@ function VerificarVendaApp($app = 'garcom'){
     if($app == 'delivery'){
         $r = mysqli_query($con, "SELECT * FROM vendas WHERE app = '{$app}' and cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
     }else{
-        $r = mysqli_query($con, "SELECT * FROM vendas WHERE app = '{$app}' /*and cliente = '{$_SESSION['AppCliente']}'*/ AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
+        $r = mysqli_query($con, "SELECT * FROM vendas WHERE /*app = '{$app}' and cliente = '{$_SESSION['AppCliente']}' AND*/ mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
     }
 
-    $r = mysqli_query($con, "SELECT * FROM vendas WHERE app = '{$app}' and cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
+    //$r = mysqli_query($con, "SELECT * FROM vendas WHERE app = '{$app}' and cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
 
     $n = mysqli_num_rows($r);
 
