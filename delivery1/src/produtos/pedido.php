@@ -267,7 +267,8 @@
     }
 </style>
 <div class="PedidoTopoTitulo">
-    <h4>Delivery <?=$m->mesa. " - ".$_SESSION['AppVenda']?></h4>
+    <!-- <h4>Delivery <?=$m->mesa. " - ".$_SESSION['AppVenda']?></h4> -->
+    <div class="topo_interno<?=$md5?>">Delivery <?=$m->mesa. " - ".$_SESSION['AppVenda']?></div>
 </div>
 <div class="col" style="margin-bottom:60px; margin-top:20px;">
     <div class="col-12">
