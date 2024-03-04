@@ -98,7 +98,11 @@ function VerificarVendaApp($app = 'garcom'){
     global $SESSION;
     global $con;
 
-    $r = mysqli_query($con, "SELECT * FROM vendas WHERE app = '{$app}' and cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
+    if($app == 'delivery'){
+        $r = mysqli_query($con, "SELECT * FROM vendas WHERE app = '{$app}' and cliente = '{$_SESSION['AppCliente']}' AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
+    }else{
+        $r = mysqli_query($con, "SELECT * FROM vendas WHERE app = '{$app}' /*and cliente = '{$_SESSION['AppCliente']}'*/ AND mesa = '{$_SESSION['AppPedido']}' AND situacao not in ('pago','pagar') AND deletado != '1' LIMIT 1");
+    }
     $n = mysqli_num_rows($r);
 
     if(!$n){
