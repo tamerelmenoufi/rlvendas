@@ -425,6 +425,18 @@
 <script>
     $(function(){
 
+
+        $.ajax({
+            url:"componentes/ms_topo_interno.php",
+            type:"POST",
+            data:{
+                titulo:$(".topo_interno<?=$md5?>").text(),
+            },
+            success:function(dados){
+                $(".topo_interno<?=$md5?>").html(dados);
+            }
+        });
+
         var qt = 0;
         var v_produto_com_sabores = 0;
 
