@@ -230,7 +230,7 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 				"CSC" => "e6443ad379254f91", //"3c3419278d232aa4",  // obrigatorio para NFC-e somente
 				"CSCid" => "000002", // EXEMPLO 000001 // obrigatorio para NFC-e somente
 				"certificado_nome" => "6e7d5964332962ee541b3501b22e8830.p12", // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
-				"certificado_senha" => "123456", // SENHA DO CERTIFICADO DIGITAL
+				"certificado_senha" => "1234", // SENHA DO CERTIFICADO DIGITAL
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
