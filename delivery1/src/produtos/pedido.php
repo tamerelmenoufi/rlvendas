@@ -166,9 +166,6 @@
         );
 // Fim do script
 
-
-
-
 ?>
 <style>
     .PedidoTopoTitulo{
