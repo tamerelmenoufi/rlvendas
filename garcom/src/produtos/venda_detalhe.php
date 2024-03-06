@@ -256,7 +256,7 @@
                                         Carregando('none');
                                     },
                                     error:function(){
-                                        $.alert(dados.error);
+                                        $.alert('Erro na nota, operação não foi realizada!');
                                         Carregando('none');
                                     }
                                 });
