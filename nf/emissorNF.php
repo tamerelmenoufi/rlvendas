@@ -456,7 +456,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			//$data_nfe['teste'] = "ok"; // se desejar emitir em modo de teste, não será enviado para o sefaz
 
 			print_r($data_nfe);
-			exit();
+			// exit();
 
 
 			$fields_string = http_build_query($data_nfe);
