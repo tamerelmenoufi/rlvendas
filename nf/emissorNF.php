@@ -320,8 +320,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			}
 
 
-			print_r($data_nfe);
-			
+		
 
 		// PRODUTOS (FAZER DA SUA BASE DE DADOS)
 		// IMPORTANTE: NOVOS CAMPOS DE PRODUTOS:
@@ -348,12 +347,12 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 		 * pv.valor_total = (VALOR DE VENDA * QUANTIDADE)
 		 *
 		 */
-		echo $sql = "SELECT pv.*,  p.ncm,  p.cest, p.cfop, p.origem, p.unit, p.icms
+		$sql = "SELECT pv.*,  p.ncm,  p.cest, p.cfop, p.origem, p.unit, p.icms
 				FROM vendas_produtos as pv
 				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
 				WHERE pv.venda = '$venda_id' and pv.deletado != '1'";
 
-exit();
+
 		$stmt = $PDO->query($sql);
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
@@ -456,7 +455,8 @@ exit();
 			//echo $endpoint."gerador/Emissor.php?".$fields_string;
 			//$data_nfe['teste'] = "ok"; // se desejar emitir em modo de teste, não será enviado para o sefaz
 
-			// print_r($data_nfe);
+			print_r($data_nfe);
+			exit();
 
 
 			$fields_string = http_build_query($data_nfe);
