@@ -236,9 +236,6 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			),
 		);
 
-		print_r($data_nfe);
-		exit();
-
 
 		// VALIDADAR DADOS DO EMISSOR:
 		if($data_nfe["empresa"]["razaosocial"]==""){ $errValidar .= "<br>Configure a Razão Social do emissor da nota fiscal"; }
@@ -323,7 +320,8 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			}
 
 
-
+			print_r($data_nfe);
+			
 
 		// PRODUTOS (FAZER DA SUA BASE DE DADOS)
 		// IMPORTANTE: NOVOS CAMPOS DE PRODUTOS:
@@ -350,12 +348,12 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 		 * pv.valor_total = (VALOR DE VENDA * QUANTIDADE)
 		 *
 		 */
-		$sql = "SELECT pv.*,  p.ncm,  p.cest, p.cfop, p.origem, p.unit, p.icms
+		echo $sql = "SELECT pv.*,  p.ncm,  p.cest, p.cfop, p.origem, p.unit, p.icms
 				FROM vendas_produtos as pv
 				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
 				WHERE pv.venda = '$venda_id' and pv.deletado != '1'";
 
-
+exit();
 		$stmt = $PDO->query($sql);
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
