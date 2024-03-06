@@ -455,8 +455,8 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			//echo $endpoint."gerador/Emissor.php?".$fields_string;
 			//$data_nfe['teste'] = "ok"; // se desejar emitir em modo de teste, não será enviado para o sefaz
 
-			echo json_encode($data_nfe);
-			exit();
+			// echo json_encode($data_nfe);
+			// exit();
 
 
 			$fields_string = http_build_query($data_nfe);
