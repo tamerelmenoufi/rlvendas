@@ -3,6 +3,7 @@
 include("config.php");
 
 if($_GET['id']) $_POST["id"] = $_GET['id'];
+if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 	/**
 	 *
