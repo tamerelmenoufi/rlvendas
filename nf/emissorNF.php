@@ -236,7 +236,8 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			),
 		);
 
-		// print_r($data_nfe);
+		print_r($data_nfe);
+		exit();
 
 
 		// VALIDADAR DADOS DO EMISSOR:
