@@ -300,7 +300,7 @@
                         }else{
                             mensagem = dados[0]?.Message;
                         }
-                        $.alert(`Erro na confirmação do pagamento!${mensagem}`);
+                        $.alert(`Erro na confirmação do pagamento!<p>${mensagem}</p>`);
                     }
                 }
             })
