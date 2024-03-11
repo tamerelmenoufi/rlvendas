@@ -146,8 +146,8 @@
 
                 if(data.status != 'OK'){
                     $.alert('CEP não localizado, favor confira e tente novamente!');
-                    $("#cep").val('');
-                    return
+                    // $("#cep").val('');
+                    // return
                 }
 
                 console.log(data);
