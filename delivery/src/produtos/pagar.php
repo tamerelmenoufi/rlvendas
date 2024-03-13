@@ -190,6 +190,15 @@ $bairro = $c->bairro;
 $localidade = $c->localidade;
 $uf = $c->uf;
 $coo = $c->coordenadas;
+list($latitude, $longitude) = explode(",",$c->coordenadas);
+if($latitude, $longitude){
+    $coordenadas = ",
+    \"latitude\": ".$latitude.",
+    \"longitude\": ".$longitude."
+    ";            
+}else{
+    $coordenadas = false;
+}
 
 
 if(
@@ -241,7 +250,7 @@ $json = "{
             \"neighborhood\": \"{$bairro}\",
             \"city\": \"Manaus\",
             \"state\": \"AM\",
-            \"zipCode\": \"".str_replace(array(' ','-'), false, $cep)."\"
+            \"zipCode\": \"".str_replace(array(' ','-'), false, $cep)."\"".$coordenadas."
         },
         \"onlinePayment\": true
         }
