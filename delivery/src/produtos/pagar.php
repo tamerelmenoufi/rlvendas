@@ -191,7 +191,7 @@ $localidade = $c->localidade;
 $uf = $c->uf;
 $coo = $c->coordenadas;
 list($latitude, $longitude) = explode(",",$c->coordenadas);
-if($latitude, $longitude){
+if($latitude and $longitude){
     $coordenadas = ",
     \"latitude\": ".$latitude.",
     \"longitude\": ".$longitude."
