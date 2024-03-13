@@ -12,6 +12,7 @@ $query = "select
                 b.ponto_referencia as Cponto_referencia,
                 b.bairro as Cbairro,
                 b.cep as Ccep,
+                b.coordenadas as Ccoordenadas,
                 a.delivery->'$.id'
                 from vendas a 
                 left join clientes b on a.cliente = b.codigo 
@@ -24,6 +25,20 @@ $query = "select
 
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
+
+    if(trim($d->Ccoordenadas)){
+        list($latitude, $longitude) = explode(",",$d->Ccoordenadas);
+        if($latitude, $longitude){
+            $coordenadas = ',
+            "latitude": '.$latitude.',
+            "longitude": '.$longitude.'
+            ';            
+        }else{
+            $coordenadas = false;
+        }
+    }else{
+        $coordenadas = false;
+    }
 
     echo $json = '{
         "code": "'.$d->codigo.'",
@@ -47,7 +62,7 @@ while($d = mysqli_fetch_object($result)){
                 "neighborhood": "'.$d->Cbairro.'",
                 "city": "Manaus",
                 "state": "AM",
-                "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"
+                "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"'.$coordenadas.'
             },
             "onlinePayment": true,
             "productValue": '.($d->valor+$d->taxa-$d->desconto+$d->acrescimo).'
