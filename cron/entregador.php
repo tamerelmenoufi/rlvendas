@@ -28,7 +28,7 @@ while($d = mysqli_fetch_object($result)){
 
     if(trim($d->Ccoordenadas)){
         list($latitude, $longitude) = explode(",",$d->Ccoordenadas);
-        if($latitude, $longitude){
+        if($latitude and $longitude){
             $coordenadas = ',
             "latitude": '.$latitude.',
             "longitude": '.$longitude.'
