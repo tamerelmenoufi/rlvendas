@@ -81,27 +81,27 @@
                 <div class="form-group">
                     <label for="cep">CEP*</label>
                     <input type="text" inputmode="numeric" class="form-control form-control-lg" id="cep" value="<?=$c->cep?>">
-                    Procure informar o CEP correto para facilitar o preenchimento automático de alguns campos.
+                    <span>Procure informar o CEP correto para facilitar o preenchimento automático de alguns campos.</span>
                 </div>
                 <div class="form-group">
                     <label for="logradouro">Rua*</label>
                     <input type="text" class="form-control form-control-lg" id="logradouro" value="<?=$c->logradouro?>">
-                    Informe neste campo apenas o nome da avenida, rua, beco de sua localização
+                    <span>Informe neste campo apenas o nome da avenida, rua, beco de sua localização</span>
                 </div>
                 <div class="form-group">
                     <label for="numero">Número*</label>
                     <input type="text" class="form-control form-control-lg" id="numero" value="<?=$c->numero?>">
-                    Neste campo você precisa informar o número de sua casa, seu condomínio ou seu prédio
+                    <span>Neste campo você precisa informar o número de sua casa, seu condomínio ou seu prédio</span>
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
                     <input type="text" class="form-control form-control-lg" id="complemento" value="<?=$c->complemento?>">
-                    No complemento, informe se reside em um condomínio, informando o bloco, quadra, lote de sua moradia
+                    <span>No complemento, informe se reside em um condomínio, informando o bloco, quadra, lote de sua moradia</span>
                 </div>
                 <div class="form-group">
                     <label for="ponto_referencia">Ponto de Referência*</label>
                     <input type="text" class="form-control form-control-lg" id="ponto_referencia" value="<?=$c->ponto_referencia?>">
-                    Informe aqui um ponto de referência conhecido nas proximidades de sua casa (ex: Igreja, posto de gasoline, escola, etc.)
+                    <span>Informe aqui um ponto de referência conhecido nas proximidades de sua casa (ex: Igreja, posto de gasoline, escola, etc.)</span>
                 </div>
                 <div class="form-group">
                     <label for="bairro">Bairro*</label>
