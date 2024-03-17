@@ -49,7 +49,10 @@
         padding-top:15px;
         z-index:1;
     }
-
+    .form-group span{
+        color:#a1a1a1;
+        font-size:12px;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Perfil do Cliente</h4>
@@ -86,7 +89,7 @@
                 <div class="form-group">
                     <label for="logradouro">Rua*</label>
                     <input type="text" class="form-control form-control-lg" id="logradouro" value="<?=$c->logradouro?>">
-                    <span>Informe neste campo apenas o nome da avenida, rua, beco de sua localização</span>
+                    <span>Informe neste campo apenas o nome da avenida, rua ou beco de sua localização</span>
                 </div>
                 <div class="form-group">
                     <label for="numero">Número*</label>
