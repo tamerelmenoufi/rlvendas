@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <label for="numero">Número*</label>
                     <input type="text" class="form-control form-control-lg" id="numero" value="<?=$c->numero?>">
-                    <span>Neste campo você precisa informar o número de sua casa, seu condomínio ou seu prédio</span>
+                    <span>Neste campo você precisa informar o número de sua casa, seu condomínio ou do seu prédio</span>
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
@@ -104,7 +104,7 @@
                 <div class="form-group">
                     <label for="ponto_referencia">Ponto de Referência*</label>
                     <input type="text" class="form-control form-control-lg" id="ponto_referencia" value="<?=$c->ponto_referencia?>">
-                    <span>Informe aqui um ponto de referência conhecido nas proximidades de sua casa (ex: Igreja, posto de gasoline, escola, etc.)</span>
+                    <span>Informe aqui um ponto de referência conhecido nas proximidades de sua casa (ex: Igreja, posto de gasolina, escola, etc.)</span>
                 </div>
                 <div class="form-group">
                     <label for="bairro">Bairro*</label>
