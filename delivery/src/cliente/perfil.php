@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <label for="numero">Número*</label>
                     <input type="text" class="form-control form-control-lg" id="numero" value="<?=$c->numero?>">
-                    <span>Neste campo você precisa informar o número de sua casa, seu condomínio ou do seu prédio</span>
+                    <span>Neste campo você precisa informar o número de sua casa, número do seu condomínio ou número do seu prédio</span>
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
