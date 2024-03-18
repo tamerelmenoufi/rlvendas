@@ -42,14 +42,19 @@
 <style>
     .PedidoTopoTitulo{
         position:fixed;
-        left:70px;
+        padding-left:70px;
+        left:0px;
         top:0px;
+        right:0px;
         height:60px;
         background:#fff;
         padding-top:15px;
         z-index:1;
     }
-
+    .form-group span{
+        color:#a1a1a1;
+        font-size:12px;
+    }
 </style>
 <div class="PedidoTopoTitulo">
     <h4>Perfil do Cliente</h4>
@@ -81,22 +86,27 @@
                 <div class="form-group">
                     <label for="cep">CEP*</label>
                     <input type="text" inputmode="numeric" class="form-control form-control-lg" id="cep" value="<?=$c->cep?>">
+                    <span>Procure informar o CEP correto para facilitar o preenchimento automático de alguns campos.</span>
                 </div>
                 <div class="form-group">
-                    <label for="logradouro">Logradouro*</label>
+                    <label for="logradouro">Rua*</label>
                     <input type="text" class="form-control form-control-lg" id="logradouro" value="<?=$c->logradouro?>">
+                    <span>Informe neste campo apenas o nome da avenida, rua ou beco de sua localização</span>
                 </div>
                 <div class="form-group">
                     <label for="numero">Número*</label>
                     <input type="text" class="form-control form-control-lg" id="numero" value="<?=$c->numero?>">
+                    <span>Neste campo você precisa informar o número de sua casa, número do seu condomínio ou número do seu prédio</span>
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
                     <input type="text" class="form-control form-control-lg" id="complemento" value="<?=$c->complemento?>">
+                    <span>No complemento, informe se reside em um condomínio, informando o bloco, quadra, lote de sua moradia</span>
                 </div>
                 <div class="form-group">
                     <label for="ponto_referencia">Ponto de Referência*</label>
                     <input type="text" class="form-control form-control-lg" id="ponto_referencia" value="<?=$c->ponto_referencia?>">
+                    <span>Informe aqui um ponto de referência conhecido nas proximidades de sua casa (ex: Igreja, posto de gasolina, escola, etc.)</span>
                 </div>
                 <div class="form-group">
                     <label for="bairro">Bairro*</label>
@@ -146,8 +156,8 @@
 
                 if(data.status != 'OK'){
                     $.alert('CEP não localizado, favor confira e tente novamente!');
-                    $("#cep").val('');
-                    return
+                    // $("#cep").val('');
+                    // return
                 }
 
                 console.log(data);
