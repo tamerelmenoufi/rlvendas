@@ -110,7 +110,7 @@
 
         }
 
-        if(date("N") != $d->dias_bloqueio and $hora){
+        if(date("N") != $d->dias_bloqueio){
 
         if($i%2 == 0){
 
