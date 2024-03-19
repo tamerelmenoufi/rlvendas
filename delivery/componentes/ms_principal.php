@@ -95,7 +95,7 @@
     $i=0;
     while($d = mysqli_fetch_object($result)){
 
-        if(date("N") != 2$d->dias_bloquio){
+        if(date("N") != $d->dias_bloquio){
 
         if($i%2 == 0){
 
