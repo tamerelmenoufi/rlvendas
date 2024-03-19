@@ -95,6 +95,7 @@
     $i=0;
     while($d = mysqli_fetch_object($result)){
 
+        $hora = false;
         if($d->horas_bloqueio){
             list($h1,$h2) = explode(",",$d->horas_bloqueio);
             list($H1, $m1) = explode(":",$h1);
@@ -102,9 +103,14 @@
             $hora1 = mktime($H1,$m1,0,date("m"),date("d"),date("Y"));
             $hora2 = mktime($H2,$m2,0,date("m"),date("d"),date("Y"));
             $agora = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));
+            
+            if($hora1 <= $agora and $agora <= $hora2){
+                $hora = true;
+            }
+
         }
 
-        if(date("N") != $d->dias_bloqueio and ($hora1 <= $agora and $agora <= $hora2)){
+        if(date("N") != $d->dias_bloqueio and !$hora){
 
         if($i%2 == 0){
 
