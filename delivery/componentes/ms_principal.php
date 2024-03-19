@@ -95,7 +95,7 @@
     $i=0;
     while($d = mysqli_fetch_object($result)){
 
-        if(date("N") != $d->dias_bloquio){
+        if(date("N") != $d->dias_bloqueio){
 
         if($i%2 == 0){
 
@@ -118,7 +118,7 @@
         >
             <div class="d-flex justify-content-between align-items-center">
                 <img src="img/<?=$d->icone?>" style="height:50px;">
-                <span><?=$d->categoria. $d->dias_bloquio?></span>
+                <span><?=$d->categoria. $d->dias_bloqueio?></span>
             </div>
 
         </button>
