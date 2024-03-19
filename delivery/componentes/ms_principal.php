@@ -110,7 +110,7 @@
 
         }
 
-        if(date("N") != $d->dias_bloqueio){
+        // if(date("N") != $d->dias_bloqueio){
 
         if($i%2 == 0){
 
@@ -142,7 +142,7 @@
 <?php
 $i++;
     }
-    }
+    // }
     if($i%2 == 0) echo "</div>";
 ?>
 
