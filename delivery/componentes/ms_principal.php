@@ -95,6 +95,8 @@
     $i=0;
     while($d = mysqli_fetch_object($result)){
 
+        if(date("N") != 2){
+
         if($i%2 == 0){
 
             if($i > 0 ) echo "</div>";
@@ -124,6 +126,7 @@
 
 <?php
 $i++;
+    }
     }
     if($i%2 == 0) echo "</div>";
 ?>
