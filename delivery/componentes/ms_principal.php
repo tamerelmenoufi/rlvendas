@@ -118,7 +118,7 @@
         >
             <div class="d-flex justify-content-between align-items-center">
                 <img src="img/<?=$d->icone?>" style="height:50px;">
-                <span><?=$d->categoria?></span>
+                <span><?=$d->categoria. $d->dias_bloquio?></span>
             </div>
 
         </button>
