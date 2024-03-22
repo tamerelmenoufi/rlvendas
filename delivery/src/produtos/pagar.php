@@ -94,8 +94,8 @@
         valor='{$c->total}',
         taxa='".($c->total/100*10)."'
     where codigo = '{$_SESSION['AppVenda']}'";
-
     mysqli_query($con, $q);
+    
     sisLog(
         [
             'query' => $q,
@@ -437,11 +437,12 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
+
                         $q = "update vendas set
                         total= '".(($d->valor + $taxa_entrega - $d->cupom_valor) - $valor_pago)."'
                         where codigo = '{$_SESSION['AppVenda']}'";
-
                         mysqli_query($con, $q);
+
                     }else{
                     ?>
                     <center>
