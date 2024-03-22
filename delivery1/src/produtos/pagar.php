@@ -86,18 +86,16 @@
 //     $q = "update vendas set
 //     valor='{$c->total}',
 //     taxa='".($c->total/100*10)."',
-//     desconto='".($c->total/100*10)."',
+//     /*desconto='".($c->total/100*10)."',*/
 //     total= (".($c->total + ($c->total/100*10) - ($c->total/100*10))." + acrescimo)
 // where codigo = '{$_SESSION['AppVenda']}'";
 
     $q = "update vendas set
         valor='{$c->total}',
-        taxa='".($c->total/100*10)."',
-        total= (".($c->total + ($c->total/100*10))." + acrescimo)
+        taxa='".($c->total/100*10)."'
     where codigo = '{$_SESSION['AppVenda']}'";
-
-
     mysqli_query($con, $q);
+    
     sisLog(
         [
             'query' => $q,
@@ -198,6 +196,15 @@ $bairro = $c->bairro;
 $localidade = $c->localidade;
 $uf = $c->uf;
 $coo = $c->coordenadas;
+list($latitude, $longitude) = explode(",",$c->coordenadas);
+if($latitude and $longitude){
+    $coordenadas = ",
+    \"latitude\": ".$latitude.",
+    \"longitude\": ".$longitude."
+    ";            
+}else{
+    $coordenadas = false;
+}
 
 
 if(
@@ -249,7 +256,7 @@ $json = "{
             \"neighborhood\": \"{$bairro}\",
             \"city\": \"Manaus\",
             \"state\": \"AM\",
-            \"zipCode\": \"".str_replace(array(' ','-'), false, $cep)."\"
+            \"zipCode\": \"".str_replace(array(' ','-'), false, $cep)."\"".$coordenadas."
         },
         \"onlinePayment\": true
         }
@@ -351,7 +358,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                             <h5 class="card-title">
                                 <small>Valor a pagar</small>
                                 <!-- <div class="valor" valor="<?=$d->valor?>">R$ <?=number_format($d->valor,2,',',false)?></div> -->
-                                <div class="valor_pendente" style="font-size:18px !important; color:green;" pendente="" valor="">R$ <?=number_format(($d->total + $taxa_entrega - $d->cupom_valor),2,',',false)?></div>
+                                <div class="valor_pendente" style="font-size:18px !important; color:green;" pendente="" valor="">R$ <?=number_format(($d->valor + $taxa_entrega - $d->cupom_valor),2,',',false)?></div>
                             </h5>
                         </div>
 
@@ -402,7 +409,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         <p>Horário de atendimento no delivery das <?=date("H:i", $ini)?> as <?=date("H:i", $fim)?></p>
                     </center>
                     <?php
-                    }else if((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0 and !$blq){
+                    }else if((($d->valor + $taxa_entrega - $d->cupom_valor) - $valor_pago) > 0 and !$blq){
                     ?>
                     <div class="row">
                         <div class="col">Escolha a forma de pagamento</div>
@@ -415,7 +422,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >
                                 <i class="fa fa-qrcode fa-3x"></i><br>
-                                R$ <?=number_format((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago),2,',','.')?><br>PIX
+                                R$ <?=number_format((($d->valor + $taxa_entrega - $d->cupom_valor) - $valor_pago),2,',','.')?><br>PIX
                             </button>
                         </div>
                         <div class="col">
@@ -425,11 +432,17 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                                 class="adicionarPagamento btn btn-primary btn-lg btn-block"
                             >
                                 <i class="fa fa-credit-card fa-3x"></i><br>
-                                R$ <?=number_format((($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago),2,',','.')?><br>CRÉDITO
+                                R$ <?=number_format((($d->valor + $taxa_entrega - $d->cupom_valor) - $valor_pago),2,',','.')?><br>CRÉDITO
                             </button>
                         </div>
                     </div>
                     <?php
+
+                        $q = "update vendas set
+                        total= '".(($d->valor + $taxa_entrega - $d->cupom_valor) - $valor_pago)."'
+                        where codigo = '{$_SESSION['AppVenda']}'";
+                        mysqli_query($con, $q);
+
                     }else{
                     ?>
                     <center>
@@ -508,7 +521,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
 </div>
 
 
-<div class="SemProduto" style="display:<?=(($d->total)?'none':'block')?>">
+<div class="SemProduto" style="display:<?=(($d->valor)?'none':'block')?>">
     <i class="fa-solid fa-face-frown icone"></i>
     <p>Poxa, ainda não tem produtos em seu pedido!</p>
 </div>
@@ -540,7 +553,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
         $("button[pagamento]").click(function(){
 
             opc = $(this).attr("pagamento");
-            valor_total = '<?=(($d->total + $taxa_entrega - $d->cupom_valor) - $valor_pago)?>';
+            valor_total = '<?=(($d->valor + $taxa_entrega - $d->cupom_valor) - $valor_pago)?>';
             AppVenda = '<?=$_SESSION['AppVenda']?>';
             $.ajax({
                 url:"componentes/ms_popup_100.php",
@@ -548,7 +561,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                 data:{
                     local:`src/produtos/pagar_${opc}.php`,
                     valor_total,
-                    AppVenda,
+                    AppVenda
                 },
                 success:function(dados){
                     PageClose();
