@@ -561,7 +561,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                 data:{
                     local:`src/produtos/pagar_${opc}.php`,
                     valor_total,
-                    AppVenda,desconto='".($c->total/100*10)."',
+                    AppVenda
                 },
                 success:function(dados){
                     PageClose();
