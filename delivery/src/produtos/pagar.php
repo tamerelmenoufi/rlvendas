@@ -93,6 +93,7 @@
     $q = "update vendas set
         valor='{$c->total}',
         taxa='".($c->total/100*10)."',
+        desconto='".($c->total/100*10)."',
         total= (".($c->total + ($c->total/100*10))." + acrescimo)
     where codigo = '{$_SESSION['AppVenda']}'";
 
