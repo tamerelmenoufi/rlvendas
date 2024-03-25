@@ -30,7 +30,7 @@
                             a.situacao = 'pago' and 
                             a.deletado != '1' 
 
-            order by a.codigo desc";
+            order by a.data_finalizacao desc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
         $delivery = json_decode($d->delivery);
