@@ -402,6 +402,7 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
+                    $fechado = true;
                     if($fechado){
                     ?>
                     <center>
