@@ -4,7 +4,7 @@
     function bandeira($cod){
         $banderia = [
             3 => 'AMEX',
-            5 => 'MASTERCARD',
+            5 => 'MASTER',
             6 => 'DISCOVER'
         ];
         return (($banderia[$cod])?:'VISA');
