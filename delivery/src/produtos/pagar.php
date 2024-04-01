@@ -402,8 +402,15 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
-                    $fechado = true;
-                    if($fechado){
+                    $fechado_feriado = true;
+                    if($fechado_feriado){
+                    ?>
+                    <center>
+                        <h3>Pedido não pode ser finalizado</h3>
+                        <p>Estabelecimento Fechado</p>
+                    </center>
+                    <?php
+                    }else if($fechado){
                     ?>
                     <center>
                         <h3>Pedido não pode ser finalizado</h3>
