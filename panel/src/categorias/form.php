@@ -14,6 +14,34 @@
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
 
+        if ($data['icone-base']) {
+
+            $md52 = md5($md5.$data['icone-name']);
+
+            if(!is_dir("../volume")) mkdir("../volume");
+            if(!is_dir("../volume/icone")) mkdir("../volume/icone");
+
+            list($x, $icon) = explode(';base64,', $data['icone-base']);
+            $icon = base64_decode($icon);
+            $pos = strripos($data['icone-name'], '.');
+            $ext = substr($data['icone-name'], $pos, strlen($data['icone-name']));
+    
+            $atual = $data['icone-atual'];
+    
+            unset($data['icone-base']);
+            unset($data['icone-type']);
+            unset($data['icone-name']);
+            unset($data['icone-atual']);
+    
+            if (file_put_contents("../volume/icone/{$md52}{$ext}", $icon)) {
+                $attr[] = "icone = '{$md52}{$ext}'";
+                if ($atual) {
+                    unlink("../volume/icone/{$atual}");
+                }
+            }
+    
+        }
+
         $attr = implode(', ', $attr);
 
         if($_POST['codigo']){
@@ -58,6 +86,35 @@
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Identificação da Mesa" value="<?=$d->categoria?>">
                     <label for="categoria">Categoria*</label>
+                </div>
+
+                <label for="file_<?= $md5 ?>">Incluir / Editar - Imagem da Categoria *</label>
+                <?php
+                if(is_file("../volume/categorias/{$d->icone}")){
+                ?>
+                <center><img src="src/volume/categorias/<?=$d->icone?>" style="margin: 20px;" /></center>
+                <?php
+                }
+                ?>
+                <div class="input-group mb-3">
+                    <input 
+                        type="file" 
+                        class="form-control" 
+                        id="file_<?= $md5 ?>" 
+                        target="encode_icone"
+                        accept="image/*"
+                        w="270"
+                        h="240"
+                    >
+                    <label class="input-group-text" for="file_<?= $md5 ?>">Selecionar</label>
+                    <input
+                        type="hidden"
+                        id="encode_icone"
+                        nome=""
+                        tipo=""
+                        value=""
+                        atual="<?= $d->icone; ?>"
+                    />
                 </div>
 
                 <div class="accordion mb-3" id="accordionExample">
@@ -118,6 +175,58 @@
         $(function(){
             Carregando('none');
 
+
+            if (window.File && window.FileList && window.FileReader) {
+
+                $('input[type="file"]').change(function () {
+                    var mW = $(this).attr("w")
+                    var mH = $(this).attr("h")
+                    var tgt = $(this).attr("target")
+                    if ($(this).val()) {
+                        var files = $(this).prop("files");
+                        for (var i = 0; i < files.length; i++) {
+                            (function (file) {
+                                var fileReader = new FileReader();
+                                fileReader.onload = function (f) {
+
+                                    var image = new Image();
+                                    image.src = fileReader.result;
+                                    image.onload = function() {
+
+                                        var Base64 = f.target.result;
+                                        var type = file.type;
+                                        var name = file.name;
+                                        var w = image.width;
+                                        var h = image.height;
+
+                                        // if(mW != w || mH != h){
+                                        //     $.alert(`Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>${mW}px Largura X ${mH}px Altura</b>`)
+                                        //     $(`#${tgt}`).val('');
+                                        //     $(`#${tgt}`).attr("nome", '');
+                                        //     $(`#${tgt}`).attr("tipo", '');
+                                        //     $(`#${tgt}`).attr("w", '');
+                                        //     $(`#${tgt}`).attr("h", '');                                        
+                                        //     return false;
+                                        // }else{
+                                            $(`#${tgt}`).val(Base64);
+                                            $(`#${tgt}`).attr("nome", name);
+                                            $(`#${tgt}`).attr("tipo", type);
+                                            $(`#${tgt}`).attr("w", w);
+                                            $(`#${tgt}`).attr("h", h);
+                                        // }
+
+                                    };
+
+                                };
+                                fileReader.readAsDataURL(file);
+                            })(files[i]);
+                        }
+                    }
+                });
+            } else {
+                alert('Nao suporta HTML5');
+            }
+
             $('#form-<?=$md5?>').submit(function (e) {
 
                 e.preventDefault();
@@ -142,6 +251,20 @@
                 campos.push({name: 'medidas', value: medidas.join(',')});
 
                 campos.push({name: 'acao', value: 'salvar'})
+
+                icone_name = $("#encode_icone").attr("nome");
+                icone_type = $("#encode_icone").attr("tipo");
+                icone_base = $("#encode_icone").val();
+                icone_atual = $("#encode_icone").attr("atual");
+
+                if(capa_name && capa_type && capa_base){
+
+                    campos.push({name: 'icone-name', value: icone_name})
+                    campos.push({name: 'icone-type', value: icone_type})
+                    campos.push({name: 'icone-base', value: icone_base})
+                    campos.push({name: 'icone-atual', value: icone_atual})
+
+                }
 
                 Carregando();
 
