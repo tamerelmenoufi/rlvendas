@@ -260,7 +260,7 @@
                 icone_base = $("#encode_icone").val();
                 icone_atual = $("#encode_icone").attr("atual");
 
-                if(capa_name && capa_type && capa_base){
+                if(icone_name && icone_type && icone_base){
 
                     campos.push({name: 'icone-name', value: icone_name})
                     campos.push({name: 'icone-type', value: icone_type})
