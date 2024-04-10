@@ -76,7 +76,7 @@
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action" >
-                                        <input class="form-check-input me-1 opcao_medidas" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($medidas[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
+                                        <input class="form-check-input me-1 opcao_medidas" codigo="<?=$d2->codigo?>" type="checkbox" <?=((in_array($d2->codigo,$medidas))?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
                                             <label class="form-check-label w-100" for="acao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->medida?></span>
