@@ -141,7 +141,7 @@
         $("button[categoria]").click(function(){
             categoria = $(this).attr("categoria");
             $.ajax({
-                url:"src/produtos/form.php",
+                url:"src/produtos/index.php",
                 type:"POST",
                 data:{
                   categoria
