@@ -96,51 +96,59 @@
                     <label for="descricao">Descrição*</label>
                 </div>
 
-                <div class="form-group">
-                <label for="medidas">Valores <i class="text-danger">*</i></label>
 
-                <?php
-                $query1 = "SELECT * FROM categoria_medidas "
-                    . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
-                    . "ORDER BY ordem, medida";
-                $result1 = mysqli_query($con, $query1);
 
-                $detalhes = json_decode($d->detalhes, true);
-
-                while ($dados = mysqli_fetch_object($result1)):
-                    ?>
-                    <div class="row cor">
-                        <div class="col-md-8">
-                            <?= $dados->medida; ?>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">R$</span>
-                                </div>
-
-                                <input
-                                        valores
-                                        opc="<?= $dados->codigo ?>"
-                                        value="<?= $detalhes[$dados->codigo]['valor']; ?>"
-                                        type="number"
-                                        class="form-control"
-                                >
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <input
-                                    situacao
-                                    opc="<?= $dados->codigo ?>"
-                                    value="<?= (($detalhes[$dados->codigo]['quantidade']) ?: '0') ?>"
-                                    type="checkbox" <?= (($detalhes[$dados->codigo]['quantidade']) ? 'checked' : false) ?>
-                                    data-toggle="toggle"
-                            >
-                        </div>
-
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Valores
                     </div>
-                <?php endwhile; ?>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
 
+
+                            <div class="form-group">
+                            <?php
+                            $query1 = "SELECT * FROM categoria_medidas "
+                                . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
+                                . "ORDER BY ordem, medida";
+                            $result1 = mysqli_query($con, $query1);
+
+                            $detalhes = json_decode($d->detalhes, true);
+
+                            while ($dados = mysqli_fetch_object($result1)):
+                                ?>
+                                <div class="row cor">
+                                    <div class="col-md-8">
+                                        <?= $dados->medida; ?>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <div class="input-group">
+                                            <span class="input-group-text">R$</span>
+                                            <input
+                                                valores
+                                                opc="<?= $dados->codigo ?>"
+                                                value="<?= $detalhes[$dados->codigo]['valor']; ?>"
+                                                type="number"
+                                                class="form-control"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input
+                                            situacao
+                                            opc="<?= $dados->codigo ?>"
+                                            value="<?= (($detalhes[$dados->codigo]['quantidade']) ?: '0') ?>"
+                                            type="checkbox" <?= (($detalhes[$dados->codigo]['quantidade']) ? 'checked' : false) ?>
+                                            data-toggle="toggle"
+                                        >
+                                    </div>
+
+                                </div>
+                            <?php endwhile; ?>
+
+                        </div>
+                </ul>
             </div>
 
                 <label for="file_<?= $md5 ?>">Incluir / Editar - Imagem da Categoria *</label>
@@ -197,6 +205,7 @@
         $(function(){
             Carregando('none');
 
+            $("input[situacao]").bootstrapToggle();
 
             if (window.File && window.FileList && window.FileReader) {
 
