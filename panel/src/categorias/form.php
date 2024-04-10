@@ -215,7 +215,7 @@
                                             $(`#${tgt}`).attr("h", h);
 
                                             $(`.${tgt} center`).remove();
-                                            $(`.${tgt}`).prepend(`<center><div><img src="${Base64}" class="mb-3 img-fluid" /></div></center>`);
+                                            $(`.${tgt}`).prepend(`<center><div class="w-100"><img src="${Base64}" class="mb-3 img-fluid" /></div></center>`);
                                         // }
 
                                     };
