@@ -23,9 +23,9 @@
             $icon = base64_decode($icon);
             $pos = strripos($data['icon-name'], '.');
             $ext = substr($data['icon-name'], $pos, strlen($data['icon-name']));
-    
+ 
             $atual = $data['icon-atual'];
-    
+ 
             unset($data['icon-base']);
             unset($data['icon-type']);
             unset($data['icon-name']);
@@ -81,7 +81,7 @@
         z-index:0;
     }
 </style>
-<h4 class="Titulo<?=$md5?>">Cadastro das Categorias</h4>
+<h4 class="Titulo<?=$md5?>">Cadastro de Produto</h4>
     <form id="form-<?= $md5 ?>">
         <div class="row">
             <div class="col">
@@ -239,6 +239,7 @@
                                         var h = image.height;
 
                                         // if(mW != w || mH != h){
+
                                         //     $.alert(`Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>${mW}px Largura X ${mH}px Altura</b>`)
                                         //     $(`#${tgt}`).val('');
                                         //     $(`#${tgt}`).attr("nome", '');
@@ -246,7 +247,9 @@
                                         //     $(`#${tgt}`).attr("w", '');
                                         //     $(`#${tgt}`).attr("h", '');                                        
                                         //     return false;
+
                                         // }else{
+
                                             $(`#${tgt}`).val(Base64);
                                             $(`#${tgt}`).attr("nome", name);
                                             $(`#${tgt}`).attr("tipo", type);
@@ -255,6 +258,7 @@
 
                                             $(`.${tgt} center`).remove();
                                             $(`.${tgt}`).prepend(`<center><img src="${Base64}" class="mb-3 img-fluid" /></center>`);
+
                                         // }
 
                                     };
