@@ -64,7 +64,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from mesas a order by medida asc";
+                    $query = "select * from mesas order by mesa asc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
