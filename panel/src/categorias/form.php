@@ -40,6 +40,8 @@
     $query = "select * from categorias where codigo = '{$_POST['cod']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
+
+    $medidas = explode(",", $d->medidas);
 ?>
 <style>
     .Titulo<?=$md5?>{
@@ -74,7 +76,7 @@
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action" >
-                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($itens[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
+                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($medidas[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
                                             <label class="form-check-label w-100" for="acao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->medida?></span>
