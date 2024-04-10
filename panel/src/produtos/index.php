@@ -73,7 +73,7 @@
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
-                    <td class="w-100"><?=$d->categoria?></td>
+                    <td class="w-100"><?=$d->produto?></td>
                     <td>
                       <div class="form-check form-switch">
                         <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
