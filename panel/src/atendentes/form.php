@@ -74,6 +74,36 @@
                     <label for="email">E-mail</label>
                 </div>
 
+                <div class="row">
+                <div class="col-md-12">
+                    <h4>Perfil de Acesso</h4>
+                    <?php
+                    $perfis = [
+                        ['name' => 'ExcluirProduto', 'value' => 'Excluir Produto em produção'],
+                    ];
+                    foreach($perfis as $indice => $valor){
+                    ?>
+                    <div class="form-group">
+                        <div class="form-check">
+                        <input
+                                perfil
+                                class="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="<?=$valor['name']?>"
+                                <?=(($GetPerfis[$indice]->value)?'checked':false)?>
+                        >
+                        <label class="form-check-label" for="<?=$valor['name']?>">
+                            <?=$valor['value']?>
+                        </label>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
                 <div class="form-floating mb-3">
                     <input type="text" name="senha" id="senha" class="form-control" placeholder="E-mail" value="">
                     <label for="senha">Senha</label>
@@ -131,6 +161,15 @@
                         $.alert('Confira o CPF, o informado é inválido!');
                         return;
                     }
+                }
+
+                perfil = [];
+                $("input[perfil]").each(function(){
+                    perfil.push({name: $(this).attr("id"), value: $(this).prop("checked")});
+                });
+
+                if(perfil){
+                    dados.push({name: 'perfil', value: JSON.stringify(perfil)});
                 }
 
                 Carregando();
