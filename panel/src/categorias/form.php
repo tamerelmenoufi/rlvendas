@@ -28,7 +28,7 @@
 
         $retorno = [
             'status' => true,
-            'codigo' => $query
+            'codigo' => $cod
         ];
 
         echo json_encode($retorno);
@@ -54,7 +54,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="categoria" name="pagamento" placeholder="Identificação da Mesa" value="<?=$d->categoria?>">
+                    <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Identificação da Mesa" value="<?=$d->categoria?>">
                     <label for="categoria">Categoria*</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -103,7 +103,7 @@
                     mimeType: 'multipart/form-data',
                     data: campos,
                     success:function(dados){
-                    console.log(dados)
+                    // console.log(dados)
                         // if(dados.status){
                             $.ajax({
                                 url:"src/categorias/index.php",
