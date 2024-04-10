@@ -72,9 +72,11 @@
                   <tr>
                     <td class="w-100"><?=$d->mesa?></td>
                     <td class="w-100"><?=$d->descricao?></td>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input situacao" type="checkbox" <?=(($d->status)?'checked':false)?> situacao="<?=$d->codigo?>">
-                    </div>
+                    <td>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                      </div>                      
+                    </td>
                     <td>
                       <button
                         class="btn btn-primary"
