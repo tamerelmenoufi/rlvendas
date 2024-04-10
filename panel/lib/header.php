@@ -25,4 +25,6 @@
 <link href="<?=$urlPainel?>lib/vendor/slick/slick.css" rel="stylesheet">
 <script src="<?=$urlPainel?>lib/vendor/slick/slick.js" ></script>
 
+<link rel="stylesheet" href="<?= $urlPainel ?>lib/vendor//bootstrap4-toggle-3.6.1/bootstrap4-toggle.min.css">
+
 
