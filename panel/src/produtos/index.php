@@ -2,13 +2,13 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
     if($_POST['delete']){
-      // $query = "delete from categorias where codigo = '{$_POST['delete']}'";
-      $query = "update categorias set deletado = '1' where codigo = '{$_POST['delete']}'";
+      // $query = "delete from produtos where codigo = '{$_POST['delete']}'";
+      $query = "update produtos set deletado = '1' where codigo = '{$_POST['delete']}'";
       sisLog($query);
     }
 
     if($_POST['situacao']){
-      $query = "update categorias set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
+      $query = "update produtos set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
       sisLog($query);
       exit();
     }
@@ -36,18 +36,22 @@
     <div class="row">
       <div class="col">
         <div class="card">
-          <h5 class="card-header">Lista Categorias</h5>
+          <h5 class="card-header">Lista Produtos</h5>
           <div class="card-body">
             <div class="d-flex justify-content-end mb-3">
-                <button
-                    novoCadastro
-                    class="btn btn-success btn-sm"
-                    data-bs-toggle="offcanvas"
-                    href="#offcanvasDireita"
-                    role="button"
-                    aria-controls="offcanvasDireita"
-                    style="margin-left:20px;"
-                >Novo</button>
+              <button class="btn btn-warning" categoria="">
+                Produtos
+              </button>
+              <button
+                  novoCadastro
+                  class="btn btn-success btn-sm"
+                  data-bs-toggle="offcanvas"
+                  href="#offcanvasDireita"
+                  role="button"
+                  aria-controls="offcanvasDireita"
+                  style="margin-left:20px;"
+              >Novo</button>
+
             </div>
 
             
@@ -56,14 +60,14 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Categoria</th>
+                    <th scope="col">Produto</th>
                     <th scope="col">Situação</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from categorias order by categoria asc";
+                    $query = "select * from produtos where categoria = '{$_SESSION['categoria']}' order by produto asc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
@@ -76,9 +80,6 @@
                       </div>                      
                     </td>
                     <td>
-                      <button class="btn btn-warning" categoria="<?=$d->codigo?>">
-                        Produtos
-                      </button>
                       <button
                         class="btn btn-primary"
                         edit="<?=$d->codigo?>"
@@ -116,7 +117,7 @@
 
         $("button[novoCadastro]").click(function(){
             $.ajax({
-                url:"src/categorias/form.php",
+                url:"src/produtos/form.php",
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 }
@@ -127,27 +128,13 @@
         $("button[edit]").click(function(){
             cod = $(this).attr("edit");
             $.ajax({
-                url:"src/categorias/form.php",
+                url:"src/produtos/form.php",
                 type:"POST",
                 data:{
                   cod
                 },
                 success:function(dados){
                     $(".LateralDireita").html(dados);
-                }
-            })
-        })
-
-        $("button[categoria]").click(function(){
-            categoria = $(this).attr("categoria");
-            $.ajax({
-                url:"src/produtos/form.php",
-                type:"POST",
-                data:{
-                  categoria
-                },
-                success:function(dados){
-                  $("#paginaHome").html(dados);
                 }
             })
         })
@@ -161,7 +148,7 @@
                 buttons:{
                     'SIM':function(){
                         $.ajax({
-                            url:"src/categorias/index.php",
+                            url:"src/produtos/index.php",
                             type:"POST",
                             data:{
                                 delete:deletar
@@ -192,7 +179,7 @@
 
 
           $.ajax({
-              url:"src/categorias/index.php",
+              url:"src/produtos/index.php",
               type:"POST",
               data:{
                   situacao,
@@ -204,6 +191,17 @@
           })
 
         });
+
+        $("button[categoria]").click(function(){
+          Carregando();
+            $.ajax({
+                url:"src/categorias/index.php",
+                type:"POST",
+                success:function(dados){
+                  $("#paginaHome").html(dados);
+                }
+            })
+        })
 
 
     })
