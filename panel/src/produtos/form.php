@@ -106,7 +106,7 @@
                         <li class="list-group-item">
 
 
-                            <div class="form-group mb-2">
+                            <div class="form-group">
                             <?php
                             $query1 = "SELECT * FROM categoria_medidas "
                                 . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
@@ -117,7 +117,7 @@
 
                             while ($dados = mysqli_fetch_object($result1)):
                                 ?>
-                                <div class="row cor">
+                                <div class="row cor bm-2">
                                     <div class="col-md-5">
                                         <?= $dados->medida; ?>
                                     </div>
