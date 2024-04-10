@@ -106,7 +106,7 @@
                         <li class="list-group-item">
 
 
-                            <div class="form-group">
+                            <div class="form-group mb-2">
                             <?php
                             $query1 = "SELECT * FROM categoria_medidas "
                                 . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
