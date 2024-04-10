@@ -83,6 +83,63 @@
     <form id="form-<?= $md5 ?>">
         <div class="row">
             <div class="col">
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="produto" name="produto" placeholder="Nome do Produto" value="<?=$d->produto?>">
+                    <label for="produto">Produto*</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea name="descricao" id="descricao" class="form-control" placeholder="Nome do Produto"><?=$d->descricao?></textarea>
+                    <label for="descricao">Descrição*</label>
+                </div>
+
+                <div class="form-group">
+                <label for="medidas">Valores <i class="text-danger">*</i></label>
+
+                <?php
+                $query1 = "SELECT * FROM categoria_medidas "
+                    . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
+                    . "ORDER BY ordem, medida";
+                $result1 = mysqli_query($con, $query1);
+
+                $detalhes = json_decode($d->detalhes, true);
+
+                while ($dados = mysqli_fetch_object($result1)):
+                    ?>
+                    <div class="row cor">
+                        <div class="col-md-8">
+                            <?= $dados->medida; ?>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+
+                                <input
+                                        valores
+                                        opc="<?= $dados->codigo ?>"
+                                        value="<?= $detalhes[$dados->codigo]['valor']; ?>"
+                                        type="number"
+                                        class="form-control"
+                                >
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <input
+                                    situacao
+                                    opc="<?= $dados->codigo ?>"
+                                    value="<?= (($detalhes[$dados->codigo]['quantidade']) ?: '0') ?>"
+                                    type="checkbox" <?= (($detalhes[$dados->codigo]['quantidade']) ? 'checked' : false) ?>
+                                    data-toggle="toggle"
+                            >
+                        </div>
+
+                    </div>
+                <?php endwhile; ?>
+
+            </div>
 
                 <label for="file_<?= $md5 ?>">Incluir / Editar - Imagem da Categoria *</label>
                 <?php
