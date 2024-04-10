@@ -96,7 +96,7 @@
                 <?php
                 }
                 ?>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 encode_icone">
                     <input 
                         type="file" 
                         class="form-control" 
@@ -213,6 +213,8 @@
                                             $(`#${tgt}`).attr("tipo", type);
                                             $(`#${tgt}`).attr("w", w);
                                             $(`#${tgt}`).attr("h", h);
+
+                                            $(`.${tgt}`).prepend(`<center><img src="${Base64}" style="margin: 20px;" /></center>`);
                                         // }
 
                                     };
