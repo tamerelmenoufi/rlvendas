@@ -54,8 +54,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="unidade" name="unidade" placeholder="Sigla da Unidade" value="<?=$d->unidade?>">
-                    <label for="unidade">Medida*</label>
+                    <input type="text" class="form-control" id="medida" name="medida" placeholder="Sigla da Unidade" value="<?=$d->medida?>">
+                    <label for="medida">Medida*</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="number"  class="form-control" inputmode="numeric" id="qt_produtos" name="qt_produtos" placeholder="Quantidade dos produtos" value="<?=$d->qt_produtos?>">
