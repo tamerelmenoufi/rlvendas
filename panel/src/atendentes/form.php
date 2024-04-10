@@ -44,6 +44,8 @@
     $query = "select * from atendentes where codigo = '{$_POST['cod']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
+
+    $GetPerfis = json_decode($d->perfil);
 ?>
 <style>
     .Titulo<?=$md5?>{
