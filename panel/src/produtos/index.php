@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
+    if($_POST['categoria']) $_SESSION['categoria'] = $_POST['categoria'];
+
     if($_POST['delete']){
       // $query = "delete from produtos where codigo = '{$_POST['delete']}'";
       $query = "update produtos set deletado = '1' where codigo = '{$_POST['delete']}'";
