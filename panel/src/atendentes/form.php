@@ -76,7 +76,7 @@
                     <label for="email">E-mail</label>
                 </div>
 
-                <div class="row m-2 mb-3">
+                <div class="row mt-2 mb-3">
                 <div class="col-md-12">
                     <h5>Perfil de Acesso</h5>
                     <?php
