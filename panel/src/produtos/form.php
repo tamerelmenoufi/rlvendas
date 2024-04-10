@@ -103,7 +103,7 @@
                         Valores
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">
 
 
                             <div class="form-group">
@@ -146,10 +146,10 @@
 
                                 </div>
                             <?php endwhile; ?>
-
-                        </div>
-                </ul>
-            </div>
+                            </div>
+                         </li>
+                    </ul>
+                </div>
 
                 <label for="file_<?= $md5 ?>">Incluir / Editar - Imagem da Categoria *</label>
                 <?php
