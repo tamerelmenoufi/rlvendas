@@ -57,7 +57,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from categoria_medidas a order by medida asc";
+                    $query = "select * from categoria_medidas a order by ordem asc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
