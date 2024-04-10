@@ -69,8 +69,7 @@
                             <div class="accordion-body">
                                 <ul class="list-group">
                                 <?php
-                                    
-                                    $q2 = "select * from categoria_medidas where situacao = '1' and deletado != '1' order by medida asc";
+                                    $q2 = "select * from categoria_medidas where deletado != '1' order by medida asc";
                                     $r2 = mysqli_query($con, $q2);
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
