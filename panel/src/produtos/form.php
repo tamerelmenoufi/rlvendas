@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
+    $ConfCategoria = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
+
 
     if($_POST['acao'] == 'salvar'){
 
