@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <textarea name="descricao" id="descricao" class="form-control" placeholder="Nome do Produto"rows="10"><?=$d->descricao?></textarea>
+                    <textarea name="descricao" id="descricao" class="form-control" placeholder="Nome do Produto" rows="10"><?=$d->descricao?></textarea>
                     <label for="descricao">Descrição*</label>
                 </div>
 
