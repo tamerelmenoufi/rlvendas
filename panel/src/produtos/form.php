@@ -118,10 +118,10 @@
                             while ($dados = mysqli_fetch_object($result1)):
                                 ?>
                                 <div class="row cor mb-2">
-                                    <div class="col-md-5">
+                                    <div class="col-5">
                                         <?= $dados->medida; ?>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-5">
 
                                         <div class="input-group">
                                             <span class="input-group-text">R$</span>
@@ -134,7 +134,7 @@
                                             >
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-2">
                                         <input
                                             chave
                                             opc="<?= $dados->codigo ?>"
@@ -143,7 +143,6 @@
                                             data-toggle="toggle"
                                         >
                                     </div>
-
                                 </div>
                             <?php endwhile; ?>
                             </div>
