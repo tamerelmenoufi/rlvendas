@@ -136,7 +136,7 @@
                 categoria = '<?=$d->codigo?>'
         >
             <div class="d-flex flex-column bd-highlight align-items-center">
-                <img src="../../panel/volume/categorias/<?=$d->icone?>" style="width:100%; border-radius:15px;">
+                <img src="../panel/volume/categorias/<?=$d->icone?>" style="width:100%; border-radius:15px;">
                 <span style="color:#c0941f; font-size:13px; font-weight:bold;"><?=$d->categoria?></span>
             </div>
 
