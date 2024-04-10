@@ -10,10 +10,6 @@
         unset($data['codigo']);
         unset($data['acao']);
 
-        foreach ($data as $name => $value) {
-            $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
-        }
-
         if ($data['icone-base']) {
 
             $md52 = md5($md5.$data['icone-name']);
@@ -40,6 +36,10 @@
                 }
             }
     
+        }
+
+        foreach ($data as $name => $value) {
+            $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
 
         $attr = implode(', ', $attr);
