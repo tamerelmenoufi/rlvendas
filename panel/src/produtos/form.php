@@ -281,17 +281,6 @@
                     campos.push({name: 'codigo', value: codigo})
                 }
 
-                //Medidas
-                var medidas = [];
-
-                $(".opcao_medidas").each(function (index, item) {
-                    //console.log($(item).val());
-                    if ($(item).is(':checked')) {
-                        medidas.push($(item).val());
-                    }
-                });
-
-                campos.push({name: 'medidas', value: medidas.join(',')});
 
                 campos.push({name: 'acao', value: 'salvar'})
 
