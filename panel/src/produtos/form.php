@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <textarea name="descricao" id="descricao" class="form-control" placeholder="Nome do Produto" height="10"><?=$d->descricao?></textarea>
+                    <textarea name="descricao" id="descricao" class="form-control" placeholder="Nome do Produto"rows="10"><?=$d->descricao?></textarea>
                     <label for="descricao">Descrição*</label>
                 </div>
 
@@ -117,7 +117,7 @@
 
                             while ($dados = mysqli_fetch_object($result1)):
                                 ?>
-                                <div class="row cor bm-2">
+                                <div class="row cor mb-2">
                                     <div class="col-md-5">
                                         <?= $dados->medida; ?>
                                     </div>
