@@ -21,11 +21,11 @@
         $attr = implode(', ', $attr);
 
         if($_POST['codigo']){
-            $query = "update usuarios set {$attr} where codigo = '{$_POST['codigo']}'";
+            $query = "update atendentes set {$attr} where codigo = '{$_POST['codigo']}'";
             sisLog($query);
             $cod = $_POST['codigo'];
         }else{
-            $query = "insert into usuarios set data_cadastro = NOW(), {$attr}";
+            $query = "insert into atendentes set data_cadastro = NOW(), {$attr}";
             sisLog($query);
             $cod = mysqli_insert_id($con);
         }
@@ -41,7 +41,7 @@
     }
 
 
-    $query = "select * from usuarios where codigo = '{$_POST['cod']}'";
+    $query = "select * from atendentes where codigo = '{$_POST['cod']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
 ?>
@@ -131,7 +131,7 @@
                 Carregando();
 
                 $.ajax({
-                    url:"src/usuarios/form.php",
+                    url:"src/atendentes/form.php",
                     type:"POST",
                     typeData:"JSON",
                     mimeType: 'multipart/form-data',
@@ -140,7 +140,7 @@
                     //console.log(dados)
                         // if(dados.situacao){
                             $.ajax({
-                                url:"src/usuarios/index.php",
+                                url:"src/atendentes/index.php",
                                 type:"POST",
                                 success:function(dados){
                                     $("#paginaHome").html(dados);
