@@ -57,6 +57,42 @@
                     <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Identificação da Mesa" value="<?=$d->categoria?>">
                     <label for="categoria">Categoria*</label>
                 </div>
+
+
+                <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens_medidas" aria-expanded="false" aria-controls="itens_medidas">
+                            Unidades de Medidas
+                        </button>
+                        </h2>
+                        <div id="itens_medidas" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                <?php
+                                    
+                                    $q2 = "select * from medidas where situacao = '1' and deletado != '1' order by medida asc";
+                                    $r2 = mysqli_query($con, $q2);
+                                    while($d2 = mysqli_fetch_object($r2)){
+                                ?>
+                                    <li class="d-flex justify-content-start list-group-item list-group-item-action" >
+                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($itens[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
+                                            <label class="form-check-label w-100" for="acao<?=$d2->codigo?>">
+                                                <div class="d-flex justify-content-between">
+                                                    <span class="text-break"><?=$d2->medida?></span>
+                                                </div>
+                                            </label> 
+                                    </li>
+                                <?php
+
+                                    }
+
+                                ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> 
+
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
