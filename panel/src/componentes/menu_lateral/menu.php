@@ -21,15 +21,6 @@
         </a>
       </div>
     </div>
-    
-
-    <div class="row mb-1">
-      <div class="col">
-        <a url="src/usuarios/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Usuários do Sistema</span>
-        </a>
-      </div>
-    </div>
 
     
 
@@ -97,6 +88,27 @@
         </a>
       </div>
     </div>    
+
+
+    <hr>
+
+    <h5>Configurações</h5>
+
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/usuarios/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Usuários do Sistema</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/atendentes/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Atendentes</span>
+        </a>
+      </div>
+    </div>
 
   </div>
 </div>
