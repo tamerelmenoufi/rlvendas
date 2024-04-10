@@ -38,7 +38,7 @@
 
     <div class="row mb-1">
       <div class="col">
-        <a url="src/categorias_medidas/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+        <a url="src/categoria_medidas/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
           <i class="fa-regular fa-user col-1"></i> <span class="col-11">Medidas</span>
         </a>
       </div>
