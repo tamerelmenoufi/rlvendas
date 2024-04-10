@@ -207,6 +207,15 @@
 
             $("input[chave]").bootstrapToggle();
 
+            $('input[chave]').change(function () {
+                opc = $(this).attr("opc");
+                if ($(this).prop('checked') === true) {
+                    $(this).val(opc);
+                } else {
+                    $(this).val('0');
+                }
+            })
+
             if (window.File && window.FileList && window.FileReader) {
 
                 $('input[type="file"]').change(function () {
@@ -299,6 +308,28 @@
                     campos.push({name: 'icon-atual', value: icon_atual})
 
                 }
+
+                detalhes = [];
+                dds = [];
+
+                $("input[valores]").each(function () {
+                    opc = $(this).attr('opc');
+                    stu = $('input[chave][opc="' + opc + '"]').val();
+                    //dds[opc] = [$(this).val(), stu];
+                    dds[opc] = {
+                        "valor": $(this).val(),
+                        "quantidade": stu,
+                    };
+
+                    /*dds.push({
+                        "valor": $(this).val(),
+                        "quantidade": stu,
+                    });*/
+                });
+
+                detalhes = JSON.stringify(Object.assign({}, dds));
+
+                campos.push({name: 'detalhes', value: detalhes});
 
                 Carregando();
 
