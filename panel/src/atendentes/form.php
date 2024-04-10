@@ -76,9 +76,9 @@
                     <label for="email">E-mail</label>
                 </div>
 
-                <div class="row">
+                <div class="row mt-2 mb-3">
                 <div class="col-md-12">
-                    <h4>Perfil de Acesso</h4>
+                    <h5>Perfil de Acesso</h5>
                     <?php
                     $perfis = [
                         ['name' => 'ExcluirProduto', 'value' => 'Excluir Produto em produção'],
