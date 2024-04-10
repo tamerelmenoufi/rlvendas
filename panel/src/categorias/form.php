@@ -58,8 +58,8 @@
                     <label for="categoria">Categoria*</label>
                 </div>
 
-
-                <div class="accordion-item">
+                <div class="accordion mb-3" id="accordionExample">
+                    <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens_medidas" aria-expanded="false" aria-controls="itens_medidas">
                             Unidades de Medidas
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div> 
-
+                </div> 
 
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
