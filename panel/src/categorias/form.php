@@ -15,7 +15,7 @@
             $md52 = md5($md5.$data['icone-name']);
 
             if(!is_dir("../volume")) mkdir("../volume");
-            if(!is_dir("../volume/icone")) mkdir("../volume/icone");
+            if(!is_dir("../volume/categorias")) mkdir("../volume/categorias");
 
             list($x, $icon) = explode(';base64,', $data['icone-base']);
             $icon = base64_decode($icon);
@@ -29,10 +29,10 @@
             unset($data['icone-name']);
             unset($data['icone-atual']);
     
-            if (file_put_contents("../volume/icone/{$md52}{$ext}", $icon)) {
+            if (file_put_contents("../volume/categorias/{$md52}{$ext}", $icon)) {
                 $attr[] = "icone = '{$md52}{$ext}'";
                 if ($atual) {
-                    unlink("../volume/icone/{$atual}");
+                    unlink("../volume/categorias/{$atual}");
                 }
             }
     
