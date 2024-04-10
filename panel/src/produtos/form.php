@@ -136,7 +136,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input
-                                            situacao
+                                            chave
                                             opc="<?= $dados->codigo ?>"
                                             value="<?= (($detalhes[$dados->codigo]['quantidade']) ?: '0') ?>"
                                             type="checkbox" <?= (($detalhes[$dados->codigo]['quantidade']) ? 'checked' : false) ?>
@@ -205,7 +205,7 @@
         $(function(){
             Carregando('none');
 
-            $("input[situacao]").bootstrapToggle();
+            $("input[chave]").bootstrapToggle();
 
             if (window.File && window.FileList && window.FileReader) {
 
