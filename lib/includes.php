@@ -59,3 +59,5 @@ $appOpc = [
 $localApp = $appOpc[explode("/",str_replace("/rlvendas/",false,$_SERVER["PHP_SELF"]))[0]];
 
 $descricao_padrao = 'Saiba a receita e a qualidade dos produtos comercializados pela yobom. Tudo para oferecer a melhor qualidade e os mais deliciosos sabores de Manaus.';
+
+$urlPainel = "https://www.yobom.com.br/rlvendas/panel/";
