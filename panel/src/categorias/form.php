@@ -92,7 +92,7 @@
                 <?php
                 if(is_file("../volume/categorias/{$d->icone}")){
                 ?>
-                <center><img src="src/volume/categorias/<?=$d->icone?>" style="margin: 20px;" /></center>
+                <center><img src="src/volume/categorias/<?=$d->icone?>" style="margin: 20px;" class="img-fluid" /></center>
                 <?php
                 }
                 ?>
@@ -214,7 +214,8 @@
                                             $(`#${tgt}`).attr("w", w);
                                             $(`#${tgt}`).attr("h", h);
 
-                                            $(`.${tgt}`).prepend(`<center><img src="${Base64}" style="margin: 20px;" /></center>`);
+                                            $(`.${tgt} center`).remove();
+                                            $(`.${tgt}`).prepend(`<center><img src="${Base64}" style="margin: 20px;" class="img-fluid" /></center>`);
                                         // }
 
                                     };
