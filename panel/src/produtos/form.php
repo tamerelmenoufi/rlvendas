@@ -98,7 +98,7 @@
 
 
 
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-header">
                         Valores
                     </div>
