@@ -127,7 +127,7 @@
                     <td>
 
                     <div class="form-check form-switch">
-                      <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                      <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
                     </div>
 
                     </td>
@@ -166,7 +166,7 @@
                     <div class="row">
                       <div class="col-12 d-flex justify-content-end">
                         <div class="form-check form-switch">
-                          <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                          <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
                           Situação
                         </div>
                       </div>
