@@ -126,13 +126,13 @@
                     <td class="w-100"><?=(($d->nome)?:'<span class="text-danger">Não cadastrado</span>')?></td>
                     <td><?=(($d->cpf)?:'<span class="text-danger">000.000.000-00</span>')?></td>
                     <td><?=$d->telefone?></td>
-                    <td>
+                    <!-- <td>
 
-                    <!-- <div class="form-check form-switch">
+                    <div class="form-check form-switch">
                       <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->status)?'checked':false)?> situacao="<?=$d->codigo?>">
-                    </div> -->
+                    </div>
 
-                    </td>
+                    </td> -->
                     <td>
                       <button
                         class="btn btn-primary"
