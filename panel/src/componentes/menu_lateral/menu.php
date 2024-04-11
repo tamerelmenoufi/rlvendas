@@ -110,6 +110,14 @@
       </div>
     </div>
 
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/clientes/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Clientes</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
