@@ -128,9 +128,9 @@
                     <td><?=$d->telefone?></td>
                     <td>
 
-                    <div class="form-check form-switch">
+                    <!-- <div class="form-check form-switch">
                       <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->status)?'checked':false)?> situacao="<?=$d->codigo?>">
-                    </div>
+                    </div> -->
 
                     </td>
                     <td>
@@ -171,14 +171,15 @@
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <div class="card mb-3 p-3">
-                    <div class="row">
+
+                    <!-- <div class="row">
                       <div class="col-12 d-flex justify-content-end">
                         <div class="form-check form-switch">
                           <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->status)?'checked':false)?> situacao="<?=$d->codigo?>">
                           Situação
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="row">
                       <div class="col-12">
