@@ -123,8 +123,8 @@
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
-                    <td class="w-100"><?=$d->nome?></td>
-                    <td><?=$d->cpf?></td>
+                    <td class="w-100"><?=(($d->nome)?:'<span class="text-danger">Não cadastrado</span>')?></td>
+                    <td><?=(($d->cpf)?:'<span class="text-danger">000.000.000-00</span>')?></td>
                     <td><?=$d->telefone?></td>
                     <td>
 
@@ -183,14 +183,21 @@
                     <div class="row">
                       <div class="col-12">
                         <label class="label">Nome</label>
-                        <div><?=$d->nome?></div>
+                        <div><?=(($d->nome)?:'<span class="text-danger">Não cadastrado</span>')?></div>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-12">
                       <label class="label">CPF</label>
-                       <div><?=$d->cpf?></div>
+                       <div><?=(($d->cpf)?:'<span class="text-danger">000.000.000-00</span>')?></div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                      <label class="label">Telefone</label>
+                       <div><?=$d->telefone?></div>
                       </div>
                     </div>
 
