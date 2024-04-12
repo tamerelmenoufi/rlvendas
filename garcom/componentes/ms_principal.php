@@ -92,7 +92,7 @@
                 categoria = '<?=$d->codigo?>'
         >
             <div class="d-flex justify-content-between align-items-center">
-                <img src="img/<?=$d->icone?>" style="height:50px;">
+                <img src="img/<?=str_replace(" ","_",trim(strtolower($d->categoria)))?>.png" style="height:50px;">
                 <span><?=$d->categoria?></span>
             </div>
 
