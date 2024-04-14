@@ -6,9 +6,9 @@
         // data_inicial,
         // data_final,
         // acao:"busca"
-        if($_POST['data_inicial']) $_SESSION['data_inicial'] = $_POST['data_inicial'];
-        if($_POST['data_final']) $_SESSION['data_final'] = $_POST['data_final'];
-        if($_POST['busca_tipo']) $_SESSION['busca_tipo'] = $_POST['busca_tipo'];
+        $_SESSION['data_inicial'] = $_POST['data_inicial'];
+        $_SESSION['data_final'] = $_POST['data_final'];
+        $_SESSION['busca_tipo'] = $_POST['busca_tipo'];
 
     }
 
