@@ -14,10 +14,10 @@
 
     $where = false;
     if($_SESSION['data_inicial'] > 0){
-        $where .= " and data_pedido between '{$_SESSION['data_inicial']} 00:00:00' and '".(($_SESSION['data_final'])?:$_SESSION['data_inicial'])." 23:59:59' "
+        $where .= " and data_pedido between '{$_SESSION['data_inicial']} 00:00:00' and '".(($_SESSION['data_final'])?:$_SESSION['data_inicial'])." 23:59:59' ";
     }
     if($_SESSION['busca_tipo']){
-        $where .= " and app = '{$_SESSION['busca_tipo']}' "
+        $where .= " and app = '{$_SESSION['busca_tipo']}' ";
     }
     
 
