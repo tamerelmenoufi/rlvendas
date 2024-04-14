@@ -7,7 +7,7 @@
     ];
 
 
-    $query = "select * from vendas where data_pedido like '".date("Y-m-d")."%' {$tipo[$_POST['tipo']]}";
+    $query = "select * from vendas where data_pedido like '".date("Y-m-d")."%' {$tipo[$_GET['tipo']]}";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
