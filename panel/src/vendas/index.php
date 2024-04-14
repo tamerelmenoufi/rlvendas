@@ -67,7 +67,7 @@
             busca_tipo = $("#busca_tipo").val();
             data_nicial = $("#data_inicial").val();
             data_final = $("#data_final").val();
-
+            Carregando();
             $.ajax({
                 url:"src/vendas/index.php",
                 data:{
