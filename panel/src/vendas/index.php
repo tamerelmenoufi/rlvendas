@@ -50,6 +50,7 @@
 <div class="row g-0">
     <div class="col">
         <div class="m-3">
+            <div class="row">
 <?php
 
 if($_SESSION['busca_tipo'] == 'garcom'){
@@ -68,7 +69,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
     <?php
 }else if($_SESSION['busca_tipo'] == 'cliente'){
     ?>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-1">Pedido</div>
                     <div class="col-md-1">Mesa</div>
                     <div class="col-md-2">Cliente</div>
@@ -80,7 +81,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
                     <div class="col-md-1">Total</div>
                     <div class="col-md-1">Situação</div>
                     <div class="col-md-1">Data</div>
-                </div>
+                </div> -->
     <?php
 }else if($_SESSION['busca_tipo'] == 'viagem'){
     ?>
@@ -134,7 +135,22 @@ if($_SESSION['busca_tipo'] == 'garcom'){
 <?php
         }else if($d->app == 'mesa'){
 ?>
-            <div class="row">
+
+
+<div class="col-md-3">
+    <div class="card">
+    <div class="card-header">
+        Featured
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+    </ul>
+    </div>
+</div>
+
+            <!-- <div class="row">
                 <div class="col-md-1"><?=$d->codigo?></div>
                 <div class="col-md-1"><?=$d->mesa?></div>
                 <div class="col-md-2"><?=$d->cliente?></div>
@@ -146,7 +162,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
                 <div class="col-md-1"><?=$d->total?></div>
                 <div class="col-md-1"><?=$d->situacao?></div>
                 <div class="col-md-1"><?=$d->data_pedido?></div>
-            </div>
+            </div> -->
 <?php
         }else if($d->app == 'delivery'){
 ?>
@@ -166,6 +182,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
         }
     }
 ?>
+            </div>
         </div>
     </div>
 </div>
