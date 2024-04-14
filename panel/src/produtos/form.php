@@ -107,44 +107,49 @@
 
 
                             <div class="form-group">
-                            <?php
-                            $query1 = "SELECT * FROM categoria_medidas "
-                                . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
-                                . "ORDER BY ordem, medida";
-                            $result1 = mysqli_query($con, $query1);
+                        <?php
 
-                            $detalhes = json_decode($d->detalhes, true);
+                            if($ConfCategoria->medidas){
+                                $query1 = "SELECT * FROM categoria_medidas "
+                                    . "WHERE deletado != '1' AND codigo IN({$ConfCategoria->medidas}) "
+                                    . "ORDER BY ordem, medida";
+                                $result1 = mysqli_query($con, $query1);
 
-                            while ($dados = mysqli_fetch_object($result1)):
-                                ?>
-                                <div class="row cor mb-2">
-                                    <div class="col-5">
-                                        <?= $dados->medida; ?>
-                                    </div>
-                                    <div class="col-5">
+                                $detalhes = json_decode($d->detalhes, true);
 
-                                        <div class="input-group">
-                                            <span class="input-group-text">R$</span>
+                                while ($dados = mysqli_fetch_object($result1)):
+                                    ?>
+                                    <div class="row cor mb-2">
+                                        <div class="col-5">
+                                            <?= $dados->medida; ?>
+                                        </div>
+                                        <div class="col-5">
+
+                                            <div class="input-group">
+                                                <span class="input-group-text">R$</span>
+                                                <input
+                                                    valores
+                                                    opc="<?= $dados->codigo ?>"
+                                                    value="<?= $detalhes[$dados->codigo]['valor']; ?>"
+                                                    type="number"
+                                                    class="form-control"
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
                                             <input
-                                                valores
+                                                chave
                                                 opc="<?= $dados->codigo ?>"
-                                                value="<?= $detalhes[$dados->codigo]['valor']; ?>"
-                                                type="number"
-                                                class="form-control"
+                                                value="<?= (($detalhes[$dados->codigo]['quantidade']) ?: '0') ?>"
+                                                type="checkbox" <?= (($detalhes[$dados->codigo]['quantidade']) ? 'checked' : false) ?>
+                                                data-toggle="toggle"
                                             >
                                         </div>
                                     </div>
-                                    <div class="col-2">
-                                        <input
-                                            chave
-                                            opc="<?= $dados->codigo ?>"
-                                            value="<?= (($detalhes[$dados->codigo]['quantidade']) ?: '0') ?>"
-                                            type="checkbox" <?= (($detalhes[$dados->codigo]['quantidade']) ? 'checked' : false) ?>
-                                            data-toggle="toggle"
-                                        >
-                                    </div>
-                                </div>
-                            <?php endwhile; ?>
+                            <?php 
+                                    endwhile;
+                            }
+                            ?>
                             </div>
                          </li>
                     </ul>
