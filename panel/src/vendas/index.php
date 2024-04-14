@@ -24,7 +24,7 @@
     $tipo = [
         'garcom' => " and a.app = 'mesa' ",
         'cliente' => " and a.caixa != '0' and a.app = 'mesa' and a.situacao = 'pago'",
-        'viagem' => " and a.app = 'mesa' and a.mesa >= 200",
+        'viagem' => " and a.app = 'mesa'", // and a.mesa >= 200
         'delivery' => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
     ];
 ?>
