@@ -9,19 +9,21 @@
 
 <div class="row">
     <div class="col">
-        <div class="input-group m-3">
-            <span class="input-group-text">Tipo</span>
-            <select id="busca_tipo" class="form-select">
-                <option value="">Todos</option>
-                <option value="garcom">Atendimento pelo Garçom</option>
-                <option value="mesa">Pedido feito pelo Cliente (na mesa)</option>
-                <option value="delivery">Pedido pelo Delivery</option>
-            </select>
-            <span class="input-group-text">Em</span>
-            <input type="date" class="form-control" >
-            <span class="input-group-text">até</span>
-            <input type="date" class="form-control" >
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Acahar</button>
+        <div class="m-3">
+            <div class="input-group">
+                <span class="input-group-text">Tipo</span>
+                <select id="busca_tipo" class="form-select">
+                    <option value="">Todos</option>
+                    <option value="garcom">Atendimento pelo Garçom</option>
+                    <option value="mesa">Pedido feito pelo Cliente (na mesa)</option>
+                    <option value="delivery">Pedido pelo Delivery</option>
+                </select>
+                <span class="input-group-text">Em</span>
+                <input type="date" class="form-control" >
+                <span class="input-group-text">até</span>
+                <input type="date" class="form-control" >
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1">Acahar</button>
+            </div>
         </div>
     </div>
 </div>
