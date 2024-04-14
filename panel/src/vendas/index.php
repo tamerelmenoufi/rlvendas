@@ -55,6 +55,7 @@
 if($_SESSION['busca_tipo'] == 'garcom'){
     ?>
                 <div class="row">
+                    <div class="col-md-1">Pedido</div>
                     <div class="col-md-1">Mesa</div>
                     <div class="col-md-2">Atendente</div>
                     <div class="col-md-1">Valor</div>
@@ -68,6 +69,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
 }else if($_SESSION['busca_tipo'] == 'cliente'){
     ?>
                 <div class="row">
+                    <div class="col-md-1">Pedido</div>
                     <div class="col-md-1">Mesa</div>
                     <div class="col-md-2">Cliente</div>
                     <div class="col-md-2">Atendente</div>
@@ -82,6 +84,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
 }else if($_SESSION['busca_tipo'] == 'viagem'){
     ?>
                 <div class="row">
+                    <div class="col-md-1">Pedido</div>
                     <div class="col-md-2">Cliente</div>
                     <div class="col-md-2">Atendente</div>
                     <div class="col-md-1">Valor</div>
@@ -96,6 +99,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
 }else if($_SESSION['busca_tipo'] == 'delivery'){
     ?>
                 <div class="row">
+                    <div class="col-md-1">Pedido</div>
                     <div class="col-md-2">Cliente</div>
                     <div class="col-md-2">Atendente</div>
                     <div class="col-md-1">Valor</div>
@@ -116,6 +120,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
         if($d->app == 'garcom'){
 ?>
             <div class="row">
+                <div class="col-md-1"><?=$d->codigo?></div>
                 <div class="col-md-1"><?=$d->mesa?></div>
                 <div class="col-md-2"><?=$d->atendente?></div>
                 <div class="col-md-1"><?=$d->valor?></div>
@@ -129,6 +134,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
         }else if($d->app == 'mesa'){
 ?>
             <div class="row">
+                <div class="col-md-1"><?=$d->codigo?></div>
                 <div class="col-md-1"><?=$d->mesa?></div>
                 <div class="col-md-2"><?=$d->cliente?></div>
                 <div class="col-md-2"><?=$d->atendente?></div>
@@ -143,6 +149,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
         }else if($d->app == 'delivery'){
 ?>
             <div class="row">
+                <div class="col-md-1"><?=$d->codigo?></div>
                 <div class="col-md-2"><?=$d->cliente?></div>
                 <div class="col-md-2"><?=$d->atendente?></div>
                 <div class="col-md-1"><?=$d->valor?></div>
