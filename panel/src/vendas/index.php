@@ -15,3 +15,9 @@
 <?php
     }
 ?>
+
+<script>
+    $(function(){
+        Carregando('none');
+    })
+</script>
