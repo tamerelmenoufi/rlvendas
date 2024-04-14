@@ -94,9 +94,6 @@
 </div>
 <?php
         }
-?>
-    <?=$d->codigo?><br>
-<?php
     }
 ?>
 
