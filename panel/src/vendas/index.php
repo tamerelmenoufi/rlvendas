@@ -9,9 +9,9 @@
 
 <div class="row">
     <div class="col">
-        <div class="input-group mb-3">
+        <div class="input-group m-3">
             <span class="input-group-text">Tipo</span>
-            <select id="busca_tipo">
+            <select id="busca_tipo" class="form-select">
                 <option value="">Todos</option>
                 <option value="garcom">Atendimento pelo Garçom</option>
                 <option value="mesa">Pedido feito pelo Cliente (na mesa)</option>
