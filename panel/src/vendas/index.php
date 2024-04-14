@@ -65,7 +65,7 @@
         $("button[buscar]").click(function(){
 
             busca_tipo = $("#busca_tipo").val();
-            data_nicial = $("#data_inicial").val();
+            data_inicial = $("#data_inicial").val();
             data_final = $("#data_final").val();
             Carregando();
             $.ajax({
