@@ -54,6 +54,63 @@
     <div class="col">
         <div class="m-3">
 <?php
+
+if($_SESSION['busca_tipo'] == 'garcom'){
+    ?>
+                <div class="row">
+                    <div class="col-md-1">Mesa</div>
+                    <div class="col-md-2">Atendente</div>
+                    <div class="col-md-1">Valor</div>
+                    <div class="col-md-1">Desconto</div>
+                    <div class="col-md-1">Total</div>
+                    <div class="col-md-1">Situação</div>
+                    <div class="col-md-1">Data</div>
+                </div>
+    <?php
+}else if($_SESSION['busca_tipo'] == 'cliente'){
+    ?>
+                <div class="row">
+                    <div class="col-md-1">Mesa</div>
+                    <div class="col-md-2">Cliente</div>
+                    <div class="col-md-2">Atendente</div>
+                    <div class="col-md-1">Valor</div>
+                    <div class="col-md-1">Desconto</div>
+                    <div class="col-md-1">Cupom Desconto</div>
+                    <div class="col-md-1">Total</div>
+                    <div class="col-md-1">Situação</div>
+                    <div class="col-md-1">Data</div>
+                </div>
+    <?php
+}else if($_SESSION['busca_tipo'] == 'viagem'){
+    ?>
+                <div class="row">
+                    <div class="col-md-2">Cliente</div>
+                    <div class="col-md-2">Atendente</div>
+                    <div class="col-md-1">Valor</div>
+                    <div class="col-md-1">Taxa</div>
+                    <div class="col-md-1">Desconto</div>
+                    <div class="col-md-1">Cupom Desconto</div>
+                    <div class="col-md-1">Total</div>
+                    <div class="col-md-1">Situação</div>
+                    <div class="col-md-1">Data</div>
+                </div>
+    <?php
+}else if($_SESSION['busca_tipo'] == 'delivery'){
+    ?>
+                <div class="row">
+                    <div class="col-md-2">Cliente</div>
+                    <div class="col-md-2">Atendente</div>
+                    <div class="col-md-1">Valor</div>
+                    <div class="col-md-1">Taxa</div>
+                    <div class="col-md-1">Desconto</div>
+                    <div class="col-md-1">Cupom Desconto</div>
+                    <div class="col-md-1">Total</div>
+                    <div class="col-md-1">Situação</div>
+                    <div class="col-md-1">Data</div>
+                </div>
+    <?php
+}
+
     echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['filtro']]} order by a.codigo desc".((!$_SESSION['data_inicial'])?" limit 50 ":false);
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
