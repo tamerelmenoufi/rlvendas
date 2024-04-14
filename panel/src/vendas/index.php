@@ -49,6 +49,10 @@
     </div>
 </div>
 
+
+<div class="row g-0">
+    <div class="col">
+        <div class="m-3">
 <?php
     echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['filtro']]} order by a.codigo desc".((!$_SESSION['data_inicial'])?" limit 50 ":false);
     $result = mysqli_query($con, $query);
@@ -56,47 +60,52 @@
 
         if($d->app == 'garcom'){
 ?>
-<div class="row">
-    <div class="col-md-1"><?=$d->mesa?></div>
-    <div class="col-md-2"><?=$d->atendente?></div>
-    <div class="col-md-1"><?=$d->valor?></div>
-    <div class="col-md-1"><?=$d->desconto?></div>
-    <div class="col-md-1"><?=$d->total?></div>
-    <div class="col-md-1"><?=$d->situacao?></div>
-    <div class="col-md-1"><?=$d->data_pedido?></div>
-</div>
+            <div class="row">
+                <div class="col-md-1"><?=$d->mesa?></div>
+                <div class="col-md-2"><?=$d->atendente?></div>
+                <div class="col-md-1"><?=$d->valor?></div>
+                <div class="col-md-1"><?=$d->desconto?></div>
+                <div class="col-md-1"><?=$d->total?></div>
+                <div class="col-md-1"><?=$d->situacao?></div>
+                <div class="col-md-1"><?=$d->data_pedido?></div>
+            </div>
 <?php
         }else if($d->app == 'mesa'){
 ?>
-<div class="row">
-    <div class="col-md-1"><?=$d->mesa?></div>
-    <div class="col-md-2"><?=$d->cliente?></div>
-    <div class="col-md-2"><?=$d->atendente?></div>
-    <div class="col-md-1"><?=$d->valor?></div>
-    <div class="col-md-1"><?=$d->desconto?></div>
-    <div class="col-md-1"><?=$d->cupom_valor?></div>
-    <div class="col-md-1"><?=$d->total?></div>
-    <div class="col-md-1"><?=$d->situacao?></div>
-    <div class="col-md-1"><?=$d->data_pedido?></div>
-</div>
+            <div class="row">
+                <div class="col-md-1"><?=$d->mesa?></div>
+                <div class="col-md-2"><?=$d->cliente?></div>
+                <div class="col-md-2"><?=$d->atendente?></div>
+                <div class="col-md-1"><?=$d->valor?></div>
+                <div class="col-md-1"><?=$d->desconto?></div>
+                <div class="col-md-1"><?=$d->cupom_valor?></div>
+                <div class="col-md-1"><?=$d->total?></div>
+                <div class="col-md-1"><?=$d->situacao?></div>
+                <div class="col-md-1"><?=$d->data_pedido?></div>
+            </div>
 <?php
         }else if($d->app == 'delivery'){
 ?>
-<div class="row">
-    <div class="col-md-2"><?=$d->cliente?></div>
-    <div class="col-md-2"><?=$d->atendente?></div>
-    <div class="col-md-1"><?=$d->valor?></div>
-    <div class="col-md-1"><?=$d->taxa?></div>
-    <div class="col-md-1"><?=$d->desconto?></div>
-    <div class="col-md-1"><?=$d->cupom_valor?></div>
-    <div class="col-md-1"><?=$d->total?></div>
-    <div class="col-md-1"><?=$d->situacao?></div>
-    <div class="col-md-1"><?=$d->data_pedido?></div>
-</div>
+            <div class="row">
+                <div class="col-md-2"><?=$d->cliente?></div>
+                <div class="col-md-2"><?=$d->atendente?></div>
+                <div class="col-md-1"><?=$d->valor?></div>
+                <div class="col-md-1"><?=$d->taxa?></div>
+                <div class="col-md-1"><?=$d->desconto?></div>
+                <div class="col-md-1"><?=$d->cupom_valor?></div>
+                <div class="col-md-1"><?=$d->total?></div>
+                <div class="col-md-1"><?=$d->situacao?></div>
+                <div class="col-md-1"><?=$d->data_pedido?></div>
+            </div>
 <?php
         }
     }
 ?>
+        </div>
+    </div>
+</div>
+
+
 
 <script>
     $(function(){
