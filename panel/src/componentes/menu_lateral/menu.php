@@ -28,11 +28,32 @@
 
     <div class="row mb-1">
       <div class="col">
-        <a url="src/vendas/index.php?tipo=aberto" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+        <a url="src/vendas/index.php?filtro=garcom" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Salão</span>
+        </a>
+      </div>
+    </div>   
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/vendas/index.php?filtro=cliente" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
           <i class="fa-regular fa-user col-1"></i> <span class="col-11">Salão</span>
         </a>
       </div>
     </div>    
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/vendas/index.php?filtro=viagem" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Salão</span>
+        </a>
+      </div>
+    </div>   
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/vendas/index.php?filtro=delivery" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Salão</span>
+        </a>
+      </div>
+    </div>   
 
     <hr>
 

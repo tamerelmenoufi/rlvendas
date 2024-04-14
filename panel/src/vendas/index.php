@@ -22,8 +22,10 @@
     
 
     $tipo = [
-        'aberto' => " and a.deletado != '1' and a.caixa = '0' and a.app = 'mesa' ",
-        'paga' => " and a.deletado != '1' and a.caixa != '0' and a.app = 'mesa' and a.situacao = 'pago'",
+        'garcom' => " and a.app = 'mesa' ",
+        'cliente' => " and a.caixa != '0' and a.app = 'mesa' and a.situacao = 'pago'",
+        'viagem' => " and a.app = 'mesa' and a.mesa >= 200",
+        'delivery' => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
     ];
 ?>
 
@@ -49,7 +51,7 @@
 </div>
 
 <?php
-    echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['tipo']]} order by a.codigo desc limit 30";
+    echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['filtro']]} order by a.codigo desc limit 30";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
