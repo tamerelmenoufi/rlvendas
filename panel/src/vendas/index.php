@@ -61,6 +61,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
                     <div class="col-md-1">Mesa</div>
                     <div class="col-md-2">Atendente</div>
                     <div class="col-md-1">Valor</div>
+                    <div class="col-md-1">Taxa</div>
                     <div class="col-md-1">Desconto</div>
                     <div class="col-md-1">Total</div>
                     <div class="col-md-1">Situação</div>
@@ -121,6 +122,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
                 <div class="col-md-1"><?=$d->mesa?></div>
                 <div class="col-md-2"><?=$d->atendente?></div>
                 <div class="col-md-1"><?=$d->valor?></div>
+                <div class="col-md-1"><?=$d->taxa?></div>
                 <div class="col-md-1"><?=$d->desconto?></div>
                 <div class="col-md-1"><?=$d->total?></div>
                 <div class="col-md-1"><?=$d->situacao?></div>
