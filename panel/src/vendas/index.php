@@ -49,7 +49,7 @@
 </div>
 
 <?php
-    echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['tipo']]} limit 30";
+    echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['tipo']]} order by a.codigo desc limit 30";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
