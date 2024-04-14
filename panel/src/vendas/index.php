@@ -137,15 +137,54 @@ if($_SESSION['busca_tipo'] == 'garcom'){
 ?>
 
 
-<div class="col-md-3">
+<div class="col-md-3 mb-3">
     <div class="card">
     <div class="card-header">
-        Featured
+        Pedido #<?=$d->codigo?>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Mesa</span>
+            <span><?=$d->mesa?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Cliente</span>
+            <span><?=$d->cliente?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Atendente</span>
+            <span><?=$d->atendente?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Valor</span>
+            <span><?=$d->valor?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Taxa</span>
+            <span><?=$d->taxa?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Desconto</span>
+            <span><?=$d->desconto?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Cupom</span>
+            <span><?=$d->cupom_valor?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Total</span>
+            <span><?=$d->total?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Situação</span>
+            <span><?=$d->situacao?></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Data</span>
+            <span><?=$d->data_pedido?></span>
+        </li>
+
     </ul>
     </div>
 </div>
