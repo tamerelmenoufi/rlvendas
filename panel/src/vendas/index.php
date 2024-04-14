@@ -112,7 +112,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
     <?php
 }
 
-    echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['filtro']]} order by a.codigo desc".((!$_SESSION['data_inicial'])?" limit 50 ":false);
+    echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_SESSION['busca_tipo']]} order by a.codigo desc".((!$_SESSION['data_inicial'])?" limit 50 ":false);
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
