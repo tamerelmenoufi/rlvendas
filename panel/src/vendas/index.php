@@ -18,10 +18,10 @@
     
 
     $tipo = [
-        'garcom' => " and a.app = 'garcom' ",
-        'cliente' => " and a.caixa != '0' and a.app = 'mesa' and a.situacao = 'pago'",
-        'viagem' => " and a.app = 'mesa'", // and a.mesa >= 200
-        'delivery' => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
+        'garcom'    => " and a.app = 'garcom' ",
+        'cliente'   => " and a.caixa != '0' and a.app = 'mesa' and a.situacao = 'pago'",
+        'viagem'    => " and a.app = 'mesa'", // and a.mesa >= 200
+        'delivery'  => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
     ];
 ?>
 
@@ -74,6 +74,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
                     <div class="col-md-2">Cliente</div>
                     <div class="col-md-2">Atendente</div>
                     <div class="col-md-1">Valor</div>
+                    <div class="col-md-1">Taxa</div>
                     <div class="col-md-1">Desconto</div>
                     <div class="col-md-1">Cupom Desconto</div>
                     <div class="col-md-1">Total</div>
@@ -139,6 +140,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
                 <div class="col-md-2"><?=$d->cliente?></div>
                 <div class="col-md-2"><?=$d->atendente?></div>
                 <div class="col-md-1"><?=$d->valor?></div>
+                <div class="col-md-1"><?=$d->taxa?></div>
                 <div class="col-md-1"><?=$d->desconto?></div>
                 <div class="col-md-1"><?=$d->cupom_valor?></div>
                 <div class="col-md-1"><?=$d->total?></div>
