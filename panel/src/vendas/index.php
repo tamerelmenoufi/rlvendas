@@ -70,6 +70,7 @@
             Carregando();
             $.ajax({
                 url:"src/vendas/index.php",
+                type:"POST",
                 data:{
                     busca_tipo,
                     data_inicial,
