@@ -1,15 +1,14 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
+    if($_GET['filtro']){
+        $_SESSION['busca_tipo'] = $_GET['filtro'];
+    }
+
     if($_POST['acao'] == 'busca'){
-        // busca_tipo,
-        // data_inicial,
-        // data_final,
-        // acao:"busca"
         $_SESSION['data_inicial'] = $_POST['data_inicial'];
         $_SESSION['data_final'] = $_POST['data_final'];
         $_SESSION['busca_tipo'] = $_POST['busca_tipo'];
-
     }
 
     $where = false;
@@ -37,7 +36,8 @@
                 <select id="busca_tipo" class="form-select">
                     <option value="">Todos</option>
                     <option value="garcom" <?=(($_SESSION['busca_tipo'] == 'garcom')?'selected':false)?>>Atendimento pelo Garçom</option>
-                    <option value="mesa" <?=(($_SESSION['busca_tipo'] == 'mesa')?'selected':false)?>>Pedido feito pelo Cliente (na mesa)</option>
+                    <option value="cliente" <?=(($_SESSION['busca_tipo'] == 'cliente')?'selected':false)?>>Pedido pelo Cliente (na mesa)</option>
+                    <option value="viagem" <?=(($_SESSION['busca_tipo'] == 'viagem')?'selected':false)?>>Pedido para viagem</option>
                     <option value="delivery" <?=(($_SESSION['busca_tipo'] == 'delivery')?'selected':false)?>>Pedido pelo Delivery</option>
                 </select>
                 <span class="input-group-text">Em</span>
