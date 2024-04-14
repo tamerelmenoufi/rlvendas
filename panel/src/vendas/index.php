@@ -22,8 +22,8 @@
     
 
     $tipo = [
-        'aberto' => " and deletado != '1' and caixa = '0' and app = 'mesa' ",
-        'paga' => " and deletado != '1' and caixa != '0' and app = 'mesa' and situacao = 'pago'",
+        'aberto' => " and a.deletado != '1' and a.caixa = '0' and a.app = 'mesa' ",
+        'paga' => " and a.deletado != '1' and a.caixa != '0' and a.app = 'mesa' and a.situacao = 'pago'",
     ];
 ?>
 
@@ -49,9 +49,51 @@
 </div>
 
 <?php
-    echo $query = "select * from vendas where deletado != '1' {$where} {$tipo[$_GET['tipo']]} limit 30";
+    echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_GET['tipo']]} limit 30";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
+
+        if($d->app == 'gacom'){
+?>
+<div class="row">
+    <div class="col-md-1"><?=$d->mesa?></div>
+    <div class="col-md-2"><?=$d->atendente?></div>
+    <div class="col-md-1"><?=$d->valor?></div>
+    <div class="col-md-1"><?=$d->desconto?></div>
+    <div class="col-md-1"><?=$d->total?></div>
+    <div class="col-md-1"><?=$d->situacao?></div>
+    <div class="col-md-1"><?=$d->periodo?></div>
+</div>
+<?php
+        }else if($d->app == 'mesa'){
+?>
+<div class="row">
+    <div class="col-md-1"><?=$d->mesa?></div>
+    <div class="col-md-2"><?=$d->cliente?></div>
+    <div class="col-md-2"><?=$d->atendente?></div>
+    <div class="col-md-1"><?=$d->valor?></div>
+    <div class="col-md-1"><?=$d->desconto?></div>
+    <div class="col-md-1"><?=$d->cupom_valor?></div>
+    <div class="col-md-1"><?=$d->total?></div>
+    <div class="col-md-1"><?=$d->situacao?></div>
+    <div class="col-md-1"><?=$d->periodo?></div>
+</div>
+<?php
+        }else if($d->app == 'delivery'){
+?>
+<div class="row">
+    <div class="col-md-2"><?=$d->cliente?></div>
+    <div class="col-md-2"><?=$d->atendente?></div>
+    <div class="col-md-1"><?=$d->valor?></div>
+    <div class="col-md-1"><?=$d->taxa?></div>
+    <div class="col-md-1"><?=$d->desconto?></div>
+    <div class="col-md-1"><?=$d->cupom_valor?></div>
+    <div class="col-md-1"><?=$d->total?></div>
+    <div class="col-md-1"><?=$d->situacao?></div>
+    <div class="col-md-1"><?=$d->periodo?></div>
+</div>
+<?php
+        }
 ?>
     <?=$d->codigo?><br>
 <?php
