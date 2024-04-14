@@ -57,63 +57,61 @@
     while($d = mysqli_fetch_object($result)){
 
 ?>
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                    <div class="card-header">
+                        Pedido #<?=$d->codigo?>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <span>Data</span>
+                                <span><?=$d->data_pedido?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Mesa</span>
+                                <span><?=$d->mesa?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Cliente</span>
+                                <span><?=$d->cliente?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Atendente</span>
+                                <span><?=$d->atendente?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Valor</span>
+                                <span><?=$d->valor?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Taxa</span>
+                                <span><?=$d->taxa?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Desconto</span>
+                                <span><?=$d->desconto?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Cupom</span>
+                                <span><?=$d->cupom_valor?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Total</span>
+                                <span><?=$d->total?></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Situação</span>
+                                <span><?=$d->situacao?></span>
+                            </div>
+                        </li>
 
 
-<div class="col-md-3 mb-3">
-    <div class="card">
-    <div class="card-header">
-        Pedido #<?=$d->codigo?>
-    </div>
-    <ul class="list-group list-group-flush">
-
-        <li class="list-group-item">
-            <div class="d-flex justify-content-between">
-                <span>Data</span>
-                <span><?=$d->data_pedido?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Mesa</span>
-                <span><?=$d->mesa?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Cliente</span>
-                <span><?=$d->cliente?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Atendente</span>
-                <span><?=$d->atendente?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Valor</span>
-                <span><?=$d->valor?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Taxa</span>
-                <span><?=$d->taxa?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Desconto</span>
-                <span><?=$d->desconto?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Cupom</span>
-                <span><?=$d->cupom_valor?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Total</span>
-                <span><?=$d->total?></span>
-            </div>
-            <div class="d-flex justify-content-between">
-                <span>Situação</span>
-                <span><?=$d->situacao?></span>
-            </div>
-        </li>
-
-
-    </ul>
-    </div>
-</div>
-
+                    </ul>
+                    </div>
+                </div>
+<?php
     }
 ?>
             </div>
