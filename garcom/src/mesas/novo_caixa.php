@@ -8,7 +8,7 @@
         $fisico_calculado = $_POST['fisico_calculado'];
         $vendas = $_POST['vendas'];
 
-        $q = "update caixa set situacao = '1' where situacao = '0'";
+        $q = "update caixa set situacao = '1', concluir = NOW() where situacao = '0'";
         mysqli_query($con, $q);
         sisLog(
             [
