@@ -55,7 +55,7 @@
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
-        if($d->app == 'gacom'){
+        if($d->app == 'garcom'){
 ?>
 <div class="row">
     <div class="col-md-1"><?=$d->mesa?></div>
