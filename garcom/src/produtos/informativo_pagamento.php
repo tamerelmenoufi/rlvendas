@@ -21,8 +21,8 @@ if($_POST['acao'] == 'fechar_conta'){
     $query = "SELECT SUM(vp.valor_total) AS total FROM vendas v "
     . "INNER JOIN vendas_produtos vp ON vp.venda = v.codigo "
     . "WHERE v.situacao NOT IN ('pagar','pago') AND "
-    . "vp.mesa = '{$_SESSION['AppPedido']}' AND "
-    . "vp.cliente = '{$_SESSION['AppCliente']}' AND "
+    // . "vp.mesa = '{$_SESSION['AppPedido']}' AND "
+    // . "vp.cliente = '{$_SESSION['AppCliente']}' AND "
     . "vp.deletado != '1' AND v.codigo = '{$_SESSION['AppVenda']}'";
 
     $result = mysqli_query($con, $query);
