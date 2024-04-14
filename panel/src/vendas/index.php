@@ -52,88 +52,10 @@
         <div class="m-3">
             <div class="row">
 <?php
-
-if($_SESSION['busca_tipo'] == 'garcom'){
-    ?>
-                <div class="row">
-                    <div class="col-md-1">Pedido</div>
-                    <div class="col-md-1">Mesa</div>
-                    <div class="col-md-2">Atendente</div>
-                    <div class="col-md-1">Valor</div>
-                    <div class="col-md-1">Taxa</div>
-                    <div class="col-md-1">Desconto</div>
-                    <div class="col-md-1">Total</div>
-                    <div class="col-md-1">Situação</div>
-                    <div class="col-md-1">Data</div>
-                </div>
-    <?php
-}else if($_SESSION['busca_tipo'] == 'cliente'){
-    ?>
-                <!-- <div class="row">
-                    <div class="col-md-1">Pedido</div>
-                    <div class="col-md-1">Mesa</div>
-                    <div class="col-md-2">Cliente</div>
-                    <div class="col-md-2">Atendente</div>
-                    <div class="col-md-1">Valor</div>
-                    <div class="col-md-1">Taxa</div>
-                    <div class="col-md-1">Desconto</div>
-                    <div class="col-md-1">Cupom Desconto</div>
-                    <div class="col-md-1">Total</div>
-                    <div class="col-md-1">Situação</div>
-                    <div class="col-md-1">Data</div>
-                </div> -->
-    <?php
-}else if($_SESSION['busca_tipo'] == 'viagem'){
-    ?>
-                <div class="row">
-                    <div class="col-md-1">Pedido</div>
-                    <div class="col-md-2">Cliente</div>
-                    <div class="col-md-2">Atendente</div>
-                    <div class="col-md-1">Valor</div>
-                    <div class="col-md-1">Taxa</div>
-                    <div class="col-md-1">Desconto</div>
-                    <div class="col-md-1">Cupom Desconto</div>
-                    <div class="col-md-1">Total</div>
-                    <div class="col-md-1">Situação</div>
-                    <div class="col-md-1">Data</div>
-                </div>
-    <?php
-}else if($_SESSION['busca_tipo'] == 'delivery'){
-    ?>
-                <div class="row">
-                    <div class="col-md-1">Pedido</div>
-                    <div class="col-md-2">Cliente</div>
-                    <div class="col-md-2">Atendente</div>
-                    <div class="col-md-1">Valor</div>
-                    <div class="col-md-1">Taxa</div>
-                    <div class="col-md-1">Desconto</div>
-                    <div class="col-md-1">Cupom Desconto</div>
-                    <div class="col-md-1">Total</div>
-                    <div class="col-md-1">Situação</div>
-                    <div class="col-md-1">Data</div>
-                </div>
-    <?php
-}
-
     echo $query = "select a.* from vendas a where a.deletado != '1' {$where} {$tipo[$_SESSION['busca_tipo']]} order by a.codigo desc".((!$_SESSION['data_inicial'])?" limit 50 ":false);
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
-        if($d->app == 'garcom'){
-?>
-            <div class="row">
-                <div class="col-md-1"><?=$d->codigo?></div>
-                <div class="col-md-1"><?=$d->mesa?></div>
-                <div class="col-md-2"><?=$d->atendente?></div>
-                <div class="col-md-1"><?=$d->valor?></div>
-                <div class="col-md-1"><?=$d->taxa?></div>
-                <div class="col-md-1"><?=$d->desconto?></div>
-                <div class="col-md-1"><?=$d->total?></div>
-                <div class="col-md-1"><?=$d->situacao?></div>
-                <div class="col-md-1"><?=$d->data_pedido?></div>
-            </div>
-<?php
-        }else if($d->app == 'mesa'){
 ?>
 
 
@@ -155,7 +77,7 @@ if($_SESSION['busca_tipo'] == 'garcom'){
             </div>
             <div class="d-flex justify-content-between">
                 <span>Cliente</span>
-                <span><?=$d->cdivente?></span>
+                <span><?=$d->cliente?></span>
             </div>
             <div class="d-flex justify-content-between">
                 <span>Atendente</span>
@@ -192,36 +114,6 @@ if($_SESSION['busca_tipo'] == 'garcom'){
     </div>
 </div>
 
-            <!-- <div class="row">
-                <div class="col-md-1"><?=$d->codigo?></div>
-                <div class="col-md-1"><?=$d->mesa?></div>
-                <div class="col-md-2"><?=$d->cliente?></div>
-                <div class="col-md-2"><?=$d->atendente?></div>
-                <div class="col-md-1"><?=$d->valor?></div>
-                <div class="col-md-1"><?=$d->taxa?></div>
-                <div class="col-md-1"><?=$d->desconto?></div>
-                <div class="col-md-1"><?=$d->cupom_valor?></div>
-                <div class="col-md-1"><?=$d->total?></div>
-                <div class="col-md-1"><?=$d->situacao?></div>
-                <div class="col-md-1"><?=$d->data_pedido?></div>
-            </div> -->
-<?php
-        }else if($d->app == 'delivery'){
-?>
-            <div class="row">
-                <div class="col-md-1"><?=$d->codigo?></div>
-                <div class="col-md-2"><?=$d->cliente?></div>
-                <div class="col-md-2"><?=$d->atendente?></div>
-                <div class="col-md-1"><?=$d->valor?></div>
-                <div class="col-md-1"><?=$d->taxa?></div>
-                <div class="col-md-1"><?=$d->desconto?></div>
-                <div class="col-md-1"><?=$d->cupom_valor?></div>
-                <div class="col-md-1"><?=$d->total?></div>
-                <div class="col-md-1"><?=$d->situacao?></div>
-                <div class="col-md-1"><?=$d->data_pedido?></div>
-            </div>
-<?php
-        }
     }
 ?>
             </div>
