@@ -62,7 +62,7 @@
     <div class="col-md-1"><?=$d->desconto?></div>
     <div class="col-md-1"><?=$d->total?></div>
     <div class="col-md-1"><?=$d->situacao?></div>
-    <div class="col-md-1"><?=$d->periodo?></div>
+    <div class="col-md-1"><?=$d->data_pedido?></div>
 </div>
 <?php
         }else if($d->app == 'mesa'){
@@ -76,7 +76,7 @@
     <div class="col-md-1"><?=$d->cupom_valor?></div>
     <div class="col-md-1"><?=$d->total?></div>
     <div class="col-md-1"><?=$d->situacao?></div>
-    <div class="col-md-1"><?=$d->periodo?></div>
+    <div class="col-md-1"><?=$d->data_pedido?></div>
 </div>
 <?php
         }else if($d->app == 'delivery'){
@@ -90,7 +90,7 @@
     <div class="col-md-1"><?=$d->cupom_valor?></div>
     <div class="col-md-1"><?=$d->total?></div>
     <div class="col-md-1"><?=$d->situacao?></div>
-    <div class="col-md-1"><?=$d->periodo?></div>
+    <div class="col-md-1"><?=$d->data_pedido?></div>
 </div>
 <?php
         }
