@@ -7,7 +7,7 @@
     ];
 ?>
 
-<div class="row">
+<div class="row g-0">
     <div class="col">
         <div class="m-3">
             <div class="input-group">
