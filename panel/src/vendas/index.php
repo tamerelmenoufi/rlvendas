@@ -272,8 +272,7 @@
 
         })
 
-        $("#vendas").on("click", "a[print2]", function (e) {
-            e.preventDefault();
+        $("a[print2]").click(function() {
 
             terminal = $(this).attr("local");
             cod = $(this).attr("print2");
