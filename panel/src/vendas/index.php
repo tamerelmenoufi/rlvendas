@@ -42,13 +42,23 @@
 
     if($_SESSION['filtro']){
         $filtro = [];
+        $filtros = [];
         foreach($_SESSION['filtro'] as $i => $v){
             if($v){
                 $v = rotulo($i, $v);
                 $filtro[] = "{$i}: {$v}";
+                $q = [
+                    'pedido' => " a.codigo = '{$v}'",
+                    'mesa' => " a.mesa = '{$v}'",
+                    'cliente' => " c.nome like '%{$v}%'",
+                    'atendente' => " a.atendente = '{$v}'",
+                    'situacao' => " a.situacao = '{$v}'",
+                ];
+                $filtros[] = $q[$i];
             }
-        }
+            }
         $filtro = implode(", ", $filtro);
+        $filtros = implode(" and ", $filtros);
     }
     
 ?>
@@ -112,7 +122,7 @@
                     left join atendentes b on a.atendente = b.codigo 
                 where 
                     a.deletado != '1' 
-                    {$where}
+                    {$where} {$filtros}
                     {$tipo[$_SESSION['busca_tipo']]}
                 order by 
                     a.codigo desc".
