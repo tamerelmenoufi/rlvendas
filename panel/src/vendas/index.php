@@ -67,9 +67,8 @@
                     href="#offcanvasDireita"
                     role="button"
                     aria-controls="offcanvasDireita"
-                    style="margin-left:20px;"    
                 ><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button limpar_filtro class="btn btn-outline-danger" type="button">Listar</button>
+                <button limpar_filtro class="btn btn-outline-danger" type="button"><i class="fa-solid fa-eraser"></i></button>
             </div>
         </div>
     </div>
