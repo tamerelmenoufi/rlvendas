@@ -23,11 +23,14 @@
         'viagem'    => " and a.app = 'mesa'", // and a.mesa >= 200
         'delivery'  => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
     ];
+
+
+    print_r($_SESSION);
 ?>
 
 <div class="row g-0">
     <div class="col">
-        <div class="m-3">
+        <div class="m-2">
             <div class="input-group">
                 <span class="input-group-text">Tipo</span>
                 <select id="busca_tipo" class="form-select">
@@ -52,7 +55,17 @@
             <div class="input-group">
                 <span class="input-group-text">Filtro</span>
                 <div class="form-control"><?=$_SESSION['filtro_texto']?></div>
-                <button buscar class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button 
+                    filtrar 
+                    class="btn btn-outline-secondary" 
+                    type="button" 
+                    id="button-addon1"
+                    data-bs-toggle="offcanvas"
+                    href="#offcanvasDireita"
+                    role="button"
+                    aria-controls="offcanvasDireita"
+                    style="margin-left:20px;"    
+                ><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
     </div>
@@ -157,5 +170,20 @@
             })
 
         })
+
+
+        $("button[filtro]").click(function(){
+
+            Carregando();
+            $.ajax({
+                url:"src/vendas/filtro.php",
+                success:function(dados){
+                    $(".LateralDireita").html(dados);
+                }
+            })
+
+        })
+
+
     })
 </script>
