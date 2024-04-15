@@ -40,12 +40,23 @@
                 <input id="data_inicial" value="<?=$_SESSION['data_inicial']?>" type="date" class="form-control" >
                 <span class="input-group-text">até</span>
                 <input id="data_final" value="<?=$_SESSION['data_final']?>" type="date" class="form-control" >
-                <button buscar class="btn btn-outline-secondary" type="button" id="button-addon1">Acahar</button>
+                <button buscar class="btn btn-outline-secondary" type="button" id="button-addon1">Listar</button>
             </div>
         </div>
     </div>
 </div>
 
+<div class="row g-0">
+    <div class="col">
+        <div class="m-3">
+            <div class="input-group">
+                <span class="input-group-text">Filtro</span>
+                <div class="form-control"><?=$_SESSION['filtro_texto']?></div>
+                <button buscar class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row g-0">
     <div class="col">
