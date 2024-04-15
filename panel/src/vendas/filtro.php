@@ -50,7 +50,7 @@
                     <label for="mesa">Mesa</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Digite o nome" value="<?=$_SESSION['filtro_cliente']?>?>">
+                    <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Digite o nome" value="<?=$_SESSION['filtro_cliente']?>">
                     <label for="cliente">Nome do Cliente*</label>
                 </div>
                 <div class="form-floating mb-3">
