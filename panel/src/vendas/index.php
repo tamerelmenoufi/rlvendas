@@ -194,12 +194,12 @@
                                     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-print"></i>
                                     </button>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item" href="#">Caixa</a></li>
                                         <li><a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item" href="#">Terminal</a></li>
                                     </ul>
                                 </div>
-                                
+
                             </div>
                         </li>
 
