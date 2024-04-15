@@ -11,6 +11,10 @@
         $_SESSION['busca_tipo'] = $_POST['busca_tipo'];
     }
 
+    if($_POST['acao'] == 'limpar_filtro'){
+        $_SESSION['filtro'] = [];
+    }
+
     $where = false;
     if($_SESSION['data_inicial'] > 0){
         $where .= " and data_pedido between '{$_SESSION['data_inicial']} 00:00:00' and '".(($_SESSION['data_final'])?:$_SESSION['data_inicial'])." 23:59:59' ";
@@ -59,13 +63,13 @@
                     filtrar 
                     class="btn btn-outline-secondary" 
                     type="button" 
-                    id="button-addon1"
                     data-bs-toggle="offcanvas"
                     href="#offcanvasDireita"
                     role="button"
                     aria-controls="offcanvasDireita"
                     style="margin-left:20px;"    
                 ><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button limpar_filtro class="btn btn-outline-danger" type="button">Listar</button>
             </div>
         </div>
     </div>
@@ -163,6 +167,22 @@
                     data_inicial,
                     data_final,
                     acao:"busca"
+                },
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                }
+            })
+
+        })
+
+        $("button[limpar_filtro]").click(function(){
+
+            Carregando();
+            $.ajax({
+                url:"src/vendas/index.php",
+                type:"POST",
+                data:{
+                    acao:"limpar_filtro"
                 },
                 success:function(dados){
                     $("#paginaHome").html(dados);

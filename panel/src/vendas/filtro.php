@@ -10,7 +10,7 @@
         unset($data['acao']);
 
         foreach ($data as $name => $value) {
-            eval("\$_SESSION['filtro_{$name}'] = '{$value}';");
+            eval("\$_SESSION['filtro']['{$name}'] = '{$value}';");
         }
 
         exit();
