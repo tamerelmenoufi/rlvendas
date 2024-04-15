@@ -172,7 +172,7 @@
         })
 
 
-        $("button[filtro]").click(function(){
+        $("button[filtrar]").click(function(){
 
             Carregando();
             $.ajax({
