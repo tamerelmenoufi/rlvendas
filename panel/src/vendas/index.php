@@ -169,11 +169,11 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Cupom</span>
-                                <span style="border:solid 1px red; width:100px;">R$ <?=number_format($d->cupom_valor,2,',','.')?></span>
+                                <div style="border:solid 1px red; width:100px;" class="d-flex justify-content-between"><span>R$</span><span><?=number_format($d->cupom_valor,2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Total</span>
-                                <div class="d-flex justify-content-between"><span>R$</span><span><?=number_format($d->total,2,',','.')?></span></div>
+                                <span>R$ <?=number_format($d->total,2,',','.')?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Situação</span>
