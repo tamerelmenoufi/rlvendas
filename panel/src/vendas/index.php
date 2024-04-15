@@ -45,8 +45,8 @@
         $filtros = [];
         foreach($_SESSION['filtro'] as $i => $v){
             if($v){
-                $v = rotulo($i, $v);
-                $filtro[] = "{$i}: {$v}";
+                $v1 = rotulo($i, $v);
+                $filtro[] = "{$i}: {$v1}";
                 $q = [
                     'pedido' => " a.codigo = '{$v}'",
                     'mesa' => " a.mesa = '{$v}'",
@@ -122,7 +122,7 @@
                     left join atendentes b on a.atendente = b.codigo 
                 where 
                     a.deletado != '1' 
-                    {$where} ".(($filtros)?"and {$filtros}":false)."
+                    {$where} ".(($filtros)?" and {$filtros}":false)."
                     {$tipo[$_SESSION['busca_tipo']]}
                 order by 
                     a.codigo desc".
