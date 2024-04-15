@@ -62,7 +62,12 @@
     }
     
 ?>
-
+<style>
+    l-100{
+        border:solid 1px red;
+        width:100px;
+    }
+</style>
 <div class="row g-0">
     <div class="col">
         <div class="m-3">
@@ -157,23 +162,23 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Valor</span>
-                                <span>R$ <?=number_format($d->valor,2,',','.')?></span>
+                                <div class="d-flex justify-content-between l-100"><span>R$</span><span><?=number_format($d->valor,2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Taxa</span>
-                                <span>R$ <?=number_format($d->taxa,2,',','.')?></span>
+                                <div class="d-flex justify-content-between l-100"><span>R$</span><span><?=number_format($d->taxa,2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Desconto</span>
-                                <span>R$ <?=number_format($d->desconto,2,',','.')?></span>
+                                <div class="d-flex justify-content-between l-100"><span>R$</span><span><?=number_format($d->desconto,2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Cupom</span>
-                                <div style="border:solid 1px red; width:100px;" class="d-flex justify-content-between"><span>R$</span><span><?=number_format($d->cupom_valor,2,',','.')?></span></div>
+                                <div class="d-flex justify-content-between l-100"><span>R$</span><span><?=number_format($d->cupom_valor,2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Total</span>
-                                <span>R$ <?=number_format($d->total,2,',','.')?></span>
+                                <div class="d-flex justify-content-between l-100"><span>R$</span><span><?=number_format($d->total,2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Situação</span>
