@@ -186,7 +186,7 @@
 
                             <div class="d-flex justify-content-end">
                                 
-                                <button lista="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm ml-2">
+                                <button lista="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm me-2">
                                     <i class="fa-solid fa-rectangle-list"></i>
                                 </button>
 
