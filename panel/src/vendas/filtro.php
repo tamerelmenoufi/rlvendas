@@ -99,10 +99,6 @@
 
                 var campos = $(this).serializeArray();
 
-                if (codigo) {
-                    campos.push({name: 'codigo', value: codigo})
-                }
-
                 campos.push({name: 'acao', value: 'salvar'})
 
                 Carregando();
