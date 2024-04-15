@@ -272,6 +272,26 @@
 
         })
 
+        $("#vendas").on("click", "a[print2]", function (e) {
+            e.preventDefault();
+
+            terminal = $(this).attr("local");
+            cod = $(this).attr("print2");
+
+            $.ajax({
+                url: "src/vendas/print-2.php",
+                type: "POST",
+                data: {
+                    cod,
+                    terminal
+                },
+                success: function (dados) {
+                    //alert('x');
+                }
+            });
+
+        });
+
 
     })
 </script>
