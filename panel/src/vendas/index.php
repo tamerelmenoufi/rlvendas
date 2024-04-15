@@ -173,7 +173,7 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Total</span>
-                                <span>R$ <?=number_format($d->total,2,',','.')?></span>
+                                <div class="d-flex justify-content-between"><span>R$</span><span><?=number_format($d->total,2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Situação</span>
