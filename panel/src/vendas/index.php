@@ -186,11 +186,11 @@
 
                             <div class="d-flex justify-content-end">
                                 
-                                <button lista="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm">
+                                <button lista="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm ml-2">
                                     <i class="fa-solid fa-rectangle-list"></i>
                                 </button>
 
-                                <div class="dropdown ml-2">
+                                <div class="dropdown">
                                     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-print"></i>
                                     </button>
