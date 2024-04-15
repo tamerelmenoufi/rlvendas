@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="pedido" name="pedido" placeholder="Nome completo" value="<?=$_SESSION['filtro_pedido']?>">
+                    <input type="text" class="form-control" id="pedido" name="pedido" placeholder="Nome completo" value="<?=$_SESSION['filtro']['pedido']?>">
                     <label for="pedido">Número do Pedido*</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -42,7 +42,7 @@
                         $r = mysqli_query($con, $q);
                         while($m = mysqli_fetch_object($r)){
                         ?>
-                        <option value="<?=$m->codigo?>" <?=(($_SESSION['filtro_mesa'] == $m->codigo)?'selected':false)?>><?=$m->mesa?></option>
+                        <option value="<?=$m->codigo?>" <?=(($_SESSION['filtro']['mesa'] == $m->codigo)?'selected':false)?>><?=$m->mesa?></option>
                         <?php
                         }
                         ?>
@@ -50,7 +50,7 @@
                     <label for="mesa">Mesa</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Digite o nome" value="<?=$_SESSION['filtro_cliente']?>">
+                    <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Digite o nome" value="<?=$_SESSION['filtro']['cliente']?>">
                     <label for="cliente">Nome do Cliente*</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -61,7 +61,7 @@
                         $r = mysqli_query($con, $q);
                         while($a = mysqli_fetch_object($r)){
                         ?>
-                        <option value="<?=$a->codigo?>" <?=(($_SESSION['filtro_atendente'] == $a->codigo)?'selected':false)?>><?=$a->nome?></option>
+                        <option value="<?=$a->codigo?>" <?=(($_SESSION['filtro']['atendente'] == $a->codigo)?'selected':false)?>><?=$a->nome?></option>
                         <?php
                         }
                         ?>
@@ -70,10 +70,10 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
-                        <option value="producao" <?=(($_SESSION['filtro_situacao'] == 'producao')?'selected':false)?>>Produção</option>
-                        <option value="preparo" <?=(($_SESSION['filtro_situacao'] == 'preparo')?'selected':false)?>>Preparo</option>
-                        <option value="pagar" <?=(($_SESSION['filtro_situacao'] == 'pagar')?'selected':false)?>>Pagar</option>
-                        <option value="pago" <?=(($_SESSION['filtro_situacao'] == 'pago')?'selected':false)?>>Pago</option>
+                        <option value="producao" <?=(($_SESSION['filtro']['situacao'] == 'producao')?'selected':false)?>>Produção</option>
+                        <option value="preparo" <?=(($_SESSION['filtro']['situacao'] == 'preparo')?'selected':false)?>>Preparo</option>
+                        <option value="pagar" <?=(($_SESSION['filtro']['situacao'] == 'pagar')?'selected':false)?>>Pagar</option>
+                        <option value="pago" <?=(($_SESSION['filtro']['situacao'] == 'pago')?'selected':false)?>>Pago</option>
                     </select>
                     <label for="email">Situação</label>
                 </div>
