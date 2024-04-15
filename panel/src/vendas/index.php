@@ -185,14 +185,23 @@
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <button id="btnGroupDrop1" class="btn btn-success dropdown-toggle btn-group-sm"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-solid fa-print"></i>
+                                
+                                <button lista="<?= $d->codigo ?>" class="lista btn btn-primary">
+                                    <i class="fa-solid fa-rectangle-list"></i>
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item"
-                                        href="#">Caixa</a>
-                                    <a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item" href="#">Terminais</a>
+                                <div class="btn-group" role="group">
+                                    <!-- <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle btn-group-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    R$ '.number_format($d->total,2,",",".").'
+                                    </button> -->
+                                    <button id="btnGroupDrop1" class="btn btn-success dropdown-toggle btn-group-sm"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa-solid fa-print"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item"
+                                           href="#">Caixa</a>
+                                        <a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item" href="#">Terminais</a>
+                                    </div>
                                 </div>
                             </div>
                         </li>
