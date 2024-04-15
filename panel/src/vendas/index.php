@@ -141,7 +141,7 @@
                         <li class="list-group-item">
                             <div class="d-flex justify-content-between">
                                 <span>Data</span>
-                                <span><?=$d->data_pedido?></span>
+                                <span><?=dataBr($d->data_pedido)?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Mesa</span>
@@ -157,23 +157,23 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Valor</span>
-                                <span><?=$d->valor?></span>
+                                <span>R$ <?=number_format($d->valor,2,',','.')?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Taxa</span>
-                                <span><?=$d->taxa?></span>
+                                <span>R$ <?=number_format($d->taxa,2,',','.')?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Desconto</span>
-                                <span><?=$d->desconto?></span>
+                                <span>R$ <?=number_format($d->desconto,2,',','.')?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Cupom</span>
-                                <span><?=$d->cupom_valor?></span>
+                                <span>R$ <?=number_format($d->cupom_valor,2,',','.')?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Total</span>
-                                <span><?=$d->total?></span>
+                                <span>R$ <?=number_format($d->total,2,',','.')?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Situação</span>
