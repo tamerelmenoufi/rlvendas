@@ -30,7 +30,7 @@
 
 <div class="row g-0">
     <div class="col">
-        <div class="m-2">
+        <div class="m-3">
             <div class="input-group">
                 <span class="input-group-text">Tipo</span>
                 <select id="busca_tipo" class="form-select">
