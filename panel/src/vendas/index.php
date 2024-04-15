@@ -28,10 +28,23 @@
         'delivery'  => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
     ];
 
+    function rotulo($i, $v){
+        global $con;
+        $r = $v;
+        if($i == 'mesa'){
+            list($r) = mysqli_fetch_row(mysqli_query($con,"select mesa from mesas where codigo = '{$v}'"));
+        }
+        if($i == 'atendente'){
+            list($r) = mysqli_fetch_row(mysqli_query($con,"select nome from atendentes where codigo = '{$v}'"));
+        }
+        return $r;
+    }
+
     if($_SESSION['filtro']){
         $filtro = [];
         foreach($_SESSION['filtro'] as $i => $v){
             if($v){
+                $v = rotulo($i, $v);
                 $filtro[] = "{$i}: {$v}";
             }
         }
