@@ -70,6 +70,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
+                        <option value="">:: Selecione ::</option>
                         <option value="producao" <?=(($_SESSION['filtro']['situacao'] == 'producao')?'selected':false)?>>Produção</option>
                         <option value="preparo" <?=(($_SESSION['filtro']['situacao'] == 'preparo')?'selected':false)?>>Preparo</option>
                         <option value="pagar" <?=(($_SESSION['filtro']['situacao'] == 'pagar')?'selected':false)?>>Pagar</option>

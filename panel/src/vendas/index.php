@@ -28,8 +28,16 @@
         'delivery'  => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
     ];
 
-
-    print_r($_SESSION);
+    if($_SESSION['filtro']){
+        $filtro = [];
+        foreach($_SESSION['filtro'] as $i => $v){
+            if($v){
+                $filtro[] = "{$i}: {$v}";
+            }
+        }
+        $filtro = implode(", ", $filtro);
+    }
+    
 ?>
 
 <div class="row g-0">
@@ -58,7 +66,7 @@
         <div class="m-3">
             <div class="input-group">
                 <span class="input-group-text">Filtro</span>
-                <div class="form-control"><?=$_SESSION['filtro_texto']?></div>
+                <div class="form-control"><?=$filtro?></div>
                 <button 
                     filtrar 
                     class="btn btn-outline-secondary" 
