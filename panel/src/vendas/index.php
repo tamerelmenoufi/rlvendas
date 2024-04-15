@@ -63,7 +63,7 @@
     
 ?>
 <style>
-    l-100{
+    .l-100{
         border:solid 1px red;
         width:100px;
     }
