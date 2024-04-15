@@ -183,6 +183,18 @@
                                 <span>Situação</span>
                                 <span><?=$d->situacao?></span>
                             </div>
+
+                            <div class="d-flex justify-content-end">
+                                <button id="btnGroupDrop1" class="btn btn-success dropdown-toggle btn-group-sm"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid fa-print"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item"
+                                        href="#">Caixa</a>
+                                    <a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item" href="#">Terminais</a>
+                                </div>
+                            </div>
                         </li>
 
 
