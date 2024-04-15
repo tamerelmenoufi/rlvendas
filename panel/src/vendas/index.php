@@ -122,7 +122,7 @@
                     left join atendentes b on a.atendente = b.codigo 
                 where 
                     a.deletado != '1' 
-                    {$where} {$filtros}
+                    {$where} ".(($filtros)?"and {$filtros}":false)"
                     {$tipo[$_SESSION['busca_tipo']]}
                 order by 
                     a.codigo desc".
