@@ -195,8 +195,8 @@
                                         <i class="fa-solid fa-print"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item" href="#">Caixa</a></li>
-                                        <li><a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item" href="#">Terminal</a></li>
+                                        <li><a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item">Caixa</a></li>
+                                        <li><a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item">Terminal</a></li>
                                     </ul>
                                 </div>
 
