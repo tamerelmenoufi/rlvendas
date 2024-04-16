@@ -92,6 +92,6 @@
 
     }
 
-    file_put_contents("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/painel/vendas/print/{$_POST['terminal']}--Exemplo-teste.txt", $retorno);
+    file_put_contents("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/painel/vendas/print/{$_POST['terminal']}.txt", $retorno);
 
 ?>
