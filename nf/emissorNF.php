@@ -392,7 +392,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 			$codigo=$row["codigo"];
 			$quatidade = (empty($row["quantidade"])) ? "1" : $row["quantidade"];;
-			$nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao." ".$row["produto_descricao"]; // NOME DO PRODUTO
+			$nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao." ".strip_tags($row["produto_descricao"]); // NOME DO PRODUTO
 			$ncm=$row["ncm"]; // NCM
 			$cest=$row["cest"]; // CEST
 			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
