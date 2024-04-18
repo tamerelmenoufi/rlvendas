@@ -186,6 +186,10 @@
 
                             <div class="d-flex justify-content-end">
                                 
+                                <button pedido="<?= $d->codigo ?>" class="lista btn btn-success btn-sm me-2">
+                                    <i class="fa-solid fa-list"></i>
+                                </button>
+
                                 <button lista="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm me-2">
                                     <i class="fa-solid fa-rectangle-list"></i>
                                 </button>
@@ -289,6 +293,17 @@
                 }
             });
 
+        });
+
+        $("button[pedido]").click(function () {
+
+            cod = $(this).attr("pedido");
+
+            $.dialog({
+                content: "url:src/vendas/detalhes.php?cod=" + cod,
+                title: false,
+                columnClass: 'col-md-8 col-xs-12'
+            });
         });
 
 
