@@ -338,7 +338,7 @@
                                 },
                                 success: function (dados) {
                                     //alert('x');
-                                    $.alert('Venda atualizada com situação <b>Pago</b>.');
+                                    // $.alert('Venda atualizada com situação <b>Pago</b>.');
                                     obj.remove();
                                 }
                             });
