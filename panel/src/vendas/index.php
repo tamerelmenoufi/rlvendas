@@ -15,6 +15,14 @@
         $_SESSION['filtro'] = [];
     }
 
+    if ($_POST['acao'] == 'pagar') {
+        // $mesa = mysqli_fetch_object(mysqli_query($con, "select mesa from vendas where codigo = '{$_POST['cod']}'"));
+        // if(mysqli_query($con, "update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'")){
+        //     mysqli_query($con, "UPDATE mesas set blq = '0' WHERE codigo = '{$mesa->mesa}'");
+        // }
+        exit();
+    }
+
     $where = false;
     if($_SESSION['data_inicial'] > 0){
         $where .= " and data_pedido between '{$_SESSION['data_inicial']} 00:00:00' and '".(($_SESSION['data_final'])?:$_SESSION['data_inicial'])." 23:59:59' ";
@@ -192,7 +200,7 @@
                                 <?php
                                 if($d->situacao == 'pagar'){
                                 ?>
-                                <button lista="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm me-2">
+                                <button pagar="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm me-2">
                                     <i class="fa-solid fa-rectangle-list"></i>
                                 </button>
                                 <?php
@@ -310,6 +318,23 @@
             });
         });
 
-
+        $("button[pagar]").click(function () {
+            obj = $(this);
+            cod = obj.attr("pagar");
+            $.ajax({
+                url: "src/vendas/index.php",
+                type: "POST",
+                data: {
+                    cod,
+                    acao:'pagar'
+                },
+                success: function (dados) {
+                    //alert('x');
+                    $.alert('Venda atualizada com situação <b>Pago</b>.');
+                    obj.remove();
+                }
+            });
+            
+        });
     })
 </script>
