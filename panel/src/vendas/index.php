@@ -189,11 +189,15 @@
                                 <button pedido="<?= $d->codigo ?>" class="lista btn btn-success btn-sm me-2">
                                     <i class="fa-solid fa-list"></i>
                                 </button>
-
+                                <?php
+                                if($d->situacao == 'pagar'){
+                                ?>
                                 <button lista="<?= $d->codigo ?>" class="lista btn btn-primary btn-sm me-2">
                                     <i class="fa-solid fa-rectangle-list"></i>
                                 </button>
-
+                                <?php
+                                }
+                                ?>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-print"></i>
