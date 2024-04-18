@@ -321,19 +321,39 @@
         $("button[pagar]").click(function () {
             obj = $(this);
             cod = obj.attr("pagar");
-            $.ajax({
-                url: "src/vendas/index.php",
-                type: "POST",
-                data: {
-                    cod,
-                    acao:'pagar'
-                },
-                success: function (dados) {
-                    //alert('x');
-                    $.alert('Venda atualizada com situação <b>Pago</b>.');
-                    obj.remove();
+            $.confirm({
+                title:"Confirmação de pagamento",
+                content:"Confirma o pagamento da venda e aliberação da mesa?",
+                buttons:{
+                    sim:{
+                        text:"SIM",
+                        btnClass:"btn btn-danger btn-sm",
+                        action:function(){
+                            $.ajax({
+                                url: "src/vendas/index.php",
+                                type: "POST",
+                                data: {
+                                    cod,
+                                    acao:'pagar'
+                                },
+                                success: function (dados) {
+                                    //alert('x');
+                                    $.alert('Venda atualizada com situação <b>Pago</b>.');
+                                    obj.remove();
+                                }
+                            });
+                        }
+                    },
+                    nao:{
+                        text:"NÃO",
+                        btnClass:"btn btn-success btn-sm",
+                        action:function(){
+                            
+                        }
+                    }
                 }
-            });
+            })
+
             
         });
     })
