@@ -471,7 +471,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			$response_server = curl_exec($ch);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
-			// var_dump($response);
+			var_dump($response);
 			if (curl_errno($ch)) {
 				$errValidar = print_r(curl_error($ch), true);
 				// var_dump(curl_error($ch));
@@ -528,7 +528,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				$chave = $response->chave; // numero da chave de acesso
 				$xml = (string) $response->xml; // URL do XML
 
-				echo $status;
+				//var_dump($response);
 				if($status=="aprovado"){
 
 					// ::::: Açoes a serem feitas apos a emissao ::::
