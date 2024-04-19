@@ -528,7 +528,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				$chave = $response->chave; // numero da chave de acesso
 				$xml = (string) $response->xml; // URL do XML
 
-				echo json_encode($response);
+				echo json_encode($response, true);
 				if($status=="aprovado"){
 
 					// ::::: Açoes a serem feitas apos a emissao ::::
