@@ -4,7 +4,7 @@ include("../lib/includes_off.php");
 
 # SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido like '%2024-01-20%' and forma_pagamento = 'credito') and deletado != '1' and situacao = 'pago';
 
-$query = "SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido >= '2024-04-17 00:00:00' /*and forma_pagamento = 'credito'*/) and deletado != '1' and situacao = 'pago' and nf_status = '' limit 1";
+$query = "SELECT * FROM `vendas` where codigo in (select codigo from vendas_pagamento where data_pedido >= '2024-04-17 00:00:00' and forma_pagamento = 'credito') and deletado != '1' and situacao = 'pago' and nf_status = '' limit 1";
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
 
