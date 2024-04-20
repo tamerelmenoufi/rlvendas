@@ -272,7 +272,11 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 	   		$cadastro = 1;
 			$cpfnanota = trim(limpardados($_POST["cpf"])); // CPF DO CLIENTE, ENVIAR SEM MASCARA
 
+
+
 			if($cpfnanota!=""){
+
+				$PDO->query("UPDATE vendas SET nf_cpf='{$cpfnanota}' where codigo='$venda_id'");
 
 					if(strlen($cpfnanota) == 11){
 						// somente cpf na soma
