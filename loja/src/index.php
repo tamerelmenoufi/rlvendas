@@ -76,6 +76,35 @@
         <div class="d-flex justify-content-between">
             <div><?=$endereco?></div>
         </div>
+
+        <hr>
+
+        <?php
+        $q = "select * from vendas_produtos where venda = '{$d->codigo}' and deletado != '1' order by codigo asc";
+        $r = mysqli_query($con, $q);
+        while($p = mysqli_fetch_object($r)){
+
+            $produto = json_decode($p->produto_json);
+            $produtos = [];
+
+            if($produto->produtos){
+                foreach($produto->produtos as $i => $v){
+                    $produtos[] = $v->descricao;
+                }
+                $produtos = implode(" e ", $produtos);
+            }
+            
+
+            $produto = "{$produto->categoria->descricao} {$produto->medida->descricao} {$produtos}<br>";
+
+        ?>
+        <div class="d-flex justify-content-between mt-3 mb-3">
+            <div><?=$p->quantidade?> x <?=$produto?></div>
+            <span style="color:<?=$status[$p->situacao][1]?>; font-weight:bold;"><?=(($status[$p->situacao][0])?:'Aguardando')?></span>
+        </div>        
+        <?php
+        }
+        ?>
         <hr>
 
         <div class="d-flex justify-content-between">
@@ -128,9 +157,9 @@
             <div style="padding-right:7px;">Situação</div>
             <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
         </div>
-        <div class="d-flex justify-content-start">
+        <!-- <div class="d-flex justify-content-start">
             <button pedido="<?=$d->codigo?>" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Pedido</button>
-        </div>
+        </div> -->
     </div>
 </div>
 <?php
