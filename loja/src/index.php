@@ -150,7 +150,7 @@
                 },
                 success:function(dados){
                     $(".popupPalco").html(dados);
-                    $(".popupArea").css("display","block");
+                    //$(".popupArea").css("display","block");
                 }
             })
         })
