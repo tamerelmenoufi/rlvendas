@@ -77,7 +77,7 @@
     $retorno .= "txt|1|1|center|".$dados->NFe->infNFeSupl->urlChave."\n";
     $retorno .= "txt|1|1|center|".$dados->protNFe->infProt->chNFe."\n";
 
-    $retorno .= "\n\ntxt|1|1|center|CONSUMIDOR NÃO IDENTIFICADO"."\n";
+    $retorno .= "\n\ntxt|1|1|center|".(($p->nf_cpf)?:"CONSUMIDOR NÃO IDENTIFICADO")."\n";
     $retorno .= "txt|1|1|center|NFCe n. ".str_pad($dados->NFe->infNFe->ide->nNF, 9, '0', STR_PAD_LEFT)." Série ".str_pad($dados->NFe->infNFe->ide->serie, 3, '0', STR_PAD_LEFT)." ".DataFormat($dados->NFe->infNFe->ide->dhEmi)."\n";
     $retorno .= "txt|1|1|center|Protocolo de Autorização: {$dados->protNFe->infProt->nProt}\n";
     $retorno .= "txt|1|1|center|Data de Autorização: ".DataFormat($dados->protNFe->infProt->dhRecbto)."\n\n";
