@@ -103,7 +103,7 @@
 
         ?>
         <div class="d-flex justify-content-between mt-3 mb-3">
-            <div><?=$produto?></div>
+            <div><?=$p->quantidade?> x <?=$produto?></div>
             <span style="color:<?=$status[$p->situacao][1]?>; font-weight:bold;"><?=(($status[$p->situacao][0])?:'Aguardando')?></span>
         </div>        
         <?php
