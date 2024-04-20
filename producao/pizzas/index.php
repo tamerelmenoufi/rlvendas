@@ -155,7 +155,7 @@
                     <?php
                         }
                     ?>
-                    <?=(($d->mesa)?:'DELIVERY #'.$d->venda)?>
+                    <?=(($d->app == 'delivery')?'DELIVERY #'.$d->venda:(($d->mesa*1>=200)?'VIAGEM '.$d->mesa:$d->mesa))?>
                 </label>
             </td>
             <td><label class="form-check-label <?=(($d->quantidade > 1)?'text-danger':false)?>" for="<?="{$opc}{$d->codigo}"?>"><b><?=$d->quantidade?></b></label></td>
