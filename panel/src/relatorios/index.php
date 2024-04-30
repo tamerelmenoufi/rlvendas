@@ -62,7 +62,7 @@
 ?>
                     <tr>
                         <td><?=$d->codigo?></td>
-                        <td><?=$d->tipo?></td>
+                        <td><?=$d->app?></td>
                         <td><?=$d->mesa?></td>
                         <td><?=$d->cliente?></td>
                         <td><?=$d->atendente?></td>
