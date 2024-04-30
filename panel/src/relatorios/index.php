@@ -75,7 +75,7 @@
         while($p = mysqli_fetch_object($r)){
             $pagamentos[] = $p->forma_pagamento;
         }
-        if($pagamentos) $pagamentos = implode(', ',$pagamentos);
+        if($pagamentos) $pagamentos = implode('<br>',$pagamentos);
 ?>
                     <tr>
                         <td><?=$d->codigo?></td>
