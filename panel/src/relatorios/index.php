@@ -123,6 +123,27 @@
         </div>
     </div>
 </div>
+
+<div class="row g-0">
+    <div class="colcol-md-4">
+        <div class="m-3">
+            <table class="table table-hover">
+                <tbody>
+                <?php
+                foreach($origem as $i => $val){
+                ?>
+                <tr>
+                    <td><?=$i?></td>
+                    <td><?=$val?></td>
+                </tr>
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <?php
     }
     echo $i;
