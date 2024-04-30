@@ -36,7 +36,7 @@
 <div class="row g-0">
     <div class="col">
         <div class="m-3">
-            <table>
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>VENDA</th>
