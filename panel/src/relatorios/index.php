@@ -94,7 +94,8 @@
             $pagamentos[] = $p->forma_pagamento." ({$p->valor})";
             
             //Pagamentos
-            $pagamento[$p->forma_pagamento] = ($pagamento[$p->forma_pagamento] + $p->valor);
+            $pagamento[$p->forma_pagamento]['valor'] = ($pagamento[$p->forma_pagamento] + $p->valor);
+            $pagamento[$p->forma_pagamento]['quantidade']++;
         }
         if($pagamentos) $pagamentos = implode('<br>',$pagamentos);
 ?>
@@ -173,8 +174,8 @@
                 ?>
                 <tr>
                     <td><?=$i?></td>
-                    <td><?=count($pagamento[$i])?></td>
-                    <td><?=$val?></td>
+                    <td><?=$val['quantidade']?></td>
+                    <td><?=$val['valor']?></td>
                 </tr>
                 <?php
                 }
