@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
 <?php
-    echo $query = "select 
+    $query = "select 
                     a.*,
                     b.nome as nome_cliente,
                     c.nome as nome_atendente,
@@ -69,7 +69,7 @@
                 where a.situacao = 'pago' and a.deletado != '1' {$where}";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
-        $q = "select distinct * from vendas_pagamento where venda = '{$d->codigo}' and deletado != '1'";
+        $q = "select *, distinct forma_pagamento from vendas_pagamento where venda = '{$d->codigo}' and deletado != '1'";
         $r = mysqli_query($con, $q);
         $pagamentos = [];
         while($p = mysqli_fetch_object($r)){
@@ -91,7 +91,6 @@
                         <td><?=$pagamentos?></td>
                         <td><?=$d->caixa?></td>
                         <td><?=$d->nf_numero?></td>
-                        
                     </tr>                    
 <?php
     }
