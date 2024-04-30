@@ -117,7 +117,7 @@
             data_inicial = $("#data_inicial").val()
             data_final = $("#data_final").val()
             if(data_inicial && data_final){
-
+                Carregando()
                 $.ajax({
                     url:"src/relatorios/index.php",
                     data:{
