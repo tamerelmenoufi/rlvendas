@@ -60,7 +60,7 @@
                     a.*,
                     b.nome as nome_cliente,
                     c.nome as nome_atendente,
-                    d.mesa as mesa_nome
+                    LPAD(d.mesa,3,'0') as nome_mesa
                 from 
                     vendas a
                     left join clientes b on a.cliente = b.codigo
