@@ -9,7 +9,7 @@
 
     if($_SESSION['vendas_data_inicial'] and $_SESSION['vendas_data_final']){
 
-        $where = " and data_finalizacao between '{$_SESSION['vendas_data_inicial']}' and '{$_SESSION['vendas_data_final']}' ";
+        $where = " and data_finalizacao between '{$_SESSION['vendas_data_inicial']} 00:00:00' and '{$_SESSION['vendas_data_final']} 23:59:59' ";
 
     }
 
