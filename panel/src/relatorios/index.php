@@ -128,6 +128,14 @@
     <div class="colcol-md-4">
         <div class="m-3">
             <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ORIGEM</th>
+                        <th>VALOR</th>
+                        <th>QUANTIDADE</th>
+                        <th>TICKT MÉDIO</th>
+                    </tr>
+                </thead>
                 <tbody>
                 <?php
                 foreach($origem as $i => $val){
@@ -135,6 +143,8 @@
                 <tr>
                     <td><?=$val['nome']?></td>
                     <td><?=$val['vendas']?></td>
+                    <td><?=$val['quantidade']?></td>
+                    <td><?=($val['vendas']/$val['quantidade'])?></td>
                 </tr>
                 <?php
                 }
