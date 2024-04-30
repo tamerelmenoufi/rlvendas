@@ -143,9 +143,9 @@
                 ?>
                 <tr>
                     <td><?=$val['nome']?></td>
-                    <td><?=$val['vendas']?></td>
+                    <td>R$ <?=number_format($val['vendas'],2,',','.')?></td>
                     <td><?=$val['quantidade']?></td>
-                    <td><?=($val['vendas']/$val['quantidade'])?></td>
+                    <td><?=number_format($val['vendas']/$val['quantidade'],2,',','.')?></td>
                 </tr>
                 <?php
                 }
@@ -176,7 +176,7 @@
                 <tr>
                     <td><?=$i?></td>
                     <td><?=$val['quantidade']?></td>
-                    <td><?=$val['valor']?></td>
+                    <td>R$ <?=number_format($val['valor'],2,',','.')?></td>
                     <td><?=$val['valor']/$val['quantidade']?></td>
                 </tr>
                 <?php
@@ -204,7 +204,7 @@
                 ?>
                 <tr>
                     <td><?=$i?></td>
-                    <td><?=$val?></td>
+                    <td>R$ <?=number_format($val,2,',','.')?></td>
                 </tr>
                 <?php
                 }
