@@ -39,6 +39,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>VENDA</th>
                         <th>TIPO</th>
                         <th>MESA</th>
@@ -68,6 +69,7 @@
                     left join mesas d on a.mesa = d.codigo
                 where a.situacao = 'pago' and a.deletado != '1' {$where}";
     $result = mysqli_query($con, $query);
+    $i = 1;
     while($d = mysqli_fetch_object($result)){
         $q = "select forma_pagamento, sum(valor) as valor from vendas_pagamento where venda = '{$d->codigo}' and deletado != '1' group by forma_pagamento";
         $r = mysqli_query($con, $q);
@@ -78,6 +80,7 @@
         if($pagamentos) $pagamentos = implode('<br>',$pagamentos);
 ?>
                     <tr>
+                        <td><?=$i?></td>
                         <td><?=$d->codigo?></td>
                         <td><?=$d->app?></td>
                         <td><?=$d->nome_mesa?></td>
@@ -93,6 +96,7 @@
                         <td><?=$d->nf_numero?></td>
                     </tr>                    
 <?php
+    $i++;
     }
 ?>
                 </tbody>
@@ -102,6 +106,7 @@
 </div>
 <?php
     }
+    echo $i;
 ?>
 <script>
     $(function(){
