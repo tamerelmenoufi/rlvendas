@@ -41,17 +41,17 @@
                     <tr>
                         <th>VENDA</th>
                         <th>TIPO</th>
-                        <th>PAGAMENTO</th>
-                        <th>VALOR</th>
-                        <th>TAXA</th>
-                        <th>ENTREGA</th>
-                        <th>DESCONTO</th>
-                        <th>CUPOM</th>
-                        <th>ATENDENTE</th>
                         <th>MESA</th>
                         <th>CLIENTE</th>
-                        <th>NOTA</th>
+                        <th>ATENDENTE</th>
+                        <th>VALOR</th>
+                        <th>TAXA</th>
+                        <th>DESCONTO</th>
+                        <th>ENTREGA</th>
+                        <th>CUPOM</th>
+                        <th>PAGAMENTO</th>
                         <th>CAIXA</th>
+                        <th>NOTA</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,17 +63,18 @@
                     <tr>
                         <td><?=$d->codigo?></td>
                         <td><?=$d->tipo?></td>
-                        <td><?=$d->pagamentos?></td>
-                        <td><?=$d->valor?></td>
-                        <td><?=$d->acrescimo?></td>
-                        <td><?=$d->taxa?></td>
-                        <td><?=$d->desconto?></td>
-                        <td><?=$d->cupom_valor?></td>
-                        <td><?=$d->atendente?></td>
                         <td><?=$d->mesa?></td>
                         <td><?=$d->cliente?></td>
-                        <td><?=$d->nf_numero?></td>
+                        <td><?=$d->atendente?></td>
+                        <td><?=$d->valor?></td>
+                        <td><?=$d->acrescimo?></td>
+                        <td><?=$d->desconto?></td>
+                        <td><?=$d->taxa?></td>
+                        <td><?=$d->cupom_valor?></td>
+                        <td><?=$d->pagamentos?></td>
                         <td><?=$d->caixa?></td>
+                        <td><?=$d->nf_numero?></td>
+                        
                     </tr>                    
 <?php
     }
