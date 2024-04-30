@@ -117,7 +117,6 @@
 <?php
     $i++;
     }
-    echo $i;
 ?>
                 </tbody>
             </table>
@@ -155,9 +154,38 @@
         </div>
     </div>
 </div>
+
+
+<div class="row g-0">
+    <div class="colcol-md-4">
+        <div class="m-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>FORMA DE PAGAMENTO</th>
+                        <th>QUANTIDADE</th>
+                        <th>VALOR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach($pagamento as $i => $val){
+                ?>
+                <tr>
+                    <td><?=$i?></td>
+                    <td><?=count($pagamento[$i])?></td>
+                    <td><?=$val?></td>
+                </tr>
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <?php
     }
-
 ?>
 <script>
     $(function(){
