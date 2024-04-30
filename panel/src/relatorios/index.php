@@ -56,16 +56,26 @@
                 </thead>
                 <tbody>
 <?php
-    $query = "select * from vendas where situacao = 'pago' and deletado != '1' {$where}";
+    $query = "select 
+                    a.*,
+                    b.nome as nome_cliente,
+                    c.nome as nome_atendente,
+                    c.mesa as mesa_nome
+                from 
+                    vendas a
+                    left join clientes b on a.cliente = b.codigo
+                    left join atendentes c on a.atendente = c.codigo
+                    left join mesas d on a.mesa = d.codigo
+                where situacao = 'pago' and deletado != '1' {$where}";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
                     <tr>
                         <td><?=$d->codigo?></td>
                         <td><?=$d->app?></td>
-                        <td><?=$d->mesa?></td>
-                        <td><?=$d->cliente?></td>
-                        <td><?=$d->atendente?></td>
+                        <td><?=$d->nome_mesa?></td>
+                        <td><?=$d->nome_cliente?></td>
+                        <td><?=$d->nome_atendente?></td>
                         <td><?=$d->valor?></td>
                         <td><?=$d->acrescimo?></td>
                         <td><?=$d->desconto?></td>
