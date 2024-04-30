@@ -83,11 +83,11 @@
                         <td><?=$d->nome_mesa?></td>
                         <td><?=$d->nome_cliente?></td>
                         <td><?=$d->nome_atendente?></td>
-                        <td><?=$d->valor?></td>
-                        <td><?=$d->acrescimo?></td>
-                        <td><?=$d->desconto?></td>
-                        <td><?=$d->taxa?></td>
-                        <td><?=$d->cupom_valor?></td>
+                        <td>R$ <?=number_format($d->valor,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->acrescimo,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->desconto,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->taxa,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->cupom_valor,2,',','.')?></td>
                         <td><?=$pagamentos?></td>
                         <td><?=$d->caixa?></td>
                         <td><?=$d->nf_numero?></td>
