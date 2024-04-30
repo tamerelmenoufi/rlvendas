@@ -73,7 +73,7 @@
         $r = mysqli_query($con, $q);
         $pagamentos = [];
         while($p = mysqli_fetch_object($r)){
-            $pagamentos[] = $p->forma_pagamento;
+            $pagamentos[] = $p->forma_pagamento." ({$p->valor})";
         }
         if($pagamentos) $pagamentos = implode('<br>',$pagamentos);
 ?>
