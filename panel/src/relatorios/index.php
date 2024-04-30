@@ -69,6 +69,13 @@
                 where a.situacao = 'pago' and a.deletado != '1' {$where}";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
+        $q = "select * from vendas_pagamento where venda = '{$d->venda}' and deletado != '1'";
+        $r = mysqli_query($con, $q);
+        $pagamentos = [];
+        while($p = mysqli_fetch_object($r)){
+            $pagamentos[] = $p->forma_pagamento;
+        }
+        if($pagamentos) $pagamentos = implode(', ',$pagamentos);
 ?>
                     <tr>
                         <td><?=$d->codigo?></td>
@@ -81,7 +88,7 @@
                         <td><?=$d->desconto?></td>
                         <td><?=$d->taxa?></td>
                         <td><?=$d->cupom_valor?></td>
-                        <td><?=$d->pagamentos?></td>
+                        <td><?=$pagamentos?></td>
                         <td><?=$d->caixa?></td>
                         <td><?=$d->nf_numero?></td>
                         
