@@ -60,7 +60,7 @@
                     a.*,
                     b.nome as nome_cliente,
                     c.nome as nome_atendente,
-                    c.mesa as mesa_nome
+                    d.mesa as mesa_nome
                 from 
                     vendas a
                     left join clientes b on a.cliente = b.codigo
