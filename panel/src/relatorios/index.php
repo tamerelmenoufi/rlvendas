@@ -9,7 +9,7 @@
 
     if($_SESSION['vendas_data_inicial'] and $_SESSION['vendas_data_final']){
 
-        $where = " and data_finalizacao between '{$_SESSION['vendas_data_inicial']} 00:00:00' and '{$_SESSION['vendas_data_final']} 23:59:59' ";
+        $where = " and a.data_finalizacao between '{$_SESSION['vendas_data_inicial']} 00:00:00' and '{$_SESSION['vendas_data_final']} 23:59:59' ";
 
     }
 
@@ -66,7 +66,7 @@
                     left join clientes b on a.cliente = b.codigo
                     left join atendentes c on a.atendente = c.codigo
                     left join mesas d on a.mesa = d.codigo
-                where situacao = 'pago' and deletado != '1' {$where}";
+                where a.situacao = 'pago' and a.deletado != '1' {$where}";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
