@@ -71,11 +71,30 @@
     $result = mysqli_query($con, $query);
     $i = 1;
     while($d = mysqli_fetch_object($result)){
+
+        ///Origem das vendas
+        $origem[$d->app]['nome'] = $d->app; 
+        $origem[$d->app]['vendas'] = ($garcom[$d->atendente]['vendas'] + $d->valor);
+        $origem[$d->app]['quantidade']++;
+
+        ///Dados do garcom
+        $garcom[$d->atendente]['nome'] = $d->nome_atendente; 
+        $garcom[$d->atendente]['vendas'] = ($garcom[$d->atendente]['vendas'] + $d->valor);
+
+        //taxas
+        $taxas['acrescimo'] = ($taxas['acrescimo'] + $d->acrescimo);
+        $taxas['desconto'] = ($taxas[''] + $d->desconto);
+        $taxas['entrega'] = ($taxas[''] + (($d->app == 'delivery')?$d->taxa:0));
+        $taxas['cupom'] = ($taxas[''] + $d->cupom_valor);
+
         $q = "select forma_pagamento, sum(valor) as valor from vendas_pagamento where venda = '{$d->codigo}' and deletado != '1' group by forma_pagamento";
         $r = mysqli_query($con, $q);
         $pagamentos = [];
         while($p = mysqli_fetch_object($r)){
             $pagamentos[] = $p->forma_pagamento." ({$p->valor})";
+            
+            //Pagamentos
+            $pagamento[$p->forma_pagamento] = ($pagamento[$p->forma_pagamento] + $p->valor);
         }
         if($pagamentos) $pagamentos = implode('<br>',$pagamentos);
 ?>
