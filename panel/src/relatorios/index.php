@@ -133,8 +133,8 @@
                 foreach($origem as $i => $val){
                 ?>
                 <tr>
-                    <td><?=$i?></td>
-                    <td><?=$val?></td>
+                    <td><?=$val['nome']?></td>
+                    <td><?=$val['vendas']?></td>
                 </tr>
                 <?php
                 }
