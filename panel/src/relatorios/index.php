@@ -83,9 +83,9 @@
 
         //taxas
         $taxas['acrescimo'] = ($taxas['acrescimo'] + $d->acrescimo);
-        $taxas['desconto'] = ($taxas[''] + $d->desconto);
-        $taxas['entrega'] = ($taxas[''] + (($d->app == 'delivery')?$d->taxa:0));
-        $taxas['cupom'] = ($taxas[''] + $d->cupom_valor);
+        $taxas['desconto'] = ($taxas['desconto'] + $d->desconto);
+        $taxas['entrega'] = ($taxas['entrega'] + (($d->app == 'delivery')?$d->taxa:0));
+        $taxas['cupom'] = ($taxas['cupom'] + $d->cupom_valor);
 
         $q = "select forma_pagamento, sum(valor) as valor from vendas_pagamento where venda = '{$d->codigo}' and deletado != '1' group by forma_pagamento";
         $r = mysqli_query($con, $q);
@@ -126,7 +126,7 @@
 </div>
 
 <div class="row g-0">
-    <div class="colcol-md-4">
+    <div class="col-md-4">
         <div class="m-3">
             <table class="table table-hover">
                 <thead>
@@ -158,7 +158,7 @@
 
 
 <div class="row g-0">
-    <div class="colcol-md-4">
+    <div class="col-md-4">
         <div class="m-3">
             <table class="table table-hover">
                 <thead>
@@ -187,6 +187,34 @@
         </div>
     </div>
 </div>
+
+<div class="row g-0">
+    <div class="col-md-4">
+        <div class="m-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>TIPO DE TAXAS</th>
+                        <th>VALOR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach($taxas as $i => $val){
+                ?>
+                <tr>
+                    <td><?=$i?></td>
+                    <td><?=$val?></td>
+                </tr>
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <?php
     }
 ?>
