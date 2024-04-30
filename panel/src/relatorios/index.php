@@ -74,7 +74,7 @@
 
         ///Origem das vendas
         $origem[$d->app]['nome'] = $d->app; 
-        $origem[$d->app]['vendas'] = ($garcom[$d->atendente]['vendas'] + $d->valor);
+        $origem[$d->app]['vendas'] = ($origem[$d->app]['vendas'] + $d->valor);
         $origem[$d->app]['quantidade']++;
 
         ///Dados do garcom
