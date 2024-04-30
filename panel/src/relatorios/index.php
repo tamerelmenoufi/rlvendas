@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
 <?php
-    $query = "select 
+    echo $query = "select 
                     a.*,
                     b.nome as nome_cliente,
                     c.nome as nome_atendente,
