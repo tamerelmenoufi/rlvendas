@@ -117,6 +117,7 @@
 <?php
     $i++;
     }
+    echo $i;
 ?>
                 </tbody>
             </table>
@@ -132,7 +133,7 @@
                     <tr>
                         <th>ORIGEM</th>
                         <th>VALOR</th>
-                        <th>QUANTIDADE</th>
+                        <th>VENDAS</th>
                         <th>TICKT MÉDIO</th>
                     </tr>
                 </thead>
@@ -156,7 +157,7 @@
 </div>
 <?php
     }
-    echo $i;
+
 ?>
 <script>
     $(function(){
