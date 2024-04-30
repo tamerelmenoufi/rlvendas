@@ -86,7 +86,7 @@
                         <td>R$ <?=number_format($d->valor,2,',','.')?></td>
                         <td>R$ <?=number_format($d->acrescimo,2,',','.')?></td>
                         <td>R$ <?=number_format($d->desconto,2,',','.')?></td>
-                        <td>R$ <?=number_format($d->taxa,2,',','.')?></td>
+                        <td>R$ <?=number_format((($d->app == 'delivery')?$d->taxa:0),2,',','.')?></td>
                         <td>R$ <?=number_format($d->cupom_valor,2,',','.')?></td>
                         <td><?=$pagamentos?></td>
                         <td><?=$d->caixa?></td>
