@@ -166,6 +166,7 @@
                         <th>FORMA DE PAGAMENTO</th>
                         <th>QUANTIDADE</th>
                         <th>VALOR</th>
+                        <th>TICKT MÉDIO</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -176,6 +177,7 @@
                     <td><?=$i?></td>
                     <td><?=$val['quantidade']?></td>
                     <td><?=$val['valor']?></td>
+                    <td><?=$val['valor']/$val['quantidade']?></td>
                 </tr>
                 <?php
                 }
