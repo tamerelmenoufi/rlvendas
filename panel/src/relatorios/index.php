@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
 <?php
-    $query = "select * from vendas where 1 {$where}";
+    $query = "select * from vendas where situacao = 'pago' and deletado != '1' {$where}";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
