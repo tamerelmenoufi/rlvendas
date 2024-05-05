@@ -228,22 +228,29 @@
 </div>
 
 <div class="row g-0">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <div class="m-3">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>TIPO DE TAXAS</th>
                         <th>VALOR</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                 foreach($taxas as $i => $val){
+                    $pct = number_format($val*100/(($taxas_totais)?:1),0,false,false);
                 ?>
                 <tr>
                     <td><?=$i?></td>
                     <td>R$ <?=number_format($val,2,',','.')?></td>
+                    <td style="width:50%">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <?=$pct?>%" aria-valuenow="<?=$pct?>" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </td>
                 </tr>
                 <?php
                 }
