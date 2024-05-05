@@ -164,7 +164,7 @@
                 <?php
                 foreach($origem as $i => $val){
 
-                    $pct = number_format($val['vendas']*100/$origem['totais'],0,false,false);
+                    $pct = number_format($val['vendas']*100/(($origem['totais'])?:1),0,false,false);
 
                 ?>
                 <tr>
