@@ -78,7 +78,7 @@ while ($m = mysqli_fetch_array($m_r)) {
         padding: 5px;
         width: auto;
         z-index: 3;
-        display: none;
+        display: block;
     }
 
     .MensagemAddProduto span {
