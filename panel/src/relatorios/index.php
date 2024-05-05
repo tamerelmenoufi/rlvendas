@@ -172,7 +172,7 @@
                     <td><?=$val['nome']?></td>
                     <td>R$ <?=number_format($val['vendas'],2,',','.')?></td>
                     <td><?=$val['quantidade']?></td>
-                    <td>R$ <?=number_format($val['vendas']/$val['quantidade'],2,',','.')?></td>
+                    <td>R$ <?=number_format($val['vendas']/(($val['quantidade'])?:1),2,',','.')?></td>
                     
                     <td style="width:50%">
                         <div class="progress">
@@ -211,7 +211,7 @@
                     <td><?=$i?></td>
                     <td><?=$val['quantidade']?></td>
                     <td>R$ <?=number_format($val['valor'],2,',','.')?></td>
-                    <td>R$ <?=number_format($val['valor']/$val['quantidade'],2,',','.')?></td>
+                    <td>R$ <?=number_format($val['valor']/(($val['quantidade'])?:1),2,',','.')?></td>
                 </tr>
                 <?php
                 }
