@@ -69,7 +69,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     .MensagemAddProduto {
         position: fixed;
         right: 80px;
-        top: 15px;
+        bottom: 70px;
         background-color: green;
         color: #fff;
         text-align: center;
@@ -99,7 +99,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <div class="MensagemAddProduto animate__animated animate__shakeX">
     Produto Adicionado!
-    <span><i class="fa-solid fa-caret-right"></i></span>
+    <span><i class="fa-solid fa-caret-bottom"></i></span>
 </div>
 
 <!-- Informativo de pedidos ativos -->
