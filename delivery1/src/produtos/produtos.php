@@ -69,7 +69,7 @@ while ($m = mysqli_fetch_array($m_r)) {
     .MensagemAddProduto {
         position: fixed;
         right: 80px;
-        bottom: 70px;
+        bottom: 75px;
         background-color: green;
         color: #fff;
         text-align: center;
@@ -83,9 +83,9 @@ while ($m = mysqli_fetch_array($m_r)) {
 
     .MensagemAddProduto span {
         position: absolute;
-        right: -8px;
+        right: 23px;
         font-size: 30px;
-        top: -3px;
+        bottom: -23px;
         color: green;
     }
 
