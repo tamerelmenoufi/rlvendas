@@ -76,16 +76,21 @@
         $origem[$d->app]['nome'] = $d->app; 
         $origem[$d->app]['vendas'] = ($origem[$d->app]['vendas'] + $d->valor);
         $origem[$d->app]['quantidade']++;
+        $origem['totais'] = ($origem['totais'] + $d->valor);
 
         ///Dados do garcom
         $garcom[$d->atendente]['nome'] = $d->nome_atendente; 
         $garcom[$d->atendente]['vendas'] = ($garcom[$d->atendente]['vendas'] + $d->valor);
+        $garcom['totais'] = ($garcom['totais'] + $d->valor);
+
 
         //taxas
         $taxas['acrescimo'] = ($taxas['acrescimo'] + $d->acrescimo);
         $taxas['desconto'] = ($taxas['desconto'] + $d->desconto);
         $taxas['entrega'] = ($taxas['entrega'] + (($d->app == 'delivery')?$d->taxa:0));
         $taxas['cupom'] = ($taxas['cupom'] + $d->cupom_valor);
+        $taxas['totais'] = ($taxas['totais'] + ($d->acrescimo) + ($d->desconto) + (($d->app == 'delivery')?$d->taxa:0) + ($d->cupom_valor) );
+
 
         $q = "select forma_pagamento, sum(valor) as valor from vendas_pagamento where venda = '{$d->codigo}' and deletado != '1' group by forma_pagamento";
         $r = mysqli_query($con, $q);
@@ -152,11 +157,15 @@
                         <th>VALOR</th>
                         <th>VENDAS</th>
                         <th>TICKT MÉDIO</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                 foreach($origem as $i => $val){
+
+                    $pct = number_format($val['vendas']*100/$origem['totais'],0,false,false);
+
                 ?>
                 <tr>
                     <td><?=$val['nome']?></td>
@@ -166,7 +175,7 @@
                     
                     <td style="width:50%">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <?=$pct?>%" aria-valuenow="<?=$pct?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </td>
 
