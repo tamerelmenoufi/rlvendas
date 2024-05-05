@@ -91,7 +91,7 @@
         $r = mysqli_query($con, $q);
         $pagamentos = [];
         while($p = mysqli_fetch_object($r)){
-            $pagamentos[] = $p->forma_pagamento." ({$p->valor})";
+            $pagamentos[] = $p->forma_pagamento." (".number_format($p->valor,2,',','.').")";
             
             //Pagamentos
             $pagamento[$p->forma_pagamento]['valor'] = ($pagamento[$p->forma_pagamento]['valor'] + $p->valor);
@@ -116,9 +116,26 @@
                         <td><?=$d->nf_numero?></td>
                     </tr>                    
 <?php
+
+            $valor_total = ($valor_total + $d->valor);
+            $acrescimo_total = ($acrescimo_total + $d->acrescimo);
+            $desconto_total = ($desconto_total + $d->desconto);
+            $taxa_total = (($d->app == 'delivery')?($taxa_total + $d->taxa):$taxa_total);
+            $cupom_valor_total = ($cupom_valor_total + $d->cupom_valor);
+
     $i++;
     }
 ?>
+                    <tr>
+                        <td colspan="6"></td>
+                        <td>R$ <?=number_format($d->valor_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->acrescimo_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->desconto_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->taxa_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($d->cupom_valor_total,2,',','.')?></td>
+                        <td colspan="3"></td>
+                    </tr> 
+
                 </tbody>
             </table>
         </div>
