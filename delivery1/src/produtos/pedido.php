@@ -391,7 +391,7 @@
                 ExcluirPedido
                 styleXXX="<?=((!$acao_cancelar)?'display:none;':false)?>"
             >
-            <i class="fa-solid fa-trash-can"></i> Cancelar Pedido
+            <i class="fa-solid fa-trash-can"></i>
             </button>
         </div>
         <!-- <div class="col-4">
@@ -413,7 +413,7 @@
             </button>
         </div> -->
         <div class="col-9">
-            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar>Prosseguir <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, '.', false) ?></span></b></button>
+            <button <?=((!$valor_total)?'disabled':false)?> class="btn btn-success btn-block" pagar><i class="fa-solid fa-hand-holding-dollar"></i> <b>R$  <span pedido_valor_toal valor="<?=$valor_total?>"><?= number_format($valor_total, 2, '.', false) ?></span></b></button>
         </div>
     </div>
 </div>
