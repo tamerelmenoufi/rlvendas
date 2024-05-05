@@ -97,7 +97,7 @@ while ($m = mysqli_fetch_array($m_r)) {
             class="fa-solid fa-bell-concierge animate__animated animate__tada animate__repeat-3"
     ></i></span>
 
-<div class="MensagemAddProduto animate__animated animate__shakeX">
+<div class="MensagemAddProduto animate__animated animate__shakeY">
     Produto Adicionado!
     <span><i class="fa-solid fa-caret-down"></i></span>
 </div>
