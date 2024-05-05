@@ -163,10 +163,7 @@
                 <tbody>
                 <?php
                 foreach($origem as $i => $val){
-
                     $pct = number_format($val['vendas']*100/(($origem['totais'])?:1),0,false,false);
-                    echo "{$val['vendas']}*100/(({$origem['totais']})?:1)";
-
                 ?>
                 <tr>
                     <td><?=$val['nome']?></td>
