@@ -127,13 +127,13 @@
     }
 ?>
                     <tr>
-                        <td colspan="6"></td>
-                        <td>R$ <?=number_format($valor_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($acrescimo_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($desconto_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($taxa_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($cupom_valor_total,2,',','.')?></td>
-                        <td colspan="3"></td>
+                        <th colspan="6"></th>
+                        <th>R$ <?=number_format($valor_total,2,',','.')?></th>
+                        <th>R$ <?=number_format($acrescimo_total,2,',','.')?></th>
+                        <th>R$ <?=number_format($desconto_total,2,',','.')?></th>
+                        <th>R$ <?=number_format($taxa_total,2,',','.')?></th>
+                        <th>R$ <?=number_format($cupom_valor_total,2,',','.')?></th>
+                        <th colspan="3"></th>
                     </tr> 
 
                 </tbody>
