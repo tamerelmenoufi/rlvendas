@@ -99,7 +99,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 
 <div class="MensagemAddProduto animate__animated animate__shakeX">
     Produto Adicionado!
-    <span><i class="fa-solid fa-caret-bottom"></i></span>
+    <span><i class="fa-solid fa-caret-down"></i></span>
 </div>
 
 <!-- Informativo de pedidos ativos -->
