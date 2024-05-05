@@ -101,6 +101,7 @@
             //Pagamentos
             $pagamento[$p->forma_pagamento]['valor'] = ($pagamento[$p->forma_pagamento]['valor'] + $p->valor);
             $pagamento[$p->forma_pagamento]['quantidade']++;
+            $pagamento_totais = ($pagamento_totais + $p->valor);
         }
         if($pagamentos) $pagamentos = implode('<br>',$pagamentos);
 ?>
@@ -189,7 +190,7 @@
 
 
 <div class="row g-0">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <div class="m-3">
             <table class="table table-hover">
                 <thead>
@@ -198,17 +199,24 @@
                         <th>QUANTIDADE</th>
                         <th>VALOR</th>
                         <th>TICKT MÉDIO</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                 foreach($pagamento as $i => $val){
+                    $pct = number_format($val['valor']*100/(($pagamento_totais)?:1),0,false,false);
                 ?>
                 <tr>
                     <td><?=$i?></td>
                     <td><?=$val['quantidade']?></td>
                     <td>R$ <?=number_format($val['valor'],2,',','.')?></td>
                     <td>R$ <?=number_format($val['valor']/(($val['quantidade'])?:1),2,',','.')?></td>
+                    <td style="width:50%">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <?=$pct?>%" aria-valuenow="<?=$pct?>" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </td>
                 </tr>
                 <?php
                 }
