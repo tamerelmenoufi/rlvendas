@@ -128,11 +128,11 @@
 ?>
                     <tr>
                         <td colspan="6"></td>
-                        <td>R$ <?=number_format($d->valor_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($d->acrescimo_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($d->desconto_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($d->taxa_total,2,',','.')?></td>
-                        <td>R$ <?=number_format($d->cupom_valor_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($valor_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($acrescimo_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($desconto_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($taxa_total,2,',','.')?></td>
+                        <td>R$ <?=number_format($cupom_valor_total,2,',','.')?></td>
                         <td colspan="3"></td>
                     </tr> 
 
