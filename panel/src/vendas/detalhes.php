@@ -64,6 +64,7 @@
 
 
 ?>
+<div class="col">
 <div class="card border-<?=$d->tema?>">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
@@ -166,7 +167,7 @@
 <?php
     }
 ?>
-
+</div>
 
 <script>
     $(function(){
