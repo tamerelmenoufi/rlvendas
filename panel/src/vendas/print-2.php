@@ -8,7 +8,25 @@
         return "{$d}/{$m}/{$a} {$h}";
     }
 
-    $query = "select a.*, b.mesa as mesa from vendas a left join mesas b on a.mesa = b.codigo where a.codigo = '{$_POST['cod']}'";
+    $query = "select 
+                    a.*, 
+                    b.mesa as mesa 
+                    c.nome as Cnome,
+                    c.telefone as Ctelefone,
+                    c.logradouro as Clogradouro,
+                    c.numero as Cnumero,
+                    c.cep as Ccep,
+                    c.complemento as Ccomplemento,
+                    c.ponto_referencia as Cponto_referencia,
+                    c.bairro as Cbairro 
+
+                    from vendas a
+
+                    left join mesas b on a.mesa = b.codigo 
+                    left join clientes c on a.cliente = c.codigo 
+
+                    where a.codigo = '{$_POST['cod']}'";
+
     $result = mysqli_query($con, $query);
     $p = mysqli_fetch_object($result);
 
@@ -69,6 +87,45 @@
 
     $retorno .= "\ntxt|1|2|right|Pagar R$ ".number_format( ($valor_total + $p->taxa + $p->acrescimo - $d->desconto), 2, ',', '.').""."\n";
 
+
+
+    
+    if($p->app == 'delivery'){
+
+
+        $end = [
+            $p->Clogradouro,
+            $p->Cnumero,
+            $p->Ccomplemento,
+            $p->Cponto_referencia,
+            $p->Ccep,
+            $p->Cbairro
+        ];
+
+        $endereco = [];
+        foreach($end as $i => $val){
+            if($val){
+                $endereco[] = $val;
+            }
+            
+        }
+        if($endereco){
+            $endereco = implode(", ", $endereco);
+        }else{
+            $endereco = false;
+        }
+
+        $retorno .= "\ntxt|1|1|left|Cliente: ".$p->Cnome.""."\n";
+        $retorno .= "\ntxt|1|1|left|Telefone: ".$p->Ctelefone.""."\n";
+        $retorno .= "\ntxt|1|1|left|Endereço: ".$endereco.""."\n";
+        $retorno .= "\ntxt|1|1|center|Em caso de dúvidas, ligue para o estabelecimento"."\n";        
+
+
+    }
+
+
+
+    
     if($p->nf_status == 'aprovado'){
 
     $retorno .= "\n\ntxt|1|1|center|Consulte pela Chave de Acesso em:"."\n";
