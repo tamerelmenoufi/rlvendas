@@ -15,7 +15,7 @@
                                                 a.cliente = '{$_SESSION['AppCliente']}' and 
                                                 a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc
     //*/
-    echo $query = "select 
+    $query = "select 
                     a.*,
                     b.descricao as situacao_entrega,
                     b.tema,
@@ -34,7 +34,7 @@
                             left join clientes c on a.cliente = c.codigo 
             
             where 
-                            a.codigo = '{$_POST['cod']}'
+                            a.codigo = '{$_GET['cod']}'
     ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
