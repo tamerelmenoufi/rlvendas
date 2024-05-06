@@ -159,8 +159,8 @@
         </div>
         <div class="d-flex justify-content-start">
             <!-- <button pedido="<?=$d->codigo?>" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Pedido</button> -->
-            <a print2="<?= $d->codigo ?>" local="terminal2" class="btn btn-primary"><i class="fa-solid fa-print"></i> Terminal (salão)</a>
-            <a print2="<?= $d->codigo ?>" local="terminal3" class="btn btn-primary ml-3"><i class="fa-solid fa-print"></i> Terminal (VIP)</a>
+            <a print2="<?= $d->codigo ?>" local="terminal2" class="btn btn-primary mt-3"><i class="fa-solid fa-print"></i> Terminal (salão)</a>
+            <a print2="<?= $d->codigo ?>" local="terminal3" class="btn btn-primary ml-3 mt-3"><i class="fa-solid fa-print"></i> Terminal (VIP)</a>
 
         </div>
     </div>
