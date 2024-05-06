@@ -161,11 +161,15 @@
         </div>
         <?php
         }
+        if($d->tipo == 'delivery'){
         ?>
         <div class="d-flex justify-content-start">
             <div style="padding-right:7px;">Situação</div>
             <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
         </div>
+        <?php
+        }
+        ?>
     </div>
 </div>
 <?php
