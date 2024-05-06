@@ -15,7 +15,7 @@
                                                 a.cliente = '{$_SESSION['AppCliente']}' and 
                                                 a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc
     //*/
-    $query = "select 
+    echo $query = "select 
                     a.*,
                     b.descricao as situacao_entrega,
                     b.tema,
@@ -64,7 +64,6 @@
 
 
 ?>
-<div class="col">
 <div class="card border-<?=$d->tema?>">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
@@ -167,7 +166,7 @@
 <?php
     }
 ?>
-</div>
+
 
 <script>
     $(function(){
