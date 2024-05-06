@@ -64,7 +64,7 @@
 
 
 ?>
-<div class="card border-<?=$d->tema?>">
+<div class="card border-<?=$d->tema?>" style="margin-top:30px;">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
         <?php
