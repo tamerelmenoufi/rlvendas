@@ -87,9 +87,9 @@ function aasort(&$array, $key)
 
 <!-- Informativo de pedidos ativos -->
 
-<span class="IconePedidos"><i
+<!-- <span class="IconePedidos"><i
             class="fa-solid fa-bell-concierge animate__animated animate__tada animate__repeat-3"
-    ></i></span>
+    ></i></span> -->
 
 <div class="MensagemAddProduto animate__animated animate__shakeX">
     Produto Adicionado!
