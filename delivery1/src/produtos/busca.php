@@ -100,7 +100,7 @@ function aasort(&$array, $key)
 
 
 <div class="topo<?= $md5 ?>">
-    <div class="topo_interno<?=$md5?>">Localizar Produtos</div>
+    <div class="topo_interno<?=$md5?>">Localizar Produto</div>
     <div class="row" style="position:relative; margin-top:40px;">
         <input type="text" class="form-control filtro" style="padding-right:40px;" />
         <i class="fa-solid fa-magnifying-glass" style="position:absolute; right:10px; top:10px; color:#a1a1a1;"></i>
