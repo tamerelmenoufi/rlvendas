@@ -157,9 +157,18 @@
             <div style="padding-right:7px;">Situação</div>
             <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
         </div>
-        <!-- <div class="d-flex justify-content-start">
-            <button pedido="<?=$d->codigo?>" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Pedido</button>
-        </div> -->
+        <div class="d-flex justify-content-start">
+            <!-- <button pedido="<?=$d->codigo?>" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Pedido</button> -->
+            <div class="dropdown">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item">Caixa</a></li>
+                    <li><a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item">Terminal</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 <?php
@@ -169,6 +178,28 @@
 
 <script>
     $(function(){
+
+
+        $("a[print2]").click(function() {
+
+            terminal = $(this).attr("local");
+            cod = $(this).attr("print2");
+
+            $.ajax({
+                url: "src/print-2.php",
+                type: "POST",
+                data: {
+                    cod,
+                    terminal
+                },
+                success: function (dados) {
+                    //alert('x');
+                }
+            });
+
+        });
+
+
         $("button[pedido]").click(function(){
             pedido = $(this).attr("pedido");
             $.ajax({
