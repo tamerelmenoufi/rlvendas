@@ -150,7 +150,7 @@ function aasort(&$array, $key)
             <div bloco<?=$p->codigo?> class="card mb-3 mt-3 item_button<?= $md5 ?>">
                 <div class="row no-gutters">
                     <div class="col-4 foto<?= $md5 ?>"
-                        style="background-image:url(../painel/produtos/icon/<?= $p->icon ?>)">
+                        style="background-image:url(<?=$urlPainel?>src/volume/produtos/<?= $p->icon ?>)">
                     </div>
                     <div class="col-8">
                         <div style="font-size:12px; margin-left:10px; height:100px; position:relative;">
