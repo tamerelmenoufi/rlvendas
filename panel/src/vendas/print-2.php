@@ -10,7 +10,7 @@
 
     $query = "select 
                     a.*, 
-                    b.mesa as mesa 
+                    b.mesa as mesa,
                     c.nome as Cnome,
                     c.telefone as Ctelefone,
                     c.logradouro as Clogradouro,
