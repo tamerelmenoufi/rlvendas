@@ -67,7 +67,9 @@
 <div class="card border-<?=$d->tema?>">
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
-
+        <?php
+        if($d->tipo == 'delivery'){
+        ?>
         <div class="d-flex justify-content-between">
             <div>Cliente</div>
             <span><?=$d->Cnome?></span>
@@ -78,12 +80,15 @@
             <span><?=$d->Ctelefone?></span>
         </div>
 
+
         <div class="d-flex justify-content-between">
             <div><?=$endereco?></div>
         </div>
         <hr>
 
         <?php
+        }
+
         $q = "select * from vendas_produtos where venda = '{$d->codigo}' and deletado != '1' order by codigo asc";
         $r = mysqli_query($con, $q);
         while($p = mysqli_fetch_object($r)){
@@ -117,7 +122,7 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <div>Taxa Entrega</div>
+            <div>Taxa <?=(($d->tipo == 'delivery')?'Entrega':'Serviço')?></div>
             <span>R$ <?=number_format($d->taxa, 2,',', false)?></span>
         </div>
 
