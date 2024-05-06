@@ -1,110 +1,176 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
-?>
 
-<table class="table" style="margin-top:20px;">
-    <thead>
-        <tr>
-            <th>Produto</th>
-            <th>valor Unitário</th>
-            <th>Quantidade</th>
-            <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php
-    $query = "select * from vendas_produtos where venda = '{$_GET['cod']}' and deletado != '1'";
+    $status = [ 
+        'p' => ['Aguardando','#a1a1a1'] , 
+        'i' => ['Produção','orange'] , 
+        'c' => ['Concluído','blue'], 
+        'e' => ['Entregue','green']	
+    ];
+    
+
+    /*
+    select a.*, b.descricao as situacao_entrega from vendas a left join delivery_status b on a.delivery->>'$.situation' = b.cod where 
+                                                a.app = 'delivery' and 
+                                                a.cliente = '{$_SESSION['AppCliente']}' and 
+                                                a.situacao = 'pago' and a.deletado != '1' order by a.codigo desc
+    //*/
+    $query = "select 
+                    a.*,
+                    b.descricao as situacao_entrega,
+                    b.tema,
+                    c.nome as Cnome,
+                    c.telefone as Ctelefone,
+                    c.logradouro as Clogradouro,
+                    c.numero as Cnumero,
+                    c.cep as Ccep,
+                    c.complemento as Ccomplemento,
+                    c.ponto_referencia as Cponto_referencia,
+                    c.bairro as Cbairro 
+                    
+            from vendas a 
+                                
+                            left join delivery_status b on a.delivery->>'$.situation' = b.cod 
+                            left join clientes c on a.cliente = c.codigo 
+            
+            where 
+                            a.codigo = '{$_POST['cod']}'
+    ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
+        $delivery = json_decode($d->delivery);
 
+        $end = [
+            $d->Clogradouro,
+            $d->Cnumero,
+            $d->Ccomplemento,
+            $d->Cponto_referencia,
+            $d->Ccep,
+            $d->Cbairro
+        ];
 
-        $pedido = json_decode($d->produto_json);
-        $sabores = false;
-        // print_r($pedido);
-        $ListaPedido = [];
-        for($i=0; $i < count($pedido->produtos); $i++){
-            $ListaPedido[] = $pedido->produtos[$i]->descricao;
+        $endereco = [];
+        foreach($end as $i => $val){
+            if($val){
+                $endereco[] = $val;
+            }
+            
         }
-        if($ListaPedido) $sabores = implode(', ', $ListaPedido);
-
-        $Prod = [];
-        foreach($pedido->produtos as $ind => $prod){
-            $Prod[] = $prod->descricao;
+        if($endereco){
+            $endereco = implode(", ", $endereco);
+        }else{
+            $endereco = false;
         }
-        $Prod = (($Prod)?implode(' ',$Prod):false);
+
+
 ?>
+<div class="card border-<?=$d->tema?>">
+    <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
+    <div class="card-body">
 
-<tr>
-    <td>
-        <?=$pedido->categoria->descricao?> <?=$Prod?> - <?=$pedido->medida->descricao?><br>
-        <?= $d->produto_descricao?>
-    </td>
-    <td>
-        R$ <?= number_format($d->valor_unitario, 2, ',', '.') ?>
-    </td>
-    <td>
-        <?=$d->quantidade?>
-    </td>
-    <td>
-        R$ <?= number_format($d->valor_total, 2, ',', '.') ?>
-    </td>
-</tr>
-<?php
+        <div class="d-flex justify-content-between">
+            <div>Cliente</div>
+            <span><?=$d->Cnome?></span>
+        </div>
 
-    $valor_total = ($valor_total + $d->valor_total);
+        <div class="d-flex justify-content-between">
+            <div>Cliente (Telefone)</div>
+            <span><?=$d->Ctelefone?></span>
+        </div>
 
-    }
+        <div class="d-flex justify-content-between">
+            <div><?=$endereco?></div>
+        </div>
+        <hr>
 
-
-
-
-    $q = "select
-                a.*,
-                b.nome as atendente
-            from vendas_pagamento a
-                left join atendentes b on a.atendente = b.codigo
-            where a.venda = '{$_GET['cod']}' and a.deletado != '1'";
-    $r = mysqli_query($con, $q);
-
-    if(mysqli_num_rows($r)){
-?>
-<tr>
-    <td colspan="4">
-        <h5>Esquema de pagamento</h5>
-    <table class="table">
-    <thead>
-        <tr>
-            <th>Atendente</th>
-            <th>Operação</th>
-            <th>Valor</th>
-        </tr>
-    </thead>
-    <tbody>
         <?php
+        $q = "select * from vendas_produtos where venda = '{$d->codigo}' and deletado != '1' order by codigo asc";
+        $r = mysqli_query($con, $q);
         while($p = mysqli_fetch_object($r)){
+
+            $produto = json_decode($p->produto_json);
+            $produtos = [];
+
+            if($produto->produtos){
+                foreach($produto->produtos as $i => $v){
+                    $produtos[] = $v->descricao;
+                }
+                $produtos = implode(" e ", $produtos);
+            }
+            
+
+            $produto = "{$produto->categoria->descricao} {$produto->medida->descricao} {$produtos}<br>";
+
         ?>
-        <tr>
-            <td><?=$p->atendente?></td>
-            <td><?=$p->forma_pagamento?></td>
-            <td><?=$p->valor?></td>
-        </tr>
+        <div class="d-flex justify-content-between mt-3 mb-3">
+            <div><?=$p->quantidade?> x <?=$produto?></div>
+            <span style="color:<?=$status[$p->situacao][1]?>; font-weight:bold;"><?=(($status[$p->situacao][0])?:'Aguardando')?></span>
+        </div>        
         <?php
-            $soma_valores = ($soma_valores + $p->valor);
         }
         ?>
-        <tr>
-            <th align="right">TOTAL</th>
-            <th><?=number_format($soma_valores,2,',','.')?></th>
-        </tr>
-    </tbody>
-    </table>
-    </td>
-</tr>
+        <hr>
+
+        <div class="d-flex justify-content-between">
+            <div>Valor</div>
+            <span>R$ <?=number_format($d->valor, 2,',', false)?></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div>Taxa Entrega</div>
+            <span>R$ <?=number_format($d->taxa, 2,',', false)?></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div>Desconto</div>
+            <span>R$ <?=number_format($d->desconto, 2,',', false)?></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div>Acrescimo</div>
+            <span>R$ <?=number_format($d->acrescimo, 2,',', false)?></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div><b>Total</b></div>
+            <span><b>R$ <?=number_format(($d->valor + $d->taxa - $d->desconto + $d->acrescimo), 2,',', false)?></b></span>
+        </div>
+        <?php
+        if($delivery->deliveryMan->id){
+        ?>
+        <div class="d-flex justify-content-between mt-3">
+            <div>Entregador</div>
+            <span><?=$delivery->deliveryMan->name?></span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div>Telefone (Entregador)</div>
+            <span><?='('.$delivery->deliveryMan->ddd.') '.$delivery->deliveryMan->phone?></span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div>Código Retirada</div>
+            <span><b><?=$delivery->pickupCode?></b></span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div>Código Retorno</div>
+            <span><b><?=$delivery->returnCode?></b></span>
+        </div>
+        <?php
+        }
+        ?>
+        <div class="d-flex justify-content-start">
+            <div style="padding-right:7px;">Situação</div>
+            <span><?=(($d->situacao_entrega)?:'Em Produção')?></span>
+        </div>
+    </div>
+</div>
 <?php
     }
 ?>
 
-</tbody>
-</table>
 
-<h3>Pagar <b>R$  <?= number_format($valor_total, 2, ',', '.') ?></h3>
+<script>
+    $(function(){
+
+
+    })
+</script>
