@@ -119,7 +119,7 @@ function aasort(&$array, $key)
     while($d = mysqli_fetch_object($result_c)){
 
 
-        $query = "select * from produtos where categoria = '{$d->codigo}' AND deletado != '1' order by produto asc";
+        $query = "select * from produtos where categoria = '{$d->codigo}' AND situacao = '1' AND deletado != '1' order by produto asc";
         $result = mysqli_query($con, $query);
 
         $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1' "
