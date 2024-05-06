@@ -69,7 +69,7 @@
 <div class="pagina">
 
 <div class="banner">
-    <img src="img/banner.jpg" />
+    <img src="img/banner.png" />
 </div>
 
 <div class="row" style="margin:0; padding:10px; padding-top:20px;">

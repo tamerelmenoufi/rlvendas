@@ -5,7 +5,7 @@ include("../../../lib/includes.php");
     .banner{
         height:400px;
         width:100%;
-        background-image:url("img/banner.jpg");
+        background-image:url("img/banner.png");
         background-size:cover;
     }
 </style>
