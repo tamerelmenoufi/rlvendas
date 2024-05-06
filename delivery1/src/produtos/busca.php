@@ -55,8 +55,8 @@ function aasort(&$array, $key)
     .MensagemAddProduto {
         position: fixed;
         right: 80px;
-        top: 15px;
-        background-color: green;
+        bottom: 75px;
+        background-color: orange;
         color: #fff;
         text-align: center;
         font-weight: bold;
@@ -69,10 +69,10 @@ function aasort(&$array, $key)
 
     .MensagemAddProduto span {
         position: absolute;
-        right: -8px;
+        right: 23px;
         font-size: 30px;
-        top: -3px;
-        color: green;
+        bottom: -23px;
+        color: orange;
     }
     .corpo_busca{
         position:fixed;
