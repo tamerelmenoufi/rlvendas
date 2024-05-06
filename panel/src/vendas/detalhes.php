@@ -68,7 +68,7 @@
     <h5 class="card-header">Pedido #<?=$d->codigo?></h5>
     <div class="card-body">
         <?php
-        if($d->tipo == 'delivery'){
+        if($d->app == 'delivery'){
         ?>
         <div class="d-flex justify-content-between">
             <div>Cliente</div>
@@ -122,7 +122,7 @@
         </div>
 
         <div class="d-flex justify-content-between">
-            <div>Taxa <?=(($d->tipo == 'delivery')?'Entrega':'Serviço')?></div>
+            <div>Taxa <?=(($d->app == 'delivery')?'Entrega':'Serviço')?></div>
             <span>R$ <?=number_format($d->taxa, 2,',', false)?></span>
         </div>
 
@@ -161,7 +161,7 @@
         </div>
         <?php
         }
-        if($d->tipo == 'delivery'){
+        if($d->app == 'delivery'){
         ?>
         <div class="d-flex justify-content-start">
             <div style="padding-right:7px;">Situação</div>
