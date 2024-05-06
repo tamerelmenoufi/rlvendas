@@ -1,5 +1,7 @@
 <?php
 include("../lib/includes.php");
+header("location:https://yobom.com.br/rlvendas/panel/");
+exit();
 
 if (!isset($_SESSION['usuario'])) {
     header("Location: ./login");

@@ -1,5 +1,7 @@
 <?php
     include("../lib/includes.php");
+    header("location:https://yobom.com.br/rlvendas/delivery1/");
+    exit();
     if($_GET['s']) {
         $_SESSION = [];
         header("location:./");
