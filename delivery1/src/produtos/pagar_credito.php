@@ -4,7 +4,7 @@
     function bandeira($cod){
         $banderia = [
             3 => 'AMEX',
-            5 => 'MASTERCARD',
+            5 => 'MASTER',
             6 => 'DISCOVER'
         ];
         return (($banderia[$cod])?:'VISA');
@@ -297,8 +297,10 @@
                         erroMessage = dados?.Payment?.ReturnMessage;
                         if(erroCode != '' && erroCode != undefined ){
                             mensagem = `<br>${erroCode}: ${erroMessage}`;
+                        }else{
+                            mensagem = dados[0]?.Message;
                         }
-                        $.alert(`Erro na confirmação do pagamento!${mensagem}`);
+                        $.alert(`Erro na confirmação do pagamento!<p>${mensagem}</p>`);
                     }
                 }
             })
