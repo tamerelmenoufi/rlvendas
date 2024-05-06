@@ -159,15 +159,9 @@
         </div>
         <div class="d-flex justify-content-start">
             <!-- <button pedido="<?=$d->codigo?>" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Pedido</button> -->
-            <div class="dropdown">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-print"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item">Caixa</a></li>
-                    <li><a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item">Terminal</a></li>
-                </ul>
-            </div>
+            <a print2="<?= $d->codigo ?>" local="terminal2" class="btn btn-primary"><i class="fa-solid fa-print"></i> Terminal (salão)</a>
+            <a print2="<?= $d->codigo ?>" local="terminal3" class="btn btn-primary ml-3"><i class="fa-solid fa-print"></i> Terminal (VIP)</a>
+
         </div>
     </div>
 </div>
