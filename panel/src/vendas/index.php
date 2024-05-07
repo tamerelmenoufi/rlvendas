@@ -7,6 +7,7 @@
         $_SESSION['data_final'] = false;
         $_SESSION['filtro'] = false;
         $_SESSION['filtro']['situacao'] = 'pagar';
+        $where = " and a.mesa != '' ";
     }
 
     if($_GET['filtro']){
