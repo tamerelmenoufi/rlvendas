@@ -245,16 +245,16 @@
                     <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success me-3"></i> Certificado SSL para segurança da Informações
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success me-3"></i> Criptografia dos dados de ponta a ponta
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success me-3"></i> Autorização Integrada com Operadora Cielo
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success me-3"></i> Os dados são utilizados apenas para o pagamento autorizado
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success me-3"></i> Nenhum registro de dados para o pagamento é armazenado
                     </li>
                 </ul>
