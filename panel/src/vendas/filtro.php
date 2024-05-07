@@ -35,7 +35,7 @@
                     <label for="pedido">Número do Pedido*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select  size="4" name="mesa" class="form-control" id="mesa">
+                    <select size="4" name="mesa" class="form-control" id="mesa">
                         <option value="">:: Selecione ::</option>
                         <?php
                         $q = "select * from mesas where deletado != '1' and situacao = '1'";
@@ -47,7 +47,7 @@
                         }
                         ?>
                     </select>
-                    <label for="mesa">Mesa</label>
+                    <!-- <label for="mesa">Mesa</label> -->
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Digite o nome" value="<?=$_SESSION['filtro']['cliente']?>">
@@ -66,7 +66,7 @@
                         }
                         ?>
                     </select>
-                    <label for="atendente">Atendente</label>
+                    <!-- <label for="atendente">Atendente</label> -->
                 </div>
                 <div class="form-floating mb-3">
                     <select  size="4" name="situacao" class="form-control" id="situacao">
@@ -76,7 +76,7 @@
                         <option value="pagar" <?=(($_SESSION['filtro']['situacao'] == 'pagar')?'selected':false)?>>Pagar</option>
                         <option value="pago" <?=(($_SESSION['filtro']['situacao'] == 'pago')?'selected':false)?>>Pago</option>
                     </select>
-                    <label for="email">Situação</label>
+                    <!-- <label for="email">Situação</label> -->
                 </div>
             </div>
         </div>
