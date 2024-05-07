@@ -240,22 +240,22 @@
                 <h5 class="mt-3">Pagamento Seguro</h5>
                 <ul class="list-group" style="font-size:12px;">
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Aplicativo Homologado e Seguro</span>
+                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Aplicativo Homologado e Seguro</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Certificado SSL para segurança das Informações</span>
+                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Certificado SSL para segurança das Informações</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Criptografia dos dados de ponta a ponta</span>
+                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Criptografia dos dados de ponta a ponta</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Autorização Integrada com Operadora Cielo</span>
+                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Autorização Integrada com Operadora Cielo</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Os dados são utilizados apenas para o pagamento autorizado</span>
+                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Os dados são utilizados apenas para o pagamento autorizado</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Nenhum registro de dados para o pagamento é armazenado</span>
+                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Nenhum registro de dados para o pagamento é armazenado</div>
                     </li>
                 </ul>
 
