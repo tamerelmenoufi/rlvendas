@@ -235,6 +235,30 @@
                     PAGAR R$ <?=number_format($_POST['valor_total'], 2, ',','.')?>
                 </button>
 
+
+                
+                <h4 class="mt-3">Ambiente de Pagamento Seguro</h4>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
+                        <i class="fa-solid fa-check text-success"></i> Aplicativo Homologado e Seguro
+                    </li>
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
+                        <i class="fa-solid fa-check text-success"></i> Certificado SSL para segurança da Informações
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <i class="fa-solid fa-check text-success"></i> Criptografia dos dados de ponta a ponta
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <i class="fa-solid fa-check text-success"></i> Autorização Integrada com Operadora Cielo
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <i class="fa-solid fa-check text-success"></i> Os dados são utilizados apenas para o pagamento autorizado
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <i class="fa-solid fa-check text-success"></i> Nenhum registro de dados para o pagamento é armazenado
+                    </li>
+                </ul>
+
                 <!-- <div class="alertas animate__animated animate__fadeIn animate__infinite animate__slower">
                     Atenção, você possui <span tentativa><?=$d->tentativas_pagamento?></span> tentativa(s)!
                 </div> -->
