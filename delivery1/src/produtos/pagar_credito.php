@@ -243,7 +243,7 @@
                         <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Aplicativo Homologado e Seguro</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Certificado SSL para segurança da Informações</span>
+                        <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Certificado SSL para segurança das Informações</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success"></i> <span class="ms-3">Criptografia dos dados de ponta a ponta</span>
