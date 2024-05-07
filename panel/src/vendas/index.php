@@ -10,7 +10,7 @@
         
     }
 
-    if($_SESSION['filtro']['situacao'] == 'pagar') $where = " and a.mesa != '' ";
+    
 
     if($_GET['filtro']){
         $_SESSION['busca_tipo'] = $_GET['filtro'];
@@ -38,6 +38,8 @@
     if($_SESSION['data_inicial'] > 0){
         $where .= " and data_pedido between '{$_SESSION['data_inicial']} 00:00:00' and '".(($_SESSION['data_final'])?:$_SESSION['data_inicial'])." 23:59:59' ";
     }
+
+    if($_SESSION['filtro']['situacao'] == 'pagar') $where .= " and a.mesa != '' ";
     
 
     $tipo = [
