@@ -116,7 +116,7 @@
         }
 
         $retorno .= "\ntxt|1|1|left|Cliente: ".$p->Cnome.""."\n";
-        $retorno .= "\ntxt|1|1|left|Telefone: ".$p->Ctelefone.""."\n";
+        // $retorno .= "\ntxt|1|1|left|Telefone: ".$p->Ctelefone.""."\n";
         $retorno .= "\ntxt|1|1|left|Endereço: ".$endereco.""."\n";
         $retorno .= "\ntxt|1|1|center|Em caso de dúvidas, ligue para o estabelecimento"."\n";        
 
