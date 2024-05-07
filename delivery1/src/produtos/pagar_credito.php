@@ -238,7 +238,7 @@
 
                 
                 <h4 class="mt-3">Ambiente de Pagamento Seguro</h4>
-                <ul class="list-group">
+                <ul class="list-group" style="font-size:12px;">
                     <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success"></i> Aplicativo Homologado e Seguro
                     </li>
