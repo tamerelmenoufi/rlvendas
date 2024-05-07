@@ -193,7 +193,7 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Total</span>
-                                <div class="d-flex justify-content-between l-100"><span>R$</span><span><?=number_format($d->total,2,',','.')?></span></div>
+                                <div class="d-flex justify-content-between l-100"><span>R$</span><span><?=number_format(($d->valor + $d->taxa - $d->desconto - $d->cupom_valor),2,',','.')?></span></div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Situação</span>
