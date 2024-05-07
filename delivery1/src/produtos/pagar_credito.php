@@ -240,22 +240,22 @@
                 <h4 class="mt-3">Ambiente de Pagamento Seguro</h4>
                 <ul class="list-group" style="font-size:12px;">
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> Aplicativo Homologado e Seguro
+                        <i class="fa-solid fa-check text-success me-3"></i> Aplicativo Homologado e Seguro
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> Certificado SSL para segurança da Informações
+                        <i class="fa-solid fa-check text-success me-3"></i> Certificado SSL para segurança da Informações
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> Criptografia dos dados de ponta a ponta
+                        <i class="fa-solid fa-check text-success me-3"></i> Criptografia dos dados de ponta a ponta
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> Autorização Integrada com Operadora Cielo
+                        <i class="fa-solid fa-check text-success me-3"></i> Autorização Integrada com Operadora Cielo
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> Os dados são utilizados apenas para o pagamento autorizado
+                        <i class="fa-solid fa-check text-success me-3"></i> Os dados são utilizados apenas para o pagamento autorizado
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> Nenhum registro de dados para o pagamento é armazenado
+                        <i class="fa-solid fa-check text-success me-3"></i> Nenhum registro de dados para o pagamento é armazenado
                     </li>
                 </ul>
 
