@@ -252,7 +252,7 @@
                         <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Autorização Integrada com Operadora Cielo</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Os dados são utilizados apenas para o pagamento autorizado</div>
+                        <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Os dados são utilizados apenas para pagamentos autorizados</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-start align-items-center">
                         <i class="fa-solid fa-check text-success"></i> <div class="ms-3">Nenhum registro de dados para o pagamento é armazenado</div>
