@@ -34,7 +34,7 @@
                     <input type="text" class="form-control" id="pedido" name="pedido" placeholder="Nome completo" value="<?=$_SESSION['filtro']['pedido']?>">
                     <label for="pedido">Número do Pedido*</label>
                 </div>
-                <div class="form-floating mb-3">
+                <div class="form-floatingXX mb-3">
                     <select size="4" name="mesa" class="form-control" id="mesa">
                         <option value="">:: Selecione ::</option>
                         <?php
@@ -53,7 +53,7 @@
                     <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Digite o nome" value="<?=$_SESSION['filtro']['cliente']?>">
                     <label for="cliente">Nome do Cliente*</label>
                 </div>
-                <div class="form-floating mb-3">
+                <div class="form-floatingXX mb-3">
                     <select  size="4" name="atendente" class="form-control" id="atendente">
                         <option value="">:: Selecione ::</option>
                         <?php
@@ -68,7 +68,7 @@
                     </select>
                     <!-- <label for="atendente">Atendente</label> -->
                 </div>
-                <div class="form-floating mb-3">
+                <div class="form-floatingXX mb-3">
                     <select  size="4" name="situacao" class="form-control" id="situacao">
                         <option value="">:: Selecione ::</option>
                         <option value="producao" <?=(($_SESSION['filtro']['situacao'] == 'producao')?'selected':false)?>>Produção</option>
