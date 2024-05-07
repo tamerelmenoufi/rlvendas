@@ -1,6 +1,14 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
+    if($_GET['liberar_mesas']){
+        $_SESSION['busca_tipo'] = 'garcom';
+        $_SESSION['data_inicial'] = false;
+        $_SESSION['data_final'] = false;
+        $_SESSION['filtro'] = false;
+        $_SESSION['filtro']['situacao'] = 'pagar';
+    }
+
     if($_GET['filtro']){
         $_SESSION['busca_tipo'] = $_GET['filtro'];
     }
