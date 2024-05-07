@@ -35,7 +35,7 @@
                     <label for="pedido">Número do Pedido*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select name="mesa" class="form-control" id="mesa">
+                    <select  size="4" name="mesa" class="form-control" id="mesa">
                         <option value="">:: Selecione ::</option>
                         <?php
                         $q = "select * from mesas where deletado != '1' and situacao = '1'";
@@ -54,7 +54,7 @@
                     <label for="cliente">Nome do Cliente*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select name="atendente" class="form-control" id="atendente">
+                    <select  size="4" name="atendente" class="form-control" id="atendente">
                         <option value="">:: Selecione ::</option>
                         <?php
                         $q = "select * from atendentes where deletado != '1' and situacao = '1' order by nome";
@@ -69,7 +69,7 @@
                     <label for="atendente">Atendente</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select name="situacao" class="form-control" id="situacao">
+                    <select  size="4" name="situacao" class="form-control" id="situacao">
                         <option value="">:: Selecione ::</option>
                         <option value="producao" <?=(($_SESSION['filtro']['situacao'] == 'producao')?'selected':false)?>>Produção</option>
                         <option value="preparo" <?=(($_SESSION['filtro']['situacao'] == 'preparo')?'selected':false)?>>Preparo</option>

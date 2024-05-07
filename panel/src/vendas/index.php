@@ -80,7 +80,7 @@
         <div class="m-3">
             <div class="input-group">
                 <span class="input-group-text">Tipo</span>
-                <select id="busca_tipo" class="form-select">
+                <select size="4" id="busca_tipo" class="form-select" >
                     <option value="garcom" <?=(($_SESSION['busca_tipo'] == 'garcom')?'selected':false)?>>Atendimento pelo Garçom</option>
                     <option value="cliente" <?=(($_SESSION['busca_tipo'] == 'cliente')?'selected':false)?>>Pedido pelo Cliente (na mesa)</option>
                     <option value="viagem" <?=(($_SESSION['busca_tipo'] == 'viagem')?'selected':false)?>>Pedido para viagem</option>
