@@ -255,6 +255,10 @@
 
         $("#Pagar").click(function(){
 
+            obj = $(this);
+            Carregando();
+            obj.attr("disabled","disabled");
+
             MerchantOrderId = '<?="{$_POST['AppVenda']}-".date("His")?>';
             amount = '<?=number_format($_POST['valor_total'],2,".",false)?>';
             Holder = $("#cartao_nome").val();
@@ -301,6 +305,9 @@
                             mensagem = dados[0]?.Message;
                         }
                         $.alert(`Erro na confirmação do pagamento!<p>${mensagem}</p>`);
+                        Carregando('none');
+                        obj.removeAttr("disabled");
+
                     }
                 }
             })
