@@ -53,6 +53,7 @@ $chave_producao = '112233';
 $appOpc = [ 
     'garcom' => 'garcom',
     'app' => 'mesa',
+    'delivery' => 'delivery',
     'delivery1' => 'delivery',
 ];
 
