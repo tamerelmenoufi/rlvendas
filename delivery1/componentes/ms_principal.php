@@ -111,7 +111,7 @@
 
 
 <?php
-    $query = "select * from categorias where deletado != '1' and codigo <= 7";
+    $query = "select * from categorias where delivery = '1' and situacao = '1' and deletado != '1' and codigo <= 7";
     $result = mysqli_query($con,$query);
     $i=0;
     while($d = mysqli_fetch_object($result)){
