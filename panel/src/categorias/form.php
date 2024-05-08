@@ -152,6 +152,12 @@
                     </div> 
                 </div> 
 
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="delivery" <?=(($d->delivery)?'checked':false)?>>
+                    <label class="form-check-label" for="delivery">Liberar categoria no aplicativo delivery</label>
+                </div>
+
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
