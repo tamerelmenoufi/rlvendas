@@ -185,6 +185,11 @@
                     />
                 </div>
 
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="delivery" <?=(($d->delivery)?'checked':false)?>>
+                    <label class="form-check-label" for="delivery">Produto Disponível para Delivery</label>
+                </div>
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
@@ -289,6 +294,11 @@
                     campos.push({name: 'codigo', value: codigo})
                 }
 
+                if($("#delivery").prop("checked") == true){
+                    campos.push({name: 'delivery', value: '1'});
+                }else{
+                    campos.push({name: 'delivery', value: '0'});
+                }
 
                 campos.push({name: 'acao', value: 'salvar'})
 
