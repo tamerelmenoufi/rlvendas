@@ -18,7 +18,7 @@ function aasort(&$array, $key)
     $array = $ret;
 }
 
-$query = "select * from categorias where codigo = '{$_GET['categoria']}' AND deletado != '1'";
+$query = "select * from categorias where codigo = '{$_GET['categoria']}' AND delivery = '1' AND deletado != '1'";
 $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
 
@@ -112,7 +112,7 @@ while ($m = mysqli_fetch_array($m_r)) {
 <div style="position:fixed; width:100%; top:60px; bottom:60px; overflow:auto;" >
 <div class="col-md-12">
     <?php
-    $query = "select * from produtos where categoria = '{$d->codigo}' AND situacao = '1' AND deletado != '1' order by produto asc";
+    $query = "select * from produtos where categoria = '{$d->codigo}' AND situacao = '1' AND delivery = '1' AND deletado != '1' order by produto asc";
     $result = mysqli_query($con, $query);
     while ($p = mysqli_fetch_object($result)) {
         $detalhes = json_decode($p->detalhes, true);
