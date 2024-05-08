@@ -15,6 +15,13 @@
       exit();
     }
 
+    if($_POST['delivery']){
+      $query = "update produtos set delivery = '{$_POST['opc']}' where codigo = '{$_POST['delivery']}'";
+      sisLog($query);
+      exit();
+    }
+
+
 ?>
 <style>
   .btn-perfil{
@@ -64,6 +71,7 @@
                   <tr>
                     <th scope="col">Produto</th>
                     <th scope="col">Situação</th>
+                    <th scope="col">Delivery</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
@@ -79,6 +87,11 @@
                     <td>
                       <div class="form-check form-switch">
                         <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                      </div>                      
+                    </td>
+                    <td>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input delivery" type="checkbox" <?=(($d->delivery)?'checked':false)?> delivery="<?=$d->codigo?>">
                       </div>                      
                     </td>
                     <td>
@@ -191,6 +204,33 @@
                   // $("#paginaHome").html(dados);
               }
           })
+
+        });
+
+
+        $(".delivery").change(function(){
+
+            delivery = $(this).attr("delivery");
+            opc = false;
+
+            if($(this).prop("checked") == true){
+              opc = '1';
+            }else{
+              opc = '0';
+            }
+
+
+            $.ajax({
+                url:"src/produtos/index.php",
+                type:"POST",
+                data:{
+                    delivery,
+                    opc
+                },
+                success:function(dados){
+                    // $("#paginaHome").html(dados);
+                }
+            })
 
         });
 
