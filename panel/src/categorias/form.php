@@ -248,6 +248,12 @@
                     campos.push({name: 'codigo', value: codigo})
                 }
 
+                if($('#delivery').prop("checked") == true){
+                    campos.push({name: 'delivery', value: '1'});
+                }else{
+                    campos.push({name: 'delivery', value: '0'});
+                }
+
                 //Medidas
                 var medidas = [];
 
