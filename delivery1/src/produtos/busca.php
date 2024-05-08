@@ -114,12 +114,12 @@ function aasort(&$array, $key)
 <div class="col-md-12 corpo_busca" >
     <?php
 
-    $query_c = "select * from categorias where situacao = '1' AND deletado != '1' and codigo <= 7";
+    $query_c = "select * from categorias where situacao = '1' AND delivery = '1' AND deletado != '1' and codigo <= 7";
     $result_c = mysqli_query($con, $query_c);
     while($d = mysqli_fetch_object($result_c)){
 
 
-        $query = "select * from produtos where categoria = '{$d->codigo}' AND situacao = '1' AND deletado != '1' order by produto asc";
+        $query = "select * from produtos where categoria = '{$d->codigo}' AND situacao = '1' AND delivery = '1' AND deletado != '1' order by produto asc";
         $result = mysqli_query($con, $query);
 
         $m_q = "select * from categoria_medidas where codigo in({$d->medidas}) AND deletado != '1' "
