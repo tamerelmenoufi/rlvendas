@@ -176,6 +176,7 @@ if (!isset($_SESSION['usuario'])) {
             $('.loading').fadeOut(200);
         })
     });
+    
 </script>
 </body>
 </html>
