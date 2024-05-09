@@ -92,6 +92,7 @@
 <div class="row g-0">
     <div class="col">
         <div class="m-3">
+            <h1>Liberar Mersas</h1>
             <div class="row">
 <?php
     $query = "select * from mesas where situacao = '1' and deletado != '1' and CONVERT(mesa, UNSIGNED INTEGER) < 200 order by CONVERT(mesa, UNSIGNED INTEGER) asc";
