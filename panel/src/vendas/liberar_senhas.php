@@ -71,7 +71,7 @@
             if(!cod) return false;
             $.confirm({
                 title:"Confirmação de pagamento",
-                content:`Confirma o pagamento da venda e aliberação da mesa <b>${txt}</B>?`,
+                content:`Confirma o pagamento da venda e aliberação da senha <b>${txt}</B>?`,
                 buttons:{
                     sim:{
                         text:"SIM",
