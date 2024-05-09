@@ -89,7 +89,7 @@
                                     obj.removeClass("alert-warning");
                                     obj.addClass("alert-secondary");
                                     obj.removeAttr("liberar");
-                                    obj.css("cursor","normal");
+                                    obj.css("cursor","auto");
                                     obj.children("i").removeClass("fa-lock text-danger");
                                     obj.children("i").addClass("fa-lock-open text-success");
                                 }
@@ -103,7 +103,7 @@
                             obj.removeClass("alert-warning");
                             obj.addClass("alert-secondary");
                             obj.removeAttr("liberar");
-                            obj.css("cursor","normal");
+                            obj.css("cursor","auto");
                             obj.children("i").removeClass("fa-lock text-danger");
                             obj.children("i").addClass("fa-lock-open text-success");
                         }
