@@ -84,8 +84,6 @@
                                     acao:'pagar'
                                 },
                                 success: function (dados) {
-                                    // alert-warning
-                                    // alert-secondary
                                     obj.removeClass("alert-warning");
                                     obj.addClass("alert-secondary");
                                     obj.removeAttr("liberar");
@@ -100,12 +98,7 @@
                         text:"NÃO",
                         btnClass:"btn btn-success btn-sm",
                         action:function(){
-                            obj.removeClass("alert-warning");
-                            obj.addClass("alert-secondary");
-                            obj.removeAttr("liberar");
-                            obj.css("cursor","auto");
-                            obj.children("i").removeClass("fa-lock text-danger");
-                            obj.children("i").addClass("fa-lock-open text-success");
+
                         }
                     }
                 }
