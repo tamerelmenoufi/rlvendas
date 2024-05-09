@@ -116,7 +116,10 @@
                         role="alert"
                         style="position:relative"
                     >
-                        <i class="fa-solid fa-lock-open text-success" style="position:absolute; right:5px; bottom:5px"></i>
+                        <i 
+                            class="fa-solid <?=((in_array($d->codigo, $ocupadas))?'fa-lock text-danger':'fa-lock-open text-success')?>"
+                            style="position:absolute; right:5px; bottom:5px"
+                        ></i>
                         <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
                     </div>
                 </div>
