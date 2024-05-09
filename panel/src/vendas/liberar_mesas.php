@@ -110,9 +110,15 @@
 
 ?>
                 <div class="col-2">
-                <div class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" role="alert">
-                    <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
-                </div>
+                    <div 
+                        <?=((in_array($d->codigo, $ocupadas))?"liberar='{$d->codigo}'":false)?> 
+                        class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
+                        role="alert"
+                        style="position:relative"
+                    >
+                        <i class="fa-solid fa-lock-open text-success" style="position:absolute; right:5px; bottom:5px"></i>
+                        <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
+                    </div>
                 </div>
 <?php
     }
@@ -127,87 +133,6 @@
 <script>
     $(function(){
         Carregando('none');
-
-        $("button[buscar]").click(function(){
-
-            busca_tipo = $("#busca_tipo").val();
-            data_inicial = $("#data_inicial").val();
-            data_final = $("#data_final").val();
-            Carregando();
-            $.ajax({
-                url:"src/vendas/index.php",
-                type:"POST",
-                data:{
-                    busca_tipo,
-                    data_inicial,
-                    data_final,
-                    acao:"busca"
-                },
-                success:function(dados){
-                    $("#paginaHome").html(dados);
-                }
-            })
-
-        })
-
-        $("button[limpar_filtro]").click(function(){
-
-            Carregando();
-            $.ajax({
-                url:"src/vendas/index.php",
-                type:"POST",
-                data:{
-                    acao:"limpar_filtro"
-                },
-                success:function(dados){
-                    $("#paginaHome").html(dados);
-                }
-            })
-
-        })
-
-
-        $("button[filtrar]").click(function(){
-
-            Carregando();
-            $.ajax({
-                url:"src/vendas/filtro.php",
-                success:function(dados){
-                    $(".LateralDireita").html(dados);
-                }
-            })
-
-        })
-
-        $("a[print2]").click(function() {
-
-            terminal = $(this).attr("local");
-            cod = $(this).attr("print2");
-
-            $.ajax({
-                url: "src/vendas/print-2.php",
-                type: "POST",
-                data: {
-                    cod,
-                    terminal
-                },
-                success: function (dados) {
-                    //alert('x');
-                }
-            });
-
-        });
-
-        $("button[pedido]").click(function () {
-
-            cod = $(this).attr("pedido");
-
-            $.dialog({
-                content: "url:src/vendas/detalhes.php?cod=" + cod,
-                title: false,
-                columnClass: 'col-md-8 col-xs-12'
-            });
-        });
 
         $("button[pagar]").click(function () {
             obj = $(this);
