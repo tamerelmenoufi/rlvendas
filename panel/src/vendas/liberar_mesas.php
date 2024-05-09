@@ -95,13 +95,22 @@
             <h1>Liberar Mersas</h1>
             <div class="row">
 <?php
+
+    $query = "select * from vendas  where deletado != '1' and mesa != '' and situacao = 'pagar' and app = 'garcom'";
+    $result = mysqli_query($con, $query);
+    $ocupadas = [];
+    while($d = mysqli_fetch_object($result)){
+        $ocupadas[] = $d->mesa;
+    }
+
+
     $query = "select * from mesas where situacao = '1' and deletado != '1' and CONVERT(mesa, UNSIGNED INTEGER) < 200 order by CONVERT(mesa, UNSIGNED INTEGER) asc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
 ?>
                 <div class="col-2">
-                <div class="alert alert-secondary" role="alert">
+                <div class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" role="alert">
                     <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
                 </div>
                 </div>
