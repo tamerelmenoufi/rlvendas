@@ -6,6 +6,7 @@
         if(mysqli_query($con, "update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'")){
             mysqli_query($con, "UPDATE mesas set blq = '0' WHERE codigo = '{$mesa->mesa}'");
         }
+        echo "select mesa from vendas where codigo = '{$_POST['cod']}'";
         exit();
     }
     
@@ -86,6 +87,7 @@
                                     acao:'pagar'
                                 },
                                 success: function (dados) {
+                                    console.log(dados);
                                     obj.removeClass("alert-warning");
                                     obj.addClass("alert-secondary");
                                     obj.removeAttr("liberar");
