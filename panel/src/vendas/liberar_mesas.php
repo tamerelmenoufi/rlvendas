@@ -30,6 +30,7 @@
     $ocupadas = [];
     while($d = mysqli_fetch_object($result)){
         $ocupadas[] = $d->mesa;
+        $cod_venda[$d->mesa] = $d->codigo;
     }
 
     $query = "select * from mesas where situacao = '1' and deletado != '1' and CONVERT(mesa, UNSIGNED INTEGER) < 200 order by CONVERT(mesa, UNSIGNED INTEGER) asc";
@@ -39,7 +40,7 @@
 ?>
                 <div class="col-2">
                     <div 
-                        <?=((in_array($d->codigo, $ocupadas))?"liberar='{$d->codigo}'":false)?> 
+                        <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
                         class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
                         role="alert"
                         style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer':false)?>"
