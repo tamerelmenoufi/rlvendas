@@ -1,84 +1,12 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
-    if($_GET['liberar_mesas']){
-        $_SESSION['busca_tipo'] = 'garcom';
-        $_SESSION['data_inicial'] = false;
-        $_SESSION['data_final'] = false;
-        $_SESSION['filtro'] = false;
-        $_SESSION['filtro']['situacao'] = 'pagar';
-        
-    }
-
-    
-    if($_GET['filtro']){
-        $_SESSION['busca_tipo'] = $_GET['filtro'];
-    }
-
-    if($_POST['acao'] == 'busca'){
-        $_SESSION['data_inicial'] = $_POST['data_inicial'];
-        $_SESSION['data_final'] = $_POST['data_final'];
-        $_SESSION['busca_tipo'] = $_POST['busca_tipo'];
-    }
-
-    if($_POST['acao'] == 'limpar_filtro'){
-        $_SESSION['filtro'] = [];
-    }
-
     if ($_POST['acao'] == 'pagar') {
         $mesa = mysqli_fetch_object(mysqli_query($con, "select mesa from vendas where codigo = '{$_POST['cod']}'"));
         if(mysqli_query($con, "update vendas set situacao = 'pago' where codigo = '{$_POST['cod']}'")){
             mysqli_query($con, "UPDATE mesas set blq = '0' WHERE codigo = '{$mesa->mesa}'");
         }
         exit();
-    }
-
-    $where = false;
-    if($_SESSION['data_inicial'] > 0){
-        $where .= " and data_pedido between '{$_SESSION['data_inicial']} 00:00:00' and '".(($_SESSION['data_final'])?:$_SESSION['data_inicial'])." 23:59:59' ";
-    }
-
-    if($_SESSION['filtro']['situacao'] == 'pagar') $where .= " and a.mesa != '' ";
-    
-
-    $tipo = [
-        'garcom'    => " and a.app = 'garcom' ",
-        'cliente'   => " and a.caixa != '0' and a.app = 'mesa' and a.situacao = 'pago'",
-        'viagem'    => " and a.app = 'mesa'", // and a.mesa >= 200
-        'delivery'  => " and a.app = 'delivery' and a.caixa != '0' and a.situacao = 'pago'",
-    ];
-
-    function rotulo($i, $v){
-        global $con;
-        $r = $v;
-        if($i == 'mesa'){
-            list($r) = mysqli_fetch_row(mysqli_query($con,"select mesa from mesas where codigo = '{$v}'"));
-        }
-        if($i == 'atendente'){
-            list($r) = mysqli_fetch_row(mysqli_query($con,"select nome from atendentes where codigo = '{$v}'"));
-        }
-        return $r;
-    }
-
-    if($_SESSION['filtro']){
-        $filtro = [];
-        $filtros = [];
-        foreach($_SESSION['filtro'] as $i => $v){
-            if($v){
-                $v1 = rotulo($i, $v);
-                $filtro[] = "{$i}: {$v1}";
-                $q = [
-                    'pedido' => " a.codigo = '{$v}'",
-                    'mesa' => " a.mesa = '{$v}'",
-                    'cliente' => " c.nome like '%{$v}%'",
-                    'atendente' => " a.atendente = '{$v}'",
-                    'situacao' => " a.situacao = '{$v}'",
-                ];
-                $filtros[] = $q[$i];
-            }
-            }
-        $filtro = implode(", ", $filtro);
-        $filtros = implode(" and ", $filtros);
     }
     
 ?>
@@ -102,7 +30,6 @@
     while($d = mysqli_fetch_object($result)){
         $ocupadas[] = $d->mesa;
     }
-
 
     $query = "select * from mesas where situacao = '1' and deletado != '1' and CONVERT(mesa, UNSIGNED INTEGER) < 200 order by CONVERT(mesa, UNSIGNED INTEGER) asc";
     $result = mysqli_query($con, $query);
@@ -137,9 +64,9 @@
     $(function(){
         Carregando('none');
 
-        $("button[pagar]").click(function () {
+        $("div[liberar]").click(function () {
             obj = $(this);
-            cod = obj.attr("pagar");
+            cod = obj.attr("liberar");
             $.confirm({
                 title:"Confirmação de pagamento",
                 content:"Confirma o pagamento da venda e aliberação da mesa?",
@@ -149,16 +76,21 @@
                         btnClass:"btn btn-danger btn-sm",
                         action:function(){
                             $.ajax({
-                                url: "src/vendas/index.php",
+                                url: "src/vendas/liberar_mesas.php",
                                 type: "POST",
                                 data: {
                                     cod,
                                     acao:'pagar'
                                 },
                                 success: function (dados) {
-                                    //alert('x');
-                                    // $.alert('Venda atualizada com situação <b>Pago</b>.');
-                                    obj.remove();
+                                    // alert-warning
+                                    // alert-secondary
+                                    obj.removeClass("alert-warning");
+                                    obj.addClass("alert-secondary");
+                                    obj.removeAttr("liberar");
+                                    obj.css("cursor","normal");
+                                    obj.children("i").removeClass("fa-lock text-danger");
+                                    obj.children("i").addClass("fa-lock-open text-success");
                                 }
                             });
                         }
@@ -167,7 +99,12 @@
                         text:"NÃO",
                         btnClass:"btn btn-success btn-sm",
                         action:function(){
-                            
+                            obj.removeClass("alert-warning");
+                            obj.addClass("alert-secondary");
+                            obj.removeAttr("liberar");
+                            obj.css("cursor","normal");
+                            obj.children("i").removeClass("fa-lock text-danger");
+                            obj.children("i").addClass("fa-lock-open text-success");
                         }
                     }
                 }
