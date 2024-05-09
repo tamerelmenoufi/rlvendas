@@ -77,6 +77,7 @@
                         text:"SIM",
                         btnClass:"btn btn-danger btn-sm",
                         action:function(){
+                            Carregando()
                             $.ajax({
                                 url: "src/vendas/liberar_mesas.php",
                                 type: "POST",
@@ -91,6 +92,7 @@
                                     obj.css("cursor","auto");
                                     obj.children("i").removeClass("fa-lock text-danger");
                                     obj.children("i").addClass("fa-lock-open text-success");
+                                    Carregando('none')
                                 }
                             });
                         }
