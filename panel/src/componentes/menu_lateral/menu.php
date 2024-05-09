@@ -62,6 +62,14 @@
         </a>
       </div>
     </div>
+
+    <div class="row mb-1" style="opacity:0">
+      <div class="col">
+        <a url="src/vendas/liberar_mesas.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Liberar Mesas</span>
+        </a>
+      </div>
+    </div>
     
     <div class="row mb-1">
       <div class="col">
