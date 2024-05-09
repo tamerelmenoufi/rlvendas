@@ -67,6 +67,7 @@
         $("div[liberar]").click(function () {
             obj = $(this);
             cod = obj.attr("liberar");
+            if(!cod) return false;
             $.confirm({
                 title:"Confirmação de pagamento",
                 content:"Confirma o pagamento da venda e aliberação da mesa?",
