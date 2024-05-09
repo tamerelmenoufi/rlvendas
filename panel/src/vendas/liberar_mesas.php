@@ -100,7 +100,9 @@
 
 ?>
                 <div class="col-2">
-                    <h1><?=$d->mesa?></h1>
+                <div class="alert alert-secondary" role="alert">
+                    <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
+                </div>
                 </div>
 <?php
     }
