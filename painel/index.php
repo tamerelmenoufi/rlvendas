@@ -134,6 +134,7 @@ if (!isset($_SESSION['usuario'])) {
         });
 
         $("a[AbrirVendas]").click(function () {
+
             $('.loading').fadeIn(200);
 
             $.ajax({
@@ -142,14 +143,15 @@ if (!isset($_SESSION['usuario'])) {
                     $(".TelaVendas").html(data);
                 }
             })
-                .done(function () {
-                    $('.loading').fadeOut(200);
-                    $(".TelaVendas").css("display", "block");
-                })
-                .fail(function (error) {
-                    alert('Error');
-                    $('.loading').fadeOut(200);
-                });
+            .done(function () {
+                $('.loading').fadeOut(200);
+                $(".TelaVendas").css("display", "block");
+            })
+            .fail(function (error) {
+                alert('Error');
+                $('.loading').fadeOut(200);
+            });
+
         });
     });
 
@@ -166,13 +168,13 @@ if (!isset($_SESSION['usuario'])) {
                 $('#palco').html(data);
             }
         })
-            .done(function () {
-                $('.loading').fadeOut(200);
-            })
-            .fail(function (error) {
-                alert('Error');
-                $('.loading').fadeOut(200);
-            })
+        .done(function () {
+            $('.loading').fadeOut(200);
+        })
+        .fail(function (error) {
+            alert('Error');
+            $('.loading').fadeOut(200);
+        })
     });
 </script>
 </body>
