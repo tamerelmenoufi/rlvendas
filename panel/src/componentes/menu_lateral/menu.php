@@ -57,16 +57,16 @@
 
     <div class="row mb-1">
       <div class="col">
-        <a url="src/vendas/index.php?liberar_mesas=1" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+        <a url="src/vendas/liberar_mesas.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
           <i class="fa-regular fa-user col-1"></i> <span class="col-11">Liberar Mesas</span>
         </a>
       </div>
     </div>
 
-    <div class="row mb-1" style="opacity:0">
+    <div class="row mb-1">
       <div class="col">
-        <a url="src/vendas/liberar_mesas.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Liberar Mesas</span>
+        <a url="src/vendas/liberar_senhas.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Liberar Viagem</span>
         </a>
       </div>
     </div>

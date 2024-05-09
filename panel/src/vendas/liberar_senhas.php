@@ -20,7 +20,7 @@
 <div class="row g-0">
     <div class="col">
         <div class="m-3">
-            <h1>Liberar Mesas</h1>
+            <h1>Liberar Senhas para Viagem</h1>
             <div class="row">
 <?php
 
@@ -31,7 +31,7 @@
         $ocupadas[] = $d->mesa;
     }
 
-    $query = "select * from mesas where situacao = '1' and deletado != '1' and CONVERT(mesa, UNSIGNED INTEGER) < 200 order by CONVERT(mesa, UNSIGNED INTEGER) asc";
+    $query = "select * from mesas where situacao = '1' and deletado != '1' and CONVERT(mesa, UNSIGNED INTEGER) >= 200 order by CONVERT(mesa, UNSIGNED INTEGER) asc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
@@ -79,7 +79,7 @@
                         action:function(){
                             Carregando()
                             $.ajax({
-                                url: "src/vendas/liberar_mesas.php",
+                                url: "src/vendas/liberar_senhas.php",
                                 type: "POST",
                                 data: {
                                     cod,
