@@ -135,7 +135,7 @@
         <div class="m-3">
             <div class="row">
 <?php
-    echo $query = "select 
+    $query = "select 
                     a.*,
                     m.mesa,
                     c.nome as cliente,
