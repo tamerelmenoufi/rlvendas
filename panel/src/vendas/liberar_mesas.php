@@ -114,7 +114,7 @@
                         <?=((in_array($d->codigo, $ocupadas))?"liberar='{$d->codigo}'":false)?> 
                         class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
                         role="alert"
-                        style="position:relative"
+                        style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer':false)?>"
                     >
                         <i 
                             class="fa-solid <?=((in_array($d->codigo, $ocupadas))?'fa-lock text-danger':'fa-lock-open text-success')?>"
