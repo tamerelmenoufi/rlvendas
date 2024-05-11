@@ -37,7 +37,7 @@
     while($d = mysqli_fetch_object($result)){
 
 ?>
-                <div class="col-2">
+                <div class="col-4">
                     <div 
                         <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
                         class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
