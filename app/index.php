@@ -1,5 +1,6 @@
 <?php
     include("../lib/includes.php");
+    exit();
     if($_GET['s']) {
         $_SESSION = [];
         header("location:./");

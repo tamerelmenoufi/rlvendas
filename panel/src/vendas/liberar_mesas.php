@@ -9,14 +9,12 @@
         echo "select mesa from vendas where codigo = '{$_POST['cod']}'";
         exit();
     }
-    
 ?>
 <style>
     .l-100{
         width:100px;
     }
 </style>
-
 
 <div class="row g-0">
     <div class="col">
