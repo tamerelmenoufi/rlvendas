@@ -25,7 +25,7 @@
             <div class="row">
 <?php
 
-    $query = "select * from vendas  where deletado != '1' and mesa != '' and situacao = 'pagar' and app = 'garcom'";
+    $query = "select * from vendas  where deletado != '1' and mesa != '' and situacao = 'pagar' and app in ('garcom','mesa')";
     $result = mysqli_query($con, $query);
     $ocupadas = [];
     while($d = mysqli_fetch_object($result)){
