@@ -35,6 +35,7 @@
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
+        if($_SESSION['appLogin']->codigo != 1){
 ?>
                 <div class="col-4">
                     <div 
@@ -51,6 +52,17 @@
                     </div>
                 </div>
 <?php
+        }else{
+?>
+                <div class="col-4">
+                    <div class="input-group  input-group-lg">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
+                        <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-list"></i></button>
+                        <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-print"></i></button>
+                    </div>
+                </div>
+<?php
+        }
     }
 ?>
             </div>
