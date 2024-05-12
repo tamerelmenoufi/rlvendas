@@ -58,7 +58,7 @@
                     <div class="input-group  input-group-lg m-1">
                         <div 
                             <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
-                                class="form-control bg-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
+                                class="form-control" 
                                 style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer; background:--bs-warning-bg-subtle':'background:--bs-dark-bg-subtle')?>"
                         >                         
                             <i 
