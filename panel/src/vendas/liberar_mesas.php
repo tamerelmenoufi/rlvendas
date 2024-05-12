@@ -55,7 +55,7 @@
         }else{
 ?>
                 <div class="col-4">
-                    <div class="input-group  input-group-lg">
+                    <div class="input-group  input-group-lg m-1">
                         <div 
                             <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
                                 class="form-control bg-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
