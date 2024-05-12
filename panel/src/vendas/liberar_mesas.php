@@ -59,7 +59,7 @@
                         <div 
                             <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
                                 class="form-control" 
-                                style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer; background-color:var(--bs-warning-bg-subtle)':'background-color:var(--bs-dark-bg-subtle)')?>"
+                                style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer; background-color:#fff3cd':'background-color:#ced4da')?>"
                         >                         
                             <i 
                                 class="fa-solid <?=((in_array($d->codigo, $ocupadas))?'fa-lock text-danger':'fa-lock-open text-success')?>"
