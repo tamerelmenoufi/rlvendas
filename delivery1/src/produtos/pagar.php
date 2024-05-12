@@ -402,7 +402,16 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
-                    if($fechado){
+                    $fechado_feriado = true;
+                    if($fechado_feriado){
+                        ?>
+                        <center>
+                            <h3>Pedido não pode ser finalizado</h3>
+                            <p>Devido ao volume de reservas do dia das mães, atendimento hoje somente na nossa loja física. Agradecemos a compreensão!</p>
+                            <p>FELIZ DIA DAS MÃES</p>
+                        </center>
+                        <?php
+                        }else if($fechado){
                     ?>
                     <center>
                         <h3>Pedido não pode ser finalizado</h3>
