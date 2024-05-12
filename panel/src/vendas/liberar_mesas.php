@@ -56,20 +56,19 @@
 ?>
                 <div class="col-4">
                     <div class="input-group  input-group-lg">
-                        
-                            <div 
-                                <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
+                        <div 
+                            class="form-control"
+                            <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
                                 class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
                                 role="alert"
                                 style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer':false)?>"
-                            >                            
-                                <i 
-                                    class="fa-solid <?=((in_array($d->codigo, $ocupadas))?'fa-lock text-danger':'fa-lock-open text-success')?>"
-                                    style="position:absolute; right:5px; bottom:5px"
-                                ></i>                            
-                                <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
-                            </div>
-                        
+                        >                         
+                            <i 
+                                class="fa-solid <?=((in_array($d->codigo, $ocupadas))?'fa-lock text-danger':'fa-lock-open text-success')?>"
+                                style="position:absolute; right:5px; bottom:5px"
+                            ></i>                            
+                            <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
+                        </div>
                         <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-list"></i></button>
                         <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-print"></i></button>
                     </div>
