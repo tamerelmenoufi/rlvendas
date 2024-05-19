@@ -171,7 +171,7 @@
         }
         if($d->situacao == 'pagar' or $d->situacao == 'pago'){
         ?>
-        <table class="table table-hover">
+        <table class="table table-hover" style="margin-top:30px;">
             <thead>
                 <tr>
                     <th>Caixa</th>
