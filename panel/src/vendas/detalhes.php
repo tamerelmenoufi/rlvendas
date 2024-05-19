@@ -170,7 +170,7 @@
         <?php
         }
         ?>
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Forma de Pgamento</th>
@@ -180,7 +180,7 @@
             </thead>
             <tbody>
         <?php
-        $q = "select a.*, b.nome as atendente_nome from vendas_pagamento a left join b on a.atendente = b.codigo where a.venda = '{$d->codigo}' and a.deletado != '1'";
+        $q = "select a.*, b.nome as atendente_nome from vendas_pagamento a left join atendentes b on a.atendente = b.codigo where a.venda = '{$d->codigo}' and a.deletado != '1'";
         $r = mysqli_query($con, $q);
         while($p = mysqli_fetch_object($r)){
         ?>
