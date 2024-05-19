@@ -169,10 +169,12 @@
         </div>
         <?php
         }
+        if($d->situacao == 'pagar' or $d->situacao == 'pago'){
         ?>
         <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>Caixa</th>
                     <th>Forma de Pgamento</th>
                     <th>Atendente</th>
                     <th>Valor</th>
@@ -185,6 +187,7 @@
         while($p = mysqli_fetch_object($r)){
         ?>
                 <tr>
+                    <td><?=$p->caixa?></td>
                     <td><?=$p->forma_pagamento?></td>
                     <td><?=$p->atendente_nome?></td>
                     <td>R$ <?=number_format($p->valor,2,'.',false)?></td>
@@ -194,7 +197,9 @@
         ?>
             </tbody>
         </table>
-
+        <?php
+        }
+        ?>
 
 
 
