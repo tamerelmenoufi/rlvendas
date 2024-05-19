@@ -170,7 +170,7 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Mesa</span>
-                                <span><?=$d->mesa?></span>
+                                <span><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Cliente</span>
