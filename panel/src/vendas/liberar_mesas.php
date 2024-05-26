@@ -57,7 +57,7 @@
                 <div class="col-4">
                     <div class="input-group  input-group-lg m-1">
                         <div 
-                            <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}'":false)?> 
+                            <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}' venda='".str_pad($d->codigo, 6, "0", STR_PAD_LEFT)."'":false)?> 
                                 class="form-control" 
                                 style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer; background-color:#fff3cd':'background-color:#eee')?>"
                         >                         
@@ -89,11 +89,12 @@
         $("div[liberar]").click(function () {
             obj = $(this);
             cod = obj.attr("liberar");
+            venda = obj.attr("venda");
             txt = obj.text();
             if(!cod) return false;
             $.confirm({
                 title:"Confirmação de pagamento",
-                content:`Confirma o pagamento da venda e aliberação da mesa <b>${txt}</B>?`,
+                content:`Confirma o pagamento da venda <b>${venda}</b> e aliberação da mesa <b>${txt}</B>?`,
                 buttons:{
                     sim:{
                         text:"SIM",
