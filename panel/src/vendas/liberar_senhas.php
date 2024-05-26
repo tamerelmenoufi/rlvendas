@@ -39,7 +39,7 @@
 ?>
                 <div class="col-4">
                     <div 
-                        <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}' venda='".str_pad($d->codigo, 6, "0", STR_PAD_LEFT)."'":false)?> 
+                        <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}' venda='".str_pad($cod_venda[$d->codigo], 6, "0", STR_PAD_LEFT)."'":false)?> 
                         class="alert alert-<?=((in_array($d->codigo, $ocupadas))?'warning':'secondary')?>" 
                         role="alert"
                         style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer':false)?>"

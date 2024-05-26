@@ -57,7 +57,7 @@
                 <div class="col-4">
                     <div class="input-group  input-group-lg m-1">
                         <div 
-                            <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}' venda='".str_pad($d->codigo, 6, "0", STR_PAD_LEFT)."'":false)?> 
+                            <?=((in_array($d->codigo, $ocupadas))?"liberar='{$cod_venda[$d->codigo]}' venda='".str_pad($cod_venda[$d->codigo], 6, "0", STR_PAD_LEFT)."'":false)?> 
                                 class="form-control" 
                                 style="position:relative; <?=((in_array($d->codigo, $ocupadas))?'cursor:pointer; background-color:#fff3cd':'background-color:#eee')?>"
                         >                         
