@@ -60,6 +60,12 @@
     <i class="fa-solid fa-xmark popupFecha"></i>
     <div class="popupPalco"></div>
 </div>
+<div class="row g-0">
+    <div class="11"></div>
+    <div class="1">
+        <button class="btn btn-danger btn-sm salao">Salão</button> 
+    </div>
+</div>
 <div class="ms_corpo"></div>
 
 <?php include("../lib/footer.php"); ?>
@@ -69,6 +75,18 @@
 
 <script>
     $(function () {
+
+        $(".salao").click(function(){
+            window.location.href='https://yobom.com.br/rlvendas/garcom/';
+        })
+
+        $.ajax({
+            url: "src/index.php",
+            success: function (dados) {
+                $(".ms_corpo").html(dados);
+            }
+        });  
+        
         setInterval(() => {
             $.ajax({
                 url: "src/index.php",

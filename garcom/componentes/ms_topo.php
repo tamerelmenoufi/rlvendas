@@ -58,10 +58,13 @@
             }
         ?>
     </div>
+    <div class="col-1">
+        <button class="btn btn-warning btn-sm delivery">Delivery</button>
+    </div>
     <?php
         if($g->nome){
     ?>
-    <div sair class="col-2">
+    <div sair class="col-1">
         <i class="fa fa-sign-out"></i>
     </div>
     <?php
@@ -72,6 +75,10 @@
 
 <script>
     $(function(){
+
+        $(".delivery").click(function(){
+            window.location.href='https://yobom.com.br/rlvendas/loja/';
+        })
 
         $("div[sair]").click(function(){
 
