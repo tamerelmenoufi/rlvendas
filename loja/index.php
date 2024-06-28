@@ -65,7 +65,7 @@
 </div>
 <div class="row g-0">
     <div class="col-10"></div>
-    <div class="col-3">
+    <div class="col-2">
         <button class="btn btn-danger btn-sm mt-2 salao">Salão</button> 
     </div>
 </div>
