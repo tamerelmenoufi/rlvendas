@@ -44,7 +44,7 @@
     <div class="col-4">
         <img class="topoImg" src="img/logo.png" />
     </div>
-    <div class="col-6">
+    <div class="col-4">
         <?php
             if($g->nome){
         ?>
@@ -58,13 +58,13 @@
             }
         ?>
     </div>
-    <div class="col-1">
+    <div class="col-2">
         <button class="btn btn-warning btn-sm delivery mt-3">Delivery</button>
     </div>
     <?php
         if($g->nome){
     ?>
-    <div sair class="col-1">
+    <div sair class="col-2">
         <i class="fa fa-sign-out"></i>
     </div>
     <?php
