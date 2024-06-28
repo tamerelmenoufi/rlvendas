@@ -61,8 +61,8 @@
     <div class="popupPalco"></div>
 </div>
 <div class="row g-0">
-    <div class="11"></div>
-    <div class="1">
+    <div class="col-11"></div>
+    <div class="col-1">
         <button class="btn btn-danger btn-sm salao">Salão</button> 
     </div>
 </div>
