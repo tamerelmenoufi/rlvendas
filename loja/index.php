@@ -48,6 +48,9 @@
             overflow:auto;
             z-index:1
         }
+        .ms_corpo{
+            margin-top:40px;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +63,7 @@
     <i class="fa-solid fa-xmark popupFecha"></i>
     <div class="popupPalco"></div>
 </div>
-<div class="row g-0">
+<div class="row g-0 mt-2">
     <div class="col-11"></div>
     <div class="col-1">
         <button class="btn btn-danger btn-sm salao">Salão</button> 
