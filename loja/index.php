@@ -63,10 +63,10 @@
     <i class="fa-solid fa-xmark popupFecha"></i>
     <div class="popupPalco"></div>
 </div>
-<div class="row g-0 mt-2">
-    <div class="col-11"></div>
-    <div class="col-1">
-        <button class="btn btn-danger btn-sm salao">Salão</button> 
+<div class="row g-0">
+    <div class="col-10"></div>
+    <div class="col-3">
+        <button class="btn btn-danger btn-sm mt-2 salao">Salão</button> 
     </div>
 </div>
 <div class="ms_corpo"></div>
