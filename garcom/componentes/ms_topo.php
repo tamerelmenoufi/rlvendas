@@ -59,7 +59,7 @@
         ?>
     </div>
     <div class="col-1">
-        <button class="btn btn-warning btn-sm delivery mt-2">Delivery</button>
+        <button class="btn btn-warning btn-sm delivery mt-3">Delivery</button>
     </div>
     <?php
         if($g->nome){
