@@ -50,7 +50,7 @@
         <div class="col-md-3 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Ticket Médio</span>
-                <h1><?=number_format($d->total_vendas/$d->quantidade_vendas,0,',','.')?></h1>
+                <h1>R$ <?=number_format($d->total_vendas/$d->quantidade_vendas,2,',','.')?></h1>
             </div>
         </div>
         
