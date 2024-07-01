@@ -7,7 +7,7 @@
     echo $query = " SELECT
             (select count(*) from produtos where situacao = '1' and deletado != '1') as quantidade_produtos,
             (select count(*) from vendas where situacao = 'pago') as quantidade_vendas,
-            (select sum(valor_total) from vendas where situacao = 'pago') as total_vendas
+            (select sum(total) from vendas where situacao = 'pago') as total_vendas
     ";
     $result = mysqli_query($con,$query);
 
