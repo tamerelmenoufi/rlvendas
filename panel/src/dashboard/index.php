@@ -9,9 +9,9 @@
             (select count(*) from vendas where situacao = 'pago') as quantidade_vendas,
             (select sum(valor_total) from vendas where situacao = 'pago') as total_vendas
     ";
-    // $result = mysqli_query($con,$query);
+    $result = mysqli_query($con,$query);
 
-    // $d = mysqli_fetch_object($result);
+    $d = mysqli_fetch_object($result);
     
 ?>
 <style>
