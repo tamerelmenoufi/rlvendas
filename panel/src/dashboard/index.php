@@ -2,7 +2,7 @@
 
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
-
+    
 
     $query = " SELECT
             (select count(*) from produtos where situacao = '1' and deletado != '1') as quantidade_produtos,
@@ -16,9 +16,9 @@
          
 
     ";
-    $result = mysqli_query($con,$query);
+    // $result = mysqli_query($con,$query);
 
-    $d = mysqli_fetch_object($result);
+    // $d = mysqli_fetch_object($result);
     
 ?>
 <style>
@@ -89,7 +89,7 @@
         <div class="col-md-3 p-2">
             <div class="alert alert-primary" role="alert">
                 <span>Tickt Médio</span>
-                <h1>R$ <?=number_format( ($d->total_vendas/$d->quantidade_vendas) ,2,',','.')?></h1>
+                <h1>R$ <?=number_format( ($d->total_vendas) ,2,',','.')?></h1>
             </div>
         </div>
 
