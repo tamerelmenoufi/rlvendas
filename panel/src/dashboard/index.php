@@ -43,7 +43,8 @@
         <div class="col-md-3 p-2">
             <div class="alert alert-primary" role="alert">
                 <span>Total de Vendas</span>
-                <h1>R$ <?=number_format($d->total_vendas,2,',','.')?></h1>
+                <!-- <h1>R$ <?=number_format($d->total_vendas,2,',','.')?></h1> -->
+                <h1>R$ ***,**</h1>
             </div>
         </div>
 
