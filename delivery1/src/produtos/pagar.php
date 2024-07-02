@@ -175,7 +175,7 @@
 <?php
 $blq = $fechado = false;
 $ini = mktime(11, 0, 0, date("m"), date("d"), date("Y"));
-$fim = mktime(22, 30, 0, date("m"), date("d"), date("Y"));
+$fim = mktime(23, 30, 0, date("m"), date("d"), date("Y"));
 $agora = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
 
 if(!($agora >= $ini and $agora <= $fim)){
