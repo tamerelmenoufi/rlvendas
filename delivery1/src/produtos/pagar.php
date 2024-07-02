@@ -211,7 +211,7 @@ if(
     !$cep or
     !$logradouro or
     !$numero or
-    !$complemento or
+    // !$complemento or
     !$bairro
 ){
     $blq = true;
