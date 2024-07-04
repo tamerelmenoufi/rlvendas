@@ -144,7 +144,7 @@ while ($m = mysqli_fetch_array($m_r)) {
                             aasort($detalhes_2, "ordem");
 
                             foreach ($detalhes_2 as $key2 => $val) {
-                                if ($val["quantidade"] > 0) {
+                                if ($val["quantidade"] > 0 and $M[$key2]['descricao']) {
                                     ?>
                                     <button
                                             acao_medida
