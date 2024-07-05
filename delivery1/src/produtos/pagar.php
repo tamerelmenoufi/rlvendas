@@ -402,7 +402,8 @@ mysqli_query($con, "update vendas set taxa = '{$taxa_entrega}' where codigo = '{
                         </div>
                     </div>
                     <?php
-                    //$fechado_feriado = true;
+                    //
+                    $fechado_feriado = true;
                     if($fechado_feriado){
                         ?>
                         <center>
