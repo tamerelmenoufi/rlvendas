@@ -2,19 +2,6 @@
 
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
-    if($_POST['filtro'] == 'filtrar'){
-        $_SESSION['dashboardDataInicial'] = $_POST['dashboardDataInicial'];
-        $_SESSION['dashboardDataFinal'] = $_POST['dashboardDataFinal'];
-      }elseif($_POST['filtro']){
-        $_SESSION['dashboardDataInicial'] = false;
-        $_SESSION['dashboardDataFinal'] = false;
-      }
-  
-      if($_SESSION['dashboardDataInicial'] and $_SESSION['dashboardDataFinal']){
-        $where = " and dataCriacao between '{$_SESSION['dashboardDataInicial']} 00:00:00' and '{$_SESSION['dashboardDataFinal']} 23:59:59' ";
-
-      }
-
     $query = " SELECT
             (select count(*) from produtos where situacao = '1' and deletado != '1') as quantidade_produtos,
             (select count(*) from vendas where situacao = 'pago') as quantidade_vendas,
@@ -31,23 +18,6 @@
 
 
 <div class="m-3">
-
-
-    <div class="row g-0 mb-3 mt-3">
-        <div class="col-md-6"></div>
-        <div class="col-md-6">
-            <div class="input-group">
-                <label class="input-group-text">Filtro por Período </label>
-                <label class="input-group-text" for="data_inicial"> De </label>
-                <input type="date" id="data_inicial" class="form-control" <?=$busca_disabled?> value="<?=$_SESSION['dashboardDataInicial']?>" >
-                <label class="input-group-text" for="data_final"> A </label>
-                <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['dashboardDataFinal']?>" >
-                <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
-                <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
@@ -90,39 +60,6 @@
 <script>
     $(function(){
         Carregando('none')
-
-        $("button[filtro]").click(function(){
-          filtro = $(this).attr("filtro");
-          dashboardDataInicial = $("#data_inicial").val();
-          dashboardDataFinal = $("#data_final").val();
-          Carregando()
-          $.ajax({
-              url:"src/dashboard/index.php",
-              type:"POST",
-              data:{
-                  filtro,
-                  dashboardDataInicial,
-                  dashboardDataFinal
-              },
-              success:function(dados){
-                  $("#paginaHome").html(dados);
-              }
-          })
-        })
-
-        $("button[limpar]").click(function(){
-          Carregando()
-          $.ajax({
-              url:"src/dashboard/index.php",
-              type:"POST",
-              data:{
-                  filtro:'limpar',
-              },
-              success:function(dados){
-                  $("#paginaHome").html(dados);
-              }
-          })
-        })
         
     })
 </script>
