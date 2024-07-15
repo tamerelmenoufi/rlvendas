@@ -118,7 +118,7 @@
                 <tr>
                     <td><?=$p->caixa?></td>
                     <td><?=$p->forma_pagamento?></td>
-                    <td><?=$p->atendente_nome?></td>
+                    <td><?=(($p->atendente_nome)?:$d->app)?></td>
                     <td>R$ <?=number_format($p->valor,2,'.',false)?></td>
                 </tr>    
         <?php
