@@ -68,6 +68,9 @@
                             <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
                         </div>
                         <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-list"></i></button>
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-print"></i>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a print2="<?= $d->codigo ?>" local="terminal1" class="dropdown-item">Caixa</a></li>
                             <li><a print2="<?= $d->codigo ?>" local="terminal2" class="dropdown-item">Terminal</a></li>
