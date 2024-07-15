@@ -19,7 +19,7 @@
 <div class="row g-0">
     <div class="col">
         <div class="m-3">
-            <h1>Liberar Mesas</h1>
+            <h1>Liberar Mesas <?=$_SESSION['appLogin']->codigo?></h1>
             <div class="row">
 <?php
 
