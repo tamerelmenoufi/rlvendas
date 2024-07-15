@@ -67,7 +67,7 @@
                             ></i>                            
                             <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
                         </div>
-                        <button pedido="<?= $d->codigo ?>" class="lista btn btn-success btn-sm me-2">
+                        <button pedido="<?= $d->codigo ?>" class="lista btn btn-secondary btn-sm">
                             <i class="fa-solid fa-list"></i>
                         </button>
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
