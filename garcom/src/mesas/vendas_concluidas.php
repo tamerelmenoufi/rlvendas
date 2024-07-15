@@ -100,34 +100,32 @@
             </div>
         </div>
 
-        <div style="color:#fff">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Caixa</th>
-                        <th>Forma de Pgamento</th>
-                        <th>Atendente</th>
-                        <th>Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
-            <?php
-            $q = "select a.*, b.nome as atendente_nome from vendas_pagamento a left join atendentes b on a.atendente = b.codigo where a.venda = '{$d->codigo}' and a.deletado != '1'";
-            $r = mysqli_query($con, $q);
-            while($p = mysqli_fetch_object($r)){
-            ?>
-                    <tr>
-                        <td><?=$p->caixa?></td>
-                        <td><?=$p->forma_pagamento?></td>
-                        <td><?=$p->atendente_nome?></td>
-                        <td>R$ <?=number_format($p->valor,2,'.',false)?></td>
-                    </tr>    
-            <?php
-            }
-            ?>
-                </tbody>
-            </table>
-        </div>
+        <table class="table" style="color:#fff">
+            <thead>
+                <tr>
+                    <th>Caixa</th>
+                    <th>Forma de Pgamento</th>
+                    <th>Atendente</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+        $q = "select a.*, b.nome as atendente_nome from vendas_pagamento a left join atendentes b on a.atendente = b.codigo where a.venda = '{$d->codigo}' and a.deletado != '1'";
+        $r = mysqli_query($con, $q);
+        while($p = mysqli_fetch_object($r)){
+        ?>
+                <tr>
+                    <td><?=$p->caixa?></td>
+                    <td><?=$p->forma_pagamento?></td>
+                    <td><?=$p->atendente_nome?></td>
+                    <td>R$ <?=number_format($p->valor,2,'.',false)?></td>
+                </tr>    
+        <?php
+        }
+        ?>
+            </tbody>
+        </table>
 
 
     </p>
