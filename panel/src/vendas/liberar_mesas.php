@@ -142,5 +142,37 @@
 
             
         });
+
+
+        $("a[print2]").click(function() {
+
+            terminal = $(this).attr("local");
+            cod = $(this).attr("print2");
+
+            $.ajax({
+                url: "src/vendas/print-2.php",
+                type: "POST",
+                data: {
+                    cod,
+                    terminal
+                },
+                success: function (dados) {
+                    //alert('x');
+                }
+            });
+
+        });
+
+        $("button[pedido]").click(function () {
+
+            cod = $(this).attr("pedido");
+
+            $.dialog({
+                content: "url:src/vendas/detalhes.php?cod=" + cod,
+                title: false,
+                columnClass: 'col-md-8 col-xs-12'
+            });
+            
+        });
     })
 </script>
