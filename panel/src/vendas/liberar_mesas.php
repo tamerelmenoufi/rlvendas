@@ -67,8 +67,8 @@
                             ></i>                            
                             <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
                         </div>
-                        <button pagar="<?= $d->codigo ?>" class="lista btn btn-secondary btn-sm">
-                            <i class="fa-solid fa-rectangle-list"></i>
+                        <button pedido="<?= $d->codigo ?>" class="lista btn btn-success btn-sm me-2">
+                            <i class="fa-solid fa-list"></i>
                         </button>
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-print"></i>
@@ -172,7 +172,7 @@
                 title: false,
                 columnClass: 'col-md-8 col-xs-12'
             });
-            
+
         });
     })
 </script>
