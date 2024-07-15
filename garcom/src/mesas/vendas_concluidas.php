@@ -3,10 +3,10 @@
 ?>
 <style>
     .vlrP{
-        width:80px;
+        width:150px;
     }
     .vlrN{
-        width:80px;
+        width:150px;
         color:red;
         background-color:#eee;
         border-radius:5px;
