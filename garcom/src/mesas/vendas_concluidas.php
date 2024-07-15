@@ -105,7 +105,7 @@
                 <tr>
                     <th>Caixa</th>
                     <th>Forma de Pgamento</th>
-                    <th>Atendente</th>
+                    <th class="w-100">Atendente</th>
                     <th>Valor</th>
                 </tr>
             </thead>
