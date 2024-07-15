@@ -69,10 +69,10 @@
                             ></i>                            
                             <h1 class="w-100 text-center"><?=str_pad($d->mesa, 3, "0", STR_PAD_LEFT)?></h1>
                         </div>
-                        <button pedido="<?= $cod_venda[$d->codigo] ?>" class="lista btn btn-secondary btn-sm">
+                        <button pedido="<?= $cod_venda[$d->codigo] ?>" <?=((!$cod_venda[$d->codigo])?'disabled':false)?>  class="lista btn btn-secondary btn-sm">
                             <i class="fa-solid fa-list"></i>
                         </button>
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" <?=((!$cod_venda[$d->codigo])?'disabled':false)?> type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-print"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
