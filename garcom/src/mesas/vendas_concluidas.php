@@ -100,8 +100,8 @@
             </div>
         </div>
 
-        <div style="background-color:#fff">
-            <table class="table" style="margin-top:30px;">
+        <div style="color:#fff">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Caixa</th>
