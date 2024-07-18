@@ -206,7 +206,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				'outras_despesas' =>  number_format($rowVenda["taxa"], 2, '.', ''), // Outras Despesas
 				'total' =>  number_format(($rowVenda["valor"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format(0, 2, '.', ''), // Troco
-				'forma_pagamento' => "01",// $formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
+				'forma_pagamento' => "17",// $formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
 				'valor_pagamento' =>  number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
 			),
 			'empresa' => array(
