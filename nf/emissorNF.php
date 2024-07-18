@@ -449,7 +449,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			//*/
 
 			// INFORMACOES COMPLEMENTARES 0U COMENTÁRIOS
-			$data_nfe['pedido']['informacoes_complementares'] = "";
+			// $data_nfe['pedido']['informacoes_complementares'] = "";
 
 			$urlxml = $endpoint.'gerador/xml/'; // ex: 'https://{muda isso aqui}seusite.com/api/gerador/xml/autorizadas/'
 			$urldanfe = $endpoint.'danfe/index.php'; // URL PARA GERADOR DANFE
