@@ -463,6 +463,10 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			// echo json_encode($data_nfe);
 			// exit();
 
+			echo "<pre>";
+			print_r($data_nfe);
+			echo "</pre>";
+
 
 			$fields_string = http_build_query($data_nfe);
 
