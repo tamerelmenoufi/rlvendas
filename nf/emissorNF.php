@@ -115,7 +115,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.deletado != \'1\' and a.codigo = ?';
+	echo $sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.deletado != \'1\' and a.codigo = ?';
     $stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
