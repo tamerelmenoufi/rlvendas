@@ -133,6 +133,10 @@
         $("button[novoCadastro]").click(function(){
             $.ajax({
                 url:"src/produtos/form.php",
+                type:"POST",
+                data:{
+                  categoria:'<?=$_SESSION['categoria']?>'
+                },
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 }
@@ -146,7 +150,8 @@
                 url:"src/produtos/form.php",
                 type:"POST",
                 data:{
-                  cod
+                  cod,
+                  categoria:'<?=$_SESSION['categoria']?>'
                 },
                 success:function(dados){
                     $(".LateralDireita").html(dados);

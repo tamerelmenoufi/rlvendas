@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
 
+    if($_POST['categoria']) $_SESSION['categoria'] = $_POST['categoria'];
+
     $ConfCategoria = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
 
@@ -155,6 +157,42 @@
                     </ul>
                 </div>
 
+
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Dados Fiscais
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                        <?php
+                        $impostos = [
+                            ['unit', 'Unidade'],
+                            ['ncm', 'NCM'],
+                            ['cest', 'CEST'],
+                            ['origem', 'Origem'],
+                            ['cfop', 'CFOP'],
+                            ['icms', 'ICMS']
+                        ];
+                        ?>
+                        <table class="table table-hover">
+                            <?php
+                            foreach($impostos as $i => $v){
+                            ?>
+                            <tr>
+                                <td><?=$v[1]?></td>
+                                <td><input type="text" name="<?=$v[0]?>" id="<?=$v[0]?>" value="<?=$d->$v[0]?>" class="form-control"></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </table>
+
+
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="file_<?= $md5 ?>">Incluir / Editar - Imagem da Categoria *</label>
                 <?php
                 if(is_file("../volume/produtos/{$d->icon}")){
@@ -205,6 +243,7 @@
                 <div style="display:flex; justify-content:end">
                     <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                     <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
+                    <input type="hidden" name="categoria" id="categoria" value="<?=$_SESSION['categoria']?>" />
                 </div>
             </div>
         </div>
