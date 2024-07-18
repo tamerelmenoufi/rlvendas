@@ -13,7 +13,7 @@ if(!$d->codigo) exit();
 $postdata = http_build_query(
     array(
         'id' => $d->codigo, // Receivers phonei
-        // 'cpf' => $d->cpf, // Receivers phonei
+        'cpf' => $d->cpf, // Receivers phonei
     )
 );
 $opts = array('http' =>
