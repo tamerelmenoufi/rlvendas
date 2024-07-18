@@ -181,7 +181,7 @@
                             ?>
                             <tr>
                                 <td><?=$v[1]?></td>
-                                <td><input type="text" name="<?=$v[0]?>" id="<?=$v[0]?>" value="<?=$d->$v[0]?>"><?=$v[1]?></td>
+                                <td><input type="text" name="<?=$v[0]?>" id="<?=$v[0]?>" value="<?=$d->$v[0]?>" class="form-control"></td>
                             </tr>
                             <?php
                             }
