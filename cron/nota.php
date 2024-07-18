@@ -24,7 +24,14 @@ $opts = array('http' =>
     )
 );
 $context = stream_context_create($opts);
-echo $result = file_get_contents('https://yobom.com.br/rlvendas/nf/emissorNF.php', false, $context);
+$result = file_get_contents('https://yobom.com.br/rlvendas/nf/emissorNF.php', false, $context);
+
+$json = json_decode($result);
+
+echo "<pre>";
+var_dump($json);
+echo "</pre>";
+
 echo "<br><br>";
 echo $d->codigo;
 
