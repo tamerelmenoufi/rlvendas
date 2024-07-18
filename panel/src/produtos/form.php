@@ -161,7 +161,7 @@
 
                 <div class="card mb-3">
                     <div class="card-header">
-                        Valores
+                        Dados Fiscais
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
