@@ -157,6 +157,42 @@
                     </ul>
                 </div>
 
+
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Valores
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                        <?php
+                        $impostos = [
+                            ['unit', 'Unidade'],
+                            ['ncm', 'NCM'],
+                            ['cest', 'CEST'],
+                            ['origem', 'Origem'],
+                            ['cfop', 'CFOP'],
+                            ['icms', 'ICMS']
+                        ];
+                        ?>
+                        <table class="table table-hover">
+                            <?php
+                            foreach($impostos as $i => $v){
+                            ?>
+                            <tr>
+                                <td><?=$v[1]?></td>
+                                <td><input type="text" name="<?=$v[0]?>" id="<?=$v[0]?>" value="<?=$d->$v[0]?>"><?=$v[1]?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </table>
+
+
+                        </li>
+                    </ul>
+                </div>
+
                 <label for="file_<?= $md5 ?>">Incluir / Editar - Imagem da Categoria *</label>
                 <?php
                 if(is_file("../volume/produtos/{$d->icon}")){
